@@ -1,9 +1,14 @@
-# aasx-specs
+# aas-specs
 
 [![Check](
-https://github.com/admin-shell-io/aasx-specification/workflows/Check/badge.svg
+https://github.com/admin-shell-io/aas-specs/workflows/Check/badge.svg
 )](
-https://github.com/admin-shell-io/aasx-specification/actions?query=workflow%3ACheck
+https://github.com/admin-shell-io/aas-specs/actions?query=workflow%3ACheck
+) 
+[![Creative Commons License](
+https://i.creativecommons.org/l/by-nd/3.0/88x31.png
+)](
+http://creativecommons.org/licenses/by-nd/3.0/
 )
 
 This repository provides the specifications of Asset Administration Shell.
@@ -41,12 +46,6 @@ https://github.com/admin-shell-io/aasx-specification/issues/new
 If you want to contribute, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
-
-[![Creative Commons License](
-https://i.creativecommons.org/l/by-nd/3.0/88x31.png
-)](
-http://creativecommons.org/licenses/by-nd/3.0/
-)
 
 This work is licensed under a [Creative Commons Attribution-NoDerivs 3.0 Unported License](
 http://creativecommons.org/licenses/by-nd/3.0/).
