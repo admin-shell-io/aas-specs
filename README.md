@@ -32,7 +32,7 @@ https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft
 
 The [RDF](
 https://en.wikipedia.org/wiki/Resource_Description_Framework
-) data model is available at [schemas/rfd/](schemas/rdf/).
+) data model is available at [schemas/rdf/](schemas/rdf/).
 
 ### XML
 
