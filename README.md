@@ -24,23 +24,25 @@ https://www.plattform-i40.de/PI40/Redaktion/DE/Downloads/Publikation/Details-of-
 ### JSON
 
 The JSON schema is available at 
-[schemas/json/](schema/json/) and follows JSON Schema version [2019-09](
+[schemas/json/](schemas/json/) and follows JSON Schema version [2019-09](
 https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8
 ).
 
-### RFD
+### RDF
 
-The RFD data model is available at [schemas/rfd/](schema/rfd/).
+The [RDF](
+https://en.wikipedia.org/wiki/Resource_Description_Framework
+) data model is available at [schemas/rfd/](schemas/rdf/).
 
 ### XML
 
-The XML schema is available at [schemas/xml/](schema/xml/).
+The XML schema is available at [schemas/xml/](schemas/xml/).
 
 ## Contributing
 
 Feature requests, reports about inconsistencies, mistakes *etc.* are highly 
 welcome! Please [submit a new issue](
-https://github.com/admin-shell-io/aasx-specification/issues/new
+https://github.com/admin-shell-io/aas-specs/issues/new
 ).
 
 If you want to contribute, see [CONTRIBUTING.md](CONTRIBUTING.md).
