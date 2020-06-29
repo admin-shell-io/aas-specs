@@ -38,6 +38,8 @@ welcome! Please [submit a new issue](
 https://github.com/admin-shell-io/aasx-specification/issues/new
 ).
 
+If you want to contribute, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 [![Creative Commons License](
