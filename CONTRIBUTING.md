@@ -31,3 +31,21 @@ from https://chris.beams.io/posts/git-commit:
 * Use the imperative mood in the subject line
 * Wrap the body at 72 characters
 * Use the body to explain *what* and *why* (instead of *how*)
+
+## Pre-merge Checks
+
+We use the sample programs from 
+[schema-validation](https://github.com/admin-shell-io/schema-validation) 
+repository to validate the schemas against the example data.
+
+To install the schema-validation, invoke:
+
+```
+schemas\InstallSchemaValidation.ps1
+```
+
+To validate the example data against the schemas, call:
+
+```
+schemas\Validate.ps1
+```
