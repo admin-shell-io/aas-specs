@@ -10,3 +10,11 @@ jobs:
 
       - name: Check the commit message(s)
         uses: mristin/opinionated-commit-message@v1.0.6
+
+      - name: Install schema-validation
+        working-directory: schemas
+        run: powershell .\InstallSchemaValidation.ps1
+
+      - name: Validate example data
+        working-directory: schemas
+        run: powershell .\Validate.ps1
