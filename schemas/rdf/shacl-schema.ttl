@@ -199,15 +199,7 @@ aas:AssetShape a sh:NodeShape ;
       sh:message "Exactly one <i>kind</i> attribute having an <i>AssetKind</i> entity is required."^^xsd:string ;
       sh:name "Asset.kind"^^xsd:string ;
     ] ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Asset/billOfMaterial> ;
-      sh:class aas:Reference ;
-      sh:maxCount 1 ;
-      sh:minCount 0 ;
-      sh:message "Only one <i>billOfMaterial</i> attribute having an <i>reference</i> entity is allowed."^^xsd:string ;
-      sh:name "Asset.billOfMaterial"^^xsd:string ;
-    ] ;
+  
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Asset/assetIdentificationModel> ;
@@ -218,6 +210,24 @@ aas:AssetShape a sh:NodeShape ;
       sh:name "Asset.assetIdentificationModel"^^xsd:string ;
     ] ;
 .
+
+aas:AssetInformationShape a sh:NodeShape ;
+  sh:targetClass aas:AssetInformation ;
+  rdfs:subClassOf aas:HasDataSpecificationShape ;
+  rdfs:subClassOf aas:IdentifiableShape ;
+  
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial> ;
+      sh:class aas:Reference ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "Only one <i>billOfMaterial</i> attribute having an <i>reference</i> entity is allowed."^^xsd:string ;
+      sh:name "AssetInformation.billOfMaterial"^^xsd:string ;
+    ] ;
+  
+.
+
 
 aas:AssetAdministrationShellShape a sh:NodeShape ;
   sh:targetClass aas:AssetAdministrationShell ;

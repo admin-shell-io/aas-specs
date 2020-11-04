@@ -208,9 +208,9 @@ aas:Asset rdf:type owl:Class ;
     rdfs:label "has Asset Identification Model"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/billOfMaterial
-<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/billOfMaterial> rdf:type owl:ObjectProperty ;
-    rdfs:domain aas:AssetAdministrationShell ;
+###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial
+<https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetInformation ;
     rdfs:range aas:Reference ;
     rdfs:comment "Bill of material of the asaset represented by a submodel of the same AAS. This submodel contains a set of entities describing the material used to compose the composite I4.0 Component."@en ;
     rdfs:label "has Bill of Material"^^xsd:string ;
