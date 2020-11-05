@@ -211,16 +211,16 @@ aas:Asset rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial
 <https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetInformation ;
-    rdfs:range aas:Reference ;
+    rdfs:range aas:Submodel ;
     rdfs:comment "Bill of material of the asaset represented by a submodel of the same AAS. This submodel contains a set of entities describing the material used to compose the composite I4.0 Component."@en ;
     rdfs:label "has Bill of Material"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Asset/kind
-<https://admin-shell.io/aas/3/0/RC01/Asset/kind> rdf:type owl:ObjectProperty ;
-    rdfs:domain aas:Asset ;
+###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetKind
+<https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetKind> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetInformation ;
     rdfs:range aas:AssetKind ;
-    rdfs:label "has kind"^^xsd:string ;
+    rdfs:label "has assetKind"^^xsd:string ;
     rdfs:comment "Denotes whether the Asset of of kind 'Type' or 'Instance'."@en ;
 .
 ###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell
