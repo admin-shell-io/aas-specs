@@ -190,15 +190,6 @@ aas:AssetShape a sh:NodeShape ;
   sh:targetClass aas:Asset ;
   rdfs:subClassOf aas:HasDataSpecificationShape ;
   rdfs:subClassOf aas:IdentifiableShape ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Asset/kind> ;
-      sh:class aas:AssetKind ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:message "Exactly one <i>kind</i> attribute having an <i>AssetKind</i> entity is required."^^xsd:string ;
-      sh:name "Asset.kind"^^xsd:string ;
-    ] ;
   
   sh:property [
       a sh:PropertyShape ;
@@ -226,6 +217,15 @@ aas:AssetInformationShape a sh:NodeShape ;
       sh:name "AssetInformation.billOfMaterial"^^xsd:string ;
     ] ;
   
+   sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetkind> ;
+      sh:class aas:AssetKind ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "Exactly one <i>kind</i> attribute having an <i>AssetKind</i> entity is required."^^xsd:string ;
+      sh:name "Asset.kind"^^xsd:string ;
+    ] ;
 .
 
 
@@ -268,14 +268,7 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
       sh:message "<i>hasSubmodel</i> must have a <i>reference</i> entity pointing to a Submodel."^^xsd:string ;
       sh:name "submodel"^^xsd:string ;
     ] ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/conceptDictionary> ;
-      sh:minCount 0 ;
-      sh:class aas:ConceptDictionary ;
-      sh:message "<i>conceptDictionary</i> must point to a ConceptDictionary"^^xsd:string ;
-      sh:name "conceptDictionary"^^xsd:string ;
-    ] ;
+  
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/view> ;
@@ -392,18 +385,6 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
     ] ;
 .
 
-aas:ConceptDictionaryShape a sh:NodeShape ;
-  rdfs:subClassOf aas:ReferableShape ;
-  sh:targetClass aas:ConceptDictionary ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDictionary/conceptDescription> ;
-      sh:class aas:Reference ;
-      sh:minCount 0 ;
-      sh:message "<i>conceptDescription</i> must have a <i>reference</i> entity pointing to a ConceptDescription."^^xsd:string ;
-      sh:name "concept description"^^xsd:string ;
-    ] ;
-.
 
 aas:DataElementShape a sh:NodeShape ;
   rdfs:subClassOf aas:SubmodelElementShape ;
