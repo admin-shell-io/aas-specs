@@ -829,15 +829,6 @@ aas:KeyShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Key/local> ;
-      sh:datatype xsd:boolean ;
-      sh:maxCount 1 ;
-      sh:message "Exactly 1 <i>local</i> must be stated"^^xsd:string ;
-      sh:minCount 1 ;
-      sh:name "local"^^xsd:string ;
-    ] ;
-  sh:property [
-      a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Key/value> ;
       #sh:datatype xsd:string ;
       sh:maxCount 1 ;

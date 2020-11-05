@@ -969,14 +969,6 @@ aas:Key rdf:type owl:Class ;
     rdfs:label "has key type"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Key/local
-<https://admin-shell.io/aas/3/0/RC01/Key/local> rdf:type owl:DatatypeProperty ;
-    rdfs:comment "Denotes if the key references a model element of the same AAS (=true) or not (=false). In case of local = false the key may reference a model element of another AAS or an entity outside any AAS that has a global unique id."@en ;
-    rdfs:label "is local"^^xsd:string ;
-    rdfs:domain aas:Key ;
-    rdfs:range xsd:boolean ;
-.
-
 ###  https://admin-shell.io/aas/3/0/RC01/Key/type
 <https://admin-shell.io/aas/3/0/RC01/Key/type> rdf:type owl:ObjectProperty ;
     rdfs:comment "Denote which kind of entity is referenced. In case type = GlobalReference then the element is a global unique id. In all other cases the key references a model element of the same or of another AAS. The name of the model element is explicitly listed."@en ;
