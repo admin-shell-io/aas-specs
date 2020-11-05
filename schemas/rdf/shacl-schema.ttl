@@ -660,12 +660,22 @@ aas:EntityShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/asset> ;
-      sh:class aas:Asset ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/globalAssetId> ;
+      sh:class aas:Reference ;
       sh:maxCount 1 ;
-      sh:message "Only one <i>asset</i> attribute linking to an <i>Asset</i> is allowed."^^xsd:string ;
+      sh:message "Only one <i>globalAssetIdasset</i> attribute linking to a <i>Reference</i> is allowed."^^xsd:string ;
       sh:minCount 0 ;
-      sh:name "Entity.asset"^^xsd:string ;
+      sh:name "Entity.globalAssetId"^^xsd:string ;
+    ] ;
+	
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/externalAssetId> ;
+      sh:class aas:IdentifierKeyValuePair ;
+      sh:maxCount 1 ;
+      sh:message "Only one <i>externalAssetId</i> attribute linking to an <i>IdentifierKeyValuePair</i> is allowed."^^xsd:string ;
+      sh:minCount 0 ;
+      sh:name "Entity.externalAssetId"^^xsd:string ;
     ] ;
 .
 
