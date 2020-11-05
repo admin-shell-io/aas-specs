@@ -241,13 +241,6 @@ aas:AssetAdministrationShell rdf:type owl:Class ;
     rdfs:label "has asset"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/conceptDictionary
-<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/conceptDictionary> rdf:type owl:ObjectProperty ;
-    rdfs:domain aas:AssetAdministrationShell;
-    rdfs:range aas:ConceptDictionary ;
-    rdfs:comment "An AAS max have one or more concept dictionaries assigned to it. The concept dictionaries typically contain only descriptions for elements that are also used within the AAS (via HasSemantics)."@en ;
-    rdfs:label "has concept dictionary"^^xsd:string ;
-.
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/derivedFrom
 <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/derivedFrom> rdf:type owl:ObjectProperty ;
@@ -453,12 +446,6 @@ aas:ConceptDescription rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ConceptDictionary
-aas:ConceptDictionary rdf:type owl:Class ;
-    rdfs:subClassOf aas:Referable ;
-    rdfs:label "Concept Dictionary"^^xsd:string ;
-    rdfs:comment "A dictionary contains elements that can be reused. The concept dictionary contains concept descriptions. Typically a concept description dictionary of an AAS contains only concept descriptions of elements used within submodels of the AAS."@en ;
-.
 
 ###  https://admin-shell.io/aas/3/0/RC01/ConceptDictionary/conceptDescription
 <https://admin-shell.io/aas/3/0/RC01/ConceptDictionary/conceptDescription> rdf:type owl:ObjectProperty ;
