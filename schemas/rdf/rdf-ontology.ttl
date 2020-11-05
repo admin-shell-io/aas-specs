@@ -676,8 +676,17 @@ aas:Entity rdf:type owl:Class ;
     rdfs:comment "An entity is a submodel element that is used to model entities."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Entity/asset
-<https://admin-shell.io/aas/3/0/RC01/Entity/asset> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Entity/globalAssetId
+<https://admin-shell.io/aas/3/0/RC01/Entity/globalAssetId> rdf:type owl:ObjectProperty ;
+    rdfs:label "has asset"^^xsd:string ;
+    rdfs:domain aas:Entity ;
+    rdfs:range aas:Asset ;
+    rdfs:comment "Reference to the asset the entity is representing."@en ;
+    skos:note "The asset attribute must be set if entityType is set to 'SelfManagedEntity'. It is empty otherwise."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/Entity/externalAssetId
+<https://admin-shell.io/aas/3/0/RC01/Entity/externalAssetId> rdf:type owl:ObjectProperty ;
     rdfs:label "has asset"^^xsd:string ;
     rdfs:domain aas:Entity ;
     rdfs:range aas:Asset ;
