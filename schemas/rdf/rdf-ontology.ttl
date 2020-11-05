@@ -201,7 +201,7 @@ aas:Asset rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Asset/assetIdentificationModel
-<https://admin-shell.io/aas/3/0/RC01/Asset/assetIdentificationModel> rdf:type owl:ObjectProperty ;
+<https://admin-shell.io/aas/3/0/RC01/Asset/AssetInformation/IdentifierKeyValuePairs> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:Asset ;
     rdfs:range aas:Reference ;
     rdfs:comment "A reference to a Submodel that defines the handling of additional domain specific (proprietary) Identifiers for the asset like e.g. serial number etc."@en ;
@@ -446,7 +446,7 @@ aas:ConceptDescription rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/ConceptDescription/isCaseOf
 <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/isCaseOf> rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf dcterms:identifier ;
-    rdfs:comment "Global reference to an external definition the concept is compatible to or was derived from."@en ;
+    rdfs:comment "Reference to an external definition the concept is compatible to or was derived from."@en ;
     skos:note "Compare to is-case-of relationship in ISO 13584-32 & IEC EN 61360."@en ;
     rdfs:label "is case of"^^xsd:string ;
     rdfs:domain aas:ConceptDescription ;
