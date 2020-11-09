@@ -1234,8 +1234,8 @@ aas:Permission rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/Permission/permission
 <https://admin-shell.io/aas/3/0/RC01/Permission/permission> rdf:type owl:ObjectProperty ;
     rdfs:comment "Reference to a property that defines the semantics of the permission."@en ;
-    skos:note "Constraint AASs-010: The property referenced in Permission/permission shall have the category 'CONSTANT'."@en ;
-    skos:note "Constraint AASs-011: The property referenced in Permission/permission shall be part of the submodel that is referenced within the 'selectablePermissions' attribute of 'AccessControl'."@en ;
+    skos:note "Constraint AASd-010: The property referenced in Permission/permission shall have the category 'CONSTANT'."@en ;
+    skos:note "Constraint AASd-011: The property referenced in Permission/permission shall be part of the submodel that is referenced within the 'selectablePermissions' attribute of 'AccessControl'."@en ;
     rdfs:label "has permission"^^xsd:string ;
     rdfs:domain aas:Permission ;
     rdfs:range aas:Property ;
