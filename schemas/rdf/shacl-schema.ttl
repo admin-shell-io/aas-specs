@@ -1159,6 +1159,19 @@ aas:RangeShape a sh:NodeShape ;
     ] ;
 .
 
+aas:HasExtensionsShape a sh:NodeShape ;
+  sh:targeClass aas:HasExtensions ;
+  sh:property [
+	  a sh:PropertyShape ;
+	  sh:path <https://admin-shell.io/aas/3/0/RC01/HasExtensions/extension> ;
+	  sh:class sh:Extension ;
+	  sh:minCount 0 ;
+	  sh:message "A <i>hasExtensions</i> attribute must point to a <i>Extension</i>."^^xsd:string ;
+	  sh:name "hasExtensions.Extension"^^xsd:string;
+	] ;
+.
+	  
+	    
 aas:ReferableShape  a sh:NodeShape ;
   sh:targetClass aas:Referable ;
   sh:property [

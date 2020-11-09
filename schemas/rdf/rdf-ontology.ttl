@@ -1480,6 +1480,22 @@ aas:Range rdf:type owl:Class ;
     rdfs:comment "The minimum value of the range."@en ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/HasExtensions
+aas:HasExtensions rdf:type owl:Class ;
+    dash:abstract true ;
+    rdfs:comment "Element that can be extended by proprietary extensions."@en ;
+    rdfs:label "HasExtensions"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/HasExtensions/extension
+<https://admin-shell.io/aas/3/0/RC01/HasExtensions/extension> rdf:type owl:ObjectProperty ;
+    rdfs:label "has extension"^^xsd:string ;
+    rdfs:comment "An extension of the element."@en ;
+    rdfs:domain aas:HasExtensions;
+    rdfs:range aas:Extension;
+.
+
+
 ###  https://admin-shell.io/aas/3/0/RC01/Referable
 aas:Referable rdf:type owl:Class ;
     dash:abstract true ;
