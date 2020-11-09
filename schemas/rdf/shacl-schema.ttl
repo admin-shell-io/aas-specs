@@ -1179,6 +1179,15 @@ aas:ReferableShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/displayName> ;
+      sh:datatype rdf:langStringSet ;
+      sh:name "Referable.displayName"^^xsd:string ;
+	  sh:maxCount 1 ;
+      sh:minCount 0 ;
+	  sh:message "Only one value for <i>displayName</i> is allowed"^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;

@@ -1504,6 +1504,15 @@ aas:Referable rdf:type owl:Class ;
     rdfs:comment "Description or comments on the element. The description can be provided in several languages."@en ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/Referable/displayName
+<https://admin-shell.io/aas/3/0/RC01/Referable/displayName> rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf rdfs:comment ;
+    rdfs:label "has display name"^^xsd:string ;
+    rdfs:domain aas:Referable ;
+    rdfs:range rdf:langStringSet ;
+    rdfs:comment "Display name. Can be provided in several languages."@en ;
+.
+
 ###  https://admin-shell.io/aas/3/0/RC01/Referable/idShort
 <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf dcterms:identifier ;
