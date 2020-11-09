@@ -224,9 +224,20 @@ aas:AssetInformationShape a sh:NodeShape ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:message "Exactly one <i>assetkind</i> attribute having an <i>AssetKind</i> entity is required."^^xsd:string ;
-      sh:name "Asset.kind"^^xsd:string ;
+      sh:name "AssetInformation.assetkind"^^xsd:string ;
+    ] ;
+   
+   sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/thumbnail> ;
+      sh:class aas:File;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "Only one <i>thumbnail</i> attribute having an <i>file</i> entity is required."^^xsd:string ;
+      sh:name "AssetInformation.thumbnail"^^xsd:string ;
     ] ;
 .
+
 
 
 aas:AssetAdministrationShellShape a sh:NodeShape ;

@@ -223,6 +223,15 @@ aas:Asset rdf:type owl:Class ;
     rdfs:label "has assetKind"^^xsd:string ;
     rdfs:comment "Denotes whether the Asset of of kind 'Type' or 'Instance'."@en ;
 .
+
+###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/thumbnail
+<https://admin-shell.io/aas/3/0/RC01/AssetInformation/thumbnail> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetInformation ;
+    rdfs:range aas:File ;
+    rdfs:label "has thumbnail"^^xsd:string ;
+    rdfs:comment "Thumbnail of the asset represented by the asset administration shell."@en ;
+.
+
 ###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell
 aas:AssetAdministrationShell rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification , aas:Identifiable ;
