@@ -1445,6 +1445,7 @@ aas:Qualifier rdf:type owl:Class ;
     rdfs:comment "The qualifier value is the value of the qualifier."@en ;
     rdf:label "has qualifier value"^^xsd:string ;
     skos:note "Constraint AASd-006: if both, the value and the valueId are present then the value needs to be identical to the short name of the referenced coded value in qualifierValueId."@en ;
+	skos:note "Constraint AASd-020: The value of Qualifier/value shall be consistent to the data type as defined in Qualifier/valueType."@en ;
     rdfs:domain aas:Qualifier ;
     rdfs:range rdfs:Literal ;
 .
