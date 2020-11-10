@@ -684,6 +684,7 @@ aas:Entity rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:label "Entity"^^xsd:string ;
     rdfs:comment "An entity is a submodel element that is used to model entities."@en ;
+	skos:note "Constraint AASd-056: The semanticId of a Entity submodel element shall only reference a ConceptDescription with the category ENTITY. The ConceptDescription describes the elements assigned to the entity via Entity/statement."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Entity/globalAssetId
@@ -1751,6 +1752,7 @@ aas:ReferenceElement rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
     rdfs:comment "A reference element is a data element that defines a logical reference to another element within the same or another AAS or a reference to an external object or entity."@en ;
     rdfs:label "Reference Element"^^xsd:string ;
+	skos:note "Constraint AASd-054: The semanticId of a ReferenceElement shall only reference a ConceptDescription with the category REFERENCE."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/ReferenceElement/value
@@ -1766,6 +1768,7 @@ aas:RelationshipElement rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     dc:description "A relationship element is used to define a relationship between two referable elements."@en ;
     rdfs:label "Relationship Element"^^xsd:string ;
+	skos:note "Constraint AASd-055: The semanticId of a RelationshipElement or a AnnotatedRelationshipElement shall only reference a ConceptDescription with the category RELATIONSHIP."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/RelationshipElement/first
