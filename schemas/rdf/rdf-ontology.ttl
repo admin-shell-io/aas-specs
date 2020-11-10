@@ -1495,6 +1495,44 @@ aas:HasExtensions rdf:type owl:Class ;
     rdfs:range aas:Extension;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/Extension
+aas:Extension rdf:type owl:Class ;
+    rdfs:subClassOf aas:HasSemantics ;
+    rdfs:comment "Single extension of an element."@en ;
+    rdfs:label "Extensions"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/Extension/name
+<https://admin-shell.io/aas/3/0/RC01/Extension/name> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has extension name"^^xsd:string ;
+    rdfs:comment "An extension of the element."@en ;
+    rdfs:domain aas:Extension ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/Extension/valueType
+<https://admin-shell.io/aas/3/0/RC01/Extension/valueType> rdf:type owl:ObjectProperty ;
+    rdfs:label "has extension value type"^^xsd:string ;
+    rdfs:comment "Type of the value of the extension."@en ;
+    rdfs:domain aas:Extension ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/Extension/value
+<https://admin-shell.io/aas/3/0/RC01/Extension/value> rdf:type owl:ObjectProperty ;
+    rdfs:label "has extension value"^^xsd:string ;
+    rdfs:comment "Value of the extension."@en ;
+    rdfs:domain aas:Extension ;
+    rdfs:range aas:ValueDataType ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/Extension/refersTo
+<https://admin-shell.io/aas/3/0/RC01/Extension/refersTo> rdf:type owl:ObjectProperty ;
+    rdfs:label "has extension reference to"^^xsd:string ;
+    rdfs:comment "Reference to an element the extension refers to."@en ;
+    rdfs:domain aas:Extension ;
+    rdfs:range aas:Reference ;
+.
 
 ###  https://admin-shell.io/aas/3/0/RC01/Referable
 aas:Referable rdf:type owl:Class ;
