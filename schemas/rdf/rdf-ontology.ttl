@@ -1144,13 +1144,18 @@ aas:MultiLanguageProperty rdf:type owl:Class ;
     rdfs:comment "A property is a data element that has a multi language value."@en ;
     rdfs:label "Multi Language Property"^^xsd:string ;
 .
+
 ###  https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/value
 <https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/value> rdf:type owl:ObjectProperty ;
     rdfs:comment "The value of the property instance."@en ;
     rdfs:label "has value"^^xsd:string ;
     rdfs:domain aas:MultiLanguageProperty ;
     rdfs:range rdf:langString ;
+	skos:note "Constraint AASd-052b: If the semanticId of a MultiLanguageProperty references a ConceptDescription then the ConceptDescription/category shall be one of  following values: PROPERTY."@en ;
+	skos:note "Constraint AASd-012: If both, the MultiLanguageProperty/value and the MultiLanguageProperty/valueId are present then for each string in a specific language the meaning must be the same as specified in MultiLanguageProperty/valueId."@en ;
+	skos:note "Constraint AASd-067: If the semanticId of a MultiLanguageProperty references a ConceptDescription then DataSpecificationIEC61360/dataType shall be STRING_TRANSLATABLE."@en ;
 .
+
 ###  https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueId
 <https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueId> rdf:type owl:ObjectProperty ;
     rdfs:comment "Reference to the global unqiue id of a coded value."@en ;
