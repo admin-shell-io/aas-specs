@@ -434,6 +434,7 @@ aas:ConceptDescription rdf:type owl:Class ;
     rdfs:label "Concept Description"^^xsd:string ;
     rdfs:comment "The AAS itself can also define its own dictionary that contains semantic definitions of its submodel elements. These semantic definitions are called concept descriptions (ConceptDescription). It is optional whether an AAS defines its own concept dictionary (ConceptDictionary) or not."@en ;
     rdfs:comment "The semantics of a property or other elements that may have a semantic description is defined by a concept description. The description of the concept should follow a standardized schema (realized as data specification template)."@en ;
+	skos:note "Constraint AASd-051: A ConceptDescription shall have one of the following categories: VALUE, PROPERTY, REFERENCE, DOCUMENT, CAPABILITY, RELATIONSHIP, COLLECTION, FUNCTION, EVENT, ENTITY, APPLICATION_CLASS, QUALIFIER, VIEW. Default: PROPERTY."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/ConceptDescription/content
@@ -805,6 +806,7 @@ aas:HasDataSpecification rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:comment "Element that can have be extended by using data specification templates. A data specification template defines the additional attributes an element may or shall have. The data specifications used are explicitly specified with their id."@en ;
     rdfs:label "Has Data Specification"^^xsd:string ;
+	skos:note "Constraint AASd-050:  If the DataSpecificationContent DataSpecificationIEC61360 is used for an element then the value of hasDataSpecification/dataSpecification shall contain the global reference to the IRI of the corresponding data specification template https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/HasDataSpecification/dataSpecification
@@ -1383,6 +1385,9 @@ aas:Property rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
     rdfs:comment "A property is a data element that has a single value."@en ;
     rdfs:label "Property"^^xsd:string ;
+	skos:note "Constraint AASd-052a: If the semanticId of a Property references a ConceptDescription then the ConceptDescription/category shall be one of  following values: VALUE, PROPERTY."@en ;
+	skos:note "Constraint AASd-065: If the semanticId of a Property or MultiLanguageProperty references a ConceptDescription with the  category VALUE then the value of the property is identical to  DataSpecificationIEC61360/value and the valueId of the property is identical to DataSpecificationIEC61360/valueId."@en ;
+	skos:note "Constraint AASd-066: If the semanticId of a Property or MultiLanguageProperty references a ConceptDescription with the  category PROPERTY and DataSpecificationIEC61360/valueList is defined the value and valueId of the property is identical to one of the value reference pair types references in the value list, i.e. ValueReferencePairType/value or ValueReferencePairType/valueId, resp."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Property/category
