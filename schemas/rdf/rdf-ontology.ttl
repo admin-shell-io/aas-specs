@@ -1446,6 +1446,7 @@ aas:Qualifier rdf:type owl:Class ;
     rdfs:subClassOf aas:HasSemantics ;
     rdfs:comment "A qualifier is a type-value pair that makes additional statements w.r.t. the value of the element."@en ;
     rdfs:label "Qualifier"^^xsd:string ;
+	skos:note "Constraint AASd-063: The semanticId of a Qualifier shall only reference a ConceptDescription with the category QUALIFIER."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Qualifier/type
@@ -1911,6 +1912,7 @@ aas:View rdf:type owl:Class ;
     rdfs:comment "A view is a collection of referable elements w.r.t. to a specific viewpoint of one or more stakeholders."@en ;
     rdfs:isDefinedBy "https://www.plattform-i40.de/I40/Redaktion/DE/Downloads/Publikation/hm-2018-trilaterale-coop.html"@de ;
     rdfs:label "View"^^xsd:string ;
+	skos:note "Constraint AASd-064: If the semanticId of a View references a ConceptDescription then the category of the ConceptDescription shall be VIEW."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/View/containedElement
