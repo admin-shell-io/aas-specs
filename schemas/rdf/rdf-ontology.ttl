@@ -327,6 +327,7 @@ aas:Blob rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
     rdfs:comment "A BLOB is a data element that represents a file that is contained with its source code in the value attribute."@en ;
     rdfs:label "Blob Data Element"^^xsd:string ;
+	skos:note "Constraint AASd-057: The semanticId of a File or Blob submodel element shall only reference a ConceptDescription with the category DOCUMENT."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Blob/mimeType
@@ -383,6 +384,7 @@ aas:Capability rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:comment "A capability is the implementation-independent description of the potential of an asset to achieve a certain effect in the physical or virtual world."@en ;
     rdfs:label "Capability"^^xsd:string ;
+	skos:note "Constraint AASd-058: If the semanticId of a Capability submodel element references a ConceptDescription then the ConceptDescription/category shall be CAPABILITY."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Category
