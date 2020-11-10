@@ -988,6 +988,8 @@ aas:Key rdf:type owl:Class ;
     rdfs:domain aas:Key ;
     rdfs:range aas:KeyType ;
     rdfs:label "has key type"^^xsd:string ;
+	skos:note "Constraint AASd-080: In case Key/type == GlobalReference idType shall not be any LocalKeyType (IdShort, FragmentId)."@en ;
+	skos:note "Constraint AASd-081: In case Key/type==AssetAdministrationShell Key/idType shall not be any  LocalKeyType (IdShort, FragmentId)."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Key/type
