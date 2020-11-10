@@ -1254,8 +1254,8 @@ aas:Permission rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/Permission/permission
 <https://admin-shell.io/aas/3/0/RC01/Permission/permission> rdf:type owl:ObjectProperty ;
     rdfs:comment "Reference to a property that defines the semantics of the permission."@en ;
-    skos:note "Constraint AASd-010: The property referenced in Permission/permission shall have the category 'CONSTANT'."@en ;
-    skos:note "Constraint AASd-011: The property referenced in Permission/permission shall be part of the submodel that is referenced within the 'selectablePermissions' attribute of 'AccessControl'."@en ;
+    skos:note "Constraint AASs-010: The property referenced in Permission/permission shall have the category 'CONSTANT'."@en ;
+    skos:note "Constraint AASs-011: The property referenced in Permission/permission shall be part of the submodel that is referenced within the 'selectablePermissions' attribute of 'AccessControl'."@en ;
     rdfs:label "has permission"^^xsd:string ;
     rdfs:domain aas:Permission ;
     rdfs:range aas:Property ;
@@ -1840,7 +1840,7 @@ aas:SubjectAttributes  rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/SubjectAttributes/subjectAttribute
 <https://admin-shell.io/aas/3/0/RC01/SubjectAttributes/subjectAttribute> rdf:type owl:ObjectProperty ;
     rdfs:comment "A data element that further classifies a specific subject. "@en ;
-    skos:note "Constraint AASd-015: The data element SubjectAttributes/subjectAttribute shall be part of the submodel that is referenced within the 'selectableSubjectAttributes' attribute of 'AccessControl'."@en ;
+    skos:note "Constraint AASs-015: The data element SubjectAttributes/subjectAttribute shall be part of the submodel that is referenced within the 'selectableSubjectAttributes' attribute of 'AccessControl'."@en ;
     rdfs:label "has subject attribute"^^xsd:string ;
     rdfs:domain aas:SubjectAttributes ;
     rdfs:range aas:DataElement ;
