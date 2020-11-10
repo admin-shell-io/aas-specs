@@ -204,20 +204,7 @@ aas:AssetShape a sh:NodeShape ;
 
 aas:AssetInformationShape a sh:NodeShape ;
   sh:targetClass aas:AssetInformation ;
-  rdfs:subClassOf aas:HasDataSpecificationShape ;
-  rdfs:subClassOf aas:IdentifiableShape ;
-  
   sh:property [
-      a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial> ;
-      sh:class aas:Reference ;
-      sh:maxCount 1 ;
-      sh:minCount 0 ;
-      sh:message "Only one <i>billOfMaterial</i> attribute having an <i>reference</i> entity is allowed."^^xsd:string ;
-      sh:name "AssetInformation.billOfMaterial"^^xsd:string ;
-    ] ;
-  
-   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetkind> ;
       sh:class aas:AssetKind ;
@@ -226,14 +213,42 @@ aas:AssetInformationShape a sh:NodeShape ;
       sh:message "Exactly one <i>assetkind</i> attribute having an <i>AssetKind</i> entity is required."^^xsd:string ;
       sh:name "AssetInformation.assetkind"^^xsd:string ;
     ] ;
-   
+	
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId> ;
+      sh:class aas:Reference ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "Only one <i>globalAssetId</i> attribute having a <i>reference</i> entity is required."^^xsd:string ;
+      sh:name "AssetInformation.globalAssetId"^^xsd:string ;
+    ] ;
+	
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/externalAssetId> ;
+      sh:class aas:IdentifierKeyValuePair ;
+      sh:minCount 0 ;
+      sh:message "A <i>externalAssetId</b> must point to an <i>IdentifierKeyValuePair</i>."^^xsd:string ;
+      sh:name "AssetInformation.externalAssetId"^^xsd:string ;
+    ] ;
+	
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial> ;
+      sh:class aas:Reference ;
+      sh:minCount 0 ;
+      sh:message "A <i>billOfMaterial</b> must point to a <i>reference</i>."^^xsd:string ;
+      sh:name "AssetInformation.billOfMaterial"^^xsd:string ;
+    ] ;
+  
    sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/thumbnail> ;
       sh:class aas:File;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "Only one <i>thumbnail</i> attribute having an <i>file</i> entity is required."^^xsd:string ;
+      sh:message "Only one <i>thumbnail</i> attribute having a <i>file</i> entity is required."^^xsd:string ;
       sh:name "AssetInformation.thumbnail"^^xsd:string ;
     ] ;
 .

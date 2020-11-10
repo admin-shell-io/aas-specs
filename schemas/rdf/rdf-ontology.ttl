@@ -200,20 +200,12 @@ aas:Asset rdf:type owl:Class ;
     skos:note "Objects may be known in the form of a type or of an instance. An object in the planning phase is known as a type"@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Asset/assetIdentificationModel
-<https://admin-shell.io/aas/3/0/RC01/Asset/AssetInformation/IdentifierKeyValuePairs> rdf:type owl:ObjectProperty ;
-    rdfs:domain aas:Asset ;
-    rdfs:range aas:Reference ;
-    rdfs:comment "A reference to a Submodel that defines the handling of additional domain specific (proprietary) Identifiers for the asset like e.g. serial number etc."@en ;
-    rdfs:label "has Asset Identification Model"^^xsd:string ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial
-<https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial> rdf:type owl:ObjectProperty ;
-    rdfs:domain aas:AssetInformation ;
-    rdfs:range aas:Submodel ;
-    rdfs:comment "Bill of material of the asaset represented by a submodel of the same AAS. This submodel contains a set of entities describing the material used to compose the composite I4.0 Component."@en ;
-    rdfs:label "has Bill of Material"^^xsd:string ;
+###  https://admin-shell.io/aas/3/0/RC01/AssetInformation
+aas:AssetInformation rdf:type owl:Class ;
+    rdfs:comment "In AssetInformation identifying meta data of the asset that is represented by an AAS is defined."@en ;
+    rdfs:comment "The asset may either represent an asset type or an asset instance."@en ;
+	rdfs:comment "The asset has a globally unique identifier plus – if needed – additional domain specific (proprietary) identifiers. However, to support the corner case of very first phase of lifecycle where a stabilised/constant global asset identifier does not already exist, the corresponding attribute “globalAssetId” is optional."@en ;
+	rdfs:label "has Asset Identification Model"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetKind
@@ -222,6 +214,32 @@ aas:Asset rdf:type owl:Class ;
     rdfs:range aas:AssetKind ;
     rdfs:label "has assetKind"^^xsd:string ;
     rdfs:comment "Denotes whether the Asset of of kind 'Type' or 'Instance'."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId
+<https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetInformation ;
+    rdfs:range aas:Reference ;
+    rdfs:comment "Reference to either an Asset object or a global reference to the asset the AAS is representing."@en ;
+    rdfs:comment "This attribute is required as soon as the AAS is exchanged via partners in the life cycle of the asset. In a first phase of the life cycle the asset might not yet have a global id but already an internal identifier. The internal identifier would be modelled via “externalAssetId”."@en ;
+	rdfs:label "has global asset id"^^xsd:string ;
+	skos:note "Constraint AASd-023: AssetInformation/globalAssetId either is a reference to an Asset object or a global reference."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/externalAssetId
+<https://admin-shell.io/aas/3/0/RC01/AssetInformation/externalAssetId> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetInformation ;
+    rdfs:range aas:IdentifierKeyValuePair ;
+    rdfs:comment "Additional domain specific external, typically proprietary Identifier for the asset like e.g. serial number etc."@en ;
+	rdfs:label "has external asset id"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial
+<https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetInformation ;
+    rdfs:range aas:Submodel ;
+    rdfs:comment "A reference to a Submodel that defines the bill of material of the asset represented by the AAS. This submodel contains a set of entities describing the material used to compose the composite I4.0 Component."@en ;
+    rdfs:label "has Bill of Material"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/thumbnail
