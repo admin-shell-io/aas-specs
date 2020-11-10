@@ -496,6 +496,7 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
     rdfs:subClassOf aas:DataSpecificationContent ;
     rdfs:label "Data Specification IEC 61360"^^xsd:string ;
     rdfs:comment "Data Specification Template for defining Property Descriptions conformant to IEC 61360."@en ;
+	skos:note "Constraint AASd-075: For all ConceptDescriptions using data specification template IEC61360 (http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0) values for the attributes not being marked as mandatory or optional in tables Table 9, Table 10, Table 11 and Table 12.depending on its category are ignored and handled as undefined."@en ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/dataType
@@ -514,6 +515,7 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
     rdfs:label "has definition"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range rdf:langString ;
+	skos:note "Constraint AASd-074: For all ConceptDescriptions except for ConceptDescriptions of category VALUE using data specification template IEC61360 (http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0) -  DataSpecificationIEC61360/definition is mandatory and shall be defined at least in English."@en ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/levelType
@@ -1525,6 +1527,7 @@ aas:Extension rdf:type owl:Class ;
     rdfs:subClassOf aas:HasSemantics ;
     rdfs:comment "Single extension of an element."@en ;
     rdfs:label "Extensions"^^xsd:string ;
+	skos:note "Constraint AASd-077: The name of an extension within HasExtensions needs to be unique."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Extension/name
