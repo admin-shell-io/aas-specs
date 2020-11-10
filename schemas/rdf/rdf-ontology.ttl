@@ -1413,6 +1413,7 @@ aas:Property rdf:type owl:Class ;
 aas:Qualifiable rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:comment "Additional qualification of a qualifiable element."@en ;
+	skos:note "Constraint AASd-021: Every qualifiable can only have one qualifier with the same Qualifier/type."@en ;
     rdfs:label "Qualifiable"^^xsd:string ;
 .
 
