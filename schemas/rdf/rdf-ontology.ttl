@@ -702,6 +702,7 @@ aas:Entity rdf:type owl:Class ;
     rdfs:range aas:Reference ;
     rdfs:comment "Reference to the asset the entity is representing."@en ;
     skos:note "The asset attribute must be set if entityType is set to 'SelfManagedEntity'. It is empty otherwise."@en ;
+	skos:note "Constraint AASd-014: Either the attribute globalAssetId or externalAssetId of an Entity must be set if Entity/entityType is set to “SelfManagedEntity”. They are not existing otherwise."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Entity/externalAssetId
@@ -711,6 +712,7 @@ aas:Entity rdf:type owl:Class ;
     rdfs:range aas:IdentifierKeyValuePair ;
     rdfs:comment "Reference to an identifier key value pair representing an external identifier of the asset represented by the asset administration shell. "@en ;
     skos:note "The asset attribute must be set if entityType is set to 'SelfManagedEntity'. It is empty otherwise."@en ;
+    skos:note "Constraint AASd-014: Either the attribute globalAssetId or externalAssetId of an Entity must be set if Entity/entityType is set to “SelfManagedEntity”. They are not existing otherwise."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Entity/entityType
