@@ -253,7 +253,38 @@ aas:AssetInformationShape a sh:NodeShape ;
     ] ;
 .
 
-
+aas:IdentifierKeyValuePairShape a sh:NodeShape ;
+  sh:targetClass aas:IdentifierKeyValuePair ;
+  rdfs:subClassOf aas:HasSemantics ;
+  
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/key> ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "A <i>key</i> has exactly one string."^^xsd:string ;
+      sh:name "IdentifierKeyValuePair.key"^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value> ;
+      sh:nodeKind sh:Literal ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "Exactly one <i>value</i> is allowed."^^xsd:string ;
+      sh:name "IdentifierKeyValuePair.value"^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/externalSubjectId> ;
+      sh:class ass:Reference ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "Exactly one <i>externalSubjectId</i> attribute having an <i>reference</i> entity is required."^^xsd:string ;
+      sh:name "IdentifierKeyValuePair.externalSubjectId"^^xsd:string ;
+    ] ;
+.
 
 aas:AssetAdministrationShellShape a sh:NodeShape ;
   sh:targetClass aas:AssetAdministrationShell ;
@@ -1213,7 +1244,7 @@ aas:ExtensionShape a sh:NodeShape ;
 	  sh:class sh:ValueDataType
 	  sh:maxCount 1 ;
       sh:minCount 0 ;
-	  sh:message "Only one value for <i>value</i> is allowed"^^xsd:string ;
+	  sh:message "Only one <i>value</i> is allowed"^^xsd:string ;
 	  sh:name "Extensions.value^^xsd:string;
 	] ;
   sh:property [

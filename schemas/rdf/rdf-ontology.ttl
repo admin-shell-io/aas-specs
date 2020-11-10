@@ -325,6 +325,37 @@ aas:AssetKind rdf:type owl:Class ;
     rdfs:label "Asset Type"^^xsd:string ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair
+aas:IdentifierKeyValuePair rdf:type owl:Class ;
+    rdfs:subClassOf aas:HasSemantics ;
+    rdfs:label "identifier key value pair"^^xsd:string ;
+    rdfs:comment "An IdentifierKeyValuePair describes a generic identifier as key-value pair."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/key
+<https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/key> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:IdentifierKeyValuePair ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Key of the identifier."@en ;
+    rdfs:label "has IdentifierKeyValuePair.key"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value
+<https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:IdentifierKeyValuePair ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "The value of the identifier with the corresponding key."@en ;
+    rdfs:label "has IdentifierKeyValuePair.value"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/externalSubjectId
+<https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/externalSubjectId> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:IdentifierKeyValuePair ;
+    rdfs:range aas:Reference ;
+    rdfs:comment "The (external) subject the key belongs to or has meaning to."@en ;
+    rdfs:label "has IdentifierKeyValuePair.externalSubjectId"^^xsd:string ;
+.
+
 ###  https://admin-shell.io/aas/3/0/RC01/BasicEvent
 aas:BasicEvent rdf:type owl:Class ;
     rdfs:subClassOf aas:Event ;
