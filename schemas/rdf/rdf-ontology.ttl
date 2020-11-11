@@ -483,7 +483,6 @@ aas:Certificate rdf:type owl:Class ;
 aas:ConceptDescription rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification , aas:Identifiable ;
     rdfs:label "Concept Description"^^xsd:string ;
-    rdfs:comment "The AAS itself can also define its own dictionary that contains semantic definitions of its submodel elements. These semantic definitions are called concept descriptions (ConceptDescription). It is optional whether an AAS defines its own concept dictionary (ConceptDictionary) or not."@en ;
     rdfs:comment "The semantics of a property or other elements that may have a semantic description is defined by a concept description. The description of the concept should follow a standardized schema (realized as data specification template)."@en ;
 	skos:note "Constraint AASd-051: A ConceptDescription shall have one of the following categories: VALUE, PROPERTY, REFERENCE, DOCUMENT, CAPABILITY, RELATIONSHIP, COLLECTION, FUNCTION, EVENT, ENTITY, APPLICATION_CLASS, QUALIFIER, VIEW. Default: PROPERTY."@en ;
 .
@@ -507,14 +506,6 @@ aas:ConceptDescription rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-
-###  https://admin-shell.io/aas/3/0/RC01/ConceptDictionary/conceptDescription
-<https://admin-shell.io/aas/3/0/RC01/ConceptDictionary/conceptDescription> rdf:type owl:ObjectProperty ;
-    rdfs:domain aas:ConceptDictionary;
-    rdfs:range aas:ConceptDescription ;
-    rdfs:comment "The semantics of a property or other elements that may have a semantic description is defined by a concept description. The description of the concept should follow a standardized schema (realized as data specification template)."@en ;
-    rdfs:label "has concept description"^^xsd:string ;
-.
 
 ###  https://admin-shell.io/aas/3/0/RC01/Constraint
 aas:Constraint rdf:type owl:Class ;
