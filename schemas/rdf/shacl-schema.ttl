@@ -190,7 +190,7 @@ aas:AssetShape a sh:NodeShape ;
   sh:targetClass aas:Asset ;
   rdfs:subClassOf aas:HasDataSpecificationShape ;
   rdfs:subClassOf aas:IdentifiableShape ;
-  
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Asset/assetIdentificationModel> ;
@@ -213,7 +213,7 @@ aas:AssetInformationShape a sh:NodeShape ;
       sh:message "Exactly one <i>assetkind</i> attribute having an <i>AssetKind</i> entity is required."^^xsd:string ;
       sh:name "AssetInformation.assetkind"^^xsd:string ;
     ] ;
-	
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId> ;
@@ -223,7 +223,7 @@ aas:AssetInformationShape a sh:NodeShape ;
       sh:message "Only one <i>globalAssetId</i> attribute having a <i>reference</i> entity is required."^^xsd:string ;
       sh:name "AssetInformation.globalAssetId"^^xsd:string ;
     ] ;
-	
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/externalAssetId> ;
@@ -232,7 +232,7 @@ aas:AssetInformationShape a sh:NodeShape ;
       sh:message "A <i>externalAssetId</b> must point to an <i>IdentifierKeyValuePair</i>."^^xsd:string ;
       sh:name "AssetInformation.externalAssetId"^^xsd:string ;
     ] ;
-	
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial> ;
@@ -241,7 +241,7 @@ aas:AssetInformationShape a sh:NodeShape ;
       sh:message "A <i>billOfMaterial</b> must point to a <i>reference</i>."^^xsd:string ;
       sh:name "AssetInformation.billOfMaterial"^^xsd:string ;
     ] ;
-  
+
    sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/thumbnail> ;
@@ -256,7 +256,7 @@ aas:AssetInformationShape a sh:NodeShape ;
 aas:IdentifierKeyValuePairShape a sh:NodeShape ;
   sh:targetClass aas:IdentifierKeyValuePair ;
   rdfs:subClassOf aas:HasSemantics ;
-  
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/key> ;
@@ -278,7 +278,7 @@ aas:IdentifierKeyValuePairShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/externalSubjectId> ;
-      sh:class ass:Reference ;
+      sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:message "Exactly one <i>externalSubjectId</i> attribute having an <i>reference</i> entity is required."^^xsd:string ;
@@ -325,7 +325,7 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
       sh:message "<i>hasSubmodel</i> must have a <i>reference</i> entity pointing to a Submodel."^^xsd:string ;
       sh:name "submodel"^^xsd:string ;
     ] ;
-  
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/view> ;
@@ -724,7 +724,7 @@ aas:EntityShape a sh:NodeShape ;
       sh:minCount 0 ;
       sh:name "Entity.globalAssetId"^^xsd:string ;
     ] ;
-	
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/externalAssetId> ;
@@ -1216,7 +1216,7 @@ aas:HasExtensionsShape a sh:NodeShape ;
 	  sh:name "hasExtensions.Extension"^^xsd:string;
 	] ;
 .
-	  
+
 aas:ExtensionShape a sh:NodeShape ;
   sh:targeClass aas:Extension ;
   rdfs:subClassOf aas:HasSemantics ;
@@ -1227,7 +1227,7 @@ aas:ExtensionShape a sh:NodeShape ;
 	  sh:maxCount 1 ;
       sh:minCount 1 ;
 	  sh:message "Exactly one <id>name</id> is required."^^xsd:string ;
-	  sh:name "Extensions.name^^xsd:string;
+	  sh:name "Extensions.name"^^xsd:string;
 	] ;
   sh:property [
 	  a sh:PropertyShape ;
@@ -1236,28 +1236,28 @@ aas:ExtensionShape a sh:NodeShape ;
 	  sh:maxCount 1 ;
       sh:minCount 0 ;
 	  sh:message "Only one value for <i>valueType</i> is allowed"^^xsd:string ;
-	  sh:name "Extensions.valueType^^xsd:string;
+	  sh:name "Extensions.valueType"^^xsd:string;
 	] ;
   sh:property [
 	  a sh:PropertyShape ;
 	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extensions/value> ;
-	  sh:class sh:ValueDataType
+	  sh:class sh:ValueDataType ;
 	  sh:maxCount 1 ;
-      sh:minCount 0 ;
+    sh:minCount 0 ;
 	  sh:message "Only one <i>value</i> is allowed"^^xsd:string ;
-	  sh:name "Extensions.value^^xsd:string;
+	  sh:name "Extensions.value"^^xsd:string;
 	] ;
   sh:property [
 	  a sh:PropertyShape ;
 	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extensions/refersTo> ;
-	  sh:class sh:Reference
+	  sh:class sh:Reference ;
 	  sh:maxCount 1 ;
       sh:minCount 0 ;
 	  sh:message "Only one value for <i>refersTo</i> is allowed"^^xsd:string ;
-	  sh:name "Extensions.refersTo^^xsd:string;
+	  sh:name "Extensions.refersTo"^^xsd:string;
 	] ;
 .
-	    
+
 aas:ReferableShape  a sh:NodeShape ;
   sh:targetClass aas:Referable ;
   sh:property [
@@ -1466,5 +1466,5 @@ aas:ViewShape a sh:NodeShape ;
       sh:class aas:Reference ;
       sh:name "view contained element"^^xsd:string ;
 	  sh:message "View can contain only References for <i>containedElement</i>."^^xsd:string ;
-    ] ;
+  ] ;
 .
