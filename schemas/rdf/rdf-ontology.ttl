@@ -14,7 +14,7 @@
 
 <https://admin-shell.io/aas/3/0/RC01/> rdf:type owl:Ontology ;
     vann:preferredNamespaceUri "https://admin-shell.io/aas/3/0/RC01/"^^xsd:anyURI ;
-    owl:versionInfo 3.0.RC01 ;
+    owl:versionInfo "3.0.RC01" ;
     rdfs:comment "This ontology represents the data model for the Asset Administration Shell according to the specification 'Details of the Asset Administration Shell - Part 1 - Version 3.0.RC01'."@en ;
     skos:prefLabel "aas"^^xsd:string ;
     vann:preferredNamespacePrefix "aas"^^xsd:string ;
@@ -1671,7 +1671,7 @@ aas:Referable rdf:type owl:Class ;
     rdfs:subPropertyOf dcterms:identifier ;
     rdfs:label "has short id"^^xsd:string ;
     rdfs:comment "Identifying string of the element within its name space."@en ;
-    skos:note "Constraint AASd-002: idShort shall only feature letters, digits, underscore ("_"); starting with a small letter. I.e. [a-z][a-zA-Z0-9_]+."@en ;
+    skos:note "Constraint AASd-002: idShort shall only feature letters, digits, underscore ('_'); starting with a small letter. I.e. [a-z][a-zA-Z0-9_]+."@en ;
     skos:note "Constraint AASd-003: idShort shall be matched case-insensitive."@en ;
 	skos:note "Constraint AASd-022: idShort of non-identifiable referables shall be unqiue in its namespace."@en ;
     skos:note "Note: In case the element is a property and the property has a semantic definition (HasSemantics) the idShort is typically identical to the short name in English. "@en ;
@@ -1955,9 +1955,9 @@ aas:SubmodelElementCollection rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:comment "A submodel element collection is a set or list of submodel elements."@en ;
     rdfs:label "Submodel Element Collection"^^xsd:string ;
-	skos;note "Constraint AASd-059: If the semanticId of a SubmodelElementCollection references a ConceptDescription then the category of the ConceptDescription shall be COLLECTION or ENTITY."@en ;
-	skos;note "Constraint AASd-092: If the semanticId of a SubmodelElementCollection with SubmodelElementCollection/allowDuplicates == false references a ConceptDescription then the ConceptDescription/category shall be ENTITY."@en ;
-	skos;note "Constraint AASd-093: If the semanticId of a SubmodelElementCollection with SubmodelElementCollection/allowDuplicates == true references a ConceptDescription then the ConceptDescription/category shall be COLLECTION."@en ;
+	skos:note "Constraint AASd-059: If the semanticId of a SubmodelElementCollection references a ConceptDescription then the category of the ConceptDescription shall be COLLECTION or ENTITY."@en ;
+	skos:note "Constraint AASd-092: If the semanticId of a SubmodelElementCollection with SubmodelElementCollection/allowDuplicates == false references a ConceptDescription then the ConceptDescription/category shall be ENTITY."@en ;
+	skos:note "Constraint AASd-093: If the semanticId of a SubmodelElementCollection with SubmodelElementCollection/allowDuplicates == true references a ConceptDescription then the ConceptDescription/category shall be COLLECTION."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/allowDuplicates
