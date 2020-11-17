@@ -327,38 +327,6 @@ aas:AssetKind rdf:type owl:Class ;
     rdfs:label "Asset Type"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair
-aas:IdentifierKeyValuePair rdf:type owl:Class ;
-    rdfs:subClassOf aas:HasSemantics ;
-    rdfs:label "identifier key value pair"^^xsd:string ;
-    rdfs:comment "An IdentifierKeyValuePair describes a generic identifier as key-value pair."@en ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/key
-<https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/key> rdf:type owl:DatatypeProperty ;
-    rdfs:domain aas:IdentifierKeyValuePair ;
-    rdfs:range xsd:string ;
-	sh:pattern ".+" ;
-    rdfs:comment "Key of the identifier."@en ;
-    rdfs:label "has IdentifierKeyValuePair.key"^^xsd:string ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value
-<https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value> rdf:type owl:ObjectProperty ;
-    rdfs:domain aas:IdentifierKeyValuePair ;
-    rdfs:range rdfs:Literal ;
-    rdfs:comment "The value of the identifier with the corresponding key."@en ;
-    rdfs:label "has IdentifierKeyValuePair.value"^^xsd:string ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/externalSubjectId
-<https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/externalSubjectId> rdf:type owl:ObjectProperty ;
-    rdfs:domain aas:IdentifierKeyValuePair ;
-    rdfs:range aas:Reference ;
-    rdfs:comment "The (external) subject the key belongs to or has meaning to."@en ;
-    rdfs:label "has IdentifierKeyValuePair.externalSubjectId"^^xsd:string ;
-.
-
 ###  https://admin-shell.io/aas/3/0/RC01/BasicEvent
 aas:BasicEvent rdf:type owl:Class ;
     rdfs:subClassOf aas:Event ;
@@ -510,7 +478,6 @@ aas:ConceptDescription rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-
 ###  https://admin-shell.io/aas/3/0/RC01/Constraint
 aas:Constraint rdf:type owl:Class ;
     dash:abstract true ;
@@ -532,7 +499,6 @@ aas:DataSpecificationContent rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:label "Data Specification Content"^^xsd:string ;
     rdfs:comment "DataSpecificationContent contains the additional attributes to be added to the element instance that references the data specification template and meta information about the template itself."@en ;
-
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360
@@ -967,14 +933,17 @@ aas:IdentifiableElements rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ASSET> rdf:type aas:IdentifiableElements ;
     rdfs:label "Asset"^^xsd:string ;
 .
+
 ###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ASSET_ADMINISTRATION_SHELL
 <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ASSET_ADMINISTRATION_SHELL> rdf:type aas:IdentifiableElements ;
     rdfs:label "Asset Administration Shell"^^xsd:string ;
 .
+
 ###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/CONCEPT_DESCRIPTION_
 <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/CONCEPT_DESCRIPTION> rdf:type aas:IdentifiableElements ;
     rdfs:label "Concept Description"^^xsd:string ;
 .
+
 ###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/SUBMODEL
 <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/SUBMODEL> rdf:type aas:IdentifiableElements ;
     rdfs:label "Submodel"^^xsd:string ;
@@ -1030,6 +999,38 @@ aas:IdentifierType rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/IdentifierType/CUSTOM> rdf:Type aas:IdentifierType ;
     rdfs:label "Custom"^^xsd:string ;
     rdfs:comment "Custom identifiers like GUIDs (globally unique Identifiers)"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair
+aas:IdentifierKeyValuePair rdf:type owl:Class ;
+    rdfs:subClassOf aas:HasSemantics ;
+    rdfs:label "identifier key value pair"^^xsd:string ;
+    rdfs:comment "An IdentifierKeyValuePair describes a generic identifier as key-value pair."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/key
+<https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/key> rdf:type owl:DatatypeProperty ;
+    rdfs:domain aas:IdentifierKeyValuePair ;
+    rdfs:range xsd:string ;
+	sh:pattern ".+" ;
+    rdfs:comment "Key of the identifier."@en ;
+    rdfs:label "has IdentifierKeyValuePair.key"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value
+<https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:IdentifierKeyValuePair ;
+    rdfs:range rdfs:Literal ;
+    rdfs:comment "The value of the identifier with the corresponding key."@en ;
+    rdfs:label "has IdentifierKeyValuePair.value"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/externalSubjectId
+<https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/externalSubjectId> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:IdentifierKeyValuePair ;
+    rdfs:range aas:Reference ;
+    rdfs:comment "The (external) subject the key belongs to or has meaning to."@en ;
+    rdfs:label "has IdentifierKeyValuePair.externalSubjectId"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Key
