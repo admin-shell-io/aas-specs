@@ -23,7 +23,7 @@
 
 
 
-<http://i40.customer.com/type/1/1/F13E8576F6488342> rdf:type aas:Submodel ;
+<http://i40.customer.com/type/F13E8576F6488342> rdf:type aas:Submodel ;
      aas:idShort "Identification"^^xsd:string ;
      rdfs:label "Identification"^^xsd:string ;
      
@@ -63,7 +63,7 @@
     rdfs:comment "Identification from Manufacturer"@en ;
     rdfs:comment "Hersteller-Identifikation"@de ;
     
-    aas:identification <http://i40.customer.com/type/1/1/F13E8576F6488342> ; # linking back to itself as enitity is already identified by a URI
+    aas:identification <http://i40.customer.com/type/F13E8576F6488342> ; # linking back to itself as enitity is already identified by a URI
      
      
      aas:submodelElement [
@@ -71,7 +71,7 @@
         rdf:type aas:Property ;
         
         #--------------------------------
-        rdf:subject <http://i40.customer.com/type/1/1/F13E8576F6488342/Manufacturer> ; # a) URI starting at latest known Element (Submodel URI)
+        rdf:subject <http://i40.customer.com/type/F13E8576F6488342/Manufacturer> ; # a) URI starting at latest known Element (Submodel URI)
         rdf:subject <http://example.org/shells/ExampleMotor/submodels/Identification/submodelElements/Manufacturer> ; # b) URI constructed as proposed in the OpenAPI
         #--------------------------------
         
