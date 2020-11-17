@@ -1,0 +1,36 @@
+
+<http://customer.com/AAS:9175_7013_7091_9168> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell>.
+<http://customer.com/AAS:9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC01/asset> <http://customer.com/Asset:KHBVZJSQKIY>.
+<http://customer.com/AAS:9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC01/submodel> <http://i40.customer.com/type/Submodel:F13E8576F6488342>.
+<http://customer.com/AAS:9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC01/idShort> "ExampleMotor"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://customer.com/AAS:9175_7013_7091_9168> <http://www.w3.org/2000/01/rdf-schema#label> "ExampleMotor"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://customer.com/AAS:9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC01/category> "CONSTANT"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://customer.com/AAS:9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC01/description> "A very short description of the AAS instance.@en".
+<http://customer.com/AAS:9175_7013_7091_9168> <http://www.w3.org/2000/01/rdf-schema#comment> "A very short description of the AAS instance."^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://customer.com/Asset:KHBVZJSQKIY> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Asset>.
+
+<http://customer.com/Asset:KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/identification> <http://customer.com/Asset:KHBVZJSQKIY>.
+<http://customer.com/Asset:KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/idShort> "ServoDCMotor"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://customer.com/Asset:KHBVZJSQKIY> <http://www.w3.org/2000/01/rdf-schema#label> "ServoDCMotor"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://i40.customer.com/type/Submodel:F13E8576F6488342> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Submodel>.
+<http://i40.customer.com/type/Submodel:F13E8576F6488342> <https://admin-shell.io/aas/3/0/RC01/identification> <http://i40.customer.com/type/Submodel:F13E8576F6488342>.
+
+<http://i40.customer.com/type/Submodel:F13E8576F6488342> <https://admin-shell.io/aas/3/0/RC01/idShort> "Identification"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://i40.customer.com/type/Submodel:F13E8576F6488342> <http://www.w3.org/2000/01/rdf-schema#label> "Identification"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://i40.customer.com/type/Submodel:F13E8576F6488342> <https://admin-shell.io/aas/3/0/RC01/category> "CONSTANT"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://i40.customer.com/type/Submodel:F13E8576F6488342> <https://admin-shell.io/aas/3/0/RC01/description> "Identification from Manufacturer@EN".
+<http://i40.customer.com/type/Submodel:F13E8576F6488342> <http://www.w3.org/2000/01/rdf-schema#comment> "Identification from Manufacturer"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://i40.customer.com/type/Submodel:F13E8576F6488342> <https://admin-shell.io/aas/3/0/RC01/submodelElement> <http://example.org#SubElem:Manufacturer>.
+
+<http://example.org#SubElem:Manufacturer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Property>.
+<http://example.org#SubElem:Manufacturer> <https://admin-shell.io/aas/3/0/RC01/value> "CUSTOMER GmbH".
+<http://example.org#SubElem:Manufacturer> <https://admin-shell.io/aas/3/0/RC01/semanticId> <0173-1#02-AAO677#002>.
+<http://example.org#SubElem:Manufacturer> <https://admin-shell.io/aas/3/0/RC01/idShort> "Manufacturer"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://example.org#SubElem:Manufacturer> <http://www.w3.org/2000/01/rdf-schema#label> "Manufacturer"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://example.org#SubElem:Manufacturer> <https://admin-shell.io/aas/3/0/RC01/category> "CONSTANT"^^<http://www.w3.org/2001/XMLSchema#string>.
+
+<http://www.vdi2770.com/ConcDesc:OrganizationOfficialName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/ConceptDescription>.
+<http://www.vdi2770.com/ConcDesc:OrganizationOfficialName> <https://admin-shell.io/aas/3/0/RC01/isCaseOf> <0173-1#02-AAO677#002>.
+<http://www.vdi2770.com/ConcDesc:OrganizationOfficialName> <https://admin-shell.io/aas/3/0/RC01/idShort> "OrganizationOfficialName"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.vdi2770.com/ConcDesc:OrganizationOfficialName> <http://www.w3.org/2000/01/rdf-schema#label> "OrganizationOfficialName"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://www.vdi2770.com/ConcDesc:OrganizationOfficialName> <https://admin-shell.io/aas/3/0/RC01/category> "CONSTANT"^^<http://www.w3.org/2001/XMLSchema#string>.
