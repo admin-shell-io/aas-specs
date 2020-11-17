@@ -1039,14 +1039,6 @@ aas:Key rdf:type owl:Class ;
     rdfs:label "Key"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Key/index
-<https://admin-shell.io/aas/3/0/RC01/Key/index> rdf:type owl:DatatypeProperty ;
-    rdfs:label "has index"^^xsd:string ;
-    rdfs:comment "The index attribute states the position of each key instance in the sequence of all other related keys."@en ;
-    rdfs:domain aas:Key ;
-    rdfs:range xsd:integer ;
-.
-
 ###  https://admin-shell.io/aas/3/0/RC01/Key/idType
 <https://admin-shell.io/aas/3/0/RC01/Key/idType> rdf:type owl:ObjectProperty ;
     rdfs:comment "Type of the key value. In case of idType = idShort local shall be true. In case type=GlobalReference idType shall not be IdShort."@en ;
