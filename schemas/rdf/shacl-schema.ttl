@@ -269,7 +269,7 @@ aas:IdentifierKeyValuePairShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value> ;
-      sh:nodeKind sh:Literal ;
+      sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:message "Exactly one <i>value</i> is allowed."^^xsd:string ;
@@ -877,21 +877,12 @@ aas:KeyShape  a sh:NodeShape ;
   sh:targetClass aas:Key ;
   sh:property [
       a sh:PropertyShape ;
-      sh:class aas:KeyElements ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Key/type> ;
-      sh:maxCount 1 ;
-      sh:message "Exactly 1 <i>type</i> to a <i>aas:KeyElements</i> must be stated"^^xsd:string ;
-      sh:minCount 1 ;
-      sh:name "type"^^xsd:string ;
-    ] ;
-  sh:property [
-      a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Key/value> ;
       #sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:message "Exactly one <i>value</i> is required"^^xsd:string ;
-      sh:name "value"^^xsd:string ;
+      sh:name "key.value"^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -900,17 +891,16 @@ aas:KeyShape  a sh:NodeShape ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:message "Exactly one <i>idType</i> is required"^^xsd:string ;
-      sh:name "idType"^^xsd:string ;
+      sh:name "key.idType"^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Key/index> ;
-      sh:datatype xsd:integer ;
-      sh:defaultValue "0"^^xsd:integer ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Key/type> ;
+      sh:class aas:KeyElements;
       sh:maxCount 1 ;
-      sh:message "Only 1 <i>index</i> can be stated"^^xsd:string ;
+      sh:message "Only 1 <i>keyElement</i> can be stated"^^xsd:string ;
       sh:minCount 0 ;
-      sh:name "value"^^xsd:string ;
+      sh:name "key.type"^^xsd:string ;
     ] ;
 .
 
@@ -1279,7 +1269,7 @@ aas:ReferableShape  a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/displayName> ;
-      sh:datatype rdf:langStringSet ;
+      sh:datatype rdf:langString ;
       sh:name "Referable.displayName"^^xsd:string ;
 	  sh:maxCount 1 ;
       sh:minCount 0 ;
