@@ -269,7 +269,7 @@ aas:IdentifierKeyValuePairShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value> ;
-      sh:nodeKind sh:Literal ;
+      sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:message "Exactly one <i>value</i> is allowed."^^xsd:string ;

@@ -1020,7 +1020,8 @@ aas:IdentifierKeyValuePair rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value
 <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:IdentifierKeyValuePair ;
-    rdfs:range rdfs:Literal ;
+    rdfs:range xsd:string ;
+	sh:pattern ".+" ;
     rdfs:comment "The value of the identifier with the corresponding key."@en ;
     rdfs:label "has IdentifierKeyValuePair.value"^^xsd:string ;
 .
