@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "title": "AssetAdministrationShellEnvironment",
-  "$id": "http://www.admin-shell.io/schema/json/v2.0.1",
+  "$id": "http://www.admin-shell.io/schema/json/V3.0RC01",
   "type": "object",
   "required": ["assetAdministrationShells", "submodels", "assets", "conceptDescriptions"],
   "properties": {
@@ -32,12 +32,16 @@
   },
   "definitions": {
     "Referable": {
-	  "type": "object",
-      "properties": {
+      "allOf":[
+        {"$ref": "#/definitions/HasExtensions"},
+        {"properties": {
         "idShort": {
           "type": "string"
         },
         "category": {
+          "type": "string"
+        },
+        "displayName": {
           "type": "string"
         },
         "description": {
@@ -46,15 +50,13 @@
             "$ref": "#/definitions/LangString"
           }
         },
-        "parent": {
-          "$ref": "#/definitions/Reference"
-        },
 		"modelType": {
           "$ref": "#/definitions/ModelType"
         }
       },
 	  "required": [ "idShort", "modelType" ]
-	},
+	}]
+},
 	"Identifiable": {
 	  "allOf": [
 	    { "$ref": "#/definitions/Referable" },
@@ -100,6 +102,85 @@
         }
 	  }
 	},
+  "HasExtensions": {
+    "type": "object",
+    "properties": {
+      "extensions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        }
+    }
+  },
+  "Extension": {
+  "allOf": [
+    {
+      "$ref": "#/definitions/HasSemantics"
+    },
+      { "properties": {
+    "name": {
+            "type": "string"
+          },
+    "valueType":{
+        "type": "string",
+        "enum": [
+        "anyUri",
+        "base64Binary",
+        "boolean",
+        "date",
+        "dateTime",
+        "dateTimeStamp",
+        "decimal",
+        "integer",
+        "long",
+        "int",
+        "short",
+        "byte",
+        "nonNegativeInteger",
+        "positiveInteger",
+        "unsignedLong",
+        "unsignedInt",
+        "unsignedShort",
+        "unsignedByte",
+        "nonPositiveInteger",
+        "negativeInteger",
+        "double",
+        "duration",
+        "dayTimeDuration",
+        "yearMonthDuration",
+        "float",
+        "gDay",
+        "gMonth",
+        "gMonthDay",
+        "gYear",
+        "gYearMonth",
+        "hexBinary",
+        "NOTATION",
+        "QName",
+        "string",
+        "normalizedString",
+        "token",
+        "language",
+        "Name",
+        "NCName",
+        "ENTITY",
+        "ID",
+        "IDREF",
+        "NMTOKEN",
+        "time"
+        ]},
+    "value":{
+            "type": "string"
+          },
+    "refersTo":{
+            "$ref": "#/definitions/Reference"
+          }
+        },
+    "required": [ "name" ]
+    }
+  ]
+},
 	"AssetAdministrationShell": {
 	  "allOf": [
 	    { "$ref": "#/definitions/Identifiable" },
@@ -108,8 +189,8 @@
 			"derivedFrom": {
 			  "$ref": "#/definitions/Reference"
             },
-            "asset": {
-              "$ref": "#/definitions/Reference"
+            "assetInformation": {
+              "$ref": "#/definitions/AssetInformation"
             },
             "submodels": {
               "type": "array",
@@ -123,17 +204,11 @@
                 "$ref": "#/definitions/View"
               }
             },
-            "conceptDictionaries": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ConceptDictionary"
-              }
-            },
             "security": {
               "$ref": "#/definitions/Security"
             }
           },
-		  "required": [ "asset" ]
+		  "required": [ "assetInformation" ]
 	    }
 	  ]
     },
@@ -199,12 +274,9 @@
         },
         "value": {
           "type": "string"
-        },
-        "local": {
-          "type": "boolean"
         }
       },
-	  "required": [ "type", "idType", "value", "local" ]
+	  "required": [ "type", "idType", "value"]
     },
     "KeyElements": {
       "type": "string",
@@ -218,7 +290,6 @@
 		"BasicEvent",
 		"Blob",
 		"Capability",
-		"ConceptDictionary",
 		"DataElement",
 		"File",
 		"Entity",
@@ -248,7 +319,6 @@
 		"BasicEvent",
 		"Blob",
 		"Capability",
-		"ConceptDictionary",
 		"DataElement",
 		"File",
 		"Entity",
@@ -498,22 +568,56 @@
     "Asset": {
 	  "allOf": [
 	    { "$ref": "#/definitions/Identifiable" },
-		{ "$ref": "#/definitions/HasDataSpecification" },
-        { "properties": {
-			"kind": {
-              "$ref": "#/definitions/AssetKind"
-            },
-            "assetIdentificationModel": {
-              "$ref": "#/definitions/Reference"
-            },
-		    "billOfMaterial": {
-              "$ref": "#/definitions/Reference"
-            }
-          },
-		  "required": [ "kind" ]
-	    }
+		  { "$ref": "#/definitions/HasDataSpecification" }
 	  ]
     },
+    "AssetInformation": {
+    "allOf": [
+        { "properties": {
+      "assetKind": {
+              "$ref": "#/definitions/AssetKind"
+            },
+      "globalAssetId":{
+              "$ref": "#/definitions/Reference"
+                },
+      "externalAssetIds":{
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IdentifierKeyValuePair"
+              }
+            },
+      "billOfMaterial": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Reference"
+              }
+            },
+      "thumbnail":{
+              "$ref": "#/definitions/File"
+            }
+          },
+      "required": [ "assetKind" ]
+      }
+    ]
+  },
+  "IdentifierKeyValuePair":{
+  "allOf": [{  "$ref": "#/definitions/HasSemantics"},
+      { "properties": {
+          "key": {
+            "dataType":"string"
+          },
+            "value": {
+                "dataType":"string"
+          },
+
+    "subjectId":{
+            "$ref": "#/definitions/Reference"
+              }
+        },
+    "required": [ "key","value","subjectId" ]
+    }
+  ]
+},
 	"AssetKind": {
       "type": "string",
       "enum": ["Type", "Instance"]
@@ -648,9 +752,12 @@
 		    "entityType": {
               "$ref": "#/definitions/EntityType"
             },
-		    "asset": {
-              "$ref": "#/definitions/Reference"
-            }
+            "globalAssetId":{
+                    "$ref": "#/definitions/Reference"
+                      },
+            "specificAssetIds":{
+                  "$ref": "#/definitions/IdentifierKeyValuePair"
+            },
           },
 		  "required": [ "entityType" ]
 	    }
@@ -663,21 +770,6 @@
 		{ "$ref": "#/definitions/HasSemantics" },
         { "properties": {
 			"containedElements": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Reference"
-              }
-            }
-          }
-	    }
-	  ]
-    },
-    "ConceptDictionary": {
-	  "allOf": [
-	    { "$ref": "#/definitions/Referable" },
-		{ "$ref": "#/definitions/HasDataSpecification" },
-        { "properties": {
-            "conceptDescriptions": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Reference"
