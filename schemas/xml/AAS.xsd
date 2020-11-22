@@ -476,11 +476,11 @@
 			<element name="displayName" type="aas:langStringSet_t" minOccurs="0" maxOccurs="1"></element>
 		</sequence>
 	</group>
-	<group name="qualifiable">
-		<sequence>
-			<element maxOccurs="unbounded" minOccurs="0" name="qualifier" type="aas:constraint_t"/>
-		</sequence>
-	</group>
+ <group name="qualifiable">
+         <sequence>
+                <element maxOccurs="unbounded" minOccurs="0" name="qualifiers" type="aas:constraint_t"/>
+         </sequence>
+   </group>
 	<simpleType name="assetKind_t">
 		<restriction base="string">
 			<enumeration value="Instance"/>
@@ -594,4 +594,5 @@
 			<element name="refersTo" type="aas:references_t" minOccurs="0" maxOccurs="1"></element>
 		</sequence>
 	</complexType>
+
 </schema>
