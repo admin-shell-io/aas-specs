@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<aas:aasenv xmlns:aas="http://www.admin-shell.io/aas/3/0" xmlns:IEC61360="http://www.admin-shell.io/IEC61360/3/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.admin-shell.io/aas/3/0 AAS.xsd http://www.admin-shell.io/IEC61360/3/0 IEC61360.xsd">
+<aas:aasenv xmlns:aas="http://www.admin-shell.io/aas/3/0"
+	xmlns:IEC61360="http://www.admin-shell.io/IEC61360/3/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.admin-shell.io/aas/3/0 AAS.xsd http://www.admin-shell.io/IEC61360/3/0 IEC61360.xsd">
 	<aas:assetAdministrationShells>
 		<aas:assetAdministrationShell>
 			<aas:idShort>
@@ -8,16 +10,6 @@
 			<aas:identification idType="IRI">
 				http://customer.com/aas/9175_7013_7091_9168
 			</aas:identification>
-			<aas:assetInformation>
-			<aas:assetKind>Instance</aas:assetKind>
-			<aas:globalAssetId>
-				<aas:keys>
-					<aas:key idType="IRI"  type="Asset">
-						http://customer.com/assets/KHBVZJSQKIY
-					</aas:key>
-				</aas:keys>			
-			</aas:globalAssetId>
-			</aas:assetInformation>
 			<aas:submodelRefs>
 				<aas:submodelRef>
 					<aas:keys>
@@ -28,19 +20,29 @@
 				</aas:submodelRef>
 				<aas:submodelRef>
 					<aas:keys>
-						<aas:key idType="IRI"  type="Submodel">
+						<aas:key idType="IRI" type="Submodel">
 							http://i40.customer.com/type/1/1/1A7B62B529F19152
 						</aas:key>
 					</aas:keys>
 				</aas:submodelRef>
 				<aas:submodelRef>
 					<aas:keys>
-						<aas:key idType="IRI"  type="Submodel">
+						<aas:key idType="IRI" type="Submodel">
 							http://i40.customer.com/type/1/1/7A7104BDAB57E184
 						</aas:key>
 					</aas:keys>
 				</aas:submodelRef>
 			</aas:submodelRefs>
+			<aas:assetInformation>
+				<aas:globalAssetId>
+					<aas:keys>
+						<aas:key idType="IRI" type="Asset">
+						http://customer.com/assets/KHBVZJSQKIY
+					</aas:key>
+					</aas:keys>
+				</aas:globalAssetId>
+				<aas:assetKind>Instance</aas:assetKind>
+			</aas:assetInformation>
 		</aas:assetAdministrationShell>
 	</aas:assetAdministrationShells>
 	<aas:assets>
@@ -53,192 +55,19 @@
 			</aas:identification>
 		</aas:asset>
 	</aas:assets>
-		<aas:submodels>
-		<aas:submodel>
-			<aas:idShort>
-				Documentation
-			</aas:idShort>
-			<aas:category>
-				CONSTANT
-			</aas:category>
-			<aas:identification idType="IRI">
-				http://i40.customer.com/type/1/1/1A7B62B529F19152
-			</aas:identification>
-			<aas:kind>Instance</aas:kind>
-			<aas:submodelElements>
-				<aas:submodelElement>
-					<aas:submodelElementCollection>
-						<aas:idShort>
-							OperatingManual
-						</aas:idShort>
-						<aas:kind>Instance</aas:kind>
-						<aas:semanticId>
-							<aas:keys>
-								<aas:key idType="IRI"  type="ConceptDescription">
-									www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document
-								</aas:key>
-							</aas:keys>
-						</aas:semanticId>
-						<aas:value>
-							<aas:submodelElement>
-								<aas:file>
-									<aas:idShort>
-										DigitalFile_PDF
-									</aas:idShort>
-									<aas:category>
-										PARAMETER
-									</aas:category>
-									<aas:kind>Instance</aas:kind>
-									<aas:semanticId>
-										<aas:keys>
-											<aas:key idType="IRI"  type="ConceptDescription">
-												http://vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile
-											</aas:key>
-										</aas:keys>
-									</aas:semanticId>
-									<aas:mimeType>
-										application/pdf
-									</aas:mimeType>
-									<aas:value>
-										/aasx/OperatingManual.pdf
-									</aas:value>
-								</aas:file>
-							</aas:submodelElement>
-							<aas:submodelElement>
-								<aas:multiLanguageProperty>
-									<aas:idShort>
-										Title
-									</aas:idShort>
-									<aas:kind>Instance</aas:kind>
-									<aas:semanticId>
-										<aas:keys>
-											<aas:key idType="IRI"  type="ConceptDescription">
-												http://vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title
-											</aas:key>
-										</aas:keys>
-									</aas:semanticId>
-									<aas:value>
-										<aas:langString lang="EN">
-											Operating Manual
-										</aas:langString>
-									</aas:value>
-								</aas:multiLanguageProperty>
-							</aas:submodelElement>
-						</aas:value>
-						<aas:ordered>false</aas:ordered>
-						<aas:allowDuplicates>false</aas:allowDuplicates>
-					</aas:submodelElementCollection>
-				</aas:submodelElement>
-			</aas:submodelElements>
-		</aas:submodel>
-		<aas:submodel>
-			<aas:idShort>
-				TechnicalData
-			</aas:idShort>
-			<aas:category>
-				CONSTANT
-			</aas:category>
-			<aas:identification idType="IRI">
-				http://i40.customer.com/type/1/1/7A7104BDAB57E184
-			</aas:identification>
-			<aas:kind>Instance</aas:kind>
-			<aas:semanticId>
-				<aas:keys>
-					<aas:key idType="IRDI"  type="GlobalReference">
-						0173-1#01-AFZ615#016
-					</aas:key>
-				</aas:keys>
-			</aas:semanticId>
-			<aas:submodelElements>
-				<aas:submodelElement>
-					<aas:property>
-						<aas:idShort>
-							MaxRotationSpeed
-						</aas:idShort>
-						<aas:category>
-							PARAMETER
-						</aas:category>
-						<aas:kind>Instance</aas:kind>
-						<aas:semanticId>
-							<aas:keys>
-								<aas:key idType="IRDI" type="ConceptDescription">
-									0173-1#02-BAA120#008
-								</aas:key>
-							</aas:keys>
-						</aas:semanticId>
-						<aas:valueType>
-							integer
-						</aas:valueType>
-						<aas:value>
-							5000
-						</aas:value>
-
-					</aas:property>
-				</aas:submodelElement>
-			</aas:submodelElements>
-		</aas:submodel>
-		<aas:submodel>
-			<aas:idShort>
-				OperationalData
-			</aas:idShort>		
-			<aas:category>
-				VARIABLE
-			</aas:category>
-			<aas:identification idType="IRI">
-				http://i40.customer.com/instance/1/1/AC69B1CB44F07935
-			</aas:identification>
-
-			<aas:kind>Instance</aas:kind>
-			<aas:semanticId>
-				<aas:keys/>
-			</aas:semanticId>
-			<aas:submodelElements>
-				<aas:submodelElement>
-					<aas:property>
-						<aas:idShort>
-							RotationSpeed
-						</aas:idShort>
-						<aas:category>
-							VARIABLE
-						</aas:category>
-						<aas:kind>Instance</aas:kind>
-						<aas:semanticId>
-							<aas:keys>
-								<aas:key idType="IRI"  type="ConceptDescription">
-									http://customer.com/cd/1/1/18EBD56F6B43D895
-								</aas:key>
-							</aas:keys>
-						</aas:semanticId>
-						<aas:embeddedDataSpecification>
-							<aas:dataSpecification>
-								<aas:keys/>
-							</aas:dataSpecification>
-						</aas:embeddedDataSpecification>
-						<aas:valueType>
-							integer
-						</aas:valueType>
-						<aas:value>
-							4370
-						</aas:value>
-
-					</aas:property>
-				</aas:submodelElement>
-			</aas:submodelElements>
-		</aas:submodel>
-	</aas:submodels>
-		<aas:conceptDescriptions>
+	<aas:conceptDescriptions>
 		<aas:conceptDescription>
 			<aas:idShort>
 				MaxRotationSpeed
 			</aas:idShort>
 			<aas:category>PROPERTY</aas:category>
+			<aas:administration>
+				<aas:revision>0</aas:revision>
+				<aas:version>2</aas:version>
+			</aas:administration>
 			<aas:identification idType="IRDI">
 				0173-1#02-BAA120#008
 			</aas:identification>
-			<aas:administration>
-				<aas:version>2</aas:version>
-				<aas:revision>0</aas:revision>
-			</aas:administration>
 			<aas:embeddedDataSpecification>
 				<aas:dataSpecificationContent>
 					<aas:dataSpecificationIEC61360>
@@ -262,13 +91,13 @@
 						<IEC61360:shortName>
 							<IEC61360:langString></IEC61360:langString>
 						</IEC61360:shortName>
-						<IEC61360:sourceOfDefinition/>
+						<IEC61360:sourceOfDefinition />
 						<IEC61360:unit>
 							1/min
 						</IEC61360:unit>
 						<IEC61360:unitId>
 							<IEC61360:keys>
-								<IEC61360:key idType="IRDI"  type="GlobalReference">
+								<IEC61360:key idType="IRDI" type="GlobalReference">
 									0173-1#05-AAA650#002
 								</IEC61360:key>
 							</IEC61360:keys>
@@ -277,13 +106,14 @@
 				</aas:dataSpecificationContent>
 			</aas:embeddedDataSpecification>
 			<aas:isCaseOf>
-				<aas:keys/>
+				<aas:keys />
 			</aas:isCaseOf>
+
 		</aas:conceptDescription>
 		<aas:conceptDescription>
 			<aas:idShort>
 				Title
-			</aas:idShort>		
+			</aas:idShort>
 			<aas:category>PROPERTY</aas:category>
 			<aas:identification idType="IRI">
 				http://vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title
@@ -310,13 +140,13 @@
 								Titel
 							</IEC61360:langString>
 						</IEC61360:shortName>
-						<IEC61360:sourceOfDefinition/>
-						<IEC61360:unit/>
+						<IEC61360:sourceOfDefinition />
+						<IEC61360:unit />
 					</aas:dataSpecificationIEC61360>
 				</aas:dataSpecificationContent>
 				<aas:dataSpecification>
 					<aas:keys>
-						<aas:key idType="IRI"  type="GlobalReference">
+						<aas:key idType="IRI" type="GlobalReference">
 							http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360
 						</aas:key>
 					</aas:keys>
@@ -331,7 +161,6 @@
 			<aas:identification idType="IRI">
 				http://customer.com/cd/1/1/18EBD56F6B43D895
 			</aas:identification>
-
 			<aas:embeddedDataSpecification>
 				<aas:dataSpecificationContent>
 					<aas:dataSpecificationIEC61360>
@@ -357,7 +186,7 @@
 								RotationSpeed
 							</IEC61360:langString>
 						</IEC61360:shortName>
-						<IEC61360:sourceOfDefinition/>
+						<IEC61360:sourceOfDefinition />
 						<IEC61360:unit>
 							1/min
 						</IEC61360:unit>
@@ -372,7 +201,7 @@
 				</aas:dataSpecificationContent>
 				<aas:dataSpecification>
 					<aas:keys>
-						<aas:key idType="IRI"  type="GlobalReference">
+						<aas:key idType="IRI" type="GlobalReference">
 							http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360
 						</aas:key>
 					</aas:keys>
@@ -384,11 +213,8 @@
 				Document
 			</aas:idShort>
 			<aas:category>
-				COLLECTION
+				ENTITY
 			</aas:category>
-			<aas:description>
-				<aas:langString/>
-			</aas:description>
 			<aas:identification idType="IRI">
 				http://vdi2770.com/blatt1/Entwurf/Okt18/cd/Document
 			</aas:identification>
@@ -417,18 +243,17 @@
 						<IEC61360:sourceOfDefinition>
 							[ISO 15519-1:2010]
 						</IEC61360:sourceOfDefinition>
-						<IEC61360:unit/>
+						<IEC61360:unit />
 					</aas:dataSpecificationIEC61360>
 				</aas:dataSpecificationContent>
 				<aas:dataSpecification>
 					<aas:keys>
-						<aas:key idType="IRI"  type="GlobalReference">
+						<aas:key idType="IRI" type="GlobalReference">
 							http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360
 						</aas:key>
 					</aas:keys>
 				</aas:dataSpecification>
 			</aas:embeddedDataSpecification>
-
 		</aas:conceptDescription>
 		<aas:conceptDescription>
 			<aas:idShort>
@@ -459,13 +284,13 @@
 								digitale Datei
 							</IEC61360:langString>
 						</IEC61360:shortName>
-						<IEC61360:sourceOfDefinition/>
-						<IEC61360:unit/>
+						<IEC61360:sourceOfDefinition />
+						<IEC61360:unit />
 					</aas:dataSpecificationIEC61360>
 				</aas:dataSpecificationContent>
 				<aas:dataSpecification>
 					<aas:keys>
-						<aas:key idType="IRI"  type="GlobalReference">
+						<aas:key idType="IRI" type="GlobalReference">
 							http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360
 						</aas:key>
 					</aas:keys>
@@ -473,4 +298,158 @@
 			</aas:embeddedDataSpecification>
 		</aas:conceptDescription>
 	</aas:conceptDescriptions>
+	<aas:submodels>
+		<aas:submodel>
+			<aas:idShort>
+				Documentation
+			</aas:idShort>
+			<aas:identification idType="IRI">
+				http://i40.customer.com/type/1/1/1A7B62B529F19152
+			</aas:identification>
+			<aas:kind>Instance</aas:kind>
+			<aas:submodelElements>
+				<aas:submodelElement>
+					<aas:submodelElementCollection>
+						<aas:idShort>
+							OperatingManual
+						</aas:idShort>
+						<aas:kind>Instance</aas:kind>
+						<aas:semanticId>
+							<aas:keys>
+								<aas:key idType="IRI" type="ConceptDescription">
+									www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document
+								</aas:key>
+							</aas:keys>
+						</aas:semanticId>
+						<aas:allowDuplicates>false</aas:allowDuplicates>
+						<aas:ordered>false</aas:ordered>
+						<aas:value>
+							<aas:submodelElement>
+								<aas:file>
+									<aas:idShort>
+										DigitalFile_PDF
+									</aas:idShort>
+									<aas:category>
+										PARAMETER
+									</aas:category>
+									<aas:kind>Instance</aas:kind>
+									<aas:semanticId>
+										<aas:keys>
+											<aas:key idType="IRI" type="ConceptDescription">
+												http://vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile
+											</aas:key>
+										</aas:keys>
+									</aas:semanticId>
+									<aas:value>
+										/aasx/OperatingManual.pdf
+									</aas:value>
+									<aas:mimeType>
+										application/pdf
+									</aas:mimeType>
+								</aas:file>
+							</aas:submodelElement>
+							<aas:submodelElement>
+								<aas:multiLanguageProperty>
+									<aas:idShort>
+										Title
+									</aas:idShort>
+									<aas:kind>Instance</aas:kind>
+									<aas:semanticId>
+										<aas:keys>
+											<aas:key idType="IRI" type="ConceptDescription">
+												http://vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title
+											</aas:key>
+										</aas:keys>
+									</aas:semanticId>
+									<aas:value>
+										<aas:langString lang="EN">
+											Operating Manual
+										</aas:langString>
+									</aas:value>
+								</aas:multiLanguageProperty>
+							</aas:submodelElement>
+						</aas:value>
+					</aas:submodelElementCollection>
+				</aas:submodelElement>
+			</aas:submodelElements>
+		</aas:submodel>
+		<aas:submodel>
+			<aas:idShort>
+				TechnicalData
+			</aas:idShort>
+			<aas:identification idType="IRI">
+				http://i40.customer.com/type/1/1/7A7104BDAB57E184
+			</aas:identification>
+			<aas:kind>Instance</aas:kind>
+			<aas:semanticId>
+				<aas:keys>
+					<aas:key idType="IRDI" type="GlobalReference">
+						0173-1#01-AFZ615#016
+					</aas:key>
+				</aas:keys>
+			</aas:semanticId>
+			<aas:submodelElements>
+				<aas:submodelElement>
+					<aas:property>
+						<aas:idShort>
+							MaxRotationSpeed
+						</aas:idShort>
+						<aas:category>
+							PARAMETER
+						</aas:category>
+						<aas:kind>Instance</aas:kind>
+						<aas:semanticId>
+							<aas:keys>
+								<aas:key idType="IRDI" type="ConceptDescription">
+									0173-1#02-BAA120#008
+								</aas:key>
+							</aas:keys>
+						</aas:semanticId>
+						<aas:value>
+							5000
+						</aas:value>
+						<aas:valueType>
+							integer
+						</aas:valueType>
+					</aas:property>
+				</aas:submodelElement>
+			</aas:submodelElements>
+		</aas:submodel>
+		<aas:submodel>
+			<aas:idShort>
+				OperationalData
+			</aas:idShort>
+			<aas:identification idType="IRI">
+				http://i40.customer.com/instance/1/1/AC69B1CB44F07935
+			</aas:identification>
+			<aas:kind>Instance</aas:kind>
+			<aas:submodelElements>
+				<aas:submodelElement>
+					<aas:property>
+						<aas:idShort>
+							RotationSpeed
+						</aas:idShort>
+						<aas:category>
+							VARIABLE
+						</aas:category>
+						<aas:kind>Instance</aas:kind>
+						<aas:semanticId>
+							<aas:keys>
+								<aas:key idType="IRI" type="ConceptDescription">
+									http://customer.com/cd/1/1/18EBD56F6B43D895
+								</aas:key>
+							</aas:keys>
+						</aas:semanticId>
+						<aas:value>
+							4370
+						</aas:value>
+						<aas:valueType>
+							integer
+						</aas:valueType>
+					</aas:property>
+				</aas:submodelElement>
+			</aas:submodelElements>
+		</aas:submodel>
+	</aas:submodels>
+		
 </aas:aasenv>

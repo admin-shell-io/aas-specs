@@ -5,20 +5,12 @@
 	<aas:assetAdministrationShells>
 		<aas:assetAdministrationShell>
 			<aas:idShort>shell1</aas:idShort>
-			<aas:identification idType="IRI">www.admin-shell.io/aas-sample/2/0</aas:identification>
 			<aas:administration>
-				<aas:version>1</aas:version>
 				<aas:revision>0</aas:revision>
+				<aas:version>1</aas:version>
 			</aas:administration>
-			<aas:assetInformation>
-				<aas:assetKind>Type</aas:assetKind>
-				<aas:globalAssetId>
-					<aas:keys>
-						<aas:key type="Asset" idType="IRI">http://pk.festo.com/3s7plfdrs35</aas:key>
-					</aas:keys>
-				</aas:globalAssetId>
+			<aas:identification idType="IRI">www.admin-shell.io/aas-sample/2/0</aas:identification>
 
-			</aas:assetInformation>
 			<aas:submodelRefs>
 				<aas:submodelRef>
 					<aas:keys>
@@ -26,6 +18,14 @@
 					</aas:keys>
 				</aas:submodelRef>
 			</aas:submodelRefs>
+			<aas:assetInformation>
+				<aas:globalAssetId>
+					<aas:keys>
+						<aas:key type="Asset" idType="IRI">http://pk.festo.com/3s7plfdrs35</aas:key>
+					</aas:keys>
+				</aas:globalAssetId>
+				<aas:assetKind>Type</aas:assetKind>
+			</aas:assetInformation>
 			<aas:views>
 				<aas:view>
 					<aas:idShort>SampleView</aas:idShort>
@@ -38,7 +38,9 @@
 						</aas:containedElementRef>
 					</aas:containedElements>
 				</aas:view>
-			</aas:views></aas:assetAdministrationShell>
+			</aas:views>
+
+		</aas:assetAdministrationShell>
 	</aas:assetAdministrationShells>
 	<aas:assets>
 		<aas:asset>
@@ -49,42 +51,6 @@
 			<aas:identification idType="IRI">http://pk.festo.com/3s7plfdrs35</aas:identification>
 		</aas:asset>
 	</aas:assets>
-	<aas:submodels>
-		<aas:submodel>
-			<aas:idShort>submodel1</aas:idShort>
-			<aas:identification idType="IRI">http://www.zvei.de/demo/submodel/12345679</aas:identification>
-			<aas:kind>Instance</aas:kind>
-			<aas:submodelElements>
-				<aas:submodelElement>
-					<aas:property>
-						<aas:idShort>rotationSpeed</aas:idShort>
-						<aas:category>VARIABLE</aas:category>
-						<aas:kind>Instance</aas:kind>
-						<aas:semanticId>
-							<aas:keys>
-								<aas:key idType="IRI" type="ConceptDescription">www.festo.com/dic/08111234</aas:key>
-							</aas:keys>
-						</aas:semanticId>
-						<aas:valueType>double</aas:valueType>
-					</aas:property>
-				</aas:submodelElement>
-				<aas:submodelElement>
-					<aas:property>
-						<aas:idShort>NMAX</aas:idShort>
-						<aas:category>PARAMETER</aas:category>
-						<aas:kind>Instance</aas:kind>
-						<aas:semanticId>
-							<aas:keys>
-								<aas:key idType="IRDI" type="GlobalReference" >0173-1#02-BAA120#007</aas:key>
-							</aas:keys>
-						</aas:semanticId>
-						<aas:valueType>double</aas:valueType>
-						<aas:value>2000</aas:value>
-					</aas:property>
-				</aas:submodelElement>
-			</aas:submodelElements>
-		</aas:submodel>
-	</aas:submodels>
 	<aas:conceptDescriptions>
 		<aas:conceptDescription>
 			<aas:idShort>08111234</aas:idShort>
@@ -93,7 +59,7 @@
 				<aas:dataSpecificationContent>
 					<aas:dataSpecificationIEC61360>
 						<IEC61360:preferredName>
-							<IEC61360:langString lang="DE">Drehzahl	</IEC61360:langString> 
+							<IEC61360:langString lang="DE">Drehzahl	</IEC61360:langString>
 							<IEC61360:langString>lang="EN">Rotation Speed</IEC61360:langString>
 						</IEC61360:preferredName>
 						<IEC61360:shortName>
@@ -101,7 +67,8 @@
 						</IEC61360:shortName>
 						<IEC61360:unitId>
 							<IEC61360:keys>
-								<IEC61360:key local="false" type="GlobalReference" idType="IRDI">0173-1#05-AAA650#002</IEC61360:key>
+								<IEC61360:key local="false" type="GlobalReference"
+									idType="IRDI">0173-1#05-AAA650#002</IEC61360:key>
 							</IEC61360:keys>
 						</IEC61360:unitId>
 						<IEC61360:valueFormat>NR1..5</IEC61360:valueFormat>
@@ -129,7 +96,8 @@
 						</IEC61360:shortName>
 						<IEC61360:unitId>
 							<IEC61360:keys>
-								<IEC61360:key type="GlobalReference" idType="IRDI" local="false">0173-1#05-AAA650#002</IEC61360:key>
+								<IEC61360:key type="GlobalReference" idType="IRDI"
+									local="false">0173-1#05-AAA650#002</IEC61360:key>
 							</IEC61360:keys>
 						</IEC61360:unitId>
 						<IEC61360:valueFormat>NR1..5</IEC61360:valueFormat>
@@ -137,7 +105,7 @@
 				</aas:dataSpecificationContent>
 				<aas:dataSpecification>
 					<aas:keys>
-						<aas:key idType="IRI" type="GlobalReference" >www.admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360</aas:key>
+						<aas:key idType="IRI" type="GlobalReference">www.admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360</aas:key>
 					</aas:keys>
 				</aas:dataSpecification>
 			</aas:embeddedDataSpecification>
@@ -172,4 +140,40 @@
 			</aas:embeddedDataSpecification>
 		</aas:conceptDescription>
 	</aas:conceptDescriptions>
+	<aas:submodels>
+		<aas:submodel>
+			<aas:idShort>submodel1</aas:idShort>
+			<aas:identification idType="IRI">http://www.zvei.de/demo/submodel/12345679</aas:identification>
+			<aas:kind>Instance</aas:kind>
+			<aas:submodelElements>
+				<aas:submodelElement>
+					<aas:property>
+						<aas:idShort>rotationSpeed</aas:idShort>
+						<aas:category>VARIABLE</aas:category>
+						<aas:kind>Instance</aas:kind>
+						<aas:semanticId>
+							<aas:keys>
+								<aas:key idType="IRI" type="ConceptDescription">www.festo.com/dic/08111234</aas:key>
+							</aas:keys>
+						</aas:semanticId>
+						<aas:valueType>double</aas:valueType>
+					</aas:property>
+				</aas:submodelElement>
+				<aas:submodelElement>
+					<aas:property>
+						<aas:idShort>NMAX</aas:idShort>
+						<aas:category>PARAMETER</aas:category>
+						<aas:kind>Instance</aas:kind>
+						<aas:semanticId>
+							<aas:keys>
+								<aas:key idType="IRDI" type="GlobalReference">0173-1#02-BAA120#007</aas:key>
+							</aas:keys>
+						</aas:semanticId>
+						<aas:value>2000</aas:value>
+						<aas:valueType>double</aas:valueType>
+					</aas:property>
+				</aas:submodelElement>
+			</aas:submodelElements>
+		</aas:submodel>
+	</aas:submodels>
 </aas:aasenv>
