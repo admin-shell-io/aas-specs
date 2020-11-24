@@ -63,7 +63,8 @@
             }
           },
           "required": [
-            "modelType"
+            "modelType",
+            "idShort"
           ]
         }
       ]
@@ -659,7 +660,7 @@
             "globalAssetId": {
               "$ref": "#/definitions/Reference"
             },
-            "externalAssetIds": {
+            "specificAssetIds": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/IdentifierKeyValuePair"
