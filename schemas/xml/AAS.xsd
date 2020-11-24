@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://www.admin-shell.io/aas/2/0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:aas="http://www.admin-shell.io/aas/2/0" xmlns:abac="http://www.admin-shell.io/aas/abac/2/0" xmlns:IEC61360="http://www.admin-shell.io/IEC61360/2/0" xmlns:Q1="http://www.admin-shell.io/aas/2/0">
-	<import namespace="http://www.admin-shell.io/aas/abac/2/0" schemaLocation="AAS_ABAC.xsd"/>
-	<import namespace="http://www.admin-shell.io/IEC61360/2/0" schemaLocation="IEC61360.xsd"/>
+<schema elementFormDefault="qualified" targetNamespace="http://www.admin-shell.io/aas/3/0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:aas="http://www.admin-shell.io/aas/3/0" xmlns:abac="http://www.admin-shell.io/aas/abac/3/0" xmlns:IEC61360="http://www.admin-shell.io/IEC61360/3/0" xmlns:Q1="http://www.admin-shell.io/aas/3/0">
+	<import namespace="http://www.admin-shell.io/aas/abac/3/0" schemaLocation="AAS_ABAC.xsd"/>
+	<import namespace="http://www.admin-shell.io/IEC61360/3/0" schemaLocation="IEC61360.xsd"/>
 	<attributeGroup name="keyTypes">
 		<attribute name="identifierType" use="optional">
 			<simpleType>
@@ -36,9 +36,6 @@
 		<sequence>
 			<group ref="aas:identifiable"/>
 			<group ref="aas:hasDataSpecification"/>
-			<element maxOccurs="1" minOccurs="0" name="assetIdentificationModelRef" type="aas:reference_t"/>
-			<element maxOccurs="1" minOccurs="0" name="billOfMaterialRef" type="aas:reference_t"/>
-			<element maxOccurs="1" minOccurs="0" name="kind" type="aas:assetKind_t"/>
 		</sequence>
 	</complexType>
 	<complexType name="assetAdministrationShell_t">
@@ -46,10 +43,9 @@
 			<group ref="aas:identifiable"/>
 			<group ref="aas:hasDataSpecification"/>
 			<element maxOccurs="1" minOccurs="0" name="derivedFrom" type="aas:reference_t" />
-			<element maxOccurs="1" minOccurs="1" name="assetRef" type="aas:reference_t" />
+			<element maxOccurs="1" minOccurs="1" name="assetInformation" type="aas:assetInformation_t" />
 			<element maxOccurs="1" minOccurs="0" name="submodelRefs" type="aas:submodelRefs_t" />
-			<element maxOccurs="1" minOccurs="0" name="views" type="aas:views_t" />
-			<element maxOccurs="1" minOccurs="0" name="conceptDictionaries" type="aas:conceptDictionaries_t"/>			<element maxOccurs="1" minOccurs="0" name="security" type="abac:security_t" />
+			<element maxOccurs="1" minOccurs="0" name="views" type="aas:views_t" />			<element maxOccurs="1" minOccurs="0" name="security" type="abac:security_t" />
         </sequence>
 	</complexType>
 	<complexType name="assetAdministrationShells_t">
@@ -102,18 +98,7 @@
 		<sequence>
 			<element maxOccurs="unbounded" minOccurs="0" name="conceptDescription" type="aas:conceptDescription_t"/>
 		</sequence>
-	</complexType>
-	<complexType name="conceptDictionaries_t">
-		<sequence>
-			<element maxOccurs="unbounded" minOccurs="0" name="conceptDictionary" type="aas:conceptDictionary_t"/>
-		</sequence>
-	</complexType>
-	<complexType name="conceptDictionary_t">
-		<sequence>
-			<group ref="aas:referable" />
-			<element name="conceptDescriptionRefs" type="aas:conceptDescriptionRefs_t"></element>
-		</sequence>
-	</complexType>
+	</complexType>
 	<complexType name="constraint_t">
 		<choice>
 			<element maxOccurs="1" minOccurs="0" name="formula" type="aas:formula_t"/>
@@ -144,8 +129,9 @@
 		<complexContent>
 			<extension base="aas:submodelElementAbstract_t">
 				<sequence>
-                    <element name="statements" type="aas:submodelElements_t"/>
-                    <element name="entityType">
+					<element name="statements"
+						type="aas:submodelElements_t" />
+					<element name="entityType">
 						<simpleType>
 							<restriction base="aas:entityType_t">
 								<enumeration value="CoManagedEntity" />
@@ -153,7 +139,9 @@
 							</restriction>
 						</simpleType>
 					</element>
-                    <element name="assetRef" type="aas:reference_t" minOccurs="0" maxOccurs="1"/>
+					<element name="globalAssetId" type="aas:reference_t"
+						minOccurs="0" maxOccurs="1" />
+					<element name="externalAssetId" type="aas:identifierKeyValuePair_t" minOccurs="0" maxOccurs="1"></element>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -224,8 +212,7 @@
 							<enumeration value="IRI"/>
 						</restriction>
 					</simpleType>
-				</attribute>
-				<attribute name="local" type="boolean"/>
+				</attribute>
 				<attribute name="type">
 					<simpleType>
 						<restriction base="string">
@@ -478,21 +465,26 @@
 	</group>
 	<group name="referable">
 		<sequence>
-			<element maxOccurs="1" minOccurs="1" name="idShort" type="aas:idShort_t" />
-			<element maxOccurs="1" minOccurs="0" name="category" type="string"/>
-			<element maxOccurs="1" minOccurs="0" name="description" type="aas:langStringSet_t"/>
-			<element maxOccurs="1" minOccurs="0" name="parent" type="aas:reference_t"/>
-        </sequence>
-	</group>
-	<group name="qualifiable">
-		<sequence>
-			<element maxOccurs="unbounded" minOccurs="0" name="qualifier" type="aas:constraint_t"/>
+		    <group ref="aas:hasExtensions"/>
+			<element maxOccurs="1" minOccurs="1" name="idShort"
+				type="aas:idShort_t" />
+			<element maxOccurs="1" minOccurs="0" name="category"
+				type="string" />
+			<element maxOccurs="1" minOccurs="0" name="description"
+				type="aas:langStringSet_t" />
+
+			<element name="displayName" type="aas:langStringSet_t" minOccurs="0" maxOccurs="1"></element>
 		</sequence>
 	</group>
+ <group name="qualifiable">
+         <sequence>
+                <element maxOccurs="unbounded" minOccurs="0" name="qualifiers" type="aas:constraint_t"/>
+         </sequence>
+   </group>
 	<simpleType name="assetKind_t">
 		<restriction base="string">
 			<enumeration value="Instance"/>
-			<enumeration value="Template"/>
+			<enumeration value="Type"/>
 		</restriction>
 	</simpleType>
 	<simpleType name="entityType_t">
@@ -541,4 +533,66 @@
 	<complexType name="dataElementAbstract_t">
         <group ref="aas:dataElement"></group>
     </complexType>
+
+	<complexType name="assetInformation_t">
+		<sequence>
+			<element name="assetKind" type="aas:assetKind_t"
+				minOccurs="1" maxOccurs="1">
+			</element>
+			<element name="globalAssetId" type="aas:reference_t"
+				minOccurs="0" maxOccurs="1">
+			</element>
+			<element name="externalAssetId"
+				type="aas:identifierKeyValuePair_t" minOccurs="0"
+				maxOccurs="unbounded">
+			</element>
+			<element name="billOfMaterial" type="aas:submodelRefs_t"
+				minOccurs="0" maxOccurs="1">
+			</element>
+			<element name="defaultThumbNail" type="aas:file_t" minOccurs="0" maxOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="identifierKeyValuePair_t">
+		<sequence>
+			<group ref="aas:hasSemantics"/>		
+			<element name="key" type="string" minOccurs="1"
+				maxOccurs="1">
+			</element>
+			<!-- 14-11-2020: Error in IdentifierKeyValuePair: ValueDataType ==> string -->
+			<element name="value" type="string"
+				minOccurs="1" maxOccurs="1">
+			</element>
+			<element name="externalSubjectId" type="aas:reference_t" minOccurs="1" maxOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<group name="hasExtensions">
+		<sequence>
+		<element name="extension" type="aas:extensions_t" minOccurs="0" maxOccurs="1"></element>
+		</sequence>
+	</group>
+
+	<complexType name="extensions_t">
+		<sequence>
+			<element name="extension" type="aas:extension_t" minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="extension_t">
+		<sequence>
+			<group ref="aas:hasSemantics"/>		
+			<element name="name" type="string" minOccurs="1"
+				maxOccurs="1">
+			</element>
+			<element name="valueType" type="aas:dataTypeDef_t"
+				minOccurs="0" maxOccurs="1">
+			</element>
+			<element name="value" type="aas:valueDataType_t"
+				minOccurs="0" maxOccurs="1">
+			</element>
+			<element name="refersTo" type="aas:references_t" minOccurs="0" maxOccurs="1"></element>
+		</sequence>
+	</complexType>
+
 </schema>
