@@ -24,7 +24,7 @@ aas:AccessControlShape a sh:NodeShape ;
   sh:targetClass aas:AccessControl ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControl/accessPermissionRule> ;
+      sh:path aas:AccessControl/accessPermissionRule ;
       sh:class aas:AccessPermissionRule ;
       sh:minCount 0 ;
       sh:message "A <i>accessPermissionRule</b> must point to a <i>AccessPermissionRule</i>."^^xsd:string ;
