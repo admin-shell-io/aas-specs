@@ -1300,8 +1300,7 @@ aas:SubmodelElementCollectionShape  a sh:NodeShape ;
       sh:defaultValue false ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "Only one boolean value for <i>ordered</i> is allowed"^^xsd:string ;
-      sh:name "ordered"^^xsd:string ;
+      sh:message "(SubmodelElementCollection.ordered):Only one boolean value for <i>ordered</i> is allowed"^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -1321,7 +1320,6 @@ aas:ViewShape a sh:NodeShape ;
       a sh:PropertyShape ;
       sh:path aas:View/containedElement ;
       sh:class aas:Reference ;
-      sh:name "view contained element"^^xsd:string ;
 	    sh:message "(View.containedElement):View can contain only References for <i>containedElement</i>."^^xsd:string ;
   ] ;
 .
