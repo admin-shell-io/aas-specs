@@ -32,7 +32,7 @@ aas:AccessControlShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControl/selectableSubjectAttributes> ;
+      sh:path aas:AccessControl/selectableSubjectAttributes ;
       sh:class aas:Submodel ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -41,7 +41,7 @@ aas:AccessControlShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControl/defaultSubjectAttributes> ;
+      sh:path aas:AccessControl/defaultSubjectAttributes ;
       sh:class aas:Submodel ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -50,7 +50,7 @@ aas:AccessControlShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControl/selectablePermissions> ;
+      sh:path aas:AccessControl/selectablePermissions ;
       sh:class aas:Submodel ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -59,7 +59,7 @@ aas:AccessControlShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControl/defaultPermissions> ;
+      sh:path aas:AccessControl/defaultPermissions ;
       sh:class aas:Submodel ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -68,7 +68,7 @@ aas:AccessControlShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControl/selectableEnvironmentAttributes> ;
+      sh:path aas:AccessControl/selectableEnvironmentAttributes ;
       sh:class aas:Submodel ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -77,7 +77,7 @@ aas:AccessControlShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControl/defaultEnvironmentAttributes> ;
+      sh:path aas:AccessControl/defaultEnvironmentAttributes ;
       sh:class aas:Submodel ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -90,7 +90,7 @@ aas:AccessControlPolicyPointsShape a sh:NodeShape ;
   sh:targetClass aas:AccessControlPolicyPoints ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyAdministrationPoint> ;
+      sh:path aas:AccessControlPolicyPoints/policyAdministrationPoint ;
       sh:class aas:PolicyAdministrationPoint ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -99,7 +99,7 @@ aas:AccessControlPolicyPointsShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyDecisionPoint> ;
+      sh:path aas:AccessControlPolicyPoints/policyDecisionPoint ;
       sh:class aas:PolicyDecisionPoint ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -108,7 +108,7 @@ aas:AccessControlPolicyPointsShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyEnforcementPoint> ;
+      sh:path aas:AccessControlPolicyPoints/policyEnforcementPoint ;
       sh:class aas:PolicyEnforcementPoint ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -117,7 +117,7 @@ aas:AccessControlPolicyPointsShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyInformationPoints> ;
+      sh:path aas:AccessControlPolicyPoints/policyInformationPoints ;
       sh:class aas:PolicyInformationPoints ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -131,7 +131,7 @@ aas:AccessPermissionRuleShape a sh:NodeShape ;
   sh:targetClass aas:AccessPermissionRule ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessPermissionRule/permissionsPerObject> ;
+      sh:path aas:AccessPermissionRule/permissionsPerObject ;
       sh:class aas:PermissionsPerObject ;
       sh:minCount 0 ;
       sh:message "A <i>permissionsPerObject</b> must point to a <i>PermissionsPerObject</i>."^^xsd:string ;
@@ -139,7 +139,7 @@ aas:AccessPermissionRuleShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessPermissionRule/targetSubjectAttributes> ;
+      sh:path aas:AccessPermissionRule/targetSubjectAttributes ;
       sh:class aas:SubjectAttributes ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
@@ -153,7 +153,7 @@ aas:AdministrativeInformationShape  a sh:NodeShape ;
   rdfs:subClassOf aas:HasDataSpecificationShape ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AdministrativeInformation/revision> ;
+      sh:path aas:AdministrativeInformation/revision ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -163,7 +163,7 @@ aas:AdministrativeInformationShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AdministrativeInformation/version> ;
+      sh:path aas:AdministrativeInformation/version ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -178,7 +178,7 @@ aas:AnnotatedRelationshipElementShape a sh:NodeShape ;
   rdfs:subClassOf aas:RelationshipElementShape ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AnnotatedRelationshipElement/annotation> ;
+      sh:path aas:AnnotatedRelationshipElement/annotation ;
       sh:class aas:DataElement ;
       sh:minCount 0 ;
       sh:message "An <i>annotation</i> must point to a DataElement."^^xsd:string ;
@@ -193,7 +193,7 @@ aas:AssetShape a sh:NodeShape ;
 
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Asset/assetIdentificationModel> ;
+      sh:path aas:Asset/assetIdentificationModel ;
       sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -206,7 +206,7 @@ aas:AssetInformationShape a sh:NodeShape ;
   sh:targetClass aas:AssetInformation ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetkind> ;
+      sh:path aas:AssetInformation/assetkind ;
       sh:class aas:AssetKind ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -216,7 +216,7 @@ aas:AssetInformationShape a sh:NodeShape ;
 
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId> ;
+      sh:path aas:AssetInformation/globalAssetId ;
       sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -226,7 +226,7 @@ aas:AssetInformationShape a sh:NodeShape ;
 
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/externalAssetId> ;
+      sh:path aas:AssetInformation/externalAssetId ;
       sh:class aas:IdentifierKeyValuePair ;
       sh:minCount 0 ;
       sh:message "A <i>externalAssetId</b> must point to an <i>IdentifierKeyValuePair</i>."^^xsd:string ;
@@ -235,7 +235,7 @@ aas:AssetInformationShape a sh:NodeShape ;
 
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial> ;
+      sh:path aas:AssetInformation/billOfMaterial ;
       sh:class aas:Reference ;
       sh:minCount 0 ;
       sh:message "A <i>billOfMaterial</b> must point to a <i>reference</i>."^^xsd:string ;
@@ -244,7 +244,7 @@ aas:AssetInformationShape a sh:NodeShape ;
 
    sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/thumbnail> ;
+      sh:path aas:AssetInformation/thumbnail ;
       sh:class aas:File;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -259,7 +259,7 @@ aas:IdentifierKeyValuePairShape a sh:NodeShape ;
 
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/key> ;
+      sh:path aas:IdentifierKeyValuePair/key ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -268,7 +268,7 @@ aas:IdentifierKeyValuePairShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value> ;
+      sh:path aas:IdentifierKeyValuePair/value ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -277,7 +277,7 @@ aas:IdentifierKeyValuePairShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/externalSubjectId> ;
+      sh:path aas:IdentifierKeyValuePair/externalSubjectId ;
       sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -292,7 +292,7 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
   rdfs:subClassOf aas:IdentifiableShape ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/assetInformation> ;
+      sh:path aas:AssetAdministrationShell/assetInformation ;
 	  sh:class aas:AssetInformation ;
       sh:maxCount 1 ;
       sh:message "Exactly one <i>assetInformation</i> attribute having an <i>assetInformation</i> entity is required."^^xsd:string ;
@@ -301,7 +301,7 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/derivedFrom> ;
+      sh:path aas:AssetAdministrationShell/derivedFrom ;
       sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -310,7 +310,7 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/security> ;
+      sh:path aas:AssetAdministrationShell/security ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:class aas:Security ;
@@ -319,7 +319,7 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> ;
+      sh:path aas:AssetAdministrationShell/submodel ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
       sh:message "<i>hasSubmodel</i> must have a <i>reference</i> entity pointing to a Submodel."^^xsd:string ;
@@ -328,7 +328,7 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
 
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/view> ;
+      sh:path aas:AssetAdministrationShell/view ;
       sh:minCount 0 ;
       sh:class aas:View ;
       sh:message "<i>view</i> must point to a View"^^xsd:string ;
@@ -341,7 +341,7 @@ aas:BasicEventShape a sh:NodeShape ;
   sh:targetClass aas:BasicEvent ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/BasicEvent/observed> ;
+      sh:path aas:BasicEvent/observed ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:class aas:Reference ;
@@ -355,7 +355,7 @@ aas:BlobShape a sh:NodeShape ;
   sh:targetClass aas:Blob ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Blob/mimeType> ;
+      sh:path aas:Blob/mimeType ;
 
       sh:minCount 1 ;
       sh:maxCount 1 ;
@@ -364,7 +364,7 @@ aas:BlobShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Blob/value> ;
+      sh:path aas:Blob/value ;
       sh:maxCount 1 ;
       sh:message "Only one <i>value</i> is allowed"^^xsd:string ;
       sh:name "value"^^xsd:string ;
@@ -376,7 +376,7 @@ aas:BlobCertificateShape a sh:NodeShape ;
   sh:targetClass aas:BlobCertificate ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/CertificateShape/blobCertificate> ;
+      sh:path aas:CertificateShape/blobCertificate ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:class aas:Blob ;
@@ -385,7 +385,7 @@ aas:BlobCertificateShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/CertificateShape/containedExtension> ;
+      sh:path aas:CertificateShape/containedExtension ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
       sh:message "A <i>containedExtension</i> must point to a <i>Reference</i>."^^xsd:string ;
@@ -393,7 +393,7 @@ aas:BlobCertificateShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/CertificateShape/lastCertificate> ;
+      sh:path aas:CertificateShape/lastCertificate ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:datatype xsd:boolean ;
@@ -411,7 +411,7 @@ aas:CertificateShape  a sh:NodeShape ;
   sh:targetClass aas:Certificate ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Certificate/policyAdministrationPoint> ;
+      sh:path aas:Certificate/policyAdministrationPoint ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:class aas:PolicyAdministrationPoint ;
@@ -426,7 +426,7 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
   rdfs:subClassOf aas:IdentifiableShape ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/content> ;
+      sh:path aas:ConceptDescription/content ;
       sh:minCount 0 ;
       sh:class aas:DataSpecificationContent ;
       sh:message "<i>content</i> must link to a <i>DataSpecificationContent</i> entity."^^xsd:string ;
@@ -434,7 +434,7 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/isCaseOf> ;
+      sh:path aas:ConceptDescription/isCaseOf ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
       sh:message "<i>isCaseOf</i> must have a <i>reference</i> entity."^^xsd:string ;
@@ -452,7 +452,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
   sh:targetClass iec61360:DataSpecificationIEC61360 ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/datatype> ;
+      sh:path iec61360:DataSpecificationIEC61360/datatype ;
       sh:maxCount 1 ;
       sh:message "Exactly one <i>datatype</i> is required."^^xsd:string ;
       sh:minCount 1 ;
@@ -460,7 +460,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/definition> ;
+      sh:path iec61360:DataSpecificationIEC61360/definition ;
       sh:message "A <i>definition</i> must have a LangString"^^xsd:string ;
       sh:minCount 0 ;
       sh:datatype rdf:langString ;
@@ -468,7 +468,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/levelType> ;
+      sh:path iec61360:DataSpecificationIEC61360/levelType ;
       sh:message "A <i>levelType</i> must point to a LevelType"^^xsd:string ;
       sh:minCount 0 ;
       sh:class aas:LevelType ;
@@ -476,7 +476,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/preferredName> ;
+      sh:path iec61360:DataSpecificationIEC61360/preferredName ;
       sh:message "Exactly one <i>preferredName</i> is required"^^xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -485,7 +485,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/shortName> ;
+      sh:path iec61360:DataSpecificationIEC61360/shortName ;
       sh:maxCount 1 ;
       sh:message "A <i>shortName</i> must have a LangString"^^xsd:string ;
       sh:minCount 0 ;
@@ -494,7 +494,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/symbol> ;
+      sh:path iec61360:DataSpecificationIEC61360/symbol ;
       sh:maxCount 1 ;
       sh:message "A <i>symbol</i> must have a string"^^xsd:string ;
       sh:minCount 0 ;
@@ -503,7 +503,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/unit> ;
+      sh:path iec61360:DataSpecificationIEC61360/unit ;
       sh:maxCount 1 ;
       sh:message "A <i>unit</i> must have a String"^^xsd:string ;
       sh:minCount 0 ;
@@ -512,7 +512,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/unitId> ;
+      sh:path iec61360:DataSpecificationIEC61360/unitId ;
       sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:message "A <i>unitId</i> must have a Reference."^^xsd:string ;
@@ -521,7 +521,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueFormat> ;
+      sh:path iec61360:DataSpecificationIEC61360/valueFormat ;
       sh:maxCount 1 ;
       sh:message "A <i>valueFormat</i> must have a string"^^xsd:string ;
       sh:minCount 0 ;
@@ -530,7 +530,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/value> ;
+      sh:path iec61360:DataSpecificationIEC61360/value ;
       sh:maxCount 1 ;
       sh:message "A <i>value</i> must have a Literal"^^xsd:string ;
       sh:minCount 0 ;
@@ -539,7 +539,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueId> ;
+      sh:path iec61360:DataSpecificationIEC61360/valueId ;
       sh:maxCount 1 ;
       sh:message "A <i>valueId</i> must have a Reference"^^xsd:string ;
       sh:minCount 0 ;
@@ -548,7 +548,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/sourceOfDefinition> ;
+      sh:path iec61360:DataSpecificationIEC61360/sourceOfDefinition ;
       sh:maxCount 1 ;
       sh:message "A <i>sourceOfDefinition</i> must have a String"^^xsd:string ;
       sh:minCount 0 ;
@@ -557,7 +557,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueList> ;
+      sh:path iec61360:DataSpecificationIEC61360/valueList ;
       sh:maxCount 1 ;
       sh:message "A <i>valueList</i> must have a ValueList"^^xsd:string ;
       sh:minCount 0 ;
@@ -565,7 +565,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueId> ;
+      sh:path iec61360:DataSpecificationIEC61360/valueId ;
       sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:message "A <i>valueId</i> must have a Reference"^^xsd:string ;
@@ -700,7 +700,7 @@ aas:EntityShape a sh:NodeShape ;
   sh:targetClass aas:Entity ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/statement> ;
+      sh:path aas:Entity/statement ;
       sh:class aas:SubmodelElement ;
       sh:minCount 0 ;
       sh:message "A <i>statement</i> must link to a <i>SubmodelElement</i>."^^xsd:string ;
@@ -708,7 +708,7 @@ aas:EntityShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/entityType> ;
+      sh:path aas:Entity/entityType ;
       sh:class aas:EntityType ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -717,7 +717,7 @@ aas:EntityShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/globalAssetId> ;
+      sh:path aas:Entity/globalAssetId ;
       sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:message "Only one <i>globalAssetIdasset</i> attribute linking to a <i>Reference</i> is allowed."^^xsd:string ;
@@ -727,7 +727,7 @@ aas:EntityShape a sh:NodeShape ;
 
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/externalAssetId> ;
+      sh:path aas:Entity/externalAssetId ;
       sh:class aas:IdentifierKeyValuePair ;
       sh:maxCount 1 ;
       sh:message "Only one <i>externalAssetId</i> attribute linking to an <i>IdentifierKeyValuePair</i> is allowed."^^xsd:string ;
@@ -759,7 +759,7 @@ aas:FileShape a sh:NodeShape ;
   sh:targetClass aas:File ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/File/mimeType> ;
+      sh:path aas:File/mimeType ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:datatype xsd:string ;
@@ -768,7 +768,7 @@ aas:FileShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/File/value> ;
+      sh:path aas:File/value ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
@@ -781,7 +781,7 @@ aas:FormulaShape a sh:NodeShape ;
     sh:targetClass aas:Formula ;
     sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Formula/dependsOn> ;
+      sh:path aas:Formula/dependsOn ;
       sh:class aas:Reference ;
       sh:minCount 0 ;
       sh:message "Only References are allowed for <i>dependsOn</i>."^^xsd:string ;
@@ -793,7 +793,7 @@ aas:HasDataSpecificationShape a sh:NodeShape ;
   sh:targetClass aas:HasDataSpecification ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/HasDataSpecification/dataSpecification> ;
+      sh:path aas:HasDataSpecification/dataSpecification ;
       sh:class aas:Reference ;
       sh:minCount 0 ;
       sh:message "Only References are allowed for <i>dataSpecification</i>."^^xsd:string ;
@@ -805,7 +805,7 @@ aas:HasKindShape a sh:NodeShape ;
     sh:targetClass aas:HasKind ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> ;
+      sh:path aas:HasKind/kind ;
       sh:class aas:ModelingKind ;
       sh:maxCount 1 ;
       sh:message "Only one value for <i>kind</i> is allowed."^^xsd:string ;
@@ -818,7 +818,7 @@ aas:HasSemanticsShape a sh:NodeShape ;
   sh:targetClass aas:HasSemantics ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId> ;
+      sh:path aas:HasSemantics/semanticId ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
@@ -832,7 +832,7 @@ aas:IdentifiableShape  a sh:NodeShape ;
   rdfs:subClassOf aas:ReferableShape ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Identifiable/administration> ;
+      sh:path aas:Identifiable/administration ;
       sh:class aas:AdministrativeInformation ;
       sh:maxCount 1 ;
       sh:message "Only one value for <i>administration</i> is allowed."^^xsd:string ;
@@ -841,7 +841,7 @@ aas:IdentifiableShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> ;
+      sh:path aas:Identifiable/identification ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:message "Exactly one <i>identifier</i> is required."^^xsd:string ;
@@ -853,7 +853,7 @@ aas:IdentifierShape  a sh:NodeShape ;
   sh:targetClass aas:Identifier ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> ;
+      sh:path aas:Identifier/idType ;
       sh:class aas:IdentifierType ;
       sh:description "identifier id type"^^xsd:string ;
       sh:maxCount 1 ;
@@ -863,7 +863,7 @@ aas:IdentifierShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Identifier/id> ;
+      sh:path aas:Identifier/id ;
       sh:nodeKind sh:Literal ;
       sh:description "identifier id"^^xsd:string ;
       sh:maxCount 1 ;
@@ -877,7 +877,7 @@ aas:KeyShape  a sh:NodeShape ;
   sh:targetClass aas:Key ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Key/value> ;
+      sh:path aas:Key/value ;
       #sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -886,7 +886,7 @@ aas:KeyShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Key/idType> ;
+      sh:path aas:Key/idType ;
       sh:class aas:KeyType ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -895,7 +895,7 @@ aas:KeyShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Key/type> ;
+      sh:path aas:Key/type ;
       sh:class aas:KeyElements;
       sh:maxCount 1 ;
       sh:message "Only 1 <i>keyElement</i> can be stated"^^xsd:string ;
@@ -931,7 +931,7 @@ aas:ObjectAttributesShape a sh:NodeShape ;
   sh:targetClass aas:ObjectAttributes ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/ObjectAttributes/objectAttribute> ;
+      sh:path aas:ObjectAttributes/objectAttribute ;
       sh:class aas:DataElement ;
       sh:minCount 1 ;
       sh:message "At least one <i>objectAttribute</i> pointing to a <i>DataElement</i> is required."^^xsd:string ;
@@ -944,7 +944,7 @@ aas:OperationShape a sh:NodeShape ;
   sh:targetClass aas:Operation ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Operation/inputVariable> ;
+      sh:path aas:Operation/inputVariable ;
       sh:class aas:OperationVariable ;
       sh:minCount 0 ;
       sh:message "Only OperationVariables can be accepted as <i>inputVariable</i>"^^xsd:string ;
@@ -952,7 +952,7 @@ aas:OperationShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Operation/outputVariable> ;
+      sh:path aas:Operation/outputVariable ;
       sh:class aas:OperationVariable ;
       sh:minCount 0 ;
       sh:message "Only OperationVariables can be accepted as <i>outputVariable</i>"^^xsd:string ;
@@ -960,7 +960,7 @@ aas:OperationShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Operation/inoutputVariable> ;
+      sh:path aas:Operation/inoutputVariable ;
       sh:class aas:OperationVariable ;
       sh:minCount 0 ;
       sh:message "Only OperationVariables can be accepted as <i>inoutputVariable</i>"^^xsd:string ;
@@ -972,7 +972,7 @@ aas:OperationVariableShape a sh:NodeShape ;
   sh:targetClass aas:OperationVariable ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/OperationVariable/value> ;
+      sh:path aas:OperationVariable/value ;
       sh:class aas:SubmodelElement ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -985,7 +985,7 @@ aas:PermissionShape a sh:NodeShape ;
   sh:targetClass aas:Permission ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Permission/permission> ;
+      sh:path aas:Permission/permission ;
       sh:class aas:Property ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
@@ -994,7 +994,7 @@ aas:PermissionShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Permission/kindOfPermission> ;
+      sh:path aas:Permission/kindOfPermission ;
       sh:class aas:PermissionKind ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
@@ -1007,7 +1007,7 @@ aas:PermissionsPerObjectShape a sh:NodeShape ;
   sh:targetClass aas:PermissionsPerObject ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/PermissionsPerObject/object> ;
+      sh:path aas:PermissionsPerObject/object ;
       sh:class aas:Referable ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
@@ -1016,7 +1016,7 @@ aas:PermissionsPerObjectShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/PermissionsPerObject/targetObjectAttributes> ;
+      sh:path aas:PermissionsPerObject/targetObjectAttributes ;
       sh:class aas:ObjectAttributes ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
@@ -1025,7 +1025,7 @@ aas:PermissionsPerObjectShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/PermissionsPerObject/permission> ;
+      sh:path aas:PermissionsPerObject/permission ;
       sh:class aas:Permission ;
       sh:minCount 0 ;
       sh:message "A <i>permission</b> must point to a <i>Permission</i>."^^xsd:string ;
@@ -1037,7 +1037,7 @@ aas:PolicyAdministrationPointShape a sh:NodeShape ;
   sh:targetClass aas:PolicyAdministrationPoint ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyAdministrationPoint/localAccessControl> ;
+      sh:path aas:PolicyAdministrationPoint/localAccessControl ;
       sh:class aas:AccessControl ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -1046,7 +1046,7 @@ aas:PolicyAdministrationPointShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyAdministrationPoint/externalAccessControl> ;
+      sh:path aas:PolicyAdministrationPoint/externalAccessControl ;
       sh:datatype xsd:boolean ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1059,7 +1059,7 @@ aas:PolicyDecisionPointShape a sh:NodeShape ;
   sh:targetClass aas:PolicyDecisionPoint ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyDecisionPoint/externalPolicyDecisionPoints> ;
+      sh:path aas:PolicyDecisionPoint/externalPolicyDecisionPoints ;
       sh:datatype xsd:boolean ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1072,7 +1072,7 @@ aas:PolicyEnforcementPointShape a sh:NodeShape ;
   sh:targetClass aas:PolicyEnforcementPoint ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints/externalPolicyEnforcementPoint> ;
+      sh:path aas:PolicyEnforcementPoints/externalPolicyEnforcementPoint ;
       sh:datatype xsd:boolean ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1085,7 +1085,7 @@ aas:PolicyInformationPointsShape a sh:NodeShape ;
   sh:targetClass aas:PolicyInformationPoints ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint> ;
+      sh:path aas:PolicyInformationPoints/internalInformationPoint ;
       sh:class aas:Submodel ;
       sh:minCount 0 ;
       sh:message "A <i>internalInformationPoint</i> attribute must point to a <i>Submodel</i>."^^xsd:string ;
@@ -1093,7 +1093,7 @@ aas:PolicyInformationPointsShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/externalInformationPoints> ;
+      sh:path aas:PolicyInformationPoints/externalInformationPoints ;
       sh:datatype xsd:boolean ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1107,7 +1107,7 @@ aas:PropertyShape  a sh:NodeShape ;
   rdfs:subClassOf aas:DataElementShape ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Property/category> ;
+      sh:path aas:Property/category ;
       sh:class aas:Category ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -1116,7 +1116,7 @@ aas:PropertyShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Property/value> ;
+      sh:path aas:Property/value ;
       sh:nodeKind sh:Literal ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -1125,7 +1125,7 @@ aas:PropertyShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Property/valueId> ;
+      sh:path aas:Property/valueId ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
@@ -1138,7 +1138,7 @@ aas:QualifiableShape  a sh:NodeShape ;
   sh:targetClass aas:Qualifiable ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifiable/qualifier> ;
+      sh:path aas:Qualifiable/qualifier ;
       sh:class aas:Constraint ;
       sh:name "qualifier"^^xsd:string ;
     ] ;
@@ -1149,7 +1149,7 @@ aas:QualifierShape  a sh:NodeShape ;
   rdfs:subClassOf aas:HasSemanticsShape ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifier/type> ;
+      sh:path aas:Qualifier/type ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1158,7 +1158,7 @@ aas:QualifierShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifier/value> ;
+      sh:path aas:Qualifier/value ;
       sh:nodeKind sh:Literal ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -1167,7 +1167,7 @@ aas:QualifierShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifier/valueId> ;
+      sh:path aas:Qualifier/valueId ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
@@ -1181,14 +1181,14 @@ aas:RangeShape a sh:NodeShape ;
   rdfs:subClassOf aas:DataElementShape ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Range/min> ;
+      sh:path aas:Range/min ;
       sh:nodeKind sh:Literal ;
       sh:message "A <i>min</i> attribute must link to a <i>Literal</i>."^^xsd:string ;
       sh:name "min"^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Range/max> ;
+      sh:path aas:Range/max ;
       sh:nodeKind sh:Literal ;
       sh:message "A <i>max</i> attribute must link to a <i>Literal</i>."^^xsd:string ;
       sh:name "max"^^xsd:string ;
@@ -1199,7 +1199,7 @@ aas:HasExtensionsShape a sh:NodeShape ;
   sh:targeClass aas:HasExtensions ;
   sh:property [
 	  a sh:PropertyShape ;
-	  sh:path <https://admin-shell.io/aas/3/0/RC01/HasExtensions/extension> ;
+	  sh:path aas:HasExtensions/extension ;
 	  sh:class sh:Extension ;
 	  sh:minCount 0 ;
 	  sh:message "A <i>hasExtensions</i> attribute must point to a <i>Extension</i>."^^xsd:string ;
@@ -1212,7 +1212,7 @@ aas:ExtensionShape a sh:NodeShape ;
   rdfs:subClassOf aas:HasSemantics ;
   sh:property [
 	  a sh:PropertyShape ;
-	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extensions/name> ;
+	  sh:path aas:Extensions/name ;
 	  sh:datatype xsd:string ;
 	  sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1221,7 +1221,7 @@ aas:ExtensionShape a sh:NodeShape ;
 	] ;
   sh:property [
 	  a sh:PropertyShape ;
-	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extensions/valueType> ;
+	  sh:path aas:Extensions/valueType ;
 	  sh:datatype xsd:string ;
 	  sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -1230,7 +1230,7 @@ aas:ExtensionShape a sh:NodeShape ;
 	] ;
   sh:property [
 	  a sh:PropertyShape ;
-	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extensions/value> ;
+	  sh:path aas:Extensions/value ;
 	  sh:class sh:ValueDataType ;
 	  sh:maxCount 1 ;
     sh:minCount 0 ;
@@ -1239,7 +1239,7 @@ aas:ExtensionShape a sh:NodeShape ;
 	] ;
   sh:property [
 	  a sh:PropertyShape ;
-	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extensions/refersTo> ;
+	  sh:path aas:Extensions/refersTo ;
 	  sh:class sh:Reference ;
 	  sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -1252,7 +1252,7 @@ aas:ReferableShape  a sh:NodeShape ;
   sh:targetClass aas:Referable ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/category> ;
+      sh:path aas:Referable/category ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -1261,14 +1261,14 @@ aas:ReferableShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/description> ;
+      sh:path aas:Referable/description ;
       sh:datatype rdf:langString ;
       sh:name "Referable.description"^^xsd:string ;
       sh:minCount 0 ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/displayName> ;
+      sh:path aas:Referable/displayName ;
       sh:datatype rdf:langString ;
       sh:name "Referable.displayName"^^xsd:string ;
 	  sh:maxCount 1 ;
@@ -1277,7 +1277,7 @@ aas:ReferableShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> ;
+      sh:path aas:Referable/idShort ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1287,7 +1287,7 @@ aas:ReferableShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/parent> ;
+      sh:path aas:Referable/parent ;
       sh:class aas:Referable ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
@@ -1301,7 +1301,7 @@ aas:ReferenceShape a sh:NodeShape ;
   sh:targetClass aas:Reference ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Reference/key> ;
+      sh:path aas:Reference/key ;
       sh:class aas:Key ;
       sh:minCount 1 ;
       sh:name "key"^^xsd:string ;
@@ -1312,7 +1312,7 @@ aas:ReferenceElementShape a sh:NodeShape ;
   sh:targetClass aas:ReferenceElement ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/ReferenceElement/value> ;
+      sh:path aas:ReferenceElement/value ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
       sh:class aas:Reference ;
@@ -1326,7 +1326,7 @@ aas:RelationshipElementShape  a sh:NodeShape ;
   sh:targetClass aas:RelationshipElement ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/RelationshipElement/first> ;
+      sh:path aas:RelationshipElement/first ;
       sh:class aas:Referable ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1335,7 +1335,7 @@ aas:RelationshipElementShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/RelationshipElement/second> ;
+      sh:path aas:RelationshipElement/second ;
       sh:class aas:Referable ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1348,7 +1348,7 @@ aas:SecurityShape  a sh:NodeShape ;
   sh:targetClass aas:Security ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Security/accessControlPolicyPoints> ;
+      sh:path aas:Security/accessControlPolicyPoints ;
       sh:class aas:AccessControlPolicyPoints ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1357,7 +1357,7 @@ aas:SecurityShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Security/certificate> ;
+      sh:path aas:Security/certificate ;
       sh:class aas:Certificate ;
       sh:message "A <i>certificate</i> must point to a Certificate"^^xsd:string ;
       sh:minCount 0 ;
@@ -1365,7 +1365,7 @@ aas:SecurityShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Security/requiredCertificateExtension> ;
+      sh:path aas:Security/requiredCertificateExtension ;
       sh:class aas:Reference ;
       sh:message "A <i>requiredCertificateExtension</i> must point to a Reference."^^xsd:string ;
       sh:minCount 0 ;
@@ -1377,7 +1377,7 @@ aas:SubjectAttributesShape a sh:NodeShape ;
   sh:targetClass aas:SubjectAttributes ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/SubjectAttributes/subjectAttribute> ;
+      sh:path aas:SubjectAttributes/subjectAttribute ;
       sh:class aas:DataElement ;
       sh:minCount 1 ;
       sh:message "At least one <i>subjectAttribute</i> pointing to a <i>DataElement</i> is required."^^xsd:string ;
@@ -1395,7 +1395,7 @@ aas:SubmodelShape  a sh:NodeShape ;
   sh:message "Invalid Identification Template (For Submodels with Kind = Type only Ids of Type IRDI or IRI are allowed) /  (For Submodels with Kind = Instance only Ids of Type Custom or IRI are allowed)"^^xsd:string ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> ;
+      sh:path aas:Submodel/submodelElement ;
       sh:class aas:SubmodelElement ;
       sh:minCount 0 ;
       sh:message "all submodel elements must be instances of type SubmodelElement"^^xsd:string ;
@@ -1417,7 +1417,7 @@ aas:SubmodelElementCollectionShape  a sh:NodeShape ;
   sh:targetClass aas:SubmodelElementCollection ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/allowDuplicates> ;
+      sh:path aas:SubmodelElementCollection/allowDuplicates ;
       sh:datatype xsd:boolean ;
       sh:defaultValue false ;
       sh:maxCount 1 ;
@@ -1427,7 +1427,7 @@ aas:SubmodelElementCollectionShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/ordered> ;
+      sh:path aas:SubmodelElementCollection/ordered ;
       sh:datatype xsd:boolean ;
       sh:defaultValue false ;
       sh:maxCount 1 ;
@@ -1437,7 +1437,7 @@ aas:SubmodelElementCollectionShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/value> ;
+      sh:path aas:SubmodelElementCollection/value ;
       sh:class aas:SubmodelElement ;
       sh:minCount 0 ;
       sh:message "SubmodelElementCollection can contain only SubmodelElements for <i>value</i>."^^xsd:string ;
@@ -1452,7 +1452,7 @@ aas:ViewShape a sh:NodeShape ;
   sh:targetClass aas:View ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/View/containedElement> ;
+      sh:path aas:View/containedElement ;
       sh:class aas:Reference ;
       sh:name "view contained element"^^xsd:string ;
 	  sh:message "View can contain only References for <i>containedElement</i>."^^xsd:string ;
