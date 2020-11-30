@@ -32,50 +32,50 @@ aas:AccessControlShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:AccessControl/selectableSubjectAttributes ;
-      sh:class aas:Submodel ;
+      sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "(AccessControl.selectableSubjectAttributes):Only one <i>selectableSubjectAttributes</b> pointing to a <i>Submodel</i> is allowed."^^xsd:string ;
+      sh:message "(AccessControl.selectableSubjectAttributes):A <i>selectableSubjectAttributes</b> attribute only have one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:AccessControl/defaultSubjectAttributes ;
-      sh:class aas:Submodel ;
+      sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:message "(AccessControl.defaultSubjectAttributes):Exactly one <i>defaultSubjectAttributes</b> pointing to a <i>Submodel</i> is required."^^xsd:string ;
+      sh:message "(AccessControl.defaultSubjectAttributes):A <i>defaultSubjectAttributes</b> attribute have exactly one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:AccessControl/selectablePermissions ;
-      sh:class aas:Submodel ;
+      sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "(AccessControl.selectablePermissions):Only one <i>selectablePermissions</b> pointing to a <i>Submodel</i> is allowed."^^xsd:string ;
+      sh:message "(AccessControl.selectablePermissions):A <i>selectablePermissions</b> attribute only have one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:AccessControl/defaultPermissions ;
-      sh:class aas:Submodel ;
+      sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:message "(AccessControl.defaultPermissions):Exactly one <i>defaultPermissions</b> pointing to a <i>Submodel</i> is required."^^xsd:string ;
+      sh:message "(AccessControl.defaultPermissions):A <i>defaultPermissions</b> attribute have exactly one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:AccessControl/selectableEnvironmentAttributes ;
-      sh:class aas:Submodel ;
+      sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "(AccessControl.selectableEnvironmentAttributes):Only one <i>selectableEnvironmentAttributes</b> pointing to a <i>Submodel</i> is allowed."^^xsd:string ;
+      sh:message "(AccessControl.selectableEnvironmentAttributes):A <i>selectableEnvironmentAttributes</b> attribute only have one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:AccessControl/defaultEnvironmentAttributes ;
-      sh:class aas:Submodel ;
+      sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "(AccessControl.defaultEnvironmentAttributes):Only one <i>defaultEnvironmentAttributes</b> pointing to a <i>Submodel</i> is allowed."^^xsd:string ;
+      sh:message "(AccessControl.defaultEnvironmentAttributes):A <i>defaultEnvironmentAttributes</b> attribute only have one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
     ] ;
 .
 
@@ -164,9 +164,9 @@ aas:AnnotatedRelationshipElementShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:AnnotatedRelationshipElement/annotation ;
-      sh:class aas:DataElement ;
+      sh:class aas:Reference ;
       sh:minCount 0 ;
-      sh:message "(AnnotatedRelationshipElement.annotation):An <i>annotation</i> must point to a DataElement."^^xsd:string ;
+      sh:message "(AnnotatedRelationshipElement.annotation):An <i>annotation</i> attribute must have a <i>reference</i> entity pointing to a DataElement."^^xsd:string ;
     ] ;
 .
 
@@ -218,7 +218,7 @@ aas:AssetInformationShape a sh:NodeShape ;
       sh:path aas:AssetInformation/billOfMaterial ;
       sh:class aas:Reference ;
       sh:minCount 0 ;
-      sh:message "(AssetInformation.billOfMaterial): A <i>billOfMaterial</b> must point to a <i>reference</i>."^^xsd:string ;
+      sh:message "(AssetInformation.billOfMaterial): A <i>billOfMaterial</b> attribute must have a <i>reference</i> entity pointing to a Submodel."^^xsd:string ;
     ] ;
 
    sh:property [
@@ -279,7 +279,7 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
       sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "(AssetAdministrationShell.derivedFrom):Only one <i>derivedFrom</i> attribute having an <i>reference</i> entity is allowed."^^xsd:string ;
+      sh:message "(AssetAdministrationShell.derivedFrom):A <i>derivedFrom</i> attribute must have a <i>reference</i> entity pointing to a AssetAdministrationShell."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -294,14 +294,14 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
       sh:path aas:AssetAdministrationShell/submodel ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
-      sh:message "(AssetAdministrationShell.submodel):<i>hasSubmodel</i> must have a <i>reference</i> entity pointing to a Submodel."^^xsd:string ;
+      sh:message "(AssetAdministrationShell.submodel):A <i>submodel</i> attribute must have a <i>reference</i> entity pointing to a Submodel."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:AssetAdministrationShell/view ;
       sh:minCount 0 ;
       sh:class aas:View ;
-      sh:message "(AssetAdministrationShell.view):<i>view</i> must point to a View"^^xsd:string ;
+      sh:message "(AssetAdministrationShell.view):A <i>view</i> must point to a View"^^xsd:string ;
     ] ;
 .
 
@@ -314,7 +314,7 @@ aas:BasicEventShape a sh:NodeShape ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:class aas:Reference ;
-	    sh:message "(BasicEvent.observed):Exactly one <i>observed</i> attribute linking to a <i>Reference</i> is required."^^xsd:string ;
+	    sh:message "(BasicEvent.observed):A <i>observed</i> attribute have exactly one <i>reference</i> entity pointing to a Referable."^^xsd:string ;
     ] ;
 .
 
@@ -845,9 +845,9 @@ aas:ObjectAttributesShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:ObjectAttributes/objectAttribute ;
-      sh:class aas:DataElement ;
+      sh:class aas:Reference ;
       sh:minCount 1 ;
-      sh:message "(ObjectAttributes.objectAttribute):At least one <i>objectAttribute</i> pointing to a <i>DataElement</i> is required."^^xsd:string ;
+      sh:message "(ObjectAttributes.objectAttribute):A <i>objectAttribute</i> attribute at least have one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
     ] ;
 .
 
@@ -894,10 +894,10 @@ aas:PermissionShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:Permission/permission ;
-      sh:class aas:Property ;
+      sh:class aas:Reference ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
-      sh:message "(Permission.permission):Exactly one <i>permission</b> pointing to a <i>Property</i> is required."^^xsd:string ;
+      sh:message "(Permission.permission):A <i>permission</b> attribute have exactly one <i>reference</i> entity pointing to a <i>Property</i>."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -1203,18 +1203,18 @@ aas:RelationshipElementShape  a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:RelationshipElement/first ;
-      sh:class aas:Referable ;
+      sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:message "(RelationshipElement.first):Exactly one value for <i>first</i> is required"^^xsd:string ;
+      sh:message "(RelationshipElement.first):A <i>first</b> attribute must have exactly one <i>reference</i> entity pointing to a Referable"^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path aas:RelationshipElement/second ;
-      sh:class aas:Referable ;
+      sh:class aas:Reference ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:message "(RelationshipElement.second):Exactly one value for <i>second</i> is required"^^xsd:string ;
+      sh:message "(RelationshipElement.second):A <i>second</b> attribute must have exactly one <i>reference</i> entity pointing to a Referable"^^xsd:string ;
     ] ;
 .
 
@@ -1320,6 +1320,6 @@ aas:ViewShape a sh:NodeShape ;
       a sh:PropertyShape ;
       sh:path aas:View/containedElement ;
       sh:class aas:Reference ;
-	    sh:message "(View.containedElement):View can contain only References for <i>containedElement</i>."^^xsd:string ;
+	    sh:message "(View.containedElement):A <i>containedElement</i> attribute must have a <i>reference</i> entity pointing to a Referable."^^xsd:string ;
   ] ;
 .
