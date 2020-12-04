@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://www.admin-shell.io/aas/abac/2/0" 
+	targetNamespace="http://www.admin-shell.io/aas/abac/3/0" 
 	elementFormDefault="qualified"
-	xmlns:aas="http://www.admin-shell.io/aas/2/0" 
-	xmlns:abac="http://www.admin-shell.io/aas/abac/2/0">
-	
-	<import schemaLocation="AAS.xsd" namespace="http://www.admin-shell.io/aas/2/0"></import>
-	
+	xmlns:aas="http://www.admin-shell.io/aas/3/0" 
+	xmlns:abac="http://www.admin-shell.io/aas/abac/3/0">
+	<import schemaLocation="AAS.xsd" namespace="http://www.admin-shell.io/aas/3/0"></import>
 	<complexType name="security_t">
 		<sequence>
 			<element name="accessControlPolicyPoints"
@@ -19,8 +17,6 @@
 			<element name="requiredCertificateExtensions" minOccurs="0" maxOccurs="1" type="aas:references_t"></element>
 		</sequence>
 	</complexType>
-		
-	
 	<complexType name="accessControlPolicyPoints_t">
     	<sequence>
     		<element name="policyAdministrationPoint" minOccurs="1" maxOccurs="1" type="abac:policyAdministrationPoint_t"></element>
@@ -112,8 +108,8 @@
     	<sequence>
     		<group ref="aas:qualifiable"></group>
 			<group ref="aas:referable"></group>
-    		<element name="targetSubjectAttributes"	type="abac:subjectAttributes_t" minOccurs="1" maxOccurs="unbounded"></element>
-    		<element name="permissionsPerObject" type="abac:permissionPerObject_t" minOccurs="0"	maxOccurs="unbounded"></element>
+    		<element name="targetSubjectAttributes"	type="abac:subjectAttributes_t" minOccurs="1" maxOccurs="1"></element>
+    		<element name="permissionsPerObject" type="abac:permissionPerObject_t" minOccurs="0" maxOccurs="unbounded"></element>
     	</sequence>
     </complexType>
 
