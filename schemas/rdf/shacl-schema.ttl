@@ -144,7 +144,7 @@ aas:AdministrativeInformationShape  a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "(AdministrativeInformation.revision):<b>AdministrativeInformationShape</i>: Only one value for <i>revision</i> is allowed."^^xsd:string ;
+      sh:message "(AdministrativeInformation.revision):<i>AdministrativeInformationShape</i>: Only one value for <i>revision</i> is allowed."^^xsd:string ;
       sh:nodeKind sh:Literal ;
     ] ;
   sh:property [
@@ -215,7 +215,7 @@ aas:AssetInformationShape a sh:NodeShape ;
 
   sh:property [
       a sh:PropertyShape ;
-      sh:path aas:AssetInformation/iillOfMaterial ;
+      sh:path aas:AssetInformation/billOfMaterial ;
       sh:class aas:Reference ;
       sh:minCount 0 ;
       sh:message "(AssetInformation.billOfMaterial): A <i>billOfMaterial</i> attribute must have a <i>reference</i> entity pointing to a Submodel."^^xsd:string ;
@@ -341,7 +341,7 @@ aas:BlobCertificateShape a sh:NodeShape ;
   sh:targetClass aas:BlobCertificate ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path aas:BlobCertificate/ilobCertificate ;
+      sh:path aas:BlobCertificate/blobCertificate ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:class aas:Blob ;
