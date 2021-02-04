@@ -363,7 +363,7 @@ aas:Blob rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/Blob/value
 <https://admin-shell.io/aas/3/0/RC01/Blob/value> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:Blob ;
-    rdfs:range aas:BlobType ;
+    rdfs:range xsd:byte ;
     rdfs:comment "The value of the BLOB instance of a blob data element."@en ;
     skos:note "In contrast to the file property the file content is stored directly as value in the Blob data element."@en ;
     rdfs:label "has value"^^xsd:string ;
@@ -822,7 +822,7 @@ aas:File rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/File/value
 <https://admin-shell.io/aas/3/0/RC01/File/value> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:File ;
-    rdfs:range aas:PathType ;
+    rdfs:range xsd:string ;
     rdfs:comment "Path and name of the referenced file (with file extension). The path can be absolute or relative."@en ;
     rdfs:label "has value"^^xsd:string ;
 .
@@ -1446,7 +1446,7 @@ aas:PolicyInformationPoints rdf:type owl:Class ;
     rdfs:comment "If externalInformationPoints True then at least one Endpoint to external available information needs to be configured for the AAS."@en ;
     rdfs:label "has external information point"^^xsd:string ;
     rdfs:domain aas:PolicyInformationPoints ;
-    rdfs:range aas:Endpoint ;
+    rdfs:range xsd:boolean ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint
@@ -1615,7 +1615,7 @@ aas:Extension rdf:type owl:Class ;
     rdfs:label "has extension value"^^xsd:string ;
     rdfs:comment "Value of the extension."@en ;
     rdfs:domain aas:Extension ;
-    rdfs:range aas:ValueDataType ;
+    rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Extension/refersTo
