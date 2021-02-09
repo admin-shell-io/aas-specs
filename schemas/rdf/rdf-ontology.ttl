@@ -955,8 +955,8 @@ aas:Identifier rdf:type owl:Class ;
     rdfs:label "Identifier"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Identifier/id
-<https://admin-shell.io/aas/3/0/RC01/Identifier/id> rdf:type owl:DatatypeProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Identifier/identifier
+<https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> rdf:type owl:DatatypeProperty ;
     rdfs:domain aas:Identifier ;
     rdfs:range rdfs:Literal ;
     rdfs:comment "A globally unique identifier which might not be a URI. Its type is defined in idType."@en ;
@@ -1467,8 +1467,8 @@ aas:Property rdf:type owl:Class ;
 	skos:note "Constraint AASd-066: If the semanticId of a Property or MultiLanguageProperty references a ConceptDescription with the  category PROPERTY and DataSpecificationIEC61360/valueList is defined the value and valueId of the property is identical to one of the value reference pair types references in the value list, i.e. ValueReferencePairType/value or ValueReferencePairType/valueId, resp."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Property/category
-<https://admin-shell.io/aas/3/0/RC01/Property/category> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Property/propertyCategory
+<https://admin-shell.io/aas/3/0/RC01/Property/propertyCategory> rdf:type owl:ObjectProperty ;
     rdfs:label "has property category"^^xsd:string ;
     rdfs:comment "The following categories are defined for properties and multi-language properties: CONSTANT, PARAMETER, and VARIABLE."@en ;
     rdfs:domain aas:Property ;
@@ -1633,8 +1633,8 @@ aas:Referable rdf:type owl:Class ;
     rdfs:label "Referable"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Referable/category
-<https://admin-shell.io/aas/3/0/RC01/Referable/category> rdf:type owl:DatatypeProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Referable/referableCategory
+<https://admin-shell.io/aas/3/0/RC01/Referable/referableCategory> rdf:type owl:DatatypeProperty ;
     rdfs:label "has category"^^xsd:string ;
     rdfs:comment "The category is a value that gives further meta information w.r.t. to the class of the element. It affects the expected existence of attributes and the applicability of constraints."@en ;
     rdfs:domain aas:Referable ;
