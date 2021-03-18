@@ -159,7 +159,6 @@ aas:AdministrativeInformation rdf:type owl:Class ;
     rdfs:subPropertyOf dcterms:hasVersion ;
     rdfs:domain aas:AdministrativeInformation ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
     rdfs:comment "Version of the element."@en ;
     rdfs:label "has version"^^xsd:string ;
 .
@@ -172,7 +171,7 @@ aas:AdministrativeInformation rdf:type owl:Class ;
     rdfs:label "has revision"^^xsd:string ;
     rdfs:domain aas:AdministrativeInformation ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
+
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AnnotatedRelationshipElement
@@ -354,7 +353,6 @@ aas:Blob rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/Blob/mimeType> rdf:type owl:DatatypeProperty ;
     rdfs:domain aas:Blob ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
     rdfs:comment "Mime type of the content of the BLOB. The mime type states which file extension the file has. Valid values are e.g. 'application/json', 'application/xls', 'image/jpg' The allowed values are defined as in RFC2046."@en ;
     rdfs:label "has mimetype"^^xsd:string ;
     rdfs:seeAlso "http://uri4uri.net/vocab.html/#MimetypeDatatype"^^xsd:string ;
@@ -554,7 +552,6 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
     rdfs:label "has source of definition"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/symbol
@@ -562,7 +559,6 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
     rdfs:label "has symbol"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/unit
@@ -570,7 +566,6 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
     rdfs:label "has unit"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/unitId
@@ -585,7 +580,6 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
     rdfs:label "has value format"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/value
@@ -593,7 +587,6 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
     rdfs:label "has value"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueList
@@ -602,7 +595,6 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
     rdfs:comment "The Type 'ValueList' lists all the allowed values for a concept description for which the allowed values are listed in an enumeration. The value list is a set of value reference pairs."@en ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueId
@@ -624,7 +616,6 @@ phys_unit:conversionFactor rdf:type owl:DatatypeProperty ;
     rdfs:label "has conversion factor"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/definition
@@ -639,7 +630,6 @@ phys_unit:dinNotation rdf:type owl:DatatypeProperty ;
     rdfs:label "has DIN notation"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/eceCode
@@ -647,7 +637,6 @@ phys_unit:eceCode rdf:type owl:DatatypeProperty ;
     rdfs:label "has ECE code"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/eceName
@@ -655,7 +644,6 @@ phys_unit:eceName rdf:type owl:DatatypeProperty ;
     rdfs:label "has ECE name"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/nistName
@@ -663,7 +651,6 @@ phys_unit:nistName rdf:type owl:DatatypeProperty ;
     rdfs:label "has NIST name"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/siName
@@ -671,7 +658,6 @@ phys_unit:siName rdf:type owl:DatatypeProperty ;
     rdfs:label "has SI name"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/siNotation
@@ -679,7 +665,6 @@ phys_unit:siNotation rdf:type owl:DatatypeProperty ;
     rdfs:label "has SI notation"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/registrationAuthorityId
@@ -687,7 +672,6 @@ phys_unit:registrationAuthorityId rdf:type owl:DatatypeProperty ;
     rdfs:label "has registration authority"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/supplier
@@ -695,7 +679,6 @@ phys_unit:supplier rdf:type owl:DatatypeProperty ;
     rdfs:label "has supplier"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/unitName
@@ -703,7 +686,6 @@ phys_unit:unitName rdf:type owl:DatatypeProperty ;
     rdfs:label "unit has name"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/unitSymbol
@@ -711,7 +693,6 @@ phys_unit:unitSymbol rdf:type owl:DatatypeProperty ;
     rdfs:label "unit has symbol"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Entity
@@ -813,7 +794,6 @@ aas:File rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/File/mimeType> rdf:type owl:DatatypeProperty ;
     rdfs:domain aas:File ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
     rdfs:comment "Mime type of the content of the File."@en ;
     rdfs:label "has mimetype"^^xsd:string ;
     rdfs:seeAlso "http://uri4uri.net/vocab.html/#MimetypeDatatype"^^xsd:string ;
@@ -1012,7 +992,6 @@ aas:IdentifierKeyValuePair rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/key> rdf:type owl:DatatypeProperty ;
     rdfs:domain aas:IdentifierKeyValuePair ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
     rdfs:comment "Key of the identifier."@en ;
     rdfs:label "has IdentifierKeyValuePair.key"^^xsd:string ;
 .
@@ -1021,7 +1000,6 @@ aas:IdentifierKeyValuePair rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/IdentifierKeyValuePair/value> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:IdentifierKeyValuePair ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
     rdfs:comment "The value of the identifier with the corresponding key."@en ;
     rdfs:label "has IdentifierKeyValuePair.value"^^xsd:string ;
 .
@@ -1064,7 +1042,6 @@ aas:Key rdf:type owl:Class ;
     rdfs:label "has value"^^xsd:string ;
     rdfs:domain aas:Key ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 ###  https://admin-shell.io/aas/3/0/RC01/KeyElements
 aas:KeyElements rdf:type owl:Class ;
@@ -1522,7 +1499,6 @@ aas:Qualifier rdf:type owl:Class ;
     rdfs:label "has qualifier type"^^xsd:string ;
     rdfs:domain aas:Qualifier ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Qualifier/value
@@ -1598,7 +1574,6 @@ aas:Extension rdf:type owl:Class ;
     rdfs:comment "An extension of the element."@en ;
     rdfs:domain aas:Extension ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Extension/valueType
@@ -1607,7 +1582,6 @@ aas:Extension rdf:type owl:Class ;
     rdfs:comment "Type of the value of the extension."@en ;
     rdfs:domain aas:Extension ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Extension/value
@@ -1639,7 +1613,6 @@ aas:Referable rdf:type owl:Class ;
     rdfs:comment "The category is a value that gives further meta information w.r.t. to the class of the element. It affects the expected existence of attributes and the applicability of constraints."@en ;
     rdfs:domain aas:Referable ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Referable/description
@@ -1672,7 +1645,6 @@ aas:Referable rdf:type owl:Class ;
     skos:note "Note: In case of an identifiable element idShort is optional but recommended to be defined. It can be used for unique reference in its name space and thus allows better usability and a more performant implementation. In this case it is similar to the 'BrowserPath' in OPC UA."@en ;
     rdfs:domain aas:Referable ;
     rdfs:range xsd:string ;
-	sh:pattern ".+" ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Referable/parent
