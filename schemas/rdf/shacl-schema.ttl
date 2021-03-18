@@ -144,6 +144,7 @@ aas:AdministrativeInformationShape  a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
+      sh:pattern ".+" ;
       sh:message "(AdministrativeInformation.revision):<i>AdministrativeInformationShape</i>: Only one value for <i>revision</i> is allowed."^^xsd:string ;
       sh:nodeKind sh:Literal ;
     ] ;
@@ -153,6 +154,7 @@ aas:AdministrativeInformationShape  a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
+      sh:pattern ".+" ;
       sh:message "(AdministrativeInformation.version):Only one value for <i>version</i> is allowed."^^xsd:string ;
       sh:nodeKind sh:Literal ;
     ] ;
@@ -241,6 +243,7 @@ aas:IdentifierKeyValuePairShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(IdentifierKeyValuePair.key):A <i>key</i> has exactly one string."^^xsd:string ;
     ] ;
   sh:property [
@@ -249,6 +252,7 @@ aas:IdentifierKeyValuePairShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(IdentifierKeyValuePair.value): Exactly one <i>value</i> is allowed."^^xsd:string ;
     ] ;
   sh:property [
@@ -326,6 +330,7 @@ aas:BlobShape a sh:NodeShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Blob/mimeType> ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(Blob.mimeType): Exactly one <i>mimeType</i> is required"^^xsd:string ;
     ] ;
   sh:property [
@@ -452,6 +457,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
       sh:maxCount 1 ;
       sh:message "(DataSpecificationIEC61360.symbol):A <i>symbol</i> must have a string"^^xsd:string ;
       sh:minCount 0 ;
+      sh:pattern ".+" ;
       sh:datatype xsd:string ;
     ] ;
   sh:property [
@@ -460,6 +466,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
       sh:maxCount 1 ;
       sh:message "(DataSpecificationIEC61360.unit):A <i>unit</i> must have a String"^^xsd:string ;
       sh:minCount 0 ;
+      sh:pattern ".+" ;
       sh:datatype xsd:string ;
     ] ;
   sh:property [
@@ -476,6 +483,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
       sh:maxCount 1 ;
       sh:message "(DataSpecificationIEC61360.valueFormat):A <i>valueFormat</i> must have a string"^^xsd:string ;
       sh:minCount 0 ;
+      sh:pattern ".+" ;
       sh:datatype xsd:string ;
     ] ;
   sh:property [
@@ -484,6 +492,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
       sh:maxCount 1 ;
       sh:message "(DataSpecificationIEC61360.value):A <i>value</i> must have a Literal"^^xsd:string ;
       sh:minCount 0 ;
+      sh:pattern ".+" ;
       sh:nodeKind sh:Literal ;
     ] ;
   sh:property [
@@ -500,6 +509,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
       sh:maxCount 1 ;
       sh:message "(DataSpecificationIEC61360.sourceOfDefinition):A <i>sourceOfDefinition</i> must have a String"^^xsd:string ;
       sh:minCount 0 ;
+      sh:pattern ".+" ;
       sh:datatype xsd:string ;
     ] ;
   sh:property [
@@ -508,6 +518,7 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
       sh:maxCount 1 ;
       sh:message "(DataSpecificationIEC61360.valueList):A <i>valueList</i> must have a ValueList"^^xsd:string ;
       sh:minCount 0 ;
+      sh:pattern ".+" ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -527,6 +538,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:class aas:SubmodelElement ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.unitName): Exactly one <i>unitName</i> which links to a <i>string</i> is required."^^xsd:string ;
     ] ;
   sh:property [
@@ -535,6 +547,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.unitSymbol): Exactly one <i>unitSymbol</i> which links to a <i>string</i> is required."^^xsd:string ;
     ] ;
   sh:property [
@@ -551,6 +564,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.siNotation):Only one <i>siNotation</i> which links to a <i>string</i> is allowed."^^xsd:string ;
     ] ;
   sh:property [
@@ -559,6 +573,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.siName):Only one <i>siName</i> which links to a <i>string</i> is allowed."^^xsd:string ;
     ] ;
   sh:property [
@@ -567,6 +582,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.dinNotation):Only one <i>dinNotation</i> which links to a <i>string</i> is allowed."^^xsd:string ;
     ] ;
   sh:property [
@@ -575,6 +591,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.eceName):Only one <i>eceName</i> which links to a <i>string</i> is allowed."^^xsd:string ;
     ] ;
   sh:property [
@@ -583,6 +600,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.eceCode):Only one <i>eceCode</i> which links to a <i>string</i> is allowed."^^xsd:string ;
     ] ;
   sh:property [
@@ -591,6 +609,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.nistName):Only one <i>nistName</i> which links to a <i>string</i> is allowed."^^xsd:string ;
     ] ;
   sh:property [
@@ -607,6 +626,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.conversionFactor):Only one <i>conversionFactor</i> which links to a <i>string</i> is allowed."^^xsd:string ;
     ] ;
   sh:property [
@@ -615,6 +635,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.registrationAuthorityId):Only one <i>registrationAuthorityId</i> which links to a <i>string</i> is allowed."^^xsd:string ;
     ] ;
   sh:property [
@@ -623,6 +644,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.supplier):Only one <i>supplier</i> which links to a <i>string</i> is allowed."^^xsd:string ;
     ] ;
 .
@@ -690,6 +712,7 @@ aas:FileShape a sh:NodeShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/File/mimeType> ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
+      sh:pattern ".+" ;
       sh:datatype xsd:string ;
       sh:message "(File.mimeType): Exactly on <i>mimeType</i> is required"^^xsd:string ;
     ] ;
@@ -799,6 +822,7 @@ aas:KeyShape  a sh:NodeShape ;
       #sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(Key.value): Exactly one <i>value</i> is required"^^xsd:string ;
     ] ;
   sh:property [
@@ -1046,6 +1070,7 @@ aas:QualifierShape  a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(Qualifier.type): Exactly one <i>type</i> linking to a <i>xsd:string</i> is required."^^xsd:string ;
     ] ;
   sh:property [
@@ -1099,35 +1124,37 @@ aas:ExtensionShape a sh:NodeShape ;
   rdfs:subClassOf aas:HasSemantics ;
   sh:property [
 	  a sh:PropertyShape ;
-	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extensions/name> ;
+	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extension/name> ;
 	  sh:datatype xsd:string ;
 	  sh:maxCount 1 ;
-      sh:minCount 1 ;
-	  sh:message "(Extensions.name): Exactly one <id>name</id> is required."^^xsd:string ;
+    sh:minCount 1 ;
+    sh:pattern ".+" ;
+	  sh:message "(Extension.name): Exactly one <id>name</id> is required."^^xsd:string ;
 	] ;
   sh:property [
 	  a sh:PropertyShape ;
-	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extensions/valueType> ;
+	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extension/valueType> ;
 	  sh:datatype xsd:string ;
 	  sh:maxCount 1 ;
-      sh:minCount 0 ;
-	  sh:message "(Extensions.valueType):Only one value for <i>valueType</i> is allowed"^^xsd:string ;
+    sh:minCount 0 ;
+    sh:pattern ".+" ;
+	  sh:message "(Extension.valueType):Only one value for <i>valueType</i> is allowed"^^xsd:string ;
 	] ;
   sh:property [
 	  a sh:PropertyShape ;
-	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extensions/value> ;
+	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extension/value> ;
 	  sh:class sh:ValueDataType ;
 	  sh:maxCount 1 ;
     sh:minCount 0 ;
-	  sh:message "(Extensions.value):Only one <i>value</i> is allowed"^^xsd:string ;
+	  sh:message "(Extension.value):Only one <i>value</i> is allowed"^^xsd:string ;
 	] ;
   sh:property [
 	  a sh:PropertyShape ;
-	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extensions/refersTo> ;
+	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extension/refersTo> ;
 	  sh:class sh:Reference ;
 	  sh:maxCount 1 ;
       sh:minCount 0 ;
-	  sh:message "(Extensions.refersTo):Only one value for <i>refersTo</i> is allowed"^^xsd:string ;
+	  sh:message "(Extension.refersTo):Only one value for <i>refersTo</i> is allowed"^^xsd:string ;
 	] ;
 .
 
@@ -1139,6 +1166,7 @@ aas:ReferableShape  a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
+      sh:pattern ".+" ;
       sh:message "(Referable.category):Only one value for <i>category</i> is allowed"^^xsd:string ;
     ] ;
   sh:property [
@@ -1161,6 +1189,7 @@ aas:ReferableShape  a sh:NodeShape ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
+      sh:pattern ".+" ;
       sh:message "(Referable.idShort): Exactly one <id>idShort</id> is required."^^xsd:string ;
       sh:pattern "^[a-zA-Z]\\w*$"^^xsd:string ;
     ] ;
