@@ -235,7 +235,7 @@ aas:AssetInformationShape a sh:NodeShape ;
 
 aas:IdentifierKeyValuePairShape a sh:NodeShape ;
   sh:targetClass aas:IdentifierKeyValuePair ;
-  rdfs:subClassOf aas:HasSemantics ;
+  rdfs:subClassOf aas:HasSemanticsShape ;
 
   sh:property [
       a sh:PropertyShape ;
@@ -1121,7 +1121,7 @@ aas:HasExtensionsShape a sh:NodeShape ;
 
 aas:ExtensionShape a sh:NodeShape ;
   sh:targeClass aas:Extension ;
-  rdfs:subClassOf aas:HasSemantics ;
+  rdfs:subClassOf aas:HasSemanticsShape ;
   sh:property [
 	  a sh:PropertyShape ;
 	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extension/name> ;
