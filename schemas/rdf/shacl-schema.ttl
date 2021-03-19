@@ -1109,7 +1109,7 @@ aas:RangeShape a sh:NodeShape ;
 .
 
 aas:HasExtensionsShape a sh:NodeShape ;
-  sh:targeClass aas:HasExtensions ;
+  sh:targetClass aas:HasExtensions ;
   sh:property [
 	  a sh:PropertyShape ;
 	  sh:path <https://admin-shell.io/aas/3/0/RC01/HasExtensions/extension> ;
@@ -1120,7 +1120,7 @@ aas:HasExtensionsShape a sh:NodeShape ;
 .
 
 aas:ExtensionShape a sh:NodeShape ;
-  sh:targeClass aas:Extension ;
+  sh:targetClass aas:Extension ;
   rdfs:subClassOf aas:HasSemanticsShape ;
   sh:property [
 	  a sh:PropertyShape ;
