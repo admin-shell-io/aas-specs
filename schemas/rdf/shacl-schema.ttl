@@ -1028,14 +1028,6 @@ aas:PropertyShape  a sh:NodeShape ;
   rdfs:subClassOf aas:DataElementShape ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Property/category> ;
-      sh:class aas:Category ;
-      sh:maxCount 1 ;
-      sh:minCount 0 ;
-      sh:message "(Property.category):Only one <i>category</i> attribute having a <i>Category</i> is allowed"^^xsd:string ;
-    ] ;
-  sh:property [
-      a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Property/value> ;
       sh:nodeKind sh:Literal ;
       sh:maxCount 1 ;
