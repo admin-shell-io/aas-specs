@@ -1639,16 +1639,6 @@ aas:Referable rdf:type owl:Class ;
     rdfs:range xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Referable/parent
-<https://admin-shell.io/aas/3/0/RC01/Referable/parent> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Reference to the next referable parent element of the element."@en ;
-    skos:note "Constraint AASd-004: Add parent in case of non-identifiable elements."@en ;
-    skos:note "This element is used to ease navigation in the model and thus it enables more performant"@en ;
-    rdfs:label "has parent"^^xsd:string ;
-    rdfs:domain aas:Referable ;
-    rdfs:range aas:Referable ;
-.
-
 ###  https://admin-shell.io/aas/3/0/RC01/ReferableElements
 aas:ReferableElements rdf:type owl:Class ;
     rdfs:subClassOf aas:KeyElements ;

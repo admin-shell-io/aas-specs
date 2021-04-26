@@ -1185,15 +1185,6 @@ aas:ReferableShape  a sh:NodeShape ;
       sh:message "(Referable.idShort): Exactly one <id>idShort</id> is required."^^xsd:string ;
       sh:pattern "^[a-zA-Z]\\w*$"^^xsd:string ;
     ] ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/parent> ;
-      sh:class aas:Referable ;
-      sh:maxCount 1 ;
-      sh:minCount 0 ;
-      sh:message "(Referable.parent):Only one value for <i>parent</i> is allowed"^^xsd:string ;
-      sh:nodeKind sh:IRI ;
-    ] ;
 .
 
 aas:ReferenceShape a sh:NodeShape ;
