@@ -992,15 +992,15 @@ aas:PolicyDecisionPointShape a sh:NodeShape ;
     ] ;
 .
 
-aas:PolicyEnforcementPointsShape a sh:NodeShape ;
-  sh:targetClass aas:PolicyEnforcementPoints ;
+aas:PolicyEnforcementPointShape a sh:NodeShape ;
+  sh:targetClass aas:PolicyEnforcementPoint ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints/externalPolicyEnforcementPoint> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoint/externalPolicyEnforcementPoint> ;
       sh:datatype xsd:boolean ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:message "(PolicyEnforcementPoints.externalPolicyDecisionPoint): Exactly one <i>externalPolicyDecisionPoint</i> attribute having a <i>boolean</i> is required."^^xsd:string ;
+      sh:message "(PolicyEnforcementPoint.externalPolicyDecisionPoint): Exactly one <i>externalPolicyDecisionPoint</i> attribute having a <i>boolean</i> is required."^^xsd:string ;
     ] ;
 .
 
