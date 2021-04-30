@@ -1109,7 +1109,7 @@ aas:HasExtensionsShape a sh:NodeShape ;
   sh:property [
 	  a sh:PropertyShape ;
 	  sh:path <https://admin-shell.io/aas/3/0/RC01/HasExtensions/extension> ;
-	  sh:class sh:Extension ;
+	  sh:class aas:Extension ;
 	  sh:minCount 0 ;
 	  sh:message "(HasExtensions.extension):A <i>hasExtensions</i> attribute must point to a <i>Extension</i>."^^xsd:string ;
 	] ;
@@ -1139,7 +1139,7 @@ aas:ExtensionShape a sh:NodeShape ;
   sh:property [
 	  a sh:PropertyShape ;
 	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extension/value> ;
-	  sh:class sh:ValueDataType ;
+	  sh:class xsd:string ;
 	  sh:maxCount 1 ;
     sh:minCount 0 ;
 	  sh:message "(Extension.value):Only one <i>value</i> is allowed"^^xsd:string ;
@@ -1147,9 +1147,9 @@ aas:ExtensionShape a sh:NodeShape ;
   sh:property [
 	  a sh:PropertyShape ;
 	  sh:path <https://admin-shell.io/aas/3/0/RC01/Extension/refersTo> ;
-	  sh:class sh:Reference ;
+	  sh:class aas:Reference ;
 	  sh:maxCount 1 ;
-      sh:minCount 0 ;
+    sh:minCount 0 ;
 	  sh:message "(Extension.refersTo):Only one value for <i>refersTo</i> is allowed"^^xsd:string ;
 	] ;
 .
