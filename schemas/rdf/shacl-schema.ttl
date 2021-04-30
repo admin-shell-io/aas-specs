@@ -806,7 +806,7 @@ aas:IdentifierShape  a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Identifier/id> ;
-      sh:nodeKind sh:Literal ;
+      sh:datatype xsd:string  ;
       sh:description "identifier id"^^xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1091,7 +1091,7 @@ aas:RangeShape a sh:NodeShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Range/min> ;
       sh:nodeKind sh:Literal ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
+      sh:minCount 0 ;
       sh:message "(Range.min):A <i>min</i> attribute must link to a <i>Literal</i>."^^xsd:string ;
     ] ;
   sh:property [
@@ -1099,7 +1099,7 @@ aas:RangeShape a sh:NodeShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Range/max> ;
       sh:nodeKind sh:Literal ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
+      sh:minCount 0 ;
       sh:message "(Range.max):A <i>max</i> attribute must link to a <i>Literal</i>."^^xsd:string ;
     ] ;
 .

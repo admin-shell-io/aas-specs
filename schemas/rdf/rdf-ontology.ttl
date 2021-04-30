@@ -214,7 +214,7 @@ aas:AssetInformation rdf:type owl:Class ;
     rdfs:domain aas:AssetInformation ;
     rdfs:range aas:AssetKind ;
     rdfs:label "has assetKind"^^xsd:string ;
-    rdfs:comment "Denotes whether the Asset of of kind 'Type' or 'Instance'."@en ;
+    rdfs:comment "Denotes whether the Asset of kind 'Type' or 'Instance'."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId
@@ -935,10 +935,10 @@ aas:Identifier rdf:type owl:Class ;
     rdfs:label "Identifier"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Identifier/identifier
-<https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> rdf:type owl:DatatypeProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Identifier/id
+<https://admin-shell.io/aas/3/0/RC01/Identifier/id> rdf:type owl:DatatypeProperty ;
     rdfs:domain aas:Identifier ;
-    rdfs:range rdfs:Literal ;
+    rdfs:range xsd:string ;
     rdfs:comment "A globally unique identifier which might not be a URI. Its type is defined in idType."@en ;
     rdfs:label "has identification"^^xsd:string ;
 .
