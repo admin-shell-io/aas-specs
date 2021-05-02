@@ -1028,6 +1028,14 @@ aas:PropertyShape  a sh:NodeShape ;
   rdfs:subClassOf aas:DataElementShape ;
   sh:property [
       a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Property/valueType> ;
+      sh:dataType xsd:string ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(Property.valueType):Exactly one <i>valueType</i> linking to a <i>xsd:string</i> is required."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Property/value> ;
       sh:nodeKind sh:Literal ;
       sh:maxCount 1 ;
@@ -1067,6 +1075,15 @@ aas:QualifierShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifier/valueType> ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:pattern ".+" ;
+      sh:message "(Qualifier.valueType): Exactly one <i>valueType</i> linking to a <i>xsd:string</i> is required."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifier/value> ;
       sh:nodeKind sh:Literal ;
       sh:maxCount 1 ;
@@ -1086,6 +1103,14 @@ aas:QualifierShape  a sh:NodeShape ;
 aas:RangeShape a sh:NodeShape ;
   sh:targetClass aas:Range ;
   rdfs:subClassOf aas:DataElementShape ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Range/valueType> ;
+      sh:dataType xsd:string ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(Range.valueType):Exactly one <i>valueType</i> linking to a <i>xsd:string</i> is required."^^xsd:string ;
+    ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Range/min> ;

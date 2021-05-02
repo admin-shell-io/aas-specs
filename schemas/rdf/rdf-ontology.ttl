@@ -1444,6 +1444,13 @@ aas:Property rdf:type owl:Class ;
 	skos:note "Constraint AASd-066: If the semanticId of a Property or MultiLanguageProperty references a ConceptDescription with the  category PROPERTY and DataSpecificationIEC61360/valueList is defined the value and valueId of the property is identical to one of the value reference pair types references in the value list, i.e. ValueReferencePairType/value or ValueReferencePairType/valueId, resp."@en ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/Property/valueType
+<https://admin-shell.io/aas/3/0/RC01/Property/valueType> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Data type pf the value."@en ;
+    rdfs:label "has property value type"^^xsd:string ;
+    rdfs:domain aas:Property ;
+    rdfs:range xsd:string ;
+.
 ###  https://admin-shell.io/aas/3/0/RC01/Property/value
 <https://admin-shell.io/aas/3/0/RC01/Property/value> rdf:type owl:ObjectProperty ;
     rdfs:comment "The value of the property instance."@en ;
@@ -1493,6 +1500,14 @@ aas:Qualifier rdf:type owl:Class ;
     rdfs:range xsd:string ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/Qualifier/valueType
+<https://admin-shell.io/aas/3/0/RC01/Qualifier/valueType> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Data type of the qualifier value."@en ;
+    rdf:label "has qualifier value type"^^xsd:string ;
+    rdfs:domain aas:Qualifier ;
+    rdfs:range xsd:string ;
+.
+
 ###  https://admin-shell.io/aas/3/0/RC01/Qualifier/value
 <https://admin-shell.io/aas/3/0/RC01/Qualifier/value> rdf:type owl:ObjectProperty ;
     rdfs:comment "The qualifier value is the value of the qualifier."@en ;
@@ -1519,6 +1534,14 @@ aas:Range rdf:type owl:Class ;
 	skos:note "Constraint AASd-053: The semanticId of a Range submodel element shall only reference a ConceptDescription with the category PROPERTY."@en ;
 	skos:note "Constraint AASd-068: If the semanticId of a  Range references a ConceptDescription then DataSpecificationIEC61360/dataType shall be a numerical one, i.e. REAL_* or RATIONAL_*."@en ;
 	skos:note "Constraint AASd-069: If the semanticId of a  Range references a ConceptDescription then DataSpecificationIEC61360/levelType shall be identical to the set {Min,Max}."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/Range/valueType
+<https://admin-shell.io/aas/3/0/RC01/Range/valueType> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:Range ;
+    rdfs:range xsd:string ;
+    rdfs:label "has value type of range"^^xsd:string ;
+    rdfs:comment "Data type of the min and max."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Range/max
