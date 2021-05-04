@@ -289,6 +289,10 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> ;
       sh:minCount 0 ;
+      #sh:or (
+      #  [ sh:class aas:Reference ;
+      #  [ sh:class aas:Submodel ; ]
+      #)
       sh:class aas:Reference ;
       sh:message "(AssetAdministrationShell.submodel):A <i>submodel</i> attribute must have a <i>reference</i> entity pointing to a Submodel."^^xsd:string ;
     ] ;

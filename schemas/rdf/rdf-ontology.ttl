@@ -287,7 +287,9 @@ aas:AssetAdministrationShell rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel
 <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetAdministrationShell ;
-    rdfs:range aas:Submodel ;
+    rdfs:range aas:Reference ;
+    # rdfs:range [ owl:unionOf (aas:Reference aas:Submodel) ] ;
+    rdfs:range aas:Reference ;
     rdfs:comment "Points from the Admin Shell to the Submodels that describe the Admin Shell of a given Asset"@en ;
     rdfs:label "has Submodel"^^xsd:string ;
 .
