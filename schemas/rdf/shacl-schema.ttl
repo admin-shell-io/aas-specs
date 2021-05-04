@@ -786,9 +786,10 @@ aas:IdentifiableShape  a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> ;
+      sh:class aas:Identifier ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:message "(Identifiable.identification): Exactly one <i>identifier</i> is required."^^xsd:string ;
+      sh:message "(Identifiable.identification): Exactly one <i>Identifier</i> is required."^^xsd:string ;
     ] ;
 .
 
