@@ -305,6 +305,17 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
     ] ;
 .
 
+aas:AssetAdministrationShellEnvironmentShape a sh:NodeShape ;
+  sh:targetClass aas:AssetAdministrationShellEnvironment ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assetAdministrationShell> ;
+	    sh:class aas:AssetAdministrationShell ;
+      sh:message "(AssetAdministrationShellEnvironment.assetAdministrationShell): At least one <i>assetAdministrationShell</i> attribute having an <i>AssetAdministrationShell</i> entity is required."^^xsd:string ;
+      sh:minCount 1 ;
+    ] ;
+.
+
 aas:BasicEventShape a sh:NodeShape ;
   rdfs:subClassOf aas:EventShape ;
   sh:targetClass aas:BasicEvent ;

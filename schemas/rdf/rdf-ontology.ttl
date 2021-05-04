@@ -303,6 +303,22 @@ aas:AssetAdministrationShell rdf:type owl:Class ;
     skos:prefLabel "view"^^xsd:string ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment
+aas:AssetAdministrationShellEnvironment rdf:type owl:Class ;
+    rdfs:label "Asset Administration Shell Environment"^^xsd:string ;
+    rdfs:comment "A graph of Asset Administration Shells."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assetAdministrationShells
+<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assetAdministrationShell> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetAdministrationShellEnvironment ;
+    rdfs:range aas:AssetAdministrationShell ;
+    rdfs:comment "Points to the differents Administration Shells in one AssetAdministrationShellEnvironment graph."@en ;
+    rdfs:label "has Asset Administration Shells"^^xsd:string ;
+.
+
+
+
 ###  https://admin-shell.io/aas/3/0/RC01/AssetKind
 aas:AssetKind rdf:type owl:Class ;
     rdfs:comment "Enumeration for denoting whether an element is a type or an instance."@en ;
@@ -1206,7 +1222,7 @@ aas:MultiLanguageProperty rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueId
 <https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueId> rdf:type owl:ObjectProperty ;
     rdfs:comment "Reference to the global unqiue id of a coded value."@en ;
-    rdfs:label "hsa value Id"^^xsd:string ;
+    rdfs:label "has value Id"^^xsd:string ;
     rdfs:domain aas:MultiLanguageProperty ;
     rdfs:range aas:Reference ;
 .
