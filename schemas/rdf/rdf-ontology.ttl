@@ -203,17 +203,15 @@ aas:Asset rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation
 aas:AssetInformation rdf:type owl:Class ;
-    rdfs:comment "In AssetInformation identifying meta data of the asset that is represented by an AAS is defined."@en ;
-    rdfs:comment "The asset may either represent an asset type or an asset instance."@en ;
-	rdfs:comment "The asset has a globally unique identifier plus - if needed - additional domain specific (proprietary) identifiers. However, to support the corner case of very first phase of lifecycle where a stabilised/constant global asset identifier does not already exist, the corresponding attribute 'globalAssetId' is optional."@en ;
-	rdfs:label "has Asset Identification Model"^^xsd:string ;
+    rdfs:comment "The asset may either represent an asset type or an asset instance. The asset has a globally unique identifier plus - if needed - additional domain specific (proprietary) identifiers. However, to support the corner case of very first phase of lifecycle where a stabilised/constant global asset identifier does not already exist, the corresponding attribute 'globalAssetId' is optional."@en ;
+	  rdfs:label "Asset Information"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetKind
 <https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetKind> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetInformation ;
     rdfs:range aas:AssetKind ;
-    rdfs:label "has assetKind"^^xsd:string ;
+    rdfs:label "has asset kind"^^xsd:string ;
     rdfs:comment "Denotes whether the Asset of kind 'Type' or 'Instance'."@en ;
 .
 
@@ -221,18 +219,17 @@ aas:AssetInformation rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetInformation ;
     rdfs:range aas:Reference ;
-    rdfs:comment "Reference to either an Asset object or a global reference to the asset the AAS is representing."@en ;
-    rdfs:comment "This attribute is required as soon as the AAS is exchanged via partners in the life cycle of the asset. In a first phase of the life cycle the asset might not yet have a global id but already an internal identifier. The internal identifier would be modelled via 'externalAssetId'."@en ;
-	rdfs:label "has global asset id"^^xsd:string ;
-	skos:note "Constraint AASd-023: AssetInformation/globalAssetId either is a reference to an Asset object or a global reference."@en ;
+    rdfs:comment "Reference to either an Asset object or a global reference to the asset the AAS is representing. This attribute is required as soon as the AAS is exchanged via partners in the life cycle of the asset. In a first phase of the life cycle the asset might not yet have a global id but already an internal identifier. The internal identifier would be modelled via 'externalAssetId'."@en ;
+	  rdfs:label "has global asset id"^^xsd:string ;
+	  skos:note "Constraint AASd-023: AssetInformation/globalAssetId either is a reference to an Asset object or a global reference."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/externalAssetId
-<https://admin-shell.io/aas/3/0/RC01/AssetInformation/externalAssetId> rdf:type owl:ObjectProperty ;
+<https://admin-shell.io/aas/3/0/RC01/AssetInformation/specificAssetId> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetInformation ;
     rdfs:range aas:IdentifierKeyValuePair ;
-    rdfs:comment "Additional domain specific external, typically proprietary Identifier for the asset like e.g. serial number etc."@en ;
-	rdfs:label "has external asset id"^^xsd:string ;
+    rdfs:comment "Additional domain-specific, typically proprietary Identifier for the asset like e.g. serial number etc."@en ;
+	  rdfs:label "has specific asset id"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial
@@ -244,10 +241,10 @@ aas:AssetInformation rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/thumbnail
-<https://admin-shell.io/aas/3/0/RC01/AssetInformation/thumbnail> rdf:type owl:ObjectProperty ;
+<https://admin-shell.io/aas/3/0/RC01/AssetInformation/defaultThumbnail> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetInformation ;
     rdfs:range aas:File ;
-    rdfs:label "has thumbnail"^^xsd:string ;
+    rdfs:label "has default Thumbnail"^^xsd:string ;
     rdfs:comment "Thumbnail of the asset represented by the asset administration shell."@en ;
 .
 

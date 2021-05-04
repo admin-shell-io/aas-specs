@@ -177,14 +177,6 @@ aas:AssetShape a sh:NodeShape ;
   rdfs:subClassOf aas:HasDataSpecificationShape ;
   rdfs:subClassOf aas:IdentifiableShape ;
 
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Asset/assetIdentificationModel> ;
-      sh:class aas:Reference ;
-      sh:maxCount 1 ;
-      sh:minCount 0 ;
-      sh:message "(Asset.assetIdentificationModel):Only one <i>assetIdentificationModel</i> is allowed."^^xsd:string ;
-    ] ;
 .
 
 aas:AssetInformationShape a sh:NodeShape ;
@@ -209,10 +201,10 @@ aas:AssetInformationShape a sh:NodeShape ;
 
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/externalAssetId> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/specificAssetId> ;
       sh:class aas:IdentifierKeyValuePair ;
       sh:minCount 0 ;
-      sh:message "(AssetInformation.externalAssetId):A <i>externalAssetId</i> must point to an <i>IdentifierKeyValuePair</i>."^^xsd:string ;
+      sh:message "(AssetInformation.specificAssetId):A <i>specificAssetId</i> must point to an <i>IdentifierKeyValuePair</i>."^^xsd:string ;
     ] ;
 
   sh:property [
@@ -225,11 +217,11 @@ aas:AssetInformationShape a sh:NodeShape ;
 
    sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/thumbnail> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/defaultThumbnail> ;
       sh:class aas:File;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "(AssetInformation.thumbnail):Only one <i>thumbnail</i> attribute having a <i>file</i> entity is required."^^xsd:string ;
+      sh:message "(AssetInformation.defaultThumbnail):Only one <i>defaultThumbnail</i> attribute having a <i>file</i> entity is required."^^xsd:string ;
     ] ;
 .
 
