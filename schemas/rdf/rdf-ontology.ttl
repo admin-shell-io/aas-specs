@@ -1420,10 +1420,10 @@ aas:PolicyEnforcementPoints rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints/externalPolicyEnforcementPoint
-<https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoint/externalPolicyEnforcementPoint> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints/externalPolicyEnforcementPoint> rdf:type owl:DatatypeProperty ;
     rdfs:comment "If externalPolicyEnforcementPoint True then an Endpoint to external available enforcement point taking needs to be configured for the AAS."@en ;
     rdfs:label "is external policy enforcement point defined"^^xsd:string ;
-    rdfs:domain aas:PolicyEnforcementPoint ;
+    rdfs:domain aas:PolicyEnforcementPoints ;
     rdfs:range xsd:boolean ;
 .
 
