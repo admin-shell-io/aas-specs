@@ -309,9 +309,30 @@ aas:AssetAdministrationShellEnvironmentShape a sh:NodeShape ;
   sh:targetClass aas:AssetAdministrationShellEnvironment ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assetAdministrationShell> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assetAdministrationShells> ;
 	    sh:class aas:AssetAdministrationShell ;
-      sh:message "(AssetAdministrationShellEnvironment.assetAdministrationShell): At least one <i>assetAdministrationShell</i> attribute having an <i>AssetAdministrationShell</i> entity is required."^^xsd:string ;
+      sh:message "(AssetAdministrationShellEnvironment.assetAdministrationShells): At least one <i>assetAdministrationShells</i> attribute having an <i>AssetAdministrationShell</i> entity is required."^^xsd:string ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assets> ;
+	    sh:class aas:Asset ;
+      sh:message "(AssetAdministrationShellEnvironment.assets): At least one <i>assets</i> attribute having an <i>Asset</i> entity is required."^^xsd:string ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/conceptDescriptions> ;
+      sh:class aas:ConceptDescription ;
+      sh:message "(AssetAdministrationShellEnvironment.conceptDescriptions): At least one <i>conceptDescriptions</i> attribute having a <i>ConceptDescription</i> entity is required."^^xsd:string ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/submodels> ;
+      sh:class aas:Submodel ;
+      sh:message "(AssetAdministrationShellEnvironment.submodels): At least one <i>submodels</i> attribute having a <i>Submodel</i> entity is required."^^xsd:string ;
       sh:minCount 1 ;
     ] ;
 .

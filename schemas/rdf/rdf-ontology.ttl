@@ -310,12 +310,37 @@ aas:AssetAdministrationShellEnvironment rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assetAdministrationShells
-<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assetAdministrationShell> rdf:type owl:ObjectProperty ;
+<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assetAdministrationShells> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetAdministrationShellEnvironment ;
     rdfs:range aas:AssetAdministrationShell ;
     rdfs:comment "Points to the differents Administration Shells in one AssetAdministrationShellEnvironment graph."@en ;
     rdfs:label "has Asset Administration Shells"^^xsd:string ;
 .
+
+###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assets
+<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assets> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetAdministrationShellEnvironment ;
+    rdfs:range aas:Asset ;
+    rdfs:comment "Points to the differents Assets in one AssetAdministrationShellEnvironment graph."@en ;
+    rdfs:label "has Assets"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/conceptDescriptions
+<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/conceptDescriptions> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetAdministrationShellEnvironment ;
+    rdfs:range aas:ConceptDescription;
+    rdfs:comment "Points to the differents Concept Descriptions in one AssetAdministrationShellEnvironment graph."@en ;
+    rdfs:label "has Concept Descriptions"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/submodels
+<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/submodels> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetAdministrationShellEnvironment ;
+    rdfs:range aas:Submodel;
+    rdfs:comment "Points to the differents Submodels in one AssetAdministrationShellEnvironment graph."@en ;
+    rdfs:label "has submodels"^^xsd:string ;
+.
+
 
 
 
