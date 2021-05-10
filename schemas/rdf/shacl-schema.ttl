@@ -183,11 +183,11 @@ aas:AssetInformationShape a sh:NodeShape ;
   sh:targetClass aas:AssetInformation ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetkind> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetKind> ;
       sh:class aas:AssetKind ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:message "(AssetInformation.assetkind): Exactly one <i>assetkind</i> attribute having an <i>AssetKind</i> entity is required."^^xsd:string ;
+      sh:message "(AssetInformation.assetKind): Exactly one <i>assetKind</i> attribute having an <i>AssetKind</i> entity is required."^^xsd:string ;
     ] ;
 
   sh:property [
