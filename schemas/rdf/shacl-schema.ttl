@@ -1114,7 +1114,7 @@ aas:RangeShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Range/valueType> ;
-      sh:dataType xsd:string ;
+      sh:class aas:DataTypeDef ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:message "(Range.valueType):Exactly one <i>valueType</i> linking to a <i>xsd:string</i> is required."^^xsd:string ;
