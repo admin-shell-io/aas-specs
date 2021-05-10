@@ -857,18 +857,18 @@ aas:MultiLanguagePropertyShape  a sh:NodeShape ;
   rdfs:subClassOf aas:DataElementShape ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/value> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/value> ;
       sh:datatype rdf:langString ;
       sh:minCount 0 ;
       sh:message "(MultiLanguageProperty.value):A language string <i>value</i> must have a language tag"^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/valueId> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueId> ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
-      sh:message "(Property.valueId):Only one <i>valueId</i> attribute having a <i>Reference</i> is allowed"^^xsd:string ;
+      sh:message "(MultiLanguageProperty.valueId):Only one <i>valueId</i> attribute having a <i>Reference</i> is allowed"^^xsd:string ;
     ] ;
 .
 
