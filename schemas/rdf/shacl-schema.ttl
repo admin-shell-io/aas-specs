@@ -434,11 +434,15 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
     ] ;
 .
 
+aas:ConstraintShape a sh:NodeShape ;
+  sh:targetClass aas:Constraint ;
+.
 
 aas:DataElementShape a sh:NodeShape ;
   rdfs:subClassOf aas:SubmodelElementShape ;
   sh:targetClass aas:DataElement ;
 .
+
 
 iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
   sh:targetClass iec61360:DataSpecificationIEC61360 ;
