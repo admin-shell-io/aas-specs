@@ -1212,18 +1212,20 @@ aas:ReferableShape  a sh:NodeShape ;
   sh:targetClass aas:Referable ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/category> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/referableCategory> ;
       sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:pattern ".+" ;
-      sh:message "(Referable.category):Only one value for <i>category</i> is allowed"^^xsd:string ;
+      sh:message "(Referable.referableCategory):Only one value for <i>referableCategory</i> is allowed"^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/description> ;
       sh:datatype rdf:langString ;
+      sh:maxCount 1 ;
       sh:minCount 0 ;
+      sh:message "(Referable.description):Only one value for <i>description</i> is allowed"^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
