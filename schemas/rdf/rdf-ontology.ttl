@@ -609,7 +609,7 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/unitId
-<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/unitId> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/unitId> rdf:type owl:ObjectProperty ;
     rdfs:label "has unit id"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range aas:Reference ;
@@ -772,7 +772,7 @@ aas:Entity rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Entity/statement
-<https://admin-shell.io/aas/3/0/RC01/Entity/statement> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/aas/3/0/RC01/Entity/statement> rdf:type owl:ObjectProperty ;
     rdfs:label "has statement"^^xsd:string ;
     rdfs:comment "Describes statements applicable to the entity by a set of submodel elements, typically with a qualified value."@en ;
     rdfs:domain aas:Entity ;
