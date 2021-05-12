@@ -849,6 +849,20 @@ aas:HasDataSpecificationShape a sh:NodeShape ;
 
 aas:HasKindShape a sh:NodeShape ;
     sh:targetClass aas:HasKind ;
+
+    sh:sparql [
+  		a sh:SPARQLConstraint ;
+  		sh:message "(HasKindShape): An aas:HasKind is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+  		sh:prefixes aas: ;
+  		sh:select """
+  			SELECT ?this ?type
+  			WHERE {
+  				?this rdf:type ?type .
+  				FILTER (?type = aas:HasKind)
+  			}
+  		""" ;
+  	] ;
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> ;
