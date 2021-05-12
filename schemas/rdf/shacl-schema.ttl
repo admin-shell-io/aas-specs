@@ -404,6 +404,20 @@ aas:CapabilityShape  a sh:NodeShape ;
 
 aas:CertificateShape  a sh:NodeShape ;
   sh:targetClass aas:Certificate ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(CertificateShape): An aas:Certificate is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:Certificate)
+			}
+		""" ;
+	] ;
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Certificate/policyAdministrationPoint> ;
@@ -436,11 +450,37 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
 
 aas:ConstraintShape a sh:NodeShape ;
   sh:targetClass aas:Constraint ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(ConstraintShape): An aas:Constraint is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:Constraint)
+			}
+		""" ;
+	] ;
 .
 
 aas:DataElementShape a sh:NodeShape ;
   rdfs:subClassOf aas:SubmodelElementShape ;
   sh:targetClass aas:DataElement ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(DataElementShape): An aas:DataElement is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:DataElement)
+			}
+		""" ;
+	] ;
 .
 
 
@@ -722,6 +762,19 @@ aas:EventShape a sh:NodeShape ;
   rdfs:subClassOf aas:SubmodelElementShape ;
   sh:targetClass aas:Event ;
   skos:note "As of November 2019, Event is not mandatory. This shape serves as a stump for further definitions."@en ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(EventShape): An aas:Event is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:Event)
+			}
+		""" ;
+	] ;
 .
 
 aas:EventElementShape a sh:NodeShape ;
@@ -771,6 +824,20 @@ aas:FormulaShape a sh:NodeShape ;
 
 aas:HasDataSpecificationShape a sh:NodeShape ;
   sh:targetClass aas:HasDataSpecification ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(HasDataSpecificationShape): An aas:HasDataSpecification is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:HasDataSpecification)
+			}
+		""" ;
+	] ;
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/HasDataSpecification/dataSpecification> ;
@@ -794,6 +861,20 @@ aas:HasKindShape a sh:NodeShape ;
 
 aas:HasSemanticsShape a sh:NodeShape ;
   sh:targetClass aas:HasSemantics ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(HasSemanticsConstraintShape): An aas:HasSemantics is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:HasSemantics)
+			}
+		""" ;
+	] ;
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId> ;
@@ -807,6 +888,20 @@ aas:HasSemanticsShape a sh:NodeShape ;
 aas:IdentifiableShape  a sh:NodeShape ;
   sh:targetClass aas:Identifiable ;
   rdfs:subClassOf aas:ReferableShape ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(IdentifiableShape): An aas:Identifiable is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:Identifiable)
+			}
+		""" ;
+	] ;
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Identifiable/administration> ;
@@ -1087,6 +1182,20 @@ aas:PropertyShape  a sh:NodeShape ;
 
 aas:QualifiableShape  a sh:NodeShape ;
   sh:targetClass aas:Qualifiable ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(QualifiableShape): An aas:Qualifiable is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:Qualifiable)
+			}
+		""" ;
+	] ;
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifiable/qualifier> ;
@@ -1164,6 +1273,20 @@ aas:RangeShape a sh:NodeShape ;
 
 aas:HasExtensionsShape a sh:NodeShape ;
   sh:targetClass aas:HasExtensions ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(HasExtensionsShape): An aas:HasExtensions is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:HasExtensions)
+			}
+		""" ;
+	] ;
+
   sh:property [
 	  a sh:PropertyShape ;
 	  sh:path <https://admin-shell.io/aas/3/0/RC01/HasExtensions/extension> ;
@@ -1214,6 +1337,20 @@ aas:ExtensionShape a sh:NodeShape ;
 
 aas:ReferableShape  a sh:NodeShape ;
   sh:targetClass aas:Referable ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(ReferableShape): An aas:Referable is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:Referable)
+			}
+		""" ;
+	] ;
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/referableCategory> ;
@@ -1355,6 +1492,19 @@ aas:SubmodelElementShape  a sh:NodeShape ;
   rdfs:subClassOf aas:HasSemanticsShape ;
   rdfs:subClassOf aas:QualifiableShape ;
   rdfs:subClassOf aas:ReferableShape  ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(SubmodelElementShape): An aas:SubmodelElement is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:SubmodelElement)
+			}
+		""" ;
+	] ;
 .
 
 aas:SubmodelElementCollectionShape  a sh:NodeShape ;
