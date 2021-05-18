@@ -432,7 +432,7 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
   sh:targetClass aas:ConceptDescription ;
   rdfs:subClassOf aas:HasDataSpecificationShape ;
   rdfs:subClassOf aas:IdentifiableShape ;
-  
+
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/isCaseOf> ;
@@ -501,8 +501,9 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/definition> ;
-      sh:message "(DataSpecificationIEC61360.definition):A <i>definition</i> must have a LangStringSet"^^xsd:string ;
+      sh:message "(DataSpecificationIEC61360.definition):A <i>definition</i> must point to a LangStringSet"^^xsd:string ;
       sh:minCount 0 ;
+      sh:maxCount 1 ;
       sh:class aas:LangStringSet ;
     ] ;
   sh:property [
@@ -524,8 +525,9 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/shortName> ;
       sh:maxCount 1 ;
-      sh:message "(DataSpecificationIEC61360.shortName):A <i>shortName</i> must have a LangStringSet"^^xsd:string ;
+      sh:message "(DataSpecificationIEC61360.shortName):A <i>shortName</i> must point to a <i>LangStringSet</i>"^^xsd:string ;
       sh:minCount 0 ;
+      sh:maxCount 1 ;
       sh:class aas:LangStringSet ;
     ] ;
   sh:property [
@@ -999,6 +1001,7 @@ aas:MultiLanguagePropertyShape  a sh:NodeShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/value> ;
       sh:class aas:LangStringSet ;
       sh:minCount 0 ;
+      sh:maxCount 1 ;
       sh:message "(MultiLanguageProperty.value):A language string <i>value</i> must have a language tag"^^xsd:string ;
     ] ;
   sh:property [
@@ -1383,6 +1386,8 @@ aas:ReferableShape  a sh:NodeShape ;
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/description> ;
       sh:class aas:LangStringSet ;
+      sh:minCount 0 ;
+      sh:maxCount 1 ;
       sh:message "(Referable.description):Only one value for <i>description</i> is allowed"^^xsd:string ;
     ] ;
   sh:property [

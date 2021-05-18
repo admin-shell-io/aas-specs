@@ -564,7 +564,7 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/definition
-<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/definition> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/definition> rdf:type owl:ObjectProperty ;
     rdfs:label "has definition"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range aas:LangStringSet ;
@@ -579,14 +579,14 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/preferredName
-<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/preferredName> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/preferredName> rdf:type owl:ObjectProperty ;
     rdfs:label "has preferred name"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range aas:LangStringSet ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/shortName
-<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/shortName> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/shortName> rdf:type owl:ObjectProperty ;
     rdfs:label "has short name"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range aas:LangStringSet ;
@@ -664,7 +664,7 @@ phys_unit:conversionFactor rdf:type owl:DatatypeProperty ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/definition
-phys_unit:definition rdf:type owl:DatatypeProperty ;
+phys_unit:definition rdf:type owl:ObjectProperty ;
     rdfs:label "has definition"^^xsd:string ;
     rdfs:domain phys_unit: ;
     rdfs:range aas:LangStringSet ;
@@ -1239,7 +1239,7 @@ aas:MultiLanguageProperty rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/value
-<https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/value> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/value> rdf:type owl:ObjectProperty ;
     rdfs:comment "The value of the property instance."@en ;
     rdfs:label "has value"^^xsd:string ;
     rdfs:domain aas:MultiLanguageProperty ;
@@ -1676,7 +1676,7 @@ aas:Referable rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Referable/description
-<https://admin-shell.io/aas/3/0/RC01/Referable/description> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/aas/3/0/RC01/Referable/description> rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf rdfs:comment ;
     rdfs:label "has description"^^xsd:string ;
     rdfs:domain aas:Referable ;
@@ -1685,7 +1685,7 @@ aas:Referable rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Referable/displayName
-<https://admin-shell.io/aas/3/0/RC01/Referable/displayName> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/aas/3/0/RC01/Referable/displayName> rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf rdfs:comment ;
     rdfs:label "has display name"^^xsd:string ;
     rdfs:domain aas:Referable ;
