@@ -507,6 +507,28 @@ aas:ConceptDescription rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/ConceptDescription/embeddedDataSpecification
+<https://admin-shell.io/aas/3/0/RC01/ConceptDescription/embeddedDataSpecification> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to an external definition the concept is compatible to or was derived from."@en ;
+    rdfs:label "is case of"^^xsd:string ;
+    rdfs:domain aas:ConceptDescription ;
+    rdfs:range aas:DataSpecification ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataSpecification
+<https://admin-shell.io/aas/3/0/RC01/DataSpecification> rdf:type owl:Class ;
+    rdfs:comment "Reference to an external definition the concept is compatible to or was derived from."@en ;
+    rdfs:label "is case of"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataSpecification/dataSpecificationContent
+<https://admin-shell.io/aas/3/0/RC01/DataSpecification/dataSpecificationContent> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to an external definition the concept is compatible to or was derived from."@en ;
+    rdfs:label "is case of"^^xsd:string ;
+    rdfs:domain aas:DataSpecification ;
+    rdfs:range aas:DataSpecificationContent ;
+.
+
 ###  https://admin-shell.io/aas/3/0/RC01/Constraint
 <https://admin-shell.io/aas/3/0/RC01/Constraint> rdf:type owl:Class ;
     dash:abstract true ;
@@ -1667,8 +1689,8 @@ aas:Referable rdf:type owl:Class ;
     rdfs:label "Referable"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Referable/referableCategory
-<https://admin-shell.io/aas/3/0/RC01/Referable/referableCategory> rdf:type owl:DatatypeProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Referable/category
+<https://admin-shell.io/aas/3/0/RC01/Referable/category> rdf:type owl:DatatypeProperty ;
     rdfs:label "has referable category"^^xsd:string ;
     rdfs:comment "The category is a value that gives further meta information w.r.t. to the class of the element. It affects the expected existence of attributes and the applicability of constraints."@en ;
     rdfs:domain aas:Referable ;
