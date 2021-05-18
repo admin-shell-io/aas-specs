@@ -440,6 +440,13 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
       sh:class aas:Reference ;
       sh:message "(ConceptDescription.isCaseOf):<i>isCaseOf</i> must have a <i>reference</i> entity."^^xsd:string ;
     ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/embeddedDataSpecification> ;
+      sh:minCount 0 ;
+      sh:class aas:DataSpecification ;
+      sh:message "(ConceptDescription.embeddedDataSpecification):<i>ConceptDescription</i> must point to a <i>embeddedDataSpecification</i> entity."^^xsd:string ;
+    ] ;
 .
 
 aas:ConstraintShape a sh:NodeShape ;
@@ -488,6 +495,16 @@ aas:DataElementShape a sh:NodeShape ;
 	] ;
 .
 
+aas:DataSpecificationShape  a sh:NodeShape ;
+  sh:targetClass aas:DataSpecification ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/DataSpecification/dataSpecificationContent> ;
+      sh:minCount 0 ;
+      sh:class rdf:DataSpecificationContent ;
+      sh:message "(DataSpecification.dataSpecificationContent):<i>dataSpecificationContent</i> must point to one <i>DataSpecificationContent</i> entity."^^xsd:string ;
+    ] ;
+  .
 
 iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
   sh:targetClass iec61360:DataSpecificationIEC61360 ;

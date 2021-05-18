@@ -509,22 +509,22 @@ aas:ConceptDescription rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/ConceptDescription/embeddedDataSpecification
 <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/embeddedDataSpecification> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Reference to an external definition the concept is compatible to or was derived from."@en ;
-    rdfs:label "is case of"^^xsd:string ;
+    rdfs:comment "The embedded data specification template of the description of the concept."@en ;
+    rdfs:label "embedded data speciification"^^xsd:string ;
     rdfs:domain aas:ConceptDescription ;
     rdfs:range aas:DataSpecification ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/DataSpecification
 <https://admin-shell.io/aas/3/0/RC01/DataSpecification> rdf:type owl:Class ;
-    rdfs:comment "Reference to an external definition the concept is compatible to or was derived from."@en ;
-    rdfs:label "is case of"^^xsd:string ;
+    rdfs:comment "Data specification template of the description of the concept."@en ;
+    rdfs:label "Data Specification"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/DataSpecification/dataSpecificationContent
 <https://admin-shell.io/aas/3/0/RC01/DataSpecification/dataSpecificationContent> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Reference to an external definition the concept is compatible to or was derived from."@en ;
-    rdfs:label "is case of"^^xsd:string ;
+    rdfs:comment "DataSpecificationContent contains the additional attributes to be added to the element instance that references the data specification template and meta information about the template itself."@en ;
+    rdfs:label "Data Specification Content"^^xsd:string ;
     rdfs:domain aas:DataSpecification ;
     rdfs:range aas:DataSpecificationContent ;
 .
