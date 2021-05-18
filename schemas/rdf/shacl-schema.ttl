@@ -432,13 +432,7 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
   sh:targetClass aas:ConceptDescription ;
   rdfs:subClassOf aas:HasDataSpecificationShape ;
   rdfs:subClassOf aas:IdentifiableShape ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/content> ;
-      sh:minCount 0 ;
-      sh:class aas:DataSpecificationContent ;
-      sh:message "(ConceptDescription.content):<i>content</i> must link to a <i>DataSpecificationContent</i> entity."^^xsd:string ;
-    ] ;
+  
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/isCaseOf> ;

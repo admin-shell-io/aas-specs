@@ -497,15 +497,6 @@ aas:ConceptDescription rdf:type owl:Class ;
 	skos:note "Constraint AASd-051: A ConceptDescription shall have one of the following categories: VALUE, PROPERTY, REFERENCE, DOCUMENT, CAPABILITY, RELATIONSHIP, COLLECTION, FUNCTION, EVENT, ENTITY, APPLICATION_CLASS, QUALIFIER, VIEW. Default: PROPERTY."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ConceptDescription/content
-<https://admin-shell.io/aas/3/0/RC01/ConceptDescription/content> rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf dcterms:identifier ;
-    rdfs:comment "Link from a ConceptDescription to its explaining DataSpecificationContent."@en ;
-    rdfs:label "has content"^^xsd:string ;
-    rdfs:domain aas:ConceptDescription ;
-    rdfs:range aas:DataSpecificationContent ;
-.
-
 ###  https://admin-shell.io/aas/3/0/RC01/ConceptDescription/isCaseOf
 <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/isCaseOf> rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf dcterms:identifier ;
