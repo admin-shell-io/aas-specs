@@ -466,7 +466,7 @@ aas:ConstraintShape a sh:NodeShape ;
 	] ;
 .
 
-aas:LangStringSet a sh:NodeShape ;
+aas:LangStringSetShape a sh:NodeShape ;
   sh:targetClass aas:LangStringSet ;
   sh:property [
       a sh:PropertyShape ;
@@ -524,7 +524,7 @@ aas:DataSpecificationContentShape  a sh:NodeShape ;
 	] ;
  .
 
-iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
+iec61360:DataSpecificationIEC61360Shape a sh:NodeShape ;
   sh:targetClass iec61360:DataSpecificationIEC61360 ;
   rdfs:subClassOf aas:DataSpecificationContentShape ;
   sh:property [
