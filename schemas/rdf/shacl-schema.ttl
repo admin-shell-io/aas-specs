@@ -438,14 +438,14 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/isCaseOf> ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
-      sh:message "(ConceptDescription.isCaseOf):<i>isCaseOf</i> must have a <i>reference</i> entity."^^xsd:string ;
+      sh:message "(ConceptDescription.isCaseOf):<i>isCaseOf</i> must point to a <i>reference</i> entity."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/embeddedDataSpecification> ;
-      sh:minCount 0 ;
+      sh:minCount 1 ;
       sh:class aas:DataSpecification ;
-      sh:message "(ConceptDescription.embeddedDataSpecification):<i>ConceptDescription</i> must point to a <i>embeddedDataSpecification</i> entity."^^xsd:string ;
+      sh:message "(ConceptDescription.embeddedDataSpecification):Each <i>embeddedDataSpecification</i> property must have at least one <i>DataSpecification</i> entity."^^xsd:string ;
     ] ;
 .
 
@@ -500,14 +500,33 @@ aas:DataSpecificationShape  a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/DataSpecification/dataSpecificationContent> ;
-      sh:minCount 0 ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
       sh:class rdf:DataSpecificationContent ;
-      sh:message "(DataSpecification.dataSpecificationContent):<i>dataSpecificationContent</i> must point to one <i>DataSpecificationContent</i> entity."^^xsd:string ;
+      sh:message "(DataSpecification.dataSpecificationContent):<i>dataSpecificationContent</i> must have exactly one <i>DataSpecificationContent</i> entity."^^xsd:string ;
     ] ;
   .
 
+aas:DataSpecificationContentShape  a sh:NodeShape ;
+  sh:targetClass aas:DataSpecificationContent ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(DataSpecificationContentShape): An aas:DataSpecificationContent is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:DataSpecificationContent)
+			}
+		""" ;
+	] ;
+ .
+
 iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
   sh:targetClass iec61360:DataSpecificationIEC61360 ;
+  rdfs:subClassOf aas:DataSpecificationContentShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/datatype> ;
