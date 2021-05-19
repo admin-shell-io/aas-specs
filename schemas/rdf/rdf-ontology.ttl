@@ -536,20 +536,6 @@ aas:ConceptDescription rdf:type owl:Class ;
     skos:prefLabel "Constraint"@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/LangStringSet
-<https://admin-shell.io/aas/3/0/RC01/LangStringSet> rdf:type owl:Class ;
-    rdfs:comment "A set of strings, each annotated by the language of the string. The meaning of the string in each language shall be the same."@en ;
-    rdfs:label "Lang String Set"^^xsd:string ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/LangStringSet/langString
-<https://admin-shell.io/aas/3/0/RC01/LangStringSet/langString> rdf:type owl:DatatypeProperty ;
-    rdfs:comment "A string in a specified language."@en ;
-    rdfs:label "Lang String"^^xsd:string ;
-    rdfs:domain aas:LangStringSet ;
-    rdfs:range rdf:langString ;
-.
-
 ###  https://admin-shell.io/aas/3/0/RC01/DataElement
 aas:DataElement rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
@@ -588,7 +574,7 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/definition> rdf:type owl:ObjectProperty ;
     rdfs:label "has definition"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
-    rdfs:range aas:LangStringSet ;
+    rdfs:range rdf:langString ;
 	skos:note "Constraint AASd-074: For all ConceptDescriptions except for ConceptDescriptions of category VALUE using data specification template IEC61360 (http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0) -  DataSpecificationIEC61360/definition is mandatory and shall be defined at least in English."@en ;
 .
 
@@ -603,14 +589,14 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/preferredName> rdf:type owl:ObjectProperty ;
     rdfs:label "has preferred name"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
-    rdfs:range aas:LangStringSet ;
+    rdfs:range rdf:langString ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/shortName
 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/shortName> rdf:type owl:ObjectProperty ;
     rdfs:label "has short name"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
-    rdfs:range aas:LangStringSet ;
+    rdfs:range rdf:langString ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/sourceOfDefinition
@@ -688,7 +674,7 @@ phys_unit:conversionFactor rdf:type owl:DatatypeProperty ;
 phys_unit:definition rdf:type owl:ObjectProperty ;
     rdfs:label "has definition"^^xsd:string ;
     rdfs:domain phys_unit: ;
-    rdfs:range aas:LangStringSet ;
+    rdfs:range rdf:langString ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/dinNotation
@@ -1265,7 +1251,7 @@ aas:MultiLanguageProperty rdf:type owl:Class ;
     rdfs:comment "The value of the property instance."@en ;
     rdfs:label "has value"^^xsd:string ;
     rdfs:domain aas:MultiLanguageProperty ;
-    rdfs:range aas:LangStringSet ;
+    rdfs:range rdf:langString ;
 	skos:note "Constraint AASd-052b: If the semanticId of a MultiLanguageProperty references a ConceptDescription then the ConceptDescription/category shall be one of  following values: PROPERTY."@en ;
 	skos:note "Constraint AASd-012: If both, the MultiLanguageProperty/value and the MultiLanguageProperty/valueId are present then for each string in a specific language the meaning must be the same as specified in MultiLanguageProperty/valueId."@en ;
 	skos:note "Constraint AASd-067: If the semanticId of a MultiLanguageProperty references a ConceptDescription then DataSpecificationIEC61360/dataType shall be STRING_TRANSLATABLE."@en ;
@@ -1702,7 +1688,7 @@ aas:Referable rdf:type owl:Class ;
     rdfs:subPropertyOf rdfs:comment ;
     rdfs:label "has description"^^xsd:string ;
     rdfs:domain aas:Referable ;
-    rdfs:range aas:LangStringSet ;
+    rdfs:range rdf:langString ;
     rdfs:comment "Description or comments on the element. The description can be provided in several languages."@en ;
 .
 
@@ -1711,7 +1697,7 @@ aas:Referable rdf:type owl:Class ;
     rdfs:subPropertyOf rdfs:comment ;
     rdfs:label "has display name"^^xsd:string ;
     rdfs:domain aas:Referable ;
-    rdfs:range aas:LangStringSet ;
+    rdfs:range rdf:langString ;
     rdfs:comment "Display name. Can be provided in several languages."@en ;
 .
 
