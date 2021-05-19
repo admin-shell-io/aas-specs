@@ -616,14 +616,6 @@ iec61360:DataSpecificationIEC61360 a sh:NodeShape ;
       sh:minCount 0 ;
       sh:pattern ".+" ;
     ] ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueId> ;
-      sh:class aas:Reference ;
-      sh:maxCount 1 ;
-      sh:message "(DataSpecificationIEC61360.valueId):A <i>valueId</i> must have a Reference"^^xsd:string ;
-      sh:minCount 0 ;
-    ] ;
 .
 
 aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
@@ -815,6 +807,7 @@ aas:EventMessageShape a sh:NodeShape ;
 
 aas:FileShape a sh:NodeShape ;
   rdfs:subClassOf aas:DataElementShape ;
+  rdfs:subClassOf aas:SubmodelElementShape ;
   sh:targetClass aas:File ;
   sh:property [
       a sh:PropertyShape ;
@@ -1011,7 +1004,6 @@ aas:KeyShape  a sh:NodeShape ;
 
 aas:MultiLanguagePropertyShape  a sh:NodeShape ;
   sh:targetClass aas:MultiLanguageProperty ;
-  rdfs:subClassOf aas:SubmodelElementShape ;
   rdfs:subClassOf aas:DataElementShape ;
   sh:property [
       a sh:PropertyShape ;
@@ -1439,6 +1431,7 @@ aas:ReferenceShape a sh:NodeShape ;
 
 aas:ReferenceElementShape a sh:NodeShape ;
   sh:targetClass aas:ReferenceElement ;
+  rdfs:subClassOf aas:DataElementShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/ReferenceElement/value> ;
@@ -1584,7 +1577,7 @@ aas:ViewShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/View/containedElement> ;
-      sh:class aas:Reference ;
-	    sh:message "(View.containedElement):A <i>containedElement</i> attribute must have a <i>reference</i> entity pointing to a Referable."^^xsd:string ;
+      sh:class aas:Referable ;
+	    sh:message "(View.containedElement):A <i>containedElement</i> attribute must have a <i>Referable</i> entity pointing to a Referable."^^xsd:string ;
   ] ;
 .

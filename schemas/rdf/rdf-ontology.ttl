@@ -287,9 +287,8 @@ aas:AssetAdministrationShell rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel
 <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetAdministrationShell ;
-    rdfs:range aas:Reference ;
     # rdfs:range [ owl:unionOf (aas:Reference aas:Submodel) ] ;
-    rdfs:range aas:Reference ;
+    rdfs:range aas:Submodel ;
     rdfs:comment "Points from the Admin Shell to the Submodels that describe the Admin Shell of a given Asset"@en ;
     rdfs:label "has Submodel"^^xsd:string ;
 .
@@ -853,6 +852,7 @@ aas:EventMessage rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/File
 aas:File rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
+    rdfs:subClassOf aas:DataElement ;
     rdfs:comment "A File is a data element that represents a file via its path description."@en ;
     rdfs:label "File Submodel Element"^^xsd:string ;
 .
