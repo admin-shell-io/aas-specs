@@ -526,9 +526,8 @@ iec61360:DataSpecificationIEC61360Shape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/definition> ;
-      sh:message "(DataSpecificationIEC61360.definition):A <i>definition</i> must point to a LangString"^^xsd:string ;
+      sh:message "(DataSpecificationIEC61360.definition):A <i>definition</i> must point to a <i>langString</i>."^^xsd:string ;
       sh:minCount 0 ;
-      sh:maxCount 1 ;
       sh:dataType rdf:langString ;
     ] ;
   sh:property [
@@ -541,18 +540,15 @@ iec61360:DataSpecificationIEC61360Shape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/preferredName> ;
-      sh:message "(DataSpecificationIEC61360.preferredName): Exactly one <i>preferredName</i> is required"^^xsd:string ;
-      sh:maxCount 1 ;
+      sh:message "(DataSpecificationIEC61360.preferredName): A <i>preferredName</i> must point to a <i>LangString</i>"^^xsd:string ;
       sh:minCount 1 ;
       sh:dataType rdf:langString ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/shortName> ;
-      sh:maxCount 1 ;
       sh:message "(DataSpecificationIEC61360.shortName):A <i>shortName</i> must point to a <i>LangString</i>"^^xsd:string ;
       sh:minCount 0 ;
-      sh:maxCount 1 ;
       sh:dataType rdf:langString ;
     ] ;
   sh:property [
@@ -650,9 +646,8 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       a sh:PropertyShape ;
       sh:path phys_unit:definition ;
       sh:dataType rdf:langString ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:message "(DataSpecificationPhysicalUnit.definition): Exactly one <i>unitSymbol</i> which links to a <i>langstring</i> is required."^^xsd:string ;
+      sh:minCount 0 ;
+      sh:message "(DataSpecificationPhysicalUnit.definition): A <i>unitSymbol</i> must point to a <i>langstring</i> is required."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -1018,7 +1013,6 @@ aas:MultiLanguagePropertyShape  a sh:NodeShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/value> ;
       sh:dataType rdf:langString ;
       sh:minCount 0 ;
-      sh:maxCount 1 ;
       sh:message "(MultiLanguageProperty.value):A language string <i>value</i> must have a language tag"^^xsd:string ;
     ] ;
   sh:property [
@@ -1404,16 +1398,14 @@ aas:ReferableShape  a sh:NodeShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/description> ;
       sh:dataType rdf:langString ;
       sh:minCount 0 ;
-      sh:maxCount 1 ;
-      sh:message "(Referable.description):Only one value for <i>description</i> is allowed"^^xsd:string ;
+      sh:message "(Referable.description):A <i>description</i> must point to a <i>langString</i>"^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/displayName> ;
       sh:dataType rdf:langString ;
-	    sh:maxCount 1 ;
       sh:minCount 0 ;
-	    sh:message "(Referable.displayName):Only one value for <i>displayName</i> is allowed"^^xsd:string ;
+	    sh:message "(Referable.displayName):A <i>displayName</i> must point to a <i>langString</i>."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
