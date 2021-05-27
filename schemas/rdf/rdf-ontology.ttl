@@ -642,11 +642,11 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueList
-<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueList> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueList> rdf:type owl:ObjectProperty ;
     rdfs:label "has value list"^^xsd:string ;
     rdfs:comment "The Type 'ValueList' lists all the allowed values for a concept description for which the allowed values are listed in an enumeration. The value list is a set of value reference pairs."@en ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
-    rdfs:range xsd:string ;
+    rdfs:range aas:ValueList ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueId
