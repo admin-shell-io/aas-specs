@@ -2009,6 +2009,42 @@ aas:SubmodelElementCollection rdf:type owl:Class ;
     rdfs:range aas:SubmodelElement ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/ValueList
+aas:VakueList rdf:type owl:Class ;
+    rdfs:comment "A set of value reference pairs."@en ;
+    rdfs:label "Value list"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/ValueList/valueReferencePairTypes
+<https://admin-shell.io/aas/3/0/RC01/ValueList/valueReferencePairTypes> rdf:type owl:ObjectProperty ;
+    rdfs:comment "A pair of a value together with its global unique id.."@en ;
+    rdfs:label "Value reference pair types"^^xsd:string ;
+    rdfs:domain aas:ValueList ;
+    rdfs:range aas:ValueReferencePair ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/ValueReferencePair
+aas:ValueReferencePair rdf:type owl:Class ;
+    rdfs:comment "A value reference pair within a value list. Each value has a global unique id defining its semantic."@en ;
+    rdfs:label "Value Reference Pair"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/value
+<https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/value> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "the value of the referenced concept definition of the value in valueId."@en ;
+    rdfs:label "Value of value reference pair"^^xsd:string ;
+    rdfs:domain aas:ValueReferencePair ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/valueId
+<https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/valueId> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Global unique id of the value."@en ;
+    rdfs:label "Value id of value reference pair"^^xsd:string ;
+    rdfs:domain aas:ValueReferencePair ;
+    rdfs:range aas:Reference ;
+.
+
 ###  https://admin-shell.io/aas/3/0/RC01/View
 aas:View rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification , aas:Referable , aas:HasSemantics ;

@@ -1569,6 +1569,37 @@ aas:SubmodelElementCollectionShape  a sh:NodeShape ;
     ] ;
 .
 
+aas:ValueListShape a sh:NodeShape ;
+  sh:targetClass aas:ValueList ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/ValueList/valueReferencePairTypes> ;
+      sh:class aas:ValueReferencePair ;
+      sh:minCount 1 ;
+	    sh:message "(ValueList.valueReferencePairTypes):A <i>valueReferencePairTypes</i> attribute must have an entity pointing to a <i>ValueReferencePair</i>."^^xsd:string ;
+  ] ;
+.
+
+aas:ValueReferencePairShape a sh:NodeShape ;
+  sh:targetClass aas:ValueReferencePair ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/value> ;
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	    sh:message "(ValueReferencePair.value):Only one <i>string</i> is allowed for <i>value</i>."^^xsd:string ;
+  ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/valueId> ;
+      sh:datatype aas:Reference ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+	    sh:message "(ValueReferencePair.valueId):Only one <i>Reference</i> is allowed for <i>valueId</i>."^^xsd:string ;
+  ] ;
+.
+
 aas:ViewShape a sh:NodeShape ;
   rdfs:subClassOf aas:HasDataSpecificationShape ;
   rdfs:subClassOf aas:HasSemanticsShape ;
