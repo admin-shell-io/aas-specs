@@ -1577,7 +1577,7 @@ aas:ViewShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/View/containedElement> ;
-      sh:class aas:Referable ;
-	    sh:message "(View.containedElement):A <i>containedElement</i> attribute must have a <i>Referable</i> entity pointing to a Referable."^^xsd:string ;
+      sh:class aas:Reference ;
+	    sh:message "(View.containedElement):A <i>containedElement</i> attribute must have an entity pointing to a <i>Reference</i>."^^xsd:string ;
   ] ;
 .
