@@ -624,11 +624,10 @@ iec61360:DataSpecificationIEC61360Shape a sh:NodeShape ;
 .
 
 aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
-  sh:targetClass aas:DataSpecificationPhysicalUnit ;
+  sh:targetClass phys_unit: ;
   sh:property [
       a sh:PropertyShape ;
       sh:path phys_unit:unitName ;
-      sh:class aas:SubmodelElement ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:pattern ".+" ;
