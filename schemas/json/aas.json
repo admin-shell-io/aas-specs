@@ -6,7 +6,6 @@
   "required": [
     "assetAdministrationShells",
     "submodels",
-    "assets",
     "conceptDescriptions"
   ],
   "properties": {
@@ -20,12 +19,6 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/Submodel"
-      }
-    },
-    "assets": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Asset"
       }
     },
     "conceptDescriptions": {
