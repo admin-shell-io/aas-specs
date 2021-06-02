@@ -1,6 +1,6 @@
 @prefix aas: <https://admin-shell.io/aas/3/0/RC01/> .
 @prefix iec61360: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/> .
-@prefix phys_unit: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/> .
+@prefix phys_unit: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -624,10 +624,10 @@ iec61360:DataSpecificationIEC61360Shape a sh:NodeShape ;
 .
 
 aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
-  sh:targetClass phys_unit: ;
+  sh:targetClass phys_unit:DataSpecificationPhysicalUnit ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:unitName ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/unitName> ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:pattern ".+" ;
@@ -635,7 +635,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:unitSymbol ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/unitSymbol> ;
       sh:datatype xsd:string ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
@@ -644,14 +644,14 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:definition ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/definition> ;
       sh:dataType rdf:langString ;
       sh:minCount 0 ;
       sh:message "(DataSpecificationPhysicalUnit.definition): A <i>unitSymbol</i> must point to a <i>langstring</i> is required."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:siNotation ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/siNotation> ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
@@ -660,7 +660,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:siName ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/siName> ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
@@ -669,7 +669,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:dinNotation ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/dinNotation> ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
@@ -678,7 +678,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:eceName ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/eceName> ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
@@ -687,7 +687,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:eceCode ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/eceCode> ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
@@ -696,7 +696,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:nistName ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/nistName> ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
@@ -705,7 +705,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/sourceOfDefinition> ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/sourceOfDefinition> ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
@@ -713,7 +713,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:conversionFactor ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/conversionFactor> ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
@@ -722,7 +722,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:registrationAuthorityId ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/registrationAuthorityId> ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
@@ -731,7 +731,7 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path phys_unit:supplier ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/supplier> ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;

@@ -657,93 +657,93 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit
-phys_unit: rdf:type owl:Class ;
+phys_unit:DataSpecificationPhysicalUnit rdf:type owl:Class ;
     rdfs:subClassOf aas:DataSpecificationContent ;
     rdfs:label "Data Specification Physical Unit"^^xsd:string ;
     rdfs:comment "Data Specification Template for Physical Units."@en ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/conversionFactor
-phys_unit:conversionFactor rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/conversionFactor> rdf:type owl:DatatypeProperty ;
     rdfs:label "has conversion factor"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/definition
-phys_unit:definition rdf:type owl:ObjectProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/definition> rdf:type owl:ObjectProperty ;
     rdfs:label "has definition"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range rdf:langString ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/dinNotation
-phys_unit:dinNotation rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/dinNotation> rdf:type owl:DatatypeProperty ;
     rdfs:label "has DIN notation"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/eceCode
-phys_unit:eceCode rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/eceCode> rdf:type owl:DatatypeProperty ;
     rdfs:label "has ECE code"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/eceName
-phys_unit:eceName rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/eceName> rdf:type owl:DatatypeProperty ;
     rdfs:label "has ECE name"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/nistName
-phys_unit:nistName rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/nistName> rdf:type owl:DatatypeProperty ;
     rdfs:label "has NIST name"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/siName
-phys_unit:siName rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/siName> rdf:type owl:DatatypeProperty ;
     rdfs:label "has SI name"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/siNotation
-phys_unit:siNotation rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/siNotation> rdf:type owl:DatatypeProperty ;
     rdfs:label "has SI notation"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/registrationAuthorityId
-phys_unit:registrationAuthorityId rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/registrationAuthorityId> rdf:type owl:DatatypeProperty ;
     rdfs:label "has registration authority"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/supplier
-phys_unit:supplier rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/supplier> rdf:type owl:DatatypeProperty ;
     rdfs:label "has supplier"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/unitName
-phys_unit:unitName rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/unitName> rdf:type owl:DatatypeProperty ;
     rdfs:label "unit has name"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/unitSymbol
-phys_unit:unitSymbol rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC01/DataSpecificationPhysicalUnit/unitSymbol> rdf:type owl:DatatypeProperty ;
     rdfs:label "unit has symbol"^^xsd:string ;
-    rdfs:domain phys_unit: ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
     rdfs:range xsd:string ;
 .
 
