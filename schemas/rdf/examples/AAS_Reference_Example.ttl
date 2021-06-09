@@ -29,7 +29,7 @@
 
     aas:asset [ # 1a) asset
         a aas:Reference ;
-        aas:key [
+        aas::Reference/key [
             a aas:Key ;
             aas:type aas:KeyElements/ASSET ;
             aas:value <http://customer.com/assets/KHBVZJSQKIY> ;
@@ -46,7 +46,7 @@
 
     aas:assetRef [ # 1b) assetRef
         a aas:Reference ;
-        aas:key [
+        aas::Reference/key [
             a aas:Key ;
             aas:Key/type aas:KeyElements/ASSET ;
             aas:Key/value <http://customer.com/assets/KHBVZJSQKIY> ;
