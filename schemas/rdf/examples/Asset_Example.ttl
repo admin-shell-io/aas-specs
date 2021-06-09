@@ -6,10 +6,8 @@
     rdf:type aas:Reference ;
     aas:key [
         rdf:type aas:Key ;
-        aas:index "0"^^xsd:integer ;
-        aas:type aas:SUBMODEL_IDENTIFIABLE_ELEMENT ;
-        aas:local "true"^^xsd:boolean ;
-        aas:value <http://i40.customer.com/type/1/1/F13E8576F6488342> ;
-        aas:idType aas:URI_IDENTIFIER_TYPE .
+        aas:Key/type aas:KeyElements/SUBMODEL ;
+        aas:Key/value <http://i40.customer.com/type/1/1/F13E8576F6488342> ;
+        aas:Key/idType aas:KeyType/IRI .
     ] ;
     aas:hasKind aas:Instance .

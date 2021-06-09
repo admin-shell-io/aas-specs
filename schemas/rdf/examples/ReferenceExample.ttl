@@ -5,10 +5,9 @@
         a aas:Reference ;
         aas:key [
             a aas:Key ;
-            aas:index "0"^^xsd:integer ;
-            aas:type aas:ASSET_IDENTIFIABLE_ELEMENT ;
-            aas:local "true"^^xsd:boolean ;
-            aas:value <http://customer.com/assets/KHBVZJSQKIY> ;
+            aas:Key/type aas:ASSET_IDENTIFIABLE_ELEMENT ;
+            aas:Key/value <http://customer.com/assets/KHBVZJSQKIY> ;
+            aas:Key/idType aas:KeyType/IRI ;
         ] ;
     ] ;
 .
@@ -20,13 +19,12 @@
         a aas:Reference ;
         aas:key [
             a aas:Key ;
-            aas:index "0"^^xsd:integer ;
-            aas:type aas:ASSET_IDENTIFIABLE_ELEMENT ;
-            aas:local "true"^^xsd:boolean ;
-            aas:value <http://customer.com/assets/KHBVZJSQKIY> ;
+            aas:Key/type aas:KeyElements/ASSET ;
+            aas:Key/value <http://customer.com/assets/KHBVZJSQKIY> ;
+            aas:Key/idType aas:KeyType/IRI ;
         ] ;
     ] ;
-    
+
     aas:asset <http://customer.com/assets/KHBVZJSQKIY> ;
 .
 
