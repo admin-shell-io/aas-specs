@@ -23,43 +23,39 @@
 
 
 
-<http://i40.customer.com/type/F13E8576F6488342> rdf:type aas:Submodel ;
-     aas:idShort "Identification"^^xsd:string ;
-     rdfs:label "Identification"^^xsd:string ;
-     aas:Category "CONSTANT"^^xsd:string ;
-     aas:semanticId [
-        a aas:Reference ;
-        aas:Reference/key [
-            a aas:Key ;
-            aas:Key/type aas:KeyElements/GLOBAL_REFERENCE ;
-            aas:Key/value "0173-1#01-ADN198#009"^^xsd:string ;
-            aas:Key/idType aas:KeyType/IRDI ;
-        ] ;
-     ];
-    aas:description "Identification from Manufacturer"@en ;
-    aas:description "Hersteller-Identifikation"@en ;
-    aas:description "Hersteller-Identifikation"@de ;
-    rdfs:comment "Identification from Manufacturer"@en ;
-    rdfs:comment "Hersteller-Identifikation"@de ;
-    aas:identification <http://i40.customer.com/type/F13E8576F6488342> ;
-     aas:submodelElement [
-        rdf:type aas:Property ;
-        rdf:subject <http://i40.customer.com/type/F13E8576F6488342/Manufacturer> ;
-        aas:idShort "Manufacturer"^^xsd:string ;
-        rdfs:label "Manufacturer"^^xsd:string ;
-        aas:category "CONSTANT"^^xsd:string ;
-        aas:hasKind aas:INSTANCE ;
-        aas:semanticId [
-            a aas:Reference ;
-            aas:Reference/key [
-                a aas:Key ;
-                aas:Key/type aas:KeyElements/GLOBAL_REFERENCE ;
-                aas:Key/value "0173-1#02-AAO677#002"^^xsd:string ;
-                aas:Key/idType aas:KeyType/IRDI ;
-            ] ;
+<http://i40.customer.com/type/F13E8576F6488342>
+      rdfs:label "Identification"^^xsd:string ;
+      <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "Identification"^^xsd:string ;
+      <https://admin-shell.io/aas/3/0/RC01/Referable/description> "Identification from Manufacturer"@en , "Hersteller-Identifikation"@de ;
+      rdfs:comment "Identification from Manufacturer"@en ;
+      rdfs:comment "Hersteller-Identifikation"@de ;
+      a [
+          a <https://admin-shell.io/aas/3/0/RC01/Submodel> ;
+          <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
+               rdf:subject <http://i40.customer.com/type/F13E8576F6488342/Manufacturer> ;
+               rdfs:label "Manufacturer"^^xsd:string ;
+               <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "Manufacturer"^^xsd:string ;
+               a [
+                    a <https://admin-shell.io/aas/3/0/RC01/Property> ;
+                    <https://admin-shell.io/aas/3/0/RC01/Property/valueType>  "xsd:string" ;
+                    <https://admin-shell.io/aas/3/0/RC01/Property/valueId> <http://i40.customer.com/type/F13E8576F6488342/Manufacturer> ;
+                    <https://admin-shell.io/aas/3/0/RC01/Property/value> "Manufacturer"^^xsd:string
+               ]
+          ]
         ];
-        aas:hasKind aas:INSTANCE ;
-        aas:value "CUSTOMER GmbH"^^xsd:string ;
-     ] ;
-     ...
-.
+      <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId> [
+         a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
+         <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+           a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+           <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/KeyElements/GLOBAL_REFERENCE> ;
+           <https://admin-shell.io/aas/3/0/RC01/Key/value> "0173-1#01-ADN198#009"^^xsd:string ;
+           <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/KeyType/IRDI> ;
+         ]
+      ] ;
+      <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
+         a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
+         <https://admin-shell.io/aas/3/0/RC01/Identifier/id> <http://i40.customer.com/type/F13E8576F6488342> ;
+         <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRI> ;
+      ] ;
+      <https://admin-shell.io/aas/3/0/RC01/Referable/category> "CONSTANT"^^xsd:string ;
+      <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> <https://admin-shell.io/aas/3/0/RC01/ModelingKind/Instance> .
