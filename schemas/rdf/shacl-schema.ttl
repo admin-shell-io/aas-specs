@@ -1170,9 +1170,9 @@ aas:PolicyInformationPointsShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint> ;
-      sh:class aas:Submodel ;
+      sh:class aas:Reference ;
       sh:minCount 0 ;
-      sh:message "(PolicyInformationPoints.internalInformationPoint):A <i>internalInformationPoint</i> attribute must point to a <i>Submodel</i>."^^xsd:string ;
+      sh:message "(PolicyInformationPoints.internalInformationPoint):A <i>internalInformationPoint</i> attribute must point to a <i>Reference</i> pointing to a submodel."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
