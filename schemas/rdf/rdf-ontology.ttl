@@ -235,7 +235,7 @@ aas:AssetInformation rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial
 <https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetInformation ;
-    rdfs:range aas:Submodel ;
+    rdfs:range aas:Reference ;
     rdfs:comment "A reference to a Submodel that defines the bill of material of the asset represented by the AAS. This submodel contains a set of entities describing the material used to compose the composite I4.0 Component."@en ;
     rdfs:label "has Bill of Material"^^xsd:string ;
 .
