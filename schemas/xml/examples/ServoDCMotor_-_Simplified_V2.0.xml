@@ -9,14 +9,27 @@
 			<aas:identification idType="IRI">
 				http://customer.com/aas/9175_7013_7091_9168
 			</aas:identification>
-			<aas:assetRef>
-				<aas:keys>
-					<aas:key idType="IRI" local="true" type="Asset">
+			<aas:assetInformation>
+				<aas:globalAssetId>
+					<aas:keys>
+						<aas:key idType="IRI" type="Asset">
 						http://customer.com/assets/KHBVZJSQKIY
 					</aas:key>
-				</aas:keys>
-			</aas:assetRef>
-
+					</aas:keys>
+				</aas:globalAssetId>
+				<aas:assetKind>Instance</aas:assetKind>
+				<aas:asset>
+					<aas:idShort>
+						ServoDCMotor
+					</aas:idShort>
+					<aas:identification idType="IRI">
+						http://customer.com/assets/KHBVZJSQKIY
+					</aas:identification>
+				</aas:asset>
+				<aas:billOfMaterialRef>
+					<aas:keys/>
+				</aas:billOfMaterialRef>
+			</aas:assetInformation>
 			<aas:submodelRefs>
 				<aas:submodelRef>
 					<aas:keys>
@@ -42,23 +55,6 @@
 			</aas:submodelRefs>
 		</aas:assetAdministrationShell>
 	</aas:assetAdministrationShells>
-	<aas:assets>
-		<aas:asset>
-			<aas:idShort>
-				ServoDCMotor
-			</aas:idShort>
-			<aas:identification idType="IRI">
-				http://customer.com/assets/KHBVZJSQKIY
-			</aas:identification>
-			<aas:assetIdentificationModelRef>
-				<aas:keys/>
-			</aas:assetIdentificationModelRef>
-			<aas:billOfMaterialRef>
-				<aas:keys/>
-			</aas:billOfMaterialRef>
-			<aas:kind>Instance</aas:kind>
-		</aas:asset>
-	</aas:assets>
 		<aas:submodels>
 		<aas:submodel>
 			<aas:idShort>
@@ -187,7 +183,7 @@
 		<aas:submodel>
 			<aas:idShort>
 				OperationalData
-			</aas:idShort>		
+			</aas:idShort>
 			<aas:category>
 				VARIABLE
 			</aas:category>
@@ -290,7 +286,7 @@
 		<aas:conceptDescription>
 			<aas:idShort>
 				Title
-			</aas:idShort>		
+			</aas:idShort>
 			<aas:category>PROPERTY</aas:category>
 			<aas:identification idType="IRI">
 				http://vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title
