@@ -22,19 +22,38 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
-<http://customer.com/aas/9175_7013_7091_9168> rdf:type aas:AssetAdministrationShell ;
-    aas:identification <http://customer.com/aas/9175_7013_7091_9168> ;
-    aas:asset [
-        a aas:Reference ;
-        aas:Reference/key [
-            a aas:Key ;
-            aas:Key/type aas:KeyElements/ASSET ;
-            aas:Key/value <http://customer.com/assets/KHBVZJSQKIY> ;
-            aas:Key/idType aas:KeyType/IRI ;
-        ] ;
+<http://customer.com/aas/9175_7013_7091_9168> rdf:type <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell> ;
+    <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
+       a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
+       <https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> "http://customer.com/aas/9175_7013_7091_9168"^^xsd:string ;
+       <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> [
+          a <https://admin-shell.io/aas/3/0/RC01/IdentifierType> , <https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRI>
+       ] ;
     ] ;
+    <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/assetInformation> [
+        a <https://admin-shell.io/aas/3/0/RC01/AssetInformation> ;
+        <https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId> [
+          a  <https://admin-shell.io/aas/3/0/RC01/Reference> ;
+            <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+              a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+              <https://admin-shell.io/aas/3/0/RC01/Key/type> [
+                 a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/Asset>
+              ]  ;
+              <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
+              <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
+                 a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/IRI>
+              ]
+            ]
+        ]
+    ]
 .
-
-<http://customer.com/assets/KHBVZJSQKIY> rdf:type aas:Asset ;
-    aas:identification <http://customer.com/assets/KHBVZJSQKIY> ;
+<http://customer.com/assets/KHBVZJSQKIY>
+    rdf:type <https://admin-shell.io/aas/3/0/RC01/Asset> ;
+    <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
+       a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
+       <https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> "http://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
+       <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> [
+          a <https://admin-shell.io/aas/3/0/RC01/IdentifierType> , <https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRI>
+       ]
+    ]
 .
