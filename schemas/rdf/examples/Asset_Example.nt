@@ -1,22 +1,25 @@
 <http://customer.com/Asset:KHBVZJSQKIY> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Asset>.
 
-<http://customer.com/Asset:KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/idShort> "ServoDCMotor"^^<http://www.w3.org/2001/XMLSchema#string>.
+<http://customer.com/Asset:KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "ServoDCMotor"^^<http://www.w3.org/2001/XMLSchema#string>.
 <http://customer.com/Asset:KHBVZJSQKIY> <http://www.w3.org/2000/01/rdf-schema#label> "ServoDCMotor"^^<http://www.w3.org/2001/XMLSchema#string>.
-<http://customer.com/Asset:KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/identification> <http://customer.com/Asset:KHBVZJSQKIY>.
+
+<http://customer.com/Asset:KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> _:genid1 .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Identifier> .
+_:genid1 <https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> "http://customer.com/Asset:KHBVZJSQKIY"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:genid1 <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/IdentifierType> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRI> .
 
 
-<http://customer.com/Asset:KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/assetIdentificationModel> _:SubmodelReference
+<http://customer.com/Asset:KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Reference> .
+_:genid3 <https://admin-shell.io/aas/3/0/RC01/Reference/key> _:genid4 .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Key> .
+_:genid4 <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/KeyElements> .
+_:genid4 <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/KeyElements/Submodel> .
+_:genid3 <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://i40.customer.com/type/1/1/F13E8576F6488342"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:genid3 <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/KeyType> .
+_:genid3 <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/KeyType/IRI> .
 
-_:SubmodelReference <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Reference> .
-_:SubmodelReference <https://admin-shell.io/aas/3/0/RC01/Reference/key> _:SubmodelKey .
-_:SubmodelKey <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Key> .
-_:SubmodelKey <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/KeyElements/SUBMODEL> .
-_:SubmodelKey <https://admin-shell.io/aas/3/0/RC01/Key/value> <http://i40.customer.com/Submodel:F13E8576F6488342> .
-_:SubmodelKey <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/KeyType/IRI> .
-
-
-
-
-<http://customer.com/Asset:KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/hasKind> <https://admin-shell.io/aas/3/0/RC01/Instance>.
-
+<http://customer.com/Asset:KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> <https://admin-shell.io/aas/3/0/RC01/ModelingKind/Instance> .
 <http://i40.customer.com/Submodel:F13E8576F6488342> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Submodel>.
