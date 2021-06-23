@@ -22,105 +22,57 @@
       ] ;
 
       <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> [
-          a <https://admin-shell.io/aas/3/0/RC01/Submodel> ;
-          <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
-               a <https://admin-shell.io/aas/3/0/RC01/SubmodelElement>;
-               a [
-                    a <https://admin-shell.io/aas/3/0/RC01/Property> ;
-                    <https://admin-shell.io/aas/3/0/RC01/Property/valueType>  "xsd:string" ;
-                    <https://admin-shell.io/aas/3/0/RC01/Property/valueId> [
-                        a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
-                        <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
-                          a <https://admin-shell.io/aas/3/0/RC01/Key> ;
-                          <https://admin-shell.io/aas/3/0/RC01/Key/type> [
-                             a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/GLOBAL_REFERENCE>
-                          ]  ;
-                          <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://i40.customer.com/type/F13E8576F6488342"^^xsd:string ;
-                          <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
-                             a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/IRI>
-                          ]
-                        ]
-                    ];
-                    <https://admin-shell.io/aas/3/0/RC01/Property/value> "http://i40.customer.com/type/F13E8576F6488342"^^xsd:string
-               ]
+          a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
+          <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+            a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/type> [
+               a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/Submodel>
+            ]  ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://i40.customer.com/type/F13E8576F6488342"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
+               a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/IRI>
+            ]
           ]
-        ];
-
+      ];
       <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> [
-            a <https://admin-shell.io/aas/3/0/RC01/Submodel> ;
-            <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
-                 a <https://admin-shell.io/aas/3/0/RC01/SubmodelElement>;
-                 a [
-                      a <https://admin-shell.io/aas/3/0/RC01/Property> ;
-                      <https://admin-shell.io/aas/3/0/RC01/Property/valueType>  "xsd:string" ;
-                      <https://admin-shell.io/aas/3/0/RC01/Property/valueId> [
-                          a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
-                          <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
-                            a <https://admin-shell.io/aas/3/0/RC01/Key> ;
-                            <https://admin-shell.io/aas/3/0/RC01/Key/type> [
-                               a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/GLOBAL_REFERENCE>
-                            ]  ;
-                            <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://i40.customer.com/type/7A7104BDAB57E184"^^xsd:string ;
-                            <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
-                               a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/IRI>
-                            ]
-                          ]
-                      ];
-                      <https://admin-shell.io/aas/3/0/RC01/Property/value> "http://i40.customer.com/type/7A7104BDAB57E184"^^xsd:string
-                 ]
+          a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
+          <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+            a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/type> [
+               a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/Submodel>
+            ]  ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://i40.customer.com/type/7A7104BDAB57E184"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
+               a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/IRI>
             ]
-          ];
-
+          ]
+      ];
       <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> [
-            a <https://admin-shell.io/aas/3/0/RC01/Submodel> ;
-            <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
-                 a <https://admin-shell.io/aas/3/0/RC01/SubmodelElement>;
-                 a [
-                      a <https://admin-shell.io/aas/3/0/RC01/Property> ;
-                      <https://admin-shell.io/aas/3/0/RC01/Property/valueType>  "xsd:string" ;
-                      <https://admin-shell.io/aas/3/0/RC01/Property/valueId> [
-                          a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
-                          <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
-                            a <https://admin-shell.io/aas/3/0/RC01/Key> ;
-                            <https://admin-shell.io/aas/3/0/RC01/Key/type> [
-                               a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/GLOBAL_REFERENCE>
-                            ]  ;
-                            <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://i40.customer.com/instance/AC69B1CB44F07935"^^xsd:string ;
-                            <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
-                               a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/IRI>
-                            ]
-                          ]
-                      ];
-                      <https://admin-shell.io/aas/3/0/RC01/Property/value> "http://i40.customer.com/instance/AC69B1CB44F07935"^^xsd:string
-                 ]
+          a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
+          <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+            a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/type> [
+               a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/Submodel>
+            ]  ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://i40.customer.com/instance/AC69B1CB44F07935"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
+               a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/IRI>
             ]
-          ];
-
+          ]
+      ];
       <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> [
-            a <https://admin-shell.io/aas/3/0/RC01/Submodel> ;
-            <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
-                 a <https://admin-shell.io/aas/3/0/RC01/SubmodelElement>;
-                 a [
-                      a <https://admin-shell.io/aas/3/0/RC01/Property> ;
-                      <https://admin-shell.io/aas/3/0/RC01/Property/valueType>  "xsd:string" ;
-                      <https://admin-shell.io/aas/3/0/RC01/Property/valueId> [
-                          a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
-                          <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
-                            a <https://admin-shell.io/aas/3/0/RC01/Key> ;
-                            <https://admin-shell.io/aas/3/0/RC01/Key/type> [
-                               a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/GLOBAL_REFERENCE>
-                            ]  ;
-                            <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://i40.customer.com/type/1A7B62B529F19152"^^xsd:string ;
-                            <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
-                               a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/IRI>
-                            ]
-                          ]
-                      ];
-                      <https://admin-shell.io/aas/3/0/RC01/Property/value> "http://i40.customer.com/type/1A7B62B529F19152"^^xsd:string
-                 ]
+          a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
+          <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+            a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/type> [
+               a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/Submodel>
+            ]  ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://i40.customer.com/type/1A7B62B529F19152"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
+               a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/IRI>
             ]
-          ];
-
+          ]
+      ];
       <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
          a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
          <https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> "http://customer.com/aas/9175_7013_7091_9168"^^xsd:string ;
