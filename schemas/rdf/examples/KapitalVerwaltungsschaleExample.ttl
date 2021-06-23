@@ -12,18 +12,25 @@
 
 
 _:MaxRotationSpeed
-    rdf:type aas:Property ;
-    aas:propertyCategory aas:PARAMETER;
-    aas:kind aas:INSTANCE ;
-    aas:semanticId [
-     rdf:type aas:Reference ;
-     aas:Reference/key [
-         rdf:type aas:Key ;
-         aas:Key/type aas:KeyElements/CONCEPT_DESCRIPTION ;
-         aas:Key/idType aas:KeyType/IRDI ;
-         aas:Key/value "0173-1#02-BAA120#008"^^xsd:string
-     ]
+  a [
+      a <https://admin-shell.io/aas/3/0/RC01/Property> ;
+      <https://admin-shell.io/aas/3/0/RC01/Property/valueType> "xsd:integer" ;
+      <https://admin-shell.io/aas/3/0/RC01/Property/value> "5000"^^xsd:integer ;
+    ];
+    <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "MaxRotationSpeed"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC01/Referable/category> "PARAMETER"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> <https://admin-shell.io/aas/3/0/RC01/ModelingKind/Instance>  ;
+    <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId> [
+       a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
+       <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+         a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+         <https://admin-shell.io/aas/3/0/RC01/Key/type> [
+            a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/ConceptDescription>
+         ]  ;
+         <https://admin-shell.io/aas/3/0/RC01/Key/value> "0173-1#02-BAA120#008"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
+            a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/IRDI>
+         ]
+       ]
     ] ;
-    aas:idShort "MaxRotationSpeed"^^xsd:string ;
-    aas:value "5000"^^xsd:integer
 .
