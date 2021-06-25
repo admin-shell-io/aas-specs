@@ -802,11 +802,11 @@ aas:Entity rdf:type owl:Class ;
 aas:EntityType rdf:type owl:Class ;
     rdfs:label "Entity Type"^^xsd:string ;
     rdfs:comment "Enumeration for denoting whether an entity is a self-managed entity or a co-managed entity."@en ;
-    owl:oneOf (<https://admin-shell.io/aas/3/0/RC01/EntityType/CO_MANAGED_ENTITY> <https://admin-shell.io/aas/3/0/RC01/EntityType/SELF_MANAGED_ENTITY> ) ;
+    owl:oneOf (<https://admin-shell.io/aas/3/0/RC01/EntityType/CoManagedEntity> <https://admin-shell.io/aas/3/0/RC01/EntityType/SELF_MANAGED_ENTITY> ) ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/EntityType/CO_MANAGED_ENTITY
-<https://admin-shell.io/aas/3/0/RC01/EntityType/CO_MANAGED_ENTITY> rdf:type  aas:EntityType ;
+###  https://admin-shell.io/aas/3/0/RC01/EntityType/CoManagedEntity
+<https://admin-shell.io/aas/3/0/RC01/EntityType/CoManagedEntity> rdf:type  aas:EntityType ;
     rdfs:comment "For co-managed entities there is no separate AAS. Co-managed entities need to be part of a self-managed entity."@en ;
     rdfs:label "Co-managed Entity"^^xsd:string ;
 .
@@ -2075,9 +2075,9 @@ iec61360:DataTypeIEC61360 rdf:type owl:Class ;
     rdfs:label "Data Type IEC61360"^^xsd:string ;
     rdfs:comment "Enumeration of all IEC 61360 defined data types."@en ;
     owl:oneOf (
-        iec61360:DATE
-        iec61360:STRING
-        iec61360:STRING_TRANSLATABLE
+        iec61360:Date
+        iec61360:String
+        iec61360:StringTranslatable
         iec61360:INTEGER_MEASURE
         iec61360:INTEGER_COUNT
         iec61360:INTEGER_CURRENCY
