@@ -485,7 +485,7 @@ aas:ConceptDescription rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification , aas:Identifiable ;
     rdfs:label "Concept Description"^^xsd:string ;
     rdfs:comment "The semantics of a property or other elements that may have a semantic description is defined by a concept description. The description of the concept should follow a standardized schema (realized as data specification template)."@en ;
-	skos:note "Constraint AASd-051: A ConceptDescription shall have one of the following categories: VALUE, PROPERTY, REFERENCE, DOCUMENT, CAPABILITY, RELATIONSHIP, COLLECTION, FUNCTION, EVENT, ENTITY, APPLICATION_CLASS, QUALIFIER, VIEW. Default: PROPERTY."@en ;
+	  skos:note "Constraint AASd-051: A ConceptDescription shall have one of the following categories: VALUE, PROPERTY, REFERENCE, DOCUMENT, CAPABILITY, RELATIONSHIP, COLLECTION, FUNCTION, EVENT, ENTITY, APPLICATION_CLASS, QUALIFIER, VIEW. Default: PROPERTY."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/ConceptDescription/isCaseOf
@@ -496,14 +496,6 @@ aas:ConceptDescription rdf:type owl:Class ;
     rdfs:label "is case of"^^xsd:string ;
     rdfs:domain aas:ConceptDescription ;
     rdfs:range aas:Reference ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/ConceptDescription/embeddedDataSpecification
-<https://admin-shell.io/aas/3/0/RC01/ConceptDescription/embeddedDataSpecification> rdf:type owl:ObjectProperty ;
-    rdfs:comment "The embedded data specification template of the description of the concept."@en ;
-    rdfs:label "embedded data speciification"^^xsd:string ;
-    rdfs:domain aas:ConceptDescription ;
-    rdfs:range aas:DataSpecification ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/DataSpecification
@@ -739,6 +731,29 @@ phys_unit:DataSpecificationPhysicalUnit rdf:type owl:Class ;
     rdfs:range xsd:string ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification
+aas:EmbeddedDataSpecification rdf:type owl:Class ;
+    rdfs:comment "TODO."@en ;
+    rdfs:label "Embedded Data Specification"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification/dataSpecification
+<https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification/dataSpecification> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Global reference to the data specification template used by the element. Reference points to a Data Specification."@en ;
+    rdfs:label "has Data Specification"^^xsd:string ;
+    rdfs:domain aas:HasDataSpecification ;
+    rdfs:range aas:Reference ;
+    skos:note "Reference must point to a Data Specification."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification/dataSpecificationContent
+<https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification/dataSpecificationContent> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Property links to a Data Specification Content, which contains the formalized definitions specifying this Data Specification."@en ;
+    rdfs:label "has Data Specification Content"^^xsd:string ;
+    rdfs:domain aas:HasDataSpecification ;
+    rdfs:range aas:DataSpecificationContent ;
+.
+
 ###  https://admin-shell.io/aas/3/0/RC01/Entity
 aas:Entity rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
@@ -866,6 +881,7 @@ aas:Formula rdf:type owl:Class ;
     rdfs:comment "A formula may depend on referable or even external global elements - assumed that can be referenced and their value may be evaluated - that are used in the logical expression."@en ;
     rdfs:label "depends on"^^xsd:string ;
 .
+
 ###  https://admin-shell.io/aas/3/0/RC01/HasDataSpecification
 aas:HasDataSpecification rdf:type owl:Class ;
     dash:abstract true ;
@@ -874,12 +890,12 @@ aas:HasDataSpecification rdf:type owl:Class ;
 	skos:note "Constraint AASd-050:  If the DataSpecificationContent DataSpecificationIEC61360 is used for an element then the value of hasDataSpecification/dataSpecification shall contain the global reference to the IRI of the corresponding data specification template https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/HasDataSpecification/dataSpecification
-<https://admin-shell.io/aas/3/0/RC01/HasDataSpecification/dataSpecification> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Global reference to the data specification template used by the element."@en ;
-    rdfs:label "has Data Specification"^^xsd:string ;
+###  https://admin-shell.io/aas/3/0/RC01/HasDataSpecification/embeddedDataSpecification
+<https://admin-shell.io/aas/3/0/RC01/HasDataSpecification/embeddedDataSpecification> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Link to the included description of the Data Specification."@en ;
+    rdfs:label "has Embedded Data Specification"^^xsd:string ;
     rdfs:domain aas:HasDataSpecification ;
-    rdfs:range aas:Reference ;
+    rdfs:range aas:EmbeddedDataSpecification ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/HasKind
