@@ -442,26 +442,26 @@ aas:Category rdf:type owl:Class ;
     rdfs:comment "A enumeration for data elements except for files and blobs."@en ;
     rdfs:label "Category"^^xsd:string ;
     owl:oneOf (
-        <https://admin-shell.io/aas/3/0/RC01/Category/PARAMETER>
-        <https://admin-shell.io/aas/3/0/RC01/Category/VARIABLE>
-        <https://admin-shell.io/aas/3/0/RC01/Category/CONSTANT>
+        <https://admin-shell.io/aas/3/0/RC01/Category/Parameter>
+        <https://admin-shell.io/aas/3/0/RC01/Category/Variable>
+        <https://admin-shell.io/aas/3/0/RC01/Category/Constant>
     ) ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Category/CONSTANT
-<https://admin-shell.io/aas/3/0/RC01/Category/CONSTANT> rdf:type aas:Category ;
+###  https://admin-shell.io/aas/3/0/RC01/Category/Constant
+<https://admin-shell.io/aas/3/0/RC01/Category/Constant> rdf:type aas:Category ;
     rdfs:comment "A constant property is a property with a value that does not change over time. In eCl@ss this kind of category has the category 'Coded Value'."@en ;
     rdfs:label "Constant"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Category/PARAMETER
-<https://admin-shell.io/aas/3/0/RC01/Category/PARAMETER> rdf:type aas:Category ;
+###  https://admin-shell.io/aas/3/0/RC01/Category/Parameter
+<https://admin-shell.io/aas/3/0/RC01/Category/Parameter> rdf:type aas:Category ;
     rdfs:comment "A parameter property is a property that is once set and then typically does not change over time. This is for example the case for configuration parameters."@en ;
     rdfs:label "Parameter"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Category/VARIABLE
-<https://admin-shell.io/aas/3/0/RC01/Category/VARIABLE> rdf:type aas:Category ;
+###  https://admin-shell.io/aas/3/0/RC01/Category/Variable
+<https://admin-shell.io/aas/3/0/RC01/Category/Variable> rdf:type aas:Category ;
     rdfs:comment "A variable property is a property that is calculated during runtime, i.e. its value is a runtime value."@en ;
     rdfs:label "Variable"^^xsd:string ;
 .
@@ -963,30 +963,30 @@ aas:IdentifiableElements rdf:type owl:Class ;
     rdfs:label "Identifiable Element"^^xsd:string ;
     rdfs:comment "Enumeration of all identifiable elements within an asset administration shell that are not identifiable"@en ;
     owl:oneOf (
-        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ASSET>
-        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ASSET_ADMINISTRATION_SHELL>
-        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/CONCEPT_DESCRIPTION>
-        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/SUBMODEL>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Asset>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/AssetAdministrationShell>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ConceptDescription>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Submodel>
     ) ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ASSET
-<https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ASSET> rdf:type aas:IdentifiableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Asset
+<https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Asset> rdf:type aas:IdentifiableElements ;
     rdfs:label "Asset"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ASSET_ADMINISTRATION_SHELL
-<https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ASSET_ADMINISTRATION_SHELL> rdf:type aas:IdentifiableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/AssetAdministrationShell
+<https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/AssetAdministrationShell> rdf:type aas:IdentifiableElements ;
     rdfs:label "Asset Administration Shell"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/CONCEPT_DESCRIPTION_
-<https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/CONCEPT_DESCRIPTION> rdf:type aas:IdentifiableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ConceptDescription
+<https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ConceptDescription> rdf:type aas:IdentifiableElements ;
     rdfs:label "Concept Description"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/SUBMODEL
-<https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/SUBMODEL> rdf:type aas:IdentifiableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Submodel
+<https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Submodel> rdf:type aas:IdentifiableElements ;
     rdfs:label "Submodel"^^xsd:string ;
 .
 
@@ -1020,7 +1020,7 @@ aas:IdentifierType rdf:type owl:Class ;
     owl:oneOf (
         <https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRDI>
         <https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRI>
-        <https://admin-shell.io/aas/3/0/RC01/IdentifierType/CUSTOM>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Custom>
     ) ;
 .
 
@@ -1036,8 +1036,8 @@ aas:IdentifierType rdf:type owl:Class ;
     rdfs:comment "IRI. Should only be used if unicode symbols are used that are not allowed in URI."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/IdentifierType/CUSTOM
-<https://admin-shell.io/aas/3/0/RC01/IdentifierType/CUSTOM> rdf:type aas:IdentifierType ;
+###  https://admin-shell.io/aas/3/0/RC01/IdentifierType/Custom
+<https://admin-shell.io/aas/3/0/RC01/IdentifierType/Custom> rdf:type aas:IdentifierType ;
     rdfs:label "Custom"^^xsd:string ;
     rdfs:comment "Custom identifiers like GUIDs (globally unique Identifiers)"@en ;
 .
@@ -1227,8 +1227,8 @@ aas:ModelingKind rdf:type owl:Class ;
     rdfs:comment "Enumeration for denoting whether an element is a type or an instance."@en ;
     rdfs:label "Kind"^^xsd:string  ;
     owl:oneOf (
-        aas:INSTANCE
-        aas:TEMPLATE
+        aas:Instance
+        aas:Template
     ) ;
 .
 
@@ -1361,33 +1361,33 @@ aas:PermissionKind rdf:type owl:Class ;
     rdfs:comment "Enumeration of the kind of permissions that is given to the assignment of a permission to a subject."@en ;
     rdfs:label "Permission Kind"^^xsd:string ;
     owl:oneOf (
-        <https://admin-shell.io/aas/3/0/RC01/PermissionKind/ALLOW>
-        <https://admin-shell.io/aas/3/0/RC01/PermissionKind/DENY>
-        <https://admin-shell.io/aas/3/0/RC01/PermissionKind/NOT_APPLICABLE>
-        <https://admin-shell.io/aas/3/0/RC01/PermissionKind/UNDEFINED>
+        <https://admin-shell.io/aas/3/0/RC01/PermissionKind/Allow>
+        <https://admin-shell.io/aas/3/0/RC01/PermissionKind/Deny>
+        <https://admin-shell.io/aas/3/0/RC01/PermissionKind/NotApplicable>
+        <https://admin-shell.io/aas/3/0/RC01/PermissionKind/Undefined>
     ) ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/PermissionKind/ALLOW
-<https://admin-shell.io/aas/3/0/RC01/PermissionKind/ALLOW> rdf:type aas:PermissionKind ;
+###  https://admin-shell.io/aas/3/0/RC01/PermissionKind/Allow
+<https://admin-shell.io/aas/3/0/RC01/PermissionKind/Allow> rdf:type aas:PermissionKind ;
     rdfs:label "allow"^^xsd:string ;
     rdfs:comment "Allow the permission given to the subject."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/PermissionKind/DENY
-<https://admin-shell.io/aas/3/0/RC01/PermissionKind/DENY> rdf:type aas:PermissionKind ;
+###  https://admin-shell.io/aas/3/0/RC01/PermissionKind/Deny
+<https://admin-shell.io/aas/3/0/RC01/PermissionKind/Deny> rdf:type aas:PermissionKind ;
     rdfs:label "deny"^^xsd:string ;
     rdfs:comment "Explicitly deny the permission given to the subject."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/PermissionKind/NOT_APPLICABLE
-<https://admin-shell.io/aas/3/0/RC01/PermissionKind/NOT_APPLICABLE> rdf:type aas:PermissionKind ;
+###  https://admin-shell.io/aas/3/0/RC01/PermissionKind/NotApplicable
+<https://admin-shell.io/aas/3/0/RC01/PermissionKind/NotApplicable> rdf:type aas:PermissionKind ;
     rdfs:label "not applicable"^^xsd:string ;
     rdfs:comment "The permission is not applicable to the subject."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/PermissionKind/UNDEFINED
-<https://admin-shell.io/aas/3/0/RC01/PermissionKind/UNDEFINED> rdf:type aas:PermissionKind ;
+###  https://admin-shell.io/aas/3/0/RC01/PermissionKind/Undefined
+<https://admin-shell.io/aas/3/0/RC01/PermissionKind/Undefined> rdf:type aas:PermissionKind ;
     rdfs:label "undefined"^^xsd:string ;
     rdfs:comment "It is undefined whether the permission is allowed, not applicable or denied to the subject."@en ;
 .
@@ -1728,124 +1728,119 @@ aas:ReferableElements rdf:type owl:Class ;
     rdfs:label "Referable Elements"^^xsd:string ;
     rdfs:comment "Enumeration of all referable elements within an asset administration shell. Contains IdentifiableElements"@en ;
     owl:oneOf (
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/ACCESS_PERMISSION_RULE>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/ANNOTATED_RELATIONSHIP_ELEMENT>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/BASIC_EVENT>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/BLOB>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/CAPABILITY>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/AccessPermissionRule>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/AnnotatedRelationshipElement>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/BasicEvent>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Blob>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Capability>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/CONCEPT_DICTIONARY>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/GLOBAL_REFERENCE_KEY_ELEMENT>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/DATA_ELEMENT>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/FILE>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/ENTITY>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/EVENT>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/MULTI_LANGUAGE_PROPERTY>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/OPERATION>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/PROPERTY>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/RANGE>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/REFERENCE_ELEMENT>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/RELATIONSHIPT_ELEMENT>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/SUBMODEL_ELEMENT>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/SUBMODEL_ELEMENT_COLLECTION>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/VIEW>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/GlobalReference>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/DataElement>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/File>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Entity>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Event>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/MultiLanguageProperty>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Operation>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Property>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Range>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/ReferenceElement>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/RelationshipElement>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/SubmodelElement>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/SubmodelElementCollection>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/View>
 
-        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ASSET>
-        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ASSET_ADMINISTRATION_SHELL>
-        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/CONCEPT_DESCRIPTION>
-        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/SUBMODEL>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Asset>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/AssetAdministrationShell>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ConceptDescription>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Submodel>
     ) ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/ACCESS_PERMISSION_RULE
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/ACCESS_PERMISSION_RULE> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/AccessPermissionRule
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/AccessPermissionRule> rdf:type aas:ReferableElements ;
     rdfs:label "Access Permission Rule"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/ANNOTATED_RELATIONSHIP_ELEMENT
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/ANNOTATED_RELATIONSHIP_ELEMENT> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/AnnotatedRelationshipElement
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/AnnotatedRelationshipElement> rdf:type aas:ReferableElements ;
     rdfs:label "Annotated relationship element"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/BASIC_EVENT
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/BASIC_EVENT> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/BasicEvent
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/BasicEvent> rdf:type aas:ReferableElements ;
     rdfs:label "Basic Event"^^xsd:string ;
 .
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/BLOB
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/BLOB> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/Blob
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/Blob> rdf:type aas:ReferableElements ;
     rdfs:label "Blob"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/CAPABILITY
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/CAPABILITY> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/Capability
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/Capability> rdf:type aas:ReferableElements ;
     rdfs:label "Capability"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/CONCEPT_DICTIONARY
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/CONCEPT_DICTIONARY> rdf:type aas:ReferableElements ;
-    rdfs:label "Concept Dictionary"^^xsd:string ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/DATA_ELEMENT
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/DATA_ELEMENT> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/DataElement
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/DataElement> rdf:type aas:ReferableElements ;
     rdfs:label "Data Element"^^xsd:string ;
     skos:note "Data Element is abstract, i.e. if a key uses 'DataElement' the reference may be a Property, a File etc."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/ENTITY
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/ENTITY> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/Entity
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/Entity> rdf:type aas:ReferableElements ;
     rdfs:label "Entity"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/EVENT
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/EVENT> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/Event
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/Event> rdf:type aas:ReferableElements ;
     rdfs:label "Event"^^xsd:string ;
     skos:note "Event is abstract"@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/MULTI_LANGUAGE_PROPERTY
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/MULTI_LANGUAGE_PROPERTY> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/MulitLanguageProperty
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/MultiLanguageProperty> rdf:type aas:ReferableElements ;
     rdfs:label "Multi-language Property"^^xsd:string ;
     rdfs:comment "Property with a value that can be provided in multiple languages."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/OPERATION
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/OPERATION> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/Operation
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/Operation> rdf:type aas:ReferableElements ;
     rdfs:label "Operation"^^xsd:string ;
 .
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/PROPERTY
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/PROPERTY> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/Property
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/Property> rdf:type aas:ReferableElements ;
     rdfs:label "Property"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/RANGE
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/RANGE> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/Range
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/Range> rdf:type aas:ReferableElements ;
     rdfs:label "Range"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/REFERENCE_ELEMENT
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/REFERENCE_ELEMENT> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/ReferenceElement
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/ReferenceElement> rdf:type aas:ReferableElements ;
     rdfs:label "Reference Element"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/RELATIONSHIPT_ELEMENT
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/RELATIONSHIPT_ELEMENT> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/RelationshipElement
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/RelationshipElement> rdf:type aas:ReferableElements ;
     rdfs:label "Relationship Element"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/SUBMODEL_ELEMENT
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/SUBMODEL_ELEMENT> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/SubmodelElement
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/SubmodelElement> rdf:type aas:ReferableElements ;
     rdfs:label "Submodel Element"^^xsd:string ;
     skos:note "Submodel Element is abstract, i.e. if a key uses 'SubmodelElement' the reference may be a Property, a SubmodelElementCollection, an Operation etc."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/SUBMODEL_ELEMENT_COLLECTION
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/SUBMODEL_ELEMENT_COLLECTION> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/SubmodelElementCollection
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/SubmodelElementCollection> rdf:type aas:ReferableElements ;
     rdfs:label "Submodel Element Collection"^^xsd:string ;
     rdfs:comment "Collection of Submodel Elements"@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/VIEW
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/VIEW> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/View
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/View> rdf:type aas:ReferableElements ;
     rdfs:label "View"^^xsd:string ;
 .
 ###  https://admin-shell.io/aas/3/0/RC01/Reference
