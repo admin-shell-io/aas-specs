@@ -7,27 +7,27 @@
 			<aas:idShort>
 				ExampleMotor
 			</aas:idShort>
-			<aas:identification idType="IRI">
+			<aas:identification idType="Iri">
 				http://customer.com/aas/9175_7013_7091_9168
 			</aas:identification>
 			<aas:submodelRefs>
 				<aas:submodelRef>
 					<aas:keys>
-						<aas:key idType="IRI" type="Submodel">
+						<aas:key idType="Iri" type="Submodel">
 							http://i40.customer.com/instance/1/1/AC69B1CB44F07935
 						</aas:key>
 					</aas:keys>
 				</aas:submodelRef>
 				<aas:submodelRef>
 					<aas:keys>
-						<aas:key idType="IRI" type="Submodel">
+						<aas:key idType="Iri" type="Submodel">
 							http://i40.customer.com/type/1/1/1A7B62B529F19152
 						</aas:key>
 					</aas:keys>
 				</aas:submodelRef>
 				<aas:submodelRef>
 					<aas:keys>
-						<aas:key idType="IRI" type="Submodel">
+						<aas:key idType="Iri" type="Submodel">
 							http://i40.customer.com/type/1/1/7A7104BDAB57E184
 						</aas:key>
 					</aas:keys>
@@ -36,7 +36,7 @@
 			<aas:assetInformation>
 				<aas:globalAssetId>
 					<aas:keys>
-						<aas:key idType="IRI" type="Asset">
+						<aas:key idType="Iri" type="Asset">
 						http://customer.com/assets/KHBVZJSQKIY
 					</aas:key>
 					</aas:keys>
@@ -46,7 +46,7 @@
 					<aas:idShort>
 						ServoDCMotor
 					</aas:idShort>
-					<aas:identification idType="IRI">
+					<aas:identification idType="Iri">
 						http://customer.com/assets/KHBVZJSQKIY
 					</aas:identification>
 				</aas:asset>
@@ -58,18 +58,18 @@
 			<aas:idShort>
 				MaxRotationSpeed
 			</aas:idShort>
-			<aas:category>PROPERTY</aas:category>
+			<aas:category>Property</aas:category>
 			<aas:administration>
 				<aas:revision>0</aas:revision>
 				<aas:version>2</aas:version>
 			</aas:administration>
-			<aas:identification idType="IRDI">
+			<aas:identification idType="Irdi">
 				0173-1#02-BAA120#008
 			</aas:identification>
 			<aas:embeddedDataSpecification>
 				<aas:dataSpecificationContent>
 					<aas:dataSpecificationIEC61360>
-						<IEC61360:dataType>REAL_MEASURE</IEC61360:dataType>
+						<IEC61360:dataType>RealMeasure</IEC61360:dataType>
 						<IEC61360:definition>
 							<IEC61360:langString lang="de">
 								Höchste zulässige Drehzahl, mit welcher der Motor oder die Speiseinheit betrieben werden darf
@@ -95,7 +95,7 @@
 						</IEC61360:unit>
 						<IEC61360:unitId>
 							<IEC61360:keys>
-								<IEC61360:key idType="IRDI" type="GlobalReference">
+								<IEC61360:key idType="Irdi" type="GlobalReference">
 									0173-1#05-AAA650#002
 								</IEC61360:key>
 							</IEC61360:keys>
@@ -112,14 +112,14 @@
 			<aas:idShort>
 				Title
 			</aas:idShort>
-			<aas:category>PROPERTY</aas:category>
-			<aas:identification idType="IRI">
+			<aas:category>Property</aas:category>
+			<aas:identification idType="Iri">
 				http://vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title
 			</aas:identification>
 			<aas:embeddedDataSpecification>
 				<aas:dataSpecificationContent>
 					<aas:dataSpecificationIEC61360>
-						<IEC61360:dataType>STRING_TRANSLATABLE</IEC61360:dataType>
+						<IEC61360:dataType>StringTranslatable</IEC61360:dataType>
 						<IEC61360:definition>
 							<IEC61360:langString lang="DE">
 								Sprachabhängiger Titel des Dokuments.
@@ -144,7 +144,7 @@
 				</aas:dataSpecificationContent>
 				<aas:dataSpecification>
 					<aas:keys>
-						<aas:key idType="IRI" type="GlobalReference">
+						<aas:key idType="Iri" type="GlobalReference">
 							http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360
 						</aas:key>
 					</aas:keys>
@@ -155,14 +155,14 @@
 			<aas:idShort>
 				RotationSpeed
 			</aas:idShort>
-			<aas:category>PROPERTY</aas:category>
-			<aas:identification idType="IRI">
+			<aas:category>Property</aas:category>
+			<aas:identification idType="Iri">
 				http://customer.com/cd/1/1/18EBD56F6B43D895
 			</aas:identification>
 			<aas:embeddedDataSpecification>
 				<aas:dataSpecificationContent>
 					<aas:dataSpecificationIEC61360>
-						<IEC61360:dataType>REAL_MEASURE</IEC61360:dataType>
+						<IEC61360:dataType>RealMeasure</IEC61360:dataType>
 						<IEC61360:definition>
 							<IEC61360:langString lang="DE">
 								Aktuelle Drehzahl, mit welcher der Motor oder die Speiseinheit betrieben wird
@@ -190,7 +190,7 @@
 						</IEC61360:unit>
 						<IEC61360:unitId>
 							<IEC61360:keys>
-								<IEC61360:key idType="IRDI" type="GlobalReference">
+								<IEC61360:key idType="Irdi" type="GlobalReference">
 									0173-1#05-AAA650#002
 								</IEC61360:key>
 							</IEC61360:keys>
@@ -199,7 +199,7 @@
 				</aas:dataSpecificationContent>
 				<aas:dataSpecification>
 					<aas:keys>
-						<aas:key idType="IRI" type="GlobalReference">
+						<aas:key idType="Iri" type="GlobalReference">
 							http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360
 						</aas:key>
 					</aas:keys>
@@ -211,15 +211,15 @@
 				Document
 			</aas:idShort>
 			<aas:category>
-				ENTITY
+				Entity
 			</aas:category>
-			<aas:identification idType="IRI">
+			<aas:identification idType="Iri">
 				http://vdi2770.com/blatt1/Entwurf/Okt18/cd/Document
 			</aas:identification>
 			<aas:embeddedDataSpecification>
 				<aas:dataSpecificationContent>
 					<aas:dataSpecificationIEC61360>
-						<IEC61360:dataType>URL</IEC61360:dataType>
+						<IEC61360:dataType>Url</IEC61360:dataType>
 						<IEC61360:definition>
 							<IEC61360:langString lang="DE">
 								Feste und geordnete Menge von für die Verwendung durch Personen bestimmte Informationen, die verwaltet und als Einheit zwischen Benutzern und System ausgetauscht werden kann.
@@ -246,7 +246,7 @@
 				</aas:dataSpecificationContent>
 				<aas:dataSpecification>
 					<aas:keys>
-						<aas:key idType="IRI" type="GlobalReference">
+						<aas:key idType="Iri" type="GlobalReference">
 							http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360
 						</aas:key>
 					</aas:keys>
@@ -258,15 +258,15 @@
 				DigitalFile
 			</aas:idShort>
 			<aas:category>
-				DOCUMENT
+				Document
 			</aas:category>
-			<aas:identification idType="IRI">
+			<aas:identification idType="Iri">
 				http://vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile
 			</aas:identification>
 			<aas:embeddedDataSpecification>
 				<aas:dataSpecificationContent>
 					<aas:dataSpecificationIEC61360>
-						<IEC61360:dataType>URL</IEC61360:dataType>
+						<IEC61360:dataType>Url</IEC61360:dataType>
 						<IEC61360:definition>
 							<IEC61360:langString lang="DE">
 								Eine Datei, die die DocumentVersion repräsentiert. Neben der obligatorischen PDF/A Datei können weitere Dateien angegeben werden.
@@ -288,7 +288,7 @@
 				</aas:dataSpecificationContent>
 				<aas:dataSpecification>
 					<aas:keys>
-						<aas:key idType="IRI" type="GlobalReference">
+						<aas:key idType="Iri" type="GlobalReference">
 							http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360
 						</aas:key>
 					</aas:keys>
@@ -301,7 +301,7 @@
 			<aas:idShort>
 				Documentation
 			</aas:idShort>
-			<aas:identification idType="IRI">
+			<aas:identification idType="Iri">
 				http://i40.customer.com/type/1/1/1A7B62B529F19152
 			</aas:identification>
 			<aas:kind>Instance</aas:kind>
@@ -314,7 +314,7 @@
 						<aas:kind>Instance</aas:kind>
 						<aas:semanticId>
 							<aas:keys>
-								<aas:key idType="IRI" type="ConceptDescription">
+								<aas:key idType="Iri" type="ConceptDescription">
 									www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document
 								</aas:key>
 							</aas:keys>
@@ -328,12 +328,12 @@
 										DigitalFile_PDF
 									</aas:idShort>
 									<aas:category>
-										PARAMETER
+										Parameter
 									</aas:category>
 									<aas:kind>Instance</aas:kind>
 									<aas:semanticId>
 										<aas:keys>
-											<aas:key idType="IRI" type="ConceptDescription">
+											<aas:key idType="Iri" type="ConceptDescription">
 												http://vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile
 											</aas:key>
 										</aas:keys>
@@ -354,7 +354,7 @@
 									<aas:kind>Instance</aas:kind>
 									<aas:semanticId>
 										<aas:keys>
-											<aas:key idType="IRI" type="ConceptDescription">
+											<aas:key idType="Iri" type="ConceptDescription">
 												http://vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title
 											</aas:key>
 										</aas:keys>
@@ -375,30 +375,30 @@
 			<aas:idShort>
 				TechnicalData
 			</aas:idShort>
-			<aas:identification idType="IRI">
+			<aas:identification idType="Iri">
 				http://i40.customer.com/type/1/1/7A7104BDAB57E184
 			</aas:identification>
 			<aas:kind>Instance</aas:kind>
 			<aas:semanticId>
 				<aas:keys>
-					<aas:key idType="IRDI" type="GlobalReference">
+					<aas:key idType="Irdi" type="GlobalReference">
 						0173-1#01-AFZ615#016
 					</aas:key>
 				</aas:keys>
 			</aas:semanticId>
 			<aas:submodelElements>
 				<aas:submodelElement>
-					<aas:property>
+					<aas:Property>
 						<aas:idShort>
 							MaxRotationSpeed
 						</aas:idShort>
 						<aas:category>
-							PARAMETER
+							Parameter
 						</aas:category>
 						<aas:kind>Instance</aas:kind>
 						<aas:semanticId>
 							<aas:keys>
-								<aas:key idType="IRDI" type="ConceptDescription">
+								<aas:key idType="Irdi" type="ConceptDescription">
 									0173-1#02-BAA120#008
 								</aas:key>
 							</aas:keys>
@@ -409,7 +409,7 @@
 						<aas:valueType>
 							integer
 						</aas:valueType>
-					</aas:property>
+					</aas:Property>
 				</aas:submodelElement>
 			</aas:submodelElements>
 		</aas:submodel>
@@ -417,23 +417,23 @@
 			<aas:idShort>
 				OperationalData
 			</aas:idShort>
-			<aas:identification idType="IRI">
+			<aas:identification idType="Iri">
 				http://i40.customer.com/instance/1/1/AC69B1CB44F07935
 			</aas:identification>
 			<aas:kind>Instance</aas:kind>
 			<aas:submodelElements>
 				<aas:submodelElement>
-					<aas:property>
+					<aas:Property>
 						<aas:idShort>
 							RotationSpeed
 						</aas:idShort>
 						<aas:category>
-							VARIABLE
+							Variable
 						</aas:category>
 						<aas:kind>Instance</aas:kind>
 						<aas:semanticId>
 							<aas:keys>
-								<aas:key idType="IRI" type="ConceptDescription">
+								<aas:key idType="Iri" type="ConceptDescription">
 									http://customer.com/cd/1/1/18EBD56F6B43D895
 								</aas:key>
 							</aas:keys>
@@ -444,7 +444,7 @@
 						<aas:valueType>
 							integer
 						</aas:valueType>
-					</aas:property>
+					</aas:Property>
 				</aas:submodelElement>
 			</aas:submodelElements>
 		</aas:submodel>

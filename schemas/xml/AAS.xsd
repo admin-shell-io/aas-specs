@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+Irdi<?xml version="1.0" encoding="UTF-8"?>
 <schema elementFormDefault="qualified" targetNamespace="http://www.admin-shell.io/aas/3/0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:aas="http://www.admin-shell.io/aas/3/0" xmlns:abac="http://www.admin-shell.io/aas/abac/3/0" xmlns:IEC61360="http://www.admin-shell.io/IEC61360/3/0" xmlns:Q1="http://www.admin-shell.io/aas/3/0">
 
 	<import namespace="http://www.admin-shell.io/aas/abac/3/0" schemaLocation="AAS_ABAC.xsd"/>
@@ -9,15 +9,15 @@
 			<simpleType>
 				<restriction base="string">
 					<enumeration value="Custom"/>
-					<enumeration value="IRDI"/>
-					<enumeration value="IRI"/>
+					<enumeration value="Irdi"/>
+					<enumeration value="Iri"/>
 				</restriction>
 			</simpleType>
 		</attribute>
 		<attribute name="localKeyType" use="optional">
 			<simpleType>
-				<restriction base="string">
-					<enumeration value="idShort"/>
+				<restriction base="String">
+					<enumeration value="IdShort"/>
 				</restriction>
 			</simpleType>
 		</attribute>
@@ -222,8 +222,8 @@
 					<simpleType>
 						<restriction base="string">
 							<enumeration value="Custom"/>
-							<enumeration value="IRDI"/>
-							<enumeration value="IRI"/>
+							<enumeration value="Irdi"/>
+							<enumeration value="Iri"/>
 						</restriction>
 					</simpleType>
 				</attribute>
@@ -265,8 +265,8 @@
 							<enumeration value="Custom"/>
 							<enumeration value="FragmentId"/>
 							<enumeration value="IdShort"/>
-							<enumeration value="IRDI"/>
-							<enumeration value="IRI"/>
+							<enumeration value="Irdi"/>
+							<enumeration value="Iri"/>
 						</restriction>
 					</simpleType>
 				</attribute>
@@ -563,8 +563,8 @@
 	<simpleType name="identifierType_t">
 		<restriction base="string">
 			<enumeration value="Custom"/>
-			<enumeration value="IRDI"/>
-			<enumeration value="IRI"/>
+			<enumeration value="Irdi"/>
+			<enumeration value="Iri"/>
 		</restriction>
 	</simpleType>
 	<simpleType name="modelingKind_t">
