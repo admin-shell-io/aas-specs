@@ -5,8 +5,8 @@
 			<simpleType>
 				<restriction base="string">
 					<enumeration value="Custom"/>
-					<enumeration value="IRDI"/>
-					<enumeration value="IRI"/>
+					<enumeration value="Irdi"/>
+					<enumeration value="Iri"/>
 				</restriction>
 			</simpleType>
 		</attribute>
@@ -44,9 +44,9 @@
 						<restriction base="string">
 							<enumeration value="Custom"/>
 							<enumeration value="FragementId"/>
-							<enumeration value="idShort"/>
-							<enumeration value="IRDI"/>
-							<enumeration value="IRI"/>
+							<enumeration value="IdShort"/>
+							<enumeration value="Irdi"/>
+							<enumeration value="Iri"/>
 						</restriction>
 					</simpleType>
 				</attribute>
@@ -127,21 +127,21 @@
 	<simpleType name="dataTypeIEC61360_t">
 		<restriction base="string">
 			<enumeration value="" />
-			<enumeration value="BOOLEAN" />
+			<enumeration value="Boolean" />
 			<enumeration value="Date" />
-			<enumeration value="RATIONAL" />
-			<enumeration value="RATIONAL_MEASURE" />
-			<enumeration value="REAL_COUNT" />
-			<enumeration value="REAL_CURRENCY" />
-			<enumeration value="REAL_MEASURE" />
-			<enumeration value="STRING" />
+			<enumeration value="Rational" />
+			<enumeration value="RationalMeasure" />
+			<enumeration value="RealCount" />
+			<enumeration value="RealCurrency" />
+			<enumeration value="RealMeasure" />
+			<enumeration value="String" />
 			<enumeration value="StringTranslatable" />
-			<enumeration value="TIME" />
-			<enumeration value="TIMESTAMP" />
-			<enumeration value="URL" />
-			<enumeration value="INTEGER_COUNT" />
-			<enumeration value="INTEGER_CURRENCY" />
-			<enumeration value="INTEGER_MEASURE" />
+			<enumeration value="Time" />
+			<enumeration value="Timestamp" />
+			<enumeration value="Url" />
+			<enumeration value="IntegerCount" />
+			<enumeration value="IntegerCurrency" />
+			<enumeration value="IntegerMeasure" />
 		</restriction>
 	</simpleType>
 	<simpleType name="levelType_t">
