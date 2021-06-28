@@ -732,14 +732,16 @@ aas:EmbeddedDataSpecificationShape a sh:NodeShape ;
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification/dataSpecification> ;
       sh:class aas:Reference ;
-      sh:minCount 0 ;
-      sh:message "(EmbeddedDataSpecification.dataSpecification):A <i>dataSpecification</i> must link to a <i>Reference</i> pointing to a Data Specification."^^xsd:string ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:message "(EmbeddedDataSpecification.dataSpecification):A <i>dataSpecification</i> must link to exactly one <i>Reference</i> pointing to a Data Specification."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification/dataSpecificationContent> ;
       sh:class aas:DataSpecificationContent ;
       sh:minCount 0 ;
+      sh:maxCount 1 ;
       sh:message "(EmbeddedDataSpecification.dataSpecificationContent): A <i>dataSpecificationContent</i> must point to a <i>DataSpecificationContent</i>."^^xsd:string ;
     ] ;
 .
