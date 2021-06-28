@@ -433,13 +433,6 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
       sh:class aas:Reference ;
       sh:message "(ConceptDescription.isCaseOf):<i>isCaseOf</i> must point to a <i>reference</i> entity."^^xsd:string ;
     ] ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/embeddedDataSpecification> ;
-      sh:minCount 1 ;
-      sh:class aas:DataSpecification ;
-      sh:message "(ConceptDescription.embeddedDataSpecification):Each <i>embeddedDataSpecification</i> property must have at least one <i>DataSpecification</i> entity."^^xsd:string ;
-    ] ;
 .
 
 aas:ConstraintShape a sh:NodeShape ;
@@ -730,6 +723,24 @@ aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
       sh:maxCount 1 ;
       sh:pattern ".+" ;
       sh:message "(DataSpecificationPhysicalUnit.supplier):Only one <i>supplier</i> which links to a <i>string</i> is allowed."^^xsd:string ;
+    ] ;
+.
+
+aas:EmbeddedDataSpecificationShape a sh:NodeShape ;
+  sh:targetClass aas:EmbeddedDataSpecification ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification/dataSpecification> ;
+      sh:class aas:Reference ;
+      sh:minCount 0 ;
+      sh:message "(EmbeddedDataSpecification.dataSpecification):A <i>dataSpecification</i> must link to a <i>Reference</i> pointing to a Data Specification."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification/dataSpecificationContent> ;
+      sh:class aas:DataSpecificationContent ;
+      sh:minCount 0 ;
+      sh:message "(EmbeddedDataSpecification.dataSpecificationContent): A <i>dataSpecificationContent</i> must point to a <i>DataSpecificationContent</i>."^^xsd:string ;
     ] ;
 .
 

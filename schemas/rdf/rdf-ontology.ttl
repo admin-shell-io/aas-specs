@@ -733,7 +733,7 @@ phys_unit:DataSpecificationPhysicalUnit rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification
 aas:EmbeddedDataSpecification rdf:type owl:Class ;
-    rdfs:comment "TODO."@en ;
+    rdfs:comment "Link to the included description of the Data Specification."@en ;
     rdfs:label "Embedded Data Specification"^^xsd:string ;
 .
 
@@ -741,7 +741,7 @@ aas:EmbeddedDataSpecification rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification/dataSpecification> rdf:type owl:ObjectProperty ;
     rdfs:comment "Global reference to the data specification template used by the element. Reference points to a Data Specification."@en ;
     rdfs:label "has Data Specification"^^xsd:string ;
-    rdfs:domain aas:HasDataSpecification ;
+    rdfs:domain aas:EmbeddedDataSpecification ;
     rdfs:range aas:Reference ;
     skos:note "Reference must point to a Data Specification."@en ;
 .
@@ -750,7 +750,7 @@ aas:EmbeddedDataSpecification rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification/dataSpecificationContent> rdf:type owl:ObjectProperty ;
     rdfs:comment "Property links to a Data Specification Content, which contains the formalized definitions specifying this Data Specification."@en ;
     rdfs:label "has Data Specification Content"^^xsd:string ;
-    rdfs:domain aas:HasDataSpecification ;
+    rdfs:domain aas:EmbeddedDataSpecification ;
     rdfs:range aas:DataSpecificationContent ;
 .
 
