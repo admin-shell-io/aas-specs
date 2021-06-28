@@ -887,7 +887,7 @@ aas:HasDataSpecification rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:comment "Element that can have be extended by using data specification templates. A data specification template defines the additional attributes an element may or shall have. The data specifications used are explicitly specified with their id."@en ;
     rdfs:label "Has Data Specification"^^xsd:string ;
-	skos:note "Constraint AASd-050:  If the DataSpecificationContent DataSpecificationIEC61360 is used for an element then the value of hasDataSpecification/dataSpecification shall contain the global reference to the IRI of the corresponding data specification template https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0."@en ;
+	skos:note "Constraint AASd-050:  If the DataSpecificationContent DataSpecificationIEC61360 is used for an element then the value of hasDataSpecification/dataSpecification shall contain the global reference to the Iri of the corresponding data specification template https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/HasDataSpecification/embeddedDataSpecification
@@ -1006,7 +1006,7 @@ aas:Identifier rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/Identifier/idType
 <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Type of the Identifier, e.g. IRI, IRDI etc. The supported Identifier types are defined in the enumeration 'IdentifierType'."@en ;
+    rdfs:comment "Type of the Identifier, e.g. Iri, Irdi etc. The supported Identifier types are defined in the enumeration 'IdentifierType'."@en ;
     rdfs:domain aas:Identifier ;
     rdfs:range aas:IdentifierType ;
     rdfs:label "has idType"^^xsd:string ;
@@ -1018,20 +1018,20 @@ aas:IdentifierType rdf:type owl:Class ;
     rdfs:label "Identifier Type"^^xsd:string ;
     rdfs:comment "Enumeration of different types of Identifiers for global identification"@en ;
     owl:oneOf (
-        <https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRDI>
-        <https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRI>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Irdi>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri>
         <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Custom>
     ) ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRDI
-<https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRDI> rdf:type aas:IdentifierType ;
+###  https://admin-shell.io/aas/3/0/RC01/IdentifierType/Irdi
+<https://admin-shell.io/aas/3/0/RC01/IdentifierType/Irdi> rdf:type aas:IdentifierType ;
     rdfs:label "IRDI"^^xsd:string ;
     rdfs:comment "IRDI according to ISO29002-5 as an Identifier scheme for properties and classifications."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRI
-<https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRI> rdf:type aas:IdentifierType ;
+###  https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri
+<https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> rdf:type aas:IdentifierType ;
     rdfs:label "IRI"^^xsd:string ;
     rdfs:comment "IRI. Should only be used if unicode symbols are used that are not allowed in URI."@en ;
 .
@@ -1099,7 +1099,7 @@ aas:Key rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/Key/value
 <https://admin-shell.io/aas/3/0/RC01/Key/value> rdf:type owl:DatatypeProperty ;
-    rdfs:comment "The key value, for example an IRDI if the idType=IRDI."@en ;
+    rdfs:comment "The key value, for example an IRDI if the idType=Irdi."@en ;
     rdfs:label "has value"^^xsd:string ;
     rdfs:domain aas:Key ;
     rdfs:range xsd:string ;
@@ -1155,8 +1155,8 @@ aas:KeyType rdf:type owl:Class ;
     rdfs:label "Key Type"^^xsd:string ;
     rdfs:comment "Enumeration of different key value types within a key. Contains IdentifierType and LocalKeyType."@en ;
     owl:oneOf (
-        <https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRDI>
-        <https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRI>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Irdi>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri>
         <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Custom>
 
         <https://admin-shell.io/aas/3/0/RC01/LocalKeyType/IdShort>
@@ -1733,7 +1733,6 @@ aas:ReferableElements rdf:type owl:Class ;
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/BasicEvent>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Blob>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Capability>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/CONCEPT_DICTIONARY>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/GlobalReference>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/DataElement>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/File>
