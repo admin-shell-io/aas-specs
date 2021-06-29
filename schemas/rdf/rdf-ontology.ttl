@@ -498,20 +498,6 @@ aas:ConceptDescription rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/DataSpecification
-<https://admin-shell.io/aas/3/0/RC01/DataSpecification> rdf:type owl:Class ;
-    rdfs:comment "Data specification template of the description of the concept."@en ;
-    rdfs:label "Data Specification"^^xsd:string ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/DataSpecification/dataSpecificationContent
-<https://admin-shell.io/aas/3/0/RC01/DataSpecification/dataSpecificationContent> rdf:type owl:ObjectProperty ;
-    rdfs:comment "DataSpecificationContent contains the additional attributes to be added to the element instance that references the data specification template and meta information about the template itself."@en ;
-    rdfs:label "Data Specification Content"^^xsd:string ;
-    rdfs:domain aas:DataSpecification ;
-    rdfs:range aas:DataSpecificationContent ;
-.
-
 ###  https://admin-shell.io/aas/3/0/RC01/Constraint
 <https://admin-shell.io/aas/3/0/RC01/Constraint> rdf:type owl:Class ;
     dash:abstract true ;
