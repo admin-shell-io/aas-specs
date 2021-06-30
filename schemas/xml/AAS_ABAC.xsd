@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://www.admin-shell.io/aas/abac/3/0" 
+	targetNamespace="http://www.admin-shell.io/aas/abac/3/0/RC01/"
 	elementFormDefault="qualified"
-	xmlns:aas="http://www.admin-shell.io/aas/3/0" 
-	xmlns:abac="http://www.admin-shell.io/aas/abac/3/0">
-	<import schemaLocation="AAS.xsd" namespace="http://www.admin-shell.io/aas/3/0"></import>
+	xmlns:aas="http://www.admin-shell.io/aas/3/0/RC01/"
+	xmlns:abac="http://www.admin-shell.io/aas/abac/3/0/RC01/">
+	<import schemaLocation="AAS.xsd" namespace="http://www.admin-shell.io/aas/3/0/RC01/"></import>
 	<complexType name="security_t">
 		<sequence>
 			<element name="accessControlPolicyPoints"
@@ -34,7 +34,7 @@
     		<element name="externalAccessControl" type="boolean" minOccurs="0" maxOccurs="1"></element>
     	</sequence>
     </complexType>
-    
+
     <complexType name="policyDecisionPoint_t">
     	<sequence>
     		<element name="externalPolicyDecisionPoint" type="boolean" minOccurs="1" maxOccurs="1"></element>
@@ -54,14 +54,14 @@
     		</element>
     		<element name="internalInformationPoints" type="abac:internalInformationPoints" minOccurs="0" maxOccurs="1"></element>
     	</sequence>
-    </complexType>    
+    </complexType>
 
 	<complexType name="internalInformationPoints">
 		<sequence>
 			<element name="internalInformationPoint" type="aas:submodelRefs_t" minOccurs="0" maxOccurs="unbounded"></element>
 		</sequence>
 	</complexType>
-	
+
     <complexType name="accessControl_t">
     	<sequence>
             <element name="selectableSubjectAttributes" type="aas:reference_t" minOccurs="0" maxOccurs="1"></element>
@@ -73,7 +73,7 @@
             <element name="accessPermissionRules" type="abac:accessPermissionRules_t" minOccurs="0" maxOccurs="1"></element>
     	</sequence>
     </complexType>
-    
+
     <complexType name="permissionPerObject_t">
     	<sequence>
     		<element name="object" type="aas:reference_t"></element>
@@ -87,7 +87,7 @@
     		<element name="objectAttribute" type="aas:property_t" minOccurs="1" maxOccurs="unbounded"></element>
     	</sequence>
     </complexType>
-    
+
     <complexType name="permissions_t">
     	<sequence>
     		<element name="permission" type="aas:property_t" minOccurs="1" maxOccurs="1"></element>
@@ -118,30 +118,30 @@
     		<element name="subjectAttribute" type="aas:property_t" minOccurs="1" maxOccurs="unbounded"></element>
     	</sequence>
     </complexType>
-    
+
     <complexType name="certificates_t">
     	<sequence>
     		<element name="certificate" type="abac:certificate_t" minOccurs="1" maxOccurs="unbounded"></element>
     	</sequence>
     </complexType>
-  
+
   	<complexType name="certificate_t">
 		<choice>
 			<element name="blobCertificate" type="abac:blobCertificate_t"></element>
 		</choice>
 	</complexType>
-		
-		
+
+
     <element name="internalInformationPoints" type="aas:submodelRefs_t" />
-    
-    
+
+
     <complexType name="accessPermissionRules_t">
     	<sequence>
     		<element name="accessPermissionRule" type="abac:accessPermissionRule_t" minOccurs="0" maxOccurs="unbounded"></element>
     	</sequence>
     </complexType>
-	
-	
+
+
 	<complexType name="certificateAbstract_t">
 	</complexType>
 
