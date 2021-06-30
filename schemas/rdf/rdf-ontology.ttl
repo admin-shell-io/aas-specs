@@ -758,9 +758,9 @@ aas:Entity rdf:type owl:Class ;
 	skos:note "Constraint AASd-014: Either the attribute globalAssetId or externalAssetId of an Entity must be set if Entity/entityType is set to 'SelfManagedEntity'. They are not existing otherwise."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Entity/externalAssetId
-<https://admin-shell.io/aas/3/0/RC01/Entity/externalAssetId> rdf:type owl:ObjectProperty ;
-    rdfs:label "has external asset id"^^xsd:string ;
+###  https://admin-shell.io/aas/3/0/RC01/Entity/specificAssetId
+<https://admin-shell.io/aas/3/0/RC01/Entity/specificAssetId> rdf:type owl:ObjectProperty ;
+    rdfs:label "has specific asset id"^^xsd:string ;
     rdfs:domain aas:Entity ;
     rdfs:range aas:IdentifierKeyValuePair ;
     rdfs:comment "Reference to an identifier key value pair representing an external identifier of the asset represented by the asset administration shell. "@en ;

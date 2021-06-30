@@ -149,11 +149,11 @@
 		<complexContent>
 			<extension base="abac:certificateAbstract_t">
 				<sequence>
-					<element name="blobCertificate" type="aas:blob_t"></element>
+					<element maxOccurs="1" minOccurs="1" name="blobCertificate" type="aas:blob_t"></element>
 					<element name="containedExtensions"
 						type="abac:containedExtensions_t" minOccurs="0" maxOccurs="1">
 					</element>
-					<element name="lastCertificate" type="boolean"></element>
+					<element maxOccurs="1" minOccurs="1" name="lastCertificate" type="boolean"></element>
 				</sequence>
 			</extension>
 		</complexContent>
