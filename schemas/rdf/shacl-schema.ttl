@@ -836,6 +836,31 @@ aas:FormulaShape a sh:NodeShape ;
     ] ;
 .
 
+aas:HasDataSpecificationShape a sh:NodeShape ;
+  sh:targetClass aas:HasDataSpecification ;
+
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(HasDataSpecificationShape): An aas:HasDataSpecification is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:HasDataSpecification)
+			}
+		""" ;
+	] ;
+
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/HasDataSpecification/embeddedDataSpecification> ;
+      sh:class aas:EmbeddedDataSpecification ;
+      sh:minCount 0 ;
+      sh:message "(HasDataSpecification.embeddedDataSpecification):Only <i>EmbeddedDataSpecification</i> are allowed for <i>embeddedDataSpecification</i> property."^^xsd:string ;
+    ] ;
+.
+
 aas:HasKindShape a sh:NodeShape ;
     sh:targetClass aas:HasKind ;
 
