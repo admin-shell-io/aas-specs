@@ -58,7 +58,7 @@
 
 	<complexType name="internalInformationPoints">
 		<sequence>
-			<element name="internalInformationPoint" type="aas:submodelRefs_t" minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="internalInformationPoint" type="aas:submodel_t" minOccurs="0" maxOccurs="unbounded"></element>
 		</sequence>
 	</complexType>
 
@@ -132,7 +132,7 @@
 	</complexType>
 
 
-    <element name="internalInformationPoints" type="aas:submodelRefs_t" />
+    <element name="internalInformationPoints" type="aas:submodel_t" />
 
 
     <complexType name="accessPermissionRules_t">

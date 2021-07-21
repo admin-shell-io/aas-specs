@@ -58,7 +58,7 @@
 			<group ref="aas:hasDataSpecification"/>
 			<element maxOccurs="1" minOccurs="0" name="security" type="abac:security_t"/>
 			<element maxOccurs="1" minOccurs="0" name="derivedFrom" type="aas:reference_t"/>
-			<element maxOccurs="unbounded" minOccurs="0" name="submodelRefs" type="aas:submodelRefs_t"/>
+			<element maxOccurs="unbounded" minOccurs="0" name="submodel" type="aas:submodel_t"/>
 			<element maxOccurs="1" minOccurs="1" name="assetInformation" type="aas:assetInformation_t"/>
 			<element maxOccurs="unbounded" minOccurs="0" name="views" type="aas:views_t"/>
 		</sequence>
@@ -73,7 +73,7 @@
 			<element maxOccurs="1" minOccurs="0" name="defaultThumbNail" type="aas:file_t"/>
 			<element maxOccurs="1" minOccurs="0" name="globalAssetId" type="aas:reference_t"/>
 			<element maxOccurs="1" minOccurs="1" name="assetKind" type="aas:assetKind_t"/>
-			<element maxOccurs="unbounded" minOccurs="0" name="billOfMaterials" type="aas:submodelRefs_t"/>
+			<element maxOccurs="unbounded" minOccurs="0" name="billOfMaterials" type="aas:submodel_t"/>
 			<element maxOccurs="1" minOccurs="0" name="specificAssetIds" type="aas:specificAssetIds_t"/>
 		</sequence>
 	</complexType>
@@ -118,9 +118,9 @@
 			<element maxOccurs="unbounded" minOccurs="0" name="isCaseOf" type="aas:reference_t"/>
 		</sequence>
 	</complexType>
-	<complexType name="conceptDescriptionRefs_t">
+	<complexType name="conceptDescription_t">
 		<sequence>
-			<element maxOccurs="unbounded" minOccurs="0" name="conceptDescriptionRef" type="aas:reference_t"/>
+			<element maxOccurs="unbounded" minOccurs="0" name="conceptDescription" type="aas:reference_t"/>
 		</sequence>
 	</complexType>
 	<complexType name="conceptDescriptions_t">
@@ -136,7 +136,7 @@
 	</complexType>
 	<complexType name="containedElements_t">
 		<sequence>
-			<element maxOccurs="unbounded" minOccurs="0" name="containedElementRef" type="aas:reference_t"/>
+			<element maxOccurs="unbounded" minOccurs="0" name="containedElement" type="aas:reference_t"/>
 		</sequence>
 	</complexType>
 	<complexType name="dataElementAbstract_t">
@@ -213,7 +213,7 @@
 	</complexType>
 	<complexType name="formula_t">
 		<sequence>
-			<element maxOccurs="1" minOccurs="0" name="dependsOnRefs" type="aas:references_t"/>
+			<element maxOccurs="1" minOccurs="0" name="dependsOn" type="aas:references_t"/>
 		</sequence>
 	</complexType>
 	<complexType name="identification_t">
@@ -471,9 +471,9 @@
 			<element maxOccurs="unbounded" minOccurs="0" name="submodelElement" type="aas:submodelElement_t"/>
 		</sequence>
 	</complexType>
-	<complexType name="submodelRefs_t">
+	<complexType name="submodel_t">
 		<sequence>
-			<element maxOccurs="unbounded" minOccurs="0" name="submodelRef" type="aas:reference_t"/>
+			<element maxOccurs="unbounded" minOccurs="0" name="submodel" type="aas:reference_t"/>
 		</sequence>
 	</complexType>
 	<complexType name="submodels_t">
