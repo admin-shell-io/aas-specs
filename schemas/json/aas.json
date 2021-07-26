@@ -6,6 +6,7 @@
   "required": [
     "assetAdministrationShells",
     "submodels",
+    "assets",
     "conceptDescriptions"
   ],
   "properties": {
@@ -13,6 +14,12 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/AssetAdministrationShell"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Asset"
       }
     },
     "submodels": {
@@ -644,6 +651,13 @@
         },
         {
           "$ref": "#/definitions/HasDataSpecification"
+        },
+        {
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Identification"
+            }
+          }
         }
       ]
     },
