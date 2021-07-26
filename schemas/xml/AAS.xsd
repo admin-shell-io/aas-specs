@@ -25,7 +25,7 @@
 	<complexType name="aasenv_t">
 		<sequence>
 			<element maxOccurs="unbounded" minOccurs="1" name="assetAdministrationShells" type="aas:assetAdministrationShells_t"/>
-			<!--<element maxOccurs="1" minOccurs="0" name="assets" type="aas:assets_t"/>-->
+			<element maxOccurs="1" minOccurs="0" name="assets" type="aas:assets_t"/>
 			<element maxOccurs="unbounded" minOccurs="1" name="conceptDescriptions" type="aas:conceptDescriptions_t"/>
 			<element maxOccurs="unbounded" minOccurs="1" name="submodels" type="aas:submodels_t"/>
 		</sequence>
@@ -45,12 +45,13 @@
 			</extension>
 		</complexContent>
 	</complexType>
-<!--	<complexType name="asset_t">
+<complexType name="asset_t">
 		<sequence>
 			<group ref="aas:identifiable"/>
 			<group ref="aas:hasDataSpecification"/>
+			<element maxOccurs="1" minOccurs="1" name="identification" type="aas:identifier_t"/>
 		</sequence>
-	</complexType> -->
+	</complexType>
 	<complexType name="assetAdministrationShell_t">
 		<sequence>
 			<group ref="aas:identifiable"/>
@@ -81,11 +82,11 @@
 			<element maxOccurs="unbounded" minOccurs="0" name="specificAssetId" type="aas:identifierKeyValuePair_t"/>
 		</sequence>
 	</complexType>
-<!--	<complexType name="assets_t">
+	<complexType name="assets_t">
 		<sequence>
 			<element maxOccurs="unbounded" minOccurs="0" name="asset" type="aas:asset_t"/>
 		</sequence>
-	</complexType> -->
+	</complexType>
 	<complexType name="basicEvent_t">
 		<complexContent>
 			<extension base="aas:eventAbstract_t">
