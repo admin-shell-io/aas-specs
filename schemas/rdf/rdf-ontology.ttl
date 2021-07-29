@@ -316,6 +316,14 @@ aas:AssetAdministrationShellEnvironment rdf:type owl:Class ;
     rdfs:label "has Asset Administration Shells"^^xsd:string ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assets
+<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assets> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetAdministrationShellEnvironment ;
+    rdfs:range aas:Asset ;
+    rdfs:comment "Points to the asset in one AssetAdministrationShellEnvironment graph."@en ;
+    rdfs:label "has Asset"^^xsd:string ;
+.
+
 ###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/conceptDescriptions
 <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/conceptDescriptions> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetAdministrationShellEnvironment ;

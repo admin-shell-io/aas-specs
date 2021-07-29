@@ -15,6 +15,12 @@
         "$ref": "#/definitions/AssetAdministrationShell"
       }
     },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Asset"
+      }
+    },
     "submodels": {
       "type": "array",
       "items": {
@@ -644,6 +650,13 @@
         },
         {
           "$ref": "#/definitions/HasDataSpecification"
+        },
+        {
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Identification"
+            }
+          }
         }
       ]
     },
