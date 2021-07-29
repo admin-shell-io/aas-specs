@@ -12,21 +12,15 @@
     <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
        a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
        <https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> "http://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
-       <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> [
-          a <https://admin-shell.io/aas/3/0/RC01/IdentifierType> , <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri>
-       ] ;
+       <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> [
         a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
         <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
           a <https://admin-shell.io/aas/3/0/RC01/Key> ;
-          <https://admin-shell.io/aas/3/0/RC01/Key/type> [
-             a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/Submodel>
-          ]  ;
+          <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Submodel> ;
           <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://i40.customer.com/type/1/1/F13E8576F6488342"^^xsd:string ;
-          <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
-             a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/Iri>
-          ]
+          <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri>
         ]
     ];
     <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> <https://admin-shell.io/aas/3/0/RC01/ModelingKind/Instance>

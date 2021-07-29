@@ -26,25 +26,21 @@
     <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
        a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
        <https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> "http://customer.com/aas/9175_7013_7091_9168"^^xsd:string ;
-       <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> [
-          a <https://admin-shell.io/aas/3/0/RC01/IdentifierType> , <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri>
-       ] ;
+       <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> ;
     ] ;
+    <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "9175_7013_7091_9168"^^xsd:string ;
     <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/assetInformation> [
         a <https://admin-shell.io/aas/3/0/RC01/AssetInformation> ;
         <https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId> [
           a  <https://admin-shell.io/aas/3/0/RC01/Reference> ;
             <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
               a <https://admin-shell.io/aas/3/0/RC01/Key> ;
-              <https://admin-shell.io/aas/3/0/RC01/Key/type> [
-                 a <https://admin-shell.io/aas/3/0/RC01/KeyElements>, <https://admin-shell.io/aas/3/0/RC01/KeyElements/Asset>
-              ]  ;
+              <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Asset> ;
               <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
-              <https://admin-shell.io/aas/3/0/RC01/Key/idType> [
-                 a <https://admin-shell.io/aas/3/0/RC01/KeyType>, <https://admin-shell.io/aas/3/0/RC01/KeyType/Iri>
-              ]
+              <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri>
             ]
-        ]
+        ] ;
+        <https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/RC01/AssetKind/Instance> ;
     ]
 .
 <http://customer.com/assets/KHBVZJSQKIY>
@@ -52,8 +48,7 @@
     <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
        a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
        <https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> "http://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
-       <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> [
-          a <https://admin-shell.io/aas/3/0/RC01/IdentifierType> , <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri>
-       ]
-    ]
+       <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "KHBVZJSQKIY"^^xsd:string ;
 .
