@@ -176,15 +176,14 @@ aas:AssetShape a sh:NodeShape ;
   sh:targetClass aas:Asset ;
   rdfs:subClassOf aas:HasDataSpecificationShape ;
   rdfs:subClassOf aas:IdentifiableShape ;
-  sh:property [
-      a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Asset/identification> ;
-      sh:class aas:Identifier ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:message "(Asset.identification): The <i>identification</i> attribute points to exactly one <i>Identifier</i> entity."^^xsd:string ;
-    ] ;
-
+  #sh:property [
+  #    a sh:PropertyShape ;
+  #    sh:path <https://admin-shell.io/aas/3/0/RC01/Asset/identification> ;
+  #    sh:class aas:Identifier ;
+  #    sh:maxCount 1 ;
+  #    sh:minCount 1 ;
+  #    sh:message "(Asset.identification): The <i>identification</i> attribute points to exactly one <i>Identifier</i> entity."^^xsd:string ;
+  #  ] ;
 .
 
 aas:AssetInformationShape a sh:NodeShape ;
