@@ -1109,7 +1109,6 @@ aas:KeyElements rdf:type owl:Class ;
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Blob>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Capability>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/ConceptDictionary>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/GlobalReference>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/DataElement>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/File>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Entity>
@@ -1124,7 +1123,7 @@ aas:KeyElements rdf:type owl:Class ;
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/SubmodelElementCollection>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/View>
 
-        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Asset>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Asset> #TODO: delete with 3.0.RC02?
         <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/AssetAdministrationShell>
         <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ConceptDescription>
         <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Submodel>
@@ -1729,7 +1728,6 @@ aas:ReferableElements rdf:type owl:Class ;
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Blob>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Capability>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/ConceptDictionary>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/GlobalReference>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/DataElement>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/File>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Entity>
@@ -1744,7 +1742,7 @@ aas:ReferableElements rdf:type owl:Class ;
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/SubmodelElementCollection>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/View>
 
-        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Asset>
+        <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Asset> #TODO: delete with 3.0.RC02?
         <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/AssetAdministrationShell>
         <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ConceptDescription>
         <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/Submodel>
@@ -1765,6 +1763,7 @@ aas:ReferableElements rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/ReferableElements/BasicEvent> rdf:type aas:ReferableElements ;
     rdfs:label "Basic Event"^^xsd:string ;
 .
+
 ###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/Blob
 <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Blob> rdf:type aas:ReferableElements ;
     rdfs:label "Blob"^^xsd:string ;
@@ -1795,6 +1794,11 @@ aas:ReferableElements rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Event> rdf:type aas:ReferableElements ;
     rdfs:label "Event"^^xsd:string ;
     skos:note "Event is abstract"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/File
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/File> rdf:type aas:ReferableElements ;
+    rdfs:label "File"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/MulitLanguageProperty
