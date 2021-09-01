@@ -1671,6 +1671,7 @@ aas:Extension rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/Referable
 aas:Referable rdf:type owl:Class ;
+    rdfs:subClassOf aas:HasExtensions ;
     dash:abstract true ;
     rdfs:comment "An element that is referable by its idShort. This id is not globally unique. This id is unique within the name space of the element."@en ;
     rdfs:label "Referable"^^xsd:string ;

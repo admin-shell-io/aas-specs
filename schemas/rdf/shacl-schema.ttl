@@ -1379,6 +1379,7 @@ aas:ExtensionShape a sh:NodeShape ;
 
 aas:ReferableShape  a sh:NodeShape ;
   sh:targetClass aas:Referable ;
+  rdfs:subClassOf aas:HasExtensionsShape ;
 
   sh:sparql [
 		a sh:SPARQLConstraint ;
