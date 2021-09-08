@@ -94,6 +94,7 @@
 
 # Submodel
 <http://i40.customer.com/type/F13E8576F6488342>
+    a <https://admin-shell.io/aas/3/0/RC01/Submodel> ;
     <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "Identification"^^xsd:string ;
     rdfs:label "Identification"^^xsd:string ;
     <http://admin-shell.io/aas/3/0/RC01/Referable/category> "CONSTANT"^^xsd:string ;
@@ -116,23 +117,22 @@
         ]
     ] ;
     <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> <https://admin-shell.io/aas/3/0/RC01/ModelingKind/Instance> ;
-        <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
+    <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
              rdf:subject <http://i40.customer.com/type/F13E8576F6488342/Manufacturer> ;
              rdfs:label "Manufacturer"^^xsd:string ;
              <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "Manufacturer"^^xsd:string ;
              a <https://admin-shell.io/aas/3/0/RC01/Property> ;
-                  <https://admin-shell.io/aas/3/0/RC01/Property/valueType>  "xsd:string" ;
-                  <https://admin-shell.io/aas/3/0/RC01/Property/valueId> [
-                      a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
-                      <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
-                        a <https://admin-shell.io/aas/3/0/RC01/Key> ;
-                        <https://admin-shell.io/aas/3/0/RC01/Key/type>  <https://admin-shell.io/aas/3/0/RC01/KeyElements/GlobalReference> ;
-                        <https://admin-shell.io/aas/3/0/RC01/Key/value> "0173-1#02-AAO677#002"^^xsd:string ;
-                        <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/KeyType/Irdi>
-                      ]
-
-                  ];
-                  <https://admin-shell.io/aas/3/0/RC01/Property/value> "CUSTOMER GmbH"^^xsd:string ;
+             <https://admin-shell.io/aas/3/0/RC01/Property/valueType>  "xsd:string" ;
+             <https://admin-shell.io/aas/3/0/RC01/Property/valueId> [
+                    a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
+                    <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+                      a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+                      <https://admin-shell.io/aas/3/0/RC01/Key/type>  <https://admin-shell.io/aas/3/0/RC01/KeyElements/GlobalReference> ;
+                      <https://admin-shell.io/aas/3/0/RC01/Key/value> "0173-1#02-AAO677#002"^^xsd:string ;
+                      <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/KeyType/Irdi>
+                    ]
+              ];
+            <https://admin-shell.io/aas/3/0/RC01/Property/value> "CUSTOMER GmbH"^^xsd:string ;
     ];
 
         <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
@@ -193,6 +193,7 @@
 
 # Submodel
 <http://i40.customer.com/type/7A7104BDAB57E184>
+    a <https://admin-shell.io/aas/3/0/RC01/Submodel> ;
     <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "TechnicalData"^^xsd:string ;
     rdfs:label "TechnicalData"^^xsd:string ;
     <http://admin-shell.io/aas/3/0/RC01/Referable/category> "CONSTANT"^^xsd:string ;
@@ -265,6 +266,7 @@
 
 # Submodel
 <http://i40.customer.com/type/1A7B62B529F19152>
+   a <https://admin-shell.io/aas/3/0/RC01/Submodel> ;
    <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "Documentation"^^xsd:string ;
    rdfs:label "Documentation"^^xsd:string ;
    <http://admin-shell.io/aas/3/0/RC01/Referable/category> "CONSTANT"^^xsd:string ;
@@ -274,7 +276,7 @@
          <https://admin-shell.io/aas/3/0/RC01/Identifier/idType>  <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> ;
       ] ;
    <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> <https://admin-shell.io/aas/3/0/RC01/ModelingKind/Instance> ;
-   a <https://admin-shell.io/aas/3/0/RC01/Submodel> ;
+
    <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
       a <https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection>;
       rdf:subject <http://i40.customer.com/type/7A7104BDAB57E184/OperatingManual> ;
@@ -927,7 +929,7 @@
             <http://admin-shell.io/aas/3/0/RC01/Key/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
             <http://admin-shell.io/aas/3/0/RC01/Key/idType> <http://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> ;
           ]
-       ]
+
     ] ;
     <https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360> ;
