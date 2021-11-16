@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<aas:aasenv xmlns:aas="http://www.admin-shell.io/aas/3/0"
-	xmlns:IEC61360="http://www.admin-shell.io/IEC61360/3/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.admin-shell.io/aas/3/0 AAS.xsd http://www.admin-shell.io/IEC61360/3/0 IEC61360.xsd">
+<aas:aasenv xmlns:aas="http://www.admin-shell.io/aas/3/0/RC01/"
+	xmlns:IEC61360="https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.admin-shell.io/aas/3/0/RC01/ AAS.xsd https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/ IEC61360.xsd">
 	<aas:assetAdministrationShells>
 		<aas:assetAdministrationShell>
 			<aas:idShort>
@@ -42,19 +42,16 @@
 					</aas:keys>
 				</aas:globalAssetId>
 				<aas:assetKind>Instance</aas:assetKind>
-				<aas:assets>
-					<aas:asset>
-						<aas:idShort>
-							ServoDCMotor
-						</aas:idShort>
-						<aas:identification idType="Iri">
-							http://customer.com/assets/KHBVZJSQKIY
-						</aas:identification>
-					</aas:asset>
-			  </aas:assets>
 			</aas:assetInformation>
 		</aas:assetAdministrationShell>
 	</aas:assetAdministrationShells>
+	<aas:assets>
+		<aas:asset>
+			<aas:identification idType="Iri">
+				http://customer.com/assets/KHBVZJSQKIY
+			</aas:identification>
+		</aas:asset>
+  </aas:assets>
 	<aas:conceptDescriptions>
 		<aas:conceptDescription>
 			<aas:idShort>
@@ -104,6 +101,13 @@
 						</IEC61360:unitId>
 					</aas:dataSpecificationIEC61360>
 				</aas:dataSpecificationContent>
+				<aas:dataSpecification>
+					<aas:keys>
+						<aas:key idType="Iri" type="GlobalReference">
+							http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360
+						</aas:key>
+					</aas:keys>
+				</aas:dataSpecification>
 			</aas:embeddedDataSpecification>
 			<aas:isCaseOf>
 				<aas:keys />

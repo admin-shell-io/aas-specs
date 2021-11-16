@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<aas:aasenv xmlns:aas="http://www.admin-shell.io/aas/2/0" xmlns:IEC61360="http://www.admin-shell.io/IEC61360/2/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.admin-shell.io/aas/2/0 AAS.xsd http://www.admin-shell.io/IEC61360/2/0 IEC61360.xsd">
+<aas:aasenv xmlns:aas="http://www.admin-shell.io/aas/3/0/RC01/" xmlns:IEC61360="https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.admin-shell.io/aas/3/0/RC01/ AAS.xsd https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/ IEC61360.xsd">
 	<aas:assetAdministrationShells>
 		<aas:assetAdministrationShell>
 			<aas:idShort>
@@ -12,22 +12,12 @@
 			<aas:assetInformation>
 				<aas:globalAssetId>
 					<aas:keys>
-						<aas:key idType="Iri" local="true" type="Asset">
-							http://customer.com/assets/KHBVZJSQKIY
-						</aas:key>
+						<aas:key idType="Iri" type="Asset">
+						http://customer.com/assets/KHBVZJSQKIY
+					</aas:key>
 					</aas:keys>
 				</aas:globalAssetId>
-			 	<aas:assetKind>Instance</aas:assetKind>
-				<aas:assets>
-						<aas:asset>
-							<aas:idShort>
-								ServoDCMotor
-							</aas:idShort>
-							<aas:identification idType="Iri">
-								http://customer.com/assets/KHBVZJSQKIY
-							</aas:identification>
-						</aas:asset>
-				</aas:assets>
+				<aas:assetKind>Instance</aas:assetKind>
 				<aas:billOfMaterialRef>
 					<aas:keys/>
 				</aas:billOfMaterialRef>
@@ -57,24 +47,14 @@
 			</aas:submodelRefs>
 		</aas:assetAdministrationShell>
 	</aas:assetAdministrationShells>
-<!--	<aas:assets>
+	<aas:assets>
 		<aas:asset>
-			<aas:idShort>
-				ServoDCMotor
-			</aas:idShort>
 			<aas:identification idType="Iri">
 				http://customer.com/assets/KHBVZJSQKIY
 			</aas:identification>
-			<aas:assetIdentificationModelRef>
-				<aas:keys/>
-			</aas:assetIdentificationModelRef>
-			<aas:billOfMaterialRef>
-				<aas:keys/>
-			</aas:billOfMaterialRef>
-			<aas:kind>Instance</aas:kind>
 		</aas:asset>
-	</aas:assets> -->
-		<aas:submodels>
+	</aas:assets>
+	<aas:submodels>
 		<aas:submodel>
 			<aas:idShort>
 				Documentation
@@ -248,7 +228,7 @@
 			</aas:submodelElements>
 		</aas:submodel>
 	</aas:submodels>
-		<aas:conceptDescriptions>
+	<aas:conceptDescriptions>
 		<aas:conceptDescription>
 			<aas:idShort>
 				MaxRotationSpeed
@@ -464,7 +444,7 @@
 				DigitalFile
 			</aas:idShort>
 			<aas:category>
-				DOCUMENT
+				Document
 			</aas:category>
 			<aas:identification idType="Iri">
 				http://vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile
