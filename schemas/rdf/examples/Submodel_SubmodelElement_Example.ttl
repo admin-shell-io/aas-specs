@@ -24,91 +24,48 @@
 
 
 <http://i40.customer.com/type/F13E8576F6488342> rdf:type aas:Submodel ;
-     aas:idShort "Identification"^^xsd:string ;
      rdfs:label "Identification"^^xsd:string ;
-     
-     aas:category "CONSTANT"^^xsd:string ;
-     
+     <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "Identification"^^xsd:string ;
+     <https://admin-shell.io/aas/3/0/RC01/Referable/category> "CONSTANT"^^xsd:string ;
      #--------------------------------
      # 1) Reference Element with Keys
-     aas:semanticId [
-        a aas:Reference ;
-        aas:key [
-            a aas:Key ;
-            aas:index "1"^^xsd:integer ; # RDF knows no order, however the index states that this key is 'less important' than the other
-            aas:type aas:GLOBAL_REFERENCE_IDENTIFIABLE_ELEMENT ;
-            aas:local "false"^^xsd:boolean ;
-            aas:value "https://wikipedia.org/wiki/Unique_Identification_Number"^^xsd:string ;
-            aas:idType aas:URI_IDENTIFIER_TYPE ;
+     <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId> [
+         a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
+         <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+           a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+           <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/KeyElements/GlobalReference> ;
+           <https://admin-shell.io/aas/3/0/RC01/Key/value> "https://wikipedia.org/wiki/Unique_Identification_Number"^^xsd:string ;
+           <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> ;
         ] ;
-        aas:key [
-            a aas:Key ;
-            aas:index "0"^^xsd:integer ; # RDF knows no order, however the index states that this key is 'more important' than the other
-            aas:type aas:GLOBAL_REFERENCE_IDENTIFIABLE_ELEMENT ;
-            aas:local "false"^^xsd:boolean ;
-            aas:value "0173-1#01-ADN198#009"^^xsd:string ;
-            aas:idType aas:IRDI_IDENTIFIER_TYPE ;
-        ] ;
-     ];
-     
-     # 2) direct linking
-     aas:semanticId "0173-1#01-ADN198#009"^^xsd:string ;
-     aas:semanticId <https://wikipedia.org/wiki/Unique_Identification_Number> ;
-     #--------------------------------
-     
-    # 'LangStringSets'
-    aas:description "Identification from Manufacturer"@en ;
-    aas:description "Hersteller-Identifikation"@en ;
-    aas:description "Hersteller-Identifikation"@de ;
+        <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+          a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+          <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/KeyElements/GlobalReference> ;
+          <https://admin-shell.io/aas/3/0/RC01/Key/value> "0173-1#01-ADN198#009"^^xsd:string ;
+          <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Irdi> ;
+       ] ;
+    ] ;
+
+    # 2) LangStringSets
+    <https://admin-shell.io/aas/3/0/RC01/Referable/description> "Identification from Manufacturer"@en , "Hersteller-Identifikation"@de ;
     rdfs:comment "Identification from Manufacturer"@en ;
     rdfs:comment "Hersteller-Identifikation"@de ;
-    
-    aas:identification <http://i40.customer.com/type/F13E8576F6488342> ; # linking back to itself as enitity is already identified by a URI
-     
-     
-     aas:submodelElement [
-        # First SubmodelElement
-        rdf:type aas:Property ;
-        
-        #--------------------------------
-        rdf:subject <http://i40.customer.com/type/F13E8576F6488342/Manufacturer> ; # a) URI starting at latest known Element (Submodel URI)
-        rdf:subject <http://example.org/shells/ExampleMotor/submodels/Identification/submodelElements/Manufacturer> ; # b) URI constructed as proposed in the OpenAPI
-        #--------------------------------
-        
-        aas:idShort "Manufacturer"^^xsd:string ;
-        rdfs:label "Manufacturer"^^xsd:string ;
-        
-        aas:category "CONSTANT"^^xsd:string ;
-        
-        aas:hasKind aas:INSTANCE ;
-        
-        #--------------------------------
-        # 1) Reference Element with Keys
-        aas:semanticId [
-            a aas:Reference ;
-            aas:key [
-                a aas:Key ;
-                aas:index "0"^^xsd:integer ; # RDF knows no order, however the index states that this key is 'more important' than any other (which must not have the same index)
-                aas:type aas:GLOBAL_REFERENCE_IDENTIFIABLE_ELEMENT ;
-                aas:local "false"^^xsd:boolean ;
-                aas:value "0173-1#02-AAO677#002"^^xsd:string ;
-                aas:idType aas:IRDI_IDENTIFIER_TYPE ;
-            ] ;
-        ];
 
-        # 2) direct linking
-        aas:semanticId "0173-1#02-AAO677#002"^^xsd:string ;
-        #--------------------------------
-        
-        aas:hasKind aas:INSTANCE ;
-        
-        # aas:valueType "xsd:string"^^xsd:string ; # redundant, see typed literal next line
-        aas:value "CUSTOMER GmbH"^^xsd:string ;
-     ] ;
-     
-     
-    # continuing...
-     aas:submodelElement <http://example.org#GLN> ;
-     aas:submodelElement <http://example.org#ProductDesignation> ;
-     aas:submodelElement <http://example.org#SerialNumber> ;
-.
+    <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
+       a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
+       <https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> "http://i40.customer.com/type/F13E8576F6488342"^^xsd:string ;
+       <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> ;
+      ] ;
+
+    # 3) SubmodelElement
+    <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
+             a <https://admin-shell.io/aas/3/0/RC01/Property>;
+             # rdf:subject <http://i40.customer.com/type/F13E8576F6488342/Manufacturer> ;  # a) URI starting at latest known Element (Submodel URI)
+             # rdf:subject <http://example.org/shells/ExampleMotor/submodels/Identification/submodelElements/Manufacturer> ; # b) URI constructed as proposed in the OpenAPI
+             rdfs:label "Manufacturer"^^xsd:string ;
+             <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "Manufacturer"^^xsd:string ;
+             <https://admin-shell.io/aas/3/0/RC01/Referable/category> "CONSTANT"^^xsd:string ;
+             <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> <https://admin-shell.io/aas/3/0/RC01/ModelingKind/Instance> ;
+             <https://admin-shell.io/aas/3/0/RC01/Property/value> "CUSTOMER GmbH"^^xsd:string ;
+             <https://admin-shell.io/aas/3/0/RC01/Property/valueType> "xsd:string"^^xsd:string ;
+    ] ;
+ .
