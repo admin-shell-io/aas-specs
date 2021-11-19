@@ -769,10 +769,10 @@ aas:HasDataSpecificationShape a sh:NodeShape ;
 
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecification> ;
-      sh:class aas:EmbeddedDataSpecification ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/dataSpecification> ;
+      sh:class aas:Reference ;
       sh:minCount 0 ;
-      sh:message "(HasDataSpecification.embeddedDataSpecification):Only <i>EmbeddedDataSpecification</i> are allowed for <i>embeddedDataSpecification</i> property."^^xsd:string ;
+      sh:message "(HasDataSpecification.dataSpecification):Only <i>Reference</i> are allowed for <i>dataSpecification</i> property."^^xsd:string ;
     ] ;
 .
 
