@@ -153,7 +153,7 @@ aas:AssetAdministrationShell rdf:type owl:Class ;
     rdfs:label "was derived from"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodel
+###  https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/security
 <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/security> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetAdministrationShell ;
     rdfs:range aas:Security ;
@@ -1315,7 +1315,14 @@ aas:RelationshipElement rdf:type owl:Class ;
 aas:Security rdf:type owl:Class ;
     rdfs:comment "Container for security relevant information of the AAS."@en ;
     rdfs:label "Security"^^xsd:string ;
-    owl:deprecated true ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/Security/accessControlPolicyPoints
+<https://admin-shell.io/aas/3/0/RC02/Security/accessControlPolicyPoints> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Access control policy points of the AAS."@en ;
+    rdfs:label "has access control policy points"^^xsd:string ;
+    rdfs:domain aas:Security ;
+    rdfs:range aas:AccessControlPolicyPoints ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Submodel @checked
@@ -1389,14 +1396,6 @@ aas:SubmodelElementList rdf:type owl:Class ;
   	skos:note "Constraint AASd-093: If the semanticId of a SubmodelElementList references a ConceptDescription then the ConceptDescription/category shall be COLLECTION."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value
-<https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Submodel element contained in the list. The list is ordered."@en ;
-    rdfs:label "value"^^xsd:string ;
-    rdfs:domain aas:SubmodelElementList ;
-    rdfs:range aas:SubmodelElement ;
-.
-
 ###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdValues
 <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdValues> rdf:type owl:ObjectProperty ;
     rdfs:comment "Semantic Id the submodel elements contained in the list match to."@en ;
@@ -1415,6 +1414,14 @@ aas:SubmodelElementList rdf:type owl:Class ;
     rdfs:domain aas:SubmodelElementList ;
     rdfs:range aas:SubmodelElements ;
     skos:note "Constraint AASd-108: All first level child elements in a SubmodelElementList shall have the same submodel element type as specified in SubmodelElementList/submodelElementTypeValues."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value
+<https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Submodel element contained in the list. The list is ordered."@en ;
+    rdfs:label "value"^^xsd:string ;
+    rdfs:domain aas:SubmodelElementList ;
+    rdfs:range aas:SubmodelElement ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/valueTypeValues*
