@@ -34,6 +34,36 @@ aas:AccessControlPolicyPoints rdf:type owl:Class ;
     rdfs:range aas:PolicyAdministrationPoint ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyDecisionPoint
+<https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyDecisionPoint> rdf:type owl:ObjectProperty ;
+    rdfs:comment "The access control policy decision point of the AAS."@en ;
+    rdfs:label "has policy decision point"^^xsd:string ;
+    rdfs:domain aas:AccessControlPolicyPoints ;
+    rdfs:range aas:PolicyDecisionPoint ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyEnforcementPoint
+<https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyEnforcementPoint> rdf:type owl:ObjectProperty ;
+    rdfs:comment "The access control policy enforcement point of the AAS."@en ;
+    rdfs:label "has policy enforcement point"^^xsd:string ;
+    rdfs:domain aas:AccessControlPolicyPoints ;
+    rdfs:range aas:PolicyEnforcementPoints ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyInformationPoints
+<https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyInformationPoints> rdf:type owl:ObjectProperty ;
+    rdfs:comment "The access control policy information points of the AAS."@en ;
+    rdfs:label "has policy information points"^^xsd:string ;
+    rdfs:domain aas:AccessControlPolicyPoints ;
+    rdfs:range aas:PolicyInformationPoints ;
+    owl:deprecated true ;
+
+.
+
 ###  https://admin-shell.io/aas/3/0/RC02/AdministrativeInformation @checked
 aas:AdministrativeInformation rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification ;
@@ -168,6 +198,16 @@ aas:AssetAdministrationShell rdf:type owl:Class ;
     rdfs:range aas:Reference ;
     rdfs:comment "Points from the Admin Shell to the Submodels that describe the Admin Shell of a given Asset"@en ;
     rdfs:label "has Submodel"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/view
+<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/view> rdf:type owl:ObjectProperty ;
+    rdfs:domain aas:AssetAdministrationShell;
+    rdfs:range aas:View ;
+    owl:deprecated true ;
+    rdfs:comment "Points to the differents views associated to the Administration Shell via the Submodels."@en ;
+    rdfs:label "has View"^^xsd:string ;
+    skos:prefLabel "view"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShellEnvironment
@@ -1317,6 +1357,25 @@ aas:Security rdf:type owl:Class ;
     rdfs:label "Security"^^xsd:string ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/Security/certificate
+<https://admin-shell.io/aas/3/0/RC01/Security/certificate> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Certificates of the AAS."@en ;
+    rdfs:label "has certificate"^^xsd:string ;
+    rdfs:domain aas:Security ;
+    rdfs:range aas:Certificate ;
+    owl:deprecated true ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/Security/requiredCertificateExtension
+<https://admin-shell.io/aas/3/0/RC01/Security/requiredCertificateExtension> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Certificate extensions as required by the AAS."@en ;
+    rdfs:label "has required certificate extension"^^xsd:string ;
+    rdfs:domain aas:Security ;
+    rdfs:range aas:Reference ;
+    owl:deprecated true ;
+
+.
+
 ###  https://admin-shell.io/aas/3/0/RC02/Security/accessControlPolicyPoints
 <https://admin-shell.io/aas/3/0/RC02/Security/accessControlPolicyPoints> rdf:type owl:ObjectProperty ;
     rdfs:comment "Access control policy points of the AAS."@en ;
@@ -1484,4 +1543,24 @@ aas:ValueReferencePair rdf:type owl:Class ;
     rdfs:domain aas:ValueReferencePair ;
     rdfs:range aas:Reference ;
     skos:note "Constraint AASd-078: If the valueId of a ValueReferencePair references a ConceptDescription then the ConceptDescription/category shall be one of following values: VALUE."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/View
+aas:View rdf:type owl:Class ;
+    rdfs:subClassOf aas:HasDataSpecification , aas:Referable , aas:HasSemantics ;
+    rdfs:comment "A view is a collection of referable elements w.r.t. to a specific viewpoint of one or more stakeholders."@en ;
+    rdfs:isDefinedBy "https://www.plattform-i40.de/I40/Redaktion/DE/Downloads/Publikation/hm-2018-trilaterale-coop.html"@de ;
+    rdfs:label "View"^^xsd:string ;
+    owl:deprecated true ;
+	skos:note "Constraint AASd-064: If the semanticId of a View references a ConceptDescription then the category of the ConceptDescription shall be VIEW."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/View/containedElement
+<https://admin-shell.io/aas/3/0/RC01/View/containedElement> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Referable elements that are contained in the view."@en ;
+    rdfs:label "contains element"^^xsd:string ;
+    rdfs:domain aas:View ;
+    rdfs:range aas:Reference ;
+    owl:deprecated true ;
+
 .

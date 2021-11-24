@@ -110,6 +110,56 @@ aas:AccessPermissionRule rdf:type owl:Class ;
     rdfs:domain aas:AccessPermissionRule ;
     rdfs:range aas:SubjectAttributes ;
 .
+
+
+###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate
+aas:BlobCertificate rdf:type owl:Class ;
+    rdfs:subClassOf aas:Certificate ;
+    rdfs:comment "Certificate provided as BLOB."@en ;
+    rdfs:label "Blob Certificate"^^xsd:string ;
+    owl:deprecated true ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate/blobCertificate
+<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/blobCertificate> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "Certificate as BLOB."@en ;
+    rdfs:label "Blob Certificate"^^xsd:string ;
+    rdfs:domain aas:BlobCertificate ;
+    rdfs:range xsd:byte ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtension
+<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtension> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Extensions contained in the certificate."@en ;
+    rdfs:label "contains extension"^^xsd:string ;
+    rdfs:domain aas:BlobCertificate ;
+    rdfs:range aas:Reference ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate/lastCertificate
+<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/lastCertificate> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "Denotes whether this certificate is the certificated that fast added last."@en ;
+    rdfs:label "is last certificate"^^xsd:string ;
+    rdfs:domain aas:BlobCertificate ;
+    rdfs:range xsd:boolean ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate/authenticates
+<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/authenticates> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Identifiables authenticated."@en ;
+    rdfs:label "authenticates"^^xsd:string ;
+    rdfs:domain aas:BlobCertificate ;
+    rdfs:range aas:Identifiable ;
+    owl:deprecated true ;
+
+.
+
 ###  https://admin-shell.io/aas/3/0/RC02/Permission
 aas:Permission rdf:type owl:Class ;
     rdfs:comment "Description of a single permission."@en ;
@@ -122,6 +172,14 @@ aas:Permission rdf:type owl:Class ;
     rdfs:label "has kind of permission"^^xsd:string ;
     rdfs:domain aas:Permission ;
     rdfs:range aas:PermissionKind ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/Certificate
+aas:Certificate rdf:type owl:Class ;
+    dash:abstract true ;
+    owl:deprecated true ;
+    rdfs:comment "A technical certificate proofing the identity through cryptographic measures."@en ;
+    rdfs:label "Certificate"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Permission/permission
@@ -221,6 +279,69 @@ aas:PolicyAdministrationPoint rdf:type owl:Class ;
     rdfs:label "has external access control"^^xsd:string ;
     rdfs:domain aas:PolicyAdministrationPoint ;
     rdfs:range xsd:boolean ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyDecisionPoint
+aas:PolicyDecisionPoint rdf:type owl:Class ;
+    rdfs:comment "Defines a security policy decision point (PDP). "@en ;
+    rdfs:label "Policy Decision Point"^^xsd:string ;
+    owl:deprecated true ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyDecisionPoint/externalPolicyDecisionPoints
+<https://admin-shell.io/aas/3/0/RC01/PolicyDecisionPoint/externalPolicyDecisionPoints> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "If externalPolicyDecisionPoints True then Endpoints to external available decision points taking into consideration for access control for the AAS need to be configured."@en ;
+    rdfs:label "is external policy decision point defined"^^xsd:string ;
+    rdfs:domain aas:PolicyDecisionPoint ;
+    rdfs:range xsd:boolean ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints
+aas:PolicyEnforcementPoints rdf:type owl:Class ;
+    rdfs:comment "Defines the security policy enforcement points (PEP)."@en ;
+    rdfs:label "Policy Enforcement Point"^^xsd:string ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints/externalPolicyEnforcementPoint
+<https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints/externalPolicyEnforcementPoint> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "If externalPolicyEnforcementPoint True then an Endpoint to external available enforcement point taking needs to be configured for the AAS."@en ;
+    rdfs:label "is external policy enforcement point defined"^^xsd:string ;
+    rdfs:domain aas:PolicyEnforcementPoints ;
+    rdfs:range xsd:boolean ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints
+aas:PolicyInformationPoints rdf:type owl:Class ;
+    rdfs:comment "Defines the security policy information points (PIP). Serves as the retrieval source of attributes, or the data required for policy evaluation to provide the information needed by the policy decision point to make the decisions."@en ;
+    rdfs:label "Policy Information Points"^^xsd:string ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/externalInformationPoints
+<https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/externalInformationPoints> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "If externalInformationPoints True then at least one Endpoint to external available information needs to be configured for the AAS."@en ;
+    rdfs:label "has external information point"^^xsd:string ;
+    rdfs:domain aas:PolicyInformationPoints ;
+    rdfs:range xsd:boolean ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint
+<https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint> rdf:type owl:ObjectProperty ;
+    rdfs:comment "References to submodels defining information used by security access permission rules."@en ;
+    rdfs:label "has internal information point"^^xsd:string ;
+    rdfs:domain aas:PolicyInformationPoints ;
+    rdfs:range aas:Reference ;
+    owl:deprecated true ;
+
 .
 
 
