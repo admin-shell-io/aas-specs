@@ -30,6 +30,33 @@ aas:AccessControlPolicyPointsShape a sh:NodeShape ;
       sh:minCount 1 ;
       sh:message "(AccessControlPolicyPoints.policyAdministrationPoint): Exactly one <i>policyAdministrationPoint</i> pointing to a <i>PolicyAdministrationPoint</i> is required."^^xsd:string ;
     ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyDecisionPoint> ;
+      sh:class aas:PolicyDecisionPoint ;
+      owl:deprecated true ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(AccessControlPolicyPoints.policyDecisionPoint): Exactly one <i>policyDecisionPoint</i> pointing to a <i>PolicyDecisionPoint</i> is required."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyEnforcementPoint> ;
+      sh:class aas:PolicyEnforcementPoints ;
+      owl:deprecated true ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(AccessControlPolicyPoints.policyEnforcementPoint): Exactly one <i>policyEnforcementPoint</i> pointing to a <i>PolicyEnforcementPoints</i> is required."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyInformationPoints> ;
+      sh:class aas:PolicyInformationPoints ;
+      owl:deprecated true ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "(AccessControlPolicyPoints.policyInformationPoints):Only one <i>policyInformationPoints</i> pointing to a <i>PolicyInformationPoints</i> is allowed."^^xsd:string ;
+    ] ;
 .
 
 
@@ -144,6 +171,7 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/security> ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
+      owl:deprecated true ;
       sh:class aas:Security ;
       sh:message "(AssetAdministrationShell.submodel):A <i>submodel</i> attribute must have a <i>Reference</i> entity pointing to a Submodel."^^xsd:string ;
     ] ;
@@ -153,6 +181,14 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
       sh:message "(AssetAdministrationShell.submodel):A <i>submodel</i> attribute must have a <i>Reference</i> entity pointing to a Submodel."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/view> ;
+      sh:minCount 0 ;
+      owl:deprecated true ;
+      sh:class aas:View ;
+      sh:message "(AssetAdministrationShell.view):A <i>view</i> must point to a View"^^xsd:string ;
     ] ;
 .
 
@@ -939,7 +975,6 @@ aas:RelationshipElementShape  a sh:NodeShape ;
 
 aas:SecurityShape  a sh:NodeShape ;
   sh:targetClass aas:Security ;
-  owl:deprecated true ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC02/Security/accessControlPolicyPoints> ;
@@ -947,6 +982,22 @@ aas:SecurityShape  a sh:NodeShape ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:message "(Security.accessControlPolicyPoints): Exactly one value for <i>relationshipSecond</i> is required"^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Security/certificate> ;
+      sh:class aas:Certificate ;
+      owl:deprecated true ;
+      sh:message "(Security.certificate):A <i>certificate</i> must point to a Certificate"^^xsd:string ;
+      sh:minCount 0 ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Security/requiredCertificateExtension> ;
+      sh:class aas:Reference ;
+      owl:deprecated true ;
+      sh:message "(Security.requiredCertificateExtension):A <i>requiredCertificateExtension</i> must point to a Reference."^^xsd:string ;
+      sh:minCount 0 ;
     ] ;
 .
 
@@ -1063,5 +1114,19 @@ aas:ValueReferencePairShape a sh:NodeShape ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
 	    sh:message "(ValueReferencePair.valueId):Only one <i>Reference</i> is allowed for <i>valueId</i>."^^xsd:string ;
+  ] ;
+.
+
+aas:ViewShape a sh:NodeShape ;
+  rdfs:subClassOf aas:HasDataSpecificationShape ;
+  rdfs:subClassOf aas:HasSemanticsShape ;
+  rdfs:subClassOf aas:ReferableShape ;
+  sh:targetClass aas:View ;
+  owl:deprecated true ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/View/containedElement> ;
+      sh:class aas:Reference ;
+	    sh:message "(View.containedElement):A <i>containedElement</i> attribute must have an entity pointing to a <i>Reference</i>."^^xsd:string ;
   ] ;
 .

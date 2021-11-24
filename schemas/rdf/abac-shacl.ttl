@@ -118,6 +118,60 @@ aas:PermissionShape a sh:NodeShape ;
     ] ;
 .
 
+aas:BlobCertificateShape a sh:NodeShape ;
+  rdfs:subClassOf aas:CertificateShape ;
+  sh:targetClass aas:BlobCertificate ;
+  owl:deprecated true ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/blobCertificate> ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:class aas:Blob ;
+      sh:message "(BlobCertificate.blobCertificate): Exactly one <i>blobCertificate</i> pointing to a <i>Blob</i> is required."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtension> ;
+      sh:minCount 0 ;
+      sh:class aas:Reference ;
+      sh:message "(BlobCertificate.containedExtension):A <i>containedExtension</i> must point to a <i>Reference</i>."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/lastCertificate> ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:boolean ;
+      sh:message "(BlobCertificate.lastCertificate): Exactly one <i>lastCertificate</i> pointing to a  <i>boolean</i> is required."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/authenticates> ;
+      sh:minCount 0 ;
+      sh:class aas:Identifiable ;
+      sh:message "(BlobCertificate.authenticates): A <i>authenticates</i> must point to a <i>Identifiable</i>."^^xsd:string ;
+    ] ;
+.
+
+aas:CertificateShape  a sh:NodeShape ;
+  sh:targetClass aas:Certificate ;
+  owl:deprecated true ;
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(CertificateShape): An aas:Certificate is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:Certificate)
+			}
+		""" ;
+	] ;
+
+.
+
 aas:PermissionsPerObjectShape a sh:NodeShape ;
   sh:targetClass aas:PermissionsPerObject ;
   sh:property [
@@ -162,6 +216,52 @@ aas:PolicyAdministrationPointShape a sh:NodeShape ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:message "(PolicyAdministrationPoint.externalAccessControl): Exactly one <i>externalAccessControl</i> attribute having a <i>boolean</i> is required."^^xsd:string ;
+    ] ;
+.
+
+aas:PolicyDecisionPointShape a sh:NodeShape ;
+  sh:targetClass aas:PolicyDecisionPoint ;
+  owl:deprecated true ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyDecisionPoint/externalPolicyDecisionPoints> ;
+      sh:datatype xsd:boolean ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(PolicyDecisionPoint.externalPolicyDecisionPoints): Exactly one <i>externalPolicyDecisionPoints</i> pointing to a <i>xsd:boolean</i> is required."^^xsd:string ;
+    ] ;
+.
+
+aas:PolicyEnforcementPointsShape a sh:NodeShape ;
+  sh:targetClass aas:PolicyEnforcementPoints ;
+  owl:deprecated true ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints/externalPolicyEnforcementPoint> ;
+      sh:datatype xsd:boolean ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(PolicyEnforcementPoints.externalPolicyDecisionPoint): Exactly one <i>externalPolicyDecisionPoint</i> attribute having a <i>boolean</i> is required."^^xsd:string ;
+    ] ;
+.
+
+aas:PolicyInformationPointsShape a sh:NodeShape ;
+  sh:targetClass aas:PolicyInformationPoints ;
+  owl:deprecated true ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint> ;
+      sh:class aas:Reference ;
+      sh:minCount 0 ;
+      sh:message "(PolicyInformationPoints.internalInformationPoint):A <i>internalInformationPoint</i> attribute must point to a <i>Reference</i> pointing to a submodel."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/externalInformationPoints> ;
+      sh:datatype xsd:boolean ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(PolicyInformationPoints.externalInformationPoint): Exactly one <i>externalInformationPoints</i> attribute having a <i>boolean</i> is required."^^xsd:string ;
     ] ;
 .
 
