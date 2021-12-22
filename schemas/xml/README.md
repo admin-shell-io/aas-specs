@@ -22,7 +22,7 @@ The main concepts of the XML schema and the resulting XML serialization are expl
 3. All identifiables have an aggregation on root level. The identifiables are AssetAdministrationShells, Assets, Submodels, ConceptDescriptions. To reduce redundant instances, they are located exclusively in the top-level aggregation. 
 4. Repeating elements and their types will get the same names of their instances in plural. Exception: SubmodelElementCollection, here the name remains “value”. If the element has a cardinality of n>1 a parent element will be used with the name of the element in plural. For example, each element in the aggregation assets needs to be an asset. 
 5. Identifiables which are not in the top-level aggregations are only references to the corresponding instances in one of the top-level aggregations. This rule completes the concept of rule 3. There should be no redundant identifiable in the serialized metamodel. 
-6. element a language tag “lang” is added. For internationalization purposes this rule is necessary.
+6. (6) For elements with type LangStringSet an aggregation element called langStringSet_t is added. For the single element a language tag “lang” is added. For internationalization purposes this rule is necessary.
 7.	The attributes of a key in a reference except for the value itself are realized as XML attributes.
 8.	Data Specification Templates are directly added to the Concept Description because up to now only property descriptions are supported. Additionally, a new element EmbeddedDataSpecification is introduced that has two attributes: one for the global reference to the data specification identifier and one for the content of the data specification.
 9. Attribute based access control is added as a separate XML schema that is linked by AssetAdministrationShell/security
@@ -33,6 +33,7 @@ One serialization describes one asset Administration Shell environment that is a
 ![Top level structure of an AssetAdministration Shell environment mapped to XML Schema](https://user-images.githubusercontent.com/1814815/147119644-81e19bbf-86cb-41f8-bc56-2f8aca4fb60e.png) 
 
 Note: XSD structuring was done with Eclipse tool chain
+  
 The resulting XML is the [minimal XML](examples/minimum.xml)
   
   
