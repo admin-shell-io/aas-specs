@@ -1,5 +1,5 @@
 # XML 
-In the following repository an overview of the main concepts of the AssetAdministration Shell XML serialization is presented. For import and export scenarios the metamodel of an AssetAdministration Shell needs to be serialized. A serialization format is XML. The information is divided in three parts. The first part discusses the rules, in the second part are examples for some specific rules and in the third part the schema and a complete example is shown in the annex.
+For import and export scenarios the metamodel of an AssetAdministration Shell needs to be serialized. A serialization format is XML. 
 
 ## Introduction
 eXtensible Markup Language ([XML](https://www.w3.org/TR/2008/REC-xml-20081126/)) is very well suited to deriving information from an IT system, perhaps to process it manually, and then to feed it into another IT system. It therefore meets the needs of the information sharing scenario defined in Section 0. XML provides for the possibilities of scheme definitions which can be used to syntactically validate the represented information in each step. For this reason, this document provides basic scheme definitions to permit a validation of information which is shared.
