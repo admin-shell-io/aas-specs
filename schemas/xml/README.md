@@ -8,7 +8,7 @@ The XML schema definitions are divided into three different files:
 - Core definitions for the AssetAdministration Shell and its export container: aas.xsd
   - Namespace: "http://www.admin-shell.io/aas/3/0"
 - IEC61360 datatype definition: iec61360.xsd
- - Namespace: "http://www.admin-shell.io/IEC61360/3/0"
+  - Namespace: "http://www.admin-shell.io/IEC61360/3/0"
 - Attributed based access control definition: aas_abac.xsd
   - Namespace: "http://www.admin-shell.io/aas/abac/3/0"
 
