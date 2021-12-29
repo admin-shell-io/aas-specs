@@ -16,7 +16,8 @@ These steps are only executed once per distinct element. If elements occur more 
 1.	If the element has IdentifierType = "IRI":  
 Use the value of the identification attribute, else: 
 2.	If the enclosing AAS has an IdentifierType = "IRI":
-  a.	If  the element inherits from Referable: Apply the template:   <AAS identification URI>/<path/to/element>/<idShort>, where the path to the element is the concatenation of the respective idShorts separated by slashes, else:
+  a.	If  the element inherits from Referable: Apply the template:   
+  <AAS identification URI>/<path/to/element>/<idShort>, where the path to the element is the concatenation of the respective idShorts separated by slashes, else:
   b.	Apply the template:   <AAS identification URI>/<path/to/element>/<random characters>
 3.	Use randomized character sequence: <scheme>://<random characters>
 
