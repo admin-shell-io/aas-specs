@@ -33,6 +33,7 @@ Note: 	due to XSD group mechanism, hasDataSpecification maps to an element of em
 
 ##	Keys and References
 Keys and References (see Clause 4.7.11) are mapped on the same XML schema construct. Some of the attributes have enumerations defined – these are mapped on string constraints.
+
 ![XSD Keys and References](https://user-images.githubusercontent.com/1814815/147664192-0b2dbc09-178f-4bf2-98c4-3980febc1b6e.png)
 
 ![XSD Constraints and Qualifiers](https://user-images.githubusercontent.com/1814815/147664214-c2b562e5-836f-4c9e-b752-d009d16ba29e.png)
