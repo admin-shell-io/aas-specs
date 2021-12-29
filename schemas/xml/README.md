@@ -35,5 +35,6 @@ One serialization describes one asset Administration Shell environment that is a
 Note: XSD structuring was done with Eclipse tool chain
   
 The resulting XML is the [minimal XML](examples/minimum.xml)
+Further examples are in the [example folder](examples)
   
   
