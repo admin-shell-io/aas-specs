@@ -40,8 +40,7 @@ The XML schema is available at [schemas/xml/](schemas/xml/).
 
 ### XMI
 
-The [XMI](https://de.wikipedia.org/wiki/XML_Metadata_Interchange) file for the [UML](https://de.wikipedia.org/wiki/Unified_Modeling_Language) metamodel [schemas/xmi](schemas/xmi/) ([XMI 2.1](https://www.omg.org/spec/XMI/2.1/About-XMI/))
-
+The [XMI](https://de.wikipedia.org/wiki/XML_Metadata_Interchange) file for the [UML](https://de.wikipedia.org/wiki/Unified_Modeling_Language) metamodel [schemas/xmi](schemas/xmi/)
 
 ## Releases
 
