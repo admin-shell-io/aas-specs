@@ -26,4 +26,4 @@ The example can be found [here](example.rdf).
 
 ##	Example Concept Description
 A Concept Description defines the meaning of the entities used in the Asset Administration Shells, Assets, and Submodels. Table 24 illustrates a description for the organization name of a constant. The core building blocks of the example are the reference to the data specification key (1), the actual content conforming to IEC 61360 (2), and the reference to the actual identifier in the previously used elements (3).
-The example can be found [here](example.rdf).
+The example can be found [here](ConceptDescriptionExample.rdf).
