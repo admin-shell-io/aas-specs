@@ -15,4 +15,4 @@ One serialization describes one Asset Administration Shell environment, that is,
 
 ![Top level structure of an AssetAdministration Shell environment mapped to JSON](https://user-images.githubusercontent.com/1814815/147122261-ac77deea-e83e-422d-bff5-f005feaf98d4.png)
 
-The resulting JSON is the [minimal valid JSON](examples/miniJsonExample.json)
+The resulting JSON is the [minimal valid JSON.](examples/miniJsonExample.json) More examples in the [example folder.](examples)
