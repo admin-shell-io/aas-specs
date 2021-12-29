@@ -1,5 +1,5 @@
-@prefix : <https://admin-shell.io/aas/3/0/RC01/> .
-@prefix aas: <https://admin-shell.io/aas/3/0/RC01/> .
+@prefix : <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
 @prefix dash: <http://datashapes.org/dash#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -24,43 +24,29 @@
 
 
 <http://i40.customer.com/type/F13E8576F6488342>
-      a <https://admin-shell.io/aas/3/0/RC01/Submodel> ;
+      a <https://admin-shell.io/aas/3/0/RC02/Submodel> ;
       rdfs:label "Identification"^^xsd:string ;
-      <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "Identification"^^xsd:string ;
-      <https://admin-shell.io/aas/3/0/RC01/Referable/description> "Identification from Manufacturer"@en , "Hersteller-Identifikation"@de ;
+      <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Identification"^^xsd:string ;
+      <https://admin-shell.io/aas/3/0/RC02/Referable/description> "Identification from Manufacturer"@en , "Hersteller-Identifikation"@de ;
       rdfs:comment "Identification from Manufacturer"@en ;
       rdfs:comment "Hersteller-Identifikation"@de ;
-      <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
-          a <https://admin-shell.io/aas/3/0/RC01/Property> ;
+      <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> [
+          a <https://admin-shell.io/aas/3/0/RC02/Property> ;
           rdf:subject <http://i40.customer.com/type/F13E8576F6488342/Manufacturer> ;
           rdfs:label "Manufacturer"^^xsd:string ;
-          <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "Manufacturer"^^xsd:string ;
-          <https://admin-shell.io/aas/3/0/RC01/Property/valueType>  "xsd:string"^^xsd:string ;
-          <https://admin-shell.io/aas/3/0/RC01/Property/valueId> [
-              a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
-              <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
-                  a <https://admin-shell.io/aas/3/0/RC01/Key> ;
-                  <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/KeyElements/GlobalReference> ;
-                  <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://i40.customer.com/type/F13E8576F6488342/Manufacturer"^^xsd:string ;
-                  <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri>
-              ] ;
+          <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Manufacturer"^^xsd:string ;
+          <https://admin-shell.io/aas/3/0/RC02/Property/valueType>  "xsd:string"^^xsd:string ;
+          <https://admin-shell.io/aas/3/0/RC02/Property/valueId> [
+              a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+              <https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://i40.customer.com/type/F13E8576F6488342/Manufacturer"^^xsd:string ;
           ] ;
-          <https://admin-shell.io/aas/3/0/RC01/Property/value> "http://i40.customer.com/type/F13E8576F6488342/Manufacturer"^^xsd:string ;
+          <https://admin-shell.io/aas/3/0/RC02/Property/value> "http://i40.customer.com/type/F13E8576F6488342/Manufacturer"^^xsd:string ;
       ];
-      <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId> [
-          a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
-          <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
-             a <https://admin-shell.io/aas/3/0/RC01/Key> ;
-             <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/KeyElements/GlobalReference> ;
-             <https://admin-shell.io/aas/3/0/RC01/Key/value> "0173-1#01-ADN198#009"^^xsd:string ;
-             <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Irdi>
-          ] ;
+      <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
+          a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+          <https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#01-ADN198#009"^^xsd:string ;
       ] ;
-      <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
-         a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
-         <https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> "http://i40.customer.com/type/F13E8576F6488342"^^xsd:string ;
-         <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri>
-      ] ;
-    #  <https://admin-shell.io/aas/3/0/RC01/Referable/category> "CONSTANT"^^xsd:string ;
-    #  <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> <https://admin-shell.io/aas/3/0/RC01/ModelingKind/Instance> ;
+      <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/type/F13E8576F6488342"^^xsd:string ;
+    #  <https://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xsd:string ;
+    #  <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
 .
