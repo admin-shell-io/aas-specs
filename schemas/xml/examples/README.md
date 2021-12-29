@@ -16,7 +16,7 @@ Note: Identifier/id is not modelled as attribute but a typical identification lo
 
 ![XSD Model Groups](https://user-images.githubusercontent.com/1814815/147664086-fdc4223c-b389-4d30-9b34-ec066f0ca0fd.png)
 
-This is realized in the according XSD as in the [example](ModelGroups.xml)
+This is realized in the according XSD as in the [example.](ModelGroups.xml)
 Note: 	due to XSD group mechanism, hasDataSpecification maps to an element of embeddedDataSpecification_t and identifiable maps to multiple elements in Figure 81.
 
 ##	Keys and References
