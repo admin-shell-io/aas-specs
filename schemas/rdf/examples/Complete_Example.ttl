@@ -18,7 +18,7 @@
           <https://admin-shell.io/aas/3/0/RC02/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/RC02/AssetKind/Instance> ;
           <https://admin-shell.io/aas/3/0/RC02/AssetInformation/globalAssetId> [
             a  <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-              <https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
+              <https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
           ]
       ] ;
 
@@ -27,7 +27,7 @@
           <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
             a <https://admin-shell.io/aas/3/0/RC02/Key> ;
             <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/Submodel>  ;
-            <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/F13E8576F6488342"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://i40.customer.com/type/F13E8576F6488342"^^xsd:string ;
           ]
       ];
       <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodel> [
@@ -35,7 +35,7 @@
           <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
             a <https://admin-shell.io/aas/3/0/RC02/Key> ;
             <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/Submodel>  ;
-            <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/7A7104BDAB57E184"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://i40.customer.com/type/7A7104BDAB57E184"^^xsd:string ;
           ]
       ];
       <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodel> [
@@ -43,7 +43,7 @@
           <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
             a <https://admin-shell.io/aas/3/0/RC02/Key> ;
             <https://admin-shell.io/aas/3/0/RC02/Key/type>  <https://admin-shell.io/aas/3/0/RC02/KeyElements/Submodel>  ;
-            <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/instance/AC69B1CB44F07935"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://i40.customer.com/instance/AC69B1CB44F07935"^^xsd:string ;
           ]
       ];
       <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodel> [
@@ -51,10 +51,10 @@
           <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
             a <https://admin-shell.io/aas/3/0/RC02/Key> ;
             <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/keyElements/Submodel> ;
-            <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/1A7B62B529F19152"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://i40.customer.com/type/1A7B62B529F19152"^^xsd:string ;
           ]
       ];
-      <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://customer.com/aas/9175_7013_7091_9168"^^xsd:string ;
+      <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://customer.com/aas/9175_7013_7091_9168"^^xsd:string ;
       <https://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xsd:string ;
 .
 # Asset
@@ -62,13 +62,13 @@
     rdf:type <https://admin-shell.io/aas/3/0/RC02/Asset> ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "ServoDCMotor"^^xsd:string ;
     rdfs:label "ServoDCMotor"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
     <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodel> [
         a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
         <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
           a <https://admin-shell.io/aas/3/0/RC02/Key> ;
           <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/Submodel> ;
-          <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/1/1/F13E8576F6488342"^^xsd:string ;
+          <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://i40.customer.com/type/1/1/F13E8576F6488342"^^xsd:string ;
         ]
     ];
     <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance>
@@ -84,7 +84,7 @@
     <http://admin-shell.io/aas/3/0/RC02/Referable/description> "Hersteller-Identifikation"@de ;
     rdfs:comment "Identification from Manufacturer"@en ;
     rdfs:comment "Hersteller-Identifikation"@de ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/type/F13E8576F6488342"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://i40.customer.com/type/F13E8576F6488342"^^xsd:string ;
     <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
            <https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#01-ADN198#009"^^xsd:string ;
@@ -148,7 +148,7 @@
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "TechnicalData"^^xsd:string ;
     rdfs:label "TechnicalData"^^xsd:string ;
     <http://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/type/7A7104BDAB57E184"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://i40.customer.com/type/7A7104BDAB57E184"^^xsd:string ;
     <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
 
         <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> [
@@ -227,7 +227,7 @@
           <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
             a <https://admin-shell.io/aas/3/0/RC02/Key> ;
             <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-            <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^xsd:string ;
           ]
       ] ;
       <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
@@ -244,7 +244,7 @@
                   <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
                     a <https://admin-shell.io/aas/3/0/RC02/Key> ;
                     <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-                    <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentId/Val"^^xsd:string ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentId/Val"^^xsd:string ;
               ] ;
              <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
       ];
@@ -261,7 +261,7 @@
                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
                    a <https://admin-shell.io/aas/3/0/RC02/Key> ;
                    <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/keyElements/ConceptDescription> ;
-                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassId"^^xsd:string ;
+                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassId"^^xsd:string ;
                  ]
              ] ;
             <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
@@ -279,7 +279,7 @@
                 <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
                   a <https://admin-shell.io/aas/3/0/RC02/Key> ;
                   <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-                  <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassName"^^xsd:string ;
+                  <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassName"^^xsd:string ;
                   ]
                 ]
           ] ;
@@ -298,7 +298,7 @@
                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
                    a <https://admin-shell.io/aas/3/0/RC02/Key> ;
                    <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassificationSystem"^^xsd:string ;
+                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassificationSystem"^^xsd:string ;
                    ]
            ] ;
            <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
@@ -316,7 +316,7 @@
                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
                    a <https://admin-shell.io/aas/3/0/RC02/Key> ;
                    <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationName"^^xsd:string ;
+                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationName"^^xsd:string ;
                    ]
              ] ;
             <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
@@ -334,7 +334,7 @@
                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
                    a <https://admin-shell.io/aas/3/0/RC02/Key> ;
                    <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationOfficialName"^^xsd:string ;
+                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationOfficialName"^^xsd:string ;
                    ]
              ] ;
             <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
@@ -352,7 +352,7 @@
                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
                    a <https://admin-shell.io/aas/3/0/RC02/Key> ;
                    <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^xsd:string ;
+                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^xsd:string ;
                    ]
              ] ;
             <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
@@ -370,7 +370,7 @@
                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
                    a <https://admin-shell.io/aas/3/0/RC02/Key> ;
                    <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion/Language"^^xsd:string ;
+                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion/Language"^^xsd:string ;
                    ]
            ] ;
             <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
@@ -388,7 +388,7 @@
                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
                    a <https://admin-shell.io/aas/3/0/RC02/Key> ;
                    <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/escription/Title"^^xsd:string ;
+                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/escription/Title"^^xsd:string ;
                    ]
              ] ;
             <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
@@ -401,7 +401,7 @@
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "OperationalData"^^xsd:string ;
     rdfs:label "OperationalData"^^xsd:string ;
     <http://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id>"http://i40.customer.com/instance/AC69B1CB44F07935"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id>"https://i40.customer.com/instance/AC69B1CB44F07935"^^xsd:string ;
     <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
        a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
        <https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#01-AFZ615#016"^^xsd:string ;
@@ -421,7 +421,7 @@
              <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
                a <https://admin-shell.io/aas/3/0/RC02/Key> ;
                <https://admin-shell.io/aas/3/0/RC02/Key/type>  <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-               <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://customer.com/cd/18EBD56F6B43D895"^^xsd:string ;
+               <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://customer.com/cd/18EBD56F6B43D895"^^xsd:string ;
              ]
            ] ;
     ] ;
@@ -439,7 +439,7 @@
                <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
                  a <https://admin-shell.io/aas/3/0/RC02/Key> ;
                  <https://admin-shell.io/aas/3/0/RC02/Key/type>  <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription>;
-                 <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://customer.com/cd/18EBD56F6B43D896"^^xsd:string ;
+                 <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://customer.com/cd/18EBD56F6B43D896"^^xsd:string ;
                  ]
            ]
        ]
@@ -450,11 +450,11 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Document"^^xsd:string ;
     rdfs:label "Document"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^xsd:string ;
 
      <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplate/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplate/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -472,10 +472,10 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document/Val> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DocumentIdValue"^^xsd:string ;
     rdfs:label "DocumentIdValue"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentId/Val"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentId/Val"^^xsd:string ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -491,11 +491,11 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassId> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DocumentClassId"^^xsd:string ;
     rdfs:label "DocumentClassId"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassId"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassId"^^xsd:string ;
 
       <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
          a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-         <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+         <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -510,10 +510,10 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassName> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DocumentClassName"^^xsd:string ;
     rdfs:label "DocumentClassName"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassName"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassName"^^xsd:string ;
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -528,10 +528,10 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassificationSystem> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "ClassificationSystem"^^xsd:string ;
     rdfs:label "ClassificationSystem"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassificationSystem"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassificationSystem"^^xsd:string ;
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReferencevalue> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReferencevalue> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -546,11 +546,11 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationName> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "OrganizationName"^^xsd:string ;
     rdfs:label "OrganizationName"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationName"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationName"^^xsd:string ;
 
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -565,11 +565,11 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationOfficialName> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "OrganizationOfficialName"^^xsd:string ;
     rdfs:label "OrganizationOfficialName"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationOfficialName"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationOfficialName"^^xsd:string ;
 
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -593,11 +593,11 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DocumentVersion"^^xsd:string ;
     rdfs:label "DocumentVersion"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion"^^xsd:string ;
 
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -612,11 +612,11 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion/Language> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DocumentVersion"^^xsd:string ;
     rdfs:label "Language"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion/Language"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion/Language"^^xsd:string ;
 
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -631,10 +631,10 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Title"^^xsd:string ;
     rdfs:label "Title"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^xsd:string ;
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -649,10 +649,10 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/LifeCycleStatus/SetDate> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Date"^^xsd:string ;
     rdfs:label "Date"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/LifeCycleStatus/SetDate"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/LifeCycleStatus/SetDate"^^xsd:string ;
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -667,11 +667,11 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersionId/Val> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DocumentVersionIdValue"^^xsd:string ;
     rdfs:label "DocumentVersionIdValue"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersionId/Val"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersionId/Val"^^xsd:string ;
 
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -686,11 +686,11 @@
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DigitalFile"^^xsd:string ;
     rdfs:label "DigitalFile"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile"^^xsd:string ;
 
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -709,7 +709,7 @@
     <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "0173-1#02-BAA120#008"^^xsd:string ;
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
        a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
@@ -732,7 +732,7 @@
     <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "0173-1#02-BAE098#004"^^xsd:string ;
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
 
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
@@ -753,11 +753,11 @@
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "RotationSpeed"^^xsd:string ;
     rdfs:label "RotationSpeed"^^xsd:string ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/category> "PROPERTY"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://customer.com/cd/18EBD56F6B43D895/RotationSpeed"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://customer.com/cd/18EBD56F6B43D895/RotationSpeed"^^xsd:string ;
 
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
 
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
@@ -778,10 +778,10 @@
     <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Torque"^^xsd:string ;
     rdfs:label "Torque"^^xsd:string ;
     <https://admin-shell.io/aas/3/0/RC02/Referable/category> "PROPERTY"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id>"http://customer.com/cd/18EBD56F6B43D896"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id>"https://customer.com/cd/18EBD56F6B43D896"^^xsd:string ;
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
 
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
@@ -804,7 +804,7 @@
     <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "0173-1#02-BAE122#006"^^xsd:string ;
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
 
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
@@ -824,7 +824,7 @@
 
         <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
 
     ] ;
     <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
