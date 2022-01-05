@@ -28,19 +28,9 @@
     <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/assetInformation> [
         a <https://admin-shell.io/aas/3/0/RC02/AssetInformation> ;
         <https://admin-shell.io/aas/3/0/RC02/AssetInformation/globalAssetId> [
-          a  <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
-            <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
-              a <https://admin-shell.io/aas/3/0/RC02/Key> ;
-              <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/Asset> ;
-              <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
-            ]
+          a  <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "http://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
         ] ;
         <https://admin-shell.io/aas/3/0/RC02/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/RC02/AssetKind/Instance> ;
     ]
-.
-
-<http://customer.com/assets/KHBVZJSQKIY>
-    rdf:type <https://admin-shell.io/aas/3/0/RC02/Asset> ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
-    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "KHBVZJSQKIY"^^xsd:string ;
 .
