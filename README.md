@@ -24,9 +24,7 @@ https://www.plattform-i40.de/PI40/Redaktion/EN/Standardartikel/specification-adm
 ### JSON
 
 The JSON schema is available at
-[schemas/json/](schemas/json/) and follows JSON Schema version [2019-09](
-https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8
-).
+[schemas/json/](schemas/json/).
 
 ### RDF
 
