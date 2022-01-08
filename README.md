@@ -16,7 +16,7 @@ This repository provides the specifications of Asset Administration Shell.
 ## Schemas
 
 We provide schemas of the Asset Administration Shell for JSON, RDF and XML. 
-These schemas are part of the document series, part 1,
+These schemas are derived from the document series, part 1,
 ["Details of the Asset Administration Shell"](
 https://www.plattform-i40.de/PI40/Redaktion/EN/Standardartikel/specification-administrationshell.html
 ) published by [Platform Industrie 4.0](http://www.plattform-i40.de).
@@ -36,7 +36,7 @@ The XML schema is available at [schemas/xml/](schemas/xml/).
 
 ### XMI
 
-The [XMI](https://de.wikipedia.org/wiki/XML_Metadata_Interchange) file for the UML metamodel [schemas/xmi/](schemas/xmi/).
+The XMI file for the UML metamodel [schemas/xmi/](schemas/xmi/).
 
 ## Releases
 
