@@ -34,7 +34,18 @@ One serialization describes one asset Administration Shell environment that is a
 
 Note: XSD structuring was done with Eclipse tool chain
   
-The resulting XML is the [minimal XML](examples/minimum.xml)
+The resulting XML is the [minimal XML](examples/minimum.xml):
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<aas:aasenv xmlns:aas="http://www.admin-shell.io/aas/3/0"
+	xmlns:abac="http://www.admin-shell.io/aas/abac/3/0" xmlns:aas_common="http://www.admin-shell.io/aas_common/3/0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IEC="http://www.admin-shell.io/IEC61360/3/0"
+	xsi:schemaLocation="http://www.admin-shell.io/aas/3/0 AAS.xsd http://www.admin-shell.io/IEC61360/3/0 IEC61360.xsd http://www.admin-shell.io/aas/abac/3/0 AAS_ABAC.xsd">
+	<aas:assetAdministrationShells></aas:assetAdministrationShells>
+	<aas:assets></aas:assets>
+	<aas:conceptDescriptions></aas:conceptDescriptions>
+	<aas:submodels></aas:submodels>
+</aas:aasenv>
+```  
+  
 Further examples are in the [example folder](examples)
-  
-  
