@@ -23,16 +23,16 @@ https://www.plattform-i40.de/PI40/Redaktion/EN/Standardartikel/specification-adm
 
 ### JSON
 
-The JSON schema is available at
+The JSON schema, mapping rules and examples is available at
 [schemas/json/](schemas/json/).
 
 ### RDF
 
-The RDF data model is available at [schemas/rdf/](schemas/rdf/).
+The RDF data model, mapping rules and examples is available at [schemas/rdf/](schemas/rdf/).
 
 ### XML
 
-The XML schema is available at [schemas/xml/](schemas/xml/).
+The XML schema, mapping rules and examples is available at [schemas/xml/](schemas/xml/).
 
 ### XMI
 
