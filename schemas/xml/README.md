@@ -22,7 +22,7 @@ The main concepts of the XML schema and the resulting XML serialization are expl
 3. All identifiables have an aggregation on root level. The identifiables are AssetAdministrationShells, Assets, Submodels, ConceptDescriptions. To reduce redundant instances, they are located exclusively in the top-level aggregation. 
 4. Repeating elements and their types will get the same names of their instances in plural. Exception: SubmodelElementCollection, here the name remains “value”. If the element has a cardinality of n>1 a parent element will be used with the name of the element in plural. For example, each element in the aggregation assets needs to be an asset. 
 5. Identifiables which are not in the top-level aggregations are only references to the corresponding instances in one of the top-level aggregations. This rule completes the concept of rule 3. There should be no redundant identifiable in the serialized metamodel. 
-6. (6) For elements with type LangStringSet an aggregation element called langStringSet_t is added. For the single element a language tag “lang” is added. For internationalization purposes this rule is necessary.
+6. For elements with type LangStringSet an aggregation element called langStringSet_t is added. For the single element a language tag “lang” is added. For internationalization purposes this rule is necessary.
 7.	The attributes of a key in a reference except for the value itself are realized as XML attributes.
 8.	Data Specification Templates are directly added to the Concept Description because up to now only property descriptions are supported. Additionally, a new element EmbeddedDataSpecification is introduced that has two attributes: one for the global reference to the data specification identifier and one for the content of the data specification.
 9. Attribute based access control is added as a separate XML schema that is linked by AssetAdministrationShell/security
@@ -34,6 +34,18 @@ One serialization describes one asset Administration Shell environment that is a
 
 Note: XSD structuring was done with Eclipse tool chain
   
-The resulting XML is the [minimal XML](examples/minimum.xml)
+The resulting XML is the [minimal XML](examples/minimum.xml):
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<aas:aasenv xmlns:aas="http://www.admin-shell.io/aas/3/0"
+	xmlns:abac="http://www.admin-shell.io/aas/abac/3/0" xmlns:aas_common="http://www.admin-shell.io/aas_common/3/0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IEC="http://www.admin-shell.io/IEC61360/3/0"
+	xsi:schemaLocation="http://www.admin-shell.io/aas/3/0 AAS.xsd http://www.admin-shell.io/IEC61360/3/0 IEC61360.xsd http://www.admin-shell.io/aas/abac/3/0 AAS_ABAC.xsd">
+	<aas:assetAdministrationShells></aas:assetAdministrationShells>
+	<aas:assets></aas:assets>
+	<aas:conceptDescriptions></aas:conceptDescriptions>
+	<aas:submodels></aas:submodels>
+</aas:aasenv>
+```  
   
-  
+Further examples are in the [example folder](examples)

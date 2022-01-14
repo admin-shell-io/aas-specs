@@ -1,0 +1,33 @@
+{
+  "submodels":[
+    {
+      "modelType":{
+        "name":"Submodel"
+      },
+      "idShort":"S1",
+      "identification":{
+        "id":"http://env.com/submodels/S1",
+        "idType":"IRI"
+      },
+      "submodelElements":[]
+    }
+  ],
+  "conceptDescriptions":[],
+  "assetAdministrationShells":[
+    {
+      "modelType":"AssetAdministrationShell",
+      "submodels":[
+        {
+          "keys":[
+            {
+              "idType":"IRI",
+              "type":"Submodel",
+              "value":"http://env.com/submodels/S1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assets":[]
+}

@@ -1,5 +1,5 @@
 # JSON
-In the following repository an overview of the main concepts of the Asset Administration Shell [JSON](https://tools.ietf.org/html/rfc8259) serialization is presented. For import and export scenarios the metamodel of an Asset Administration Shell needs to be serialized. A serialization format is JSON  (JavaScript Object Notation).
+In the following repository an overview of the main concepts of the Asset Administration Shell [JSON](https://tools.ietf.org/html/rfc8259) serialization is presented. For import and export scenarios the metamodel of an Asset Administration Shell needs to be serialized. A serialization format is JSON (JavaScript Object Notation). The JSON files follow the schema version [2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8).
 
 ## JSON Mapping Rules
 The main concepts of the JSON serialization are explained by the following rules. 
@@ -15,4 +15,4 @@ One serialization describes one Asset Administration Shell environment, that is,
 
 ![Top level structure of an AssetAdministration Shell environment mapped to JSON](https://user-images.githubusercontent.com/1814815/147122261-ac77deea-e83e-422d-bff5-f005feaf98d4.png)
 
-The resulting JSON is the [minimal valid JSON](examples/miniJsonExample.json)
+The resulting JSON is the [minimal valid JSON.](examples/miniJsonExample.json) More examples in the [example folder.](examples)
