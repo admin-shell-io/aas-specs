@@ -20,7 +20,7 @@ https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/cr
 automatically through Github actions to verify that the submitted changes are
 valid.
 
-## Commit Messages
+## Recommendation for Commit Messages
 
 The commit messages follow the guidelines from 
 from https://chris.beams.io/posts/git-commit:
