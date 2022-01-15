@@ -1,33 +1,53 @@
 {
-  "submodels":[
+  "assetAdministrationShells": [
     {
-      "modelType":{
-        "name":"Submodel"
+      "modelType": {
+        "name": "AssetAdministrationShell"
       },
-      "idShort":"S1",
-      "identification":{
-        "id":"http://env.com/submodels/S1",
-        "idType":"IRI"
+      "idShort": "ExampleAAS",
+      "identification": {
+        "idType": "IRI",
+        "id": "http://customer.com/aas/7013_7091_9168_9175"
       },
-      "submodelElements":[]
-    }
-  ],
-  "conceptDescriptions":[],
-  "assetAdministrationShells":[
-    {
-      "modelType":"AssetAdministrationShell",
-      "submodels":[
-        {
-          "keys":[
+      "assetInformation": {
+        "assetKind": "Instance",
+        "globalAssetId": {
+          "keys": [
             {
-              "idType":"IRI",
-              "type":"Submodel",
-              "value":"http://env.com/submodels/S1"
+              "type": "Asset",
+              "value": "http://customer.com/assets/ZNVIAXJNAXQ0",
+              "idType": "IRI"
+            }
+          ]
+        },
+      },
+      "submodels": [
+        {
+          "keys": [
+            {
+              "idType": "IRI",
+              "type": "Submodel",
+              "value": "http://env.com/submodels/S1"
             }
           ]
         }
       ]
     }
   ],
-  "assets":[]
+  "assets": [],
+  "submodels": [
+    {
+      "modelType": {
+        "name": "Submodel"
+      },
+      "kind": "Instance",
+      "idShort": "S1",
+      "identification": {
+        "id": "http://env.com/submodels/S1",
+        "idType": "IRI"
+      },
+      "submodelElements": []
+    }
+  ],
+  "conceptDescriptions": []
 }
