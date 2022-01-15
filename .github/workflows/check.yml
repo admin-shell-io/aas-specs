@@ -1,6 +1,11 @@
 name: Check
 
-on: push
+on:
+  push:
+    branches: [ master, main ]
+    tags: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
 
 jobs:
   Execute:
