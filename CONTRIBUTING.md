@@ -2,13 +2,15 @@
 
 The specification of [Asset Administration Shell - Part 1] is an official publication of the joint working group of the [Platform Industrie 4.0] and [IDTA].
 The specification and schema definition, including application examples in the aas-spec repository must be particularly compliant with this.
-However, we invite the community to review, report and bugfix the specification and schema definition, including application examples. Therefore, we demand a defined procedure for the contribution in this repository.
+However, we invite the community to review, report and fix the specification and schema definitions, including application examples. 
+Therefore, we demand a defined procedure for the contribution in this repository.
 
 [Asset Administration Shell - Part 1]: https://www.plattform-i40.de/PI40/Redaktion/EN/Standardartikel/specification-administrationshell.html
 
 ## Before the Pull Requests
 
-**Create Feature branches**. We develop using the feature branches, see [this section of the Git book].
+**Create Feature branches**.
+We develop using the feature branches, see [this section of the Git book].
 
 [this section of the Git book]: https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows.
 
@@ -35,13 +37,14 @@ The commit messages follow the guidelines from https://chris.beams.io/posts/git-
 * Use the body to explain *what* and *why* (instead of *how*)
 
 ## Create Pull Request
-After all changes have been comitted to your feature branch, a [pull request] has to be created. See [this Github tutorial] for more guidance. 
+After all changes have been committed to your feature branch, a [pull request] has to be created. See [this Github tutorial] for more guidance. 
 
 [pull request]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
 
 ## Pre-Merge Checks
-**Continuous Integration**
-Github will run the continuous integration (CI) automatically through Github actions to verify that the submitted changes are valid. Every pull request automaticaly runs the continuous integration with every update.
+**Continuous Integration.**
+Github will run the continuous integration (CI) automatically through Github actions to verify that the submitted changes are valid.
+Every pull request automatically runs the continuous integration with every update.
 
 The continuous integration must be **successfully completed** with `All checks have passed` before proceeding with the approval process.
 
@@ -67,7 +70,8 @@ schemas\Validate.ps1
 ```
 
 ### Check Commit and Pull Request Messages
-In accordance with `Recommendation for Commit Messages` the continuous integration checks the previously defined conditions. For the present development, however, this is not enforced.
+In accordance with Section "Recommendation for Commit Messages" the continuous integration checks the previously defined conditions.
+For the present development, however, this is not enforced.
 
 ## Approval Process
 All changes must be **reviewed** and **approved**.
@@ -106,7 +110,7 @@ Major changes must first be reviewed and approved by the joint working group of 
 ## Merge into Master Branch
 
 After the approval the pull request can be merged into the repository.
-Therefore, an assignee with the ability to merge into the main brach has to be notified by adding it to the pull request.
+Therefore, an assignee with the ability to merge into the main branch has to be notified by adding it to the pull request.
 Those assignees are:
 - [@sebbader]
 - [@mristin]
@@ -116,8 +120,9 @@ Those assignees are:
 [@aorzelskiGH]: https://github.com/aorzelskiGH
 
 ## Post-Merge Cleanup
-**Conratulaion.** You sucessfully contributed to the aas-spec repository.
+**Congratulation.**
+You successfully contributed to the aas-spec repository.
 
 If you are a member of the development team, pleas delete the feature branch you directly created within the aas-specs repository.
 
-Otherwise, feel free to delete your forked ass-spec repository in your repositories.
+Otherwise, if you are not part of the team and you forked the repository, feel free to delete your fork.
