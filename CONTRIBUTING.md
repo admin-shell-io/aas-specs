@@ -71,8 +71,8 @@ Major changes must first be reviewed and approved by the joint working group of 
 
 ## Merge into Master Branch
 After the approval the pull request can be merged into the repository.
-Therefore, an editor with the ability to merge into the main brach has to be notified by adding it to the pull request.
-Those editors are:
+Therefore, an assignee with the ability to merge into the main brach has to be notified by adding it to the pull request.
+Those assignees are:
 - [@sebbader](https://github.com/sebbader)
 - [@mristin](https://github.com/mristin)
 - [@BirgitBoss](https://github.com/BirgitBoss) 
