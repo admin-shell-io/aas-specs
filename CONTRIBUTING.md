@@ -30,7 +30,7 @@ The commit messages follow the guidelines from https://chris.beams.io/posts/git-
 * Wrap the body at 72 characters
 * Use the body to explain *what* and *why* (instead of *how*)
 
-## Pre-merge Checks
+## Pre-Merge Checks
 
 We use the sample programs from [schema-validation] repository to validate the schemas against the example data.
 
@@ -93,3 +93,10 @@ Those assignees are:
 - [@aorzelskiGH]
 
 [@aorzelskiGH]: https://github.com/aorzelskiGH
+
+## Post-Merge Cleanup
+Conratulaion. You sucessfully contributed to the aas-spec repository.
+
+If you are a member of the development team, pleas delete the feature branch directly you created within the repository.
+
+Otherwise, feel free to delete your forked ass-spec repository in your repositories.
