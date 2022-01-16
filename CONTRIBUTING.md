@@ -59,11 +59,11 @@ The responsible reviewers are:
 
 | Topic | Path | Reviewer |
 | ------------- | ------------- | ------------- |
-| JSON | [schemas/json/](schemas/json/) | @Manu3756 @torben.deppe |
-| RDF | [schemas/rdf/](schemas/rdf/) | @sebbader @changqin26 |
-| XML | [schemas/xml/](schemas/xml/) | @Manu3756 @JoergWende |
-| XMI | [schemas/xmi/](schemas/xmi/) | @BirgitBoss |
-| aas-specs-repo | [aas-specs/](https://github.com/admin-shell-io/aas-specs) | @BirgitBoss @mristin |
+| JSON | [schemas/json/](schemas/json/) | [@Manu3756](https://github.com/Manu3756) @torben.deppe |
+| RDF | [schemas/rdf/](schemas/rdf/) | [@sebbader](https://github.com/sebbader) [@changqin26](https://github.com/changqin26) |
+| XML | [schemas/xml/](schemas/xml/) | [@JoergWende](https://github.com/JoergWende) [@Manu3756](https://github.com/Manu3756) |
+| XMI | [schemas/xmi/](schemas/xmi/) | [@BirgitBoss](https://github.com/BirgitBoss) |
+| aas-specs-repo | [aas-specs/](https://github.com/admin-shell-io/aas-specs) | [@BirgitBoss](https://github.com/BirgitBoss) [@mristin](https://github.com/mristin) |
 
 
 Major changes must first be reviewed and approved by the joint working group of the [Platform Industrie 4.0](http://www.plattform-i40.de) and [IDTA](https://industrialdigitaltwin.org/).
@@ -73,7 +73,7 @@ Major changes must first be reviewed and approved by the joint working group of 
 After the approval the pull request can be merged into the repository.
 Therefore, an editor with the ability to merge into the main brach has to be notified by adding it to the pull request.
 Those editors are:
-- @sebbader
-- @mristin
-- @aorzelskiGH
-- @BirgitBoss
+- [@sebbader](https://github.com/sebbader)
+- [@mristin](https://github.com/mristin)
+- [@BirgitBoss](https://github.com/BirgitBoss) 
+- [@aorzelskiGH](https://github.com/aorzelskiGH) 
