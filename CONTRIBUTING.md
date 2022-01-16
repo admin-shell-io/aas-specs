@@ -53,7 +53,7 @@ schemas\Validate.ps1
 ## Approval Process
 All changes must be reviewed and approved.
 
-Minor changes (simple failiures, typos, ..) and aditional content can be accepted straight away after a brief review by the responsible reviewers.
+Minor changes (simple failiures, typos, etc.) and additional content (more examples, etc.) can be accepted straight away after a brief review by the responsible reviewers.
 In order to indicate the change, the reviewers in charge must be added to the pull request.
 The responsible reviewers are:
 
