@@ -67,4 +67,13 @@ The responsible reviewers are:
 
 
 Major changes must first be reviewed and approved by the joint working group of the [Platform Industrie 4.0](http://www.plattform-i40.de) and [IDTA](https://industrialdigitaltwin.org/).
-Afte the approval the pull request can be merged in to the repository.
+
+
+## Merge into Master Branch
+After the approval the pull request can be merged into the repository.
+Therefore, an editor with the ability to merge into the main brach has to be notified by adding it to the pull request.
+Those editors are:
+- @sebbader
+- @mristin
+- @aorzelskiGH
+- @BirgitBoss
