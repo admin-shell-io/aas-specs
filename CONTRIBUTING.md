@@ -49,3 +49,22 @@ To validate the example data against the schemas, call:
 ```
 schemas\Validate.ps1
 ```
+
+## Approval Process
+All changes must be reviewed and approved.
+
+Minor changes (simple failiures, typos, ..) and aditional content can be accepted straight away after a brief review by the responsible reviewers.
+In order to indicate the change, the reviewers in charge must be added to the pull request.
+The responsible reviewers are:
+
+| Topic | Path | Reviewer |
+| ------------- | ------------- | ------------- |
+| JSON | [schemas/json/](schemas/json/) | @Manu3756 @torben.deppe |
+| RDF | [schemas/rdf/](schemas/rdf/) | @sebbader @changqin26 |
+| XML | [schemas/xml/](schemas/xml/) | @Manu3756 @JoergWende @BirgitBoss |
+| XMI | [schemas/xmi/](schemas/xmi/) | @BirgitBoss |
+| aas-specs-repo | [aas-specs/](https://github.com/admin-shell-io/aas-specs) | @birgitbos @mristin |
+
+
+Major changes must first be reviewed and approved by the joint working group of the [Platform Industrie 4.0](http://www.plattform-i40.de). and [IDTA](https://industrialdigitaltwin.org/).
+Afte the approval the pull request can be merged in to the repository.
