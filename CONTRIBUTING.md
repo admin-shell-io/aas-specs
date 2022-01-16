@@ -48,6 +48,8 @@ To validate the example data against the schemas, call:
 schemas\Validate.ps1
 ```
 
+The schema-validation must be successfully completed before proceeding with the approval process.
+
 ## Approval Process
 All changes must be reviewed and approved.
 
