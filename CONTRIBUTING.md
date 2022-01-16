@@ -66,5 +66,5 @@ The responsible reviewers are:
 | aas-specs-repo | [aas-specs/](https://github.com/admin-shell-io/aas-specs) | @BirgitBoss @mristin |
 
 
-Major changes must first be reviewed and approved by the joint working group of the [Platform Industrie 4.0](http://www.plattform-i40.de). and [IDTA](https://industrialdigitaltwin.org/).
+Major changes must first be reviewed and approved by the joint working group of the [Platform Industrie 4.0](http://www.plattform-i40.de) and [IDTA](https://industrialdigitaltwin.org/).
 Afte the approval the pull request can be merged in to the repository.
