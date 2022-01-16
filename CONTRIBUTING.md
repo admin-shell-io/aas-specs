@@ -32,23 +32,30 @@ The commit messages follow the guidelines from https://chris.beams.io/posts/git-
 
 ## Pre-Merge Checks
 
-We use the sample programs from [schema-validation] repository to validate the schemas against the example data.
+We use the sample programs from [schema-validation] repository to validate the schemas against the [JSON], [XML] and [RDF] examples in the aas-spec repository.
+
+Every pull request automaticaly runs the schema-validation with every update.
+
+The schema-validation must be successfully completed with `All checks have passed` before proceeding with the approval process.
 
 [schema-validation]: https://github.com/admin-shell-io/schema-validation
+[JSON]: /schemas/json/examples
+[XML]: /schemas/xml/examples
+[RDF]: /schemas/rdf/examples
 
-To install the schema-validation, invoke:
+It is posible to check the schema-validation before creating the pull request. 
+
+First you need to install the schema-validation, invoke:
 
 ```
 schemas\InstallSchemaValidation.ps1
 ```
 
-To validate the example data against the schemas, call:
+Afterwards you run the script to validate the example data against the schemas by calling:
 
 ```
 schemas\Validate.ps1
 ```
-
-The schema-validation must be successfully completed before proceeding with the approval process.
 
 ## Approval Process
 All changes must be reviewed and approved.
@@ -99,6 +106,6 @@ Those assignees are:
 ## Post-Merge Cleanup
 Conratulaion. You sucessfully contributed to the aas-spec repository.
 
-If you are a member of the development team, pleas delete the feature branch directly you created within the repository.
+If you are a member of the development team, pleas delete the feature branch you directly created within the repository.
 
 Otherwise, feel free to delete your forked ass-spec repository in your repositories.
