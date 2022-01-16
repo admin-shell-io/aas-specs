@@ -1,9 +1,8 @@
 # Contributing
 
-## Pull Requests
+## Before the Pull Requests
 
-**Feature branches**.
-We develop using the feature branches, see [this section of the Git book].
+**Create Feature branches**. We develop using the feature branches, see [this section of the Git book].
 
 [this section of the Git book]: https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows.
 
@@ -16,9 +15,6 @@ Otherwise, if you are a non-member contributor, fork the repository and create t
 **Branch Prefix**.
 Please prefix the branch with your Github user name (*e.g.,* `mristin/Add-some-feature`).
 
-**Continuous Integration**.
-Github will run the continuous integration (CI) automatically through Github actions to verify that the submitted changes are valid.
-
 ## Recommendation for Commit Messages
 
 The commit messages follow the guidelines from https://chris.beams.io/posts/git-commit:
@@ -30,20 +26,22 @@ The commit messages follow the guidelines from https://chris.beams.io/posts/git-
 * Wrap the body at 72 characters
 * Use the body to explain *what* and *why* (instead of *how*)
 
+## Create Pull Request
+After all changes have been made, a pull request has to be created. See [this Github tutorial] for more guidance. 
+
 ## Pre-Merge Checks
+**Continuous Integration**
+Github will run the continuous integration (CI) automatically through Github actions to verify that the submitted changes are valid. Every pull request automaticaly runs the continuous integration with every update.
 
-We use the sample programs from [schema-validation] repository to validate the schemas against the [JSON], [XML] and [RDF] examples in the aas-spec repository.
+The continuous integration must be **successfully completed** with `All checks have passed` before proceeding with the approval process.
 
-Every pull request automaticaly runs the schema-validation with every update.
-
-The schema-validation must be successfully completed with `All checks have passed` before proceeding with the approval process.
+We use the sample programs from [schema-validation] repository in the continuous integration to validate the schemas against the [JSON], [XML] and [RDF] examples from the aas-spec repository.
+It is posible to check the schema-validation before creating the pull request. 
 
 [schema-validation]: https://github.com/admin-shell-io/schema-validation
 [JSON]: /schemas/json/examples
 [XML]: /schemas/xml/examples
 [RDF]: /schemas/rdf/examples
-
-It is posible to check the schema-validation before creating the pull request. 
 
 First you need to install the schema-validation, invoke:
 
@@ -58,7 +56,7 @@ schemas\Validate.ps1
 ```
 
 ## Approval Process
-All changes must be reviewed and approved.
+All changes must be **reviewed** and **approved**.
 
 Minor changes (simple failures, typos, *etc.*) and additional content (more examples, etc.) can be accepted straight away after a brief review by the responsible reviewers.
 In order to indicate the change, the reviewers in charge must be added to the pull request.
