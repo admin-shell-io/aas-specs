@@ -45,6 +45,7 @@ Github will run the continuous integration (CI) automatically through Github act
 
 The continuous integration must be **successfully completed** with `All checks have passed` before proceeding with the approval process.
 
+### Schema Validation
 We use the sample programs from [schema-validation] repository in the continuous integration to validate the schemas against the [JSON], [XML] and [RDF] examples from the aas-spec repository.
 It is possible, but not necessary to check the schema-validation without creating the pull request. 
 
@@ -64,6 +65,9 @@ Afterwards you run the script to validate the example data against the schemas b
 ```
 schemas\Validate.ps1
 ```
+
+### Check Commit and Pull Request Messages
+In accordance with `Recommendation for Commit Messages` the continuous integration checks the previously defined conditions. For the present development, however, this is not enforced.
 
 ## Approval Process
 All changes must be **reviewed** and **approved**.
