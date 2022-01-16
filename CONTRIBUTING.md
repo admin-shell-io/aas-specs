@@ -61,9 +61,9 @@ The responsible reviewers are:
 | ------------- | ------------- | ------------- |
 | JSON | [schemas/json/](schemas/json/) | @Manu3756 @torben.deppe |
 | RDF | [schemas/rdf/](schemas/rdf/) | @sebbader @changqin26 |
-| XML | [schemas/xml/](schemas/xml/) | @Manu3756 @JoergWende @BirgitBoss |
+| XML | [schemas/xml/](schemas/xml/) | @Manu3756 @JoergWende |
 | XMI | [schemas/xmi/](schemas/xmi/) | @BirgitBoss |
-| aas-specs-repo | [aas-specs/](https://github.com/admin-shell-io/aas-specs) | @birgitbos @mristin |
+| aas-specs-repo | [aas-specs/](https://github.com/admin-shell-io/aas-specs) | @BirgitBoss @mristin |
 
 
 Major changes must first be reviewed and approved by the joint working group of the [Platform Industrie 4.0](http://www.plattform-i40.de). and [IDTA](https://industrialdigitaltwin.org/).
