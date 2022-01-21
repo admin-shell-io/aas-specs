@@ -77,49 +77,16 @@ For the present development, however, this is not enforced.
 All changes must be **reviewed** and **approved**.
 
 Minor changes (simple failures, typos, *etc.*) and additional content (more examples, etc.) can be accepted straight away after a brief review by the responsible reviewers.
-In order to indicate the change, the reviewers in charge must be added to the pull request.
 
-The responsible reviewers are:
-
-| Topic | Path | Reviewer |
-| -------------------- | --------------- | ------------------------- |
-| JSON                 | [schemas/json/] | [@Manu3756] [@TorbenD] [@mristin] |
-| RDF                  | [schemas/rdf/]  | [@sebbader] [@changqin26] [@mristin] |
-| XML                  | [schemas/xml/]  | [@JoergWende] [@Manu3756] [@mristin] |
-| XMI                  | [schemas/xmi/]  | [@BirgitBoss]             |
-| aas-specs repository | [aas-specs/]    | [@BirgitBoss] [@mristin] |
-
-[schemas/json/]: https://github.com/admin-shell-io/aas-specs/tree/master/schemas/json
-[schemas/rdf/]: https://github.com/admin-shell-io/aas-specs/tree/master/schemas/rdf
-[schemas/xml/]: https://github.com/admin-shell-io/aas-specs/tree/master/schemas/xml
-[schemas/xmi/]: https://github.com/admin-shell-io/aas-specs/tree/master/schemas/xmi
-[aas-specs/]: https://github.com/admin-shell-io/aas-specs
-
-[@Manu3756]: https://github.com/Manu3756
-[@TorbenD]:https://github.com/torbend
-[@sebbader]: https://github.com/sebbader
-[@changqin26]: https://github.com/changqin26
-[@JoergWende]: https://github.com/JoergWende
-[@BirgitBoss]: https://github.com/BirgitBoss
-[@mristin]: https://github.com/mristin
-[@g1zzm0]:https://github.com/g1zzm0
-
-Major changes must first be reviewed and approved by the joint working group of the [Platform Industrie 4.0] and [IDTA].
+Major changes must first be reviewed and approved by the joint working group "Asset Administration Shell" of the [Platform Industrie 4.0] and [IDTA].
 
 [Platform Industrie 4.0]: http://www.plattform-i40.de
 [IDTA]: https://industrialdigitaltwin.org/
 
 ## Merge into Master Branch
 
-After the approval the pull request can be merged into the repository.
-Therefore, an assignee with the ability to merge into the main branch has to be notified by adding it to the pull request.
-Those assignees are:
-- [@sebbader]
-- [@mristin]
-- [@BirgitBoss]
-- [@aorzelskiGH]
+After the approval the pull request can be merged into the repository. This is done by one of the maintainers.
 
-[@aorzelskiGH]: https://github.com/aorzelskiGH
 
 ## Post-Merge Cleanup
 **Congratulation.**
