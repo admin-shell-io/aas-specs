@@ -64,7 +64,7 @@ aas:AccessControlPolicyPoints rdf:type owl:Class ;
 
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/AdministrativeInformation @checked
+###  https://admin-shell.io/aas/3/0/RC02/AdministrativeInformation
 aas:AdministrativeInformation rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:comment "Every Identifiable may have administrative information. Administrative information includes for example 1) Information about the version of the element 2) Information about who created or who made the last change to the element 3) Information about the languages available in case the element contains text, for translating purposed also themmaster or default language may be definedIn the first version of the AAS metamodel only version information as defined by IEC 61360 is defined. In later versions additional attributes may be added."@en ;
@@ -91,7 +91,7 @@ aas:AdministrativeInformation rdf:type owl:Class ;
 
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/AnnotatedRelationshipElement @checked
+###  https://admin-shell.io/aas/3/0/RC02/AnnotatedRelationshipElement
 aas:AnnotatedRelationshipElement rdf:type owl:Class ;
     rdfs:subClassOf aas:RelationshipElement ;
     rdfs:comment "An annotated relationship element is an relationship element that can be annotated with additional data elements."@en ;
@@ -118,7 +118,7 @@ aas:Asset rdf:type owl:Class ;
     skos:note "Objects may be known in the form of a type or of an instance. An object in the planning phase is known as a type"@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/AssetInformation @checked
+###  https://admin-shell.io/aas/3/0/RC02/AssetInformation
 aas:AssetInformation rdf:type owl:Class ;
     rdfs:comment "The asset may either represent an asset type or an asset instance. The asset has a globally unique identifier plus - if needed - additional domain specific (proprietary) identifiers. However, to support the corner case of very first phase of lifecycle where a stabilised/constant global asset identifier does not already exist, the corresponding attribute 'globalAssetId' is optional."@en ;
 	  rdfs:label "Asset Information"^^xsd:string ;
@@ -156,7 +156,7 @@ aas:AssetInformation rdf:type owl:Class ;
     rdfs:comment "Thumbnail of the asset represented by the asset administration shell."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell @checked
+###  https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell
 aas:AssetAdministrationShell rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification , aas:Identifiable ;
     rdfs:label "Asset Administration Shell"^^xsd:string ;
@@ -249,7 +249,7 @@ aas:AssetAdministrationShellEnvironment rdf:type owl:Class ;
 .
 
 
-###  https://admin-shell.io/aas/3/0/RC02/AssetKind @checked
+###  https://admin-shell.io/aas/3/0/RC02/AssetKind
 aas:AssetKind rdf:type owl:Class ;
     rdfs:comment "Enumeration for denoting whether an element is a type or an instance."@en ;
     rdfs:label "Asset Kind"^^xsd:string  ;
@@ -271,7 +271,7 @@ aas:AssetKind rdf:type owl:Class ;
     rdfs:label "Asset Type"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/BasicEvent @checked
+###  https://admin-shell.io/aas/3/0/RC02/BasicEvent
 aas:BasicEvent rdf:type owl:Class ;
     rdfs:subClassOf aas:Event ;
     rdfs:label "Basic Event"^^xsd:string ;
@@ -286,7 +286,7 @@ aas:BasicEvent rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Blob @checked
+###  https://admin-shell.io/aas/3/0/RC02/Blob
 aas:Blob rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
     rdfs:comment "A BLOB is a data element that represents a file that is contained with its source code in the value attribute."@en ;
@@ -313,7 +313,7 @@ aas:Blob rdf:type owl:Class ;
     rdfs:label "has value"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Capability @checked
+###  https://admin-shell.io/aas/3/0/RC02/Capability
 aas:Capability rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:comment "A capability is the implementation-independent description of the potential of an asset to achieve a certain effect in the physical or virtual world."@en ;
@@ -368,7 +368,7 @@ aas:ConceptDescription rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Constraint @checked
+###  https://admin-shell.io/aas/3/0/RC02/Constraint
 aas:Constraint rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:comment "A constraint is used to further qualify an element."@en ;
@@ -376,7 +376,7 @@ aas:Constraint rdf:type owl:Class ;
     skos:prefLabel "Constraint"@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/DataElement @checked
+###  https://admin-shell.io/aas/3/0/RC02/DataElement
 aas:DataElement rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     dash:abstract true ;
@@ -415,7 +415,7 @@ aas:EmbeddedDataSpecification rdf:type owl:Class ;
     rdfs:range aas:DataSpecificationContent ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Entity @checked
+###  https://admin-shell.io/aas/3/0/RC02/Entity
 aas:Entity rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:label "Entity"^^xsd:string ;
@@ -457,7 +457,7 @@ aas:Entity rdf:type owl:Class ;
     rdfs:range aas:SubmodelElement ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/EntityType @checked
+###  https://admin-shell.io/aas/3/0/RC02/EntityType
 aas:EntityType rdf:type owl:Class ;
     rdfs:label "Entity Type"^^xsd:string ;
     rdfs:comment "Enumeration for denoting whether an entity is a self-managed entity or a co-managed entity."@en ;
@@ -467,19 +467,19 @@ aas:EntityType rdf:type owl:Class ;
     ) ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/EntityType/CoManagedEntity @checked
+###  https://admin-shell.io/aas/3/0/RC02/EntityType/CoManagedEntity
 <https://admin-shell.io/aas/3/0/RC02/EntityType/CoManagedEntity> rdf:type  aas:EntityType ;
     rdfs:comment "For co-managed entities there is no separate AAS. Co-managed entities need to be part of a self-managed entity."@en ;
     rdfs:label "Co-managed Entity"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/EntityType/SelfManagedEntity @checked
+###  https://admin-shell.io/aas/3/0/RC02/EntityType/SelfManagedEntity
 <https://admin-shell.io/aas/3/0/RC02/EntityType/SelfManagedEntity> rdf:type  aas:EntityType ;
     rdfs:comment "Self-Managed Entities have their own AAS but can be part of the bill of material of a composite self-managed entity. The asset of an I4.0 Component is a self-managed entity per definition."@en ;
     rdfs:label "Self-managed Entity"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Event @checked
+###  https://admin-shell.io/aas/3/0/RC02/Event
 aas:Event rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     dash:abstract true ;
@@ -545,7 +545,7 @@ aas:Formula rdf:type owl:Class ;
     rdfs:label "depends on"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/HasDataSpecification @checked
+###  https://admin-shell.io/aas/3/0/RC02/HasDataSpecification
 aas:HasDataSpecification rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:comment "Element that can have be extended by using data specification templates. A data specification template defines the additional attributes an element may or shall have. The data specifications used are explicitly specified with their id."@en ;
@@ -561,7 +561,7 @@ aas:HasDataSpecification rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/HasKind @checked
+###  https://admin-shell.io/aas/3/0/RC02/HasKind
 aas:HasKind rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:comment "An element with a kind is an element that can either represent a type or an instance. Default for an element is that it is representing an instance."@en ;
@@ -576,7 +576,7 @@ aas:HasKind rdf:type owl:Class ;
     rdfs:comment "ModelingKind of the element: either type or instance."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/HasSemantics @checked
+###  https://admin-shell.io/aas/3/0/RC02/HasSemantics
 aas:HasSemantics rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:label "Has Semantics"^^xsd:string ;
@@ -595,7 +595,7 @@ aas:HasSemantics rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Identifiable @checked
+###  https://admin-shell.io/aas/3/0/RC02/Identifiable
 aas:Identifiable rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:subClassOf aas:Referable ;
@@ -652,7 +652,7 @@ aas:Identifier rdf:type owl:Class ;
     rdfs:label "Identifier"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/IdentifierKeyValuePair @checked
+###  https://admin-shell.io/aas/3/0/RC02/IdentifierKeyValuePair
 aas:IdentifierKeyValuePair rdf:type owl:Class ;
     rdfs:subClassOf aas:HasSemantics ;
     rdfs:label "identifier key value pair"^^xsd:string ;
@@ -780,7 +780,7 @@ aas:LevelType rdf:type owl:Class ;
 .
 
 
-###  https://admin-shell.io/aas/3/0/RC02/ModelingKind @checked
+###  https://admin-shell.io/aas/3/0/RC02/ModelingKind
 aas:ModelingKind rdf:type owl:Class ;
     rdfs:comment "Enumeration for denoting whether an element is a type or an instance."@en ;
     rdfs:label "Kind"^^xsd:string  ;
@@ -804,7 +804,7 @@ aas:ModelingKind rdf:type owl:Class ;
     rdfs:label "Template"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/MultiLanguageProperty @checked
+###  https://admin-shell.io/aas/3/0/RC02/MultiLanguageProperty
 aas:MultiLanguageProperty rdf:type owl:Class ;
    rdfs:subClassOf aas:DataElement ;
    rdfs:comment "A property is a data element that has a multi language value."@en ;
@@ -844,7 +844,7 @@ aas:ObjectAttributes rdf:type owl:Class ;
     rdfs:range aas:DataElement ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Operation @checked
+###  https://admin-shell.io/aas/3/0/RC02/Operation
 aas:Operation rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:comment "An operation is a submodel element with input and output variables."@en ;
@@ -876,7 +876,7 @@ aas:Operation rdf:type owl:Class ;
     rdfs:range aas:OperationVariable ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/OperationVariable  @checked
+###  https://admin-shell.io/aas/3/0/RC02/OperationVariable
 aas:OperationVariable rdf:type owl:Class ;
     rdfs:comment "An operation variable is a submodel element that is used as input or output variable of an operation."@en ;
     rdfs:label "Operation Variable"^^xsd:string ;
@@ -891,7 +891,7 @@ aas:OperationVariable rdf:type owl:Class ;
     rdfs:range aas:SubmodelElement ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Property @checked
+###  https://admin-shell.io/aas/3/0/RC02/Property
 aas:Property rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
     rdfs:comment "A property is a data element that has a single value."@en ;
@@ -925,7 +925,7 @@ aas:Property rdf:type owl:Class ;
     rdfs:range xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Qualifiable @checked
+###  https://admin-shell.io/aas/3/0/RC02/Qualifiable
 aas:Qualifiable rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:comment "Additional qualification of a qualifiable element."@en ;
@@ -941,7 +941,7 @@ aas:Qualifiable rdf:type owl:Class ;
     rdfs:range aas:Constraint ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Qualifier @checked
+###  https://admin-shell.io/aas/3/0/RC02/Qualifier
 aas:Qualifier rdf:type owl:Class ;
     rdfs:subClassOf aas:Constraint ;
     rdfs:subClassOf aas:HasSemantics ;
@@ -984,7 +984,7 @@ aas:Qualifier rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Range @checked
+###  https://admin-shell.io/aas/3/0/RC02/Range
 aas:Range rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
     rdfs:comment "An element that is referable by its idShort. This id is not globally unique. This id is unique within the name space of the element."@en ;
@@ -1018,7 +1018,7 @@ aas:Range rdf:type owl:Class ;
     rdfs:comment "Data type of the min and max."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/HasExtensions @checked
+###  https://admin-shell.io/aas/3/0/RC02/HasExtensions
 aas:HasExtensions rdf:type owl:Class ;
     dash:abstract true ;
     rdfs:comment "Element that can be extended by proprietary extensions."@en ;
@@ -1034,7 +1034,7 @@ aas:HasExtensions rdf:type owl:Class ;
     rdfs:range aas:Extension;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Extension @checked
+###  https://admin-shell.io/aas/3/0/RC02/Extension
 aas:Extension rdf:type owl:Class ;
     rdfs:subClassOf aas:HasSemantics ;
     rdfs:comment "Single extension of an element."@en ;
@@ -1074,7 +1074,7 @@ aas:Extension rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Referable @checked
+###  https://admin-shell.io/aas/3/0/RC02/Referable
 aas:Referable rdf:type owl:Class ;
     rdfs:subClassOf aas:HasExtensions ;
     dash:abstract true ;
@@ -1310,7 +1310,7 @@ aas:ModelReference rdf:type owl:Class ;
     rdfs:range aas:Key ;
 .
 
-###  ###  https://admin-shell.io/aas/3/0/RC02/ReferenceElement @checked
+###  ###  https://admin-shell.io/aas/3/0/RC02/ReferenceElement
 aas:ReferenceElement rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
     rdfs:comment "A reference element is a data element that defines a logical reference to another element within the same or another AAS or a reference to an external object or entity."@en ;
@@ -1327,7 +1327,7 @@ aas:ReferenceElement rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/RelationshipElement @checked
+###  https://admin-shell.io/aas/3/0/RC02/RelationshipElement
 aas:RelationshipElement rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     dc:description "A relationship element is used to define a relationship between two referable elements."@en ;
@@ -1384,7 +1384,7 @@ aas:Security rdf:type owl:Class ;
     rdfs:range aas:AccessControlPolicyPoints ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Submodel @checked
+###  https://admin-shell.io/aas/3/0/RC02/Submodel
 aas:Submodel rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:subClassOf aas:HasKind ;
@@ -1405,7 +1405,7 @@ aas:Submodel rdf:type owl:Class ;
     rdfs:label "has Submodel Element"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/SubmodelElement @checked
+###  https://admin-shell.io/aas/3/0/RC02/SubmodelElement
 aas:SubmodelElement rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:subClassOf aas:HasKind ;
@@ -1455,23 +1455,31 @@ aas:SubmodelElementList rdf:type owl:Class ;
   	skos:note "Constraint AASd-093: If the semanticId of a SubmodelElementList references a ConceptDescription then the ConceptDescription/category shall be COLLECTION."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdValues
-<https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdValues> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Semantic Id the submodel elements contained in the list match to."@en ;
-    rdfs:label "semantic id values"^^xsd:string ;
+###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/orderRelevant
+<https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/orderRelevant> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Defines whether order in list is relevant. If orderRelevant = False then the list is representing a set or a bag."@en ;
+    rdfs:label "order relevant"^^xsd:string ;
     rdfs:domain aas:SubmodelElementList ;
-    rdfs:range aas:Reference ;
+    rdfs:range xsd:boolean ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdListElement
+<https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdListElement> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Semantic Id the submodel elements contained in the list match to."@en ;
+    rdfs:label "semantic id list element"^^xsd:string ;
+    rdfs:domain aas:SubmodelElementList ;
+    rdfs:range aas:Reference ; # TODO GlobalReference
     skos:note "Constraint AASd-107: If a first level child element in a SubmodelElementList has a semanticId it shall be identical to SubmodelElementList/semanticIdValues."@en ;
     skos:note "Constraint AASd-114: If two first level child elements in a SubmodelElementList have a semanticId then they shall be identical."@en ;
     skos:note "Constraint AASd-115: If a first level child element in a SubmodelElementList does not specify a semanticId then the value is assumed to be identical to SubmodelElementList/semanticIdValues."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/submodelElementTypeValues
-<https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/submodelElementTypeValues> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/typeValueListElement
+<https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/typeValueListElement> rdf:type owl:ObjectProperty ;
     rdfs:comment "The submodel element type of the submodel elements contained in the list."@en ;
     rdfs:label "submodel element type values"^^xsd:string ;
     rdfs:domain aas:SubmodelElementList ;
-    rdfs:range aas:SubmodelElements ;
+    rdfs:range aas:SubmodelElement ;
     skos:note "Constraint AASd-108: All first level child elements in a SubmodelElementList shall have the same submodel element type as specified in SubmodelElementList/submodelElementTypeValues."@en ;
 .
 
@@ -1483,8 +1491,8 @@ aas:SubmodelElementList rdf:type owl:Class ;
     rdfs:range aas:SubmodelElement ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/valueTypeValues*
-<https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/valueTypeValues*> rdf:type owl:DatatypeProperty ;
+###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/valueTypeListElement
+<https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/valueTypeListElement> rdf:type owl:DatatypeProperty ;
     rdfs:comment "The value type of the submodel element contained in the list."@en ;
     rdfs:label "value type values"^^xsd:string ;
     rdfs:domain aas:SubmodelElementList ;

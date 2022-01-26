@@ -1044,19 +1044,27 @@ aas:SubmodelElementListShape  a sh:NodeShape ;
   sh:targetClass aas:SubmodelElementList ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdValues> ;
-      sh:path aas:Reference;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/orderRelevant> ;
+      sh:datatype xsd:boolean ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "(SubmodelElementList.semanticIdValues):Only one reference for <i>semanticIdValues</i> is allowed"^^xsd:string ;
+      sh:message "(SubmodelElementList.orderRelevant): Only one reference for <i>orderRelevant</i> is allowed."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/submodelElementTypeValues> ;
-      sh:path aas:SubmodelElements ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdListElement> ;
+      sh:path aas:Reference; # TODO GlobalReference
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "(SubmodelElementList.semanticIdListElement):Only one reference for <i>semanticIdListElement</i> is allowed"^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/typeValueListElement> ;
+      sh:path aas:SubmodelElement ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:message "(SubmodelElementList.submodelElementTypeValues):Exact one <i>SubmodelElements</i> for <i>submodelElementTypeValues</i> is allowed"^^xsd:string ;
+      sh:message "(SubmodelElementList.typeValueListElement):Exactly one <i>SubmodelElements</i> for <i>typeValueListElement</i> is requried."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -1067,11 +1075,11 @@ aas:SubmodelElementListShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/valueTypeValues> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/valueTypeListElement> ;
       sh:datatype xsd:string ;
       sh:minCount 0 ;
       sh:maxCount 1 ;
-      sh:message "(SubmodelElementList.valueTypeValues):SubmodelElementList can have only one string for <i>valueTypeValues</i>."^^xsd:string ;
+      sh:message "(SubmodelElementList.valueTypeListElement):SubmodelElementList can have only one string for <i>valueTypeListElement</i>."^^xsd:string ;
     ] ;
 .
 
@@ -1080,7 +1088,7 @@ aas:SubmodelElementStructShape  a sh:NodeShape ;
   sh:targetClass aas:SubmodelElementStruct ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElemeSubmodelElementStructntList/value> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct/value> ;
       sh:minCount 0 ;
       sh:message "(SubmodelElementStruct.value):SubmodelElementStruct can contain only SubmodelElement for <i>value</i>."^^xsd:string ;
   ] ;

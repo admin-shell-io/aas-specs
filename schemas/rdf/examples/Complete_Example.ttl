@@ -195,12 +195,11 @@
 
    <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> [
       a <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList> ;
-      rdf:subject <http://i40.customer.com/type/7A7104BDAB57E184/OperatingManual> ;
       <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "OperatingManual"^^xsd:string ;
       rdfs:label "OperatingManual"^^xsd:string ;
-      <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdValues> [
-          a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
-          <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
+      <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdListElement> [
+          a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+          <https://admin-shell.io/aas/3/0/RC02/Reference/key> [
             a <https://admin-shell.io/aas/3/0/RC02/Key> ;
             <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
             <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^xsd:string ;
@@ -308,19 +307,21 @@
             <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
                a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
-                   a <https://admin-shell.io/aas/3/0/RC02/Key> ;
-                   <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationOfficialName"^^xsd:string ;
+                       a <https://admin-shell.io/aas/3/0/RC02/Key> ;
+                       <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
+                       <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationOfficialName"^^xsd:string ;
                    ]
              ] ;
             <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
       ];
       <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> [
-            a <https://admin-shell.io/aas/3/0/RC02/Property>;
+         a <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct> ;
+         <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct/value> [
+            a <https://admin-shell.io/aas/3/0/RC02/File>;
             rdf:subject <http://i40.customer.com/type/7A7104BDAB57E184/OperatingManual/Title>;
             rdfs:label "Title"^^xsd:string ;
-            <https://admin-shell.io/aas/3/0/RC02/Property/valueType>  "xsd:string" ;
-            <https://admin-shell.io/aas/3/0/RC02/Property/value> "Operating Manual"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/File/valueType>  "xsd:string" ; #TODO not a File?
+            <https://admin-shell.io/aas/3/0/RC02/File/value> "Operating Manual"^^xsd:string ;
             <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Title"^^xsd:string ;
             <https://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xsd:string ;
             <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
@@ -332,31 +333,16 @@
                    ]
              ] ;
             <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+          ]
       ];
       <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> [
-            a <https://admin-shell.io/aas/3/0/RC02/Property>;
-            rdf:subject <http://i40.customer.com/type/7A7104BDAB57E184/OperatingManual/Language>;
-            rdfs:label "Language"^^xsd:string ;
-            <https://admin-shell.io/aas/3/0/RC02/Property/valueType>  "xsd:string" ;
-            <https://admin-shell.io/aas/3/0/RC02/Property/value> "en-US"^^xsd:string ;
-            <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Language"^^xsd:string ;
-            <https://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xsd:string ;
-            <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
-               a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
-                 <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
-                   a <https://admin-shell.io/aas/3/0/RC02/Key> ;
-                   <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
-                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion/Language"^^xsd:string ;
-                   ]
-           ] ;
-            <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
-      ];
-      <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> [
+         a <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct> ;
+         <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct/value> [
             a <https://admin-shell.io/aas/3/0/RC02/Property>;
             rdf:subject <http://i40.customer.com/type/7A7104BDAB57E184/OperatingManual/DigitalFile_PDF>;
             rdfs:label "DigitalFile_PDF"^^xsd:string ;
-            <https://admin-shell.io/aas/3/0/RC02/Property/valueType>  "xsd:string" ;
-            <https://admin-shell.io/aas/3/0/RC02/Property/value> "/aasx/OperatingManual.pdf"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/File/valueType>  "xsd:string" ;
+            <https://admin-shell.io/aas/3/0/RC02/File/value> "/aasx/OperatingManual.pdf"^^xsd:string ;
             <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DigitalFile_PDF"^^xsd:string ;
             <https://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xsd:string ;
             <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
@@ -369,6 +355,7 @@
              ] ;
             <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
       ];
+      ]
     ]
 .
 
