@@ -107,8 +107,8 @@ aas:AccessControlPolicyPoints rdf:type owl:Class ;
     rdfs:range aas:PolicyDecisionPoint ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyEnforcementPoints
-<https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyEnforcementPoints> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyEnforcementPoint
+<https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyEnforcementPoint> rdf:type owl:ObjectProperty ;
     rdfs:comment "The access control policy enforcement point of the AAS."@en ;
     rdfs:label "has policy enforcement point"^^xsd:string ;
     rdfs:domain aas:AccessControlPolicyPoints ;
@@ -287,7 +287,6 @@ aas:AssetAdministrationShell rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel
 <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetAdministrationShell ;
-    # rdfs:range [ owl:unionOf (aas:Reference aas:Submodel) ] ;
     rdfs:range aas:Reference ;
     rdfs:comment "Points from the Admin Shell to the Submodels that describe the Admin Shell of a given Asset"@en ;
     rdfs:label "has Submodel"^^xsd:string ;
@@ -564,14 +563,14 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/preferredName
-<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/preferredName> rdf:type owl:ObjectProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/preferredName> rdf:type owl:DatatypeProperty ;
     rdfs:label "has preferred name"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range rdf:langString ;
 .
 
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/shortName
-<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/shortName> rdf:type owl:ObjectProperty ;
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/shortName> rdf:type owl:DatatypeProperty ;
     rdfs:label "has short name"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range rdf:langString ;
@@ -990,8 +989,8 @@ aas:Identifier rdf:type owl:Class ;
     rdfs:label "Identifier"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Identifier/identifier
-<https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> rdf:type owl:DatatypeProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Identifier/id
+<https://admin-shell.io/aas/3/0/RC01/Identifier/id> rdf:type owl:DatatypeProperty ;
     rdfs:domain aas:Identifier ;
     rdfs:range xsd:string ;
     rdfs:comment "A globally unique identifier which might not be a URI. Its type is defined in idType."@en ;
@@ -1567,9 +1566,9 @@ aas:Qualifier rdf:type owl:Class ;
     rdfs:comment "The qualifier value is the value of the qualifier."@en ;
     rdf:label "has qualifier value"^^xsd:string ;
     skos:note "Constraint AASd-006: if both, the value and the valueId are present then the value needs to be identical to the short name of the referenced coded value in qualifierValueId."@en ;
-	skos:note "Constraint AASd-020: The value of Qualifier/value shall be consistent to the data type as defined in Qualifier/valueType."@en ;
+	  skos:note "Constraint AASd-020: The value of Qualifier/value shall be consistent to the data type as defined in Qualifier/valueType."@en ;
     rdfs:domain aas:Qualifier ;
-    rdfs:range rdfs:Literal ;
+    rdfs:range xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Qualifier/valueId
@@ -1591,7 +1590,7 @@ aas:Range rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Range/valueType
-<https://admin-shell.io/aas/3/0/RC01/Range/valueType> rdf:type owl:ObjectProperty ;
+<https://admin-shell.io/aas/3/0/RC01/Range/valueType> rdf:type owl:DatatypeProperty ;
     rdfs:domain aas:Range ;
     rdfs:range xsd:string ;
     rdfs:label "has value type of range"^^xsd:string ;
@@ -1601,7 +1600,7 @@ aas:Range rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/Range/max
 <https://admin-shell.io/aas/3/0/RC01/Range/max> rdf:type owl:DatatypeProperty ;
     rdfs:domain aas:Range ;
-    rdfs:range rdfs:Literal ;
+    rdfs:range xsd:string ;
     rdfs:label "has maximum value"^^xsd:string ;
     rdfs:comment "The maximum value of the range."@en ;
 .
@@ -1609,7 +1608,7 @@ aas:Range rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/Range/min
 <https://admin-shell.io/aas/3/0/RC01/Range/min> rdf:type owl:DatatypeProperty ;
     rdfs:domain aas:Range ;
-    rdfs:range rdfs:Literal ;
+    rdfs:range xsd:string ;
     rdfs:label "has minimum value"^^xsd:string ;
     rdfs:comment "The minimum value of the range."@en ;
 .

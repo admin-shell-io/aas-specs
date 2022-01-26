@@ -99,11 +99,11 @@ aas:AccessControlPolicyPointsShape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyEnforcementPoints> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyEnforcementPoint> ;
       sh:class aas:PolicyEnforcementPoints ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:message "(AccessControlPolicyPoints.policyEnforcementPoints): Exactly one <i>policyEnforcementPoints</i> pointing to a <i>PolicyEnforcementPoints</i> is required."^^xsd:string ;
+      sh:message "(AccessControlPolicyPoints.policyEnforcementPoint): Exactly one <i>policyEnforcementPoint</i> pointing to a <i>PolicyEnforcementPoints</i> is required."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
@@ -296,10 +296,6 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> ;
       sh:minCount 0 ;
-      #sh:or (
-      #  [ sh:class aas:Reference ;
-      #  [ sh:class aas:Submodel ; ]
-      #)
       sh:class aas:Reference ;
       sh:message "(AssetAdministrationShell.submodel):A <i>submodel</i> attribute must have a <i>Reference</i> entity pointing to a Submodel."^^xsd:string ;
     ] ;
@@ -819,7 +815,6 @@ aas:EventMessageShape a sh:NodeShape ;
 
 aas:FileShape a sh:NodeShape ;
   rdfs:subClassOf aas:DataElementShape ;
-  rdfs:subClassOf aas:SubmodelElementShape ;
   sh:targetClass aas:File ;
   sh:property [
       a sh:PropertyShape ;
@@ -976,12 +971,12 @@ aas:IdentifierShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Identifier/identifier> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Identifier/id> ;
       sh:datatype xsd:string  ;
-      sh:description "identifier property of Identifier class"^^xsd:string ;
+      sh:description "'id' property of Identifier class"^^xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:message "(Identifier.identifier): Exactly one <i>identifier</i> is required"^^xsd:string ;
+      sh:message "(Identifier.id): Exactly one <i>id</i> is required."^^xsd:string ;
     ] ;
 .
 
@@ -1269,7 +1264,7 @@ aas:QualifierShape  a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifier/value> ;
-      sh:nodeKind sh:Literal ;
+      sh:datatype xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:message "(Qualifier.value):Only one <i>value</i> is allowed."^^xsd:string ;
@@ -1298,18 +1293,18 @@ aas:RangeShape a sh:NodeShape ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Range/min> ;
-      sh:nodeKind sh:Literal ;
+      sh:dataType xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "(Range.min):A <i>min</i> attribute must link to a <i>Literal</i>."^^xsd:string ;
+      sh:message "(Range.min):A <i>min</i> attribute must link to a <i>xsd:string</i>."^^xsd:string ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
       sh:path <https://admin-shell.io/aas/3/0/RC01/Range/max> ;
-      sh:nodeKind sh:Literal ;
+      sh:dataType xsd:string ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
-      sh:message "(Range.max):A <i>max</i> attribute must link to a <i>Literal</i>."^^xsd:string ;
+      sh:message "(Range.max):A <i>max</i> attribute must link to a <i>xsd:string</i>."^^xsd:string ;
     ] ;
 .
 

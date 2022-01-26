@@ -1,15 +1,17 @@
-name: Check
+name: Check-schemas-and-examples
 
-on: push
+on:
+  push:
+    branches: [ master, main ]
+    tags: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
 
 jobs:
-  Execute:
+  Check-schemas-and-examples:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@master
-
-      - name: Check the commit message(s)
-        uses: mristin/opinionated-commit-message@v1.0.6
 
       - name: Install schema-validation
         working-directory: schemas
