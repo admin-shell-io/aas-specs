@@ -11,7 +11,7 @@ https://i.creativecommons.org/l/by-nd/3.0/88x31.png
 http://creativecommons.org/licenses/by-nd/3.0/
 )
 
-This repository provides the specifications of Asset Administration Shell.
+This repository contains the specifications of the Asset Administration Shell, including the schemas of the serializations, the rules applied, how the specification is mapped into the serializations, and examples of how to use the schemas.
 
 ## Schemas
 
