@@ -41,9 +41,7 @@ The XMI file for the UML metamodel [schemas/xmi/](schemas/xmi/).
 ## Releases
 
 Currently, the following releases are available (see also the [releases](https://github.com/admin-shell-io/aas-specs/releases) section of this repository):
-* [3.0.2.RC01](https://github.com/admin-shell-io/aas-specs/releases/tag/v3.0.2.RC01) is a pre-release that solves several typos and bugs of `3.0.1.RC01`
-* [3.0.1.RC01](https://github.com/admin-shell-io/aas-specs/releases/tag/v3.0.1.RC01) is a pre-release that solves a bug in the JSON schema of `3.0.RC01`
-* [3.0.RC01](https://github.com/admin-shell-io/aas-specs/releases/tag/v3.0.RC01) is a pre-release containing the schemes as contained by the document 'Details of the Asset Administration Shell - Part 1 - Version 3.0.RC01' [download](https://www.plattform-i40.de/PI40/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html)
+* [3.0.RC02](https://github.com/admin-shell-io/aas-specs/releases/tag/v3.0.2.RC01) is a draft of the pre-release of `3.0.RC02`
 
 
 ## Contributing
