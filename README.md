@@ -1,4 +1,4 @@
-# aas-specs (V3.x)
+# This is a Draft of the aas-specs V3.0 RC02
 
 [![Check](
 https://github.com/admin-shell-io/aas-specs/workflows/Check/badge.svg
