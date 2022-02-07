@@ -1,46 +1,198 @@
-<http://customer.com/aas/9175_7013_7091_9168> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell> .
-<http://customer.com/aas/9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC01/Identifiable/id> "https://customer.com/aas/9175_7013_7091_9168"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://customer.com/aas/9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "a9175_7013_7091_9168"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://customer.com/aas/9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/assetInformation> _:genid2 .
-_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/AssetInformation> .
-_:genid2 <https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId> _:genid3 .
-_:genid2 <https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/RC01/AssetKind/Instance> .
-_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/ModelReference> .
-_:genid3 <https://admin-shell.io/aas/3/0/RC01/ModelReference/key> _:genid4 .
-_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Key> .
-_:genid4 <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/KeyElements/Asset> .
-_:genid4 <https://admin-shell.io/aas/3/0/RC01/Key/value> "https://customer.com/assets/KHBVZJSQKIY"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://customer.com/assets/KHBVZJSQKIY> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Asset> .
-<http://customer.com/assets/KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/Identifiable/id> "https://customer.com/assets/KHBVZJSQKIY"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://customer.com/assets/KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/Identifiable/id> "https://customer.com/assets/KHBVZJSQKIY"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://customer.com/assets/KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "KHBVZJSQKIY"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://customer.com/assets/KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "ServoDCMotor"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://customer.com/assets/KHBVZJSQKIY> <http://www.w3.org/2000/01/rdf-schema#label> "ServoDCMotor"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://customer.com/assets/KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> _:genid7 .
-<http://customer.com/assets/KHBVZJSQKIY> <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> <https://admin-shell.io/aas/3/0/RC01/ModelingKind/Instance> .
-_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/ModelReference> .
-_:genid7 <https://admin-shell.io/aas/3/0/RC01/ModelReference/key> _:genid8 .
-_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Key> .
-_:genid8 <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/KeyElements/Submodel> .
-_:genid8 <https://admin-shell.io/aas/3/0/RC01/Key/value> "https://i40.customer.com/type/1/1/F13E8576F6488342"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://i40.customer.com/type/F13E8576F6488342> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Submodel> .
-<http://i40.customer.com/type/F13E8576F6488342> <http://www.w3.org/2000/01/rdf-schema#label> "Identification"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://i40.customer.com/type/F13E8576F6488342> <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "Identification"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://i40.customer.com/type/F13E8576F6488342> <https://admin-shell.io/aas/3/0/RC01/Referable/description> "Identification from Manufacturer"@en .
-<http://i40.customer.com/type/F13E8576F6488342> <https://admin-shell.io/aas/3/0/RC01/Referable/description> "Hersteller-Identifikation"@de .
-<http://i40.customer.com/type/F13E8576F6488342> <http://www.w3.org/2000/01/rdf-schema#comment> "Identification from Manufacturer"@en .
-<http://i40.customer.com/type/F13E8576F6488342> <http://www.w3.org/2000/01/rdf-schema#comment> "Hersteller-Identifikation"@de .
-<http://i40.customer.com/type/F13E8576F6488342> <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> _:genid9 .
-<http://i40.customer.com/type/F13E8576F6488342> <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId> _:genid12 .
-<http://i40.customer.com/type/F13E8576F6488342> <https://admin-shell.io/aas/3/0/RC01/Identifiable/id> "https://i40.customer.com/type/F13E8576F6488342"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/Property> .
-_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#subject> <http://i40.customer.com/type/F13E8576F6488342/Manufacturer> .
-_:genid9 <http://www.w3.org/2000/01/rdf-schema#label> "Manufacturer"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:genid9 <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "Manufacturer"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:genid9 <https://admin-shell.io/aas/3/0/RC01/Property/valueType> "xsd:string"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:genid9 <https://admin-shell.io/aas/3/0/RC01/Property/valueId> _:genid10 .
-_:genid9 <https://admin-shell.io/aas/3/0/RC01/Property/value> "https://i40.customer.com/type/F13E8576F6488342/Manufacturer"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/GlobalReference> .
-_:genid10 <https://admin-shell.io/aas/3/0/RC01/GlobalReference/value> "https://i40.customer.com/type/F13E8576F6488342/Manufacturer"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC01/GlobalReference> .
-_:genid12 <https://admin-shell.io/aas/3/0/RC01/GlobalReference/value> "0173-1#01-ADN198#009"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://customer.com/aas/9175_7013_7091_9168> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell> .
+<http://customer.com/aas/9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "ExampleMotor"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://customer.com/aas/9175_7013_7091_9168> <http://www.w3.org/2000/01/rdf-schema#label> "ExampleMotor"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://customer.com/aas/9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC02/Referable/description> "A very short description of the AAS instance" .
+<http://customer.com/aas/9175_7013_7091_9168> <http://www.w3.org/2000/01/rdf-schema#comment> "A very short description of the AAS instance."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://customer.com/aas/9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://customer.com/aas/9175_7013_7091_9168"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://customer.com/aas/9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/assetInformation> _:AssetInformation.
+<http://customer.com/aas/9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodel> _:Submodel1.
+<http://customer.com/aas/9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodel> _:Submodel2 .
+<http://customer.com/aas/9175_7013_7091_9168> <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodel> _:Submodel3 .
+_:AssetInformation<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/AssetInformation> .
+_:AssetInformation<https://admin-shell.io/aas/3/0/RC02/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/RC02/AssetKind/Instance> .
+_:AssetInformation<https://admin-shell.io/aas/3/0/RC02/AssetInformation/globalAssetId> _:GlobalAssetId1.
+_:GlobalAssetId1<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/GlobalReference> .
+_:GlobalAssetId1<https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://customer.com/assets/KHBVZJSQKIY"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Submodel1<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ModelReference> .
+_:Submodel1<https://admin-shell.io/aas/3/0/RC02/ModelReference/key> _:Key1 .
+_:Key1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Key> .
+_:Key1 <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/Submodel> .
+_:Key1 <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/1/1/7A7104BDAB57E184"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Submodel2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ModelReference> .
+_:Submodel2 <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> _:Key2 .
+_:Key2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Key> .
+_:Key2 <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/Submodel> .
+_:Key2 <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/instance/1/1/AC69B1CB44F07935"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Submodel3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ModelReference> .
+_:Submodel3 <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> _:Key3 .
+_:Key3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Key> .
+_:Key3 <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/keyElements/Submodel> .
+_:Key3 <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/1/1/1A7B62B529F19152"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/1/1/7A7104BDAB57E184> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Submodel> .
+<http://i40.customer.com/type/1/1/7A7104BDAB57E184> <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "TechnicalData"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/1/1/7A7104BDAB57E184> <http://www.w3.org/2000/01/rdf-schema#label> "TechnicalData"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/1/1/7A7104BDAB57E184> <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/type/1/1/7A7104BDAB57E184"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/1/1/7A7104BDAB57E184> <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> .
+<http://i40.customer.com/type/1/1/7A7104BDAB57E184> <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> _:SemanticId1 .
+<http://i40.customer.com/type/1/1/7A7104BDAB57E184> <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> _:SubmodelElement1 .
+_:SemanticId1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/GlobalReference> .
+_:SemanticId1 <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#01-AFZ615#016"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:SubmodelElement1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Property> .
+_:SubmodelElement1 <http://www.w3.org/2000/01/rdf-schema#label> "MaxRotationSpeed"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:SubmodelElement1 <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "MaxRotationSpeed"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:SubmodelElement1 <https://admin-shell.io/aas/3/0/RC02/Property/valueType> "integer" .
+_:SubmodelElement1 <https://admin-shell.io/aas/3/0/RC02/Property/valueId> _:ValueId1 .
+_:SubmodelElement1 <https://admin-shell.io/aas/3/0/RC02/Property/value> "5000"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:ValueId1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ModelReference> .
+_:ValueId1 <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> _:Key4 .
+_:Key4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Key> .
+_:Key4 <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> .
+_:Key4 <https://admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#02-BAA120#008"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/instance/1/1/AC69B1CB44F07935> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Submodel> .
+<http://i40.customer.com/instance/1/1/AC69B1CB44F07935> <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "OperationalData"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/instance/1/1/AC69B1CB44F07935> <http://www.w3.org/2000/01/rdf-schema#label> "OperationalData"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/instance/1/1/AC69B1CB44F07935> <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/instance/1/1/AC69B1CB44F07935"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/instance/1/1/AC69B1CB44F07935> <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> .
+<http://i40.customer.com/instance/1/1/AC69B1CB44F07935> <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> _:SubmodelElement2 .
+_:SubmodelElement2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Property> .
+_:SubmodelElement2 <http://www.w3.org/2000/01/rdf-schema#label> "RotationSpeed"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:SubmodelElement2 <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "RotationSpeed"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:SubmodelElement2 <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> .
+_:SubmodelElement2 <https://admin-shell.io/aas/3/0/RC02/Property/valueType> "integer" .
+_:SubmodelElement2 <https://admin-shell.io/aas/3/0/RC02/Property/valueId> _:ValueId2 .
+_:SubmodelElement2 <https://admin-shell.io/aas/3/0/RC02/Property/value> "4370"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:ValueId2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ModelReference> .
+_:ValueId2 <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> _:Key5 .
+_:Key5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Key> .
+_:Key5 <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> .
+_:Key5 <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://customer.com/cd/1/1/18EBD56F6B43D895"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/1/1/1A7B62B529F19152> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Submodel> .
+<http://i40.customer.com/type/1/1/1A7B62B529F19152> <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Documentation"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/1/1/1A7B62B529F19152> <http://www.w3.org/2000/01/rdf-schema#label> "Documentation"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/1/1/1A7B62B529F19152> <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "<http://i40.customer.com/type/1A7B62B529F19152"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/1/1/1A7B62B529F19152> <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> .
+<http://i40.customer.com/type/1/1/1A7B62B529F19152> <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> _:SubmodelElement3 .
+<http://i40.customer.com/type/1/1/1A7B62B529F19152> <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> _:Value1 .
+<http://i40.customer.com/type/1/1/1A7B62B529F19152> <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> _:Value2 .
+_:SubmodelElement3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList> .
+_:SubmodelElement3 <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "OperatingManual"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:SubmodelElement3 <http://www.w3.org/2000/01/rdf-schema#label> "OperatingManual"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:SubmodelElement3 <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdListElement> _:SemanticIdListElement .
+_:SubmodelElement3 <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> .
+_:SemanticIdListElement <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/GlobalReference> .
+_:SemanticIdListElement <https://admin-shell.io/aas/3/0/RC02/Reference/key> _:Key6 .
+_:Key6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Key> .
+_:Key6 <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> .
+_:Key6 <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Value1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct> .
+_:Value1 <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct/value> _:Value2 .
+_:Value2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/File> .
+_:Value2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#subject> <http://i40.customer.com/type/7A7104BDAB57E184/OperatingManual/Title> .
+_:Value2 <http://www.w3.org/2000/01/rdf-schema#label> "Title"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Value2 <https://admin-shell.io/aas/3/0/RC02/File/valueType> "xsd:string" .
+_:Value2 <https://admin-shell.io/aas/3/0/RC02/File/value> "Operating Manual"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Value2 <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Title"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Value2 <https://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Value2 <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> _:SemanticId2 .
+_:Value2 <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> .
+_:SemanticId2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ModelReference> .
+_:SemanticId2 <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> _:Key7 .
+_:Key7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Key> .
+_:Key7 <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> .
+_:Key7 <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Value2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct> .
+_:Value2 <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct/value> _:Value3 .
+_:Value3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Property> .
+_:Value3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#subject> <http://i40.customer.com/type/7A7104BDAB57E184/OperatingManual/DigitalFile_PDF> .
+_:Value3 <http://www.w3.org/2000/01/rdf-schema#label> "DigitalFile_PDF"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Value3 <https://admin-shell.io/aas/3/0/RC02/File/valueType> "xsd:string" .
+_:Value3 <https://admin-shell.io/aas/3/0/RC02/File/value> "/aasx/OperatingManual.pdf"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Value3 <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DigitalFile_PDF"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Value3 <https://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Value3 <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> _:SemanticId3 .
+_:Value3 <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> .
+_:SemanticId3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ModelReference> .
+_:SemanticId3 <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> _:Key8 .
+_:Key8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/Key> .
+_:Key8 <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> .
+_:Key8 <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/escription/Title"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/F13E8576F6488342/MaxRotationSpeed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ConceptDescription> .
+<http://i40.customer.com/type/F13E8576F6488342/MaxRotationSpeed> <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "MaxRotationSpeed"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/F13E8576F6488342/MaxRotationSpeed> <http://www.w3.org/2000/01/rdf-schema#label> "MaxRotationSpeed"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/F13E8576F6488342/MaxRotationSpeed> <https://admin-shell.io/aas/3/0/RC02/Referable/category> "PROPERTY"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/F13E8576F6488342/MaxRotationSpeed> <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "0173-1#02-BAA120#008"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://i40.customer.com/type/F13E8576F6488342/MaxRotationSpeed> <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> _:DataSpecification1 .
+<http://i40.customer.com/type/F13E8576F6488342/MaxRotationSpeed> <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> _:DataSpecificationContent1 .
+_:DataSpecification1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/GlobalReference> .
+_:DataSpecification1 <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> .
+_:DataSpecificationContent1 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Max. rotation speed"@en .
+_:DataSpecificationContent1 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "max. Drehzahl"@de .
+_:DataSpecificationContent1 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unit> "1/min"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent1 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unitId> _:UnitId1 .
+_:DataSpecificationContent1 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType> "IntegerMeasure"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent1 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "H\u00F6chste zul\u00E4ssige Drehzahl, mit welcher der Motor oder die Speiseinheit betrieben werden darf"@de .
+_:DataSpecificationContent1 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "Greatest permissible rotation speed with which the motor or feeding unit may be operated"@en .
+_:UnitId1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/GlobalReference> .
+_:UnitId1 <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#05-AAA650#002"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://customer.com/cd/1/1/18EBD56F6B43D895> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ConceptDescription> .
+<http://customer.com/cd/1/1/18EBD56F6B43D895> <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "RotationSpeed"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://customer.com/cd/1/1/18EBD56F6B43D895> <http://www.w3.org/2000/01/rdf-schema#label> "RotationSpeed"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://customer.com/cd/1/1/18EBD56F6B43D895> <https://admin-shell.io/aas/3/0/RC02/Referable/category> "PROPERTY"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://customer.com/cd/1/1/18EBD56F6B43D895> <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://customer.com/cd/18EBD56F6B43D895/RotationSpeed"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://customer.com/cd/1/1/18EBD56F6B43D895> <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> _:DataSpecification2 .
+<http://customer.com/cd/1/1/18EBD56F6B43D895> <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> _:DataSpecificationContent2 .
+_:DataSpecification2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/GlobalReference> .
+_:DataSpecification2 <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> .
+_:DataSpecificationContent2 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Actual rotation speed"@en .
+_:DataSpecificationContent2 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Aktuelle Drehzahl"@de .
+_:DataSpecificationContent2 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unit> "1/min"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent2 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unitId> _:UnitId2 .
+_:DataSpecificationContent2 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType> "IntegerMeasure"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent2 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "Aktuelle Drehzahl, mit welcher der Motor oder die Speiseinheit betrieben wird."@de .
+_:DataSpecificationContent2 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "Actual rotation speed with which the motor or feeding unit is operated."@en .
+_:UnitId2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/GlobalReference> .
+_:UnitId2 <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#05-AAA650#002"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ConceptDescription> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document> <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Document"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document> <http://www.w3.org/2000/01/rdf-schema#label> "Document"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document> <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document> <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> _:DataSpecification3 .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document> <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> _:DataSpecificationContent3 .
+_:DataSpecification3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/GlobalReference> .
+_:DataSpecification3 <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplate/DataSpecificationIEC61360"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> .
+_:DataSpecificationContent3 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Document"@en .
+_:DataSpecificationContent3 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Dokument"@de .
+_:DataSpecificationContent3 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/shortName> "Document"@en .
+_:DataSpecificationContent3 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/sourceOfDefinition> "[ISO 15519-1:2010]"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent3 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType> "Entity"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent3 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "Feste und geordnete Menge von f\u00FCr die Verwendung durch Personen bestimmte Informationen, die verwaltet und als Einheit zwischen Benutzern und System ausgetauscht werden kann."@de .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ConceptDescription> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title> <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Title"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title> <http://www.w3.org/2000/01/rdf-schema#label> "Title"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title> <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title> <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> _:DataSpecification4 .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title> <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> _:DataSpecificationContent4 .
+_:DataSpecification4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/GlobalReference> .
+_:DataSpecification4 <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> .
+_:DataSpecificationContent4 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Titel"@en .
+_:DataSpecificationContent4 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Titel"@de .
+_:DataSpecificationContent4 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/shortName> "Titel"@en .
+_:DataSpecificationContent4 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType> "StringTranslatable"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent4 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "Sprachabh\u00E4ngiger Titel des Dokuments."@de .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/ConceptDescription> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile> <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DigitalFile"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile> <http://www.w3.org/2000/01/rdf-schema#label> "DigitalFile"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile> <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile> <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> _:DataSpecification5 .
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile> <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> _:DataSpecificationContent5 .
+_:DataSpecification5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/aas/3/0/RC02/GlobalReference> .
+_:DataSpecification5 <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> .
+_:DataSpecificationContent5 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Digital File"@en .
+_:DataSpecificationContent5 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/shortName> "DigitalFile"@en .
+_:DataSpecificationContent5 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType> "File"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:DataSpecificationContent5 <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "Eine Datei, die die DocumentVersion repr\u00E4sentiert. Neben der obligatorischen PDF/A Datei k\u00F6nnen weitere Dateien angegeben werden."@de .

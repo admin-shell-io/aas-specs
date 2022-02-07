@@ -6,29 +6,32 @@
 
 
 
-<http://i40.customer.com/type/F13E8576F6488342>
-      a <https://admin-shell.io/aas/3/0/RC02/Submodel> ;
-      rdfs:label "Identification"^^xsd:string ;
-      <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Identification"^^xsd:string ;
-      <https://admin-shell.io/aas/3/0/RC02/Referable/description> "Identification from Manufacturer"@en , "Hersteller-Identifikation"@de ;
-      rdfs:comment "Identification from Manufacturer"@en ;
-      rdfs:comment "Hersteller-Identifikation"@de ;
-      <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> [
-          a <https://admin-shell.io/aas/3/0/RC02/Property> ;
-          rdf:subject <http://i40.customer.com/type/F13E8576F6488342/Manufacturer> ;
-          rdfs:label "Manufacturer"^^xsd:string ;
-          <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Manufacturer"^^xsd:string ;
-          <https://admin-shell.io/aas/3/0/RC02/Property/valueType>  "xsd:string"^^xsd:string ;
-          <https://admin-shell.io/aas/3/0/RC02/Property/valueId> [
-              a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-              <https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://i40.customer.com/type/F13E8576F6488342/Manufacturer"^^xsd:string ;
-          ] ;
-          <https://admin-shell.io/aas/3/0/RC02/Property/value> "Manufacturer"^^xsd:string ;
-      ];
-      <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
-          a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
-          <https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#01-ADN198#009"^^xsd:string ;
-      ] ;
-      <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://i40.customer.com/type/F13E8576F6488342"^^xsd:string ;
-    #  <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+# Submodel
+<http://i40.customer.com/type/1/1/7A7104BDAB57E184>
+    a <https://admin-shell.io/aas/3/0/RC02/Submodel> ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "TechnicalData"^^xsd:string ;
+    rdfs:label "TechnicalData"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/type/1/1/7A7104BDAB57E184"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+    <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
+           a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#01-AFZ615#016"^^xsd:string ;
+    ] ;
+
+    <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> [
+         a  <https://admin-shell.io/aas/3/0/RC02/Property> ;
+         rdfs:label "MaxRotationSpeed"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "MaxRotationSpeed"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueType>  "integer" ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueId> [
+                  a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
+                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
+                    a <https://admin-shell.io/aas/3/0/RC02/Key> ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/type>  <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription>  ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#02-BAA120#008"^^xsd:string ;
+                  ]
+
+              ];
+          <https://admin-shell.io/aas/3/0/RC02/Property/value> "5000"^^xsd:string ;
+    ];
 .
