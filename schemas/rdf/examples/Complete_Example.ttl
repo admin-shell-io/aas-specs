@@ -14,6 +14,12 @@
       <https://admin-shell.io/aas/3/0/RC01/Referable/description> "A very short description of the AAS instance" ;
       rdfs:comment "A very short description of the AAS instance."^^xsd:string ;
 
+      <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
+         a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
+         <https://admin-shell.io/aas/3/0/RC01/Identifier/id> "http://customer.com/aas/9175_7013_7091_9168"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> ;
+      ] ;
+
       <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/assetInformation> [
           a <https://admin-shell.io/aas/3/0/RC01/AssetInformation> ;
           <https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/RC01/AssetKind/Instance> ;
@@ -55,11 +61,7 @@
             <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> ;
           ]
       ];
-      <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
-         a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
-         <https://admin-shell.io/aas/3/0/RC01/Identifier/id> "http://customer.com/aas/9175_7013_7091_9168"^^xsd:string ;
-         <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> ;
-      ] ;
+
 .
 
 # Asset
@@ -103,6 +105,37 @@
 
               ];
               <https://admin-shell.io/aas/3/0/RC01/Property/value> "5000"^^xsd:string ;
+    ];
+.
+
+# Submodel
+<http://i40.customer.com/instance/1/1/AC69B1CB44F07935>
+    a <https://admin-shell.io/aas/3/0/RC01/Submodel> ;
+    <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "OperationalData"^^xsd:string ;
+    rdfs:label "OperationalData"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
+         a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
+         <https://admin-shell.io/aas/3/0/RC01/Identifier/id> "http://i40.customer.com/instance/1/1/AC69B1CB44F07935"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC01/Identifier/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri>;
+      ] ;
+    <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> <https://admin-shell.io/aas/3/0/RC01/ModelingKind/Instance> ;
+
+        <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> [
+             a  <https://admin-shell.io/aas/3/0/RC01/Property> ;
+             rdfs:label "RotationSpeed"^^xsd:string ;
+             <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "RotationSpeed"^^xsd:string ;
+             <https://admin-shell.io/aas/3/0/RC01/Property/valueType>  "integer" ;
+             <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId> [
+                  a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
+                  <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+                    a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+                    <https://admin-shell.io/aas/3/0/RC01/Key/type>  <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ConceptDescription>  ;
+                    <https://admin-shell.io/aas/3/0/RC01/Key/value> "http://customer.com/cd/1/1/18EBD56F6B43D895"^^xsd:string ;
+                    <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/KeyType/Iri>
+                  ]
+
+              ];
+              <https://admin-shell.io/aas/3/0/RC01/Property/value> "4370"^^xsd:string ;
     ];
 .
 
@@ -299,13 +332,13 @@
 .
 
 # ConceptDescription
-<http://customer.com/cd/1/1/18EBD56F6B43D895/RotationSpeed> rdf:type aas:ConceptDescription ;
+<http://customer.com/cd/1/1/18EBD56F6B43D895> rdf:type aas:ConceptDescription ;
     <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "RotationSpeed"^^xsd:string ;
     rdfs:label "RotationSpeed"^^xsd:string ;
     <https://admin-shell.io/aas/3/0/RC01/Referable/category> "PROPERTY"^^xsd:string ;
     <https://admin-shell.io/aas/3/0/RC01/Identifiable/identification> [
         a <https://admin-shell.io/aas/3/0/RC01/Identifier> ;
-        <https://admin-shell.io/aas/3/0/RC01/Identifier/id> "http://customer.com/cd/1/1/18EBD56F6B43D895/RotationSpeed"^^xsd:string ;
+        <https://admin-shell.io/aas/3/0/RC01/Identifier/id> "http://customer.com/cd/1/1/18EBD56F6B43D895"^^xsd:string ;
         <https://admin-shell.io/aas/3/0/RC01/Identifier/idType>  <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Iri> ;
      ] ;
 
