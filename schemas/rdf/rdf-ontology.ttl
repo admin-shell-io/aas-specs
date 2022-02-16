@@ -684,35 +684,6 @@ iec61360:DATE rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "date according to IEC61360"^^xsd:string ;
     rdfs:seeAlso xsd:date ;
 .
-###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/BOOLEAN
-iec61360:BOOLEAN rdf:type iec61360:DataTypeIEC61360 ;
-    rdfs:label "boolean according to IEC61360"^^xsd:string ;
-    rdfs:seeAlso xsd:boolean ;
-.
-###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/INTEGER_CURRENCY
-iec61360:INTEGER_CURRENCY rdf:type iec61360:DataTypeIEC61360 ;
-    rdfs:label "integer currency according to IEC61360"^^xsd:string ;
-.
-###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/INTEGER_COUNT
-iec61360:INTEGER_COUNT rdf:type iec61360:DataTypeIEC61360 ;
-    rdfs:label "integer count according to IEC61360"^^xsd:string ;
-.
-###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/INTEGER_MEASURE
-iec61360:INTEGER_MEASURE rdf:type iec61360:DataTypeIEC61360 ;
-    rdfs:label "integer measure according to IEC61360"^^xsd:string ;
-.
-###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/INTEGER_CURRENCY
-iec61360:INTEGER_CURRENCY rdf:type iec61360:DataTypeIEC61360 ;
-    rdfs:label "real currency according to IEC61360"^^xsd:string ;
-.
-###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/REAL_COUNT
-iec61360:REAL_COUNT rdf:type iec61360:DataTypeIEC61360 ;
-    rdfs:label "real count according to IEC61360"^^xsd:string ;
-.
-###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/REAL_MEASURE
-iec61360:REAL_MEASURE rdf:type iec61360:DataTypeIEC61360 ;
-    rdfs:label "real measure according to IEC61360"^^xsd:string ;
-.
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/STRING
 iec61360:STRING rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "string according to IEC61360"^^xsd:string ;
@@ -723,13 +694,46 @@ iec61360:STRING_TRANSLATABLE rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "translatable string according to IEC61360"^^xsd:string ;
     rdfs:seeAlso rdf:langString ;
 .
-###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/RATIONAL_MEASURE
-iec61360:RATIONAL_MEASURE rdf:type iec61360:DataTypeIEC61360 ;
-    rdfs:label "retional measure according to IEC61360"^^xsd:string ;
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/INTEGER_MEASURE
+iec61360:INTEGER_MEASURE rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "integer measure according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/INTEGER_COUNT
+iec61360:INTEGER_COUNT rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "integer count according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/INTEGER_CURRENCY
+iec61360:INTEGER_CURRENCY rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "integer currency according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/REAL_MEASURE
+iec61360:REAL_MEASURE rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "real measure according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/REAL_COUNT
+iec61360:REAL_COUNT rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "real count according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/REAL_CURRENCY
+iec61360:INTEGER_CURRENCY rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "real currency according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/BOOLEAN
+iec61360:BOOLEAN rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "boolean according to IEC61360"^^xsd:string ;
+    rdfs:seeAlso xsd:boolean ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/URL
+iec61360:URL rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "url according to IEC61360"^^xsd:string ;
 .
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/RATIONAL
 iec61360:RATIONAL rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "retional according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/RATIONAL_MEASURE
+iec61360:RATIONAL_MEASURE rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "retional measure according to IEC61360"^^xsd:string ;
 .
 ###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/TIME
 iec61360:TIME rdf:type iec61360:DataTypeIEC61360 ;
@@ -739,10 +743,6 @@ iec61360:TIME rdf:type iec61360:DataTypeIEC61360 ;
 iec61360:TIMESTAMP rdf:type iec61360:DataTypeIEC61360 ;
     rdfs:label "time stamp according to IEC61360"^^xsd:string ;
     rdfs:seeAlso xsd:dateTime ;
-.
-###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/URL
-iec61360:URL rdf:type iec61360:DataTypeIEC61360 ;
-    rdfs:label "url according to IEC61360"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Entity
@@ -1004,7 +1004,7 @@ aas:IdentifiableElements rdf:type owl:Class ;
     rdfs:label "Asset Administration Shell"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/CONCEPT_DESCRIPTION_
+###  https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/CONCEPT_DESCRIPTION
 <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/CONCEPT_DESCRIPTION> rdf:type aas:IdentifiableElements ;
     rdfs:label "Concept Description"^^xsd:string ;
 .
@@ -1148,7 +1148,7 @@ aas:KeyElements rdf:type owl:Class ;
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/PROPERTY>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/RANGE>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/REFERENCE_ELEMENT>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/RELATIONSHIPT_ELEMENT>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/RELATIONSHIP_ELEMENT>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/SUBMODEL_ELEMENT>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/SUBMODEL_ELEMENT_COLLECTION>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/VIEW>
@@ -1183,7 +1183,7 @@ aas:KeyType rdf:type owl:Class ;
         <https://admin-shell.io/aas/3/0/RC01/IdentifierType/IRI>
         <https://admin-shell.io/aas/3/0/RC01/IdentifierType/CUSTOM>
 
-        <https://admin-shell.io/aas/3/0/RC01/LocalKeyType/IDSHORT>
+        <https://admin-shell.io/aas/3/0/RC01/LocalKeyType/ID_SHORT>
         <https://admin-shell.io/aas/3/0/RC01/LocalKeyType/FRAGMENT_ID>
     ) ;
 .
@@ -1230,13 +1230,13 @@ aas:LocalKeyType rdf:type owl:Class ;
     rdfs:label "Local Key Type"^^xsd:string ;
     rdfs:comment "Enumeration of different key value types within a key."@en ;
     owl:oneOf (
-       <https://admin-shell.io/aas/3/0/RC01/LocalKeyType/IDSHORT>
+       <https://admin-shell.io/aas/3/0/RC01/LocalKeyType/ID_SHORT>
        <https://admin-shell.io/aas/3/0/RC01/LocalKeyType/FRAGMENT_ID>
     ) ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/LocalKeyType/IDSHORT
-<https://admin-shell.io/aas/3/0/RC01/LocalKeyType/IDSHORT> rdf:type aas:LocalKeyType ;
+###  https://admin-shell.io/aas/3/0/RC01/LocalKeyType/ID_SHORT
+<https://admin-shell.io/aas/3/0/RC01/LocalKeyType/ID_SHORT> rdf:type aas:LocalKeyType ;
     rdfs:label "IdShort"^^xsd:string ;
     rdfs:comment "idShort of a referable element"@en ;
 .
@@ -1662,7 +1662,7 @@ aas:ReferableElements rdf:type owl:Class ;
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/PROPERTY>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/RANGE>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/REFERENCE_ELEMENT>
-        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/RELATIONSHIPT_ELEMENT>
+        <https://admin-shell.io/aas/3/0/RC01/ReferableElements/RELATIONSHIP_ELEMENT>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/SUBMODEL_ELEMENT>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/SUBMODEL_ELEMENT_COLLECTION>
         <https://admin-shell.io/aas/3/0/RC01/ReferableElements/VIEW>
@@ -1743,8 +1743,8 @@ aas:ReferableElements rdf:type owl:Class ;
     rdfs:label "Reference Element"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/RELATIONSHIPT_ELEMENT
-<https://admin-shell.io/aas/3/0/RC01/ReferableElements/RELATIONSHIPT_ELEMENT> rdf:type aas:ReferableElements ;
+###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/RELATIONSHIP_ELEMENT
+<https://admin-shell.io/aas/3/0/RC01/ReferableElements/RELATIONSHIP_ELEMENT> rdf:type aas:ReferableElements ;
     rdfs:label "Relationship Element"^^xsd:string ;
 .
 
