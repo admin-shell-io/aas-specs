@@ -7,7 +7,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @base <https://admin-shell.io/aas/3/0/RC01/> .
@@ -16,7 +15,6 @@
     vann:preferredNamespaceUri "https://admin-shell.io/aas/3/0/RC01/"^^xsd:anyURI ;
     owl:versionInfo "3.0.RC01" ;
     rdfs:comment "This ontology represents the data model for the Asset Administration Shell according to the specification 'Details of the Asset Administration Shell - Part 1 - Version 3.0.RC01'."@en ;
-    skos:prefLabel "aas"^^xsd:string ;
     vann:preferredNamespacePrefix "aas"^^xsd:string ;
     rdfs:isDefinedBy <https://admin-shell.io/aas/3/0/RC01/> ;
 .
@@ -39,7 +37,6 @@ aas:AccessControl rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/AccessControl/selectableSubjectAttributes> rdf:type owl:ObjectProperty ;
     rdfs:comment "Reference to a submodel defining the authenticated subjects that are configured for the AAS. They are selectable by the access permission rules to assign permissions to the subjects."@en ;
     rdfs:label "has selectable subject attributes"^^xsd:string ;
-    skos:note "Default: reference to the submodel referenced via defaultSubjectAttributes."@en ;
     rdfs:domain aas:AccessControl ;
     rdfs:range aas:Submodel ;
 .
