@@ -55,53 +55,7 @@
               "type": "string"
             },
             "valueType": {
-              "type": "string",
-              "enum": [
-                "anyUri",
-                "base64Binary",
-                "boolean",
-                "date",
-                "dateTime",
-                "dateTimeStamp",
-                "decimal",
-                "integer",
-                "long",
-                "int",
-                "short",
-                "byte",
-                "nonNegativeInteger",
-                "positiveInteger",
-                "unsignedLong",
-                "unsignedInt",
-                "unsignedShort",
-                "unsignedByte",
-                "nonPositiveInteger",
-                "negativeInteger",
-                "double",
-                "duration",
-                "dayTimeDuration",
-                "yearMonthDuration",
-                "float",
-                "gDay",
-                "gMonth",
-                "gMonthDay",
-                "gYear",
-                "gYearMonth",
-                "hexBinary",
-                "NOTATION",
-                "QName",
-                "string",
-                "normalizedString",
-                "token",
-                "language",
-                "Name",
-                "NCName",
-                "ENTITY",
-                "ID",
-                "IDREF",
-                "NMTOKEN",
-                "time"
-              ]
+              "$ref": "#/definitions/DataTypeDef"
             },
             "value": {
               "type": "string"
@@ -578,53 +532,7 @@
         {
           "properties": {
             "valueType": {
-              "type": "string",
-              "enum": [
-                "anyUri",
-                "base64Binary",
-                "boolean",
-                "date",
-                "dateTime",
-                "dateTimeStamp",
-                "decimal",
-                "integer",
-                "long",
-                "int",
-                "short",
-                "byte",
-                "nonNegativeInteger",
-                "positiveInteger",
-                "unsignedLong",
-                "unsignedInt",
-                "unsignedShort",
-                "unsignedByte",
-                "nonPositiveInteger",
-                "negativeInteger",
-                "double",
-                "duration",
-                "dayTimeDuration",
-                "yearMonthDuration",
-                "float",
-                "gDay",
-                "gMonth",
-                "gMonthDay",
-                "gYear",
-                "gYearMonth",
-                "hexBinary",
-                "NOTATION",
-                "QName",
-                "string",
-                "normalizedString",
-                "token",
-                "language",
-                "Name",
-                "NCName",
-                "ENTITY",
-                "ID",
-                "IDREF",
-                "NMTOKEN",
-                "time"
-              ]
+              "$ref": "#/definitions/DataTypeDef"
             },
             "min": {
               "type": "string"
@@ -991,6 +899,55 @@
         "Custom"
       ]
     },
+    "DataTypeDef": {
+      "type": "string",
+      "enum": [
+        "anyUri",
+        "base64Binary",
+        "boolean",
+        "date",
+        "dateTime",
+        "dateTimeStamp",
+        "decimal",
+        "integer",
+        "long",
+        "int",
+        "short",
+        "byte",
+        "nonNegativeInteger",
+        "positiveInteger",
+        "unsignedLong",
+        "unsignedInt",
+        "unsignedShort",
+        "unsignedByte",
+        "nonPositiveInteger",
+        "negativeInteger",
+        "double",
+        "duration",
+        "dayTimeDuration",
+        "yearMonthDuration",
+        "float",
+        "gDay",
+        "gMonth",
+        "gMonthDay",
+        "gYear",
+        "gYearMonth",
+        "hexBinary",
+        "NOTATION",
+        "QName",
+        "string",
+        "normalizedString",
+        "token",
+        "language",
+        "Name",
+        "NCName",
+        "ENTITY",
+        "ID",
+        "IDREF",
+        "NMTOKEN",
+        "time"
+      ]
+    },
     "LangString": {
       "type": "object",
       "properties": {
@@ -1014,6 +971,26 @@
         {
           "$ref": "#/definitions/DataSpecificationPhysicalUnitContent"
         }
+      ]
+    },
+    "DataTypeIEC61360": {
+      "type": "string",
+      "enum": [
+        "DATE",
+        "STRING",
+        "STRING_TRANSLATABLE",
+        "INTEGER_MEASURE",
+        "INTEGER_COUNT",
+        "INTEGER_CURRENCY",
+        "REAL_MEASURE",
+        "REAL_COUNT",
+        "REAL_CURRENCY",
+        "BOOLEAN",
+        "URL",
+        "RATIONAL",
+        "RATIONAL_MEASURE",
+        "TIME",
+        "TIMESTAMP"
       ]
     },
     "LevelType": {
@@ -1049,23 +1026,7 @@
           "type": "object",
           "properties": {
             "dataType": {
-              "enum": [
-                "DATE",
-                "STRING",
-                "STRING_TRANSLATABLE",
-                "REAL_MEASURE",
-                "REAL_COUNT",
-                "REAL_CURRENCY",
-                "BOOLEAN",
-                "URL",
-                "RATIONAL",
-                "RATIONAL_MEASURE",
-                "TIME",
-                "TIMESTAMP",
-                "INTEGER_COUNT",
-                "INTEGER_MEASURE",
-                "INTEGER_CURRENCY"
-              ]
+              "$ref": "#/definitions/DataTypeIEC61360"
             },
             "definition": {
               "type": "array",
@@ -1213,13 +1174,7 @@
           "$ref": "#/definitions/Reference"
         },
         "kindOfPermission": {
-          "type": "string",
-          "enum": [
-            "Allow",
-            "Deny",
-            "NotApplicable",
-            "Undefined"
-          ]
+          "$ref": "#/definitions/PermissionKind"
         }
       },
       "required": [
@@ -1417,6 +1372,15 @@
         "accessControlPolicyPoints"
       ]
     },
+    "PermissionKind": {
+      "type": "string",
+      "enum": [
+        "Allow",
+        "Deny",
+        "NotApplicable",
+        "Undefined"
+      ]
+    },
     "ModelTypes": {
       "type": "string",
       "enum": [
@@ -1492,53 +1456,7 @@
           "$ref": "#/definitions/Reference"
         },
         "valueType": {
-          "type": "string",
-          "enum": [
-            "anyUri",
-            "base64Binary",
-            "boolean",
-            "date",
-            "dateTime",
-            "dateTimeStamp",
-            "decimal",
-            "integer",
-            "long",
-            "int",
-            "short",
-            "byte",
-            "nonNegativeInteger",
-            "positiveInteger",
-            "unsignedLong",
-            "unsignedInt",
-            "unsignedShort",
-            "unsignedByte",
-            "nonPositiveInteger",
-            "negativeInteger",
-            "double",
-            "duration",
-            "dayTimeDuration",
-            "yearMonthDuration",
-            "float",
-            "gDay",
-            "gMonth",
-            "gMonthDay",
-            "gYear",
-            "gYearMonth",
-            "hexBinary",
-            "NOTATION",
-            "QName",
-            "string",
-            "normalizedString",
-            "token",
-            "language",
-            "Name",
-            "NCName",
-            "ENTITY",
-            "ID",
-            "IDREF",
-            "NMTOKEN",
-            "time"
-          ]
+          "$ref": "#/definitions/DataTypeDef"
         }
       }
     }
