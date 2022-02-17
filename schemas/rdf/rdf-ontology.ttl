@@ -35,7 +35,7 @@ aas:AccessControl rdf:type owl:Class ;
     rdfs:comment "Reference to a submodel defining the authenticated subjects that are configured for the AAS. They are selectable by the access permission rules to assign permissions to the subjects."@en ;
     rdfs:label "has selectable subject attributes"^^xsd:string ;
     rdfs:domain aas:AccessControl ;
-    rdfs:range aas:Submodel ;
+    rdfs:range aas:Reference ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AccessControl/defaultSubjectAttributes
@@ -43,7 +43,7 @@ aas:AccessControl rdf:type owl:Class ;
     rdfs:comment "Reference to a submodel defining the default subjects attributes for the AAS that can be used to describe access permission rules."@en ;
     rdfs:label "has default subject attributes"^^xsd:string ;
     rdfs:domain aas:AccessControl ;
-    rdfs:range aas:Submodel ;
+    rdfs:range aas:Reference ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AccessControl/selectablePermissions
@@ -51,7 +51,7 @@ aas:AccessControl rdf:type owl:Class ;
     rdfs:comment "Reference to a submodel defining which permissions can be assigned to the subjects."@en ;
     rdfs:label "has selectable permissions"^^xsd:string ;
     rdfs:domain aas:AccessControl ;
-    rdfs:range aas:Submodel ;
+    rdfs:range aas:Reference ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AccessControl/defaultPermissions
@@ -59,7 +59,7 @@ aas:AccessControl rdf:type owl:Class ;
     rdfs:comment "Reference to a submodel defining the default permissions for the AAS."@en ;
     rdfs:label "has default permissions"^^xsd:string ;
     rdfs:domain aas:AccessControl ;
-    rdfs:range aas:Submodel ;
+    rdfs:range aas:Reference ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AccessControl/selectableEnvironmentAttributes
@@ -67,7 +67,7 @@ aas:AccessControl rdf:type owl:Class ;
     rdfs:comment "Reference to a submodel defining which environment attributes can be accessed via the permission rules."@en ;
     rdfs:label "has selectable environment attributes"^^xsd:string ;
     rdfs:domain aas:AccessControl ;
-    rdfs:range aas:Submodel ;
+    rdfs:range aas:Reference ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AccessControl/defaultEnvironmentAttributes
@@ -75,7 +75,7 @@ aas:AccessControl rdf:type owl:Class ;
     rdfs:comment "Reference to a submodel defining default environment attributes, i.e. attributes that are not describing the asset itself. The submodel is of kind=Type. At the same type the values of these environment attributes need to be accessible when evaluating the access permission rules. This is realized as a policy information point."@en ;
     rdfs:label "has default environment attributes"^^xsd:string ;
     rdfs:domain aas:AccessControl ;
-    rdfs:range aas:Submodel ;
+    rdfs:range aas:Reference ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints
@@ -1366,7 +1366,7 @@ aas:ObjectAttributes rdf:type owl:Class ;
     rdfs:comment "A data elements that further classifies an object."@en ;
     rdfs:label "has object attributes"^^xsd:string ;
     rdfs:domain aas:ObjectAttributes ;
-    rdfs:range aas:DataElement ;
+    rdfs:range aas:Reference ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Operation
@@ -1425,7 +1425,7 @@ aas:Permission rdf:type owl:Class ;
     rdfs:comment "Reference to a property that defines the semantics of the permission."@en ;
     rdfs:label "has permission"^^xsd:string ;
     rdfs:domain aas:Permission ;
-    rdfs:range aas:Property ;
+    rdfs:range aas:Reference ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Permission/kindOfPermission
