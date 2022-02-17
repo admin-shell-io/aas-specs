@@ -335,35 +335,31 @@
       ]
     },
     "AssetInformation": {
-      "allOf": [
-        {
-          "properties": {
-            "assetKind": {
-              "$ref": "#/definitions/AssetKind"
-            },
-            "globalAssetId": {
-              "$ref": "#/definitions/Reference"
-            },
-            "specificAssetIds": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/IdentifierKeyValuePair"
-              }
-            },
-            "billOfMaterial": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Reference"
-              }
-            },
-            "thumbnail": {
-              "$ref": "#/definitions/File"
-            }
-          },
-          "required": [
-            "assetKind"
-          ]
+      "properties": {
+        "assetKind": {
+          "$ref": "#/definitions/AssetKind"
+        },
+        "globalAssetId": {
+          "$ref": "#/definitions/Reference"
+        },
+        "specificAssetIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IdentifierKeyValuePair"
+          }
+        },
+        "billOfMaterial": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reference"
+          }
+        },
+        "thumbnail": {
+          "$ref": "#/definitions/File"
         }
+      },
+      "required": [
+        "assetKind"
       ]
     },
     "AssetKind": {
