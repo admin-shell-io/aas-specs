@@ -6,7 +6,7 @@ https://github.com/admin-shell-io/aas-specs/workflows/Check/badge.svg
 https://github.com/admin-shell-io/aas-specs/actions?query=workflow%3ACheck
 )
 [![Creative Commons License](
-https://i.creativecommons.org/l/by-nd/3.0/88x31.png
+https://licensebuttons.net/l/by/4.0/88x31.png
 )](
 http://creativecommons.org/licenses/by-nd/3.0/
 )
