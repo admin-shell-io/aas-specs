@@ -57,7 +57,7 @@ If you want to contribute, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-This work is licensed under a [Creative Commons Attribution-NoDerivs 3.0 Unported License](
-http://creativecommons.org/licenses/by-nd/3.0/). The implementation uses the concepts of the
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). The implementation uses the concepts of the
 document "Details of the Asset Administration Shell" published on www.plattform-i40.de
-which is licensed under Creative Commons CC BY-ND 3.0 DE.
+which is licensed under Creative Commons CC BY 4.0.
