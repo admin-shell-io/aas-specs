@@ -289,7 +289,7 @@ aas:AssetInformation rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetInformation ;
     rdfs:range aas:Reference ;
-    rdfs:comment "Reference to either an Asset object or a global reference to the asset the AAS is representing. This attribute is required as soon as the AAS is exchanged via partners in the life cycle of the asset. In a first phase of the life cycle the asset might not yet have a global id but already an internal identifier. The internal identifier would be modelled via 'externalAssetId'."@en ;
+    rdfs:comment "Reference to either an Asset object or a global reference to the asset the AAS is representing. This attribute is required as soon as the AAS is exchanged via partners in the life cycle of the asset. In a first phase of the life cycle the asset might not yet have a global ID but already an internal identifier. The internal identifier would be modelled via 'externalAssetId'."@en ;
     rdfs:label "has global asset id"^^xsd:string ;
 .
 
@@ -365,7 +365,7 @@ aas:Blob rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/Blob/mimeType> rdf:type owl:DatatypeProperty ;
     rdfs:domain aas:Blob ;
     rdfs:range xsd:string ;
-    rdfs:comment "Mime type of the content of the BLOB. The mime type states which file extension the file has. Valid values are e.g. 'application/json', 'application/xls', 'image/jpg' The allowed values are defined as in RFC2046."@en ;
+    rdfs:comment "Mime type of the content of the BLOB. The mime type states which file extension the file has. ValID values are e.g. 'application/json', 'application/xls', 'image/jpg' The allowed values are defined as in RFC2046."@en ;
     rdfs:label "has mimetype"^^xsd:string ;
     rdfs:seeAlso "http://uri4uri.net/vocab.html/#MimetypeDatatype"^^xsd:string ;
 .
@@ -577,8 +577,8 @@ iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
     rdfs:range xsd:string ;
 .
 
-###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueId
-<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueId> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueID
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueID> rdf:type owl:ObjectProperty ;
     rdfs:label "has value id"^^xsd:string ;
     rdfs:domain iec61360:DataSpecificationIEC61360 ;
     rdfs:range aas:Reference ;
@@ -1010,15 +1010,15 @@ aas:HasKind rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/HasSemantics
 aas:HasSemantics rdf:type owl:Class ;
     rdfs:label "Has Semantics"^^xsd:string ;
-    rdfs:comment "Element that can have a semantic definition. Identifier of the semantic definition of the element. It is called semantic id of the element. The semantic id may either reference an external global id or it may reference a referable model element of kind=Type that defines the semantics of the element."@en ;
+    rdfs:comment "Element that can have a semantic definition. Identifier of the semantic definition of the element. It is called semantic ID of the element. The semantic ID may either reference an external global ID or it may reference a referable model element of kind=Type that defines the semantics of the element."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId
-<https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticID
+<https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticID> rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf rdfs:seeAlso ;
     rdfs:label "has semantic ID"^^xsd:string ;
     rdfs:comment "Points to the Expression Semantic of the Submodels"@en ;
-    rdfs:comment "The semantic id might refer to an external information source, which explains the formulation of the submodel (for example an PDF if a standard)."@en ;
+    rdfs:comment "The semantic ID might refer to an external information source, which explains the formulation of the submodel (for example an PDF if a standard)."@en ;
     rdfs:domain aas:HasSemantics ;
     rdfs:range aas:Reference ;
 .
@@ -1347,9 +1347,9 @@ aas:MultiLanguageProperty rdf:type owl:Class ;
     rdfs:range rdf:langString ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueId
-<https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueId> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Reference to the global unqiue id of a coded value."@en ;
+###  https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueID
+<https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueID> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to the global unqiue ID of a coded value."@en ;
     rdfs:label "has value Id"^^xsd:string ;
     rdfs:domain aas:MultiLanguageProperty ;
     rdfs:range aas:Reference ;
@@ -1594,9 +1594,9 @@ aas:Property rdf:type owl:Class ;
     rdfs:domain aas:Property ;
     rdfs:range rdfs:Literal ;
 .
-###  https://admin-shell.io/aas/3/0/RC01/Property/valueId
-<https://admin-shell.io/aas/3/0/RC01/Property/valueId> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Reference to the global unique id of a coded value."@en ;
+###  https://admin-shell.io/aas/3/0/RC01/Property/valueID
+<https://admin-shell.io/aas/3/0/RC01/Property/valueID> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to the global unique ID of a coded value."@en ;
     rdfs:label "has property value id"^^xsd:string ;
     rdfs:domain aas:Property ;
     rdfs:range aas:Reference ;
@@ -1648,9 +1648,9 @@ aas:Qualifier rdf:type owl:Class ;
     rdfs:range xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Qualifier/valueId
-<https://admin-shell.io/aas/3/0/RC01/Qualifier/valueId> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Reference to the global unqiue id of a coded value."@en ;
+###  https://admin-shell.io/aas/3/0/RC01/Qualifier/valueID
+<https://admin-shell.io/aas/3/0/RC01/Qualifier/valueID> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to the global unqiue ID of a coded value."@en ;
     rdf:label "has qualifier value id"^^xsd:string ;
     rdfs:domain aas:Qualifier ;
     rdfs:range aas:Reference ;
@@ -1659,7 +1659,7 @@ aas:Qualifier rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/Range
 aas:Range rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
-    rdfs:comment "An element that is referable by its idShort. This id is not globally unique. This id is unique within the name space of the element."@en ;
+    rdfs:comment "An element that is referable by its idShort. This ID is not globally unique. This ID is unique within the name space of the element."@en ;
     rdfs:label "Range"^^xsd:string ;
 .
 
@@ -1690,7 +1690,7 @@ aas:Range rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/Referable
 aas:Referable rdf:type owl:Class ;
     rdfs:subClassOf aas:HasExtensions ;
-    rdfs:comment "An element that is referable by its idShort. This id is not globally unique. This id is unique within the name space of the element."@en ;
+    rdfs:comment "An element that is referable by its idShort. This ID is not globally unique. This ID is unique within the name space of the element."@en ;
     rdfs:label "Referable"^^xsd:string ;
 .
 
@@ -2029,22 +2029,22 @@ aas:ValueList rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/ValueReferencePair
 aas:ValueReferencePair rdf:type owl:Class ;
-    rdfs:comment "A value reference pair within a value list. Each value has a global unique id defining its semantic."@en ;
+    rdfs:comment "A value reference pair within a value list. Each value has a global unique ID defining its semantic."@en ;
     rdfs:label "Value Reference Pair"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/value
 <https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/value> rdf:type owl:DatatypeProperty ;
-    rdfs:comment "the value of the referenced concept definition of the value in valueId."@en ;
+    rdfs:comment "the value of the referenced concept definition of the value in valueID."@en ;
     rdfs:label "Value of value reference pair"^^xsd:string ;
     rdfs:domain aas:ValueReferencePair ;
     rdfs:range xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/valueId
-<https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/valueId> rdf:type owl:ObjectProperty ;
-    rdfs:comment "Global unique id of the value."@en ;
-    rdfs:label "Value id of value reference pair"^^xsd:string ;
+###  https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/valueID
+<https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/valueID> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Global unique ID of the value."@en ;
+    rdfs:label "Value ID of value reference pair"^^xsd:string ;
     rdfs:domain aas:ValueReferencePair ;
     rdfs:range aas:Reference ;
 .

@@ -582,9 +582,9 @@ iec61360:DataSpecificationIEC61360Shape a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueId> ;
+      sh:path <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/DataSpecificationIEC61360/valueID> ;
       sh:maxCount 1 ;
-      sh:message "(DataSpecificationIEC61360.valueId):A <i>valueId</i> must have a Reference"^^xsd:string ;
+      sh:message "(DataSpecificationIEC61360.valueID):A <i>valueID</i> must have a Reference"^^xsd:string ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
     ] ;
@@ -915,11 +915,11 @@ aas:HasSemanticsShape a sh:NodeShape ;
 
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticID> ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
-      sh:message "(HasSemantics.semanticId):Only one value for <i>semanticId</i> is allowed."^^xsd:string ;
+      sh:message "(HasSemantics.semanticID):Only one value for <i>semanticID</i> is allowed."^^xsd:string ;
     ] ;
 .
 
@@ -1021,11 +1021,11 @@ aas:MultiLanguagePropertyShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueId> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueID> ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
-      sh:message "(MultiLanguageProperty.valueId):Only one <i>valueId</i> attribute having a <i>Reference</i> is allowed"^^xsd:string ;
+      sh:message "(MultiLanguageProperty.valueID):Only one <i>valueID</i> attribute having a <i>Reference</i> is allowed"^^xsd:string ;
     ] ;
 .
 
@@ -1209,11 +1209,11 @@ aas:PropertyShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Property/valueId> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Property/valueID> ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
-      sh:message "(Property.valueId):Only one <i>valueId</i> is allowed"^^xsd:string ;
+      sh:message "(Property.valueID):Only one <i>valueID</i> is allowed"^^xsd:string ;
     ] ;
 .
 
@@ -1271,11 +1271,11 @@ aas:QualifierShape  a sh:NodeShape ;
     ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifier/valueId> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifier/valueID> ;
       sh:maxCount 1 ;
       sh:minCount 0 ;
       sh:class aas:Reference ;
-      sh:message "(Qualifier.valueId):Only one <i>valueId</i> having a <i>Reference</i> entity is allowed."^^xsd:string ;
+      sh:message "(Qualifier.valueID):Only one <i>valueID</i> having a <i>Reference</i> entity is allowed."^^xsd:string ;
     ] ;
 .
 
@@ -1597,11 +1597,11 @@ aas:ValueReferencePairShape a sh:NodeShape ;
   ] ;
   sh:property [
       a sh:PropertyShape ;
-      sh:path <https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/valueId> ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/valueID> ;
       sh:datatype aas:Reference ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
-	    sh:message "(ValueReferencePair.valueId):Only one <i>Reference</i> is allowed for <i>valueId</i>."^^xsd:string ;
+	    sh:message "(ValueReferencePair.valueID):Only one <i>Reference</i> is allowed for <i>valueID</i>."^^xsd:string ;
   ] ;
 .
 
