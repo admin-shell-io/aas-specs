@@ -144,10 +144,7 @@
               "type": "string"
             },
             "description": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LangString"
-              }
+              "$ref": "#/definitions/LangStringSet"
             },
             "modelType": {
               "$ref": "#/definitions/ModelType"
@@ -554,10 +551,7 @@
         {
           "properties": {
             "value": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LangString"
-              }
+              "$ref": "#/definitions/LangStringSet"
             },
             "valueId": {
               "$ref": "#/definitions/Reference"
@@ -1002,6 +996,12 @@
         "text"
       ]
     },
+    "LangStringSet": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/LangString"
+      }
+    },
     "DataSpecificationContent": {
       "oneOf": [
         {
@@ -1064,22 +1064,13 @@
               ]
             },
             "definition": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LangString"
-              }
+              "$ref": "#/definitions/LangStringSet"
             },
             "preferredName": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LangString"
-              }
+              "$ref": "#/definitions/LangStringSet"
             },
             "shortName": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LangString"
-              }
+              "$ref": "#/definitions/LangStringSet"
             },
             "unit": {
               "type": "string"
@@ -1122,10 +1113,7 @@
           "type": "string"
         },
         "definition": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LangString"
-          }
+          "$ref": "#/definitions/LangStringSet"
         },
         "siNotation": {
           "type": "string"
