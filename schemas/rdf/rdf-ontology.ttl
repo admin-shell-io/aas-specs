@@ -22,10 +22,10 @@ aas:AccessControl rdf:type owl:Class ;
     rdfs:label "Access Control"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/AccessControl/accessPermissionRule
+###  https://admin-shell.io/aas/3/0/RC01/AccessControl/accessPermissionRules
 <https://admin-shell.io/aas/3/0/RC01/AccessControl/accessPermissionRule> rdf:type owl:ObjectProperty ;
     rdfs:comment "Access permission rules of the AAS describing the rights assigned to (already authenticated) subjects to access elements of the AAS."@en ;
-    rdfs:label "has access permission rule"^^xsd:string ;
+    rdfs:label "has access permission rules"^^xsd:string ;
     rdfs:domain aas:AccessControl ;
     rdfs:range aas:AccessPermissionRule ;
 .
@@ -217,20 +217,20 @@ aas:AssetAdministrationShell rdf:type owl:Class ;
     rdfs:label "has assetInformation"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel
-<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodels
+<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodels> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetAdministrationShell ;
     rdfs:range aas:Reference ;
     rdfs:comment "Points from the Admin Shell to the Submodels that describe the Admin Shell of a given Asset"@en ;
-    rdfs:label "has Submodel"^^xsd:string ;
+    rdfs:label "has Submodels"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/view
-<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/view> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/views
+<https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/views> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetAdministrationShell;
     rdfs:range aas:View ;
     rdfs:comment "Points to the differents views associated to the Administration Shell via the Submodels."@en ;
-    rdfs:label "has View"^^xsd:string ;
+    rdfs:label "has Views"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment
@@ -290,15 +290,15 @@ aas:AssetInformation rdf:type owl:Class ;
     rdfs:domain aas:AssetInformation ;
     rdfs:range aas:Reference ;
     rdfs:comment "Reference to either an Asset object or a global reference to the asset the AAS is representing. This attribute is required as soon as the AAS is exchanged via partners in the life cycle of the asset. In a first phase of the life cycle the asset might not yet have a global id but already an internal identifier. The internal identifier would be modelled via 'externalAssetId'."@en ;
-	  rdfs:label "has global asset id"^^xsd:string ;
+    rdfs:label "has global asset id"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/specificAssetId
-<https://admin-shell.io/aas/3/0/RC01/AssetInformation/specificAssetId> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/specificAssetIds
+<https://admin-shell.io/aas/3/0/RC01/AssetInformation/specificAssetIds> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:AssetInformation ;
     rdfs:range aas:IdentifierKeyValuePair ;
     rdfs:comment "Additional domain-specific, typically proprietary Identifier for the asset like e.g. serial number etc."@en ;
-	  rdfs:label "has specific asset id"^^xsd:string ;
+    rdfs:label "has specific asset id"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial
@@ -823,9 +823,9 @@ aas:Entity rdf:type owl:Class ;
     rdfs:comment "Describes whether the entity is a co-managed entity or a self-managed entity."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Entity/statement
-<https://admin-shell.io/aas/3/0/RC01/Entity/statement> rdf:type owl:ObjectProperty ;
-    rdfs:label "has statement"^^xsd:string ;
+###  https://admin-shell.io/aas/3/0/RC01/Entity/statements
+<https://admin-shell.io/aas/3/0/RC01/Entity/statements> rdf:type owl:ObjectProperty ;
+    rdfs:label "has statements"^^xsd:string ;
     rdfs:comment "Describes statements applicable to the entity by a set of submodel elements, typically with a qualified value."@en ;
     rdfs:domain aas:Entity ;
     rdfs:range aas:SubmodelElement ;
@@ -1361,10 +1361,10 @@ aas:ObjectAttributes rdf:type owl:Class ;
     rdfs:label "Object Attributes"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/ObjectAttributes/objectAttribute
-<https://admin-shell.io/aas/3/0/RC01/ObjectAttributes/objectAttribute> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/ObjectAttributes/objectAttributes
+<https://admin-shell.io/aas/3/0/RC01/ObjectAttributes/objectAttributes> rdf:type owl:ObjectProperty ;
     rdfs:comment "A data elements that further classifies an object."@en ;
-    rdfs:label "has object attribute"^^xsd:string ;
+    rdfs:label "has object attributes"^^xsd:string ;
     rdfs:domain aas:ObjectAttributes ;
     rdfs:range aas:DataElement ;
 .
@@ -1376,26 +1376,26 @@ aas:Operation rdf:type owl:Class ;
     rdfs:label "Operation"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Operation/inputVariable
-<https://admin-shell.io/aas/3/0/RC01/Operation/inputVariable> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Operation/inputVariables
+<https://admin-shell.io/aas/3/0/RC01/Operation/inputVariables> rdf:type owl:ObjectProperty ;
     rdfs:comment "Input parameter of the operation."@en ;
-    rdfs:label "has input variable"^^xsd:string ;
+    rdfs:label "has input variables"^^xsd:string ;
     rdfs:domain aas:Operation ;
     rdfs:range aas:OperationVariable ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Operation/outputVariable
-<https://admin-shell.io/aas/3/0/RC01/Operation/outputVariable> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Operation/outputVariables
+<https://admin-shell.io/aas/3/0/RC01/Operation/outputVariables> rdf:type owl:ObjectProperty ;
     rdfs:comment "Output parameter of the operation."@en ;
-    rdfs:label "has output variable"^^xsd:string ;
+    rdfs:label "has output variables"^^xsd:string ;
     rdfs:domain aas:Operation ;
     rdfs:range aas:OperationVariable ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Operation/inoutputVariable
-<https://admin-shell.io/aas/3/0/RC01/Operation/inoutputVariable> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Operation/inoutputVariables
+<https://admin-shell.io/aas/3/0/RC01/Operation/inoutputVariables> rdf:type owl:ObjectProperty ;
     rdfs:comment "Parameter that is input and output of the operation."@en ;
-    rdfs:label "has input/output variable"^^xsd:string ;
+    rdfs:label "has input/output variables"^^xsd:string ;
     rdfs:domain aas:Operation ;
     rdfs:range aas:OperationVariable ;
 .
@@ -1493,10 +1493,10 @@ aas:PermissionsPerObject rdf:type owl:Class ;
     rdfs:range aas:ObjectAttributes ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/PermissionsPerObject/permission
-<https://admin-shell.io/aas/3/0/RC01/PermissionsPerObject/permission> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/PermissionsPerObject/permissions
+<https://admin-shell.io/aas/3/0/RC01/PermissionsPerObject/permissions> rdf:type owl:ObjectProperty ;
     rdfs:comment "Permissions assigned to the object. The permissions hold for all subjects as specified in the access permission rule."@en ;
-    rdfs:label "has object permission"^^xsd:string ;
+    rdfs:label "has object permissions"^^xsd:string ;
     rdfs:domain aas:PermissionsPerObject ;
     rdfs:range aas:Permission ;
 .
@@ -1565,10 +1565,10 @@ aas:PolicyInformationPoints rdf:type owl:Class ;
     rdfs:range xsd:boolean ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint
-<https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoints
+<https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoints> rdf:type owl:ObjectProperty ;
     rdfs:comment "References to submodels defining information used by security access permission rules."@en ;
-    rdfs:label "has internal information point"^^xsd:string ;
+    rdfs:label "has internal information points"^^xsd:string ;
     rdfs:domain aas:PolicyInformationPoints ;
     rdfs:range aas:Reference ;
 .
@@ -1608,10 +1608,10 @@ aas:Qualifiable rdf:type owl:Class ;
     rdfs:label "Qualifiable"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Qualifiable/qualifier
-<https://admin-shell.io/aas/3/0/RC01/Qualifiable/qualifier> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Qualifiable/qualifiers
+<https://admin-shell.io/aas/3/0/RC01/Qualifiable/qualifiers> rdf:type owl:ObjectProperty ;
     rdfs:comment "Additional qualification of a qualifiable element."@en ;
-    rdfs:label "has qualifier"^^xsd:string ;
+    rdfs:label "has qualifiers"^^xsd:string ;
     rdfs:domain aas:Qualifiable ;
     rdfs:range aas:Constraint ;
 .
@@ -1862,10 +1862,10 @@ aas:Reference rdf:type owl:Class ;
     rdfs:label "Reference"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Reference/key
-<https://admin-shell.io/aas/3/0/RC01/Reference/key> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Reference/keys
+<https://admin-shell.io/aas/3/0/RC01/Reference/keys> rdf:type owl:ObjectProperty ;
     rdfs:comment "Unique reference in its name space."@en ;
-    rdfs:label "has key"^^xsd:string ;
+    rdfs:label "has keys"^^xsd:string ;
     rdfs:domain aas:Reference ;
     rdfs:range aas:Key ;
 .
@@ -1921,18 +1921,18 @@ aas:Security rdf:type owl:Class ;
     rdfs:range aas:AccessControlPolicyPoints ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Security/certificate
-<https://admin-shell.io/aas/3/0/RC01/Security/certificate> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Security/certificates
+<https://admin-shell.io/aas/3/0/RC01/Security/certificates> rdf:type owl:ObjectProperty ;
     rdfs:comment "Certificates of the AAS."@en ;
-    rdfs:label "has certificate"^^xsd:string ;
+    rdfs:label "has certificates"^^xsd:string ;
     rdfs:domain aas:Security ;
     rdfs:range aas:Certificate ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Security/requiredCertificateExtension
-<https://admin-shell.io/aas/3/0/RC01/Security/requiredCertificateExtension> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Security/requiredCertificateExtensions
+<https://admin-shell.io/aas/3/0/RC01/Security/requiredCertificateExtensions> rdf:type owl:ObjectProperty ;
     rdfs:comment "Certificate extensions as required by the AAS."@en ;
-    rdfs:label "has required certificate extension"^^xsd:string ;
+    rdfs:label "has required certificate extensions"^^xsd:string ;
     rdfs:domain aas:Security ;
     rdfs:range aas:Reference ;
 .
@@ -1943,10 +1943,10 @@ aas:SubjectAttributes  rdf:type owl:Class ;
     rdfs:label "Subject Attributes"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/SubjectAttributes/subjectAttribute
-<https://admin-shell.io/aas/3/0/RC01/SubjectAttributes/subjectAttribute> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/SubjectAttributes/subjectAttributes
+<https://admin-shell.io/aas/3/0/RC01/SubjectAttributes/subjectAttributes> rdf:type owl:ObjectProperty ;
     rdfs:comment "A data element that further classifies a specific subject. "@en ;
-    rdfs:label "has subject attribute"^^xsd:string ;
+    rdfs:label "has subject attributes"^^xsd:string ;
     rdfs:domain aas:SubjectAttributes ;
     rdfs:range aas:DataElement ;
 .
@@ -1963,12 +1963,12 @@ aas:Submodel rdf:type owl:Class ;
     rdfs:label "Submodel"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement
-<https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElements
+<https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElements> rdf:type owl:ObjectProperty ;
     rdfs:domain aas:Submodel ;
     rdfs:range aas:SubmodelElement ;
     rdfs:comment "A submodel consists of zero or more submodel elements."@en ;
-    rdfs:label "has Submodel Element"^^xsd:string ;
+    rdfs:label "has Submodel Elements"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/SubmodelElement
@@ -1989,10 +1989,10 @@ aas:SubmodelElementCollection rdf:type owl:Class ;
     rdfs:label "Submodel Element Collection"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/value
-<https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/value> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/values
+<https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/values> rdf:type owl:ObjectProperty ;
     rdfs:comment "Submodel element contained in the collection."@en ;
-    rdfs:label "has value"^^xsd:string ;
+    rdfs:label "has values"^^xsd:string ;
     rdfs:domain aas:SubmodelElementCollection ;
     rdfs:range aas:SubmodelElement ;
 .
@@ -2057,10 +2057,10 @@ aas:View rdf:type owl:Class ;
     rdfs:label "View"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/View/containedElement
-<https://admin-shell.io/aas/3/0/RC01/View/containedElement> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/View/containedElements
+<https://admin-shell.io/aas/3/0/RC01/View/containedElements> rdf:type owl:ObjectProperty ;
     rdfs:comment "Referable elements that are contained in the view."@en ;
-    rdfs:label "contains element"^^xsd:string ;
+    rdfs:label "contains elements"^^xsd:string ;
     rdfs:domain aas:View ;
     rdfs:range aas:Reference ;
 .
