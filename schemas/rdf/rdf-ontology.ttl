@@ -276,7 +276,6 @@ aas:AssetAdministrationShellEnvironment rdf:type owl:Class ;
 aas:AssetInformation rdf:type owl:Class ;
     rdfs:label "Asset Information"^^xsd:string ;
     rdfs:comment "The asset may either represent an asset type or an asset instance. The asset has a globally unique identifier plus - if needed - additional domain specific (proprietary) identifiers. However, to support the corner case of very first phase of lifecycle where a stabilised/constant global asset identifier does not already exist, the corresponding attribute 'globalAssetId' is optional."@en ;
-
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetInformation/assetKind
@@ -656,6 +655,277 @@ phys_unit:DataSpecificationPhysicalUnit rdf:type owl:Class ;
     rdfs:range xsd:string ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef
+aas:DataTypeDef rdf:type owl:Class ;
+    rdfs:label "Data Type Def"^^xsd:string ;
+    owl:oneOf (
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/AnyUri>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Base64Binary>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Boolean>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Date>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Datetime>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/DatetimeStamp>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Decimal>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Integer>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Long>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Int>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Short>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Byte>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NonNegativeInteger>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/PositiveInteger>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedLong>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedInt>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedShort>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedByte>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NonPositiveInteger>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NegativeInteger>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Double>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Duration>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/DayTimeDuration>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/YearMonthDuration>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Float>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GDay>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GMonth>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GMonthDay>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GYear>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GYearMonth>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/HexBinary>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Notation>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/QName>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/String>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NormalizedString>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Token>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Language>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Name>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NCName>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Entity>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Id>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Idref>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NMToken>
+        <https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Time>
+    ) ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/AnyUri
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/AnyUri> rdf:type aas:DataTypeDef ;
+    rdfs:label "Any Uri"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Base64Binary
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Base64Binary> rdf:type aas:DataTypeDef ;
+    rdfs:label "Base64 Binary"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Boolean
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Boolean> rdf:type aas:DataTypeDef ;
+    rdfs:label "Boolean"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Date
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Date> rdf:type aas:DataTypeDef ;
+    rdfs:label "Date"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Datetime
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Datetime> rdf:type aas:DataTypeDef ;
+    rdfs:label "Datetime"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/DatetimeStamp
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/DatetimeStamp> rdf:type aas:DataTypeDef ;
+    rdfs:label "Datetime Stamp"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Decimal
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Decimal> rdf:type aas:DataTypeDef ;
+    rdfs:label "Decimal"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Integer
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Integer> rdf:type aas:DataTypeDef ;
+    rdfs:label "Integer"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Long
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Long> rdf:type aas:DataTypeDef ;
+    rdfs:label "Long"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Int
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Int> rdf:type aas:DataTypeDef ;
+    rdfs:label "Int"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Short
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Short> rdf:type aas:DataTypeDef ;
+    rdfs:label "Short"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Byte
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Byte> rdf:type aas:DataTypeDef ;
+    rdfs:label "Byte"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NonNegativeInteger
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NonNegativeInteger> rdf:type aas:DataTypeDef ;
+    rdfs:label "Non Negative Integer"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/PositiveInteger
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/PositiveInteger> rdf:type aas:DataTypeDef ;
+    rdfs:label "Positive Integer"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedLong
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedLong> rdf:type aas:DataTypeDef ;
+    rdfs:label "Unsigned Long"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedInt
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedInt> rdf:type aas:DataTypeDef ;
+    rdfs:label "Unsigned Int"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedShort
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedShort> rdf:type aas:DataTypeDef ;
+    rdfs:label "Unsigned Short"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedByte
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/UnsignedByte> rdf:type aas:DataTypeDef ;
+    rdfs:label "Unsigned Byte"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NonPositiveInteger
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NonPositiveInteger> rdf:type aas:DataTypeDef ;
+    rdfs:label "Non Positive Integer"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NegativeInteger
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NegativeInteger> rdf:type aas:DataTypeDef ;
+    rdfs:label "Negative Integer"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Double
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Double> rdf:type aas:DataTypeDef ;
+    rdfs:label "Double"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Duration
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Duration> rdf:type aas:DataTypeDef ;
+    rdfs:label "Duration"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/DayTimeDuration
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/DayTimeDuration> rdf:type aas:DataTypeDef ;
+    rdfs:label "Day Time Duration"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/YearMonthDuration
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/YearMonthDuration> rdf:type aas:DataTypeDef ;
+    rdfs:label "Year Month Duration"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Float
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Float> rdf:type aas:DataTypeDef ;
+    rdfs:label "Float"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GDay
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GDay> rdf:type aas:DataTypeDef ;
+    rdfs:label "G Day"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GMonth
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GMonth> rdf:type aas:DataTypeDef ;
+    rdfs:label "G Month"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GMonthDay
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GMonthDay> rdf:type aas:DataTypeDef ;
+    rdfs:label "G Month Day"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GYear
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GYear> rdf:type aas:DataTypeDef ;
+    rdfs:label "G Year"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GYearMonth
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/GYearMonth> rdf:type aas:DataTypeDef ;
+    rdfs:label "G Year Month"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/HexBinary
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/HexBinary> rdf:type aas:DataTypeDef ;
+    rdfs:label "Hex Binary"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Notation
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Notation> rdf:type aas:DataTypeDef ;
+    rdfs:label "Notation"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/QName
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/QName> rdf:type aas:DataTypeDef ;
+    rdfs:label "Q Name"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/String
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/String> rdf:type aas:DataTypeDef ;
+    rdfs:label "String"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NormalizedString
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NormalizedString> rdf:type aas:DataTypeDef ;
+    rdfs:label "Normalized String"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Token
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Token> rdf:type aas:DataTypeDef ;
+    rdfs:label "Token"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Language
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Language> rdf:type aas:DataTypeDef ;
+    rdfs:label "Language"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Name
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Name> rdf:type aas:DataTypeDef ;
+    rdfs:label "Name"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NCName
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NCName> rdf:type aas:DataTypeDef ;
+    rdfs:label "N C Name"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Entity
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Entity> rdf:type aas:DataTypeDef ;
+    rdfs:label "Entity"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Id
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Id> rdf:type aas:DataTypeDef ;
+    rdfs:label "Id"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Idref
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Idref> rdf:type aas:DataTypeDef ;
+    rdfs:label "Idref"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NMToken
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/NMToken> rdf:type aas:DataTypeDef ;
+    rdfs:label "N M Token"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Time
+<https://admin-shell.io/aas/3/0/RC01/DataTypeDef/Time> rdf:type aas:DataTypeDef ;
+    rdfs:label "Time"^^xsd:string ;
+.
+
 ###  https://admin-shell.io/aas/3/0/RC01/EmbeddedDataSpecification
 aas:EmbeddedDataSpecification rdf:type owl:Class ;
     rdfs:label "Embedded Data Specification"^^xsd:string ;
@@ -866,10 +1136,10 @@ aas:Extension rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Extension/valueType
-<https://admin-shell.io/aas/3/0/RC01/Extension/valueType> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/aas/3/0/RC01/Extension/valueType> rdf:type owl:ObjectProperty ;
     rdfs:label "has value type"^^xsd:string ;
     rdfs:domain aas:Extension ;
-    rdfs:range xsd:string ;
+    rdfs:range aas:DataTypeDef ;
     rdfs:comment "Type of the value of the extension."@en ;
 .
 
@@ -1544,7 +1814,7 @@ aas:Property rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/Property/valueType> rdf:type owl:ObjectProperty ;
     rdfs:label "has value type"^^xsd:string ;
     rdfs:domain aas:Property ;
-    rdfs:range xsd:string ;
+    rdfs:range aas:DataTypeDef ;
     rdfs:comment "Data type pf the value."@en ;
 .
 
@@ -1552,9 +1822,10 @@ aas:Property rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/Property/value> rdf:type owl:DatatypeProperty ;
     rdfs:label "has value"^^xsd:string ;
     rdfs:domain aas:Property ;
-    rdfs:range rdfs:Literal ;
+    rdfs:range xsd:string ;
     rdfs:comment "The value of the property instance."@en ;
 .
+
 ###  https://admin-shell.io/aas/3/0/RC01/Property/valueId
 <https://admin-shell.io/aas/3/0/RC01/Property/valueId> rdf:type owl:ObjectProperty ;
     rdfs:label "has property value ID"^^xsd:string ;
@@ -1597,7 +1868,7 @@ aas:Qualifier rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/Qualifier/valueType> rdf:type owl:ObjectProperty ;
     rdfs:label "has value type"^^xsd:string ;
     rdfs:domain aas:Qualifier ;
-    rdfs:range xsd:string ;
+    rdfs:range aas:DataTypeDef ;
     rdfs:comment "Data type of the qualifier value."@en ;
 .
 
@@ -1625,10 +1896,10 @@ aas:Range rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Range/valueType
-<https://admin-shell.io/aas/3/0/RC01/Range/valueType> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/aas/3/0/RC01/Range/valueType> rdf:type owl:ObjectProperty ;
     rdfs:label "has value type of range"^^xsd:string ;
     rdfs:domain aas:Range ;
-    rdfs:range xsd:string ;
+    rdfs:range aas:DataTypeDef ;
     rdfs:comment "Data type of the min and max."@en ;
 .
 
