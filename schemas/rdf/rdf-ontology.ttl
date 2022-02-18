@@ -174,7 +174,7 @@ aas:AnnotatedRelationshipElement rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/AnnotatedRelationshipElement/annotation> rdf:type owl:ObjectProperty ;
     rdfs:label "has annotation"^^xsd:string ;
     rdfs:domain aas:AnnotatedRelationshipElement ;
-    rdfs:range aas:DataElement ;
+    rdfs:range aas:Reference ;
     rdfs:comment "Annotations that hold for the relationships between the two elements."@en ;
 .
 
@@ -1857,7 +1857,7 @@ aas:PermissionsPerObject rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/PermissionsPerObject/object> rdf:type owl:ObjectProperty ;
     rdfs:label "has object"^^xsd:string ;
     rdfs:domain aas:PermissionsPerObject ;
-    rdfs:range aas:Referable ;
+    rdfs:range aas:Reference ;
     rdfs:comment "Element to which permission shall be assigned."@en ;
 .
 
@@ -2290,7 +2290,7 @@ aas:RelationshipElement rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/RelationshipElement/first> rdf:type owl:ObjectProperty ;
     rdfs:label "has first"^^xsd:string ;
     rdfs:domain aas:RelationshipElement ;
-    rdfs:range aas:Referable ;
+    rdfs:range aas:Reference ;
     rdfs:comment "First element in the relationship taking the role of the subject."@en ;
 .
 
@@ -2298,7 +2298,7 @@ aas:RelationshipElement rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/RelationshipElement/second> rdf:type owl:ObjectProperty ;
     rdfs:label "has second"^^xsd:string ;
     rdfs:domain aas:RelationshipElement ;
-    rdfs:range aas:Referable ;
+    rdfs:range aas:Reference ;
     rdfs:comment "Second element in the relationship taking the role of the object."@en ;
 .
 
@@ -2342,7 +2342,7 @@ aas:SubjectAttributes rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC01/SubjectAttributes/subjectAttributes> rdf:type owl:ObjectProperty ;
     rdfs:label "has subject attributes"^^xsd:string ;
     rdfs:domain aas:SubjectAttributes ;
-    rdfs:range aas:DataElement ;
+    rdfs:range aas:Reference ;
     rdfs:comment "A data element that further classifies a specific subject. "@en ;
 .
 
