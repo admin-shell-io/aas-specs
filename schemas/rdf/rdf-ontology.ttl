@@ -180,14 +180,16 @@ aas:AnnotatedRelationshipElement rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/Asset
 aas:Asset rdf:type owl:Class ;
-    rdfs:subClassOf aas:HasDataSpecification , aas:Identifiable ;
+    rdfs:subClassOf aas:Identifiable ;
+    rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:label "Asset"^^xsd:string ;
     rdfs:comment "An Asset describes meta data of an asset that is represented by an AAS. The asset may either represent an asset type or an asset instance. The asset has a globally unique identifier plus - if needed - additional domain specific (proprietary) identifiers."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell
 aas:AssetAdministrationShell rdf:type owl:Class ;
-    rdfs:subClassOf aas:HasDataSpecification , aas:Identifiable ;
+    rdfs:subClassOf aas:Identifiable ;
+    rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:label "Asset Administration Shell"^^xsd:string ;
     rdfs:comment "Describes the Administration Shell for Assets, Products, Components, e.g. Machines"@en ;
 .
@@ -460,7 +462,8 @@ aas:Certificate rdf:type owl:Class ;
 .
 ###  https://admin-shell.io/aas/3/0/RC01/ConceptDescription
 aas:ConceptDescription rdf:type owl:Class ;
-    rdfs:subClassOf aas:HasDataSpecification , aas:Identifiable ;
+    rdfs:subClassOf aas:Identifiable ;
+    rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:label "Concept Description"^^xsd:string ;
     rdfs:comment "The semantics of a property or other elements that may have a semantic description is defined by a concept description. The description of the concept should follow a standardized schema (realized as data specification template)."@en ;
 .
@@ -851,7 +854,10 @@ aas:Entity rdf:type owl:Class ;
 aas:EntityType rdf:type owl:Class ;
     rdfs:label "Entity Type"^^xsd:string ;
     rdfs:comment "Enumeration for denoting whether an entity is a self-managed entity or a co-managed entity."@en ;
-    owl:oneOf (<https://admin-shell.io/aas/3/0/RC01/EntityType/CoManagedEntity> <https://admin-shell.io/aas/3/0/RC01/EntityType/SelfManagedEntity> ) ;
+    owl:oneOf (
+        <https://admin-shell.io/aas/3/0/RC01/EntityType/CoManagedEntity>
+        <https://admin-shell.io/aas/3/0/RC01/EntityType/SelfManagedEntity>
+    ) ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/EntityType/CoManagedEntity
@@ -1953,11 +1959,11 @@ aas:SubjectAttributes  rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/Submodel
 aas:Submodel rdf:type owl:Class ;
-    rdfs:subClassOf aas:HasDataSpecification ;
+    rdfs:subClassOf aas:Identifiable ;
     rdfs:subClassOf aas:HasKind ;
     rdfs:subClassOf aas:HasSemantics ;
-    rdfs:subClassOf aas:Identifiable ;
     rdfs:subClassOf aas:Qualifiable ;
+    rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:comment "A Submodel defines a specific aspect of the asset represented by the AAS. A submodel is used to structure the virtual representation and technical functionality of an Administration Shell into distinguishable parts. Each submodel refers to a well-defined domain or subject matter. Submodels can become standardized and thus become submodels types. Submodels can have different life-cycles."@en ,
     "Describe the different types of Data related to the I4.0 Asset"@en ;
     rdfs:label "Submodel"^^xsd:string ;
@@ -1973,11 +1979,11 @@ aas:Submodel rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/SubmodelElement
 aas:SubmodelElement rdf:type owl:Class ;
-    rdfs:subClassOf aas:HasDataSpecification ;
+    rdfs:subClassOf aas:Referable ;
     rdfs:subClassOf aas:HasKind ;
     rdfs:subClassOf aas:HasSemantics ;
     rdfs:subClassOf aas:Qualifiable ;
-    rdfs:subClassOf aas:Referable ;
+    rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:comment "A submodel element is an element suitable for the description and differentiation of assets."@en ;
     rdfs:label "Submodel Element"^^xsd:string ;
 .
@@ -2051,7 +2057,9 @@ aas:ValueReferencePair rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/View
 aas:View rdf:type owl:Class ;
-    rdfs:subClassOf aas:HasDataSpecification , aas:Referable , aas:HasSemantics ;
+    rdfs:subClassOf aas:Referable ;
+    rdfs:subClassOf aas:HasSemantics ;
+    rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:comment "A view is a collection of referable elements w.r.t. to a specific viewpoint of one or more stakeholders."@en ;
     rdfs:isDefinedBy "https://www.plattform-i40.de/I40/Redaktion/DE/Downloads/Publikation/hm-2018-trilaterale-coop.html"@de ;
     rdfs:label "View"^^xsd:string ;
