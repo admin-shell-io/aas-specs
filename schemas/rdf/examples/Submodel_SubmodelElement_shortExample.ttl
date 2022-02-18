@@ -1,0 +1,37 @@
+@prefix : <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+
+# Submodel
+<http://i40.customer.com/type/1/1/7A7104BDAB57E184>
+    a <https://admin-shell.io/aas/3/0/RC02/Submodel> ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "TechnicalData"^^xsd:string ;
+    rdfs:label "TechnicalData"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/type/1/1/7A7104BDAB57E184"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+    <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
+           a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#01-AFZ615#016"^^xsd:string ;
+    ] ;
+
+    <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> [
+         a  <https://admin-shell.io/aas/3/0/RC02/Property> ;
+         rdfs:label "MaxRotationSpeed"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "MaxRotationSpeed"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueType>  "integer" ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueId> [
+                  a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
+                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
+                    a <https://admin-shell.io/aas/3/0/RC02/Key> ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/type>  <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription>  ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#02-BAA120#008"^^xsd:string ;
+                  ]
+
+              ];
+          <https://admin-shell.io/aas/3/0/RC02/Property/value> "5000"^^xsd:string ;
+    ];
+.

@@ -1,0 +1,361 @@
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix iec61360: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/> .
+@prefix phys_unit: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <https://admin-shell.io/aas/3/0/RC02/> .
+
+
+<https://admin-shell.io/aas/3/0/RC02/abac/> rdf:type owl:Ontology ;
+    vann:preferredNamespaceUri "https://admin-shell.io/aas/3/0/RC02/"^^xsd:anyURI ;
+    owl:versionInfo "3.0.RC02" ;
+    rdfs:comment "This module of the ontology represents the data model for the security part of the AAS (often also referred to as the  'ABAC part of the AAS') according to the specification 'Details of the Asset Administration Shell - Part 1 - Version 3.0.RC02'."@en ;
+    skos:prefLabel "aas"^^xsd:string ;
+    vann:preferredNamespacePrefix "aas"^^xsd:string ;
+    rdfs:isDefinedBy <https://admin-shell.io/aas/3/0/RC02/> ;
+    owl:imports <https://admin-shell.io/aas/3/0/RC02/>
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/AccessControl
+aas:AccessControl rdf:type owl:Class ;
+    rdfs:comment "Access Control defines the local access control policy administration point. Access Control has the major task to define the access permission rules."@en ;
+    rdfs:label "Access Control"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/AccessControl/accessPermissionRule
+<https://admin-shell.io/aas/3/0/RC02/AccessControl/accessPermissionRule> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Access permission rules of the AAS describing the rights assigned to (already authenticated) subjects to access elements of the AAS."@en ;
+    rdfs:label "has access permission rule"^^xsd:string ;
+    rdfs:domain aas:AccessControl ;
+    rdfs:range aas:AccessPermissionRule ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/AccessControl/selectableSubjectAttributes
+<https://admin-shell.io/aas/3/0/RC02/AccessControl/selectableSubjectAttributes> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to a submodel defining the authenticated subjects that are configured for the AAS. They are selectable by the access permission rules to assign permissions to the subjects."@en ;
+    rdfs:label "has selectable subject attributes"^^xsd:string ;
+    skos:note "Default: reference to the submodel referenced via defaultSubjectAttributes."@en ;
+    rdfs:domain aas:AccessControl ;
+    rdfs:range aas:Submodel ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/AccessControl/defaultSubjectAttributes
+<https://admin-shell.io/aas/3/0/RC02/AccessControl/defaultSubjectAttributes> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to a submodel defining the default subjects attributes for the AAS that can be used to describe access permission rules."@en ;
+    rdfs:label "has default subject attributes"^^xsd:string ;
+    skos:note "The submodel is of kind=Type."@en ;
+    rdfs:domain aas:AccessControl ;
+    rdfs:range aas:Submodel ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/AccessControl/selectablePermissions
+<https://admin-shell.io/aas/3/0/RC02/AccessControl/selectablePermissions> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to a submodel defining which permissions can be assigned to the subjects."@en ;
+    rdfs:label "has selectable permissions"^^xsd:string ;
+    skos:note "Default: reference to the submodel referenced via defaultPermissions"@en ;
+    rdfs:domain aas:AccessControl ;
+    rdfs:range aas:Submodel ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/AccessControl/defaultPermissions
+<https://admin-shell.io/aas/3/0/RC02/AccessControl/defaultPermissions> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to a submodel defining the default permissions for the AAS."@en ;
+    rdfs:label "has default permissions"^^xsd:string ;
+    rdfs:domain aas:AccessControl ;
+    rdfs:range aas:Submodel ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/AccessControl/selectableEnvironmentAttributes
+<https://admin-shell.io/aas/3/0/RC02/AccessControl/selectableEnvironmentAttributes> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to a submodel defining which environment attributes can be accessed via the permission rules."@en ;
+    rdfs:label "has selectable environment attributes"^^xsd:string ;
+    rdfs:domain aas:AccessControl ;
+    rdfs:range aas:Submodel ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/AccessControl/defaultEnvironmentAttributes
+<https://admin-shell.io/aas/3/0/RC02/AccessControl/defaultEnvironmentAttributes> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to a submodel defining default environment attributes, i.e. attributes that are not describing the asset itself. The submodel is of kind=Type. At the same type the values of these environment attributes need to be accessible when evaluating the access permission rules. This is realized as a policy information point."@en ;
+    rdfs:label "has default environment attributes"^^xsd:string ;
+    rdfs:domain aas:AccessControl ;
+    rdfs:range aas:Submodel ;
+.
+###  https://admin-shell.io/aas/3/0/RC02/AccessPermissionRule
+aas:AccessPermissionRule rdf:type owl:Class ;
+    rdfs:subClassOf aas:Referable ;
+    rdfs:subClassOf aas:Qualifiable ;
+    rdfs:comment "Table that defines access permissions per authenticated subject for a set of objects (referable elements)."@en ;
+    rdfs:label "Access Permission Rule"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/AccessPermissionRule/permissionsPerObject
+<https://admin-shell.io/aas/3/0/RC02/AccessPermissionRule/permissionsPerObject> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Set of object-permission pairs that define the permissions per object within the access permission rule."@en ;
+    rdfs:label "has permissions per object"^^xsd:string ;
+    rdfs:domain aas:AccessPermissionRule ;
+    rdfs:range aas:PermissionsPerObject ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/AccessPermissionRule/targetSubjectAttributes
+<https://admin-shell.io/aas/3/0/RC02/AccessPermissionRule/targetSubjectAttributes> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Target subject attributes that need to be fulfilled by the accessing subject to get the permissions defined by this rule."@en ;
+    rdfs:label "has target subject attributes"^^xsd:string ;
+    rdfs:domain aas:AccessPermissionRule ;
+    rdfs:range aas:SubjectAttributes ;
+.
+
+
+###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate
+aas:BlobCertificate rdf:type owl:Class ;
+    rdfs:subClassOf aas:Certificate ;
+    rdfs:comment "Certificate provided as BLOB."@en ;
+    rdfs:label "Blob Certificate"^^xsd:string ;
+    owl:deprecated true ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate/blobCertificate
+<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/blobCertificate> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "Certificate as BLOB."@en ;
+    rdfs:label "Blob Certificate"^^xsd:string ;
+    rdfs:domain aas:BlobCertificate ;
+    rdfs:range xsd:byte ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtension
+<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtension> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Extensions contained in the certificate."@en ;
+    rdfs:label "contains extension"^^xsd:string ;
+    rdfs:domain aas:BlobCertificate ;
+    rdfs:range aas:Reference ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate/lastCertificate
+<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/lastCertificate> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "Denotes whether this certificate is the certificated that fast added last."@en ;
+    rdfs:label "is last certificate"^^xsd:string ;
+    rdfs:domain aas:BlobCertificate ;
+    rdfs:range xsd:boolean ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate/authenticates
+<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/authenticates> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Identifiables authenticated."@en ;
+    rdfs:label "authenticates"^^xsd:string ;
+    rdfs:domain aas:BlobCertificate ;
+    rdfs:range aas:Identifiable ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/Permission
+aas:Permission rdf:type owl:Class ;
+    rdfs:comment "Description of a single permission."@en ;
+    rdfs:label "Permission"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/Permission/kindOfPermission
+<https://admin-shell.io/aas/3/0/RC02/Permission/kindOfPermission> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Description of the kind of permission. Possible kind of permission also include the denial of the permission."@en ;
+    rdfs:label "has kind of permission"^^xsd:string ;
+    rdfs:domain aas:Permission ;
+    rdfs:range aas:PermissionKind ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/Certificate
+aas:Certificate rdf:type owl:Class ;
+    dash:abstract true ;
+    owl:deprecated true ;
+    rdfs:comment "A technical certificate proofing the identity through cryptographic measures."@en ;
+    rdfs:label "Certificate"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/Permission/permission
+<https://admin-shell.io/aas/3/0/RC02/Permission/permission> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Reference to a property that defines the semantics of the permission."@en ;
+    skos:note "Constraint AASs-010: The property referenced in Permission/permission shall have the category 'CONSTANT'."@en ;
+    skos:note "Constraint AASs-011: The property referenced in Permission/permission shall be part of the submodel that is referenced within the 'selectablePermissions' attribute of 'AccessControl'."@en ;
+    rdfs:label "has permission"^^xsd:string ;
+    rdfs:domain aas:Permission ;
+    rdfs:range aas:Property ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PermissionKind
+aas:PermissionKind rdf:type owl:Class ;
+    rdfs:comment "Enumeration of the kind of permissions that is given to the assignment of a permission to a subject."@en ;
+    rdfs:label "Permission Kind"^^xsd:string ;
+    owl:oneOf (
+        <https://admin-shell.io/aas/3/0/RC02/PermissionKind/Allow>
+        <https://admin-shell.io/aas/3/0/RC02/PermissionKind/Deny>
+        <https://admin-shell.io/aas/3/0/RC02/PermissionKind/NotApplicable>
+        <https://admin-shell.io/aas/3/0/RC02/PermissionKind/Undefined>
+    ) ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PermissionKind/Allow
+<https://admin-shell.io/aas/3/0/RC02/PermissionKind/Allow> rdf:type aas:PermissionKind ;
+    rdfs:label "allow"^^xsd:string ;
+    rdfs:comment "Allow the permission given to the subject."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PermissionKind/Deny
+<https://admin-shell.io/aas/3/0/RC02/PermissionKind/Deny> rdf:type aas:PermissionKind ;
+    rdfs:label "deny"^^xsd:string ;
+    rdfs:comment "Explicitly deny the permission given to the subject."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PermissionKind/NotApplicable
+<https://admin-shell.io/aas/3/0/RC02/PermissionKind/NotApplicable> rdf:type aas:PermissionKind ;
+    rdfs:label "not applicable"^^xsd:string ;
+    rdfs:comment "The permission is not applicable to the subject."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PermissionKind/Undefined
+<https://admin-shell.io/aas/3/0/RC02/PermissionKind/Undefined> rdf:type aas:PermissionKind ;
+    rdfs:label "undefined"^^xsd:string ;
+    rdfs:comment "It is undefined whether the permission is allowed, not applicable or denied to the subject."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PermissionsPerObject
+aas:PermissionsPerObject rdf:type owl:Class ;
+    rdfs:comment "Table that defines access permissions for a specified object. The object is any referable element in the AAS. Additionally object attributes can be defined that further specify the kind of object the permissions apply to."@en ;
+    rdfs:label "Permission Per Object"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PermissionsPerObject/object
+<https://admin-shell.io/aas/3/0/RC02/PermissionsPerObject/object> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Element to which permission shall be assigned."@en ;
+    rdfs:label "has object"^^xsd:string ;
+    rdfs:domain aas:PermissionsPerObject ;
+    rdfs:range aas:Referable ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PermissionsPerObject/permission
+<https://admin-shell.io/aas/3/0/RC02/PermissionsPerObject/permission> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Permissions assigned to the object. The permissions hold for all subjects as specified in the access permission rule."@en ;
+    rdfs:label "has object permission"^^xsd:string ;
+    rdfs:domain aas:PermissionsPerObject ;
+    rdfs:range aas:Permission ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PermissionsPerObject/targetObjectAttributes
+<https://admin-shell.io/aas/3/0/RC02/PermissionsPerObject/targetObjectAttributes> rdf:type owl:ObjectProperty ;
+    rdfs:comment "Target object attributes that need to be fulfilled so that the access permissions apply to the accessing subject."@en ;
+    rdfs:label "has target object attributes"^^xsd:string ;
+    rdfs:domain aas:PermissionsPerObject ;
+    rdfs:range aas:ObjectAttributes ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PolicyAdministrationPoint
+aas:PolicyAdministrationPoint rdf:type owl:Class ;
+    rdfs:comment "Definition of a security administration point (PDP)."@en ;
+    rdfs:label "Policy Administration Point"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PolicyAdministrationPoint/localAccessControl
+<https://admin-shell.io/aas/3/0/RC02/PolicyAdministrationPoint/localAccessControl> rdf:type owl:ObjectProperty ;
+    rdfs:comment "The policy administration point of access control as realized by the AAS itself."@en ;
+    skos:note "Constraint AASd-009: Either there is an external policy administration point endpoint defined or the AAS has its own access control."@en ;
+    rdfs:label "has local access control"^^xsd:string ;
+    rdfs:domain aas:PolicyAdministrationPoint ;
+    rdfs:range aas:AccessControl ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/PolicyAdministrationPoint/externalAccessControl
+<https://admin-shell.io/aas/3/0/RC02/PolicyAdministrationPoint/externalAccessControl> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "Endpoint to an external access control defining a policy administration point to be used by the AAS."@en ;
+    rdfs:label "has external access control"^^xsd:string ;
+    rdfs:domain aas:PolicyAdministrationPoint ;
+    rdfs:range xsd:boolean ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyDecisionPoint
+aas:PolicyDecisionPoint rdf:type owl:Class ;
+    rdfs:comment "Defines a security policy decision point (PDP). "@en ;
+    rdfs:label "Policy Decision Point"^^xsd:string ;
+    owl:deprecated true ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyDecisionPoint/externalPolicyDecisionPoints
+<https://admin-shell.io/aas/3/0/RC01/PolicyDecisionPoint/externalPolicyDecisionPoints> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "If externalPolicyDecisionPoints True then Endpoints to external available decision points taking into consideration for access control for the AAS need to be configured."@en ;
+    rdfs:label "is external policy decision point defined"^^xsd:string ;
+    rdfs:domain aas:PolicyDecisionPoint ;
+    rdfs:range xsd:boolean ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints
+aas:PolicyEnforcementPoints rdf:type owl:Class ;
+    rdfs:comment "Defines the security policy enforcement points (PEP)."@en ;
+    rdfs:label "Policy Enforcement Point"^^xsd:string ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints/externalPolicyEnforcementPoint
+<https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints/externalPolicyEnforcementPoint> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "If externalPolicyEnforcementPoint True then an Endpoint to external available enforcement point taking needs to be configured for the AAS."@en ;
+    rdfs:label "is external policy enforcement point defined"^^xsd:string ;
+    rdfs:domain aas:PolicyEnforcementPoints ;
+    rdfs:range xsd:boolean ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints
+aas:PolicyInformationPoints rdf:type owl:Class ;
+    rdfs:comment "Defines the security policy information points (PIP). Serves as the retrieval source of attributes, or the data required for policy evaluation to provide the information needed by the policy decision point to make the decisions."@en ;
+    rdfs:label "Policy Information Points"^^xsd:string ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/externalInformationPoints
+<https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/externalInformationPoints> rdf:type owl:DatatypeProperty ;
+    rdfs:comment "If externalInformationPoints True then at least one Endpoint to external available information needs to be configured for the AAS."@en ;
+    rdfs:label "has external information point"^^xsd:string ;
+    rdfs:domain aas:PolicyInformationPoints ;
+    rdfs:range xsd:boolean ;
+    owl:deprecated true ;
+
+.
+
+###  https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint
+<https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint> rdf:type owl:ObjectProperty ;
+    rdfs:comment "References to submodels defining information used by security access permission rules."@en ;
+    rdfs:label "has internal information point"^^xsd:string ;
+    rdfs:domain aas:PolicyInformationPoints ;
+    rdfs:range aas:Reference ;
+    owl:deprecated true ;
+
+.
+
+
+###  https://admin-shell.io/aas/3/0/RC02/SubjectAttributes
+aas:SubjectAttributes  rdf:type owl:Class ;
+    rdfs:comment "A set of data elements that further classifies a specific subject."@en ;
+    rdfs:label "Subject Attributes"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/SubjectAttributes/subjectAttribute
+<https://admin-shell.io/aas/3/0/RC02/SubjectAttributes/subjectAttribute> rdf:type owl:ObjectProperty ;
+    rdfs:comment "A data element that further classifies a specific subject. "@en ;
+    skos:note "Constraint AASs-015: The data element SubjectAttributes/subjectAttribute shall be part of the submodel that is referenced within the 'selectableSubjectAttributes' attribute of 'AccessControl'."@en ;
+    rdfs:label "has subject attribute"^^xsd:string ;
+    rdfs:domain aas:SubjectAttributes ;
+    rdfs:range aas:DataElement ;
+.

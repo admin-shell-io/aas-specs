@@ -1,0 +1,339 @@
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix iec61360: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/> .
+@prefix phys_unit: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <https://admin-shell.io/DataSpecificationTemplates/> .
+
+
+<https://admin-shell.io/DataSpecificationTemplates/> rdf:type owl:Ontology ;
+    vann:preferredNamespaceUri "https://admin-shell.io/DataSpecificationTemplates/"^^xsd:anyURI ;
+    owl:versionInfo "3.0.RC02" ;
+    rdfs:comment "This module of the ontology represents the data model for the DataSpecificationTemplates as mentioned by the AAS according to the specification 'Details of the Asset Administration Shell - Part 1 - Version 3.0.RC02'."@en ;
+    skos:prefLabel "aas"^^xsd:string ;
+    rdfs:isDefinedBy <https://admin-shell.io/aas/3/0/RC02/> ;
+    owl:imports <https://admin-shell.io/aas/3/0/RC02/>
+.
+
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360
+iec61360:DataSpecificationIEC61360 rdf:type owl:Class ;
+    rdfs:subClassOf aas:DataSpecificationContent ;
+    rdfs:label "Data Specification IEC 61360"^^xsd:string ;
+    rdfs:comment "Data Specification Template for defining Property Descriptions conformant to IEC 61360."@en ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType> rdf:type owl:ObjectProperty ;
+    rdfs:label "has datatype"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range iec61360:DataTypeIEC61360 ;
+	  skos:note "Constraint AASd-070: For a ConceptDescription with category PROPERTY or VALUE using data specification template IEC61360 (http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02) - DataSpecificationIEC61360/dataType is mandatory and shall be one of: DATE, STRING, STRING_TRANSLATABLE, INTEGER_MEASURE, INTEGER_COUNT, INTEGER_CURRENCY, REAL_MEASURE, REAL_COUNT, REAL_CURRENCY, BOOLEAN, RATIONAL, RATIONAL_MEASURE, TIME, TIMESTAMP."@en ;
+	  skos:note "Constraint AASd-071: For a ConceptDescription with category REFERENCE using data specification template IEC61360 (http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02) - DataSpecificationIEC61360/dataType shall be one of: STRING, IRI, IRDI."@en ;
+	  skos:note "Constraint AASd-072: For a ConceptDescription with category DOCUMENT using data specification template IEC61360 (http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02) - DataSpecificationIEC61360/dataType shall be one of: FILE, BLOB, HTML."@en ;
+	  skos:note "Constraint AASd-073: For a ConceptDescription with category QUALIFIER using data specification template IEC61360 (http://adminshell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02) - DataSpecificationIEC61360/dataType is mandatory and shall be defined."@en ;
+    skos:note "Constraint AASd-103: If DataSpecificationIEC61360/dataType one of: INTEGER_MEASURE, REAL_MEASURE, RATIONAL_MEASURE, INTEGER_CURRENCY, REAL_CURRENCY, then DataSpecificationIEC61360/unit or DataSpecificationIEC61360/unitId shall be defined."@en ;
+.
+
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> rdf:type owl:ObjectProperty ;
+    rdfs:label "has definition"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range rdf:langString ;
+	  skos:note "Constraint AASd-074: For all ConceptDescriptions except for ConceptDescriptions of category VALUE using data specification template IEC61360 (http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02) - DataSpecificationIEC61360/definition is mandatory and shall be defined at least in English."@en ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/levelType
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/levelType> rdf:type owl:ObjectProperty ;
+    rdfs:label "has level type"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range aas:LevelType ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> rdf:type owl:ObjectProperty ;
+    rdfs:label "has preferred name"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range rdf:langString ;
+    skos:note "Constraint AASd-076: For all ConceptDescriptions using data specification template IEC61360 (http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02) at least a preferred name in English shall be defined."@en ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/shortName
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/shortName> rdf:type owl:ObjectProperty ;
+    rdfs:label "has short name"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range rdf:langString ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/sourceOfDefinition
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/sourceOfDefinition> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has source of definition"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/symbol
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/symbol> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has symbol"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unit
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unit> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has unit"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unitId
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unitId> rdf:type owl:ObjectProperty ;
+    rdfs:label "has unit id"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range aas:Reference ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/valueFormat
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/valueFormat> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has value format"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/value
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/value> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has value"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range xsd:string ;
+    skos:note "Constraint AASd-101: If DataSpecificationIEC61360/category equal to VALUE then DataSpecificationIEC61360/value shall be set."@en ;
+    skos:note "Constraint AASd-102: If DataSpecificationIEC61360/value or DataSpecificationIEC61360/valueId is not empty then DataSpecificationIEC61360/valueList shall be empty and vice versa."@en ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/valueList
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/valueList> rdf:type owl:ObjectProperty ;
+    rdfs:label "has value list"^^xsd:string ;
+    rdfs:comment "The Type 'ValueList' lists all the allowed values for a concept description for which the allowed values are listed in an enumeration. The value list is a set of value reference pairs."@en ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range aas:ValueList ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/valueId
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/valueId> rdf:type owl:ObjectProperty ;
+    rdfs:label "has value id"^^xsd:string ;
+    rdfs:domain iec61360:DataSpecificationIEC61360 ;
+    rdfs:range aas:Reference ;
+    skos:note "Constraint AASd-102: If DataSpecificationIEC61360/value or DataSpecificationIEC61360/valueId is not empty then DataSpecificationIEC61360/valueList shall be empty and vice versa."@en ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit
+phys_unit:DataSpecificationPhysicalUnit rdf:type owl:Class ;
+    rdfs:subClassOf aas:DataSpecificationContent ;
+    rdfs:label "Data Specification Physical Unit"^^xsd:string ;
+    rdfs:comment "Data Specification Template for Physical Units."@en ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/conversionFactor
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/conversionFactor> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has conversion factor"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/definition
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/definition> rdf:type owl:ObjectProperty ;
+    rdfs:label "has definition"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range rdf:langString ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/dinNotation
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/dinNotation> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has DIN notation"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/eceCode
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/eceCode> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has ECE code"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/eceName
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/eceName> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has ECE name"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/nistName
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/nistName> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has NIST name"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/siName
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/siName> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has SI name"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/siNotation
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/siNotation> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has SI notation"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/registrationAuthorityId
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/registrationAuthorityId> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has registration authority"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/supplier
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/supplier> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has supplier"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/unitName
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/unitName> rdf:type owl:DatatypeProperty ;
+    rdfs:label "unit has name"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/unitSymbol
+<https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/DataSpecificationPhysicalUnit/unitSymbol> rdf:type owl:DatatypeProperty ;
+    rdfs:label "unit has symbol"^^xsd:string ;
+    rdfs:domain phys_unit:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+.
+
+### https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataTypeIEC61360
+iec61360:DataTypeIEC61360 rdf:type owl:Class ;
+    rdfs:label "Data Type IEC61360"^^xsd:string ;
+    rdfs:comment "Enumeration of all IEC 61360 defined data types."@en ;
+    owl:oneOf (
+        iec61360:Blob
+        iec61360:Boolean
+        iec61360:Date
+        iec61360:File
+        iec61360:HTML
+        iec61360:String
+        iec61360:StringTranslatable
+        iec61360:IntegerMeasure
+        iec61360:IntegerCount
+        iec61360:IntegerCurrency
+        iec61360:RealMeasure
+        iec61360:RealCount
+        iec61360:RealCurrency
+        iec61360:Boolean
+        iec61360:IRI
+        iec61360:IRDI
+        iec61360:Rational
+        iec61360:RationalMeasure
+        iec61360:Time
+        iec61360:Timestamp
+    ) ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/Blob
+iec61360:Blob rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "Blob according to IEC61360"^^xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/Date
+iec61360:Date rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "date according to IEC61360"^^xsd:string ;
+    rdfs:seeAlso xsd:date ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/Boolean
+iec61360:Boolean rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "boolean according to IEC61360"^^xsd:string ;
+    rdfs:seeAlso xsd:boolean ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/File
+iec61360:File rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "File according to IEC61360"^^xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/HTML
+iec61360:HTML rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "HTML according to IEC61360"^^xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/IRDI
+iec61360:IRDI rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "IRDI according to IEC61360"^^xsd:string ;
+.
+
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/IntegerCurrency
+iec61360:IntegerCurrency rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "integer currency according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/IntegerCount
+iec61360:IntegerCount rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "integer count according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/IntegerMeasure
+iec61360:IntegerMeasure rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "integer measure according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/RealCurrency
+iec61360:RealCurrency rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "real currency according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/RealCount
+iec61360:RealCount rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "real count according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/RealMeasure
+iec61360:RealMeasure rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "real measure according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/String
+iec61360:String rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "string according to IEC61360"^^xsd:string ;
+    rdfs:seeAlso xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/StringTranslatable
+iec61360:StringTranslatable rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "translatable string according to IEC61360"^^xsd:string ;
+    rdfs:seeAlso aas:LangStringSet ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/RationalMeasure
+iec61360:RationalMeasure rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "retional measure according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/Rational
+iec61360:Rational rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "retional according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/Time
+iec61360:Time rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "time according to IEC61360"^^xsd:string ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/Timestamp
+iec61360:Timestamp rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "time stamp according to IEC61360"^^xsd:string ;
+    rdfs:seeAlso xsd:dateTime ;
+.
+###  https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/IRI
+iec61360:IRI rdf:type iec61360:DataTypeIEC61360 ;
+    rdfs:label "iri according to IEC61360"^^xsd:string ;
+.

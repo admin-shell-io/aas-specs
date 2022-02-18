@@ -1,0 +1,277 @@
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix iec61360: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/> .
+@prefix phys_unit: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Metadata
+<https://admin-shell.io/aas/3/0/RC02/abac/> a owl:Ontology ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports sh: ;
+  sh:declare [
+    a sh:PrefixDeclaration ;
+    sh:namespace "https://admin-shell.io/aas/3/0/RC02/"^^xsd:anyURI ;
+    sh:prefix "aas"^^xsd:string ;
+  ] ;
+.
+
+
+aas:AccessControlShape a sh:NodeShape ;
+  sh:targetClass aas:AccessControl ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/AccessControl/accessPermissionRule> ;
+      sh:class aas:AccessPermissionRule ;
+      sh:minCount 0 ;
+      sh:message "(AccessControl.accessPermissionRule):A <i>accessPermissionRule</i> must point to a <i>AccessPermissionRule</i>."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/AccessControl/selectableSubjectAttributes> ;
+      sh:class aas:Reference ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "(AccessControl.selectableSubjectAttributes):A <i>selectableSubjectAttributes</i> attribute only have one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/AccessControl/defaultSubjectAttributes> ;
+      sh:class aas:Reference ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(AccessControl.defaultSubjectAttributes):A <i>defaultSubjectAttributes</i> attribute have exactly one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/AccessControl/selectablePermissions> ;
+      sh:class aas:Reference ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "(AccessControl.selectablePermissions):A <i>selectablePermissions</i> attribute only have one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/AccessControl/defaultPermissions> ;
+      sh:class aas:Reference ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(AccessControl.defaultPermissions):A <i>defaultPermissions</i> attribute have exactly one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/AccessControl/selectableEnvironmentAttributes> ;
+      sh:class aas:Reference ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "(AccessControl.selectableEnvironmentAttributes):A <i>selectableEnvironmentAttributes</i> attribute only have one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/AccessControl/defaultEnvironmentAttributes> ;
+      sh:class aas:Reference ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "(AccessControl.defaultEnvironmentAttributes):A <i>defaultEnvironmentAttributes</i> attribute only have one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
+    ] ;
+.
+
+aas:AccessPermissionRuleShape a sh:NodeShape ;
+  sh:targetClass aas:AccessPermissionRule ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/AccessPermissionRule/permissionsPerObject> ;
+      sh:class aas:PermissionsPerObject ;
+      sh:minCount 0 ;
+      sh:message "(AccessPermissionRule.permissionsPerObject):A <i>permissionsPerObject</i> must point to a <i>PermissionsPerObject</i>."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/AccessPermissionRule/targetSubjectAttributes> ;
+      sh:class aas:SubjectAttributes ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:message "(AccessPermissionRule.targetSubjectAttributes): Exactly one <i>targetSubjectAttributes</i> pointing to a <i>SubjectAttributes</i> is required."^^xsd:string ;
+    ] ;
+.
+
+aas:PermissionShape a sh:NodeShape ;
+  sh:targetClass aas:Permission ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/Permission/permission> ;
+      sh:class aas:Reference ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:message "(Permission.permission):A <i>permission</i> attribute have exactly one <i>reference</i> entity pointing to a <i>Property</i>."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/Permission/kindOfPermission> ;
+      sh:class aas:PermissionKind ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:message "(Permission.kindOfPermission): Exactly one <i>kindOfPermission</i> pointing to a <i>PermissionKind</i> is required."^^xsd:string ;
+    ] ;
+.
+
+aas:BlobCertificateShape a sh:NodeShape ;
+  rdfs:subClassOf aas:CertificateShape ;
+  sh:targetClass aas:BlobCertificate ;
+  owl:deprecated true ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/blobCertificate> ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:class aas:Blob ;
+      sh:message "(BlobCertificate.blobCertificate): Exactly one <i>blobCertificate</i> pointing to a <i>Blob</i> is required."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtension> ;
+      sh:minCount 0 ;
+      sh:class aas:Reference ;
+      sh:message "(BlobCertificate.containedExtension):A <i>containedExtension</i> must point to a <i>Reference</i>."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/lastCertificate> ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:boolean ;
+      sh:message "(BlobCertificate.lastCertificate): Exactly one <i>lastCertificate</i> pointing to a  <i>boolean</i> is required."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/authenticates> ;
+      sh:minCount 0 ;
+      sh:class aas:Identifiable ;
+      sh:message "(BlobCertificate.authenticates): A <i>authenticates</i> must point to a <i>Identifiable</i>."^^xsd:string ;
+    ] ;
+.
+
+aas:CertificateShape  a sh:NodeShape ;
+  sh:targetClass aas:Certificate ;
+  owl:deprecated true ;
+  sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "(CertificateShape): An aas:Certificate is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+		sh:prefixes aas: ;
+		sh:select """
+			SELECT ?this ?type
+			WHERE {
+				?this rdf:type ?type .
+				FILTER (?type = aas:Certificate)
+			}
+		""" ;
+	] ;
+
+.
+
+aas:PermissionsPerObjectShape a sh:NodeShape ;
+  sh:targetClass aas:PermissionsPerObject ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/PermissionsPerObject/object> ;
+      sh:class aas:Referable ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:message "(PermissionsPerObject.object): Exactly one <i>object</i> pointing to a <i>Referable</i> is required."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/PermissionsPerObject/targetObjectAttributes> ;
+      sh:class aas:ObjectAttributes ;
+      sh:minCount 0 ;
+      sh:maxCount 1 ;
+      sh:message "(PermissionsPerObject.targetObjectAttributes):Only one <i>targetObjectAttributes</i> pointing to a <i>ObjectAttributes</i> is allowed."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/PermissionsPerObject/permission> ;
+      sh:class aas:Permission ;
+      sh:minCount 0 ;
+      sh:message "(PermissionsPerObject.permission):A <i>permission</i> must point to a <i>Permission</i>."^^xsd:string ;
+    ] ;
+.
+
+aas:PolicyAdministrationPointShape a sh:NodeShape ;
+  sh:targetClass aas:PolicyAdministrationPoint ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/PolicyAdministrationPoint/localAccessControl> ;
+      sh:class aas:AccessControl ;
+      sh:maxCount 1 ;
+      sh:minCount 0 ;
+      sh:message "(PolicyAdministrationPoint.localAccessControl):Only one <i>localAccessControl</i> attribute having a <i>AccessControl</i> is allowed."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/PolicyAdministrationPoint/externalAccessControl> ;
+      sh:datatype xsd:boolean ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(PolicyAdministrationPoint.externalAccessControl): Exactly one <i>externalAccessControl</i> attribute having a <i>boolean</i> is required."^^xsd:string ;
+    ] ;
+.
+
+aas:PolicyDecisionPointShape a sh:NodeShape ;
+  sh:targetClass aas:PolicyDecisionPoint ;
+  owl:deprecated true ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyDecisionPoint/externalPolicyDecisionPoints> ;
+      sh:datatype xsd:boolean ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(PolicyDecisionPoint.externalPolicyDecisionPoints): Exactly one <i>externalPolicyDecisionPoints</i> pointing to a <i>xsd:boolean</i> is required."^^xsd:string ;
+    ] ;
+.
+
+aas:PolicyEnforcementPointsShape a sh:NodeShape ;
+  sh:targetClass aas:PolicyEnforcementPoints ;
+  owl:deprecated true ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyEnforcementPoints/externalPolicyEnforcementPoint> ;
+      sh:datatype xsd:boolean ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(PolicyEnforcementPoints.externalPolicyDecisionPoint): Exactly one <i>externalPolicyDecisionPoint</i> attribute having a <i>boolean</i> is required."^^xsd:string ;
+    ] ;
+.
+
+aas:PolicyInformationPointsShape a sh:NodeShape ;
+  sh:targetClass aas:PolicyInformationPoints ;
+  owl:deprecated true ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint> ;
+      sh:class aas:Reference ;
+      sh:minCount 0 ;
+      sh:message "(PolicyInformationPoints.internalInformationPoint):A <i>internalInformationPoint</i> attribute must point to a <i>Reference</i> pointing to a submodel."^^xsd:string ;
+    ] ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/externalInformationPoints> ;
+      sh:datatype xsd:boolean ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:message "(PolicyInformationPoints.externalInformationPoint): Exactly one <i>externalInformationPoints</i> attribute having a <i>boolean</i> is required."^^xsd:string ;
+    ] ;
+.
+
+aas:SubjectAttributesShape a sh:NodeShape ;
+  sh:targetClass aas:SubjectAttributes ;
+  sh:property [
+      a sh:PropertyShape ;
+      sh:path <https://admin-shell.io/aas/3/0/RC02/SubjectAttributes/subjectAttribute> ;
+      sh:class aas:DataElement ;
+      sh:minCount 1 ;
+      sh:message "(SubjectAttributes.subjectAttribute):At least one <i>subjectAttribute</i> pointing to a <i>DataElement</i> is required."^^xsd:string ;
+    ] ;
+.

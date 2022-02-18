@@ -1,0 +1,282 @@
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# Asset Administration Shell
+<http://customer.com/aas/9175_7013_7091_9168>
+
+      rdf:type <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell> ;
+      <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "ExampleMotor"^^xsd:string ;
+      rdfs:label "ExampleMotor"^^xsd:string ;
+      <https://admin-shell.io/aas/3/0/RC02/Referable/description> "A very short description of the AAS instance" ;
+      rdfs:comment "A very short description of the AAS instance."^^xsd:string ;
+
+      <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://customer.com/aas/9175_7013_7091_9168"^^xsd:string ;
+
+      <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/assetInformation> [
+          a <https://admin-shell.io/aas/3/0/RC02/AssetInformation> ;
+          <https://admin-shell.io/aas/3/0/RC02/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/RC02/AssetKind/Instance> ;
+          <https://admin-shell.io/aas/3/0/RC02/AssetInformation/globalAssetId> [
+            a  <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+              <https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://customer.com/assets/KHBVZJSQKIY"^^xsd:string ;
+          ]
+      ] ;
+      <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodel> [
+          a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
+          <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
+            a <https://admin-shell.io/aas/3/0/RC02/Key> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/Submodel>  ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/1/1/7A7104BDAB57E184"^^xsd:string ;
+          ]
+      ];
+      <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodel> [
+          a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
+          <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
+            a <https://admin-shell.io/aas/3/0/RC02/Key> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type>  <https://admin-shell.io/aas/3/0/RC02/KeyElements/Submodel>  ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/instance/1/1/AC69B1CB44F07935"^^xsd:string ;
+          ]
+      ];
+      <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodel> [
+          a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
+          <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
+            a <https://admin-shell.io/aas/3/0/RC02/Key> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/keyElements/Submodel> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/1/1/1A7B62B529F19152"^^xsd:string ;
+          ]
+      ];
+.
+
+# Submodel
+<http://i40.customer.com/type/1/1/7A7104BDAB57E184>
+    a <https://admin-shell.io/aas/3/0/RC02/Submodel> ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "TechnicalData"^^xsd:string ;
+    rdfs:label "TechnicalData"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/type/1/1/7A7104BDAB57E184"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+    <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
+           a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#01-AFZ615#016"^^xsd:string ;
+    ] ;
+
+    <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> [
+         a  <https://admin-shell.io/aas/3/0/RC02/Property> ;
+         rdfs:label "MaxRotationSpeed"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "MaxRotationSpeed"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueType>  "integer" ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueId> [
+                  a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
+                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
+                    a <https://admin-shell.io/aas/3/0/RC02/Key> ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/type>  <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription>  ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#02-BAA120#008"^^xsd:string ;
+                  ]
+
+              ];
+          <https://admin-shell.io/aas/3/0/RC02/Property/value> "5000"^^xsd:string ;
+    ];
+.
+
+# Submodel
+<http://i40.customer.com/instance/1/1/AC69B1CB44F07935>
+    a <https://admin-shell.io/aas/3/0/RC02/Submodel> ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "OperationalData"^^xsd:string ;
+    rdfs:label "OperationalData"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/instance/1/1/AC69B1CB44F07935"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+
+    <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> [
+         a  <https://admin-shell.io/aas/3/0/RC02/Property> ;
+         rdfs:label "RotationSpeed"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "RotationSpeed"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueType>  "integer" ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueId> [
+                  a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
+                  <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
+                    a <https://admin-shell.io/aas/3/0/RC02/Key> ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/type>  <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription>  ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://customer.com/cd/1/1/18EBD56F6B43D895"^^xsd:string ;
+                  ]
+
+              ];
+          <https://admin-shell.io/aas/3/0/RC02/Property/value> "4370"^^xsd:string ;
+    ];
+.
+
+# Submodel
+<http://i40.customer.com/type/1/1/1A7B62B529F19152>
+   a <https://admin-shell.io/aas/3/0/RC02/Submodel> ;
+   <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Documentation"^^xsd:string ;
+   rdfs:label "Documentation"^^xsd:string ;
+   <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "<http://i40.customer.com/type/1A7B62B529F19152"^^xsd:string ;
+   <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+
+   <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement> [
+      a <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList> ;
+      <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "OperatingManual"^^xsd:string ;
+      rdfs:label "OperatingManual"^^xsd:string ;
+      <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdListElement> [
+          a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+          <https://admin-shell.io/aas/3/0/RC02/Reference/key> [
+            a <https://admin-shell.io/aas/3/0/RC02/Key> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^xsd:string ;
+          ]
+        ] ;
+      <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+       ] ;
+      <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> [
+         a <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct> ;
+         <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct/value> [
+            a <https://admin-shell.io/aas/3/0/RC02/File>;
+            rdf:subject <http://i40.customer.com/type/7A7104BDAB57E184/OperatingManual/Title>;
+            rdfs:label "Title"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/File/valueType>  "xsd:string" ; #TODO not a File?
+            <https://admin-shell.io/aas/3/0/RC02/File/value> "Operating Manual"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Title"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
+               a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
+                 <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
+                   a <https://admin-shell.io/aas/3/0/RC02/Key> ;
+                   <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
+                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^xsd:string ;
+                   ]
+             ] ;
+            <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+          ]
+      ];
+      <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> [
+         a <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct> ;
+         <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct/value> [
+            a <https://admin-shell.io/aas/3/0/RC02/Property>;
+            rdf:subject <http://i40.customer.com/type/7A7104BDAB57E184/OperatingManual/DigitalFile_PDF>;
+            rdfs:label "DigitalFile_PDF"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/File/valueType>  "xsd:string" ;
+            <https://admin-shell.io/aas/3/0/RC02/File/value> "/aasx/OperatingManual.pdf"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DigitalFile_PDF"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xsd:string ;
+            <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
+               a <https://admin-shell.io/aas/3/0/RC02/ModelReference> ;
+                 <https://admin-shell.io/aas/3/0/RC02/ModelReference/key> [
+                   a <https://admin-shell.io/aas/3/0/RC02/Key> ;
+                   <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyElements/ConceptDescription> ;
+                   <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/escription/Title"^^xsd:string ;
+                   ]
+             ] ;
+            <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+      ];
+    ]
+.
+
+
+# ConceptDescription
+<http://i40.customer.com/type/F13E8576F6488342/MaxRotationSpeed> rdf:type aas:ConceptDescription ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "MaxRotationSpeed"^^xsd:string ;
+    rdfs:label "MaxRotationSpeed"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/category> "PROPERTY"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "0173-1#02-BAA120#008"^^xsd:string ;
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+           a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
+       a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Max. rotation speed"@en, "max. Drehzahl"@de ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unit> "1/min"^^xsd:string ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unitId> [
+          a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+          <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#05-AAA650#002"^^xsd:string ;
+      ] ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType> "IntegerMeasure"^^xsd:string ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "Höchste zulässige Drehzahl, mit welcher der Motor oder die Speiseinheit betrieben werden darf"@de, "Greatest permissible rotation speed with which the motor or feeding unit may be operated"@en ;
+    ] ;
+.
+
+
+# ConceptDescription
+<http://customer.com/cd/1/1/18EBD56F6B43D895> rdf:type aas:ConceptDescription ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "RotationSpeed"^^xsd:string ;
+    rdfs:label "RotationSpeed"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/category> "PROPERTY"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://customer.com/cd/18EBD56F6B43D895/RotationSpeed"^^xsd:string ;
+
+    <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+          a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+          <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
+         a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
+         <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Actual rotation speed"@en, "Aktuelle Drehzahl"@de ;
+         <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unit> "1/min"^^xsd:string ;
+         <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/unitId> [
+            a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+            <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "0173-1#05-AAA650#002"^^xsd:string ;
+        ] ;
+         <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType> "IntegerMeasure"^^xsd:string ;
+         <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "Aktuelle Drehzahl, mit welcher der Motor oder die Speiseinheit betrieben wird."@de, "Actual rotation speed with which the motor or feeding unit is operated."@en ;
+      ] ;
+  .
+
+
+# ConceptDescription
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document> rdf:type aas:ConceptDescription ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Document"^^xsd:string ;
+    rdfs:label "Document"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^xsd:string ;
+
+    <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+           a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplate/DataSpecificationIEC61360"^^xsd:string ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
+       a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Document"@en, "Dokument"@de ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/shortName> "Document"@en ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/sourceOfDefinition> "[ISO 15519-1:2010]"^^xsd:string ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType> "Entity"^^xsd:string ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "Feste und geordnete Menge von für die Verwendung durch Personen bestimmte Informationen, die verwaltet und als Einheit zwischen Benutzern und System ausgetauscht werden kann."@de ;
+    ] ;
+
+.
+
+# ConceptDescription
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title> rdf:type aas:ConceptDescription ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Title"^^xsd:string ;
+    rdfs:label "Title"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^xsd:string ;
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+           a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
+       a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Titel"@en, "Titel"@de ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/shortName> "Titel"@en ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType> "StringTranslatable"^^xsd:string ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "Sprachabhängiger Titel des Dokuments."@de ;
+    ] ;
+.
+
+# ConceptDescription
+<http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile> rdf:type aas:ConceptDescription ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DigitalFile"^^xsd:string ;
+    rdfs:label "DigitalFile"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile"^^xsd:string ;
+
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+           a <https://admin-shell.io/aas/3/0/RC02/GlobalReference> ;
+           <http://admin-shell.io/aas/3/0/RC02/GlobalReference/value> "https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360"^^xsd:string ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
+       a <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360> ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/preferredName> "Digital File"@en ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/shortName> "DigitalFile"@en ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/dataType> "File"^^xsd:string ;
+       <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/DataSpecificationIEC61360/definition> "Eine Datei, die die DocumentVersion repräsentiert. Neben der obligatorischen PDF/A Datei können weitere Dateien angegeben werden."@de ;
+    ] ;
+.
