@@ -386,10 +386,10 @@ aas:BlobCertificate rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate/blobCertificate
-<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/blobCertificate> rdf:type owl:DatatypeProperty ;
+<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/blobCertificate> rdf:type owl:ObjectProperty ;
     rdfs:label "has blob certificate"^^xsd:string ;
     rdfs:domain aas:BlobCertificate ;
-    rdfs:range xsd:byte ;
+    rdfs:range aas:Blob ;
     rdfs:comment "Certificate as BLOB."@en ;
 .
 
