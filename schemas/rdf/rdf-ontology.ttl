@@ -196,7 +196,6 @@ aas:AssetAdministrationShell rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/derivedFrom
 <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/derivedFrom> rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf <http://www.w3.org/TR/2013/REC-prov-o-20130430/#wasDerivedFrom> ;
     rdfs:label "was derived from"^^xsd:string ;
     rdfs:domain aas:AssetAdministrationShell ;
     rdfs:range aas:Reference ;
@@ -942,7 +941,6 @@ aas:File rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/File/mimeType
 <https://admin-shell.io/aas/3/0/RC01/File/mimeType> rdf:type owl:DatatypeProperty ;
-    rdfs:seeAlso "http://uri4uri.net/vocab.html/#MimetypeDatatype"^^xsd:string ;
     rdfs:label "has mime type"^^xsd:string ;
     rdfs:domain aas:File ;
     rdfs:range xsd:string ;
@@ -1021,7 +1019,6 @@ aas:HasSemantics rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticID
 <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticID> rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf rdfs:seeAlso ;
     rdfs:label "has semantic ID"^^xsd:string ;
     rdfs:domain aas:HasSemantics ;
     rdfs:range aas:Reference ;
@@ -1711,7 +1708,6 @@ aas:Referable rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/Referable/displayName
 <https://admin-shell.io/aas/3/0/RC01/Referable/displayName> rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf rdfs:comment ;
     rdfs:label "has display name"^^xsd:string ;
     rdfs:domain aas:Referable ;
     rdfs:range rdf:langString ;
@@ -1728,7 +1724,6 @@ aas:Referable rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC01/Referable/description
 <https://admin-shell.io/aas/3/0/RC01/Referable/description> rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf rdfs:comment ;
     rdfs:label "has description"^^xsd:string ;
     rdfs:domain aas:Referable ;
     rdfs:range rdf:langString ;
@@ -1945,7 +1940,7 @@ aas:Security rdf:type owl:Class ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/SubjectAttributes
-aas:SubjectAttributes  rdf:type owl:Class ;
+aas:SubjectAttributes rdf:type owl:Class ;
     rdfs:label "Subject Attributes"^^xsd:string ;
     rdfs:comment "A set of data elements that further classifies a specific subject."@en ;
 .
@@ -2061,7 +2056,6 @@ aas:View rdf:type owl:Class ;
     rdfs:subClassOf aas:Referable ;
     rdfs:subClassOf aas:HasSemantics ;
     rdfs:subClassOf aas:HasDataSpecification ;
-    rdfs:isDefinedBy "https://www.plattform-i40.de/I40/Redaktion/DE/Downloads/Publikation/hm-2018-trilaterale-coop.html"@de ;
     rdfs:label "View"^^xsd:string ;
     rdfs:comment "A view is a collection of referable elements w.r.t. to a specific viewpoint of one or more stakeholders."@en ;
 .
