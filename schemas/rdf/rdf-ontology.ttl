@@ -417,35 +417,6 @@ aas:Capability rdf:type owl:Class ;
     rdfs:comment "A capability is the implementation-independent description of the potential of an asset to achieve a certain effect in the physical or virtual world."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/Category
-aas:Category rdf:type owl:Class ;
-    rdfs:comment "A enumeration for data elements except for files and blobs."@en ;
-    rdfs:label "Category"^^xsd:string ;
-    owl:oneOf (
-        <https://admin-shell.io/aas/3/0/RC01/Category/Parameter>
-        <https://admin-shell.io/aas/3/0/RC01/Category/Variable>
-        <https://admin-shell.io/aas/3/0/RC01/Category/Constant>
-    ) ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/Category/Constant
-<https://admin-shell.io/aas/3/0/RC01/Category/Constant> rdf:type aas:Category ;
-    rdfs:label "Constant"^^xsd:string ;
-    rdfs:comment "A constant property is a property with a value that does not change over time. In eCl@ss this kind of category has the category 'Coded Value'."@en ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/Category/Parameter
-<https://admin-shell.io/aas/3/0/RC01/Category/Parameter> rdf:type aas:Category ;
-    rdfs:label "Parameter"^^xsd:string ;
-    rdfs:comment "A parameter property is a property that is once set and then typically does not change over time. This is for example the case for configuration parameters."@en ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/Category/Variable
-<https://admin-shell.io/aas/3/0/RC01/Category/Variable> rdf:type aas:Category ;
-    rdfs:label "Variable"^^xsd:string ;
-    rdfs:comment "A variable property is a property that is calculated during runtime, i.e. its value is a runtime value."@en ;
-.
-
 ###  https://admin-shell.io/aas/3/0/RC01/Certificate
 aas:Certificate rdf:type owl:Class ;
     rdfs:label "Certificate"^^xsd:string ;
@@ -459,6 +430,7 @@ aas:Certificate rdf:type owl:Class ;
     rdfs:range aas:PolicyAdministrationPoint ;
     rdfs:comment "The access control administration policy point of the AAS."@en ;
 .
+
 ###  https://admin-shell.io/aas/3/0/RC01/ConceptDescription
 aas:ConceptDescription rdf:type owl:Class ;
     rdfs:subClassOf aas:Identifiable ;
@@ -876,20 +848,6 @@ aas:Event rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:label "Event"^^xsd:string ;
     rdfs:comment "An event."@en ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/EventElement
-aas:EventElement rdf:type owl:Class ;
-    rdfs:subClassOf aas:SubmodelElement ;
-    rdfs:label "Event Element"^^xsd:string ;
-    rdfs:comment "Defines the necessary information for sending or receiving events."@en ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC01/EventMessage
-aas:EventMessage rdf:type owl:Class ;
-    rdfs:subClassOf aas:SubmodelElement ;
-    rdfs:label "Event Message"^^xsd:string ;
-    rdfs:comment "Defines the necessary information of an event instance sent out or received."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Extension
