@@ -1,0 +1,31 @@
+@prefix aas: <http://admin-shell.io/aas/3/0/RC01/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <http://admin-shell.io/aas/3/0/RC01/> .
+
+
+<http://customer.com/assets/MaxRotationSpeed>
+    a <https://admin-shell.io/aas/3/0/RC01/Property> ;
+    <https://admin-shell.io/aas/3/0/RC01/Property/valueType> "xsd:integer" ;
+    <https://admin-shell.io/aas/3/0/RC01/Property/value> "5000"^^xsd:integer ;
+    <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "MaxRotationSpeed"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC01/Referable/category> "PARAMETER"^^xsd:string ;
+    <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> <https://admin-shell.io/aas/3/0/RC01/ModelingKind/Instance>  ;
+    <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticId> [
+       a <https://admin-shell.io/aas/3/0/RC01/Reference> ;
+       <https://admin-shell.io/aas/3/0/RC01/Referable/idShort> "AReference"^^xsd:string ;
+       <https://admin-shell.io/aas/3/0/RC01/Reference/key> [
+         a <https://admin-shell.io/aas/3/0/RC01/Key> ;
+         <https://admin-shell.io/aas/3/0/RC01/Key/type> <https://admin-shell.io/aas/3/0/RC01/IdentifiableElements/ConceptDescription> ;
+         <https://admin-shell.io/aas/3/0/RC01/Key/value> "0173-1#02-BAA120#008"^^xsd:string ;
+         <https://admin-shell.io/aas/3/0/RC01/Key/idType> <https://admin-shell.io/aas/3/0/RC01/IdentifierType/Irdi> ;
+       ]
+    ] ;
+.
