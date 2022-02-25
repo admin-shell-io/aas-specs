@@ -22,7 +22,7 @@ One serialization describes one AAS environment that is a collection of Administ
 Note: XSD structuring was done with Eclipse tool chain
 
 ## XML MappingRules
-The main concepts of the XML schema and the resulting XML serialization are explained by the following rules. The first 6 Rules are general rules, while the following rules specific to References.
+The concepts of the XML schema and the derived XML serialization of the AAS are explained by the mapping rules. These rules are implemented by the [generartors](https://github.com/aas-core-works/aas-core-codegen) used to create the schemata based on the idependet project [aas-core-works](https://github.com/aas-core-works/). The main design princials are dokumentes in this section by folloing rules. The first 6 Rules are general rules, while the following rules specific to References.
 
 - XSD global Types are used for modeling. For reusability XSD global types will be used for modeling. There will be a naming convention <informationModelName>+’_t’
 - If present, names are taken from the information model. For comprehensibility reasons the XML key names should be the same as the representing Element in the metamodel. 
