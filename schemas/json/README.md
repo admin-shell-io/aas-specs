@@ -7,7 +7,9 @@ One serialization describes one AAS environment, that is, a collection of Admini
 ![Top level structure of an AssetAdministration Shell environment mapped to JSON](https://user-images.githubusercontent.com/1814815/147122261-ac77deea-e83e-422d-bff5-f005feaf98d4.png)
 
 ## JSON Mapping Rules
-The main concepts of the JSON serialization are explained by the following rules. 
+The concepts of the JSON defintion and the derived JSON serialization of the AAS are explained by the mapping rules. These rules are implemented by the [generartors](https://github.com/aas-core-works/aas-core-codegen) used to create the schemata based on the idependet project [aas-core-works](https://github.com/aas-core-works/). The main design princials are dokumentes in this section by folloing rules:
+
+
 - If present, names are taken from the information model. For comprehensibility reasons, the JSON key names should be the same as the representing Element in the metamodel. 
 - Each Referable, Qualifier and Formula have an additional attribute “modelType” with the name of the corresponding object class as value, This rule is needed for deserialization reasons. 
 - All identifiables have an aggregation on the root level of the enviorment. The identifiables are AssetAdministrationShells, Assets, Submodels ConceptDescriptions and Data Specifications. To reduce redundancy of instances, they are located exclusively in the top-level aggregation.
