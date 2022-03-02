@@ -769,18 +769,6 @@ aas:EventShape a sh:NodeShape ;
     ] ;
 .
 
-aas:EventElementShape a sh:NodeShape ;
-  rdfs:subClassOf aas:SubmodelElementShape ;
-  sh:targetClass aas:EventElement ;
-  skos:note "As of November 2019, EventElement is not mandatory. This shape serves as a stump for further definitions."@en ;
-.
-
-aas:EventMessageShape a sh:NodeShape ;
-  rdfs:subClassOf aas:SubmodelElementShape ;
-  sh:targetClass aas:EventMessage ;
-  skos:note "As of November 2019, EventMessage is not mandatory. This shape serves as a stump for further definitions."@en ;
-.
-
 aas:ExtensionShape a sh:NodeShape ;
   sh:targetClass aas:Extension ;
   rdfs:subClassOf aas:HasSemanticsShape ;
