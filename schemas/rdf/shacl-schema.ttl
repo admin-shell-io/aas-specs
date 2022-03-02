@@ -23,10 +23,10 @@ aas:AccessControlShape a sh:NodeShape ;
     sh:targetClass aas:AccessControl ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControl/accessPermissionRule> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/AccessControl/accessPermissionRules> ;
         sh:class aas:AccessPermissionRule ;
         sh:minCount 0 ;
-        sh:message "(AccessControl.accessPermissionRule):A <i>accessPermissionRule</i> must point to a <i>AccessPermissionRule</i>."^^xsd:string ;
+        sh:message "(AccessControl.accessPermissionRules):A <i>accessPermissionRules</i> must point to a <i>AccessPermissionRule</i>."^^xsd:string ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -206,17 +206,17 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodel> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/submodels> ;
         sh:minCount 0 ;
         sh:class aas:Reference ;
-        sh:message "(AssetAdministrationShell.submodel):A <i>submodel</i> attribute must have a <i>Reference</i> entity pointing to a Submodel."^^xsd:string ;
+        sh:message "(AssetAdministrationShell.submodels):A <i>submodels</i> attribute must have a <i>Reference</i> entity pointing to a Submodel."^^xsd:string ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/view> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/views> ;
         sh:minCount 0 ;
         sh:class aas:View ;
-        sh:message "(AssetAdministrationShell.view):A <i>view</i> must point to a View"^^xsd:string ;
+        sh:message "(AssetAdministrationShell.views):A <i>views</i> must point to a View"^^xsd:string ;
     ] ;
 .
 
@@ -273,10 +273,10 @@ aas:AssetInformationShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/specificAssetId> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/specificAssetIds> ;
         sh:class aas:IdentifierKeyValuePair ;
         sh:minCount 0 ;
-        sh:message "(AssetInformation.specificAssetId):A <i>specificAssetId</i> must point to an <i>IdentifierKeyValuePair</i>."^^xsd:string ;
+        sh:message "(AssetInformation.specificAssetIds):A <i>specificAssetIds</i> must point to an <i>IdentifierKeyValuePair</i>."^^xsd:string ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -711,10 +711,10 @@ aas:EntityShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/statement> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/statements> ;
         sh:class aas:SubmodelElement ;
         sh:minCount 0 ;
-        sh:message "(Entity.statement):A <i>statement</i> must link to a <i>SubmodelElement</i>."^^xsd:string ;
+        sh:message "(Entity.statements):A <i>statements</i> must link to a <i>SubmodelElement</i>."^^xsd:string ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -865,11 +865,11 @@ aas:HasExtensionsShape a sh:NodeShape ;
         """ ;
     ] ;
     sh:property [
-     a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/HasExtensions/extension> ;
+        a sh:PropertyShape ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/HasExtensions/extensions> ;
         sh:class aas:Extension ;
         sh:minCount 0 ;
-        sh:message "(HasExtensions.extension):A <i>hasExtensions</i> attribute must point to a <i>Extension</i>."^^xsd:string ;
+        sh:message "(HasExtensions.extensions):A <i>extensions</i> attribute must point to an <i>Extension</i>."^^xsd:string ;
     ] ;
 .
 
@@ -1063,10 +1063,10 @@ aas:ObjectAttributesShape a sh:NodeShape ;
     sh:targetClass aas:ObjectAttributes ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/ObjectAttributes/objectAttribute> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/ObjectAttributes/objectAttributes> ;
         sh:class aas:Reference ;
         sh:minCount 1 ;
-        sh:message "(ObjectAttributes.objectAttribute):A <i>objectAttribute</i> attribute at least have one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
+        sh:message "(ObjectAttributes.objectAttributes):A <i>objectAttributes</i> attribute must have at least one <i>reference</i> entity pointing to a <i>Submodel</i>."^^xsd:string ;
     ] ;
 .
 
@@ -1075,24 +1075,24 @@ aas:OperationShape a sh:NodeShape ;
     sh:targetClass aas:Operation ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/Operation/inputVariable> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/Operation/inputVariables> ;
         sh:class aas:OperationVariable ;
         sh:minCount 0 ;
-        sh:message "(Operation.inputVariable):Only OperationVariables can be accepted as <i>inputVariable</i>"^^xsd:string ;
+        sh:message "(Operation.inputVariables):Only OperationVariables can be accepted as <i>inputVariables</i>"^^xsd:string ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/Operation/outputVariable> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/Operation/outputVariables> ;
         sh:class aas:OperationVariable ;
         sh:minCount 0 ;
-        sh:message "(Operation.outputVariable):Only OperationVariables can be accepted as <i>outputVariable</i>"^^xsd:string ;
+        sh:message "(Operation.outputVariables):Only OperationVariables can be accepted as <i>outputVariables</i>"^^xsd:string ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/Operation/inoutputVariable> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/Operation/inoutputVariables> ;
         sh:class aas:OperationVariable ;
         sh:minCount 0 ;
-        sh:message "(Operation.inoutputVariable):Only OperationVariables can be accepted as <i>inoutputVariable</i>"^^xsd:string ;
+        sh:message "(Operation.inoutputVariables):Only OperationVariables can be accepted as <i>inoutputVariables</i>"^^xsd:string ;
     ] ;
 .
 
@@ -1148,10 +1148,10 @@ aas:PermissionsPerObjectShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/PermissionsPerObject/permission> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/PermissionsPerObject/permissions> ;
         sh:class aas:Permission ;
         sh:minCount 0 ;
-        sh:message "(PermissionsPerObject.permission):A <i>permission</i> must point to a <i>Permission</i>."^^xsd:string ;
+        sh:message "(PermissionsPerObject.permissions):A <i>permissions</i> must point to a <i>Permission</i>."^^xsd:string ;
     ] ;
 .
 
@@ -1211,10 +1211,10 @@ aas:PolicyInformationPointsShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoint> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/PolicyInformationPoints/internalInformationPoints> ;
         sh:class aas:Reference ;
         sh:minCount 0 ;
-        sh:message "(PolicyInformationPoints.internalInformationPoint):A <i>internalInformationPoint</i> attribute must point to a <i>Reference</i> pointing to a submodel."^^xsd:string ;
+        sh:message "(PolicyInformationPoints.internalInformationPoints):A <i>internalInformationPoints</i> attribute must point to a <i>Reference</i> pointing to a submodel."^^xsd:string ;
     ] ;
 .
 
@@ -1264,7 +1264,7 @@ aas:QualifiableShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifiable/qualifier> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifiable/qualifiers> ;
         sh:class aas:Constraint ;
     ] ;
 .
@@ -1391,7 +1391,7 @@ aas:ReferenceShape a sh:NodeShape ;
     sh:targetClass aas:Reference ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/Reference/key> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/Reference/keys> ;
         sh:class aas:Key ;
         sh:minCount 1 ;
     ] ;
@@ -1443,16 +1443,16 @@ aas:SecurityShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/Security/certificate> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/Security/certificates> ;
         sh:class aas:Certificate ;
-        sh:message "(Security.certificate):A <i>certificate</i> must point to a Certificate"^^xsd:string ;
+        sh:message "(Security.certificates):A <i>certificates</i> must point to a Certificate"^^xsd:string ;
         sh:minCount 0 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/Security/requiredCertificateExtension> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/Security/requiredCertificateExtensions> ;
         sh:class aas:Reference ;
-        sh:message "(Security.requiredCertificateExtension):A <i>requiredCertificateExtension</i> must point to a Reference."^^xsd:string ;
+        sh:message "(Security.requiredCertificateExtensions):A <i>requiredCertificateExtensions</i> must point to a Reference."^^xsd:string ;
         sh:minCount 0 ;
     ] ;
 .
@@ -1461,10 +1461,10 @@ aas:SubjectAttributesShape a sh:NodeShape ;
     sh:targetClass aas:SubjectAttributes ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/SubjectAttributes/subjectAttribute> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/SubjectAttributes/subjectAttributes> ;
         sh:class aas:DataElement ;
         sh:minCount 1 ;
-        sh:message "(SubjectAttributes.subjectAttribute):At least one <i>subjectAttribute</i> pointing to a <i>DataElement</i> is required."^^xsd:string ;
+        sh:message "(SubjectAttributes.subjectAttributes):At least one <i>subjectAttributes</i> pointing to a <i>DataElement</i> is required."^^xsd:string ;
     ] ;
 .
 
@@ -1478,10 +1478,10 @@ aas:SubmodelShape a sh:NodeShape ;
     sh:message "Invalid Identification Template (For Submodels with Kind = Type only Ids of Type IRDI or IRI are allowed) /  (For Submodels with Kind = Instance only Ids of Type Custom or IRI are allowed)"^^xsd:string ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElement> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElements> ;
         sh:class aas:SubmodelElement ;
         sh:minCount 0 ;
-        sh:message "(Submodel.submodelElement):all submodel elements must be instances of type SubmodelElement"^^xsd:string ;
+        sh:message "(Submodel.submodelElements):all submodel elements must be instances of type SubmodelElement"^^xsd:string ;
     ] ;
 .
 
@@ -1575,8 +1575,8 @@ aas:ViewShape a sh:NodeShape ;
     sh:targetClass aas:View ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/View/containedElement> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/View/containedElements> ;
         sh:class aas:Reference ;
-        sh:message "(View.containedElement):A <i>containedElement</i> attribute must have an entity pointing to a <i>Reference</i>."^^xsd:string ;
+        sh:message "(View.containedElements):A <i>containedElements</i> attribute must have an entity pointing to a <i>Reference</i>."^^xsd:string ;
     ] ;
 .
