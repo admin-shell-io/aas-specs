@@ -342,9 +342,10 @@ aas:BlobCertificateShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/lastCertificate> ;
+        sh:datatype xsd:boolean ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
-        sh:datatype xsd:boolean ;
+
         sh:message "(BlobCertificate.lastCertificate): Exactly one <i>lastCertificate</i> pointing to a  <i>boolean</i> is required."^^xsd:string ;
     ] ;
     sh:property [
@@ -379,9 +380,9 @@ aas:CertificateShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Certificate/policyAdministrationPoint> ;
+        sh:class aas:PolicyAdministrationPoint ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
-        sh:class aas:PolicyAdministrationPoint ;
         sh:message "(Certificate.policyAdministrationPoint): Exactly one <i>policyAdministrationPoint</i> pointing to a  <i>PolicyAdministrationPoint</i> is required."^^xsd:string ;
     ] ;
 .
@@ -393,8 +394,8 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/isCaseOf> ;
-        sh:minCount 0 ;
         sh:class aas:Reference ;
+        sh:minCount 0 ;
         sh:message "(ConceptDescription.isCaseOf):<i>isCaseOf</i> must point to a <i>reference</i> entity."^^xsd:string ;
     ] ;
 .
@@ -765,7 +766,7 @@ aas:ExtensionShape a sh:NodeShape ;
         sh:message "(Extension.name): Exactly one <id>name</id> is required."^^xsd:string ;
     ] ;
     sh:property [
-     a sh:PropertyShape ;
+        a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Extension/valueType> ;
         sh:datatype xsd:string ;
         sh:minCount 0 ;
@@ -774,7 +775,7 @@ aas:ExtensionShape a sh:NodeShape ;
         sh:message "(Extension.valueType):Only one value for <i>valueType</i> is allowed"^^xsd:string ;
     ] ;
     sh:property [
-     a sh:PropertyShape ;
+        a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Extension/value> ;
         sh:class xsd:string ;
         sh:minCount 0 ;
@@ -782,7 +783,7 @@ aas:ExtensionShape a sh:NodeShape ;
         sh:message "(Extension.value):Only one <i>value</i> is allowed"^^xsd:string ;
     ] ;
     sh:property [
-     a sh:PropertyShape ;
+        a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Extension/refersTo> ;
         sh:class aas:Reference ;
         sh:minCount 0 ;
@@ -971,7 +972,7 @@ aas:IdentifierShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Identifier/id> ;
-        sh:datatype xsd:string  ;
+        sh:datatype xsd:string ;
         sh:description "'id' property of Identifier class"^^xsd:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
@@ -1015,10 +1016,10 @@ aas:KeyShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Key/type> ;
-        sh:class aas:KeyElements;
+        sh:class aas:KeyElements ;
+        sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:message "(Key.type):Only 1 <i>keyElement</i> can be stated"^^xsd:string ;
-        sh:minCount 0 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -1051,9 +1052,9 @@ aas:MultiLanguagePropertyShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/valueId> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
-        sh:class aas:Reference ;
         sh:message "(MultiLanguageProperty.valueId):Only one <i>valueId</i> attribute having a <i>Reference</i> is allowed"^^xsd:string ;
     ] ;
 .
@@ -1239,9 +1240,9 @@ aas:PropertyShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Property/valueId> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
-        sh:class aas:Reference ;
         sh:message "(Property.valueId):Only one <i>valueId</i> is allowed"^^xsd:string ;
     ] ;
 .
@@ -1403,9 +1404,9 @@ aas:ReferenceElementShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/ReferenceElement/value> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
-        sh:class aas:Reference ;
         sh:message "(ReferenceElement.value):Only one value for <i>value</i> is allowed"^^xsd:string ;
     ] ;
 .
