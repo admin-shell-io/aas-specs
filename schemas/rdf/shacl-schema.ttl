@@ -227,7 +227,7 @@ aas:AssetAdministrationShellEnvironmentShape a sh:NodeShape ;
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assetAdministrationShells> ;
         sh:class aas:AssetAdministrationShell ;
-        sh:minCount 1 ;
+        sh:minCount 0 ;
         sh:message "(AssetAdministrationShellEnvironment.assetAdministrationShells): At least one <i>assetAdministrationShells</i> attribute having an <i>AssetAdministrationShell</i> entity is required."^^xsd:string ;
     ] ;
     sh:property [
@@ -240,14 +240,14 @@ aas:AssetAdministrationShellEnvironmentShape a sh:NodeShape ;
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/submodels> ;
         sh:class aas:Submodel ;
-        sh:minCount 1 ;
+        sh:minCount 0 ;
         sh:message "(AssetAdministrationShellEnvironment.submodels): At least one <i>submodels</i> attribute having a <i>Submodel</i> entity is required."^^xsd:string ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/conceptDescriptions> ;
         sh:class aas:ConceptDescription ;
-        sh:minCount 1 ;
+        sh:minCount 0 ;
         sh:message "(AssetAdministrationShellEnvironment.conceptDescriptions): At least one <i>conceptDescriptions</i> attribute having a <i>ConceptDescription</i> entity is required."^^xsd:string ;
     ] ;
 .
@@ -323,6 +323,7 @@ aas:BlobShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Blob/value> ;
+        sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:message "(Blob.value):Only one <i>value</i> is allowed"^^xsd:string ;
     ] ;
@@ -1008,7 +1009,7 @@ aas:KeyShape a sh:NodeShape ;
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Key/type> ;
         sh:class aas:KeyElements ;
-        sh:minCount 0 ;
+        sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:message "(Key.type):Only 1 <i>keyElement</i> can be stated"^^xsd:string ;
     ] ;
@@ -1257,6 +1258,7 @@ aas:QualifiableShape a sh:NodeShape ;
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifiable/qualifiers> ;
         sh:class aas:Constraint ;
+        sh:minCount 0 ;
     ] ;
 .
 
@@ -1358,6 +1360,7 @@ aas:ReferableShape a sh:NodeShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/displayName> ;
         sh:datatype rdf:langString ;
         sh:minCount 0 ;
+        sh:maxCount 1 ;
         sh:message "(Referable.displayName):A <i>displayName</i> must point to a <i>langString</i>."^^xsd:string ;
     ] ;
     sh:property [
@@ -1374,6 +1377,7 @@ aas:ReferableShape a sh:NodeShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/description> ;
         sh:datatype rdf:langString ;
         sh:minCount 0 ;
+        sh:maxCount 1 ;
         sh:message "(Referable.description):A <i>description</i> must point to a <i>langString</i>"^^xsd:string ;
     ] ;
 .
