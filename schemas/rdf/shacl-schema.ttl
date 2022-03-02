@@ -271,7 +271,6 @@ aas:AssetInformationShape a sh:NodeShape ;
         sh:maxCount 1 ;
         sh:message "(AssetInformation.assetKind): Exactly one <i>assetKind</i> attribute having an <i>AssetKind</i> entity is required."^^xsd:string ;
     ] ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/globalAssetId> ;
@@ -280,7 +279,6 @@ aas:AssetInformationShape a sh:NodeShape ;
         sh:maxCount 1 ;
         sh:message "(AssetInformation.globalAssetId):Only one <i>globalAssetId</i> attribute having a <i>reference</i> entity is required."^^xsd:string ;
     ] ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/specificAssetId> ;
@@ -288,7 +286,6 @@ aas:AssetInformationShape a sh:NodeShape ;
         sh:minCount 0 ;
         sh:message "(AssetInformation.specificAssetId):A <i>specificAssetId</i> must point to an <i>IdentifierKeyValuePair</i>."^^xsd:string ;
     ] ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/billOfMaterial> ;
@@ -296,8 +293,7 @@ aas:AssetInformationShape a sh:NodeShape ;
         sh:minCount 0 ;
         sh:message "(AssetInformation.billOfMaterial): A <i>billOfMaterial</i> attribute must have a <i>reference</i> entity pointing to a Submodel."^^xsd:string ;
     ] ;
-
-   sh:property [
+    sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/defaultThumbnail> ;
         sh:class aas:File;
@@ -387,7 +383,6 @@ aas:CertificateShape a sh:NodeShape ;
             }
         """ ;
     ] ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Certificate/policyAdministrationPoint> ;
@@ -737,7 +732,6 @@ aas:EntityShape a sh:NodeShape ;
         sh:message "(Entity.globalAssetId):Only one <i>globalAssetIdasset</i> attribute linking to a <i>Reference</i> is allowed."^^xsd:string ;
         sh:minCount 0 ;
     ] ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/specificAssetId> ;
@@ -854,7 +848,6 @@ aas:HasDataSpecificationShape a sh:NodeShape ;
             }
         """ ;
     ] ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/HasDataSpecification/embeddedDataSpecification> ;
@@ -879,7 +872,6 @@ aas:HasExtensionsShape a sh:NodeShape ;
             }
         """ ;
     ] ;
-
     sh:property [
      a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/HasExtensions/extension> ;
@@ -904,7 +896,6 @@ aas:HasKindShape a sh:NodeShape ;
               }
           """ ;
         ] ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/HasKind/kind> ;
@@ -930,7 +921,6 @@ aas:HasSemanticsShape a sh:NodeShape ;
             }
         """ ;
     ] ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/HasSemantics/semanticID> ;
@@ -957,7 +947,6 @@ aas:IdentifiableShape a sh:NodeShape ;
             }
         """ ;
     ] ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Identifiable/administration> ;
@@ -1281,7 +1270,6 @@ aas:QualifiableShape a sh:NodeShape ;
             }
         """ ;
     ] ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifiable/qualifier> ;
@@ -1373,7 +1361,6 @@ aas:ReferableShape a sh:NodeShape ;
             }
         """ ;
     ] ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Referable/category> ;
