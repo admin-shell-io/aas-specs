@@ -4,7 +4,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -737,7 +736,6 @@ aas:EntityShape a sh:NodeShape ;
 aas:EventShape a sh:NodeShape ;
     sh:targetClass aas:Event ;
     rdfs:subClassOf aas:SubmodelElementShape ;
-    skos:note "As of November 2019, Event is not mandatory. This shape serves as a stump for further definitions."@en ;
 
     sh:sparql [
         a sh:SPARQLConstraint ;
