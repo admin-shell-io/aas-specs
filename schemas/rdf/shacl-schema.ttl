@@ -116,6 +116,8 @@ aas:AccessControlPolicyPointsShape a sh:NodeShape ;
 
 aas:AccessPermissionRuleShape a sh:NodeShape ;
     sh:targetClass aas:AccessPermissionRule ;
+    rdfs:subClassOf aas:ReferableShape ;
+    rdfs:subClassOf aas:QualifiableShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AccessPermissionRule/targetSubjectAttributes> ;
@@ -172,14 +174,14 @@ aas:AnnotatedRelationshipElementShape a sh:NodeShape ;
 
 aas:AssetShape a sh:NodeShape ;
     sh:targetClass aas:Asset ;
-    rdfs:subClassOf aas:HasDataSpecificationShape ;
     rdfs:subClassOf aas:IdentifiableShape ;
+    rdfs:subClassOf aas:HasDataSpecificationShape ;
 .
 
 aas:AssetAdministrationShellShape a sh:NodeShape ;
     sh:targetClass aas:AssetAdministrationShell ;
-    rdfs:subClassOf aas:HasDataSpecificationShape ;
     rdfs:subClassOf aas:IdentifiableShape ;
+    rdfs:subClassOf aas:HasDataSpecificationShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShell/derivedFrom> ;
@@ -296,8 +298,8 @@ aas:AssetInformationShape a sh:NodeShape ;
 .
 
 aas:BasicEventShape a sh:NodeShape ;
-    rdfs:subClassOf aas:EventShape ;
     sh:targetClass aas:BasicEvent ;
+    rdfs:subClassOf aas:EventShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/BasicEvent/observed> ;
@@ -309,8 +311,8 @@ aas:BasicEventShape a sh:NodeShape ;
 .
 
 aas:BlobShape a sh:NodeShape ;
-    rdfs:subClassOf aas:DataElementShape ;
     sh:targetClass aas:Blob ;
+    rdfs:subClassOf aas:DataElementShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Blob/mimeType> ;
@@ -328,8 +330,8 @@ aas:BlobShape a sh:NodeShape ;
 .
 
 aas:BlobCertificateShape a sh:NodeShape ;
-    rdfs:subClassOf aas:CertificateShape ;
     sh:targetClass aas:BlobCertificate ;
+    rdfs:subClassOf aas:CertificateShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/blobCertificate> ;
@@ -356,8 +358,8 @@ aas:BlobCertificateShape a sh:NodeShape ;
 .
 
 aas:CapabilityShape a sh:NodeShape ;
-    rdfs:subClassOf aas:SubmodelElementShape ;
     sh:targetClass aas:Capability ;
+    rdfs:subClassOf aas:SubmodelElementShape ;
 .
 
 aas:CertificateShape a sh:NodeShape ;
@@ -387,8 +389,8 @@ aas:CertificateShape a sh:NodeShape ;
 
 aas:ConceptDescriptionShape a sh:NodeShape ;
     sh:targetClass aas:ConceptDescription ;
-    rdfs:subClassOf aas:HasDataSpecificationShape ;
     rdfs:subClassOf aas:IdentifiableShape ;
+    rdfs:subClassOf aas:HasDataSpecificationShape ;
 
     sh:property [
         a sh:PropertyShape ;
@@ -417,8 +419,8 @@ aas:ConstraintShape a sh:NodeShape ;
 .
 
 aas:DataElementShape a sh:NodeShape ;
-    rdfs:subClassOf aas:SubmodelElementShape ;
     sh:targetClass aas:DataElement ;
+    rdfs:subClassOf aas:SubmodelElementShape ;
 
     sh:sparql [
         a sh:SPARQLConstraint ;
@@ -699,8 +701,8 @@ aas:EmbeddedDataSpecificationShape a sh:NodeShape ;
 .
 
 aas:EntityShape a sh:NodeShape ;
-    rdfs:subClassOf aas:SubmodelElementShape ;
     sh:targetClass aas:Entity ;
+    rdfs:subClassOf aas:SubmodelElementShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Entity/entityType> ;
@@ -735,8 +737,8 @@ aas:EntityShape a sh:NodeShape ;
 .
 
 aas:EventShape a sh:NodeShape ;
-    rdfs:subClassOf aas:SubmodelElementShape ;
     sh:targetClass aas:Event ;
+    rdfs:subClassOf aas:SubmodelElementShape ;
     skos:note "As of November 2019, Event is not mandatory. This shape serves as a stump for further definitions."@en ;
 
     sh:sparql [
@@ -793,8 +795,8 @@ aas:ExtensionShape a sh:NodeShape ;
 .
 
 aas:FileShape a sh:NodeShape ;
-    rdfs:subClassOf aas:DataElementShape ;
     sh:targetClass aas:File ;
+    rdfs:subClassOf aas:DataElementShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/File/mimeType> ;
@@ -1071,8 +1073,8 @@ aas:ObjectAttributesShape a sh:NodeShape ;
 .
 
 aas:OperationShape a sh:NodeShape ;
-    rdfs:subClassOf aas:SubmodelElementShape ;
     sh:targetClass aas:Operation ;
+    rdfs:subClassOf aas:SubmodelElementShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Operation/inputVariables> ;
@@ -1411,8 +1413,8 @@ aas:ReferenceElementShape a sh:NodeShape ;
 .
 
 aas:RelationshipElementShape a sh:NodeShape ;
-    rdfs:subClassOf aas:SubmodelElementShape ;
     sh:targetClass aas:RelationshipElement ;
+    rdfs:subClassOf aas:SubmodelElementShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/RelationshipElement/first> ;
@@ -1508,8 +1510,8 @@ aas:SubmodelElementShape a sh:NodeShape ;
 .
 
 aas:SubmodelElementCollectionShape a sh:NodeShape ;
-    rdfs:subClassOf aas:SubmodelElementShape ;
     sh:targetClass aas:SubmodelElementCollection ;
+    rdfs:subClassOf aas:SubmodelElementShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/value> ;
@@ -1569,10 +1571,10 @@ aas:ValueReferencePairShape a sh:NodeShape ;
 .
 
 aas:ViewShape a sh:NodeShape ;
+    sh:targetClass aas:View ;
     rdfs:subClassOf aas:HasDataSpecificationShape ;
     rdfs:subClassOf aas:HasSemanticsShape ;
     rdfs:subClassOf aas:ReferableShape ;
-    sh:targetClass aas:View ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/View/containedElements> ;
