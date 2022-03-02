@@ -145,7 +145,7 @@ aas:AdministrativeInformationShape a sh:NodeShape ;
         sh:maxCount 1 ;
         sh:pattern ".+" ;
         sh:message "(AdministrativeInformation.version):Only one value for <i>version</i> is allowed."^^xsd:string ;
-        sh:nodeKind sh:Literal ;
+
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -155,7 +155,7 @@ aas:AdministrativeInformationShape a sh:NodeShape ;
         sh:maxCount 1 ;
         sh:pattern ".+" ;
         sh:message "(AdministrativeInformation.revision):<i>AdministrativeInformationShape</i>: Only one value for <i>revision</i> is allowed."^^xsd:string ;
-        sh:nodeKind sh:Literal ;
+
     ] ;
 .
 
@@ -1230,7 +1230,7 @@ aas:PropertyShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Property/value> ;
-        sh:nodeKind sh:Literal ;
+        sh:datatype xsd:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:message "(Property.value):Only one <i>value</i> is allowed."^^xsd:string ;
