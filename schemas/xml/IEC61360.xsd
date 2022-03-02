@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://www.admin-shell.io/IEC61360/3/0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:IEC61360="http://www.admin-shell.io/IEC61360/3/0">
+<schema elementFormDefault="qualified" targetNamespace="https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:IEC61360="https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC01/">
 	<attributeGroup name="keyTypes">
 		<attribute name="identifierType" use="optional">
 			<simpleType>
 				<restriction base="string">
 					<enumeration value="Custom"/>
-					<enumeration value="IRDI"/>
-					<enumeration value="IRI"/>
+					<enumeration value="Irdi"/>
+					<enumeration value="Iri"/>
 				</restriction>
 			</simpleType>
 		</attribute>
 		<attribute name="localKeyType" use="optional">
 			<simpleType>
 				<restriction base="string">
-					<enumeration value="idShort"/>
+					<enumeration value="IdShort"/>
 				</restriction>
 			</simpleType>
 		</attribute>
 	</attributeGroup>
 	<complexType name="code_t"/>
-	<complexType name="dataSpecificationIEC61630_t">
+	<complexType name="dataSpecificationIEC61360_t">
 		<choice minOccurs="1" maxOccurs="unbounded">
-            <element maxOccurs="1" minOccurs="1" name="preferredName" type="IEC61360:langStringSet_t" />
-            <element maxOccurs="1" minOccurs="0" name="shortName" type="IEC61360:langStringSet_t" />
+            <element maxOccurs="unbounded" minOccurs="1" name="preferredName" type="IEC61360:langStringSet_t" />
+            <element maxOccurs="unbounded" minOccurs="0" name="shortName" type="IEC61360:langStringSet_t" />
             <element maxOccurs="1" minOccurs="0" name="unit" type="string" />
             <element maxOccurs="1" minOccurs="0" name="unitId" type="IEC61360:reference_t" />
             <element maxOccurs="1" minOccurs="0" name="sourceOfDefinition" type="string" />
             <element maxOccurs="1" minOccurs="0" name="symbol" type="string" />
-            <element maxOccurs="1" minOccurs="0" name="dataType" type="IEC61360:dataTypeIEC61360_t"/>
-			<element maxOccurs="1" minOccurs="0" name="definition" type="IEC61360:langStringSet_t"/>
-			<element maxOccurs="1" minOccurs="0" name="valueFormat" type="string"/>
+            <element maxOccurs="1" minOccurs="1" name="dataType" type="IEC61360:dataTypeIEC61360_t"/>
+						<element maxOccurs="unbounded" minOccurs="0" name="definition" type="IEC61360:langStringSet_t"/>
+						<element maxOccurs="1" minOccurs="0" name="valueFormat" type="string"/>
             <element maxOccurs="1" minOccurs="0" name="valueList" type="IEC61360:valueList_t" />
             <element maxOccurs="1" minOccurs="0" name="value" type="IEC61360:valueDataType_t" />
             <element maxOccurs="1" minOccurs="0" name="valueId" type="IEC61360:reference_t"/>
-			<element maxOccurs="unbounded" minOccurs="0" name="levelType" type="IEC61360:levelType_t"/>
+						<element maxOccurs="unbounded" minOccurs="0" name="levelType" type="IEC61360:levelType_t"/>
 		</choice>
 	</complexType>
 	<complexType name="key_t">
@@ -44,9 +44,9 @@
 						<restriction base="string">
 							<enumeration value="Custom"/>
 							<enumeration value="FragementId"/>
-							<enumeration value="idShort"/>
-							<enumeration value="IRDI"/>
-							<enumeration value="IRI"/>
+							<enumeration value="IdShort"/>
+							<enumeration value="Irdi"/>
+							<enumeration value="Iri"/>
 						</restriction>
 					</simpleType>
 				</attribute>
@@ -127,21 +127,21 @@
 	<simpleType name="dataTypeIEC61360_t">
 		<restriction base="string">
 			<enumeration value="" />
-			<enumeration value="BOOLEAN" />
-			<enumeration value="DATE" />
-			<enumeration value="RATIONAL" />
-			<enumeration value="RATIONAL_MEASURE" />
-			<enumeration value="REAL_COUNT" />
-			<enumeration value="REAL_CURRENCY" />
-			<enumeration value="REAL_MEASURE" />
-			<enumeration value="STRING" />
-			<enumeration value="STRING_TRANSLATABLE" />
-			<enumeration value="TIME" />
-			<enumeration value="TIMESTAMP" />
-			<enumeration value="URL" />
-			<enumeration value="INTEGER_COUNT" />
-			<enumeration value="INTEGER_CURRENCY" />
-			<enumeration value="INTEGER_MEASURE" />
+			<enumeration value="Boolean" />
+			<enumeration value="Date" />
+			<enumeration value="Rational" />
+			<enumeration value="RationalMeasure" />
+			<enumeration value="RealCount" />
+			<enumeration value="RealCurrency" />
+			<enumeration value="RealMeasure" />
+			<enumeration value="String" />
+			<enumeration value="StringTranslatable" />
+			<enumeration value="Time" />
+			<enumeration value="Timestamp" />
+			<enumeration value="Url" />
+			<enumeration value="IntegerCount" />
+			<enumeration value="IntegerCurrency" />
+			<enumeration value="IntegerMeasure" />
 		</restriction>
 	</simpleType>
 	<simpleType name="levelType_t">
