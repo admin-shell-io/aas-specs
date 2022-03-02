@@ -768,7 +768,7 @@ aas:ExtensionShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Extension/valueType> ;
-        sh:datatype xsd:string ;
+        sh:class aas:DataTypeDef ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:pattern ".+" ;
@@ -1222,7 +1222,7 @@ aas:PropertyShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Property/valueType> ;
-        sh:datatype xsd:string ;
+        sh:class aas:DataTypeDef ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:message "(Property.valueType):Exactly one <i>valueType</i> linking to a <i>xsd:string</i> is required."^^xsd:string ;
@@ -1283,7 +1283,7 @@ aas:QualifierShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Qualifier/valueType> ;
-        sh:datatype xsd:string ;
+        sh:class aas:DataTypeDef ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:pattern ".+" ;
@@ -1313,7 +1313,7 @@ aas:RangeShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Range/valueType> ;
-        sh:datatype xsd:string ;
+        sh:class aas:DataTypeDef ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:message "(Range.valueType):Exactly one <i>valueType</i> linking to a <i>xsd:string</i> is required."^^xsd:string ;
