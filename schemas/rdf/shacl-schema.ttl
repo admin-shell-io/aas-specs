@@ -390,7 +390,6 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
     sh:targetClass aas:ConceptDescription ;
     rdfs:subClassOf aas:IdentifiableShape ;
     rdfs:subClassOf aas:HasDataSpecificationShape ;
-
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/ConceptDescription/isCaseOf> ;
@@ -816,6 +815,7 @@ aas:FileShape a sh:NodeShape ;
 
 aas:FormulaShape a sh:NodeShape ;
     sh:targetClass aas:Formula ;
+    rdfs:subClassOf aas:ConstraintShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/Formula/dependsOn> ;
@@ -1270,6 +1270,7 @@ aas:QualifiableShape a sh:NodeShape ;
 
 aas:QualifierShape a sh:NodeShape ;
     sh:targetClass aas:Qualifier ;
+    rdfs:subClassOf aas:ConstraintShape ;
     rdfs:subClassOf aas:HasSemanticsShape ;
     sh:property [
         a sh:PropertyShape ;
@@ -1469,11 +1470,11 @@ aas:SubjectAttributesShape a sh:NodeShape ;
 
 aas:SubmodelShape a sh:NodeShape ;
     sh:targetClass aas:Submodel ;
-    rdfs:subClassOf aas:HasDataSpecificationShape ;
+    rdfs:subClassOf aas:IdentifiableShape ;
     rdfs:subClassOf aas:HasKindShape ;
     rdfs:subClassOf aas:HasSemanticsShape ;
-    rdfs:subClassOf aas:IdentifiableShape ;
     rdfs:subClassOf aas:QualifiableShape ;
+    rdfs:subClassOf aas:HasDataSpecificationShape ;
     sh:message "Invalid Identification Template (For Submodels with Kind = Type only Ids of Type IRDI or IRI are allowed) /  (For Submodels with Kind = Instance only Ids of Type Custom or IRI are allowed)"^^xsd:string ;
     sh:property [
         a sh:PropertyShape ;
@@ -1486,11 +1487,11 @@ aas:SubmodelShape a sh:NodeShape ;
 
 aas:SubmodelElementShape a sh:NodeShape ;
     sh:targetClass aas:SubmodelElement ;
-    rdfs:subClassOf aas:HasDataSpecificationShape ;
+    rdfs:subClassOf aas:ReferableShape ;
     rdfs:subClassOf aas:HasKindShape ;
     rdfs:subClassOf aas:HasSemanticsShape ;
     rdfs:subClassOf aas:QualifiableShape ;
-    rdfs:subClassOf aas:ReferableShape  ;
+    rdfs:subClassOf aas:HasDataSpecificationShape ;
 
     sh:sparql [
         a sh:SPARQLConstraint ;
@@ -1569,9 +1570,9 @@ aas:ValueReferencePairShape a sh:NodeShape ;
 
 aas:ViewShape a sh:NodeShape ;
     sh:targetClass aas:View ;
-    rdfs:subClassOf aas:HasDataSpecificationShape ;
-    rdfs:subClassOf aas:HasSemanticsShape ;
     rdfs:subClassOf aas:ReferableShape ;
+    rdfs:subClassOf aas:HasSemanticsShape ;
+    rdfs:subClassOf aas:HasDataSpecificationShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/View/containedElements> ;
