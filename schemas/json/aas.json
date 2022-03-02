@@ -598,7 +598,7 @@
         },
         {
           "properties": {
-            "annotation": {
+            "annotations": {
               "type": "array",
               "items": {
                 "oneOf": [
@@ -694,19 +694,19 @@
         },
         {
           "properties": {
-            "inputVariable": {
+            "inputVariables": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/OperationVariable"
               }
             },
-            "outputVariable": {
+            "outputVariables": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/OperationVariable"
               }
             },
-            "inoutputVariable": {
+            "inoutputVariables": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/OperationVariable"
@@ -1129,7 +1129,7 @@
             "lastCertificate": {
               "type": "boolean"
             },
-            "containedExtension": {
+            "containedExtensions": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Reference"
@@ -1142,7 +1142,7 @@
     "ObjectAttributes": {
       "type": "object",
       "properties": {
-        "objectAttribute": {
+        "objectAttributes": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Property"
@@ -1187,7 +1187,7 @@
         "targetObjectAttributes": {
           "$ref": "#/definitions/ObjectAttributes"
         },
-        "permission": {
+        "permissions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Permission"
@@ -1212,7 +1212,7 @@
               },
               "minItems": 1
             },
-            "permissionsPerObject": {
+            "permissionsPerObjects": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/PermissionsPerObject"
@@ -1228,7 +1228,7 @@
     "AccessControl": {
       "type": "object",
       "properties": {
-        "accessPermissionRule": {
+        "accessPermissionRules": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/AccessPermissionRule"
@@ -1274,7 +1274,7 @@
         "externalInformationPoint": {
           "type": "boolean"
         },
-        "internalInformationPoint": {
+        "internalInformationPoints": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Reference"
@@ -1335,7 +1335,7 @@
         "accessControlPolicyPoints": {
           "$ref": "#/definitions/AccessControlPolicyPoints"
         },
-        "certificate": {
+        "certificates": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -1345,7 +1345,7 @@
             ]
           }
         },
-        "requiredCertificateExtension": {
+        "requiredCertificateExtensions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Reference"
