@@ -165,7 +165,7 @@ aas:AnnotatedRelationshipElementShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AnnotatedRelationshipElement/annotation> ;
-        sh:class aas:DataElement ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:message "(AnnotatedRelationshipElement.annotation):An <i>annotation</i> attribute must point to a <i>DataElement</i>."^^xsd:string ;
     ] ;
@@ -233,7 +233,7 @@ aas:AssetAdministrationShellEnvironmentShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assets> ;
-        sh:class aas:Asset;
+        sh:class aas:Asset ;
         sh:message "(AssetAdministrationShellEnvironment.assets): The <i>assets</i> attribute points to an <i>Asset</i> entity."^^xsd:string ;
     ] ;
     sh:property [
@@ -287,7 +287,7 @@ aas:AssetInformationShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AssetInformation/defaultThumbnail> ;
-        sh:class aas:File;
+        sh:class aas:File ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:message "(AssetInformation.defaultThumbnail):Only one <i>defaultThumbnail</i> attribute having a <i>file</i> entity is required."^^xsd:string ;
@@ -300,9 +300,10 @@ aas:BasicEventShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/BasicEvent/observed> ;
+        sh:class aas:Reference ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
-        sh:class aas:Reference ;
+
         sh:message "(BasicEvent.observed):A <i>observed</i> attribute have exactly one <i>reference</i> entity pointing to a Referable."^^xsd:string ;
     ] ;
 .
@@ -332,9 +333,10 @@ aas:BlobCertificateShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/blobCertificate> ;
+        sh:class aas:Blob ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
-        sh:class aas:Blob ;
+
         sh:message "(BlobCertificate.blobCertificate): Exactly one <i>blobCertificate</i> pointing to a <i>Blob</i> is required."^^xsd:string ;
     ] ;
     sh:property [
@@ -1130,7 +1132,7 @@ aas:PermissionsPerObjectShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/PermissionsPerObject/object> ;
-        sh:class aas:Referable ;
+        sh:class aas:Reference ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:message "(PermissionsPerObject.object): Exactly one <i>object</i> pointing to a <i>Referable</i> is required."^^xsd:string ;
@@ -1459,7 +1461,7 @@ aas:SubjectAttributesShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/SubjectAttributes/subjectAttributes> ;
-        sh:class aas:DataElement ;
+        sh:class aas:Reference ;
         sh:minCount 1 ;
         sh:message "(SubjectAttributes.subjectAttributes):At least one <i>subjectAttributes</i> pointing to a <i>DataElement</i> is required."^^xsd:string ;
     ] ;
@@ -1558,7 +1560,7 @@ aas:ValueReferencePairShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/ValueReferencePair/valueId> ;
-        sh:datatype aas:Reference ;
+        sh:class aas:Reference ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:message "(ValueReferencePair.valueId):Only one <i>Reference</i> is allowed for <i>valueId</i>."^^xsd:string ;
