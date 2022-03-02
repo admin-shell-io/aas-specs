@@ -234,6 +234,7 @@ aas:AssetAdministrationShellEnvironmentShape a sh:NodeShape ;
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/AssetAdministrationShellEnvironment/assets> ;
         sh:class aas:Asset ;
+        sh:minCount 0 ;
         sh:message "(AssetAdministrationShellEnvironment.assets): The <i>assets</i> attribute points to an <i>Asset</i> entity."^^xsd:string ;
     ] ;
     sh:property [
@@ -1040,6 +1041,7 @@ aas:MultiLanguagePropertyShape a sh:NodeShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/MultiLanguageProperty/value> ;
         sh:datatype rdf:langString ;
         sh:minCount 0 ;
+        sh:maxCount 1 ;
         sh:message "(MultiLanguageProperty.value):A language string <i>value</i> must have a language tag"^^xsd:string ;
     ] ;
     sh:property [
