@@ -316,7 +316,7 @@
             "$ref": "#/definitions/Reference"
           }
         },
-        "thumbnail": {
+        "defaultThumbnail": {
           "$ref": "#/definitions/File"
         }
       },
@@ -346,14 +346,14 @@
               "type": "string",
               "minLength": 1
             },
-            "subjectId": {
+            "externalSubjectId": {
               "$ref": "#/definitions/Reference"
             }
           },
           "required": [
             "key",
             "value",
-            "subjectId"
+            "externalSubjectId"
           ]
         }
       ]
@@ -440,10 +440,10 @@
                 "$ref": "#/definitions/SubmodelElement"
               }
             },
-            "allowDuplicates": {
+            "ordered": {
               "type": "boolean"
             },
-            "ordered": {
+            "allowDuplicates": {
               "type": "boolean"
             }
           }
@@ -617,7 +617,7 @@
             "globalAssetId": {
               "$ref": "#/definitions/Reference"
             },
-            "specificAssetIds": {
+            "specificAssetId": {
               "$ref": "#/definitions/IdentifierKeyValuePair"
             }
           },
@@ -1099,7 +1099,11 @@
                 "$ref": "#/definitions/Reference"
               }
             }
-          }
+          },
+          "required": [
+            "blobCertificate",
+            "lastCertificate"
+          ]
         }
       ]
     },
@@ -1113,7 +1117,10 @@
           },
           "minItems": 1
         }
-      }
+      },
+      "required": [
+        "objectAttributes"
+      ]
     },
     "Permission": {
       "type": "object",
@@ -1140,7 +1147,10 @@
           },
           "minItems": 1
         }
-      }
+      },
+      "required": [
+        "subjectAttributes"
+      ]
     },
     "PermissionsPerObject": {
       "type": "object",
@@ -1157,7 +1167,10 @@
             "$ref": "#/definitions/Permission"
           }
         }
-      }
+      },
+      "required": [
+        "object"
+      ]
     },
     "AccessPermissionRule": {
       "allOf": [
@@ -1170,13 +1183,9 @@
         {
           "properties": {
             "targetSubjectAttributes": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/SubjectAttributes"
-              },
-              "minItems": 1
+              "$ref": "#/definitions/SubjectAttributes"
             },
-            "permissionsPerObjects": {
+            "permissionsPerObject": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/PermissionsPerObject"
@@ -1216,7 +1225,11 @@
         "defaultEnvironmentAttributes": {
           "$ref": "#/definitions/Reference"
         }
-      }
+      },
+      "required": [
+        "defaultSubjectAttributes",
+        "defaultPermissions"
+      ]
     },
     "PolicyAdministrationPoint": {
       "type": "object",
@@ -1235,7 +1248,7 @@
     "PolicyInformationPoints": {
       "type": "object",
       "properties": {
-        "externalInformationPoint": {
+        "externalInformationPoints": {
           "type": "boolean"
         },
         "internalInformationPoints": {
@@ -1246,10 +1259,10 @@
         }
       },
       "required": [
-        "externalInformationPoint"
+        "externalInformationPoints"
       ]
     },
-    "PolicyEnforcementPoint": {
+    "PolicyEnforcementPoints": {
       "type": "object",
       "properties": {
         "externalPolicyEnforcementPoint": {
@@ -1280,8 +1293,8 @@
         "policyDecisionPoint": {
           "$ref": "#/definitions/PolicyDecisionPoint"
         },
-        "policyEnforcementPoint": {
-          "$ref": "#/definitions/PolicyEnforcementPoint"
+        "policyEnforcementPoints": {
+          "$ref": "#/definitions/PolicyEnforcementPoints"
         },
         "policyInformationPoints": {
           "$ref": "#/definitions/PolicyInformationPoints"
@@ -1290,7 +1303,7 @@
       "required": [
         "policyAdministrationPoint",
         "policyDecisionPoint",
-        "policyEnforcementPoint"
+        "policyEnforcementPoints"
       ]
     },
     "Security": {
