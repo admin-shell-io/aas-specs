@@ -454,10 +454,13 @@
         }
       ]
     },
+    "DataElement": {
+      "$ref": "#/definitions/SubmodelElement"
+    },
     "Property": {
       "allOf": [
         {
-          "$ref": "#/definitions/SubmodelElement"
+          "$ref": "#/definitions/DataElement"
         },
         {
           "properties": {
@@ -480,7 +483,7 @@
     "MultiLanguageProperty": {
       "allOf": [
         {
-          "$ref": "#/definitions/SubmodelElement"
+          "$ref": "#/definitions/DataElement"
         },
         {
           "properties": {
@@ -497,7 +500,7 @@
     "Range": {
       "allOf": [
         {
-          "$ref": "#/definitions/SubmodelElement"
+          "$ref": "#/definitions/DataElement"
         },
         {
           "properties": {
@@ -520,7 +523,7 @@
     "ReferenceElement": {
       "allOf": [
         {
-          "$ref": "#/definitions/SubmodelElement"
+          "$ref": "#/definitions/DataElement"
         },
         {
           "properties": {
@@ -534,7 +537,7 @@
     "Blob": {
       "allOf": [
         {
-          "$ref": "#/definitions/SubmodelElement"
+          "$ref": "#/definitions/DataElement"
         },
         {
           "properties": {
@@ -554,7 +557,7 @@
     "File": {
       "allOf": [
         {
-          "$ref": "#/definitions/SubmodelElement"
+          "$ref": "#/definitions/DataElement"
         },
         {
           "properties": {
