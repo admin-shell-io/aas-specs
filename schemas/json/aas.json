@@ -441,47 +441,7 @@
             "value": {
               "type": "array",
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/Blob"
-                  },
-                  {
-                    "$ref": "#/definitions/File"
-                  },
-                  {
-                    "$ref": "#/definitions/Capability"
-                  },
-                  {
-                    "$ref": "#/definitions/Entity"
-                  },
-                  {
-                    "$ref": "#/definitions/Event"
-                  },
-                  {
-                    "$ref": "#/definitions/BasicEvent"
-                  },
-                  {
-                    "$ref": "#/definitions/MultiLanguageProperty"
-                  },
-                  {
-                    "$ref": "#/definitions/Operation"
-                  },
-                  {
-                    "$ref": "#/definitions/Property"
-                  },
-                  {
-                    "$ref": "#/definitions/Range"
-                  },
-                  {
-                    "$ref": "#/definitions/ReferenceElement"
-                  },
-                  {
-                    "$ref": "#/definitions/RelationshipElement"
-                  },
-                  {
-                    "$ref": "#/definitions/SubmodelElementCollection"
-                  }
-                ]
+                "$ref": "#/definitions/SubmodelElement"
               }
             },
             "allowDuplicates": {
@@ -740,47 +700,7 @@
       "type": "object",
       "properties": {
         "value": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Blob"
-            },
-            {
-              "$ref": "#/definitions/File"
-            },
-            {
-              "$ref": "#/definitions/Capability"
-            },
-            {
-              "$ref": "#/definitions/Entity"
-            },
-            {
-              "$ref": "#/definitions/Event"
-            },
-            {
-              "$ref": "#/definitions/BasicEvent"
-            },
-            {
-              "$ref": "#/definitions/MultiLanguageProperty"
-            },
-            {
-              "$ref": "#/definitions/Operation"
-            },
-            {
-              "$ref": "#/definitions/Property"
-            },
-            {
-              "$ref": "#/definitions/Range"
-            },
-            {
-              "$ref": "#/definitions/ReferenceElement"
-            },
-            {
-              "$ref": "#/definitions/RelationshipElement"
-            },
-            {
-              "$ref": "#/definitions/SubmodelElementCollection"
-            }
-          ]
+          "$ref": "#/definitions/SubmodelElement"
         }
       },
       "required": [
@@ -788,11 +708,7 @@
       ]
     },
     "Capability": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/SubmodelElement"
-        }
-      ]
+      "$ref": "#/definitions/SubmodelElement"
     },
     "ConceptDescription": {
       "allOf": [
