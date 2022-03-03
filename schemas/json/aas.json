@@ -901,10 +901,10 @@
     "DataSpecificationContent": {
       "oneOf": [
         {
-          "$ref": "#/definitions/DataSpecificationIEC61360Content"
+          "$ref": "#/definitions/DataSpecificationIEC61360"
         },
         {
-          "$ref": "#/definitions/DataSpecificationPhysicalUnitContent"
+          "$ref": "#/definitions/DataSpecificationPhysicalUnit"
         }
       ]
     },
@@ -952,7 +952,7 @@
         "valueReferencePairTypes"
       ]
     },
-    "DataSpecificationIEC61360Content": {
+    "DataSpecificationIEC61360": {
       "type": "object",
       "properties": {
         "dataType": {
@@ -1005,7 +1005,7 @@
         "preferredName"
       ]
     },
-    "DataSpecificationPhysicalUnitContent": {
+    "DataSpecificationPhysicalUnit": {
       "type": "object",
       "properties": {
         "unitName": {
