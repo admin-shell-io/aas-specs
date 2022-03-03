@@ -644,11 +644,7 @@
       ]
     },
     "Event": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/SubmodelElement"
-        }
-      ]
+      "$ref": "#/definitions/SubmodelElement"
     },
     "BasicEvent": {
       "allOf": [
@@ -1276,11 +1272,7 @@
         "certificates": {
           "type": "array",
           "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/BlobCertificate"
-              }
-            ]
+            "$ref": "#/definitions/BlobCertificate"
           }
         },
         "requiredCertificateExtensions": {
