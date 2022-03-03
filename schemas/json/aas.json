@@ -65,7 +65,7 @@
               "type": "string"
             },
             "displayName": {
-              "type": "string"
+              "$ref": "#/definitions/LangStringSet"
             },
             "category": {
               "type": "string"
@@ -108,7 +108,7 @@
       "type": "object",
       "properties": {
         "idType": {
-          "$ref": "#/definitions/KeyType"
+          "$ref": "#/definitions/IdentifierType"
         },
         "id": {
           "type": "string"
@@ -117,6 +117,14 @@
       "required": [
         "idType",
         "id"
+      ]
+    },
+    "IdentifierType": {
+      "type": "string",
+      "enum": [
+        "IRDI",
+        "IRI",
+        "Custom"
       ]
     },
     "ModelingKind": {
@@ -280,6 +288,7 @@
       ]
     },
     "AssetInformation": {
+      "type": "object",
       "properties": {
         "assetKind": {
           "$ref": "#/definitions/AssetKind"
@@ -561,26 +570,7 @@
             "annotations": {
               "type": "array",
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/Blob"
-                  },
-                  {
-                    "$ref": "#/definitions/File"
-                  },
-                  {
-                    "$ref": "#/definitions/MultiLanguageProperty"
-                  },
-                  {
-                    "$ref": "#/definitions/Property"
-                  },
-                  {
-                    "$ref": "#/definitions/Range"
-                  },
-                  {
-                    "$ref": "#/definitions/ReferenceElement"
-                  }
-                ]
+                "$ref": "#/definitions/Reference"
               }
             }
           }
@@ -775,6 +765,7 @@
         "Blob",
         "Capability",
         "ConceptDescription",
+        "ConceptDictionary",
         "DataElement",
         "Entity",
         "Event",
@@ -910,15 +901,30 @@
         "Typ"
       ]
     },
+    "ValueReferencePair": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "valueId": {
+          "$ref": "#/definitions/Reference"
+        }
+      },
+      "required": [
+        "value",
+        "valueId"
+      ]
+    },
     "ValueList": {
       "type": "object",
       "properties": {
         "valueReferencePairTypes": {
           "type": "array",
-          "minItems": 1,
           "items": {
-            "$ref": "#/definitions/ValueReferencePairType"
-          }
+            "$ref": "#/definitions/ValueReferencePair"
+          },
+          "minItems": 1
         }
       },
       "required": [
@@ -1028,7 +1034,19 @@
       ]
     },
     "Certificate": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "policyAdministrationPoint": {
+          "$ref": "#/definitions/PolicyAdministrationPoint"
+        },
+        "modelType": {
+          "$ref": "#/definitions/ModelType"
+        }
+      },
+      "required": [
+        "policyAdministrationPoint",
+        "modelType"
+      ]
     },
     "BlobCertificate": {
       "allOf": [
@@ -1059,7 +1077,7 @@
         "objectAttributes": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Property"
+            "$ref": "#/definitions/Reference"
           },
           "minItems": 1
         }
@@ -1252,7 +1270,7 @@
         "certificates": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/BlobCertificate"
+            "$ref": "#/definitions/Certificate"
           }
         },
         "requiredCertificateExtensions": {
@@ -1367,20 +1385,7 @@
         "dataSpecification",
         "dataSpecificationContent"
       ]
-    },
-    "ValueReferencePairType": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "string"
-        },
-        "valueId": {
-          "$ref": "#/definitions/Reference"
-        },
-        "valueType": {
-          "$ref": "#/definitions/DataTypeDef"
-        }
-      }
+
     }
   }
 }
