@@ -880,14 +880,7 @@
       }
     },
     "DataSpecificationContent": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/DataSpecificationIEC61360"
-        },
-        {
-          "$ref": "#/definitions/DataSpecificationPhysicalUnit"
-        }
-      ]
+      "type": "object"
     },
     "DataTypeIEC61360": {
       "type": "string",
@@ -949,105 +942,127 @@
       ]
     },
     "DataSpecificationIEC61360": {
-      "type": "object",
-      "properties": {
-        "dataType": {
-          "$ref": "#/definitions/DataTypeIEC61360"
+      "allOf": [
+        {
+          "$ref": "#/definitions/DataSpecificationContent"
         },
-        "definition": {
-          "$ref": "#/definitions/LangStringSet"
-        },
-        "preferredName": {
-          "$ref": "#/definitions/LangStringSet"
-        },
-        "shortName": {
-          "$ref": "#/definitions/LangStringSet"
-        },
-        "unit": {
-          "type": "string"
-        },
-        "unitId": {
-          "$ref": "#/definitions/Reference"
-        },
-        "sourceOfDefinition": {
-          "type": "string"
-        },
-        "symbol": {
-          "type": "string"
-        },
-        "value": {
-          "type": "string"
-        },
-        "valueId": {
-          "$ref": "#/definitions/Reference"
-        },
-        "valueType": {
-          "$ref": "#/definitions/DataTypeDef"
-        },
-        "valueFormat": {
-          "type": "string"
-        },
-        "valueList": {
-          "$ref": "#/definitions/ValueList"
-        },
-        "levelType": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LevelType"
-          }
+        {
+          "properties": {
+            "preferredName": {
+              "$ref": "#/definitions/LangStringSet"
+            },
+            "shortName": {
+              "$ref": "#/definitions/LangStringSet"
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1
+            },
+            "unitId": {
+              "$ref": "#/definitions/Reference"
+            },
+            "sourceOfDefinition": {
+              "type": "string",
+              "minLength": 1
+            },
+            "symbol": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dataType": {
+              "$ref": "#/definitions/DataTypeIEC61360"
+            },
+            "definition": {
+              "$ref": "#/definitions/LangStringSet"
+            },
+            "valueFormat": {
+              "type": "string",
+              "minLength": 1
+            },
+            "valueList": {
+              "$ref": "#/definitions/ValueList"
+            },
+            "value": {
+              "type": "string"
+            },
+            "valueId": {
+              "$ref": "#/definitions/Reference"
+            },
+            "levelType": {
+              "$ref": "#/definitions/LevelType"
+            }
+          },
+          "required": [
+            "preferredName"
+          ]
         }
-      },
-      "required": [
-        "preferredName"
       ]
     },
     "DataSpecificationPhysicalUnit": {
-      "type": "object",
-      "properties": {
-        "unitName": {
-          "type": "string"
+      "allOf": [
+        {
+          "$ref": "#/definitions/DataSpecificationContent"
         },
-        "unitSymbol": {
-          "type": "string"
-        },
-        "definition": {
-          "$ref": "#/definitions/LangStringSet"
-        },
-        "siNotation": {
-          "type": "string"
-        },
-        "siName": {
-          "type": "string"
-        },
-        "dinNotation": {
-          "type": "string"
-        },
-        "eceName": {
-          "type": "string"
-        },
-        "eceCode": {
-          "type": "string"
-        },
-        "nistName": {
-          "type": "string"
-        },
-        "sourceOfDefinition": {
-          "type": "string"
-        },
-        "conversionFactor": {
-          "type": "string"
-        },
-        "registrationAuthorityId": {
-          "type": "string"
-        },
-        "supplier": {
-          "type": "string"
+        {
+          "properties": {
+            "unitName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "unitSymbol": {
+              "type": "string",
+              "minLength": 1
+            },
+            "definition": {
+              "$ref": "#/definitions/LangStringSet"
+            },
+            "siNotation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "siName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dinNotation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "eceName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "eceCode": {
+              "type": "string",
+              "minLength": 1
+            },
+            "nistName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sourceOfDefinition": {
+              "type": "string",
+              "minLength": 1
+            },
+            "conversionFactor": {
+              "type": "string",
+              "minLength": 1
+            },
+            "registrationAuthorityId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "supplier": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "unitName",
+            "unitSymbol",
+            "definition"
+          ]
         }
-      },
-      "required": [
-        "unitName",
-        "unitSymbol",
-        "definition"
       ]
     },
     "Certificate": {
