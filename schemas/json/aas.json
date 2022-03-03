@@ -3,38 +3,11 @@
   "title": "AssetAdministrationShellEnvironment",
   "$id": "http://www.admin-shell.io/schema/json/V3.0RC01",
   "type": "object",
-  "required": [
-    "assetAdministrationShells",
-    "submodels",
-    "assets",
-    "conceptDescriptions"
-  ],
-  "properties": {
-    "assetAdministrationShells": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/AssetAdministrationShell"
-      }
-    },
-    "submodels": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Submodel"
-      }
-    },
-    "assets": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Asset"
-      }
-    },
-    "conceptDescriptions": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ConceptDescription"
-      }
+  "allOf": [
+    {
+      "$ref": "#/definitions/AssetAdministrationShellEnvironment"
     }
-  },
+  ],
   "definitions": {
     "HasSemantics": {
       "type": "object",
@@ -1300,6 +1273,41 @@
         "Deny",
         "NotApplicable",
         "Undefined"
+      ]
+    },
+    "AssetAdministrationShellEnvironment": {
+      "type": "object",
+      "properties": {
+        "assetAdministrationShells": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AssetAdministrationShell"
+          }
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Asset"
+          }
+        },
+        "submodels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Submodel"
+          }
+        },
+        "conceptDescriptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConceptDescription"
+          }
+        }
+      },
+      "required": [
+        "assetAdministrationShells",
+        "assets",
+        "submodels",
+        "conceptDescriptions"
       ]
     },
     "ModelTypes": {
