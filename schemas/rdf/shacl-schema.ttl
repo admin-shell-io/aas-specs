@@ -164,7 +164,7 @@ aas:AnnotatedRelationshipElementShape a sh:NodeShape ;
     rdfs:subClassOf aas:RelationshipElementShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/AnnotatedRelationshipElement/annotation> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/AnnotatedRelationshipElement/annotations> ;
         sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:message "(AnnotatedRelationshipElement.annotation):An <i>annotation</i> attribute must point to a <i>DataElement</i>."^^xsd:string ;
@@ -319,6 +319,7 @@ aas:BlobShape a sh:NodeShape ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
+        sh:pattern "([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ 	]*;[ 	]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([	 !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([	 !-~]|[\\x80-\\xff]))*\"))*" ;
         sh:message "(Blob.mimeType): Exactly one <i>mimeType</i> is required"^^xsd:string ;
     ] ;
     sh:property [
@@ -353,7 +354,7 @@ aas:BlobCertificateShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtension> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtensions> ;
         sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:message "(BlobCertificate.containedExtension):A <i>containedExtension</i> must point to a <i>Reference</i>."^^xsd:string ;
@@ -800,6 +801,7 @@ aas:FileShape a sh:NodeShape ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
+        sh:pattern "([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ 	]*;[ 	]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([	 !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([	 !-~]|[\\x80-\\xff]))*\"))*" ;
 
         sh:message "(File.mimeType): Exactly on <i>mimeType</i> is required"^^xsd:string ;
     ] ;
@@ -1354,7 +1356,7 @@ aas:ReferableShape a sh:NodeShape ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
-        sh:pattern "^[a-zA-Z]\\w*$"^^xsd:string ;
+        sh:pattern "^[a-zA-Z][a-zA-Z_0-9]*$" ;
         sh:message "(Referable.idShort): Exactly one <id>idShort</id> is required."^^xsd:string ;
     ] ;
     sh:property [
@@ -1571,6 +1573,7 @@ aas:ViewShape a sh:NodeShape ;
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC01/View/containedElements> ;
         sh:class aas:Reference ;
+        sh:minCount 0 ;
         sh:message "(View.containedElements):A <i>containedElements</i> attribute must have an entity pointing to a <i>Reference</i>."^^xsd:string ;
     ] ;
 .
