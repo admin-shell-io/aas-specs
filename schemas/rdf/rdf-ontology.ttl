@@ -170,8 +170,8 @@ aas:AnnotatedRelationshipElement rdf:type owl:Class ;
     rdfs:comment "An annotated relationship element is an relationship element that can be annotated with additional data elements."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/AnnotatedRelationshipElement/annotation
-<https://admin-shell.io/aas/3/0/RC01/AnnotatedRelationshipElement/annotation> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/AnnotatedRelationshipElement/annotations
+<https://admin-shell.io/aas/3/0/RC01/AnnotatedRelationshipElement/annotations> rdf:type owl:ObjectProperty ;
     rdfs:label "has annotation"^^xsd:string ;
     rdfs:domain aas:AnnotatedRelationshipElement ;
     rdfs:range aas:Reference ;
@@ -401,8 +401,8 @@ aas:BlobCertificate rdf:type owl:Class ;
     rdfs:comment "Denotes whether this certificate is the certificated that fast added last."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtension
-<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtension> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtensions
+<https://admin-shell.io/aas/3/0/RC01/BlobCertificate/containedExtensions> rdf:type owl:ObjectProperty ;
     rdfs:label "contains extension"^^xsd:string ;
     rdfs:domain aas:BlobCertificate ;
     rdfs:range aas:Reference ;
@@ -1186,6 +1186,7 @@ aas:File rdf:type owl:Class ;
 aas:Formula rdf:type owl:Class ;
     rdfs:subClassOf aas:Constraint ;
     rdfs:label "Formula"^^xsd:string ;
+    rdfs:comment "A formula is used to describe constraints by a logical expression."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Formula/dependsOn
@@ -2183,6 +2184,7 @@ aas:ReferableElements rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/DataElement
 <https://admin-shell.io/aas/3/0/RC01/ReferableElements/DataElement> rdf:type aas:ReferableElements ;
     rdfs:label "Data Element"^^xsd:string ;
+    rdfs:comment "Data element.\n\nNOTE:\nData Element is abstract, i.e. if a key uses 'DataElement' the reference may be a Property, a File etc."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/Entity
@@ -2193,6 +2195,7 @@ aas:ReferableElements rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/Event
 <https://admin-shell.io/aas/3/0/RC01/ReferableElements/Event> rdf:type aas:ReferableElements ;
     rdfs:label "Event"^^xsd:string ;
+    rdfs:comment "Event.\n\nNOTE:\nEvent is abstract."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/File
@@ -2238,6 +2241,7 @@ aas:ReferableElements rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/SubmodelElement
 <https://admin-shell.io/aas/3/0/RC01/ReferableElements/SubmodelElement> rdf:type aas:ReferableElements ;
     rdfs:label "Submodel Element"^^xsd:string ;
+    rdfs:comment "Submodel Element\n\nNOTE:\nSubmodel Element is abstract, i.e. if a key uses 'SubmodelElement' the reference may be a Property, a 'SubmodelElementCollection', an Operation etc."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/ReferableElements/SubmodelElementCollection
@@ -2284,6 +2288,7 @@ aas:ReferenceElement rdf:type owl:Class ;
 aas:RelationshipElement rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:label "Relationship Element"^^xsd:string ;
+    rdfs:comment "A relationship element is used to define a relationship between two referable elements.\n\nConstraint AASd-055: If the semanticId of a RelationshipElement or an AnnotatedRelationshipElement submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: RELATIONSHIP."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/RelationshipElement/first
@@ -2355,7 +2360,6 @@ aas:Submodel rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:label "Submodel"^^xsd:string ;
     rdfs:comment "A Submodel defines a specific aspect of the asset represented by the AAS. A submodel is used to structure the virtual representation and technical functionality of an Administration Shell into distinguishable parts. Each submodel refers to a well-defined domain or subject matter. Submodels can become standardized and thus become submodels types. Submodels can have different life-cycles."@en ;
-
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/Submodel/submodelElements
@@ -2384,8 +2388,8 @@ aas:SubmodelElementCollection rdf:type owl:Class ;
     rdfs:comment "A submodel element collection is a set or list of submodel elements."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/values
-<https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/values> rdf:type owl:ObjectProperty ;
+###  https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/value
+<https://admin-shell.io/aas/3/0/RC01/SubmodelElementCollection/value> rdf:type owl:ObjectProperty ;
     rdfs:label "has values"^^xsd:string ;
     rdfs:domain aas:SubmodelElementCollection ;
     rdfs:range aas:SubmodelElement ;
