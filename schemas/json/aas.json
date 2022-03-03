@@ -206,16 +206,23 @@
           "$ref": "#/definitions/HasSemantics"
         },
         {
-          "$ref": "#/definitions/ValueObject"
-        },
-        {
           "properties": {
             "type": {
               "type": "string"
+            },
+            "valueType": {
+              "$ref": "#/definitions/DataTypeDef"
+            },
+            "value": {
+              "type": "string"
+            },
+            "valueId": {
+              "$ref": "#/definitions/Reference"
             }
           },
           "required": [
-            "type"
+            "type",
+            "valueType"
           ]
         }
       ]
@@ -493,7 +500,20 @@
           "$ref": "#/definitions/SubmodelElement"
         },
         {
-          "$ref": "#/definitions/ValueObject"
+          "properties": {
+            "valueType": {
+              "$ref": "#/definitions/DataTypeDef"
+            },
+            "value": {
+              "type": "string"
+            },
+            "valueId": {
+              "$ref": "#/definitions/Reference"
+            }
+          },
+          "required": [
+            "valueType"
+          ]
         }
       ]
     },
@@ -1014,54 +1034,56 @@
       ]
     },
     "DataSpecificationIEC61360Content": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ValueObject"
+      "type": "object",
+      "properties": {
+        "dataType": {
+          "$ref": "#/definitions/DataTypeIEC61360"
         },
-        {
-          "type": "object",
-          "properties": {
-            "dataType": {
-              "$ref": "#/definitions/DataTypeIEC61360"
-            },
-            "definition": {
-              "$ref": "#/definitions/LangStringSet"
-            },
-            "preferredName": {
-              "$ref": "#/definitions/LangStringSet"
-            },
-            "shortName": {
-              "$ref": "#/definitions/LangStringSet"
-            },
-            "unit": {
-              "type": "string"
-            },
-            "unitId": {
-              "$ref": "#/definitions/Reference"
-            },
-            "sourceOfDefinition": {
-              "type": "string"
-            },
-            "symbol": {
-              "type": "string"
-            },
-            "valueFormat": {
-              "type": "string"
-            },
-            "valueList": {
-              "$ref": "#/definitions/ValueList"
-            },
-            "levelType": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LevelType"
-              }
-            }
-          },
-          "required": [
-            "preferredName"
-          ]
+        "definition": {
+          "$ref": "#/definitions/LangStringSet"
+        },
+        "preferredName": {
+          "$ref": "#/definitions/LangStringSet"
+        },
+        "shortName": {
+          "$ref": "#/definitions/LangStringSet"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "unitId": {
+          "$ref": "#/definitions/Reference"
+        },
+        "sourceOfDefinition": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "valueId": {
+          "$ref": "#/definitions/Reference"
+        },
+        "valueType": {
+          "$ref": "#/definitions/DataTypeDef"
+        },
+        "valueFormat": {
+          "type": "string"
+        },
+        "valueList": {
+          "$ref": "#/definitions/ValueList"
+        },
+        "levelType": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LevelType"
+          }
         }
+      },
+      "required": [
+        "preferredName"
       ]
     },
     "DataSpecificationPhysicalUnitContent": {
@@ -1424,13 +1446,6 @@
       ]
     },
     "ValueReferencePairType": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ValueObject"
-        }
-      ]
-    },
-    "ValueObject": {
       "type": "object",
       "properties": {
         "value": {
