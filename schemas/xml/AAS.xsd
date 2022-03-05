@@ -259,7 +259,7 @@
 	<complexType name="key_t">
 		<simpleContent>
 			<extension base="string">
-				<attribute maxOccurs="1" minOccurs="1" name="idType">
+				<attribute name="idType">
 					<simpleType>
 						<restriction base="string">
 							<enumeration value="Custom"/>
