@@ -96,6 +96,7 @@ The responsible reviewers are:
 [aas-specs/]: https://github.com/admin-shell-io/aas-specs
 
 [@Manu3756]: https://github.com/Manu3756
+[@changqin26]: https://github.com/changqin26
 [@BirgitBoss]: https://github.com/BirgitBoss
 [@mristin]: https://github.com/mristin
 [@g1zzm0]:https://github.com/g1zzm0
@@ -110,7 +111,6 @@ Major changes must first be reviewed and approved by the joint working group `As
 After the approval the pull request can be merged into the repository.
 Therefore, an assignee with the ability to merge into the main branch has to be notified by adding it to the pull request.
 Those assignees are:
-- [@sebbader]
 - [@mristin]
 - [@BirgitBoss]
 - [@aorzelskiGH]
