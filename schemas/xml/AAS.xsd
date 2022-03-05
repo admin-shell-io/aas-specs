@@ -259,6 +259,9 @@
 	<complexType name="key_t">
 		<simpleContent>
 			<extension base="string">
+
+
+
 				<attribute name="idType">
 					<simpleType>
 						<restriction base="string">
@@ -526,13 +529,18 @@
 	</group>
 	<group name="hasSemantics">
 		<sequence>
-			<element minOccurs="0" name="semanticId" type="aas:semanticId_t"/>
+			<element maxOccurs="1" minOccurs="0" name="semanticId" type="aas:reference_t"/>
 		</sequence>
 	</group>
 	<group name="identifiable">
 		<sequence>
 			<group ref="aas:referable"/>
 			<element maxOccurs="1" minOccurs="0" name="administration" type="aas:administration_t"/>
+
+
+
+
+
 			<element maxOccurs="1" minOccurs="1" name="identification" type="aas:identification_t"/>
 		</sequence>
 	</group>
