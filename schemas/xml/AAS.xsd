@@ -24,10 +24,10 @@
 	</attributeGroup>
 	<complexType name="aasenv_t">
 		<sequence>
-			<element maxOccurs="1" minOccurs="0" name="assetAdministrationShells" type="aas:assetAdministrationShells_t"/>
+			<element maxOccurs="unbounded" minOccurs="1" name="assetAdministrationShells" type="aas:assetAdministrationShells_t"/>
 			<element maxOccurs="1" minOccurs="0" name="assets" type="aas:assets_t"/>
-			<element maxOccurs="1" minOccurs="0" name="conceptDescriptions" type="aas:conceptDescriptions_t"/>
-			<element maxOccurs="1" minOccurs="0" name="submodels" type="aas:submodels_t"/>
+			<element maxOccurs="unbounded" minOccurs="1" name="conceptDescriptions" type="aas:conceptDescriptions_t"/>
+			<element maxOccurs="unbounded" minOccurs="1" name="submodels" type="aas:submodels_t"/>
 		</sequence>
 	</complexType>
 	<complexType name="administration_t">
@@ -57,9 +57,9 @@
 			<group ref="aas:hasDataSpecification"/>
 			<element maxOccurs="1" minOccurs="0" name="security" type="abac:security_t"/>
 			<element maxOccurs="1" minOccurs="0" name="derivedFrom" type="aas:reference_t"/>
-			<element maxOccurs="1" minOccurs="0" name="submodelRefs" type="aas:submodelRefs_t"/>
+			<element maxOccurs="unbounded" minOccurs="0" name="submodelRefs" type="aas:submodelRefs_t"/>
 			<element maxOccurs="1" minOccurs="1" name="assetInformation" type="aas:assetInformation_t"/>
-			<element maxOccurs="1" minOccurs="0" name="views" type="aas:views_t"/>
+			<element maxOccurs="unbounded" minOccurs="0" name="views" type="aas:views_t"/>
 		</sequence>
 	</complexType>
 	<complexType name="assetAdministrationShells_t">
@@ -72,7 +72,7 @@
 			<element maxOccurs="1" minOccurs="0" name="defaultThumbNail" type="aas:file_t"/>
 			<element maxOccurs="1" minOccurs="0" name="globalAssetId" type="aas:reference_t"/>
 			<element maxOccurs="1" minOccurs="1" name="assetKind" type="aas:assetKind_t"/>
-			<element maxOccurs="1" minOccurs="0" name="billOfMaterials" type="aas:submodelRefs_t"/>
+			<element maxOccurs="unbounded" minOccurs="0" name="billOfMaterials" type="aas:submodelRefs_t"/>
 			<element maxOccurs="1" minOccurs="0" name="specificAssetIds" type="aas:specificAssetIds_t"/>
 		</sequence>
 	</complexType>
@@ -326,7 +326,7 @@
 			<extension base="aas:submodelElementAbstract_t">
 				<sequence>
 					<element maxOccurs="1" minOccurs="0" name="valueId" type="aas:reference_t"/>
-					<element maxOccurs="1" minOccurs="0" name="value" type="aas:langStringSet_t"/>
+					<element maxOccurs="unbounded" minOccurs="0" name="value" type="aas:langStringSet_t"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -550,7 +550,7 @@
 			<element maxOccurs="1" minOccurs="0" name="description" type="aas:langStringSet_t"/>
 		</sequence>
 	</group>
-	
+
 	<simpleType name="assetKind_t">
 		<restriction base="string">
 			<enumeration value="Instance"/>
