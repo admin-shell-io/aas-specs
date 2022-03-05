@@ -83,11 +83,11 @@ The responsible reviewers are:
 
 | Topic | Path | Reviewer |
 | -------------------- | --------------- | ------------------------- |
-| JSON                 | [schemas/json/] | [@Manu3756] [@TorbenD] [@mristin] |
-| RDF                  | [schemas/rdf/]  | [@sebbader] [@changqin26] [@mristin] |
-| XML                  | [schemas/xml/]  | [@JoergWende] [@Manu3756] [@mristin] |
+| JSON                 | [schemas/json/] | [@Manu3756] [@mristin] |
+| RDF                  | [schemas/rdf/]  | [@changqin26] [@mristin] |
+| XML                  | [schemas/xml/]  | [@mristin] [@g1zzm0] |
 | XMI                  | [schemas/xmi/]  | [@BirgitBoss]             |
-| aas-specs repository | [aas-specs/]    | [@BirgitBoss] [@mristin] |
+| aas-specs repository | [aas-specs/]    | [@mristin] [@BirgitBoss] |
 
 [schemas/json/]: https://github.com/admin-shell-io/aas-specs/tree/master/schemas/json
 [schemas/rdf/]: https://github.com/admin-shell-io/aas-specs/tree/master/schemas/rdf
@@ -96,15 +96,11 @@ The responsible reviewers are:
 [aas-specs/]: https://github.com/admin-shell-io/aas-specs
 
 [@Manu3756]: https://github.com/Manu3756
-[@TorbenD]:https://github.com/torbend
-[@sebbader]: https://github.com/sebbader
-[@changqin26]: https://github.com/changqin26
-[@JoergWende]: https://github.com/JoergWende
 [@BirgitBoss]: https://github.com/BirgitBoss
 [@mristin]: https://github.com/mristin
 [@g1zzm0]:https://github.com/g1zzm0
 
-Major changes must first be reviewed and approved by the joint working group of the [Platform Industrie 4.0] and [IDTA].
+Major changes must first be reviewed and approved by the joint working group `Asset Administration Shell` of the [Platform Industrie 4.0] and [IDTA].
 
 [Platform Industrie 4.0]: http://www.plattform-i40.de
 [IDTA]: https://industrialdigitaltwin.org/
