@@ -9,151 +9,6 @@
     }
   ],
   "definitions": {
-    "Resource": {
-      "type": "object",
-      "properties": {
-        "path": {
-          "$ref": "#/definitions/AssetKind"
-        },
-        "contentType": {
-          "type": "string",
-          "minLength": 1,
-          "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
-        }
-      },
-      "required": [
-        "path"
-      ]
-    },
-    "HasSemantics": {
-      "type": "object",
-      "properties": {
-        "semanticId": {
-          "$ref": "#/definitions/GlobalReference"
-        }
-      }
-    },
-    "Extension": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/HasSemantics"
-        },
-        {
-          "properties": {
-            "name": {
-              "type": "string",
-              "minLength": 1
-            },
-            "valueType": {
-              "$ref": "#/definitions/DataTypeDefXsd"
-            },
-            "value": {
-              "type": "string"
-            },
-            "refersTo": {
-              "$ref": "#/definitions/ModelReference"
-            }
-          },
-          "required": [
-            "name"
-          ]
-        }
-      ]
-    },
-    "HasExtensions": {
-      "type": "object",
-      "properties": {
-        "extensions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Extension"
-          }
-        }
-      }
-    },
-    "Referable": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/HasExtensions"
-        },
-        {
-          "properties": {
-            "idShort": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 128
-            },
-            "displayName": {
-              "$ref": "#/definitions/LangStringSet"
-            },
-            "category": {
-              "type": "string",
-              "minLength": 1
-            },
-            "description": {
-              "$ref": "#/definitions/LangStringSet"
-            },
-            "checksum": {
-              "type": "string",
-              "minLength": 1
-            },
-            "modelType": {
-              "$ref": "#/definitions/ModelType"
-            }
-          },
-          "required": [
-            "modelType"
-          ]
-        }
-      ]
-    },
-    "Identifiable": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Referable"
-        },
-        {
-          "properties": {
-            "id": {
-              "type": "string",
-              "minLength": 1
-            },
-            "administration": {
-              "$ref": "#/definitions/AdministrativeInformation"
-            }
-          },
-          "required": [
-            "id"
-          ]
-        }
-      ]
-    },
-    "ModelingKind": {
-      "type": "string",
-      "enum": [
-        "TEMPLATE",
-        "INSTANCE"
-      ]
-    },
-    "HasKind": {
-      "type": "object",
-      "properties": {
-        "kind": {
-          "$ref": "#/definitions/ModelingKind"
-        }
-      }
-    },
-    "HasDataSpecification": {
-      "type": "object",
-      "properties": {
-        "dataSpecifications": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/GlobalReference"
-          }
-        }
-      }
-    },
     "AdministrativeInformation": {
       "allOf": [
         {
@@ -173,52 +28,20 @@
         }
       ]
     },
-    "Qualifiable": {
-      "type": "object",
-      "properties": {
-        "qualifiers": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Qualifier"
-          }
-        },
-        "modelType": {
-          "$ref": "#/definitions/ModelType"
-        }
-      },
-      "required": [
-        "modelType"
-      ]
-    },
-    "Qualifier": {
+    "AnnotatedRelationshipElement": {
       "allOf": [
         {
-          "$ref": "#/definitions/HasSemantics"
+          "$ref": "#/definitions/RelationshipElement"
         },
         {
           "properties": {
-            "type": {
-              "type": "string",
-              "minLength": 1
-            },
-            "valueType": {
-              "$ref": "#/definitions/DataTypeDefXsd"
-            },
-            "value": {
-              "type": "string"
-            },
-            "valueId": {
-              "$ref": "#/definitions/GlobalReference"
-            },
-            "modelType": {
-              "$ref": "#/definitions/ModelType"
+            "annotation": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DataElement"
+              }
             }
-          },
-          "required": [
-            "type",
-            "valueType",
-            "modelType"
-          ]
+          }
         }
       ]
     },
@@ -278,6 +101,371 @@
         "Instance"
       ]
     },
+    "BasicEventElement": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/EventElement"
+        },
+        {
+          "properties": {
+            "observed": {
+              "$ref": "#/definitions/ModelReference"
+            },
+            "direction": {
+              "$ref": "#/definitions/Direction"
+            },
+            "state": {
+              "$ref": "#/definitions/StateOfEvent"
+            },
+            "messageTopic": {
+              "type": "string",
+              "minLength": 1
+            },
+            "messageBroker": {
+              "$ref": "#/definitions/ModelReference"
+            },
+            "lastUpdate": {
+              "type": "string",
+              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+            },
+            "minInterval": {
+              "type": "string",
+              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+            },
+            "maxInterval": {
+              "type": "string",
+              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+            }
+          },
+          "required": [
+            "observed",
+            "direction",
+            "state"
+          ]
+        }
+      ]
+    },
+    "Blob": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DataElement"
+        },
+        {
+          "properties": {
+            "mimeType": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+            },
+            "value": {
+              "type": "string",
+              "contentEncoding": "base64"
+            }
+          },
+          "required": [
+            "mimeType"
+          ]
+        }
+      ]
+    },
+    "Capability": {
+      "$ref": "#/definitions/SubmodelElement"
+    },
+    "ConceptDescription": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Identifiable"
+        },
+        {
+          "$ref": "#/definitions/HasDataSpecification"
+        },
+        {
+          "properties": {
+            "isCaseOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GlobalReference"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "DataElement": {
+      "$ref": "#/definitions/SubmodelElement"
+    },
+    "DataTypeDefXsd": {
+      "type": "string",
+      "enum": [
+        "xs:anyURI",
+        "xs:base64Binary",
+        "xs:boolean",
+        "xs:date",
+        "xs:dateTime",
+        "xs:dateTimeStamp",
+        "xs:decimal",
+        "xs:double",
+        "xs:duration",
+        "xs:float",
+        "xs:gDay",
+        "xs:gMonth",
+        "xs:gMonthDay",
+        "xs:gYear",
+        "xs:gYearMonth",
+        "xs:hexBinary",
+        "xs:string",
+        "xs:time",
+        "xs:dayTimeDuration",
+        "xs:yearMonthDuration",
+        "xs:integer",
+        "xs:long",
+        "xs:int",
+        "xs:short",
+        "xs:byte",
+        "xs:NonNegativeInteger",
+        "xs:positiveInteger",
+        "xs:unsignedLong",
+        "xs:unsignedInt",
+        "xs:unsignedShort",
+        "xs:unsignedByte",
+        "xs:nonPositiveInteger",
+        "xs:negativeInteger"
+      ]
+    },
+    "Direction": {
+      "type": "string",
+      "enum": [
+        "INPUT",
+        "OUTPUT"
+      ]
+    },
+    "Entity": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SubmodelElement"
+        },
+        {
+          "properties": {
+            "entityType": {
+              "$ref": "#/definitions/EntityType"
+            },
+            "statements": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SubmodelElement"
+              }
+            },
+            "globalAssetId": {
+              "$ref": "#/definitions/Reference"
+            },
+            "specificAssetId": {
+              "$ref": "#/definitions/IdentifierKeyValuePair"
+            }
+          },
+          "required": [
+            "entityType"
+          ]
+        }
+      ]
+    },
+    "EntityType": {
+      "type": "string",
+      "enum": [
+        "COMANAGEDENTITY",
+        "SELFMANAGEDENTITY"
+      ]
+    },
+    "Environment": {
+      "type": "object",
+      "properties": {
+        "assetAdministrationShells": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AssetAdministrationShell"
+          }
+        },
+        "submodels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Submodel"
+          }
+        },
+        "conceptDescriptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConceptDescription"
+          }
+        }
+      }
+    },
+    "EventElement": {
+      "$ref": "#/definitions/SubmodelElement"
+    },
+    "EventPayload": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/definitions/ModelReference"
+        },
+        "sourceSemanticId": {
+          "$ref": "#/definitions/GlobalReference"
+        },
+        "observableReference": {
+          "$ref": "#/definitions/ModelReference"
+        },
+        "observableSemanticId": {
+          "$ref": "#/definitions/GlobalReference"
+        },
+        "topic": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subjectId": {
+          "$ref": "#/definitions/GlobalReference"
+        },
+        "timeStamp": {
+          "type": "string",
+          "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+        },
+        "payload": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "source",
+        "observableReference",
+        "timeStamp"
+      ]
+    },
+    "Extension": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/HasSemantics"
+        },
+        {
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "valueType": {
+              "$ref": "#/definitions/DataTypeDefXsd"
+            },
+            "value": {
+              "type": "string"
+            },
+            "refersTo": {
+              "$ref": "#/definitions/ModelReference"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      ]
+    },
+    "File": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DataElement"
+        },
+        {
+          "properties": {
+            "contentType": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+            },
+            "value": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$"
+            }
+          },
+          "required": [
+            "contentType"
+          ]
+        }
+      ]
+    },
+    "GlobalReference": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Reference"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "value"
+          ]
+        }
+      ]
+    },
+    "HasDataSpecification": {
+      "type": "object",
+      "properties": {
+        "dataSpecifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GlobalReference"
+          }
+        }
+      }
+    },
+    "HasExtensions": {
+      "type": "object",
+      "properties": {
+        "extensions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        }
+      }
+    },
+    "HasKind": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "$ref": "#/definitions/ModelingKind"
+        }
+      }
+    },
+    "HasSemantics": {
+      "type": "object",
+      "properties": {
+        "semanticId": {
+          "$ref": "#/definitions/GlobalReference"
+        }
+      }
+    },
+    "Identifiable": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Referable"
+        },
+        {
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "administration": {
+              "$ref": "#/definitions/AdministrativeInformation"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        }
+      ]
+    },
     "IdentifierKeyValuePair": {
       "allOf": [
         {
@@ -302,6 +490,393 @@
             "value"
           ]
         }
+      ]
+    },
+    "Key": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/KeyElements"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "KeyElements": {
+      "type": "string",
+      "enum": [
+        "FragmentReference",
+        "GlobalReference",
+        "AnnotatedRelationshipElement",
+        "AssetAdministrationShell",
+        "BasicEventElement",
+        "Blob",
+        "Capability",
+        "ConceptDescription",
+        "DataElement",
+        "Entity",
+        "EventElement",
+        "File",
+        "MultiLanguageProperty",
+        "Operation",
+        "Property",
+        "Range",
+        "ReferenceElement",
+        "RelationshipElement",
+        "Submodel",
+        "SubmodelElement",
+        "SubmodelElementList",
+        "SubmodelElementStruct"
+      ]
+    },
+    "LangString": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string",
+          "pattern": "^(([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){2})?|[a-zA-Z]{4}|[a-zA-Z]{5,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){1,8})+)?|[xX](-([a-zA-Z0-9]){1,8})+|((en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang)))$"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "language",
+        "text"
+      ]
+    },
+    "LangStringSet": {
+      "type": "object",
+      "properties": {
+        "langStrings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LangString"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "langStrings"
+      ]
+    },
+    "ModelReference": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Reference"
+        },
+        {
+          "properties": {
+            "keys": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Key"
+              },
+              "minItems": 1
+            },
+            "referredSemanticId": {
+              "$ref": "#/definitions/GlobalReference"
+            }
+          },
+          "required": [
+            "keys"
+          ]
+        }
+      ]
+    },
+    "ModelType": {
+      "type": "string",
+      "enum": [
+        "Qualifier",
+        "AssetAdministrationShell",
+        "Submodel",
+        "SubmodelElementList",
+        "SubmodelElementStruct",
+        "Property",
+        "MultiLanguageProperty",
+        "Range",
+        "ReferenceElement",
+        "Blob",
+        "File",
+        "AnnotatedRelationshipElement",
+        "Entity",
+        "BasicEventElement",
+        "Operation",
+        "Capability",
+        "ConceptDescription",
+        "View",
+        "GlobalReference",
+        "ModelReference"
+      ]
+    },
+    "ModelingKind": {
+      "type": "string",
+      "enum": [
+        "TEMPLATE",
+        "INSTANCE"
+      ]
+    },
+    "MultiLanguageProperty": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DataElement"
+        },
+        {
+          "properties": {
+            "value": {
+              "$ref": "#/definitions/LangStringSet"
+            },
+            "valueId": {
+              "$ref": "#/definitions/GlobalReference"
+            }
+          }
+        }
+      ]
+    },
+    "Operation": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SubmodelElement"
+        },
+        {
+          "properties": {
+            "inputVariables": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OperationVariable"
+              }
+            },
+            "outputVariables": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OperationVariable"
+              }
+            },
+            "inoutputVariables": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OperationVariable"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "OperationVariable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "#/definitions/SubmodelElement"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "Property": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DataElement"
+        },
+        {
+          "properties": {
+            "valueType": {
+              "$ref": "#/definitions/DataTypeDefXsd"
+            },
+            "value": {
+              "type": "string"
+            },
+            "valueId": {
+              "$ref": "#/definitions/GlobalReference"
+            }
+          },
+          "required": [
+            "valueType"
+          ]
+        }
+      ]
+    },
+    "Qualifiable": {
+      "type": "object",
+      "properties": {
+        "qualifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Qualifier"
+          }
+        },
+        "modelType": {
+          "$ref": "#/definitions/ModelType"
+        }
+      },
+      "required": [
+        "modelType"
+      ]
+    },
+    "Qualifier": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/HasSemantics"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "minLength": 1
+            },
+            "valueType": {
+              "$ref": "#/definitions/DataTypeDefXsd"
+            },
+            "value": {
+              "type": "string"
+            },
+            "valueId": {
+              "$ref": "#/definitions/GlobalReference"
+            },
+            "modelType": {
+              "$ref": "#/definitions/ModelType"
+            }
+          },
+          "required": [
+            "type",
+            "valueType",
+            "modelType"
+          ]
+        }
+      ]
+    },
+    "Range": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DataElement"
+        },
+        {
+          "properties": {
+            "valueType": {
+              "$ref": "#/definitions/DataTypeDefXsd"
+            },
+            "min": {
+              "type": "string"
+            },
+            "max": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "valueType"
+          ]
+        }
+      ]
+    },
+    "Referable": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/HasExtensions"
+        },
+        {
+          "properties": {
+            "idShort": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "displayName": {
+              "$ref": "#/definitions/LangStringSet"
+            },
+            "category": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": {
+              "$ref": "#/definitions/LangStringSet"
+            },
+            "checksum": {
+              "type": "string",
+              "minLength": 1
+            },
+            "modelType": {
+              "$ref": "#/definitions/ModelType"
+            }
+          },
+          "required": [
+            "modelType"
+          ]
+        }
+      ]
+    },
+    "Reference": {
+      "type": "object",
+      "properties": {
+        "modelType": {
+          "$ref": "#/definitions/ModelType"
+        }
+      },
+      "required": [
+        "modelType"
+      ]
+    },
+    "ReferenceElement": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DataElement"
+        },
+        {
+          "properties": {
+            "value": {
+              "$ref": "#/definitions/Reference"
+            }
+          }
+        }
+      ]
+    },
+    "RelationshipElement": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SubmodelElement"
+        },
+        {
+          "properties": {
+            "first": {
+              "$ref": "#/definitions/Reference"
+            },
+            "second": {
+              "$ref": "#/definitions/Reference"
+            }
+          },
+          "required": [
+            "first",
+            "second"
+          ]
+        }
+      ]
+    },
+    "Resource": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/AssetKind"
+        },
+        "contentType": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+        }
+      },
+      "required": [
+        "path"
+      ]
+    },
+    "StateOfEvent": {
+      "type": "string",
+      "enum": [
+        "ON",
+        "OFF"
       ]
     },
     "Submodel": {
@@ -352,25 +927,26 @@
         }
       ]
     },
-    "RelationshipElement": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/SubmodelElement"
-        },
-        {
-          "properties": {
-            "first": {
-              "$ref": "#/definitions/Reference"
-            },
-            "second": {
-              "$ref": "#/definitions/Reference"
-            }
-          },
-          "required": [
-            "first",
-            "second"
-          ]
-        }
+    "SubmodelElementElements": {
+      "type": "string",
+      "enum": [
+        "AnnotatedRelationshipElement",
+        "BasicEventElement",
+        "Blob",
+        "Capability",
+        "DataElement",
+        "Entity",
+        "EventElement",
+        "File",
+        "MultiLanguageProperty",
+        "Operation",
+        "Property",
+        "Range",
+        "ReferenceElement",
+        "RelationshipElement",
+        "SubmodelElement",
+        "SubmodelElementList",
+        "SubmodelElementStruct"
       ]
     },
     "SubmodelElementList": {
@@ -422,347 +998,6 @@
         }
       ]
     },
-    "DataElement": {
-      "$ref": "#/definitions/SubmodelElement"
-    },
-    "Property": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/DataElement"
-        },
-        {
-          "properties": {
-            "valueType": {
-              "$ref": "#/definitions/DataTypeDefXsd"
-            },
-            "value": {
-              "type": "string"
-            },
-            "valueId": {
-              "$ref": "#/definitions/GlobalReference"
-            }
-          },
-          "required": [
-            "valueType"
-          ]
-        }
-      ]
-    },
-    "MultiLanguageProperty": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/DataElement"
-        },
-        {
-          "properties": {
-            "value": {
-              "$ref": "#/definitions/LangStringSet"
-            },
-            "valueId": {
-              "$ref": "#/definitions/GlobalReference"
-            }
-          }
-        }
-      ]
-    },
-    "Range": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/DataElement"
-        },
-        {
-          "properties": {
-            "valueType": {
-              "$ref": "#/definitions/DataTypeDefXsd"
-            },
-            "min": {
-              "type": "string"
-            },
-            "max": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "valueType"
-          ]
-        }
-      ]
-    },
-    "ReferenceElement": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/DataElement"
-        },
-        {
-          "properties": {
-            "value": {
-              "$ref": "#/definitions/Reference"
-            }
-          }
-        }
-      ]
-    },
-    "Blob": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/DataElement"
-        },
-        {
-          "properties": {
-            "mimeType": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
-            },
-            "value": {
-              "type": "string",
-              "contentEncoding": "base64"
-            }
-          },
-          "required": [
-            "mimeType"
-          ]
-        }
-      ]
-    },
-    "File": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/DataElement"
-        },
-        {
-          "properties": {
-            "contentType": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
-            },
-            "value": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$"
-            }
-          },
-          "required": [
-            "contentType"
-          ]
-        }
-      ]
-    },
-    "AnnotatedRelationshipElement": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/RelationshipElement"
-        },
-        {
-          "properties": {
-            "annotation": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/DataElement"
-              }
-            }
-          }
-        }
-      ]
-    },
-    "EntityType": {
-      "type": "string",
-      "enum": [
-        "COMANAGEDENTITY",
-        "SELFMANAGEDENTITY"
-      ]
-    },
-    "Entity": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/SubmodelElement"
-        },
-        {
-          "properties": {
-            "entityType": {
-              "$ref": "#/definitions/EntityType"
-            },
-            "statements": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/SubmodelElement"
-              }
-            },
-            "globalAssetId": {
-              "$ref": "#/definitions/Reference"
-            },
-            "specificAssetId": {
-              "$ref": "#/definitions/IdentifierKeyValuePair"
-            }
-          },
-          "required": [
-            "entityType"
-          ]
-        }
-      ]
-    },
-    "Direction": {
-      "type": "string",
-      "enum": [
-        "INPUT",
-        "OUTPUT"
-      ]
-    },
-    "StateOfEvent": {
-      "type": "string",
-      "enum": [
-        "ON",
-        "OFF"
-      ]
-    },
-    "EventPayload": {
-      "type": "object",
-      "properties": {
-        "source": {
-          "$ref": "#/definitions/ModelReference"
-        },
-        "sourceSemanticId": {
-          "$ref": "#/definitions/GlobalReference"
-        },
-        "observableReference": {
-          "$ref": "#/definitions/ModelReference"
-        },
-        "observableSemanticId": {
-          "$ref": "#/definitions/GlobalReference"
-        },
-        "topic": {
-          "type": "string",
-          "minLength": 1
-        },
-        "subjectId": {
-          "$ref": "#/definitions/GlobalReference"
-        },
-        "timeStamp": {
-          "type": "string",
-          "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
-        },
-        "payload": {
-          "type": "string",
-          "minLength": 1
-        }
-      },
-      "required": [
-        "source",
-        "observableReference",
-        "timeStamp"
-      ]
-    },
-    "EventElement": {
-      "$ref": "#/definitions/SubmodelElement"
-    },
-    "BasicEventElement": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/EventElement"
-        },
-        {
-          "properties": {
-            "observed": {
-              "$ref": "#/definitions/ModelReference"
-            },
-            "direction": {
-              "$ref": "#/definitions/Direction"
-            },
-            "state": {
-              "$ref": "#/definitions/StateOfEvent"
-            },
-            "messageTopic": {
-              "type": "string",
-              "minLength": 1
-            },
-            "messageBroker": {
-              "$ref": "#/definitions/ModelReference"
-            },
-            "lastUpdate": {
-              "type": "string",
-              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
-            },
-            "minInterval": {
-              "type": "string",
-              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
-            },
-            "maxInterval": {
-              "type": "string",
-              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
-            }
-          },
-          "required": [
-            "observed",
-            "direction",
-            "state"
-          ]
-        }
-      ]
-    },
-    "Operation": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/SubmodelElement"
-        },
-        {
-          "properties": {
-            "inputVariables": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/OperationVariable"
-              }
-            },
-            "outputVariables": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/OperationVariable"
-              }
-            },
-            "inoutputVariables": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/OperationVariable"
-              }
-            }
-          }
-        }
-      ]
-    },
-    "OperationVariable": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "$ref": "#/definitions/SubmodelElement"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "Capability": {
-      "$ref": "#/definitions/SubmodelElement"
-    },
-    "ConceptDescription": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Identifiable"
-        },
-        {
-          "$ref": "#/definitions/HasDataSpecification"
-        },
-        {
-          "properties": {
-            "isCaseOf": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/GlobalReference"
-              }
-            }
-          }
-        }
-      ]
-    },
     "View": {
       "allOf": [
         {
@@ -784,241 +1019,6 @@
             }
           }
         }
-      ]
-    },
-    "Reference": {
-      "type": "object",
-      "properties": {
-        "modelType": {
-          "$ref": "#/definitions/ModelType"
-        }
-      },
-      "required": [
-        "modelType"
-      ]
-    },
-    "GlobalReference": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Reference"
-        },
-        {
-          "properties": {
-            "value": {
-              "type": "string",
-              "minLength": 1
-            }
-          },
-          "required": [
-            "value"
-          ]
-        }
-      ]
-    },
-    "ModelReference": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Reference"
-        },
-        {
-          "properties": {
-            "keys": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Key"
-              },
-              "minItems": 1
-            },
-            "referredSemanticId": {
-              "$ref": "#/definitions/GlobalReference"
-            }
-          },
-          "required": [
-            "keys"
-          ]
-        }
-      ]
-    },
-    "Key": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "$ref": "#/definitions/KeyElements"
-        },
-        "value": {
-          "type": "string",
-          "minLength": 1
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ]
-    },
-    "SubmodelElementElements": {
-      "type": "string",
-      "enum": [
-        "AnnotatedRelationshipElement",
-        "BasicEventElement",
-        "Blob",
-        "Capability",
-        "DataElement",
-        "Entity",
-        "EventElement",
-        "File",
-        "MultiLanguageProperty",
-        "Operation",
-        "Property",
-        "Range",
-        "ReferenceElement",
-        "RelationshipElement",
-        "SubmodelElement",
-        "SubmodelElementList",
-        "SubmodelElementStruct"
-      ]
-    },
-    "KeyElements": {
-      "type": "string",
-      "enum": [
-        "FragmentReference",
-        "GlobalReference",
-        "AnnotatedRelationshipElement",
-        "AssetAdministrationShell",
-        "BasicEventElement",
-        "Blob",
-        "Capability",
-        "ConceptDescription",
-        "DataElement",
-        "Entity",
-        "EventElement",
-        "File",
-        "MultiLanguageProperty",
-        "Operation",
-        "Property",
-        "Range",
-        "ReferenceElement",
-        "RelationshipElement",
-        "Submodel",
-        "SubmodelElement",
-        "SubmodelElementList",
-        "SubmodelElementStruct"
-      ]
-    },
-    "DataTypeDefXsd": {
-      "type": "string",
-      "enum": [
-        "xs:anyURI",
-        "xs:base64Binary",
-        "xs:boolean",
-        "xs:date",
-        "xs:dateTime",
-        "xs:dateTimeStamp",
-        "xs:decimal",
-        "xs:double",
-        "xs:duration",
-        "xs:float",
-        "xs:gDay",
-        "xs:gMonth",
-        "xs:gMonthDay",
-        "xs:gYear",
-        "xs:gYearMonth",
-        "xs:hexBinary",
-        "xs:string",
-        "xs:time",
-        "xs:dayTimeDuration",
-        "xs:yearMonthDuration",
-        "xs:integer",
-        "xs:long",
-        "xs:int",
-        "xs:short",
-        "xs:byte",
-        "xs:NonNegativeInteger",
-        "xs:positiveInteger",
-        "xs:unsignedLong",
-        "xs:unsignedInt",
-        "xs:unsignedShort",
-        "xs:unsignedByte",
-        "xs:nonPositiveInteger",
-        "xs:negativeInteger"
-      ]
-    },
-    "LangString": {
-      "type": "object",
-      "properties": {
-        "language": {
-          "type": "string",
-          "pattern": "^(([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){2})?|[a-zA-Z]{4}|[a-zA-Z]{5,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){1,8})+)?|[xX](-([a-zA-Z0-9]){1,8})+|((en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang)))$"
-        },
-        "text": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "language",
-        "text"
-      ]
-    },
-    "LangStringSet": {
-      "type": "object",
-      "properties": {
-        "langStrings": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LangString"
-          },
-          "minItems": 1
-        }
-      },
-      "required": [
-        "langStrings"
-      ]
-    },
-    "Environment": {
-      "type": "object",
-      "properties": {
-        "assetAdministrationShells": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AssetAdministrationShell"
-          }
-        },
-        "submodels": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Submodel"
-          }
-        },
-        "conceptDescriptions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ConceptDescription"
-          }
-        }
-      }
-    },
-    "ModelType": {
-      "type": "string",
-      "enum": [
-        "Qualifier",
-        "AssetAdministrationShell",
-        "Submodel",
-        "SubmodelElementList",
-        "SubmodelElementStruct",
-        "Property",
-        "MultiLanguageProperty",
-        "Range",
-        "ReferenceElement",
-        "Blob",
-        "File",
-        "AnnotatedRelationshipElement",
-        "Entity",
-        "BasicEventElement",
-        "Operation",
-        "Capability",
-        "ConceptDescription",
-        "View",
-        "GlobalReference",
-        "ModelReference"
       ]
     }
   }
