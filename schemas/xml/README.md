@@ -1,4 +1,7 @@
 # XML 
+
+**TODO (@mristin, 2022-04-09)**: We need to update this README once the schema has been fixed.
+
 For plain data transfair via import and export the metamodel of an AssetAdministration Shell needs to be serialized. One possible serialization format is XML. 
 
 ## Introduction
