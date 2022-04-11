@@ -1,0 +1,3 @@
+# YAML
+The following repository presents a [YAML](https://yaml.org/spec/1.2.2/) representation of the Asset Administration Shell. For the API definition specified in Details of the Asset Administration Shell - Part 2 - Interoperability at Runtime - Exchanging Information via Application Programming Interfaces (Version 1.0RC02), the elements of the AAS metamodel must be (de)serialized in the Shared Domain Models of the AAS. 
+The serialization format of PART 2 is in YAML (Ain't Markup Language) to ensure compatibility with the API definition on [Swagger Hub](https://app.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/Final-Draft). 

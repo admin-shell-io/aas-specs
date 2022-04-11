@@ -40,6 +40,10 @@ The XML schema, mapping rules and examples are available at [schemas/xml/](schem
 
 The XMI file for the UML metamodel [schemas/xmi/](schemas/xmi/).
 
+### YAML
+
+The YAML file for the API Definition [schemas/yaml/](schemas/yaml/).
+
 ## Releases
 
 Currently, the following releases are available (see also the [releases](https://github.com/admin-shell-io/aas-specs/releases) section of this repository):
