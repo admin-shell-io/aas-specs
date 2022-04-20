@@ -1,13 +1,7 @@
 @prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
-@prefix iec61360: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/> .
-@prefix phys_unit: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/> .
-@prefix dash: <http://datashapes.org/dash#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @base <https://admin-shell.io/aas/3/0/RC02/> .
@@ -16,7 +10,6 @@
     vann:preferredNamespaceUri "https://admin-shell.io/aas/3/0/RC02/"^^xsd:anyURI ;
     owl:versionInfo "3.0.RC02" ;
     rdfs:comment "This ontology represents the data model for the Asset Administration Shell according to the specification 'Details of the Asset Administration Shell - Part 1 - Version 3.0.RC02'."@en ;
-    skos:prefLabel "aas"^^xsd:string ;
     vann:preferredNamespacePrefix "aas"^^xsd:string ;
     rdfs:isDefinedBy <https://admin-shell.io/aas/3/0/RC02/> ;
 .
@@ -41,7 +34,6 @@ aas:AccessControlPolicyPoints rdf:type owl:Class ;
     rdfs:domain aas:AccessControlPolicyPoints ;
     rdfs:range aas:PolicyDecisionPoint ;
     owl:deprecated true ;
-
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyEnforcementPoint
@@ -51,7 +43,6 @@ aas:AccessControlPolicyPoints rdf:type owl:Class ;
     rdfs:domain aas:AccessControlPolicyPoints ;
     rdfs:range aas:PolicyEnforcementPoints ;
     owl:deprecated true ;
-
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/AccessControlPolicyPoints/policyInformationPoints
@@ -61,10 +52,9 @@ aas:AccessControlPolicyPoints rdf:type owl:Class ;
     rdfs:domain aas:AccessControlPolicyPoints ;
     rdfs:range aas:PolicyInformationPoints ;
     owl:deprecated true ;
-
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/AdministrativeInformation @checked
+###  https://admin-shell.io/aas/3/0/RC02/AdministrativeInformation
 aas:AdministrativeInformation rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:comment "Every Identifiable may have administrative information. Administrative information includes for example 1) Information about the version of the element 2) Information about who created or who made the last change to the element 3) Information about the languages available in case the element contains text, for translating purposed also themmaster or default language may be definedIn the first version of the AAS metamodel only version information as defined by IEC 61360 is defined. In later versions additional attributes may be added."@en ;
@@ -73,7 +63,6 @@ aas:AdministrativeInformation rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC02/AdministrativeInformation/version
 <https://admin-shell.io/aas/3/0/RC02/AdministrativeInformation/version> rdf:type owl:DatatypeProperty ;
-    rdfs:subPropertyOf dcterms:hasVersion ;
     rdfs:domain aas:AdministrativeInformation ;
     rdfs:range xsd:string ;
     rdfs:comment "Version of the element."@en ;
@@ -82,16 +71,13 @@ aas:AdministrativeInformation rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC02/AdministrativeInformation/revision
 <https://admin-shell.io/aas/3/0/RC02/AdministrativeInformation/revision> rdf:type owl:DatatypeProperty ;
-    rdfs:subPropertyOf dcterms:hasVersion ;
     rdfs:comment "Revision of the element."@en ;
-    skos:note "Constraint AASd-005: A revision requires a version. This means, if there is no version there is no revision neither."@en ;
     rdfs:label "has revision"^^xsd:string ;
     rdfs:domain aas:AdministrativeInformation ;
     rdfs:range xsd:string ;
-
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/AnnotatedRelationshipElement @checked
+###  https://admin-shell.io/aas/3/0/RC02/AnnotatedRelationshipElement
 aas:AnnotatedRelationshipElement rdf:type owl:Class ;
     rdfs:subClassOf aas:RelationshipElement ;
     rdfs:comment "An annotated relationship element is an relationship element that can be annotated with additional data elements."@en ;
@@ -109,16 +95,11 @@ aas:AnnotatedRelationshipElement rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC02/Asset
 aas:Asset rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification , aas:Identifiable ;
-    skos:altLabel "Object"@en ;
-    skos:definition "Clearly identifiable asset for the Administration Shell"@en ;
-    skos:prefLabel "Asset"@en ;
     rdfs:label "Asset"^^xsd:string ;
-    skos:definition "Eindeutig identifizierbarer Gegenstand, der aufgrund seiner Bedeutung in der Informationswelt verwaltet wird"@de ;
     rdfs:comment "An Asset describes meta data of an asset that is represented by an AAS. The asset may either represent an asset type or an asset instance. The asset has a globally unique identifier plus - if needed - additional domain specific (proprietary) identifiers."@en ;
-    skos:note "Objects may be known in the form of a type or of an instance. An object in the planning phase is known as a type"@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/AssetInformation @checked
+###  https://admin-shell.io/aas/3/0/RC02/AssetInformation
 aas:AssetInformation rdf:type owl:Class ;
     rdfs:comment "The asset may either represent an asset type or an asset instance. The asset has a globally unique identifier plus - if needed - additional domain specific (proprietary) identifiers. However, to support the corner case of very first phase of lifecycle where a stabilised/constant global asset identifier does not already exist, the corresponding attribute 'globalAssetId' is optional."@en ;
 	  rdfs:label "Asset Information"^^xsd:string ;
@@ -156,14 +137,11 @@ aas:AssetInformation rdf:type owl:Class ;
     rdfs:comment "Thumbnail of the asset represented by the asset administration shell."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell @checked
+###  https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell
 aas:AssetAdministrationShell rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification , aas:Identifiable ;
     rdfs:label "Asset Administration Shell"^^xsd:string ;
-    skos:altLabel "Administration Shell"@en , "Verwaltungsschale"@de ;
-    skos:definition "Describes the Administration Shell for Assets, Products, Components, e.g. Machines"@en ;
     rdfs:comment "Describes the Administration Shell for Assets, Products, Components, e.g. Machines"@en ;
-    skos:prefLabel "Asset Administration Shell"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/assetInformation
@@ -176,7 +154,6 @@ aas:AssetAdministrationShell rdf:type owl:Class ;
 
 ###  https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/derivedFrom
 <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/derivedFrom> rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf <http://www.w3.org/TR/2013/REC-prov-o-20130430/#wasDerivedFrom> ;
     rdfs:domain aas:AssetAdministrationShell ;
     rdfs:range aas:Reference ;
     rdfs:comment "This relation connects instances of AAS with their respective types. Refer to Asset Kind for further information of instance and type kinds."@en ;
@@ -207,7 +184,6 @@ aas:AssetAdministrationShell rdf:type owl:Class ;
     owl:deprecated true ;
     rdfs:comment "Points to the differents views associated to the Administration Shell via the Submodels."@en ;
     rdfs:label "has View"^^xsd:string ;
-    skos:prefLabel "view"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShellEnvironment
@@ -249,7 +225,7 @@ aas:AssetAdministrationShellEnvironment rdf:type owl:Class ;
 .
 
 
-###  https://admin-shell.io/aas/3/0/RC02/AssetKind @checked
+###  https://admin-shell.io/aas/3/0/RC02/AssetKind
 aas:AssetKind rdf:type owl:Class ;
     rdfs:comment "Enumeration for denoting whether an element is a type or an instance."@en ;
     rdfs:label "Asset Kind"^^xsd:string  ;
@@ -271,7 +247,7 @@ aas:AssetKind rdf:type owl:Class ;
     rdfs:label "Asset Type"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/BasicEvent @checked
+###  https://admin-shell.io/aas/3/0/RC02/BasicEvent
 aas:BasicEvent rdf:type owl:Class ;
     rdfs:subClassOf aas:Event ;
     rdfs:label "Basic Event"^^xsd:string ;
@@ -286,13 +262,11 @@ aas:BasicEvent rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Blob @checked
+###  https://admin-shell.io/aas/3/0/RC02/Blob
 aas:Blob rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
     rdfs:comment "A BLOB is a data element that represents a file that is contained with its source code in the value attribute."@en ;
     rdfs:label "Blob Data Element"^^xsd:string ;
-	  skos:note "Constraint AASd-057: The semanticId of a File or Blob submodel element shall only reference a ConceptDescription with the category DOCUMENT."@en ;
-    skos:note "Constraint AASd-083: If the semanticId of a Blob references a ConceptDescription then DataSpecificationIEC61360/dataType shall be one of: BLOB, HTML."@en;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Blob/mimeType
@@ -309,16 +283,14 @@ aas:Blob rdf:type owl:Class ;
     rdfs:domain aas:Blob ;
     rdfs:range xsd:byte ;
     rdfs:comment "The value of the BLOB instance of a blob data element."@en ;
-    skos:note "In contrast to the file property the file content is stored directly as value in the Blob data element."@en ;
     rdfs:label "has value"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Capability @checked
+###  https://admin-shell.io/aas/3/0/RC02/Capability
 aas:Capability rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:comment "A capability is the implementation-independent description of the potential of an asset to achieve a certain effect in the physical or virtual world."@en ;
     rdfs:label "Capability"^^xsd:string ;
-	  skos:note "Constraint AASd-058: If the semanticId of a Capability submodel element references a ConceptDescription then the ConceptDescription/category shall be CAPABILITY."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Category
@@ -355,39 +327,31 @@ aas:ConceptDescription rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification , aas:Identifiable ;
     rdfs:label "Concept Description"^^xsd:string ;
     rdfs:comment "The semantics of a property or other elements that may have a semantic description is defined by a concept description. The description of the concept should follow a standardized schema (realized as data specification template)."@en ;
-	  skos:note "Constraint AASd-051: A ConceptDescription shall have one of the following categories: VALUE, PROPERTY, REFERENCE, DOCUMENT, CAPABILITY, RELATIONSHIP, COLLECTION, FUNCTION, EVENT, ENTITY, APPLICATION_CLASS, QUALIFIER, VIEW. Default: PROPERTY."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/ConceptDescription/isCaseOf
 <https://admin-shell.io/aas/3/0/RC02/ConceptDescription/isCaseOf> rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf dcterms:identifier ;
     rdfs:comment "Reference to an external definition the concept is compatible to or was derived from."@en ;
-    skos:note "Compare to is-case-of relationship in ISO 13584-32 and IEC EN 61360."@en ;
     rdfs:label "is case of"^^xsd:string ;
     rdfs:domain aas:ConceptDescription ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Constraint @checked
+###  https://admin-shell.io/aas/3/0/RC02/Constraint
 aas:Constraint rdf:type owl:Class ;
-    dash:abstract true ;
     rdfs:comment "A constraint is used to further qualify an element."@en ;
     rdfs:label "Constraint"^^xsd:string ;
-    skos:prefLabel "Constraint"@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/DataElement @checked
+###  https://admin-shell.io/aas/3/0/RC02/DataElement
 aas:DataElement rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
-    dash:abstract true ;
     rdfs:comment "A data element is a submodel element that is not further composed out of other submodel elements. A data element is a submodel element that has a value. The type of value differs for different subtypes of data elements."@en ;
-    skos:note"Constraint AASd-090: For data elements DataElement/category shall be one of the following values: CONSTANT, PARAMETER or VARIABLE."@en;
     rdfs:label "Data Element"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationContent
 aas:DataSpecificationContent rdf:type owl:Class ;
-    dash:abstract true ;
     rdfs:label "Data Specification Content"^^xsd:string ;
     rdfs:comment "DataSpecificationContent contains the additional attributes to be added to the element instance that references the data specification template and meta information about the template itself."@en ;
 .
@@ -404,7 +368,6 @@ aas:EmbeddedDataSpecification rdf:type owl:Class ;
     rdfs:label "has Data Specification"^^xsd:string ;
     rdfs:domain aas:EmbeddedDataSpecification ;
     rdfs:range aas:Reference ;
-    skos:note "Reference must point to a Data Specification."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent
@@ -415,12 +378,11 @@ aas:EmbeddedDataSpecification rdf:type owl:Class ;
     rdfs:range aas:DataSpecificationContent ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Entity @checked
+###  https://admin-shell.io/aas/3/0/RC02/Entity
 aas:Entity rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:label "Entity"^^xsd:string ;
     rdfs:comment "An entity is a submodel element that is used to model entities."@en ;
-	skos:note "Constraint AASd-056: The semanticId of a Entity submodel element shall only reference a ConceptDescription with the category ENTITY. The ConceptDescription describes the elements assigned to the entity via Entity/statement."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Entity/entityType
@@ -437,7 +399,6 @@ aas:Entity rdf:type owl:Class ;
     rdfs:domain aas:Entity ;
     rdfs:range aas:Reference ;
     rdfs:comment "Reference to the asset the entity is representing."@en ;
-	 skos:note "Constraint AASd-014: Either the attribute globalAssetId or externalAssetId of an Entity must be set if Entity/entityType is set to 'SelfManagedEntity'. They are not existing otherwise."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Entity/specificAssetId
@@ -446,7 +407,6 @@ aas:Entity rdf:type owl:Class ;
     rdfs:domain aas:Entity ;
     rdfs:range aas:IdentifierKeyValuePair ;
     rdfs:comment "Reference to an identifier key value pair representing an external identifier of the asset represented by the asset administration shell. "@en ;
-    skos:note "Constraint AASd-014: Either the attribute globalAssetId or externalAssetId of an Entity must be set if Entity/entityType is set to 'SelfManagedEntity'. They are not existing otherwise."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Entity/statement
@@ -457,7 +417,7 @@ aas:Entity rdf:type owl:Class ;
     rdfs:range aas:SubmodelElement ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/EntityType @checked
+###  https://admin-shell.io/aas/3/0/RC02/EntityType
 aas:EntityType rdf:type owl:Class ;
     rdfs:label "Entity Type"^^xsd:string ;
     rdfs:comment "Enumeration for denoting whether an entity is a self-managed entity or a co-managed entity."@en ;
@@ -467,25 +427,23 @@ aas:EntityType rdf:type owl:Class ;
     ) ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/EntityType/CoManagedEntity @checked
+###  https://admin-shell.io/aas/3/0/RC02/EntityType/CoManagedEntity
 <https://admin-shell.io/aas/3/0/RC02/EntityType/CoManagedEntity> rdf:type  aas:EntityType ;
     rdfs:comment "For co-managed entities there is no separate AAS. Co-managed entities need to be part of a self-managed entity."@en ;
     rdfs:label "Co-managed Entity"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/EntityType/SelfManagedEntity @checked
+###  https://admin-shell.io/aas/3/0/RC02/EntityType/SelfManagedEntity
 <https://admin-shell.io/aas/3/0/RC02/EntityType/SelfManagedEntity> rdf:type  aas:EntityType ;
     rdfs:comment "Self-Managed Entities have their own AAS but can be part of the bill of material of a composite self-managed entity. The asset of an I4.0 Component is a self-managed entity per definition."@en ;
     rdfs:label "Self-managed Entity"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Event @checked
+###  https://admin-shell.io/aas/3/0/RC02/Event
 aas:Event rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
-    dash:abstract true ;
     rdfs:label "Event"^^xsd:string ;
     rdfs:comment "An event."@en ;
-	  skos:note "Constraint AASd-061: The semanticId of a Event submodel element shall only reference a ConceptDescription with the category EVENT."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/EventElement
@@ -493,7 +451,6 @@ aas:EventElement rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:label "Event Element"^^xsd:string ;
     rdfs:comment "Defines the necessary information for sending or receiving events."@en ;
-    skos:note "non-normative, just only for discussion (as of November 2019)."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/EventMessage
@@ -501,7 +458,6 @@ aas:EventMessage rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:label "Event Message"^^xsd:string ;
     rdfs:comment "Defines the necessary information of an event instance sent out or received."@en ;
-    skos:note "non-normative, just only for discussion (as of November 2019)."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/File
@@ -509,7 +465,6 @@ aas:File rdf:type owl:Class ;
    rdfs:subClassOf aas:SubmodelElement ;
    # rdfs:subClassOf aas:DataElement ; # TODO: Table on page 78 says SubmodelElement only, figure 5-37 says DataElement
    rdfs:comment "A File is a data element that represents a file via its path description.The value is an URI that can represent an absolute or relative path."@en ;
-   skos:note "Constraint AASd-079: If the semanticId of a File references a ConceptDescription then DataSpecificationIEC61360/dataType shall be one of: FILE"@en;
    rdfs:label "File"^^xsd:string ;
 .
 
@@ -533,7 +488,6 @@ aas:File rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC02/Formula
 aas:Formula rdf:type owl:Class ;
     rdfs:subClassOf aas:Constraint ;
-    dc:description "A formula is used to describe constraints by a logical expression."@en ;
     rdfs:label "Formula"^^xsd:string ;
 .
 
@@ -545,12 +499,10 @@ aas:Formula rdf:type owl:Class ;
     rdfs:label "depends on"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/HasDataSpecification @checked
+###  https://admin-shell.io/aas/3/0/RC02/HasDataSpecification
 aas:HasDataSpecification rdf:type owl:Class ;
-    dash:abstract true ;
     rdfs:comment "Element that can have be extended by using data specification templates. A data specification template defines the additional attributes an element may or shall have. The data specifications used are explicitly specified with their id."@en ;
     rdfs:label "Has Data Specification"^^xsd:string ;
-	  skos:note "Constraint AASd-050: If the DataSpecificationContent DataSpecificationIEC61360 is used for an element then the value of hasDataSpecification/dataSpecification shall contain the global reference to the IRI of the corresponding data specification template https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/dataSpecification
@@ -561,9 +513,8 @@ aas:HasDataSpecification rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/HasKind @checked
+###  https://admin-shell.io/aas/3/0/RC02/HasKind
 aas:HasKind rdf:type owl:Class ;
-    dash:abstract true ;
     rdfs:comment "An element with a kind is an element that can either represent a type or an instance. Default for an element is that it is representing an instance."@en ;
     rdfs:label "Has Kind"^^xsd:string ;
 .
@@ -576,28 +527,24 @@ aas:HasKind rdf:type owl:Class ;
     rdfs:comment "ModelingKind of the element: either type or instance."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/HasSemantics @checked
+###  https://admin-shell.io/aas/3/0/RC02/HasSemantics
 aas:HasSemantics rdf:type owl:Class ;
-    dash:abstract true ;
     rdfs:label "Has Semantics"^^xsd:string ;
     rdfs:comment "Element that can have a semantic definition. Identifier of the semantic definition of the element. It is called semantic id of the element. The semantic id may either reference an external global id or it may reference a referable model element of kind=Type that defines the semantics of the element."@en ;
-    skos:note "In many cases the idShort is identical to the English short name within the semantic definition as referenced vi aits semantic id."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId
 <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf rdfs:seeAlso ;
     rdfs:label "has semantic ID"^^xsd:string ;
-    skos:altLabel "has Semantic Expression"@en ;
     rdfs:comment "Points to the Expression Semantic of the Submodels"@en ;
     rdfs:comment "The semantic id might refer to an external information source, which explains the formulation of the submodel (for example an PDF if a standard)."@en ;
     rdfs:domain aas:HasSemantics ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Identifiable @checked
+###  https://admin-shell.io/aas/3/0/RC02/Identifiable
 aas:Identifiable rdf:type owl:Class ;
-    dash:abstract true ;
     rdfs:subClassOf aas:Referable ;
     rdfs:comment "An element that has a globally unique identifier."@en ;
     rdfs:label "Identifiable"^^xsd:string ;
@@ -606,7 +553,6 @@ aas:Identifiable rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC02/Identifiable/administration
 <https://admin-shell.io/aas/3/0/RC02/Identifiable/administration> rdf:type owl:ObjectProperty ;
     rdfs:comment "Administrative information of an identifiable element."@en ;
-    skos:note "Some of the administrative information like the version number might need to be part of the identification."@en ;
     rdfs:label "has administration"^^xsd:string ;
     rdfs:domain aas:Identifiable ;
     rdfs:range aas:AdministrativeInformation ;
@@ -652,7 +598,7 @@ aas:Identifier rdf:type owl:Class ;
     rdfs:label "Identifier"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/IdentifierKeyValuePair @checked
+###  https://admin-shell.io/aas/3/0/RC02/IdentifierKeyValuePair
 aas:IdentifierKeyValuePair rdf:type owl:Class ;
     rdfs:subClassOf aas:HasSemantics ;
     rdfs:label "identifier key value pair"^^xsd:string ;
@@ -665,7 +611,6 @@ aas:IdentifierKeyValuePair rdf:type owl:Class ;
     rdfs:range xsd:string ;
     rdfs:comment "Key of the identifier."@en ;
     rdfs:label "has IdentifierKeyValuePair.key"^^xsd:string ;
-    skos:note "Constraint AASd-116: “globalAssetId” (case-insensitive) is a reserved key. If used as value for IdentifierKeyValuePair/key, IdentifierKeyValuePair/value shall be identical to AssetInformation/globalAssetId."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/IdentifierKeyValuePair/value
@@ -780,7 +725,7 @@ aas:LevelType rdf:type owl:Class ;
 .
 
 
-###  https://admin-shell.io/aas/3/0/RC02/ModelingKind @checked
+###  https://admin-shell.io/aas/3/0/RC02/ModelingKind
 aas:ModelingKind rdf:type owl:Class ;
     rdfs:comment "Enumeration for denoting whether an element is a type or an instance."@en ;
     rdfs:label "Kind"^^xsd:string  ;
@@ -793,8 +738,6 @@ aas:ModelingKind rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance
 <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> rdf:type  aas:ModelingKind ;
     rdfs:comment "Concrete, clearly identifiable component of a certain template."@en ;
-    skos:note "It becomes an individual entity of a template, for example a device model, by defining specific property values."@en ;
-    skos:note "In an object oriented view, an instance denotes an object (of a template) (class)."@en ;
     rdfs:label "Instance"^^xsd:string ;
 .
 
@@ -804,14 +747,11 @@ aas:ModelingKind rdf:type owl:Class ;
     rdfs:label "Template"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/MultiLanguageProperty @checked
+###  https://admin-shell.io/aas/3/0/RC02/MultiLanguageProperty
 aas:MultiLanguageProperty rdf:type owl:Class ;
    rdfs:subClassOf aas:DataElement ;
    rdfs:comment "A property is a data element that has a multi language value."@en ;
    rdfs:label "Multi Language Property"^^xsd:string ;
-   skos:note "Constraint AASd-052b: If the semanticId of a MultiLanguageProperty references a ConceptDescription then the ConceptDescription/category shall be one of  following values: PROPERTY."@en ;
-   skos:note "Constraint AASd-012: If both, the MultiLanguageProperty/value and the MultiLanguageProperty/valueId are present then for each string in a specific language the meaning must be the same as specified in MultiLanguageProperty/valueId."@en ;
-   skos:note "Constraint AASd-067: If the semanticId of a MultiLanguageProperty references a ConceptDescription then DataSpecificationIEC61360/dataType shall be STRING_TRANSLATABLE."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/MultiLanguageProperty/value
@@ -844,12 +784,11 @@ aas:ObjectAttributes rdf:type owl:Class ;
     rdfs:range aas:DataElement ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Operation @checked
+###  https://admin-shell.io/aas/3/0/RC02/Operation
 aas:Operation rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:comment "An operation is a submodel element with input and output variables."@en ;
     rdfs:label "Operation"^^xsd:string ;
-	skos:note "Constraint AASd-060: The semanticId of a Operation submodel element shall only reference a ConceptDescription with the category FUNCTION."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Operation/inputVariable
@@ -876,7 +815,7 @@ aas:Operation rdf:type owl:Class ;
     rdfs:range aas:OperationVariable ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/OperationVariable  @checked
+###  https://admin-shell.io/aas/3/0/RC02/OperationVariable
 aas:OperationVariable rdf:type owl:Class ;
     rdfs:comment "An operation variable is a submodel element that is used as input or output variable of an operation."@en ;
     rdfs:label "Operation Variable"^^xsd:string ;
@@ -885,21 +824,16 @@ aas:OperationVariable rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC02/OperationVariable/value
 <https://admin-shell.io/aas/3/0/RC02/OperationVariable/value> rdf:type owl:ObjectProperty ;
     rdfs:comment "Describes the needed argument for an operation via a submodel element of kind=Template."@en ;
-    skos:note "The submodel element value of an operation variable shall be of kind=Template."@en ;
     rdfs:label "value"^^xsd:string ;
     rdfs:domain aas:OperationVariable ;
     rdfs:range aas:SubmodelElement ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Property @checked
+###  https://admin-shell.io/aas/3/0/RC02/Property
 aas:Property rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
     rdfs:comment "A property is a data element that has a single value."@en ;
     rdfs:label "Property"^^xsd:string ;
-    skos:note "Constraint AASd-007: If both, the Property/value and the Property/valueId are present then the value of Property/value needs to be identical to the value of the referenced coded value in Property/valueId."@en ;
-	  skos:note "Constraint AASd-052a: If the semanticId of a Property references a ConceptDescription then the ConceptDescription/category shall be one of  following values: VALUE, PROPERTY."@en ;
-	  skos:note "Constraint AASd-065: If the semanticId of a Property or MultiLanguageProperty references a ConceptDescription with the  category VALUE then the value of the property is identical to  DataSpecificationIEC61360/value and the valueId of the property is identical to DataSpecificationIEC61360/valueId."@en ;
-	  skos:note "Constraint AASd-066: If the semanticId of a Property or MultiLanguageProperty references a ConceptDescription with the category PROPERTY and DataSpecificationIEC61360/valueList is defined the value and valueId of the property is identical to one of the value reference pair types references in the value list, i.e. ValueReferencePair/value or ValueReferencePair/valueId, resp."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Property/value
@@ -913,7 +847,6 @@ aas:Property rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC02/Property/valueId> rdf:type owl:ObjectProperty ;
     rdfs:comment "Reference to the global unique id of a coded value."@en ;
     rdfs:label "has property value id"^^xsd:string ;
-    skos:note "Constraint AASd-007: if both, the value and the valueId are present then the value needs to be identical to the value of the referenced coded value in valueId."@en ;
     rdfs:domain aas:Property ;
     rdfs:range aas:Reference ;
 .
@@ -925,11 +858,9 @@ aas:Property rdf:type owl:Class ;
     rdfs:range xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Qualifiable @checked
+###  https://admin-shell.io/aas/3/0/RC02/Qualifiable
 aas:Qualifiable rdf:type owl:Class ;
-    dash:abstract true ;
     rdfs:comment "Additional qualification of a qualifiable element."@en ;
-	skos:note "Constraint AASd-021: Every qualifiable can only have one qualifier with the same Qualifier/type."@en ;
     rdfs:label "Qualifiable"^^xsd:string ;
 .
 
@@ -941,13 +872,12 @@ aas:Qualifiable rdf:type owl:Class ;
     rdfs:range aas:Constraint ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Qualifier @checked
+###  https://admin-shell.io/aas/3/0/RC02/Qualifier
 aas:Qualifier rdf:type owl:Class ;
     rdfs:subClassOf aas:Constraint ;
     rdfs:subClassOf aas:HasSemantics ;
     rdfs:comment "A qualifier is a type-value pair that makes additional statements w.r.t. the value of the element."@en ;
     rdfs:label "Qualifier"^^xsd:string ;
-	skos:note "Constraint AASd-063: The semanticId of a Qualifier shall only reference a ConceptDescription with the category QUALIFIER."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Qualifier/type
@@ -970,8 +900,6 @@ aas:Qualifier rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC02/Qualifier/value> rdf:type owl:DatatypeProperty ;
     rdfs:comment "The qualifier value is the value of the qualifier."@en ;
     rdf:label "has qualifier value"^^xsd:string ;
-    skos:note "Constraint AASd-006: if both, the value and the valueId are present then the value needs to be identical to the short name of the referenced coded value in qualifierValueId."@en ;
-	skos:note "Constraint AASd-020: The value of Qualifier/value shall be consistent to the data type as defined in Qualifier/valueType."@en ;
     rdfs:domain aas:Qualifier ;
     rdfs:range rdfs:Literal ;
 .
@@ -984,14 +912,11 @@ aas:Qualifier rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Range @checked
+###  https://admin-shell.io/aas/3/0/RC02/Range
 aas:Range rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
     rdfs:comment "An element that is referable by its idShort. This id is not globally unique. This id is unique within the name space of the element."@en ;
     rdfs:label "Range"^^xsd:string ;
-	  skos:note "Constraint AASd-053: The semanticId of a Range submodel element shall only reference a ConceptDescription with the category PROPERTY."@en ;
-	  skos:note "Constraint AASd-068: If the semanticId of a  Range references a ConceptDescription then DataSpecificationIEC61360/dataType shall be a numerical one, i.e. REAL_* or RATIONAL_*."@en ;
-	  skos:note "Constraint AASd-069: Constraint AASd-068: If the semanticId of a Range references a ConceptDescription then DataSpecificationIEC61360/dataType shall be a numerical one, i.e. one of: INTEGER_MEASURE, INTEGER_COUNT, INTEGER_CURRENCY, REAL_MEASURE, REAL_COUNT, REAL_CURRENCY, RATIONAL, RATIONAL_MEASURE."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Range/max
@@ -1018,11 +943,9 @@ aas:Range rdf:type owl:Class ;
     rdfs:comment "Data type of the min and max."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/HasExtensions @checked
+###  https://admin-shell.io/aas/3/0/RC02/HasExtensions
 aas:HasExtensions rdf:type owl:Class ;
-    dash:abstract true ;
     rdfs:comment "Element that can be extended by proprietary extensions."@en ;
-    skos:note "Extensions are proprietary, i.e. they do not support global interoperability."@en ;
     rdfs:label "HasExtensions"^^xsd:string ;
 .
 
@@ -1034,12 +957,11 @@ aas:HasExtensions rdf:type owl:Class ;
     rdfs:range aas:Extension;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Extension @checked
+###  https://admin-shell.io/aas/3/0/RC02/Extension
 aas:Extension rdf:type owl:Class ;
     rdfs:subClassOf aas:HasSemantics ;
     rdfs:comment "Single extension of an element."@en ;
     rdfs:label "Extensions"^^xsd:string ;
-	  skos:note "Constraint AASd-077: The name of an extension within HasExtensions needs to be unique."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Extension/name
@@ -1074,10 +996,9 @@ aas:Extension rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Referable @checked
+###  https://admin-shell.io/aas/3/0/RC02/Referable
 aas:Referable rdf:type owl:Class ;
     rdfs:subClassOf aas:HasExtensions ;
-    dash:abstract true ;
     rdfs:comment "An element that is referable by its idShort. This id is not globally unique. This id is unique within the name space of the element."@en ;
     rdfs:label "Referable"^^xsd:string ;
 .
@@ -1112,13 +1033,6 @@ aas:Referable rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> rdf:type owl:DatatypeProperty ;
     rdfs:label "has short id"^^xsd:string ;
     rdfs:comment "Identifying string of the element within its name space."@en ;
-    skos:note "Constraint AASd-002: idShort of Referables shall only feature letters, digits, underscore ("_"); starting mandatory with a letter. I.e. [a-zA-Z][a-zA-Z0-9_]+. Exception: In case of direct submodel elements within a SubmodelElementList the idShort shall feature a sequence of digits representing an integer. I.e. [0] or [1-9][0-9]+."@en ;
-    skos:note "Constraint AASd-003: idShort shall be matched case-insensitive."@en ;
-	  skos:note "Constraint AASd-022: idShort of non-identifiable referables shall be unqiue in its namespace."@en ;
-    skos:note "Constraint AASd-027: idShort of Referables shall have a maximum length of 128 characters."@en ;
-    skos:note "Constraint AASd-117: For all Referables which are not Identifiables the idShort is mandatory."@en ;
-    skos:note "Note: In case the element is a property and the property has a semantic definition (HasSemantics) the idShort is typically identical to the short name in English. "@en ;
-    skos:note "Note: In case of an identifiable element idShort is optional but recommended to be defined. It can be used for unique reference in its name space and thus allows better usability and a more performant implementation. In this case it is similar to the 'BrowserPath' in OPC UA."@en ;
     rdfs:domain aas:Referable ;
     rdfs:range xsd:string ;
 .
@@ -1196,7 +1110,6 @@ aas:ReferableElements rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC02/ReferableElements/DataElement
 <https://admin-shell.io/aas/3/0/RC02/ReferableElements/DataElement> rdf:type aas:ReferableElements ;
     rdfs:label "Data Element"^^xsd:string ;
-    skos:note "Data Element is abstract, i.e. if a key uses 'DataElement' the reference may be a Property, a File etc."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/ReferableElements/Entity
@@ -1207,7 +1120,6 @@ aas:ReferableElements rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC02/ReferableElements/Event
 <https://admin-shell.io/aas/3/0/RC02/ReferableElements/Event> rdf:type aas:ReferableElements ;
     rdfs:label "Event"^^xsd:string ;
-    skos:note "Event is abstract"@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/ReferableElements/File
@@ -1253,7 +1165,6 @@ aas:ReferableElements rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/RC02/ReferableElements/SubmodelElement
 <https://admin-shell.io/aas/3/0/RC02/ReferableElements/SubmodelElement> rdf:type aas:ReferableElements ;
     rdfs:label "Submodel Element"^^xsd:string ;
-    skos:note "Submodel Element is abstract, i.e. if a key uses 'SubmodelElement' the reference may be a Property, a SubmodelElementCollection, an Operation etc."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/ReferableElements/SubmodelElementList
@@ -1270,7 +1181,6 @@ aas:ReferableElements rdf:type owl:Class ;
 aas:Reference rdf:type owl:Class ;
     rdfs:comment "Reference to either a model element of the same or another AAs or to an external entity. A reference is an ordered list of keys, each key referencing an element. The complete list of keys may for example be concatenated to a path that then gives unique access to an element or entity."@en ;
     rdfs:label "Reference"^^xsd:string ;
-    dash:abstract true ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/GlobalReference
@@ -1310,13 +1220,11 @@ aas:ModelReference rdf:type owl:Class ;
     rdfs:range aas:Key ;
 .
 
-###  ###  https://admin-shell.io/aas/3/0/RC02/ReferenceElement @checked
+###  ###  https://admin-shell.io/aas/3/0/RC02/ReferenceElement
 aas:ReferenceElement rdf:type owl:Class ;
     rdfs:subClassOf aas:DataElement ;
     rdfs:comment "A reference element is a data element that defines a logical reference to another element within the same or another AAS or a reference to an external object or entity."@en ;
     rdfs:label "Reference Element"^^xsd:string ;
-    skos:note "Constraint AASd-082: If the semanticId of a ReferenceElement references a ConceptDescription then DataSpecificationIEC61360/dataType shall be one of: STRING, IRI, IRDI."@en ;
-	  skos:note "Constraint AASd-054: The semanticId of a ReferenceElement shall only reference a ConceptDescription with the category REFERENCE."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/ReferenceElement/value
@@ -1327,12 +1235,10 @@ aas:ReferenceElement rdf:type owl:Class ;
     rdfs:range aas:Reference ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/RelationshipElement @checked
+###  https://admin-shell.io/aas/3/0/RC02/RelationshipElement
 aas:RelationshipElement rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
-    dc:description "A relationship element is used to define a relationship between two referable elements."@en ;
     rdfs:label "Relationship Element"^^xsd:string ;
-	  skos:note "Constraint AASd-055: The semanticId of a RelationshipElement or a AnnotatedRelationshipElement shall only reference a ConceptDescription with the category RELATIONSHIP."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/RelationshipElement/first
@@ -1373,7 +1279,6 @@ aas:Security rdf:type owl:Class ;
     rdfs:domain aas:Security ;
     rdfs:range aas:Reference ;
     owl:deprecated true ;
-
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Security/accessControlPolicyPoints
@@ -1384,7 +1289,7 @@ aas:Security rdf:type owl:Class ;
     rdfs:range aas:AccessControlPolicyPoints ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/Submodel @checked
+###  https://admin-shell.io/aas/3/0/RC02/Submodel
 aas:Submodel rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:subClassOf aas:HasKind ;
@@ -1394,7 +1299,6 @@ aas:Submodel rdf:type owl:Class ;
     rdfs:comment "A Submodel defines a specific aspect of the asset represented by the AAS. A submodel is used to structure the virtual representation and technical functionality of an Administration Shell into distinguishable parts. Each submodel refers to a well-defined domain or subject matter. Submodels can become standardized and thus become submodels types. Submodels can have different life-cycles."@en ,
     "Describe the different types of Data related to the I4.0 Asset"@en ;
     rdfs:label "Submodel"^^xsd:string ;
-	  skos:note "Constraint AASd-062: The semanticId of a Submodel shall only reference a ConceptDescription with the category APPLICATION_CLASS."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElement
@@ -1405,17 +1309,15 @@ aas:Submodel rdf:type owl:Class ;
     rdfs:label "has Submodel Element"^^xsd:string ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/SubmodelElement @checked
+###  https://admin-shell.io/aas/3/0/RC02/SubmodelElement
 aas:SubmodelElement rdf:type owl:Class ;
     rdfs:subClassOf aas:HasDataSpecification ;
     rdfs:subClassOf aas:HasKind ;
     rdfs:subClassOf aas:HasSemantics ;
     rdfs:subClassOf aas:Qualifiable ;
     rdfs:subClassOf aas:Referable ;
-    dash:abstract true ;
     rdfs:comment "A submodel element is an element suitable for the description and differentiation of assets."@en ;
     rdfs:label "Submodel Element"^^xsd:string ;
-    skos:note "The concept of type and instance applies to submodel elements. Properties are special submodel elements. The property types are defined in dictionaries (like the IEC Common Data Dictionary or eCl@ss), they do not have a value. The property type (kind=Type) is also called data element type in some standards. The property instances (kind=Instance) typically have a value. A property instance is also called property-value pair in certain standards."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/SubmodelElements
@@ -1452,7 +1354,6 @@ aas:SubmodelElementList rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:comment "A submodel element list is an ordered collection of submodel elements."@en ;
     rdfs:label "Submodel Element List"^^xsd:string ;
-  	skos:note "Constraint AASd-093: If the semanticId of a SubmodelElementList references a ConceptDescription then the ConceptDescription/category shall be COLLECTION."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdValues
@@ -1461,9 +1362,6 @@ aas:SubmodelElementList rdf:type owl:Class ;
     rdfs:label "semantic id values"^^xsd:string ;
     rdfs:domain aas:SubmodelElementList ;
     rdfs:range aas:Reference ;
-    skos:note "Constraint AASd-107: If a first level child element in a SubmodelElementList has a semanticId it shall be identical to SubmodelElementList/semanticIdValues."@en ;
-    skos:note "Constraint AASd-114: If two first level child elements in a SubmodelElementList have a semanticId then they shall be identical."@en ;
-    skos:note "Constraint AASd-115: If a first level child element in a SubmodelElementList does not specify a semanticId then the value is assumed to be identical to SubmodelElementList/semanticIdValues."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/submodelElementTypeValues
@@ -1472,7 +1370,6 @@ aas:SubmodelElementList rdf:type owl:Class ;
     rdfs:label "submodel element type values"^^xsd:string ;
     rdfs:domain aas:SubmodelElementList ;
     rdfs:range aas:SubmodelElements ;
-    skos:note "Constraint AASd-108: All first level child elements in a SubmodelElementList shall have the same submodel element type as specified in SubmodelElementList/submodelElementTypeValues."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value
@@ -1489,7 +1386,6 @@ aas:SubmodelElementList rdf:type owl:Class ;
     rdfs:label "value type values"^^xsd:string ;
     rdfs:domain aas:SubmodelElementList ;
     rdfs:range xsd:string ;
-    skos:note "Constraint AASd-109: If SubmodelElementList/submodelElementTypeValues equal to Property or Range SubmodelElementList/valueTypeValues shall be set and all first level child elements in the SubmodelElementList shall have the the value type as specified in SubmodelElementList/valueTypeValues."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct
@@ -1497,7 +1393,6 @@ aas:SubmodelElementStruct rdf:type owl:Class ;
     rdfs:subClassOf aas:SubmodelElement ;
     rdfs:comment "A submodel element struct is a logical encapsulation of multiple values. It has a number of of submodel elements."@en ;
     rdfs:label "Submodel Element List"^^xsd:string ;
-  	skos:note "Constraint AASd-092: If the semanticId of a SubmodelElementStruct references a ConceptDescription then the ConceptDescription/category shall be ENTITY."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct/value
@@ -1542,7 +1437,6 @@ aas:ValueReferencePair rdf:type owl:Class ;
     rdfs:label "Value id of value reference pair"^^xsd:string ;
     rdfs:domain aas:ValueReferencePair ;
     rdfs:range aas:Reference ;
-    skos:note "Constraint AASd-078: If the valueId of a ValueReferencePair references a ConceptDescription then the ConceptDescription/category shall be one of following values: VALUE."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/View
@@ -1552,7 +1446,6 @@ aas:View rdf:type owl:Class ;
     rdfs:isDefinedBy "https://www.plattform-i40.de/I40/Redaktion/DE/Downloads/Publikation/hm-2018-trilaterale-coop.html"@de ;
     rdfs:label "View"^^xsd:string ;
     owl:deprecated true ;
-	skos:note "Constraint AASd-064: If the semanticId of a View references a ConceptDescription then the category of the ConceptDescription shall be VIEW."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC01/View/containedElement
@@ -1562,5 +1455,4 @@ aas:View rdf:type owl:Class ;
     rdfs:domain aas:View ;
     rdfs:range aas:Reference ;
     owl:deprecated true ;
-
 .
