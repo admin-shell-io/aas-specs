@@ -1,0 +1,181 @@
+---
+openapi: 3.0.3
+info:
+  title: DotAAS Part 2 | HTTP/REST | AASX File Server
+  description: The AASX file server as part of Details of the Asset Administration Shell Part 2
+  termsOfService: https://github.com/admin-shell-io/aas-specs
+  contact:
+    name: Michael Hoffmeister, Torben Miny, Andreas Orzelski, Manuel Sauer, Constantin Ziesche
+  version: V1.0RC01
+servers:
+- url: /
+paths:
+  /packages:
+    get:
+      tags:
+      - AASX File Server Interface
+      summary: Returns a list of available AASX packages at the server
+      operationId: GetAllAASXPackageIds
+      parameters:
+      - name: aasId
+        in: query
+        description: The Asset Administration Shell’s unique id (BASE64-URL-encoded)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Requested package list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PackageDescription'
+      x-semanticIds:
+      - https://admin-shell.io/aas/API/GetAllAASXPackageIds/1/0/RC02
+    post:
+      tags:
+      - AASX File Server Interface
+      summary: Stores the AASX package at the server
+      operationId: PostAASXPackage
+      requestBody:
+        description: AASX package
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/packages_body'
+            encoding:
+              file:
+                contentType: application/asset-administration-shell-package
+                style: form
+        required: true
+      responses:
+        "201":
+          description: AASX package stored successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PackageDescription'
+      x-semanticIds:
+      - https://admin-shell.io/aas/API/PostAASXPackage/1/0/RC02
+  /packages/{packageId}:
+    get:
+      tags:
+      - AASX File Server Interface
+      summary: Returns a specific AASX package from the server
+      operationId: GetAASXByPackageId
+      parameters:
+      - name: packageId
+        in: path
+        description: The package Id (BASE64-URL-encoded)
+        required: true
+        style: simple
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Requested AASX package
+          headers:
+            X-FileName:
+              description: Filename of the package
+              style: simple
+              explode: false
+              schema:
+                type: string
+          content:
+            application/asset-administration-shell-package:
+              schema:
+                type: string
+                format: binary
+      x-semanticIds:
+      - https://admin-shell.io/aas/API/GetAASXByPackageId/1/0/RC02
+    put:
+      tags:
+      - AASX File Server Interface
+      summary: Updates the AASX package at the server
+      operationId: PutAASXByPackageId
+      parameters:
+      - name: packageId
+        in: path
+        description: The Package Id (BASE64-URL-encoded)
+        required: true
+        style: simple
+        explode: true
+        schema:
+          type: string
+      requestBody:
+        description: AASX package
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/packages_packageId_body'
+            encoding:
+              file:
+                contentType: application/asset-administration-shell-package
+                style: form
+        required: true
+      responses:
+        "204":
+          description: AASX package updated successfully
+      x-semanticIds:
+      - https://admin-shell.io/aas/API/PutAASXByPackageId/1/0/RC02
+    delete:
+      tags:
+      - AASX File Server Interface
+      summary: Deletes a specific AASX package from the server
+      operationId: DeleteAASXByPackageId
+      parameters:
+      - name: packageId
+        in: path
+        description: The Package Id (BASE64-URL-encoded)
+        required: true
+        style: simple
+        explode: true
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Deleted successfully
+      x-semanticIds:
+      - https://admin-shell.io/aas/API/DeleteAASXByPackageId/1/0/RC02
+components:
+  schemas:
+    PackageDescription:
+      type: object
+      properties:
+        aasIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Identifier'
+        packageId:
+          type: string
+    Identifier:
+      type: string
+    packages_body:
+      type: object
+      properties:
+        aasIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Identifier'
+        file:
+          type: string
+          format: binary
+        fileName:
+          type: string
+    packages_packageId_body:
+      type: object
+      properties:
+        aasIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Identifier'
+        file:
+          type: string
+          format: binary
+        fileName:
+          type: string

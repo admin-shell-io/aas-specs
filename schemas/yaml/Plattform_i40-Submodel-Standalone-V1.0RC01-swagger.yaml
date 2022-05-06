@@ -1,0 +1,285 @@
+openapi: 3.0.3
+info:
+  title: DotAAS Part 2 | HTTP/REST | Submodel (standalone)
+  description: An exemplary interface for the use case of a standalone Submodel, e.g. running in a Docker container
+  contact:
+    name: Michael Hoffmeister, Torben Miny, Andreas Orzelski, Manuel Sauer, Constantin Ziesche
+  version: V1.0RC01
+  termsOfService: https://github.com/admin-shell-io/aas-specs
+paths:
+  '/submodel':
+    get:
+      tags:
+      - Submodel Interface
+      summary: Returns the Submodel
+      operationId: GetSubmodel
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/GetSubmodel/1/0/RC02
+      parameters:
+        - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Level'
+        - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Content'
+        - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Extent'
+      responses:
+        "200":
+          description: Requested Submodel
+          content:
+            application/json:
+              schema:
+                $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/Submodel'
+    put:
+      tags:
+      - Submodel Interface
+      summary: Updates the Submodel
+      operationId: PutSubmodel
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/PutSubmodel/1/0/RC02
+      parameters:
+        - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Level'
+        - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Content'
+        - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Extent'
+      requestBody:
+        description: Submodel object
+        content:
+          application/json:
+            schema:
+              $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/Submodel'
+        required: true
+      responses:
+        "204":
+          description: Submodel updated successfully
+  '/submodel/submodel-elements':
+    get:
+      tags:
+      - Submodel Interface
+      summary: Returns all submodel elements including their hierarchy
+      operationId: GetAllSubmodelElements
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/GetAllSubmodelElements/1/0/RC02
+        - https://admin-shell.io/aas/API/GetAllSubmodelElementsBySemanticId/1/0/RC02
+        - https://admin-shell.io/aas/API/GetAllSubmodelElementsByParentPathAndSemanticId/1/0/RC02
+      parameters:
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Level'
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Content'
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Extent'
+      responses:
+        "200":
+          description: List of found submodel elements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/SubmodelElement'
+    post:
+      tags:
+      - Submodel Interface
+      summary: Creates a new submodel element
+      operationId: PostSubmodelElement
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/PostSubmodelElement/1/0/RC02
+      parameters:
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Level'
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Content'
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Extent'
+      requestBody:
+        description: Requested submodel element
+        content:
+          application/json:
+            schema:
+              $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/SubmodelElement'
+        required: true
+      responses:
+        "201":
+          description: Submodel element created successfully
+          content:
+            application/json:
+              schema:
+                $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/SubmodelElement'
+  '/submodel/submodel-elements/{idShortPath}':
+    get:
+      tags:
+      - Submodel Interface
+      summary: Returns a specific submodel element from the Submodel at a specified path
+      operationId: GetSubmodelElementByPath
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/GetSubmodelElementByPath/1/0/RC02
+      parameters:
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Level'
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Content'
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Extent'
+      - name: idShortPath
+        in: path
+        description: IdShort path to the submodel element (dot-separated)
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Requested submodel element
+          content:
+            application/json:
+              schema:
+                $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/SubmodelElement'
+    post:
+      tags:
+      - Submodel Interface
+      summary: Creates a new submodel element at a specified path within submodel elements hierarchy
+      operationId: PostSubmodelElementByPath
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/PostSubmodelElementByPath/1/0/RC02
+      parameters:
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Level'
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Content'
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Extent'
+      - name: idShortPath
+        in: path
+        description: IdShort path to the submodel element (dot-separated)
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: Requested submodel element
+        content:
+          application/json:
+            schema:
+              $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/SubmodelElement'
+        required: true
+      responses:
+        "201":
+          description: Submodel element created successfully
+          content:
+            application/json:
+              schema:
+                $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/SubmodelElement'
+    put:
+      tags:
+      - Submodel Interface
+      summary: Updates an existing submodel element at a specified path within submodel elements hierarchy
+      operationId: PutSubmodelElementByPath
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/PutSubmodelElementByPath/1/0/RC02
+        - https://admin-shell.io/aas/API/SetSubmodelElementValueByPath/1/0/RC02
+      parameters:
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Level'
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Content'
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Extent'
+      - name: idShortPath
+        in: path
+        description: IdShort path to the submodel element (dot-separated)
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: Requested submodel element
+        content:
+          application/json:
+            schema:
+              $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/SubmodelElement'
+        required: true
+      responses:
+        "204":
+          description: Submodel element updated successfully
+    delete:
+      tags:
+      - Submodel Interface
+      summary: Deletes a submodel element at a specified path within the submodel elements hierarchy
+      operationId: DeleteSubmodelElementByPath
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/DeleteSubmodelElementByPath/1/0/RC02
+      parameters:
+      - name: idShortPath
+        in: path
+        description: IdShort path to the submodel element (dot-separated)
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Submodel element deleted successfully
+  '/submodel/submodel-elements/{idShortPath}/invoke':
+    post:
+      tags:
+      - Submodel Interface
+      summary: Synchronously or asynchronously invokes an Operation at a specified path
+      operationId: InvokeOperation
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/InvokeOperationSync/1/0/RC02
+        - https://admin-shell.io/aas/API/InvokeOperationAsync/1/0/RC02
+      parameters:
+      - name: async
+        in: query
+        description: Determines whether an operation invocation is performed asynchronously or synchronously
+        schema:
+          type: boolean
+          default: false
+      - $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/parameters/Content'
+      - name: idShortPath
+        in: path
+        description: IdShort path to the submodel element (dot-separated), in this case an operation
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: Operation request object
+        content:
+          application/json:
+            schema:
+              $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/OperationRequest'
+        required: true
+      responses:
+        "200":
+          description: Operation result object
+          content:
+            application/json:
+              schema:
+                $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/OperationResult'
+  '/submodel/submodel-elements/{idShortPath}/operation-results/{handleId}':
+    get:
+      tags:
+      - Submodel Interface
+      summary: Returns the Operation result of an asynchronous invoked Operation
+      operationId: GetOperationAsyncResult
+      x-semanticIds:
+        - https://admin-shell.io/aas/API/GetOperationAsyncResult/1/0/RC02
+      parameters:
+      - name: content
+        in: query
+        schema:
+          type: string
+          default: normal
+          enum:
+            - normal
+            - value
+      - name: idShortPath
+        in: path
+        description: IdShort path to the submodel element (dot-separated), in this case an operation
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: handleId
+        in: path
+        description: The returned handle id of an operation’s asynchronous invocation used to request the current state of the operation’s execution (BASE64-URL-encoded)
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Operation result object
+          content:
+            application/json:
+              schema:
+                $ref: 'https://api.swaggerhub.com/domains/Plattform_i40/Shared-Domain-Models/V1.0RC01#/components/schemas/OperationResult'
