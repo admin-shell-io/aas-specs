@@ -2,17 +2,25 @@
 In the following repository an overview of the main concepts of the Asset Administration Shell [JSON](https://tools.ietf.org/html/rfc8259) serialization is presented. For import and export scenarios the metamodel of an Asset Administration Shell needs to be serialized. A serialization format is JSON (JavaScript Object Notation). The JSON files follow the schema version [2019-09](https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8).
 
 ## JSON Mapping Rules
-The main concepts of the JSON serialization are explained by the following rules. 
-1.	If present, names are taken from the information model. For comprehensibility reasons the JSON key names should be the same as the representing Element in the metamodel. 
-2.	Each Referable, Qualifier and Formula have an additional attribute “modelType” with the name of the corresponding object class as value This rule is needed for deserialization reasons. 
-3. All identifiables have an aggregation on root level. The identifiables are AssetAdministrationShells, Assets, Submodels and ConceptDescriptions. To reduce redundancy instances, they are located exclusively in the top-level aggregation. 
-4. Identifiables which are not in the top-level aggregations are only references to the corresponding instances in one of the top-level aggregations.
-This rule completes the concept of rule 3. There should be no redundant identifiable in the serialized metamodel. 
-5.	Data Specification Templates are directly added to the Concept Description. Additionally, a new element EmbeddedDataSpecification is introduced that has two attributes: one for the global reference to the data specification identifier and one for the content of the data specification.
+The concepts of the JSON defintion and the derived JSON serialization of the AAS are explained by the mapping rules. These rules are implemented by the [generators](https://github.com/aas-core-works/aas-core-codegen) used to create the schemata based on the idependet project [aas-core-works](https://github.com/aas-core-works/). The main design principals are documented in this section by the following rules:
 
-## Example for Top-Level Structures
-One serialization describes one Asset Administration Shell environment, that is, a collection of Administration Shells. The root element of the Asset Administration Shell environment has 4 aggregations. For each identifiable class, one aggregation is provided, as required by rule 3.
 
-![Top level structure of an AssetAdministration Shell environment mapped to JSON](https://user-images.githubusercontent.com/1814815/147122261-ac77deea-e83e-422d-bff5-f005feaf98d4.png)
+- If present, names are taken from the information model. For comprehensibility reasons, the JSON key names should be the same as the representing Element in the metamodel. 
+- Each *Referable*, *Qualifier* and *Formula* have an additional attribute “*modelType*” with the name of the corresponding object class as value This rule is needed for deserialization reasons. . 
+- The schema definitions of the environment are separated by the main aspects in 3 files. AAS Metamodel with in AssetAdministrationShells, Submodels in AAS.json, Security of the AAS in AAS_ABAC.json, Semantics of the AAS with ConceptDescriptions and DataSpecifications conformant to IEC61360 in IEC61360.json.
+- *Identifiable*s which are not in the top-level aggregations *Environment* are only references to the corresponding instances in one of the top-level aggregations.
+There should be no redundant identifiable in the serialized metamodel. 
+- *Submodel/submodelElements* and *SubmodelElementCollection/value* are realized as objects, not as sets to be conformant to the semantics of these elements.
+- The concept of embedded Data Specifications is realized. This means, for elements inheriting from *hasDataSpecification* a new element *EmbeddedDataSpecification* is introduced that has two attributes: one for the global reference to the data specification template via its identifier and one for the content of the data specification.
 
-The resulting JSON is the [minimal valid JSON.](examples/miniJsonExample.json) More examples in the [example folder.](examples)
+The results of the mapping rules and environment definition for JSON is displayed in this [minimal valid JSON example.](examples/miniJsonExample.json) 
+```JSON
+{  
+   "assetAdministrationShells":[  ],
+   "submodels":[  ],
+   "conceptDescriptions":[  ],
+}
+```  
+
+More examples in the [example folder.](examples)
+
