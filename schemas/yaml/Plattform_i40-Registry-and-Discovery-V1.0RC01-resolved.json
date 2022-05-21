@@ -1,0 +1,850 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "DotAAS Part 2 | HTTP/REST | Registry and Discovery",
+    "description": "The registry and discovery interface as part of Details of the Asset Administration Shell Part 2",
+    "termsOfService": "https://github.com/admin-shell-io/aas-specs",
+    "contact": {
+      "name": "Michael Hoffmeister, Torben Miny, Andreas Orzelski, Manuel Sauer, Constantin Ziesche"
+    },
+    "version": "V1.0RC01"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/registry/shell-descriptors": {
+      "get": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Returns all Asset Administration Shell Descriptors",
+        "operationId": "GetAllAssetAdministrationShellDescriptors",
+        "responses": {
+          "200": {
+            "description": "Requested Asset Administration Shell Descriptors",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AssetAdministrationShellDescriptor"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/GetAllAssetAdministrationShellDescriptors/1/0/RC02"
+        ]
+      },
+      "post": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Creates a new Asset Administration Shell Descriptor, i.e. registers an AAS",
+        "operationId": "PostAssetAdministrationShellDescriptor",
+        "requestBody": {
+          "description": "Asset Administration Shell Descriptor object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssetAdministrationShellDescriptor"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Asset Administration Shell Descriptor created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetAdministrationShellDescriptor"
+                }
+              }
+            }
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/PostAssetAdministrationShellDescriptor/1/0/RC02"
+        ]
+      }
+    },
+    "/registry/shell-descriptors/{aasIdentifier}": {
+      "get": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Returns a specific Asset Administration Shell Descriptor",
+        "operationId": "GetAssetAdministrationShellDescriptorById",
+        "parameters": [
+          {
+            "name": "aasIdentifier",
+            "in": "path",
+            "description": "The Asset Administration Shell’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requested Asset Administration Shell Descriptor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetAdministrationShellDescriptor"
+                }
+              }
+            }
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/GetAssetAdministrationShellDescriptorById/1/0/RC02"
+        ]
+      },
+      "put": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Updates an existing Asset Administration Shell Descriptor",
+        "operationId": "PutAssetAdministrationShellDescriptorById",
+        "parameters": [
+          {
+            "name": "aasIdentifier",
+            "in": "path",
+            "description": "The Asset Administration Shell’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Asset Administration Shell Descriptor object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssetAdministrationShellDescriptor"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Asset Administration Shell Descriptor updated successfully"
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/PutAssetAdministrationShellDescriptorById/1/0/RC02"
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Deletes an Asset Administration Shell Descriptor, i.e. de-registers an AAS",
+        "operationId": "DeleteAssetAdministrationShellDescriptorById",
+        "parameters": [
+          {
+            "name": "aasIdentifier",
+            "in": "path",
+            "description": "The Asset Administration Shell’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Asset Administration Shell Descriptor deleted successfully"
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/DeleteAssetAdministrationShellDescriptorById/1/0/RC02"
+        ]
+      }
+    },
+    "/registry/shell-descriptors/{aasIdentifier}/submodel-descriptors": {
+      "get": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Returns all Submodel Descriptors",
+        "operationId": "GetAllSubmodelDescriptors",
+        "parameters": [
+          {
+            "name": "aasIdentifier",
+            "in": "path",
+            "description": "The Asset Administration Shell’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requested Submodel Descriptors",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SubmodelDescriptor"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/GetAllSubmodelDescriptors/1/0/RC02"
+        ]
+      },
+      "post": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Creates a new Submodel Descriptor, i.e. registers a submodel",
+        "operationId": "PostSubmodelDescriptor",
+        "parameters": [
+          {
+            "name": "aasIdentifier",
+            "in": "path",
+            "description": "The Asset Administration Shell’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Submodel Descriptor object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmodelDescriptor"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Submodel Descriptor created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmodelDescriptor"
+                }
+              }
+            }
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/PostSubmodelDescriptor/1/0/RC02"
+        ]
+      }
+    },
+    "/registry/shell-descriptors/{aasIdentifier}/submodel-descriptors/{submodelIdentifier}": {
+      "get": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Returns a specific Submodel Descriptor",
+        "operationId": "GetSubmodelDescriptorById",
+        "parameters": [
+          {
+            "name": "aasIdentifier",
+            "in": "path",
+            "description": "The Asset Administration Shell’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "submodelIdentifier",
+            "in": "path",
+            "description": "The Submodel’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requested Submodel Descriptor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmodelDescriptor"
+                }
+              }
+            }
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/GetSubmodelDescriptorById/1/0/RC02"
+        ]
+      },
+      "put": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Updates an existing Submodel Descriptor",
+        "operationId": "PutSubmodelDescriptorById",
+        "parameters": [
+          {
+            "name": "aasIdentifier",
+            "in": "path",
+            "description": "The Asset Administration Shell’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "submodelIdentifier",
+            "in": "path",
+            "description": "The Submodel’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Submodel Descriptor object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmodelDescriptor"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Submodel Descriptor updated successfully"
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/PutSubmodelDescriptorById/1/0/RC02"
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Deletes a Submodel Descriptor, i.e. de-registers a submodel",
+        "operationId": "DeleteSubmodelDescriptorById",
+        "parameters": [
+          {
+            "name": "aasIdentifier",
+            "in": "path",
+            "description": "The Asset Administration Shell’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "submodelIdentifier",
+            "in": "path",
+            "description": "The Submodel’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Submodel Descriptor deleted successfully"
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/DeleteSubmodelDescriptorById/1/0/RC02"
+        ]
+      }
+    },
+    "/lookup/shells": {
+      "get": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Returns a list of Asset Administration Shell ids based on Asset identifier key-value-pairs",
+        "operationId": "GetAllAssetAdministrationShellIdsByAssetLink",
+        "parameters": [
+          {
+            "name": "assetIds",
+            "in": "query",
+            "description": "The key-value-pair of an Asset identifier",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "example": "[{\"key\": \"globalAssetId\",\"value\": \"http://example.company/myAsset\"},{\"key\": \"myOwnInternalAssetId\",\"value\": \"12345ABC\"}]",
+              "items": {
+                "$ref": "#/components/schemas/IdentifierKeyValuePair"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requested Asset Administration Shell ids",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Identifier"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/GetAllAssetAdministrationShellIdsByAssetLink/1/0/RC02"
+        ]
+      }
+    },
+    "/lookup/shells/{aasIdentifier}": {
+      "get": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Returns a list of Asset identifier key-value-pairs based on an Asset Administration Shell id to edit discoverable content",
+        "operationId": "GetAllAssetLinksById",
+        "parameters": [
+          {
+            "name": "aasIdentifier",
+            "in": "path",
+            "description": "The Asset Administration Shell’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Requested Asset identifier key-value-pairs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IdentifierKeyValuePair"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/GetAllAssetLinksById/1/0/RC02"
+        ]
+      },
+      "post": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Creates all Asset identifier key-value-pair linked to an Asset Administration Shell to edit discoverable content",
+        "operationId": "PostAllAssetLinksById",
+        "parameters": [
+          {
+            "name": "aasIdentifier",
+            "in": "path",
+            "description": "The Asset Administration Shell’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Asset identifier key-value-pairs",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IdentifierKeyValuePair"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Asset identifier key-value-pairs created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IdentifierKeyValuePair"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/PostAllAssetLinksById/1/0/RC02"
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Registry and Discovery Interface"
+        ],
+        "summary": "Deletes all Asset identifier key-value-pair linked to an Asset Administration Shell to edit discoverable content",
+        "operationId": "DeleteAllAssetLinksById",
+        "parameters": [
+          {
+            "name": "aasIdentifier",
+            "in": "path",
+            "description": "The Asset Administration Shell’s unique id (BASE64-URL-encoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Asset identifier key-value-pairs deleted successfully"
+          }
+        },
+        "x-semanticIds": [
+          "https://admin-shell.io/aas/API/DeleteAllAssetLinksById/1/0/RC02"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AssetAdministrationShellDescriptor": {
+        "required": [
+          "endpoints",
+          "identification"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Descriptor"
+          },
+          {
+            "properties": {
+              "administration": {
+                "$ref": "#/components/schemas/AdministrativeInformation"
+              },
+              "description": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/LangString"
+                }
+              },
+              "globalAssetId": {
+                "$ref": "#/components/schemas/Reference"
+              },
+              "idShort": {
+                "type": "string"
+              },
+              "identification": {
+                "$ref": "#/components/schemas/Identifier"
+              },
+              "specificAssetIds": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IdentifierKeyValuePair"
+                }
+              },
+              "submodelDescriptors": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SubmodelDescriptor"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Descriptor": {
+        "type": "object",
+        "properties": {
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Endpoint"
+            }
+          }
+        },
+        "example": "{  \"endpoints\": [{ \"protocolInformation\": { \"endpointAddress\": \"https://localhost:1234\", \"endpointProtocolVersion\": \"1.1\"  }, \"interface\": \"AAS-1.0\"  }, { \"protocolInformation\": {  \"endpointAddress\": \"opc.tcp://localhost:4840\" },    \"interface\": \"AAS-1.0\" }, {  \"protocolInformation\": { \"endpointAddress\": \"https://localhost:5678\",  \"endpointProtocolVersion\": \"1.1\", \"subprotocol\": \"OPC UA Basic SOAP\", \"subprotocolBody\": \"ns=2;s=MyAAS\", \"subprotocolBodyEncoding\": \"plain\"  }, \"interface\": \"AAS-1.0\"  }] }"
+      },
+      "Endpoint": {
+        "required": [
+          "interface",
+          "protocolInformation"
+        ],
+        "type": "object",
+        "properties": {
+          "interface": {
+            "type": "string"
+          },
+          "protocolInformation": {
+            "$ref": "#/components/schemas/ProtocolInformation"
+          }
+        }
+      },
+      "ProtocolInformation": {
+        "required": [
+          "endpointAddress"
+        ],
+        "type": "object",
+        "properties": {
+          "endpointAddress": {
+            "type": "string"
+          },
+          "endpointProtocol": {
+            "type": "string"
+          },
+          "endpointProtocolVersion": {
+            "type": "string"
+          },
+          "subprotocol": {
+            "type": "string"
+          },
+          "subprotocolBody": {
+            "type": "string"
+          },
+          "subprotocolBodyEncoding": {
+            "type": "string"
+          }
+        }
+      },
+      "AdministrativeInformation": {
+        "type": "object",
+        "properties": {
+          "revision": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      },
+      "LangString": {
+        "required": [
+          "language",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "Reference": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/GlobalReference"
+          },
+          {
+            "$ref": "#/components/schemas/ModelReference"
+          }
+        ]
+      },
+      "GlobalReference": {
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Identifier"
+            }
+          }
+        }
+      },
+      "Identifier": {
+        "type": "string"
+      },
+      "ModelReference": {
+        "required": [
+          "keys"
+        ],
+        "properties": {
+          "referredSemanticId": {
+            "$ref": "#/components/schemas/GlobalReference"
+          },
+          "keys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Key"
+            }
+          }
+        }
+      },
+      "Key": {
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/KeyElements"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "KeyElements": {
+        "type": "string",
+        "enum": [
+          "AssetAdministrationShell",
+          "AccessPermissionRule",
+          "ConceptDescription",
+          "Submodel",
+          "AnnotatedRelationshipElement",
+          "BasicEvent",
+          "Blob",
+          "Capability",
+          "DataElement",
+          "File",
+          "Entity",
+          "Event",
+          "MultiLanguageProperty",
+          "Operation",
+          "Property",
+          "Range",
+          "ReferenceElement",
+          "RelationshipElement",
+          "SubmodelElement",
+          "SubmodelElementList",
+          "SubmodelElementStruct",
+          "View",
+          "FragmentReference"
+        ]
+      },
+      "IdentifierKeyValuePair": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HasSemantics"
+          },
+          {
+            "required": [
+              "key",
+              "subjectId",
+              "value"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "subjectId": {
+                "$ref": "#/components/schemas/Reference"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "HasSemantics": {
+        "type": "object",
+        "properties": {
+          "semanticId": {
+            "$ref": "#/components/schemas/Reference"
+          }
+        }
+      },
+      "SubmodelDescriptor": {
+        "required": [
+          "endpoints",
+          "identification"
+        ],
+        "type": "object",
+        "properties": {
+          "administration": {
+            "$ref": "#/components/schemas/AdministrativeInformation"
+          },
+          "description": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LangString"
+            }
+          },
+          "idShort": {
+            "type": "string"
+          },
+          "identification": {
+            "$ref": "#/components/schemas/Identifier"
+          },
+          "semanticId": {
+            "$ref": "#/components/schemas/Reference"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Descriptor"
+          }
+        ]
+      }
+    }
+  }
+}

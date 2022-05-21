@@ -24,6 +24,12 @@ function Main
         throw "JSON validation failed."
     }
 
+    Write-Host "Validating XML ..."
+    & $(Join-Path $schemaValidationDir "ValidateXml") --inputs 'xml\examples\*.xml' --schema 'xml\AAS.xsd'
+    if($LASTEXITCODE -ne 0) 
+    {
+        throw "XML validation failed."
+    }
 
     Write-Host "Validating RDF ..."
     & $(Join-Path $schemaValidationDir "ValidateRdf") --model 'rdf\rdf-ontology.ttl'
@@ -36,14 +42,6 @@ function Main
     if($LASTEXITCODE -ne 0) 
     {
         throw "RDF validation failed."
-    }
-
-
-    Write-Host "Validating XML ..."
-    & $(Join-Path $schemaValidationDir "ValidateXml") --inputs 'xml\examples\*.xml' --schema 'xml\AAS.xsd'
-    if($LASTEXITCODE -ne 0) 
-    {
-        throw "XML validation failed."
     }
 
     Pop-Location

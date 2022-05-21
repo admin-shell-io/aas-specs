@@ -1,4 +1,4 @@
-# aas-specs (V3.x)
+# This is a Draft of the aas-specs V3.0 RC02
 
 [![Check](
 https://github.com/admin-shell-io/aas-specs/workflows/Check/badge.svg
@@ -6,12 +6,14 @@ https://github.com/admin-shell-io/aas-specs/workflows/Check/badge.svg
 https://github.com/admin-shell-io/aas-specs/actions?query=workflow%3ACheck
 )
 [![Creative Commons License](
-https://i.creativecommons.org/l/by-nd/3.0/88x31.png
+https://licensebuttons.net/l/by/4.0/88x31.png
 )](
-http://creativecommons.org/licenses/by-nd/3.0/
+https://creativecommons.org/licenses/by/4.0/
 )
 
-This repository provides the specifications of Asset Administration Shell.
+**The files provided here are for review purposes only and are not intended for productive use.**
+
+This repository contains the specifications of the Asset Administration Shell, including the schemas of the serializations, the rules applied, how the specification is mapped into the serializations, and examples of how to use the schemas.
 
 ## Schemas
 
@@ -38,12 +40,14 @@ The XML schema, mapping rules and examples are available at [schemas/xml/](schem
 
 The XMI file for the UML metamodel [schemas/xmi/](schemas/xmi/).
 
+### YAML
+
+The YAML file for the API Definition [schemas/yaml/](schemas/yaml/).
+
 ## Releases
 
 Currently, the following releases are available (see also the [releases](https://github.com/admin-shell-io/aas-specs/releases) section of this repository):
-* [3.0.2.RC01](https://github.com/admin-shell-io/aas-specs/releases/tag/v3.0.2.RC01) is a pre-release that solves several typos and bugs of `3.0.1.RC01`
-* [3.0.1.RC01](https://github.com/admin-shell-io/aas-specs/releases/tag/v3.0.1.RC01) is a pre-release that solves a bug in the JSON schema of `3.0.RC01`
-* [3.0.RC01](https://github.com/admin-shell-io/aas-specs/releases/tag/v3.0.RC01) is a pre-release containing the schemes as contained by the document 'Details of the Asset Administration Shell - Part 1 - Version 3.0.RC01' [download](https://www.plattform-i40.de/PI40/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html)
+* [3.0.RC02](https://github.com/admin-shell-io/aas-specs/releases/tag/v3.0.2.RC01) is a draft of the pre-release of `3.0.RC02`
 
 
 ## Contributing
@@ -57,7 +61,7 @@ If you want to contribute, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-This work is licensed under a [Creative Commons Attribution-NoDerivs 3.0 Unported License](
-http://creativecommons.org/licenses/by-nd/3.0/). The implementation uses the concepts of the
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). The implementation uses the concepts of the
 document "Details of the Asset Administration Shell" published on www.plattform-i40.de
-which is licensed under Creative Commons CC BY-ND 3.0 DE.
+which is licensed under Creative Commons CC BY 4.0.

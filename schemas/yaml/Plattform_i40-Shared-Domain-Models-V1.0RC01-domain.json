@@ -1,0 +1,1743 @@
+{
+  "openapi" : "3.0.3",
+  "info" : {
+    "title" : "DotAAS Part 2 | HTTP/REST | Shared Domain Models",
+    "description" : "The entire meta-model as part of Details of the Asset Administration Shell Part 1",
+    "contact" : {
+      "name" : "Michael Hoffmeister, Torben Miny, Andreas Orzelski, Manuel Sauer, Constantin Ziesche"
+    },
+    "version" : "V1.0RC01",
+    "termsOfService" : "https://github.com/admin-shell-io/aas-specs"
+  },
+  "components" : {
+    "parameters" : {
+      "Level" : {
+        "name" : "level",
+        "in" : "query",
+        "description" : "Determines the structural depth of the respective resource content",
+        "required" : false,
+        "schema" : {
+          "type" : "string",
+          "default" : "deep",
+          "enum" : [ "deep", "core" ]
+        }
+      },
+      "Content" : {
+        "name" : "content",
+        "in" : "query",
+        "description" : "Determines the request or response kind of the resource",
+        "required" : false,
+        "schema" : {
+          "type" : "string",
+          "default" : "normal",
+          "enum" : [ "normal", "trimmed", "value", "reference", "path" ]
+        }
+      },
+      "Extent" : {
+        "name" : "extent",
+        "in" : "query",
+        "description" : "Determines to which extent the resource is being serialized",
+        "required" : false,
+        "schema" : {
+          "type" : "string",
+          "enum" : [ "withBlobValue", "withoutBlobValue" ]
+        }
+      },
+      "SemanticId" : {
+        "name" : "semanticId",
+        "in" : "query",
+        "description" : "The value of the semantic id reference (BASE64-URL-encoded)",
+        "schema" : {
+          "type" : "string"
+        }
+      }
+    },
+    "schemas" : {
+      "AccessControl" : {
+        "properties" : {
+          "accessPermissionRule" : {
+            "items" : {
+              "$ref" : "#/components/schemas/AccessPermissionRule"
+            },
+            "type" : "array"
+          },
+          "defaultEnvironmentAttributes" : {
+            "$ref" : "#/components/schemas/Reference"
+          },
+          "defaultPermissions" : {
+            "$ref" : "#/components/schemas/Reference"
+          },
+          "defaultSubjectAttributes" : {
+            "$ref" : "#/components/schemas/Reference"
+          },
+          "selectableEnvironmentAttributes" : {
+            "$ref" : "#/components/schemas/Reference"
+          },
+          "selectablePermissions" : {
+            "$ref" : "#/components/schemas/Reference"
+          },
+          "selectableSubjectAttributes" : {
+            "$ref" : "#/components/schemas/Reference"
+          }
+        },
+        "type" : "object"
+      },
+      "AccessControlPolicyPoints" : {
+        "properties" : {
+          "policyAdministrationPoint" : {
+            "$ref" : "#/components/schemas/PolicyAdministrationPoint"
+          },
+          "policyDecisionPoint" : {
+            "$ref" : "#/components/schemas/PolicyDecisionPoint"
+          },
+          "policyEnforcementPoint" : {
+            "$ref" : "#/components/schemas/PolicyEnforcementPoint"
+          },
+          "policyInformationPoints" : {
+            "$ref" : "#/components/schemas/PolicyInformationPoints"
+          }
+        },
+        "required" : [ "policyAdministrationPoint", "policyDecisionPoint", "policyEnforcementPoint" ],
+        "type" : "object"
+      },
+      "AccessPermissionRule" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Referable"
+        }, {
+          "$ref" : "#/components/schemas/Qualifiable"
+        }, {
+          "properties" : {
+            "permissionsPerObject" : {
+              "items" : {
+                "$ref" : "#/components/schemas/PermissionsPerObject"
+              },
+              "type" : "array"
+            },
+            "targetSubjectAttributes" : {
+              "items" : {
+                "$ref" : "#/components/schemas/SubjectAttributes"
+              },
+              "minItems" : 1,
+              "type" : "array"
+            }
+          },
+          "required" : [ "targetSubjectAttributes" ]
+        } ]
+      },
+      "AdministrativeInformation" : {
+        "properties" : {
+          "revision" : {
+            "type" : "string"
+          },
+          "version" : {
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "AnnotatedRelationshipElement" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/RelationshipElement"
+        }, {
+          "properties" : {
+            "annotation" : {
+              "items" : {
+                "$ref" : "#/components/schemas/DataElement"
+              },
+              "type" : "array"
+            }
+          }
+        } ]
+      },
+      "AnnotatedRelationshipElementTrim" : {
+        "$ref" : "#/components/schemas/SubmodelElementAttributes"
+      },
+      "AnnotatedRelationshipElementValue" : {
+        "properties" : {
+          "first" : {
+            "$ref" : "#/components/schemas/ReferenceValue"
+          },
+          "second" : {
+            "$ref" : "#/components/schemas/ReferenceValue"
+          },
+          "annotation" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ValueOnly"
+            }
+          }
+        },
+        "required" : [ "first", "second" ],
+        "type" : "object"
+      },
+      "AssetAdministrationShell" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Identifiable"
+        }, {
+          "$ref" : "#/components/schemas/HasDataSpecification"
+        }, {
+          "properties" : {
+            "assetInformation" : {
+              "$ref" : "#/components/schemas/AssetInformation"
+            },
+            "derivedFrom" : {
+              "$ref" : "#/components/schemas/ModelReference"
+            },
+            "security" : {
+              "$ref" : "#/components/schemas/Security"
+            },
+            "submodels" : {
+              "items" : {
+                "$ref" : "#/components/schemas/ModelReference"
+              },
+              "type" : "array"
+            },
+            "views" : {
+              "items" : {
+                "$ref" : "#/components/schemas/View"
+              },
+              "type" : "array"
+            }
+          },
+          "required" : [ "assetInformation" ]
+        } ]
+      },
+      "AssetAdministrationShellDescriptor" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Descriptor"
+        }, {
+          "properties" : {
+            "administration" : {
+              "$ref" : "#/components/schemas/AdministrativeInformation"
+            },
+            "description" : {
+              "items" : {
+                "$ref" : "#/components/schemas/LangString"
+              },
+              "type" : "array"
+            },
+            "globalAssetId" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "idShort" : {
+              "type" : "string"
+            },
+            "identification" : {
+              "$ref" : "#/components/schemas/Identifier"
+            },
+            "specificAssetIds" : {
+              "items" : {
+                "$ref" : "#/components/schemas/IdentifierKeyValuePair"
+              },
+              "type" : "array"
+            },
+            "submodelDescriptors" : {
+              "items" : {
+                "$ref" : "#/components/schemas/SubmodelDescriptor"
+              },
+              "type" : "array"
+            }
+          }
+        } ],
+        "required" : [ "identification", "endpoints" ],
+        "type" : "object"
+      },
+      "AssetAdministrationShellEnvironment" : {
+        "properties" : {
+          "assetAdministrationShells" : {
+            "items" : {
+              "$ref" : "#/components/schemas/AssetAdministrationShell"
+            },
+            "type" : "array"
+          },
+          "conceptDescriptions" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ConceptDescription"
+            },
+            "type" : "array"
+          },
+          "submodels" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Submodel"
+            },
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "AssetAdministrationShellTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Identifiable"
+        }, {
+          "$ref" : "#/components/schemas/HasDataSpecification"
+        }, {
+          "properties" : {
+            "derivedFrom" : {
+              "$ref" : "#/components/schemas/Reference"
+            }
+          }
+        } ]
+      },
+      "AssetInformation" : {
+        "properties" : {
+          "assetKind" : {
+            "$ref" : "#/components/schemas/AssetKind"
+          },
+          "billOfMaterial" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "type" : "array"
+          },
+          "globalAssetId" : {
+            "$ref" : "#/components/schemas/Reference"
+          },
+          "specificAssetIds" : {
+            "items" : {
+              "$ref" : "#/components/schemas/IdentifierKeyValuePair"
+            },
+            "type" : "array"
+          },
+          "thumbnail" : {
+            "$ref" : "#/components/schemas/File"
+          }
+        },
+        "required" : [ "assetKind" ]
+      },
+      "AssetKind" : {
+        "enum" : [ "Type", "Instance" ],
+        "type" : "string"
+      },
+      "BasicEvent" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Event"
+        }, {
+          "properties" : {
+            "observed" : {
+              "$ref" : "#/components/schemas/Reference"
+            }
+          },
+          "required" : [ "observed" ]
+        } ]
+      },
+      "BasicEventTrim" : {
+        "$ref" : "#/components/schemas/SubmodelElementAttributes"
+      },
+      "BasicEventValue" : {
+        "properties" : {
+          "observed" : {
+            "$ref" : "#/components/schemas/ReferenceValue"
+          }
+        },
+        "required" : [ "observed" ],
+        "type" : "object"
+      },
+      "Blob" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        }, {
+          "properties" : {
+            "mimeType" : {
+              "type" : "string"
+            },
+            "value" : {
+              "type" : "string"
+            }
+          },
+          "required" : [ "mimeType" ]
+        } ]
+      },
+      "BlobCertificate" : {
+        "type" : "object",
+        "properties" : {
+          "blobCertificate" : {
+            "$ref" : "#/components/schemas/Blob"
+          },
+          "containedExtension" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "type" : "array"
+          },
+          "lastCertificate" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "BlobTrim" : {
+        "$ref" : "#/components/schemas/SubmodelElementAttributes"
+      },
+      "BooleanValue" : {
+        "type" : "boolean"
+      },
+      "Capability" : {
+        "$ref" : "#/components/schemas/SubmodelElementAttributes"
+      },
+      "Certificate" : {
+        "$ref" : "#/components/schemas/BlobCertificate"
+      },
+      "ConceptDescription" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Identifiable"
+        }, {
+          "$ref" : "#/components/schemas/HasDataSpecification"
+        }, {
+          "properties" : {
+            "isCaseOf" : {
+              "items" : {
+                "$ref" : "#/components/schemas/Reference"
+              },
+              "type" : "array"
+            }
+          }
+        } ]
+      },
+      "Constraint" : {
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/Qualifier"
+        }, {
+          "$ref" : "#/components/schemas/Formula"
+        } ],
+        "properties" : {
+          "modelType" : {
+            "$ref" : "#/components/schemas/ModelType"
+          }
+        },
+        "required" : [ "modelType" ]
+      },
+      "DataElement" : {
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/Blob"
+        }, {
+          "$ref" : "#/components/schemas/File"
+        }, {
+          "$ref" : "#/components/schemas/MultiLanguageProperty"
+        }, {
+          "$ref" : "#/components/schemas/Property"
+        }, {
+          "$ref" : "#/components/schemas/Range"
+        }, {
+          "$ref" : "#/components/schemas/ReferenceElement"
+        } ]
+      },
+      "DataSpecificationContent" : {
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/DataSpecificationIEC61360Content"
+        }, {
+          "$ref" : "#/components/schemas/DataSpecificationPhysicalUnitContent"
+        } ]
+      },
+      "DataSpecificationIEC61360Content" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ValueObject"
+        }, {
+          "properties" : {
+            "dataType" : {
+              "enum" : [ "DATE", "STRING", "STRING_TRANSLATABLE", "REAL_MEASURE", "REAL_COUNT", "REAL_CURRENCY", "BOOLEAN", "URL", "RATIONAL", "RATIONAL_MEASURE", "TIME", "TIMESTAMP", "INTEGER_COUNT", "INTEGER_MEASURE", "INTEGER_CURRENCY" ]
+            },
+            "definition" : {
+              "items" : {
+                "$ref" : "#/components/schemas/LangString"
+              },
+              "type" : "array"
+            },
+            "levelType" : {
+              "items" : {
+                "$ref" : "#/components/schemas/LevelType"
+              },
+              "type" : "array"
+            },
+            "preferredName" : {
+              "items" : {
+                "$ref" : "#/components/schemas/LangString"
+              },
+              "type" : "array"
+            },
+            "shortName" : {
+              "items" : {
+                "$ref" : "#/components/schemas/LangString"
+              },
+              "type" : "array"
+            },
+            "sourceOfDefinition" : {
+              "type" : "string"
+            },
+            "symbol" : {
+              "type" : "string"
+            },
+            "unit" : {
+              "type" : "string"
+            },
+            "unitId" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "valueFormat" : {
+              "type" : "string"
+            },
+            "valueList" : {
+              "$ref" : "#/components/schemas/ValueList"
+            }
+          },
+          "required" : [ "preferredName" ],
+          "type" : "object"
+        } ]
+      },
+      "DataSpecificationPhysicalUnitContent" : {
+        "properties" : {
+          "conversionFactor" : {
+            "type" : "string"
+          },
+          "definition" : {
+            "items" : {
+              "$ref" : "#/components/schemas/LangString"
+            },
+            "type" : "array"
+          },
+          "dinNotation" : {
+            "type" : "string"
+          },
+          "eceCode" : {
+            "type" : "string"
+          },
+          "eceName" : {
+            "type" : "string"
+          },
+          "nistName" : {
+            "type" : "string"
+          },
+          "registrationAuthorityId" : {
+            "type" : "string"
+          },
+          "siName" : {
+            "type" : "string"
+          },
+          "siNotation" : {
+            "type" : "string"
+          },
+          "sourceOfDefinition" : {
+            "type" : "string"
+          },
+          "supplier" : {
+            "type" : "string"
+          },
+          "unitName" : {
+            "type" : "string"
+          },
+          "unitSymbol" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "unitName", "unitSymbol", "definition" ],
+        "type" : "object"
+      },
+      "Descriptor" : {
+        "example" : "{  \"endpoints\": [{ \"protocolInformation\": { \"endpointAddress\": \"https://localhost:1234\", \"endpointProtocolVersion\": \"1.1\"  }, \"interface\": \"AAS-1.0\"  }, { \"protocolInformation\": {  \"endpointAddress\": \"opc.tcp://localhost:4840\" },    \"interface\": \"AAS-1.0\" }, {  \"protocolInformation\": { \"endpointAddress\": \"https://localhost:5678\",  \"endpointProtocolVersion\": \"1.1\", \"subprotocol\": \"OPC UA Basic SOAP\", \"subprotocolBody\": \"ns=2;s=MyAAS\", \"subprotocolBodyEncoding\": \"plain\"  }, \"interface\": \"AAS-1.0\"  }] }",
+        "properties" : {
+          "endpoints" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Endpoint"
+            },
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "EmbeddedDataSpecification" : {
+        "properties" : {
+          "dataSpecification" : {
+            "$ref" : "#/components/schemas/Reference"
+          },
+          "dataSpecificationContent" : {
+            "$ref" : "#/components/schemas/DataSpecificationContent"
+          }
+        },
+        "required" : [ "dataSpecification", "dataSpecificationContent" ],
+        "type" : "object"
+      },
+      "Endpoint" : {
+        "properties" : {
+          "interface" : {
+            "type" : "string"
+          },
+          "protocolInformation" : {
+            "$ref" : "#/components/schemas/ProtocolInformation"
+          }
+        },
+        "required" : [ "protocolInformation", "interface" ],
+        "type" : "object"
+      },
+      "Entity" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        }, {
+          "properties" : {
+            "entityType" : {
+              "$ref" : "#/components/schemas/EntityType"
+            },
+            "globalAssetId" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "specificAssetIds" : {
+              "items" : {
+                "$ref" : "#/components/schemas/IdentifierKeyValuePair"
+              },
+              "type" : "array"
+            },
+            "statements" : {
+              "items" : {
+                "$ref" : "#/components/schemas/SubmodelElement"
+              },
+              "type" : "array"
+            }
+          },
+          "required" : [ "entityType" ]
+        } ]
+      },
+      "EntityTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        }, {
+          "properties" : {
+            "entityType" : {
+              "$ref" : "#/components/schemas/EntityType"
+            }
+          },
+          "required" : [ "entityType" ]
+        } ]
+      },
+      "EntityType" : {
+        "enum" : [ "CoManagedEntity", "SelfManagedEntity" ],
+        "type" : "string"
+      },
+      "EntityValue" : {
+        "properties" : {
+          "entityType" : {
+            "enum" : [ "SelfManagedEntity", "CoManagedEntity" ]
+          },
+          "globalAssetId" : {
+            "$ref" : "#/components/schemas/ReferenceValue"
+          },
+          "specificAssetIds" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/IdentifierKeyValuePairValue"
+            }
+          },
+          "statements" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ValueOnly"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "statements", "entityType" ],
+        "type" : "object"
+      },
+      "Event" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        } ]
+      },
+      "Extension" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/HasSemantics"
+        }, {
+          "properties" : {
+            "name" : {
+              "type" : "string"
+            },
+            "refersTo" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "value" : {
+              "type" : "string"
+            },
+            "valueType" : {
+              "$ref" : "#/components/schemas/ValueTypeEnum"
+            }
+          },
+          "required" : [ "name" ]
+        } ]
+      },
+      "File" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        }, {
+          "properties" : {
+            "mimeType" : {
+              "type" : "string"
+            },
+            "value" : {
+              "type" : "string"
+            }
+          },
+          "required" : [ "mimeType" ]
+        } ]
+      },
+      "FileBlobValue" : {
+        "properties" : {
+          "mimeType" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "mimeType", "value" ],
+        "type" : "object"
+      },
+      "FileTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        } ]
+      },
+      "Formula" : {
+        "allOf" : [ {
+          "properties" : {
+            "dependsOn" : {
+              "items" : {
+                "$ref" : "#/components/schemas/Reference"
+              },
+              "type" : "array"
+            }
+          }
+        } ]
+      },
+      "GlobalReference" : {
+        "properties" : {
+          "value" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Identifier"
+            }
+          }
+        },
+        "required" : [ "value" ]
+      },
+      "HasDataSpecification" : {
+        "properties" : {
+          "embeddedDataSpecifications" : {
+            "items" : {
+              "$ref" : "#/components/schemas/EmbeddedDataSpecification"
+            },
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "HasExtensions" : {
+        "properties" : {
+          "extensions" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Extension"
+            },
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "HasSemantics" : {
+        "properties" : {
+          "semanticId" : {
+            "$ref" : "#/components/schemas/Reference"
+          }
+        },
+        "type" : "object"
+      },
+      "Identifiable" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Referable"
+        }, {
+          "properties" : {
+            "administration" : {
+              "$ref" : "#/components/schemas/AdministrativeInformation"
+            },
+            "identification" : {
+              "$ref" : "#/components/schemas/Identifier"
+            }
+          },
+          "required" : [ "identification" ]
+        } ]
+      },
+      "Identifier" : {
+        "type" : "string"
+      },
+      "IdentifierKeyValuePair" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/HasSemantics"
+        }, {
+          "properties" : {
+            "key" : {
+              "type" : "string"
+            },
+            "subjectId" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "value" : {
+              "type" : "string"
+            }
+          },
+          "required" : [ "key", "value", "subjectId" ]
+        } ]
+      },
+      "IdentifierKeyValuePairValue" : {
+        "type" : "object",
+        "description" : "Since patternProperties and propertyNames are not supported by OpenApi yet, the ValueOnly serialization for this elements works with the key-attribute as the JSON-property name and the value-attribute as the corresponding value."
+      },
+      "Key" : {
+        "properties" : {
+          "type" : {
+            "$ref" : "#/components/schemas/KeyElements"
+          },
+          "value" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "type", "value" ],
+        "type" : "object"
+      },
+      "KeyElements" : {
+        "enum" : [ "AssetAdministrationShell", "AccessPermissionRule", "ConceptDescription", "Submodel", "AnnotatedRelationshipElement", "BasicEvent", "Blob", "Capability", "DataElement", "File", "Entity", "Event", "MultiLanguageProperty", "Operation", "Property", "Range", "ReferenceElement", "RelationshipElement", "SubmodelElement", "SubmodelElementList", "SubmodelElementStruct", "View", "FragmentReference" ],
+        "type" : "string"
+      },
+      "KeyType" : {
+        "enum" : [ "Custom", "IRDI", "IRI", "IdShort", "FragmentId" ],
+        "type" : "string"
+      },
+      "LangString" : {
+        "properties" : {
+          "language" : {
+            "type" : "string"
+          },
+          "text" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "language", "text" ],
+        "type" : "object"
+      },
+      "LevelType" : {
+        "enum" : [ "Min", "Max", "Nom", "Typ" ],
+        "type" : "string"
+      },
+      "Message" : {
+        "properties" : {
+          "code" : {
+            "type" : "string"
+          },
+          "messageType" : {
+            "enum" : [ "Undefined", "Info", "Warning", "Error", "Exception" ],
+            "type" : "string"
+          },
+          "text" : {
+            "type" : "string"
+          },
+          "timestamp" : {
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "ModelReference" : {
+        "properties" : {
+          "referredSemanticId" : {
+            "$ref" : "#/components/schemas/GlobalReference"
+          },
+          "keys" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Key"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "keys" ]
+      },
+      "ModelType" : {
+        "properties" : {
+          "name" : {
+            "$ref" : "#/components/schemas/ModelTypes"
+          }
+        },
+        "required" : [ "name" ],
+        "type" : "object"
+      },
+      "ModelTypes" : {
+        "enum" : [ "AssetAdministrationShell", "ConceptDescription", "Submodel", "AnnotatedRelationshipElement", "BasicEvent", "Blob", "Capability", "DataElement", "File", "Entity", "Event", "ModelReference", "MultiLanguageProperty", "Operation", "Property", "Range", "ReferenceElement", "RelationshipElement", "SubmodelElement", "SubmodelElementList", "SubmodelElementStruct", "View", "GlobalReference", "FragmentReference", "Constraint", "Formula", "Qualifier" ],
+        "type" : "string"
+      },
+      "ModelingKind" : {
+        "enum" : [ "Template", "Instance" ],
+        "type" : "string"
+      },
+      "MultiLanguageProperty" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        }, {
+          "properties" : {
+            "value" : {
+              "items" : {
+                "$ref" : "#/components/schemas/LangString"
+              },
+              "type" : "array"
+            },
+            "valueId" : {
+              "$ref" : "#/components/schemas/Reference"
+            }
+          }
+        } ]
+      },
+      "MultiLanguagePropertyTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        } ]
+      },
+      "MultiLanguagePropertyValue" : {
+        "type" : "object"
+      },
+      "NumberValue" : {
+        "type" : "number"
+      },
+      "ObjectAttributes" : {
+        "properties" : {
+          "objectAttribute" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Property"
+            },
+            "minItems" : 1,
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "Operation" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        }, {
+          "properties" : {
+            "inoutputVariable" : {
+              "items" : {
+                "$ref" : "#/components/schemas/OperationVariable"
+              },
+              "type" : "array"
+            },
+            "inputVariable" : {
+              "items" : {
+                "$ref" : "#/components/schemas/OperationVariable"
+              },
+              "type" : "array"
+            },
+            "outputVariable" : {
+              "items" : {
+                "$ref" : "#/components/schemas/OperationVariable"
+              },
+              "type" : "array"
+            }
+          }
+        } ]
+      },
+      "OperationHandle" : {
+        "properties" : {
+          "handleId" : {
+            "type" : "string"
+          },
+          "requestId" : {
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "OperationRequest" : {
+        "properties" : {
+          "inoutputArguments" : {
+            "items" : {
+              "$ref" : "#/components/schemas/OperationVariable"
+            },
+            "type" : "array"
+          },
+          "inputArguments" : {
+            "items" : {
+              "$ref" : "#/components/schemas/OperationVariable"
+            },
+            "type" : "array"
+          },
+          "requestId" : {
+            "type" : "string"
+          },
+          "timeout" : {
+            "type" : "integer"
+          }
+        },
+        "type" : "object"
+      },
+      "OperationRequestValueOnly" : {
+        "properties" : {
+          "inoutputArguments" : {
+            "$ref" : "#/components/schemas/ValueOnly"
+          },
+          "inputArguments" : {
+            "$ref" : "#/components/schemas/ValueOnly"
+          },
+          "requestId" : {
+            "type" : "string"
+          },
+          "timeout" : {
+            "type" : "integer"
+          }
+        },
+        "type" : "object"
+      },
+      "OperationResult" : {
+        "properties" : {
+          "executionResult" : {
+            "$ref" : "#/components/schemas/Result"
+          },
+          "executionState" : {
+            "enum" : [ "Initiated", "Running", "Completed", "Canceled", "Failed", "Timeout" ],
+            "type" : "string"
+          },
+          "inoutputArguments" : {
+            "items" : {
+              "$ref" : "#/components/schemas/OperationVariable"
+            },
+            "type" : "array"
+          },
+          "outputArguments" : {
+            "items" : {
+              "$ref" : "#/components/schemas/OperationVariable"
+            },
+            "type" : "array"
+          },
+          "requestId" : {
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "OperationResultValueOnly" : {
+        "properties" : {
+          "executionResult" : {
+            "$ref" : "#/components/schemas/Result"
+          },
+          "executionState" : {
+            "enum" : [ "Initiated", "Running", "Completed", "Canceled", "Failed", "Timeout" ],
+            "type" : "string"
+          },
+          "inoutputArguments" : {
+            "$ref" : "#/components/schemas/ValueOnly"
+          },
+          "outputArguments" : {
+            "$ref" : "#/components/schemas/ValueOnly"
+          },
+          "requestId" : {
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "OperationVariable" : {
+        "properties" : {
+          "value" : {
+            "oneOf" : [ {
+              "$ref" : "#/components/schemas/Blob"
+            }, {
+              "$ref" : "#/components/schemas/File"
+            }, {
+              "$ref" : "#/components/schemas/Capability"
+            }, {
+              "$ref" : "#/components/schemas/Entity"
+            }, {
+              "$ref" : "#/components/schemas/Event"
+            }, {
+              "$ref" : "#/components/schemas/BasicEvent"
+            }, {
+              "$ref" : "#/components/schemas/MultiLanguageProperty"
+            }, {
+              "$ref" : "#/components/schemas/Operation"
+            }, {
+              "$ref" : "#/components/schemas/Property"
+            }, {
+              "$ref" : "#/components/schemas/Range"
+            }, {
+              "$ref" : "#/components/schemas/ReferenceElement"
+            }, {
+              "$ref" : "#/components/schemas/AnnotatedRelationshipElement"
+            }, {
+              "$ref" : "#/components/schemas/RelationshipElement"
+            }, {
+              "$ref" : "#/components/schemas/SubmodelElementList"
+            }, {
+              "$ref" : "#/components/schemas/SubmodelElementStruct"
+            } ]
+          }
+        },
+        "required" : [ "value" ],
+        "type" : "object"
+      },
+      "PackageDescription" : {
+        "properties" : {
+          "aasIds" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Identifier"
+            },
+            "type" : "array"
+          },
+          "packageId" : {
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "Permission" : {
+        "properties" : {
+          "kindOfPermission" : {
+            "enum" : [ "Allow", "Deny", "NotApplicable", "Undefined" ],
+            "type" : "string"
+          },
+          "permission" : {
+            "$ref" : "#/components/schemas/Reference"
+          }
+        },
+        "required" : [ "permission", "kindOfPermission" ],
+        "type" : "object"
+      },
+      "PermissionsPerObject" : {
+        "properties" : {
+          "object" : {
+            "$ref" : "#/components/schemas/Reference"
+          },
+          "permission" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Permission"
+            },
+            "type" : "array"
+          },
+          "targetObjectAttributes" : {
+            "$ref" : "#/components/schemas/ObjectAttributes"
+          }
+        },
+        "type" : "object"
+      },
+      "PolicyAdministrationPoint" : {
+        "properties" : {
+          "externalAccessControl" : {
+            "type" : "boolean"
+          },
+          "localAccessControl" : {
+            "$ref" : "#/components/schemas/AccessControl"
+          }
+        },
+        "required" : [ "externalAccessControl" ],
+        "type" : "object"
+      },
+      "PolicyDecisionPoint" : {
+        "properties" : {
+          "externalPolicyDecisionPoints" : {
+            "type" : "boolean"
+          }
+        },
+        "required" : [ "externalPolicyDecisionPoints" ],
+        "type" : "object"
+      },
+      "PolicyEnforcementPoint" : {
+        "properties" : {
+          "externalPolicyEnforcementPoint" : {
+            "type" : "boolean"
+          }
+        },
+        "required" : [ "externalPolicyEnforcementPoint" ],
+        "type" : "object"
+      },
+      "PolicyInformationPoints" : {
+        "properties" : {
+          "externalInformationPoint" : {
+            "type" : "boolean"
+          },
+          "internalInformationPoint" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "externalInformationPoint" ],
+        "type" : "object"
+      },
+      "Property" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        }, {
+          "$ref" : "#/components/schemas/ValueObject"
+        } ]
+      },
+      "PropertyTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        } ],
+        "properties" : {
+          "valueType" : {
+            "$ref" : "#/components/schemas/ValueTypeEnum"
+          }
+        }
+      },
+      "PropertyValue" : {
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/StringValue"
+        }, {
+          "$ref" : "#/components/schemas/NumberValue"
+        }, {
+          "$ref" : "#/components/schemas/BooleanValue"
+        } ]
+      },
+      "ProtocolInformation" : {
+        "properties" : {
+          "endpointAddress" : {
+            "type" : "string"
+          },
+          "endpointProtocol" : {
+            "type" : "string"
+          },
+          "endpointProtocolVersion" : {
+            "type" : "string"
+          },
+          "subprotocol" : {
+            "type" : "string"
+          },
+          "subprotocolBody" : {
+            "type" : "string"
+          },
+          "subprotocolBodyEncoding" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "endpointAddress" ],
+        "type" : "object"
+      },
+      "Qualifiable" : {
+        "properties" : {
+          "qualifiers" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Constraint"
+            },
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "Qualifier" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/HasSemantics"
+        }, {
+          "$ref" : "#/components/schemas/ValueObject"
+        }, {
+          "properties" : {
+            "type" : {
+              "type" : "string"
+            }
+          },
+          "required" : [ "type" ]
+        } ]
+      },
+      "Range" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        }, {
+          "properties" : {
+            "max" : {
+              "type" : "string"
+            },
+            "min" : {
+              "type" : "string"
+            },
+            "valueType" : {
+              "$ref" : "#/components/schemas/ValueTypeEnum"
+            }
+          },
+          "required" : [ "valueType" ]
+        } ]
+      },
+      "RangeTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        } ],
+        "properties" : {
+          "valueType" : {
+            "$ref" : "#/components/schemas/ValueTypeEnum"
+          }
+        }
+      },
+      "RangeValue" : {
+        "properties" : {
+          "max" : {
+            "type" : "number"
+          },
+          "min" : {
+            "type" : "number"
+          }
+        },
+        "required" : [ "min", "max" ],
+        "type" : "object"
+      },
+      "Referable" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/HasExtensions"
+        }, {
+          "properties" : {
+            "category" : {
+              "type" : "string"
+            },
+            "description" : {
+              "items" : {
+                "$ref" : "#/components/schemas/LangString"
+              },
+              "type" : "array"
+            },
+            "displayName" : {
+              "items" : {
+                "$ref" : "#/components/schemas/LangString"
+              },
+              "type" : "array"
+            },
+            "idShort" : {
+              "type" : "string"
+            },
+            "modelType" : {
+              "$ref" : "#/components/schemas/ModelType"
+            }
+          },
+          "required" : [ "modelType", "idShort" ]
+        } ]
+      },
+      "Reference" : {
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/GlobalReference"
+        }, {
+          "$ref" : "#/components/schemas/ModelReference"
+        } ],
+        "type" : "object"
+      },
+      "ReferenceElement" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        }, {
+          "properties" : {
+            "value" : {
+              "$ref" : "#/components/schemas/Reference"
+            }
+          }
+        } ]
+      },
+      "ReferenceElementTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        } ]
+      },
+      "ReferenceElementValue" : {
+        "$ref" : "#/components/schemas/ReferenceValue"
+      },
+      "ReferenceValue" : {
+        "oneOf" : [ {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/components/schemas/Key"
+          }
+        }, {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/components/schemas/Identifier"
+          }
+        } ]
+      },
+      "RelationshipElement" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        }, {
+          "properties" : {
+            "first" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "second" : {
+              "$ref" : "#/components/schemas/Reference"
+            }
+          },
+          "required" : [ "first", "second" ]
+        } ]
+      },
+      "RelationshipElementTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        } ]
+      },
+      "RelationshipElementValue" : {
+        "properties" : {
+          "first" : {
+            "$ref" : "#/components/schemas/ReferenceValue"
+          },
+          "second" : {
+            "$ref" : "#/components/schemas/ReferenceValue"
+          }
+        },
+        "required" : [ "first", "second" ],
+        "type" : "object"
+      },
+      "Result" : {
+        "properties" : {
+          "messages" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Message"
+            },
+            "type" : "array"
+          },
+          "success" : {
+            "type" : "boolean"
+          }
+        },
+        "type" : "object"
+      },
+      "Security" : {
+        "properties" : {
+          "accessControlPolicyPoints" : {
+            "$ref" : "#/components/schemas/AccessControlPolicyPoints"
+          },
+          "certificate" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Certificate"
+            },
+            "type" : "array"
+          },
+          "requiredCertificateExtension" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "accessControlPolicyPoints" ],
+        "type" : "object"
+      },
+      "StringValue" : {
+        "type" : "string"
+      },
+      "SubjectAttributes" : {
+        "properties" : {
+          "subjectAttributes" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "minItems" : 1,
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "Submodel" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Identifiable"
+        }, {
+          "$ref" : "#/components/schemas/HasDataSpecification"
+        }, {
+          "$ref" : "#/components/schemas/Qualifiable"
+        }, {
+          "$ref" : "#/components/schemas/HasSemantics"
+        }, {
+          "properties" : {
+            "kind" : {
+              "$ref" : "#/components/schemas/ModelingKind"
+            },
+            "submodelElements" : {
+              "items" : {
+                "$ref" : "#/components/schemas/SubmodelElement"
+              },
+              "type" : "array"
+            }
+          }
+        } ]
+      },
+      "SubmodelDescriptor" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Descriptor"
+        } ],
+        "properties" : {
+          "administration" : {
+            "$ref" : "#/components/schemas/AdministrativeInformation"
+          },
+          "description" : {
+            "items" : {
+              "$ref" : "#/components/schemas/LangString"
+            },
+            "type" : "array"
+          },
+          "idShort" : {
+            "type" : "string"
+          },
+          "identification" : {
+            "$ref" : "#/components/schemas/Identifier"
+          },
+          "semanticId" : {
+            "$ref" : "#/components/schemas/Reference"
+          }
+        },
+        "required" : [ "identification", "endpoints" ],
+        "type" : "object"
+      },
+      "SubmodelElementAttributes" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Referable"
+        }, {
+          "$ref" : "#/components/schemas/HasDataSpecification"
+        }, {
+          "$ref" : "#/components/schemas/HasSemantics"
+        }, {
+          "$ref" : "#/components/schemas/Qualifiable"
+        }, {
+          "properties" : {
+            "kind" : {
+              "$ref" : "#/components/schemas/ModelingKind"
+            }
+          }
+        } ]
+      },
+      "SubmodelElement" : {
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/Blob"
+        }, {
+          "$ref" : "#/components/schemas/File"
+        }, {
+          "$ref" : "#/components/schemas/Capability"
+        }, {
+          "$ref" : "#/components/schemas/Entity"
+        }, {
+          "$ref" : "#/components/schemas/Event"
+        }, {
+          "$ref" : "#/components/schemas/BasicEvent"
+        }, {
+          "$ref" : "#/components/schemas/MultiLanguageProperty"
+        }, {
+          "$ref" : "#/components/schemas/Operation"
+        }, {
+          "$ref" : "#/components/schemas/Property"
+        }, {
+          "$ref" : "#/components/schemas/Range"
+        }, {
+          "$ref" : "#/components/schemas/ReferenceElement"
+        }, {
+          "$ref" : "#/components/schemas/AnnotatedRelationshipElement"
+        }, {
+          "$ref" : "#/components/schemas/RelationshipElement"
+        }, {
+          "$ref" : "#/components/schemas/SubmodelElementList"
+        }, {
+          "$ref" : "#/components/schemas/SubmodelElementStruct"
+        } ]
+      },
+      "SubmodelElementList" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        }, {
+          "properties" : {
+            "semanticIdValues" : {
+              "$ref" : "#/components/schemas/Reference"
+            },
+            "submodelElementTypeValues" : {
+              "$ref" : "#/components/schemas/ModelType"
+            },
+            "value" : {
+              "items" : {
+                "$ref" : "#/components/schemas/SubmodelElement"
+              },
+              "type" : "array"
+            },
+            "valueTypeValues" : {
+              "$ref" : "#/components/schemas/ValueTypeEnum"
+            }
+          }
+        } ]
+      },
+      "SubmodelElementListDefinition" : {
+        "items" : {
+          "$ref" : "#/components/schemas/ValueOnly"
+        },
+        "type" : "array"
+      },
+      "SubmodelElementListTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        } ],
+        "properties" : {
+          "semanticIdValues" : {
+            "$ref" : "#/components/schemas/Reference"
+          },
+          "submodelElementTypeValues" : {
+            "$ref" : "#/components/schemas/ModelType"
+          },
+          "valueTypeValues" : {
+            "$ref" : "#/components/schemas/ValueTypeEnum"
+          }
+        }
+      },
+      "SubmodelElementStruct" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        } ],
+        "properties" : {
+          "value" : {
+            "$ref" : "#/components/schemas/SubmodelElement"
+          }
+        }
+      },
+      "SubmodelElementStructDefinition" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ValueOnly"
+        } ]
+      },
+      "SubmodelElementStructTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/SubmodelElementAttributes"
+        } ]
+      },
+      "SubmodelElementTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Referable"
+        }, {
+          "$ref" : "#/components/schemas/HasDataSpecification"
+        }, {
+          "$ref" : "#/components/schemas/HasSemantics"
+        }, {
+          "$ref" : "#/components/schemas/Qualifiable"
+        }, {
+          "properties" : {
+            "kind" : {
+              "$ref" : "#/components/schemas/ModelingKind"
+            }
+          }
+        } ],
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/BlobTrim"
+        }, {
+          "$ref" : "#/components/schemas/FileTrim"
+        }, {
+          "$ref" : "#/components/schemas/Capability"
+        }, {
+          "$ref" : "#/components/schemas/EntityTrim"
+        }, {
+          "$ref" : "#/components/schemas/Event"
+        }, {
+          "$ref" : "#/components/schemas/BasicEventTrim"
+        }, {
+          "$ref" : "#/components/schemas/MultiLanguagePropertyTrim"
+        }, {
+          "$ref" : "#/components/schemas/Operation"
+        }, {
+          "$ref" : "#/components/schemas/PropertyTrim"
+        }, {
+          "$ref" : "#/components/schemas/RangeTrim"
+        }, {
+          "$ref" : "#/components/schemas/ReferenceElementTrim"
+        }, {
+          "$ref" : "#/components/schemas/AnnotatedRelationshipElementTrim"
+        }, {
+          "$ref" : "#/components/schemas/RelationshipElementTrim"
+        }, {
+          "$ref" : "#/components/schemas/SubmodelElementListTrim"
+        }, {
+          "$ref" : "#/components/schemas/SubmodelElementStructTrim"
+        } ]
+      },
+      "SubmodelElementValue" : {
+        "oneOf" : [ {
+          "$ref" : "#/components/schemas/BasicEventValue"
+        }, {
+          "$ref" : "#/components/schemas/PropertyValue"
+        }, {
+          "$ref" : "#/components/schemas/MultiLanguagePropertyValue"
+        }, {
+          "$ref" : "#/components/schemas/FileBlobValue"
+        }, {
+          "$ref" : "#/components/schemas/RangeValue"
+        }, {
+          "$ref" : "#/components/schemas/ReferenceElementValue"
+        }, {
+          "$ref" : "#/components/schemas/RelationshipElementValue"
+        }, {
+          "$ref" : "#/components/schemas/AnnotatedRelationshipElementValue"
+        }, {
+          "$ref" : "#/components/schemas/EntityValue"
+        } ]
+      },
+      "SubmodelTrim" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Identifiable"
+        }, {
+          "$ref" : "#/components/schemas/HasDataSpecification"
+        }, {
+          "$ref" : "#/components/schemas/Qualifiable"
+        }, {
+          "$ref" : "#/components/schemas/HasSemantics"
+        }, {
+          "properties" : {
+            "kind" : {
+              "$ref" : "#/components/schemas/ModelingKind"
+            }
+          }
+        } ]
+      },
+      "ValueList" : {
+        "properties" : {
+          "valueReferencePairTypes" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ValueReferencePairType"
+            },
+            "minItems" : 1,
+            "type" : "array"
+          }
+        },
+        "required" : [ "valueReferencePairTypes" ],
+        "type" : "object"
+      },
+      "ValueObject" : {
+        "properties" : {
+          "value" : {
+            "type" : "string"
+          },
+          "valueId" : {
+            "$ref" : "#/components/schemas/Reference"
+          },
+          "valueType" : {
+            "$ref" : "#/components/schemas/ValueTypeEnum"
+          }
+        },
+        "type" : "object"
+      },
+      "ValueOnly" : {
+        "description" : "The ValueOnly serialization of submodel elements (patternProperties and propertyNames will be supported propably with OpenApi 3.1). The full description of the generic JSON validation schema for the ValueOnly-serialization can be found in chapter 9.4.3 in Details of the Asset Administration Shell Part 2.\n",
+        "type" : "object"
+      },
+      "ValueReferencePairType" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ValueObject"
+        } ]
+      },
+      "ValueTypeEnum" : {
+        "enum" : [ "anyUri", "base64Binary", "boolean", "date", "dateTime", "dateTimeStamp", "decimal", "integer", "long", "int", "short", "byte", "nonNegativeInteger", "positiveInteger", "unsignedLong", "unsignedInt", "unsignedShort", "unsignedByte", "nonPositiveInteger", "negativeInteger", "double", "duration", "dayTimeDuration", "yearMonthDuration", "float", "gDay", "gMonth", "gMonthDay", "gYear", "gYearMonth", "hexBinary", "NOTATION", "QName", "string", "normalizedString", "token", "language", "Name", "NCName", "ENTITY", "ID", "IDREF", "NMTOKEN", "time" ],
+        "type" : "string"
+      },
+      "View" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Referable"
+        }, {
+          "$ref" : "#/components/schemas/HasDataSpecification"
+        }, {
+          "$ref" : "#/components/schemas/HasSemantics"
+        }, {
+          "properties" : {
+            "containedElements" : {
+              "items" : {
+                "$ref" : "#/components/schemas/Reference"
+              },
+              "type" : "array"
+            }
+          }
+        } ]
+      }
+    }
+  }
+}

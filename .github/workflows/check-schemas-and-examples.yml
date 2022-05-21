@@ -1,0 +1,22 @@
+name: Check-schemas-and-examples
+
+on:
+  push:
+    branches: [ master, main ]
+    tags: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  Check-schemas-and-examples:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Install schema-validation
+        working-directory: schemas
+        run: powershell .\InstallSchemaValidation.ps1
+
+      - name: Validate example data
+        working-directory: schemas
+        run: powershell .\Validate.ps1

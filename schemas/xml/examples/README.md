@@ -1,5 +1,7 @@
 # XML examples of the AAS meta model
 
+**TODO (@mristin, 2022-04-09)**: We need to update this README once the schema has been fixed.
+
 ## Example for Top-Level Structures
 One serialization describes one asset Administration Shell environment that is a collection of Administration Shells. The root element of the AssetAdministration Shell environment has 4 aggregations. For each identifiable class, one aggregation is featured, as required by rule 3.
   
