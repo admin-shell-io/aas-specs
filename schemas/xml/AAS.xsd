@@ -292,6 +292,7 @@
   <xs:group name="hasDataSpecification_choice">
     <xs:choice>
       <xs:element name="administrativeInformation" type="administrativeInformation_t"/>
+      <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="assetAdministrationShell" type="assetAdministrationShell_t"/>
       <xs:element name="basicEventElement" type="basicEventElement_t"/>
@@ -323,6 +324,7 @@
   </xs:group>
   <xs:group name="hasExtensions_choice">
     <xs:choice>
+      <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="assetAdministrationShell" type="assetAdministrationShell_t"/>
       <xs:element name="basicEventElement" type="basicEventElement_t"/>
@@ -348,6 +350,7 @@
   </xs:group>
   <xs:group name="hasKind_choice">
     <xs:choice>
+      <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="basicEventElement" type="basicEventElement_t"/>
       <xs:element name="blob" type="blob_t"/>
@@ -378,6 +381,7 @@
   </xs:group>
   <xs:group name="hasSemantics_choice">
     <xs:choice>
+      <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="basicEventElement" type="basicEventElement_t"/>
       <xs:element name="blob" type="blob_t"/>
@@ -517,6 +521,7 @@
   </xs:group>
   <xs:group name="qualifiable_choice">
     <xs:choice>
+      <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="basicEventElement" type="basicEventElement_t"/>
       <xs:element name="blob" type="blob_t"/>
@@ -587,6 +592,7 @@
   </xs:group>
   <xs:group name="referable_choice">
     <xs:choice>
+      <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="assetAdministrationShell" type="assetAdministrationShell_t"/>
       <xs:element name="basicEventElement" type="basicEventElement_t"/>
@@ -633,6 +639,7 @@
   </xs:group>
   <xs:group name="relationshipElement_choice">
     <xs:choice>
+      <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
     </xs:choice>
   </xs:group>
@@ -731,6 +738,7 @@
   </xs:group>
   <xs:group name="submodelElement_choice">
     <xs:choice>
+      <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="basicEventElement" type="basicEventElement_t"/>
       <xs:element name="blob" type="blob_t"/>
