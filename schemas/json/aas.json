@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "title": "AssetAdministrationShellEnvironment",
-  "$id": "http://www.admin-shell.io/schema/json/V3.0RC02",
+  "$id": "http://www.admin-shell.io/schema/json/V3.0RC01",
   "type": "object",
   "allOf": [
     {
@@ -585,9 +585,9 @@
     "ModelType": {
       "type": "string",
       "enum": [
-        "Qualifier",
         "AssetAdministrationShell",
         "Submodel",
+        "RelationshipElement",
         "SubmodelElementList",
         "SubmodelElementCollection",
         "Property",
@@ -601,8 +601,7 @@
         "BasicEventElement",
         "Operation",
         "Capability",
-        "ConceptDescription",
-        "Reference"
+        "ConceptDescription"
       ]
     },
     "ModelingKind": {
@@ -731,15 +730,11 @@
             },
             "valueId": {
               "$ref": "#/definitions/Reference"
-            },
-            "modelType": {
-              "$ref": "#/definitions/ModelType"
             }
           },
           "required": [
             "type",
-            "valueType",
-            "modelType"
+            "valueType"
           ]
         }
       ]
@@ -825,15 +820,11 @@
             "$ref": "#/definitions/Key"
           },
           "minItems": 1
-        },
-        "modelType": {
-          "$ref": "#/definitions/ModelType"
         }
       },
       "required": [
         "type",
-        "keys",
-        "modelType"
+        "keys"
       ]
     },
     "ReferenceElement": {
