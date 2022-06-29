@@ -94,10 +94,9 @@ aas:AssetInformationShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/AssetInformation/specificAssetId> ;
+        sh:path <https://admin-shell.io/aas/3/0/RC02/AssetInformation/specificAssetIds> ;
         sh:class aas:SpecificAssetId ;
         sh:minCount 0 ;
-        sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -230,18 +229,6 @@ aas:DataElementShape a sh:NodeShape ;
 
 aas:DataSpecificationShape a sh:NodeShape ;
     sh:targetClass aas:DataSpecification ;
-    sh:sparql [
-        a sh:SPARQLConstraint ;
-        sh:message "(DataSpecificationShape): An aas:DataSpecification is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
-        sh:prefixes aas: ;
-        sh:select """
-            SELECT ?this ?type
-            WHERE {
-                ?this rdf:type ?type .
-                FILTER (?type = aas:DataSpecification)
-            }
-        """ ;
-    ] ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <https://admin-shell.io/aas/3/0/RC02/DataSpecification/id> ;
@@ -275,18 +262,6 @@ aas:DataSpecificationShape a sh:NodeShape ;
 
 aas:DataSpecificationContentShape a sh:NodeShape ;
     sh:targetClass aas:DataSpecificationContent ;
-    sh:sparql [
-        a sh:SPARQLConstraint ;
-        sh:message "(DataSpecificationContentShape): An aas:DataSpecificationContent is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
-        sh:prefixes aas: ;
-        sh:select """
-            SELECT ?this ?type
-            WHERE {
-                ?this rdf:type ?type .
-                FILTER (?type = aas:DataSpecificationContent)
-            }
-        """ ;
-    ] ;
 .
 
 aas:EntityShape a sh:NodeShape ;
@@ -859,6 +834,7 @@ aas:ReferableShape a sh:NodeShape ;
         sh:datatype xsd:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
+        sh:maxLength 128 ;
         sh:pattern "^[a-zA-Z][a-zA-Z0-9_]+$" ;
     ] ;
     sh:property [

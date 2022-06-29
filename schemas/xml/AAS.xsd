@@ -50,7 +50,13 @@
     <xs:sequence>
       <xs:element name="assetKind" type="assetKind_t"/>
       <xs:element name="globalAssetId" type="reference_t" minOccurs="0"/>
-      <xs:element name="specificAssetId" type="specificAssetId_t" minOccurs="0"/>
+      <xs:element name="specificAssetIds" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="specificAssetId" type="specificAssetId_t" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="defaultThumbnail" type="resource_t" minOccurs="0"/>
     </xs:sequence>
   </xs:group>

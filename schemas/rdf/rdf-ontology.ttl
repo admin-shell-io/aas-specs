@@ -378,9 +378,9 @@ aas:AssetInformation rdf:type owl:Class ;
     rdfs:comment "Global identifier of the asset the AAS is representing."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/AssetInformation/specificAssetId
-<https://admin-shell.io/aas/3/0/RC02/AssetInformation/specificAssetId> rdf:type owl:ObjectProperty ;
-    rdfs:label "has specific asset id"^^xsd:string ;
+###  https://admin-shell.io/aas/3/0/RC02/AssetInformation/specificAssetIds
+<https://admin-shell.io/aas/3/0/RC02/AssetInformation/specificAssetIds> rdf:type owl:ObjectProperty ;
+    rdfs:label "has specific asset ids"^^xsd:string ;
     rdfs:domain aas:AssetInformation ;
     rdfs:range aas:SpecificAssetId ;
     rdfs:comment "Additional domain-specific, typically proprietary identifier for the asset like e.g., serial number etc."@en ;
