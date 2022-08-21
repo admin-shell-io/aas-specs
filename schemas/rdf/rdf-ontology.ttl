@@ -378,48 +378,223 @@ aas:DataElement rdf:type owl:Class ;
     rdfs:comment "A data element is a submodel element that is not further composed out of other submodel elements."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/DataSpecification
-aas:DataSpecification rdf:type owl:Class ;
-    rdfs:label "Data Specification"^^xsd:string ;
-    rdfs:comment "Data Specification Template"@en ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC02/DataSpecification/administration
-<https://admin-shell.io/aas/3/0/RC02/DataSpecification/administration> rdf:type owl:ObjectProperty ;
-    rdfs:label "has administration"^^xsd:string ;
-    rdfs:domain aas:DataSpecification ;
-    rdfs:range aas:AdministrativeInformation ;
-    rdfs:comment "Administrative information of an identifiable element."@en ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC02/DataSpecification/dataSpecificationContent
-<https://admin-shell.io/aas/3/0/RC02/DataSpecification/dataSpecificationContent> rdf:type owl:ObjectProperty ;
-    rdfs:label "has data specification content"^^xsd:string ;
-    rdfs:domain aas:DataSpecification ;
-    rdfs:range aas:DataSpecificationContent ;
-    rdfs:comment "The content of the template without meta data"@en ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC02/DataSpecification/description
-<https://admin-shell.io/aas/3/0/RC02/DataSpecification/description> rdf:type owl:ObjectProperty ;
-    rdfs:label "has description"^^xsd:string ;
-    rdfs:domain aas:DataSpecification ;
-    rdfs:range aas:LangStringSet ;
-    rdfs:comment "Description how and in which context the data specification template is applicable. The description can be provided in several languages."@en ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC02/DataSpecification/id
-<https://admin-shell.io/aas/3/0/RC02/DataSpecification/id> rdf:type owl:DatatypeProperty ;
-    rdfs:label "has id"^^xsd:string ;
-    rdfs:domain aas:DataSpecification ;
-    rdfs:range xsd:string ;
-    rdfs:comment "The globally unique identification of the element."@en ;
-.
-
 ###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationContent
 aas:DataSpecificationContent rdf:type owl:Class ;
     rdfs:label "Data Specification Content"^^xsd:string ;
     rdfs:comment "Data specification content is part of a data specification template and defines which additional attributes shall be added to the element instance that references the data specification template and meta information about the template itself."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360
+aas:DataSpecificationIEC61360 rdf:type owl:Class ;
+    rdfs:subClassOf aas:DataSpecificationContent ;
+    rdfs:label "Data Specification IEC 61360"^^xsd:string ;
+    rdfs:comment "Content of data specification template for concept descriptions for properties, values and value lists conformant to IEC 61360."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> rdf:type owl:ObjectProperty ;
+    rdfs:label "has data type"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range aas:DataTypeIEC61360 ;
+    rdfs:comment "Data Type"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> rdf:type owl:ObjectProperty ;
+    rdfs:label "has definition"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range aas:LangString ;
+    rdfs:comment "Definition in different languages"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/levelType
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/levelType> rdf:type owl:ObjectProperty ;
+    rdfs:label "has level type"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range aas:LevelType ;
+    rdfs:comment "Set of levels."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> rdf:type owl:ObjectProperty ;
+    rdfs:label "has preferred name"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range aas:LangString ;
+    rdfs:comment "Preferred name"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/shortName
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/shortName> rdf:type owl:ObjectProperty ;
+    rdfs:label "has short name"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range aas:LangString ;
+    rdfs:comment "Short name"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/sourceOfDefinition
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/sourceOfDefinition> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has source of definition"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Source of definition"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/symbol
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/symbol> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has symbol"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Symbol"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unit
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unit> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has unit"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Unit"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unitId
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unitId> rdf:type owl:ObjectProperty ;
+    rdfs:label "has unit id"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range aas:Reference ;
+    rdfs:comment "Unique unit id"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/value
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/value> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has value"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Value"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/valueFormat
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/valueFormat> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has value format"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Value Format"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/valueList
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/valueList> rdf:type owl:ObjectProperty ;
+    rdfs:label "has value list"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationIEC61360 ;
+    rdfs:range aas:ValueList ;
+    rdfs:comment "List of allowed values"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit
+aas:DataSpecificationPhysicalUnit rdf:type owl:Class ;
+    rdfs:subClassOf aas:DataSpecificationContent ;
+    rdfs:label "Data Specification Physical Unit"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/conversionFactor
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/conversionFactor> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has conversion factor"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Conversion factor"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/definition
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/definition> rdf:type owl:ObjectProperty ;
+    rdfs:label "has definition"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range aas:LangString ;
+    rdfs:comment "Definition in different languages"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/dinNotation
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/dinNotation> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has din notation"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Notation of physical unit conformant to DIN"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/eceCode
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/eceCode> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has ece code"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Code of physical unit conformant to ECE"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/eceName
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/eceName> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has ece name"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of physical unit conformant to ECE"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/nistName
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/nistName> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has nist name"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of NIST physical unit"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/registrationAuthorityId
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/registrationAuthorityId> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has registration authority id"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Registration authority ID"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/siName
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/siName> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has si name"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of SI physical unit"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/siNotation
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/siNotation> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has si notation"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Notation of SI physical unit"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/sourceOfDefinition
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/sourceOfDefinition> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has source of definition"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Source of definition"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/supplier
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/supplier> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has supplier"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Supplier"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/unitName
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/unitName> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has unit name"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of the physical unit"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/unitSymbol
+<https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/unitSymbol> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has unit symbol"^^xsd:string ;
+    rdfs:domain aas:DataSpecificationPhysicalUnit ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Symbol for the physical unit"@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/DataTypeDefXsd
@@ -628,6 +803,146 @@ aas:DataTypeDefXsd rdf:type owl:Class ;
     rdfs:label "Year Month Duration"^^xsd:string ;
 .
 
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360
+aas:DataTypeIEC61360 rdf:type owl:Class ;
+    rdfs:label "Data Type IEC 61360"^^xsd:string ;
+    owl:oneOf (
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Blob>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Boolean>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Date>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/File>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Html>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerCount>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerCurrency>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerMeasure>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Irdi>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Iri>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Rational>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RationalMeasure>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RealCount>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RealCurrency>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RealMeasure>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/String>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/StringTranslatable>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Time>
+        <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Timestamp>
+    ) ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Blob
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Blob> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Blob"^^xsd:string ;
+    rdfs:comment "values containing the content of a file. Values may be binaries."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Boolean
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Boolean> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Boolean"^^xsd:string ;
+    rdfs:comment "values representing truth of logic or Boolean algebra (TRUE, FALSE)"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Date
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Date> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Date"^^xsd:string ;
+    rdfs:comment "values containing a calendar date, conformant to ISO 8601:2004 Format yyyy-mm-dd Example from IEC 61360-1:2017: \"1999-05-31\" is the [DATE] representation of: \"31 May 1999\"."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/File
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/File> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "File"^^xsd:string ;
+    rdfs:comment "values containing an address to a file. The values are of type URI and can represent an absolute or relative path."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Html
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Html> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Html"^^xsd:string ;
+    rdfs:comment "Values containing string with any sequence of characters, using the syntax of HTML5 (see W3C Recommendation 28:2014)"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerCount
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerCount> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Integer Count"^^xsd:string ;
+    rdfs:comment "values containing values of type INTEGER but are no currencies or measures"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerCurrency
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerCurrency> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Integer Currency"^^xsd:string ;
+    rdfs:comment "values containing values of type INTEGER that are currencies"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerMeasure
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerMeasure> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Integer Measure"^^xsd:string ;
+    rdfs:comment "values containing values that are measure of type INTEGER. In addition such a value comes with a physical unit."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Irdi
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Irdi> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "IRDI"^^xsd:string ;
+    rdfs:comment "values conforming to ISO/IEC 11179 series global identifier sequences"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Iri
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Iri> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "IRI"^^xsd:string ;
+    rdfs:comment "values containing values of type STRING conformant to Rfc 3987"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Rational
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Rational> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Rational"^^xsd:string ;
+    rdfs:comment "values containing values of type rational"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RationalMeasure
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RationalMeasure> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Rational Measure"^^xsd:string ;
+    rdfs:comment "values containing values of type rational. In addition such a value comes with a physical unit."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RealCount
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RealCount> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Real Count"^^xsd:string ;
+    rdfs:comment "values containing numbers that can be written as a terminating or non-terminating decimal; a rational or irrational number but are no currencies or measures"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RealCurrency
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RealCurrency> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Real Currency"^^xsd:string ;
+    rdfs:comment "values containing values of type REAL that are currencies"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RealMeasure
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/RealMeasure> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Real Measure"^^xsd:string ;
+    rdfs:comment "values containing values that are measures of type REAL. In addition such a value comes with a physical unit."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/String
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/String> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "String"^^xsd:string ;
+    rdfs:comment "values consisting of sequence of characters but cannot be translated into other languages"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/StringTranslatable
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/StringTranslatable> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "String Translatable"^^xsd:string ;
+    rdfs:comment "values containing string but shall be represented as different string in different languages"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Time
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Time> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Time"^^xsd:string ;
+    rdfs:comment "values containing a time, conformant to ISO 8601:2004 but restricted to what is allowed in the corresponding type in xml."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Timestamp
+<https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/Timestamp> rdf:type aas:DataTypeIEC61360 ;
+    rdfs:label "Timestamp"^^xsd:string ;
+    rdfs:comment "values containing a time, conformant to ISO 8601:2004 but restricted to what is allowed in the corresponding type in xml."@en ;
+.
+
 ###  https://admin-shell.io/aas/3/0/RC02/Direction
 aas:Direction rdf:type owl:Class ;
     rdfs:label "Direction"^^xsd:string ;
@@ -648,6 +963,28 @@ aas:Direction rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC02/Direction/Output> rdf:type aas:Direction ;
     rdfs:label "Output"^^xsd:string ;
     rdfs:comment "Output direction"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification
+aas:EmbeddedDataSpecification rdf:type owl:Class ;
+    rdfs:label "Embedded Data Specification"^^xsd:string ;
+    rdfs:comment "Embed the content of a data specification."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification
+<https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> rdf:type owl:ObjectProperty ;
+    rdfs:label "has data specification"^^xsd:string ;
+    rdfs:domain aas:EmbeddedDataSpecification ;
+    rdfs:range aas:Reference ;
+    rdfs:comment "Reference to the data specification"@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent
+<https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> rdf:type owl:ObjectProperty ;
+    rdfs:label "has data specification content"^^xsd:string ;
+    rdfs:domain aas:EmbeddedDataSpecification ;
+    rdfs:range aas:DataSpecificationContent ;
+    rdfs:comment "Actual content of the data specification"@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Entity
@@ -731,14 +1068,6 @@ aas:Environment rdf:type owl:Class ;
     rdfs:domain aas:Environment ;
     rdfs:range aas:ConceptDescription ;
     rdfs:comment "Concept description"@en ;
-.
-
-###  https://admin-shell.io/aas/3/0/RC02/Environment/dataSpecifications
-<https://admin-shell.io/aas/3/0/RC02/Environment/dataSpecifications> rdf:type owl:ObjectProperty ;
-    rdfs:label "has data specifications"^^xsd:string ;
-    rdfs:domain aas:Environment ;
-    rdfs:range aas:DataSpecification ;
-    rdfs:comment "Data specification"@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/Environment/submodels
@@ -894,12 +1223,12 @@ aas:HasDataSpecification rdf:type owl:Class ;
     rdfs:comment "Element that can be extended by using data specification templates."@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/dataSpecifications
-<https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/dataSpecifications> rdf:type owl:ObjectProperty ;
-    rdfs:label "has data specifications"^^xsd:string ;
+###  https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications
+<https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications> rdf:type owl:ObjectProperty ;
+    rdfs:label "has embedded data specifications"^^xsd:string ;
     rdfs:domain aas:HasDataSpecification ;
-    rdfs:range aas:Reference ;
-    rdfs:comment "Global reference to the data specification template used by the element."@en ;
+    rdfs:range aas:EmbeddedDataSpecification ;
+    rdfs:comment "Embedded data specification."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/HasExtensions
@@ -1182,18 +1511,35 @@ aas:LangString rdf:type owl:Class ;
     rdfs:comment "Text in the 'language'"@en ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/LangStringSet
-aas:LangStringSet rdf:type owl:Class ;
-    rdfs:label "Lang String Set"^^xsd:string ;
-    rdfs:comment "Array of elements of type langString"@en ;
+###  https://admin-shell.io/aas/3/0/RC02/LevelType
+aas:LevelType rdf:type owl:Class ;
+    rdfs:label "Level Type"^^xsd:string ;
+    owl:oneOf (
+        <https://admin-shell.io/aas/3/0/RC02/LevelType/Max>
+        <https://admin-shell.io/aas/3/0/RC02/LevelType/Min>
+        <https://admin-shell.io/aas/3/0/RC02/LevelType/Nom>
+        <https://admin-shell.io/aas/3/0/RC02/LevelType/Typ>
+    ) ;
 .
 
-###  https://admin-shell.io/aas/3/0/RC02/LangStringSet/langStrings
-<https://admin-shell.io/aas/3/0/RC02/LangStringSet/langStrings> rdf:type owl:ObjectProperty ;
-    rdfs:label "has lang strings"^^xsd:string ;
-    rdfs:domain aas:LangStringSet ;
-    rdfs:range aas:LangString ;
-    rdfs:comment "Strings in different languages"@en ;
+###  https://admin-shell.io/aas/3/0/RC02/LevelType/Max
+<https://admin-shell.io/aas/3/0/RC02/LevelType/Max> rdf:type aas:LevelType ;
+    rdfs:label "Max"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/LevelType/Min
+<https://admin-shell.io/aas/3/0/RC02/LevelType/Min> rdf:type aas:LevelType ;
+    rdfs:label "Min"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/LevelType/Nom
+<https://admin-shell.io/aas/3/0/RC02/LevelType/Nom> rdf:type aas:LevelType ;
+    rdfs:label "Nom"^^xsd:string ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/LevelType/Typ
+<https://admin-shell.io/aas/3/0/RC02/LevelType/Typ> rdf:type aas:LevelType ;
+    rdfs:label "Typ"^^xsd:string ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RC02/ModelingKind
@@ -1229,7 +1575,7 @@ aas:MultiLanguageProperty rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC02/MultiLanguageProperty/value> rdf:type owl:ObjectProperty ;
     rdfs:label "has value"^^xsd:string ;
     rdfs:domain aas:MultiLanguageProperty ;
-    rdfs:range aas:LangStringSet ;
+    rdfs:range aas:LangString ;
     rdfs:comment "The value of the property instance."@en ;
 .
 
@@ -1465,7 +1811,7 @@ aas:Referable rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC02/Referable/description> rdf:type owl:ObjectProperty ;
     rdfs:label "has description"^^xsd:string ;
     rdfs:domain aas:Referable ;
-    rdfs:range aas:LangStringSet ;
+    rdfs:range aas:LangString ;
     rdfs:comment "Description or comments on the element."@en ;
 .
 
@@ -1473,7 +1819,7 @@ aas:Referable rdf:type owl:Class ;
 <https://admin-shell.io/aas/3/0/RC02/Referable/displayName> rdf:type owl:ObjectProperty ;
     rdfs:label "has display name"^^xsd:string ;
     rdfs:domain aas:Referable ;
-    rdfs:range aas:LangStringSet ;
+    rdfs:range aas:LangString ;
     rdfs:comment "Display name. Can be provided in several languages."@en ;
 .
 
@@ -1740,4 +2086,40 @@ aas:SubmodelElementList rdf:type owl:Class ;
     rdfs:domain aas:SubmodelElementList ;
     rdfs:range aas:DataTypeDefXsd ;
     rdfs:comment "The value type of the submodel element contained in the list."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/ValueList
+aas:ValueList rdf:type owl:Class ;
+    rdfs:label "Value List"^^xsd:string ;
+    rdfs:comment "A set of value reference pairs."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/ValueList/valueReferencePairTypes
+<https://admin-shell.io/aas/3/0/RC02/ValueList/valueReferencePairTypes> rdf:type owl:ObjectProperty ;
+    rdfs:label "has value reference pair types"^^xsd:string ;
+    rdfs:domain aas:ValueList ;
+    rdfs:range aas:ValueReferencePair ;
+    rdfs:comment "A pair of a value together with its global unique id."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/ValueReferencePair
+aas:ValueReferencePair rdf:type owl:Class ;
+    rdfs:label "Value Reference Pair"^^xsd:string ;
+    rdfs:comment "A value reference pair within a value list. Each value has a global unique id defining its semantic."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/ValueReferencePair/value
+<https://admin-shell.io/aas/3/0/RC02/ValueReferencePair/value> rdf:type owl:DatatypeProperty ;
+    rdfs:label "has value"^^xsd:string ;
+    rdfs:domain aas:ValueReferencePair ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The value of the referenced concept definition of the value in valueId."@en ;
+.
+
+###  https://admin-shell.io/aas/3/0/RC02/ValueReferencePair/valueId
+<https://admin-shell.io/aas/3/0/RC02/ValueReferencePair/valueId> rdf:type owl:ObjectProperty ;
+    rdfs:label "has value id"^^xsd:string ;
+    rdfs:domain aas:ValueReferencePair ;
+    rdfs:range aas:Reference ;
+    rdfs:comment "Global unique id of the value."@en ;
 .

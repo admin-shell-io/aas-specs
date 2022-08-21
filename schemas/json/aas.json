@@ -61,7 +61,8 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/DataElement"
-              }
+              },
+              "minItems": 1
             }
           }
         }
@@ -87,7 +88,8 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Reference"
-              }
+              },
+              "minItems": 1
             }
           },
           "required": [
@@ -109,7 +111,8 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/SpecificAssetId"
-          }
+          },
+          "minItems": 1
         },
         "defaultThumbnail": {
           "$ref": "#/definitions/Resource"
@@ -210,7 +213,8 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Reference"
-              }
+              },
+              "minItems": 1
             }
           }
         }
@@ -219,30 +223,153 @@
     "DataElement": {
       "$ref": "#/definitions/SubmodelElement"
     },
-    "DataSpecification": {
+    "DataSpecificationContent": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string",
-          "minLength": 1
-        },
-        "dataSpecificationContent": {
-          "$ref": "#/definitions/DataSpecificationContent"
-        },
-        "administration": {
-          "$ref": "#/definitions/AdministrativeInformation"
-        },
-        "description": {
-          "$ref": "#/definitions/LangStringSet"
+        "modelType": {
+          "$ref": "#/definitions/ModelType"
         }
       },
       "required": [
-        "id",
-        "dataSpecificationContent"
+        "modelType"
       ]
     },
-    "DataSpecificationContent": {
-      "type": "object"
+    "DataSpecificationIEC61360": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DataSpecificationContent"
+        },
+        {
+          "properties": {
+            "preferredName": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LangString"
+              },
+              "minItems": 1
+            },
+            "shortName": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LangString"
+              },
+              "minItems": 1
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1
+            },
+            "unitId": {
+              "$ref": "#/definitions/Reference"
+            },
+            "sourceOfDefinition": {
+              "type": "string",
+              "minLength": 1
+            },
+            "symbol": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dataType": {
+              "$ref": "#/definitions/DataTypeIEC61360"
+            },
+            "definition": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LangString"
+              },
+              "minItems": 1
+            },
+            "valueFormat": {
+              "type": "string",
+              "minLength": 1
+            },
+            "valueList": {
+              "$ref": "#/definitions/ValueList"
+            },
+            "value": {
+              "type": "string"
+            },
+            "levelType": {
+              "$ref": "#/definitions/LevelType"
+            }
+          },
+          "required": [
+            "preferredName"
+          ]
+        }
+      ]
+    },
+    "DataSpecificationPhysicalUnit": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DataSpecificationContent"
+        },
+        {
+          "properties": {
+            "unitName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "unitSymbol": {
+              "type": "string",
+              "minLength": 1
+            },
+            "definition": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LangString"
+              },
+              "minItems": 1
+            },
+            "siNotation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "siName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dinNotation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "eceName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "eceCode": {
+              "type": "string",
+              "minLength": 1
+            },
+            "nistName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sourceOfDefinition": {
+              "type": "string",
+              "minLength": 1
+            },
+            "conversionFactor": {
+              "type": "string",
+              "minLength": 1
+            },
+            "registrationAuthorityId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "supplier": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "unitName",
+            "unitSymbol",
+            "definition"
+          ]
+        }
+      ]
     },
     "DataTypeDefXsd": {
       "type": "string",
@@ -282,11 +409,50 @@
         "xs:negativeInteger"
       ]
     },
+    "DataTypeIEC61360": {
+      "type": "string",
+      "enum": [
+        "DATE",
+        "STRING",
+        "STRING_TRANSLATABLE",
+        "INTEGER_MEASURE",
+        "INTEGER_COUNT",
+        "INTEGER_CURRENCY",
+        "REAL_MEASURE",
+        "REAL_COUNT",
+        "REAL_CURRENCY",
+        "BOOLEAN",
+        "IRI",
+        "IRDI",
+        "RATIONAL",
+        "RATIONAL_MEASURE",
+        "TIME",
+        "TIMESTAMP",
+        "FILE",
+        "HTML",
+        "BLOB"
+      ]
+    },
     "Direction": {
       "type": "string",
       "enum": [
         "INPUT",
         "OUTPUT"
+      ]
+    },
+    "EmbeddedDataSpecification": {
+      "type": "object",
+      "properties": {
+        "dataSpecification": {
+          "$ref": "#/definitions/Reference"
+        },
+        "dataSpecificationContent": {
+          "$ref": "#/definitions/DataSpecificationContent"
+        }
+      },
+      "required": [
+        "dataSpecification",
+        "dataSpecificationContent"
       ]
     },
     "Entity": {
@@ -300,7 +466,8 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/SubmodelElement"
-              }
+              },
+              "minItems": 1
             },
             "entityType": {
               "$ref": "#/definitions/EntityType"
@@ -332,25 +499,22 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/AssetAdministrationShell"
-          }
+          },
+          "minItems": 1
         },
         "submodels": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Submodel"
-          }
+          },
+          "minItems": 1
         },
         "conceptDescriptions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ConceptDescription"
-          }
-        },
-        "dataSpecifications": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/DataSpecification"
-          }
+          },
+          "minItems": 1
         }
       }
     },
@@ -448,11 +612,12 @@
     "HasDataSpecification": {
       "type": "object",
       "properties": {
-        "dataSpecifications": {
+        "embeddedDataSpecifications": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Reference"
-          }
+            "$ref": "#/definitions/EmbeddedDataSpecification"
+          },
+          "minItems": 1
         }
       }
     },
@@ -463,7 +628,8 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Extension"
-          }
+          },
+          "minItems": 1
         }
       }
     },
@@ -485,7 +651,8 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Reference"
-          }
+          },
+          "minItems": 1
         }
       }
     },
@@ -571,19 +738,13 @@
         "text"
       ]
     },
-    "LangStringSet": {
-      "type": "object",
-      "properties": {
-        "langStrings": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LangString"
-          },
-          "minItems": 1
-        }
-      },
-      "required": [
-        "langStrings"
+    "LevelType": {
+      "type": "string",
+      "enum": [
+        "Min",
+        "Max",
+        "Nom",
+        "Typ"
       ]
     },
     "ModelType": {
@@ -605,7 +766,9 @@
         "BasicEventElement",
         "Operation",
         "Capability",
-        "ConceptDescription"
+        "ConceptDescription",
+        "DataSpecificationIEC61360",
+        "DataSpecificationPhysicalUnit"
       ]
     },
     "ModelingKind": {
@@ -623,7 +786,11 @@
         {
           "properties": {
             "value": {
-              "$ref": "#/definitions/LangStringSet"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LangString"
+              },
+              "minItems": 1
             },
             "valueId": {
               "$ref": "#/definitions/Reference"
@@ -643,19 +810,22 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/OperationVariable"
-              }
+              },
+              "minItems": 1
             },
             "outputVariables": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/OperationVariable"
-              }
+              },
+              "minItems": 1
             },
             "inoutputVariables": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/OperationVariable"
-              }
+              },
+              "minItems": 1
             }
           }
         }
@@ -702,7 +872,8 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Qualifier"
-          }
+          },
+          "minItems": 1
         },
         "modelType": {
           "$ref": "#/definitions/ModelType"
@@ -791,10 +962,18 @@
               "pattern": "^[a-zA-Z][a-zA-Z0-9_]+$"
             },
             "displayName": {
-              "$ref": "#/definitions/LangStringSet"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LangString"
+              },
+              "minItems": 1
             },
             "description": {
-              "$ref": "#/definitions/LangStringSet"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LangString"
+              },
+              "minItems": 1
             },
             "checksum": {
               "type": "string",
@@ -949,7 +1128,8 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/SubmodelElement"
-              }
+              },
+              "minItems": 1
             }
           }
         }
@@ -1021,6 +1201,36 @@
             "typeValueListElement"
           ]
         }
+      ]
+    },
+    "ValueList": {
+      "type": "object",
+      "properties": {
+        "valueReferencePairTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValueReferencePair"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "valueReferencePairTypes"
+      ]
+    },
+    "ValueReferencePair": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "valueId": {
+          "$ref": "#/definitions/Reference"
+        }
+      },
+      "required": [
+        "value",
+        "valueId"
       ]
     }
   }
