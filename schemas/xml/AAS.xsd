@@ -3,14 +3,14 @@
   <xs:group name="administrativeInformation">
     <xs:sequence>
       <xs:group ref="hasDataSpecification"/>
-      <xs:element name="version" minOccurs="0">
+      <xs:element name="version" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="revision" minOccurs="0">
+      <xs:element name="revision" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
@@ -22,10 +22,10 @@
   <xs:group name="annotatedRelationshipElement">
     <xs:sequence>
       <xs:group ref="relationshipElement"/>
-      <xs:element name="annotations" minOccurs="0">
+      <xs:element name="annotations" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:group ref="dataElement_choice" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="dataElement_choice" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -35,12 +35,12 @@
     <xs:sequence>
       <xs:group ref="identifiable"/>
       <xs:group ref="hasDataSpecification"/>
-      <xs:element name="derivedFrom" type="reference_t" minOccurs="0"/>
+      <xs:element name="derivedFrom" type="reference_t" minOccurs="0" maxOccurs="1"/>
       <xs:element name="assetInformation" type="assetInformation_t"/>
-      <xs:element name="submodels" minOccurs="0">
+      <xs:element name="submodels" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="reference" type="reference_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="reference" type="reference_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -49,15 +49,15 @@
   <xs:group name="assetInformation">
     <xs:sequence>
       <xs:element name="assetKind" type="assetKind_t"/>
-      <xs:element name="globalAssetId" type="reference_t" minOccurs="0"/>
-      <xs:element name="specificAssetIds" minOccurs="0">
+      <xs:element name="globalAssetId" type="reference_t" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="specificAssetIds" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="specificAssetId" type="specificAssetId_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="specificAssetId" type="specificAssetId_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="defaultThumbnail" type="resource_t" minOccurs="0"/>
+      <xs:element name="defaultThumbnail" type="resource_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="basicEventElement">
@@ -66,29 +66,29 @@
       <xs:element name="observed" type="reference_t"/>
       <xs:element name="direction" type="direction_t"/>
       <xs:element name="state" type="stateOfEvent_t"/>
-      <xs:element name="messageTopic" minOccurs="0">
+      <xs:element name="messageTopic" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="messageBroker" type="reference_t" minOccurs="0"/>
-      <xs:element name="lastUpdate" minOccurs="0">
+      <xs:element name="messageBroker" type="reference_t" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="lastUpdate" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:pattern value="-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\.[0-9]+)?)|24:00:00(\.0+)?)Z"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="minInterval" minOccurs="0">
+      <xs:element name="minInterval" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:pattern value="-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\.[0-9]+)?)|24:00:00(\.0+)?)Z"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="maxInterval" minOccurs="0">
+      <xs:element name="maxInterval" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:pattern value="-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\.[0-9]+)?)|24:00:00(\.0+)?)Z"/>
@@ -100,7 +100,7 @@
   <xs:group name="blob">
     <xs:sequence>
       <xs:group ref="dataElement"/>
-      <xs:element name="value" type="xs:base64Binary" minOccurs="0"/>
+      <xs:element name="value" type="xs:base64Binary" minOccurs="0" maxOccurs="1"/>
       <xs:element name="contentType">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -120,10 +120,10 @@
     <xs:sequence>
       <xs:group ref="identifiable"/>
       <xs:group ref="hasDataSpecification"/>
-      <xs:element name="isCaseOf" minOccurs="0">
+      <xs:element name="isCaseOf" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="reference" type="reference_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="reference" type="reference_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -144,65 +144,217 @@
       <xs:element name="referenceElement" type="referenceElement_t"/>
     </xs:choice>
   </xs:group>
-  <xs:group name="dataSpecification">
+  <xs:group name="dataSpecificationContent">
+    <xs:sequence/>
+  </xs:group>
+  <xs:group name="dataSpecificationContent_choice">
+    <xs:choice>
+      <xs:element name="dataSpecificationIec61360" type="dataSpecificationIec61360_t"/>
+      <xs:element name="dataSpecificationPhysicalUnit" type="dataSpecificationPhysicalUnit_t"/>
+    </xs:choice>
+  </xs:group>
+  <xs:group name="dataSpecificationIec61360">
     <xs:sequence>
-      <xs:element name="id">
+      <xs:group ref="dataSpecificationContent"/>
+      <xs:element name="preferredName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="langString" type="langString_t" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="shortName" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="langString" type="langString_t" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="unit" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="dataSpecificationContent" type="dataSpecificationContent_t"/>
-      <xs:element name="administration" type="administrativeInformation_t" minOccurs="0"/>
-      <xs:element name="description" type="langStringSet_t" minOccurs="0"/>
+      <xs:element name="unitId" type="reference_t" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="sourceOfDefinition" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="symbol" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="dataType" type="dataTypeIec61360_t" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="definition" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="langString" type="langString_t" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="valueFormat" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="valueList" type="valueList_t" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="levelType" type="levelType_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
-  <xs:group name="dataSpecificationContent">
-    <xs:sequence/>
+  <xs:group name="dataSpecificationPhysicalUnit">
+    <xs:sequence>
+      <xs:group ref="dataSpecificationContent"/>
+      <xs:element name="unitName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="unitSymbol">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="definition">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="langString" type="langString_t" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="siNotation" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="siName" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="dinNotation" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="eceName" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="eceCode" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="nistName" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="sourceOfDefinition" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="conversionFactor" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="registrationAuthorityId" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="supplier" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="embeddedDataSpecification">
+    <xs:sequence>
+      <xs:element name="dataSpecification" type="reference_t"/>
+      <xs:element name="dataSpecificationContent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="dataSpecificationContent_choice"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
   </xs:group>
   <xs:group name="entity">
     <xs:sequence>
       <xs:group ref="submodelElement"/>
-      <xs:element name="statements" minOccurs="0">
+      <xs:element name="statements" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:group ref="submodelElement_choice" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="submodelElement_choice" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="entityType" type="entityType_t"/>
-      <xs:element name="globalAssetId" type="reference_t" minOccurs="0"/>
-      <xs:element name="specificAssetId" type="specificAssetId_t" minOccurs="0"/>
+      <xs:element name="globalAssetId" type="reference_t" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="specificAssetId" type="specificAssetId_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="environment">
     <xs:sequence>
-      <xs:element name="assetAdministrationShells" minOccurs="0">
+      <xs:element name="assetAdministrationShells" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="assetAdministrationShell" type="assetAdministrationShell_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="assetAdministrationShell" type="assetAdministrationShell_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="submodels" minOccurs="0">
+      <xs:element name="submodels" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="submodel" type="submodel_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="submodel" type="submodel_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="conceptDescriptions" minOccurs="0">
+      <xs:element name="conceptDescriptions" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="conceptDescription" type="conceptDescription_t" minOccurs="0" maxOccurs="unbounded"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="dataSpecifications" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="dataSpecification" type="dataSpecification_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="conceptDescription" type="conceptDescription_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -221,17 +373,17 @@
   <xs:group name="eventPayload">
     <xs:sequence>
       <xs:element name="source" type="reference_t"/>
-      <xs:element name="sourceSemanticId" type="reference_t" minOccurs="0"/>
+      <xs:element name="sourceSemanticId" type="reference_t" minOccurs="0" maxOccurs="1"/>
       <xs:element name="observableReference" type="reference_t"/>
-      <xs:element name="observableSemanticId" type="reference_t" minOccurs="0"/>
-      <xs:element name="topic" minOccurs="0">
+      <xs:element name="observableSemanticId" type="reference_t" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="topic" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="subjectId" type="reference_t" minOccurs="0"/>
+      <xs:element name="subjectId" type="reference_t" minOccurs="0" maxOccurs="1"/>
       <xs:element name="timeStamp">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -239,7 +391,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="payload" minOccurs="0">
+      <xs:element name="payload" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
@@ -258,15 +410,15 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="valueType" type="dataTypeDefXsd_t" minOccurs="0"/>
-      <xs:element name="value" type="xs:string" minOccurs="0"/>
-      <xs:element name="refersTo" type="reference_t" minOccurs="0"/>
+      <xs:element name="valueType" type="dataTypeDefXsd_t" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="refersTo" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="file">
     <xs:sequence>
       <xs:group ref="dataElement"/>
-      <xs:element name="value" minOccurs="0">
+      <xs:element name="value" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:pattern value="file:(//((localhost|(\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\.([a-zA-Z0-9\-._~]|[!$&amp;'()*+,;=]|:)+)\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&amp;'()*+,;=])*)))?/((([a-zA-Z0-9\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&amp;'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&amp;'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&amp;'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&amp;'()*+,;=]|[:@]))*)*)?)"/>
@@ -286,10 +438,10 @@
   </xs:group>
   <xs:group name="hasDataSpecification">
     <xs:sequence>
-      <xs:element name="dataSpecifications" minOccurs="0">
+      <xs:element name="embeddedDataSpecifications" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="reference" type="reference_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="embeddedDataSpecification" type="embeddedDataSpecification_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -319,10 +471,10 @@
   </xs:group>
   <xs:group name="hasExtensions">
     <xs:sequence>
-      <xs:element name="extensions" minOccurs="0">
+      <xs:element name="extensions" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="extension" type="extension_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="extension" type="extension_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -351,7 +503,7 @@
   </xs:group>
   <xs:group name="hasKind">
     <xs:sequence>
-      <xs:element name="kind" type="modelingKind_t" minOccurs="0"/>
+      <xs:element name="kind" type="modelingKind_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="hasKind_choice">
@@ -375,11 +527,11 @@
   </xs:group>
   <xs:group name="hasSemantics">
     <xs:sequence>
-      <xs:element name="semanticId" type="reference_t" minOccurs="0"/>
-      <xs:element name="supplementalSemanticIds" minOccurs="0">
+      <xs:element name="semanticId" type="reference_t" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="supplementalSemanticIds" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="reference" type="reference_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="reference" type="reference_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -410,7 +562,7 @@
   <xs:group name="identifiable">
     <xs:sequence>
       <xs:group ref="referable"/>
-      <xs:element name="administration" type="administrativeInformation_t" minOccurs="0"/>
+      <xs:element name="administration" type="administrativeInformation_t" minOccurs="0" maxOccurs="1"/>
       <xs:element name="id">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -451,45 +603,40 @@
       <xs:element name="text" type="xs:string"/>
     </xs:sequence>
   </xs:group>
-  <xs:group name="langStringSet">
+  <xs:group name="multiLanguageProperty">
     <xs:sequence>
-      <xs:element name="langStrings">
+      <xs:group ref="dataElement"/>
+      <xs:element name="value" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="langString" type="langString_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="multiLanguageProperty">
-    <xs:sequence>
-      <xs:group ref="dataElement"/>
-      <xs:element name="value" type="langStringSet_t" minOccurs="0"/>
-      <xs:element name="valueId" type="reference_t" minOccurs="0"/>
+      <xs:element name="valueId" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="operation">
     <xs:sequence>
       <xs:group ref="submodelElement"/>
-      <xs:element name="inputVariables" minOccurs="0">
+      <xs:element name="inputVariables" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="operationVariable" type="operationVariable_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="operationVariable" type="operationVariable_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="outputVariables" minOccurs="0">
+      <xs:element name="outputVariables" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="operationVariable" type="operationVariable_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="operationVariable" type="operationVariable_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="inoutputVariables" minOccurs="0">
+      <xs:element name="inoutputVariables" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="operationVariable" type="operationVariable_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="operationVariable" type="operationVariable_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -510,16 +657,16 @@
     <xs:sequence>
       <xs:group ref="dataElement"/>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="value" type="xs:string" minOccurs="0"/>
-      <xs:element name="valueId" type="reference_t" minOccurs="0"/>
+      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="valueId" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="qualifiable">
     <xs:sequence>
-      <xs:element name="qualifiers" minOccurs="0">
+      <xs:element name="qualifiers" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="qualifier" type="qualifier_t" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="qualifier" type="qualifier_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -547,7 +694,7 @@
   <xs:group name="qualifier">
     <xs:sequence>
       <xs:group ref="hasSemantics"/>
-      <xs:element name="kind" type="qualifierKind_t" minOccurs="0"/>
+      <xs:element name="kind" type="qualifierKind_t" minOccurs="0" maxOccurs="1"/>
       <xs:element name="type">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -556,29 +703,29 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="value" type="xs:string" minOccurs="0"/>
-      <xs:element name="valueId" type="reference_t" minOccurs="0"/>
+      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="valueId" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="range">
     <xs:sequence>
       <xs:group ref="dataElement"/>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="min" type="xs:string" minOccurs="0"/>
-      <xs:element name="max" type="xs:string" minOccurs="0"/>
+      <xs:element name="min" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="max" type="xs:string" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="referable">
     <xs:sequence>
       <xs:group ref="hasExtensions"/>
-      <xs:element name="category" minOccurs="0">
+      <xs:element name="category" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="idShort" minOccurs="0">
+      <xs:element name="idShort" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:pattern value="[a-zA-Z][a-zA-Z0-9_]+"/>
@@ -586,9 +733,21 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="displayName" type="langStringSet_t" minOccurs="0"/>
-      <xs:element name="description" type="langStringSet_t" minOccurs="0"/>
-      <xs:element name="checksum" minOccurs="0">
+      <xs:element name="displayName" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="langString" type="langString_t" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="description" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="langString" type="langString_t" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checksum" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
@@ -621,7 +780,7 @@
   <xs:group name="reference">
     <xs:sequence>
       <xs:element name="type" type="referenceTypes_t"/>
-      <xs:element name="referredSemanticId" type="reference_t" minOccurs="0"/>
+      <xs:element name="referredSemanticId" type="reference_t" minOccurs="0" maxOccurs="1"/>
       <xs:element name="keys">
         <xs:complexType>
           <xs:sequence>
@@ -634,7 +793,7 @@
   <xs:group name="referenceElement">
     <xs:sequence>
       <xs:group ref="dataElement"/>
-      <xs:element name="value" type="reference_t" minOccurs="0"/>
+      <xs:element name="value" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="relationshipElement">
@@ -660,7 +819,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="contentType" minOccurs="0">
+      <xs:element name="contentType" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:pattern value="([!#$%&amp;'*+\-.^_`|~0-9a-zA-Z])+/([!#$%&amp;'*+\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&amp;'*+\-.^_`|~0-9a-zA-Z])+=(([!#$%&amp;'*+\-.^_`|~0-9a-zA-Z])+|&quot;(([\t !#-\[\]-~]|[-ÿ])|\\([\t !-~]|[-ÿ]))*&quot;))*"/>
@@ -697,10 +856,10 @@
       <xs:group ref="hasSemantics"/>
       <xs:group ref="qualifiable"/>
       <xs:group ref="hasDataSpecification"/>
-      <xs:element name="submodelElements" minOccurs="0">
+      <xs:element name="submodelElements" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:group ref="submodelElement_choice" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="submodelElement_choice" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -718,7 +877,7 @@
   <xs:group name="submodelElementCollection">
     <xs:sequence>
       <xs:group ref="submodelElement"/>
-      <xs:element name="value" minOccurs="0">
+      <xs:element name="value" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
             <xs:group ref="submodelElement_choice" minOccurs="0" maxOccurs="unbounded"/>
@@ -730,17 +889,17 @@
   <xs:group name="submodelElementList">
     <xs:sequence>
       <xs:group ref="submodelElement"/>
-      <xs:element name="orderRelevant" type="xs:boolean" minOccurs="0"/>
-      <xs:element name="value" minOccurs="0">
+      <xs:element name="orderRelevant" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
             <xs:group ref="submodelElement_choice" minOccurs="0" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="semanticIdListElement" type="reference_t" minOccurs="0"/>
+      <xs:element name="semanticIdListElement" type="reference_t" minOccurs="0" maxOccurs="1"/>
       <xs:element name="typeValueListElement" type="aasSubmodelElements_t"/>
-      <xs:element name="valueTypeListElement" type="dataTypeDefXsd_t" minOccurs="0"/>
+      <xs:element name="valueTypeListElement" type="dataTypeDefXsd_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="submodelElement_choice">
@@ -760,6 +919,23 @@
       <xs:element name="submodelElementCollection" type="submodelElementCollection_t"/>
       <xs:element name="submodelElementList" type="submodelElementList_t"/>
     </xs:choice>
+  </xs:group>
+  <xs:group name="valueList">
+    <xs:sequence>
+      <xs:element name="valueReferencePairTypes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="valueReferencePair" type="valueReferencePair_t" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="valueReferencePair">
+    <xs:sequence>
+      <xs:element name="value" type="xs:string"/>
+      <xs:element name="valueId" type="reference_t"/>
+    </xs:sequence>
   </xs:group>
   <xs:simpleType name="aasSubmodelElements_t">
     <xs:restriction base="xs:string">
@@ -825,6 +1001,29 @@
       <xs:enumeration value="xs:negativeInteger"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="dataTypeIec61360_t">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DATE"/>
+      <xs:enumeration value="STRING"/>
+      <xs:enumeration value="STRING_TRANSLATABLE"/>
+      <xs:enumeration value="INTEGER_MEASURE"/>
+      <xs:enumeration value="INTEGER_COUNT"/>
+      <xs:enumeration value="INTEGER_CURRENCY"/>
+      <xs:enumeration value="REAL_MEASURE"/>
+      <xs:enumeration value="REAL_COUNT"/>
+      <xs:enumeration value="REAL_CURRENCY"/>
+      <xs:enumeration value="BOOLEAN"/>
+      <xs:enumeration value="IRI"/>
+      <xs:enumeration value="IRDI"/>
+      <xs:enumeration value="RATIONAL"/>
+      <xs:enumeration value="RATIONAL_MEASURE"/>
+      <xs:enumeration value="TIME"/>
+      <xs:enumeration value="TIMESTAMP"/>
+      <xs:enumeration value="FILE"/>
+      <xs:enumeration value="HTML"/>
+      <xs:enumeration value="BLOB"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="direction_t">
     <xs:restriction base="xs:string">
       <xs:enumeration value="INPUT"/>
@@ -863,6 +1062,14 @@
       <xs:enumeration value="SubmodelElement"/>
       <xs:enumeration value="SubmodelElementList"/>
       <xs:enumeration value="SubmodelElementCollection"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="levelType_t">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Min"/>
+      <xs:enumeration value="Max"/>
+      <xs:enumeration value="Nom"/>
+      <xs:enumeration value="Typ"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="modelingKind_t">
@@ -940,9 +1147,19 @@
       <xs:group ref="dataSpecificationContent"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="dataSpecification_t">
+  <xs:complexType name="dataSpecificationIec61360_t">
     <xs:sequence>
-      <xs:group ref="dataSpecification"/>
+      <xs:group ref="dataSpecificationIec61360"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dataSpecificationPhysicalUnit_t">
+    <xs:sequence>
+      <xs:group ref="dataSpecificationPhysicalUnit"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="embeddedDataSpecification_t">
+    <xs:sequence>
+      <xs:group ref="embeddedDataSpecification"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="entity_t">
@@ -1003,11 +1220,6 @@
   <xs:complexType name="key_t">
     <xs:sequence>
       <xs:group ref="key"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="langStringSet_t">
-    <xs:sequence>
-      <xs:group ref="langStringSet"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="langString_t">
@@ -1098,6 +1310,16 @@
   <xs:complexType name="submodel_t">
     <xs:sequence>
       <xs:group ref="submodel"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="valueList_t">
+    <xs:sequence>
+      <xs:group ref="valueList"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="valueReferencePair_t">
+    <xs:sequence>
+      <xs:group ref="valueReferencePair"/>
     </xs:sequence>
   </xs:complexType>
   <xs:element name="environment" type="environment_t"/>
