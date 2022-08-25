@@ -880,7 +880,7 @@
       <xs:element name="value" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:group ref="submodelElement_choice" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="submodelElement_choice" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -893,7 +893,7 @@
       <xs:element name="value" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:group ref="submodelElement_choice" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="submodelElement_choice" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -922,7 +922,7 @@
   </xs:group>
   <xs:group name="valueList">
     <xs:sequence>
-      <xs:element name="valueReferencePairTypes">
+      <xs:element name="valueReferencePairs">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="valueReferencePair" type="valueReferencePair_t" minOccurs="1" maxOccurs="unbounded"/>

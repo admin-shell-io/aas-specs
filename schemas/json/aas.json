@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "title": "AssetAdministrationShellEnvironment",
-  "$id": "http://www.admin-shell.io/schema/json/V3.0RC01",
   "type": "object",
   "allOf": [
     {
       "$ref": "#/definitions/Environment"
     }
   ],
+  "$id": "http://www.admin-shell.io/aas/3/0/RC02",
   "definitions": {
     "AasSubmodelElements": {
       "type": "string",
@@ -27,8 +27,8 @@
         "ReferenceElement",
         "RelationshipElement",
         "SubmodelElement",
-        "SubmodelElementList",
-        "SubmodelElementCollection"
+        "SubmodelElementCollection",
+        "SubmodelElementList"
       ]
     },
     "AdministrativeInformation": {
@@ -125,8 +125,8 @@
     "AssetKind": {
       "type": "string",
       "enum": [
-        "Type",
-        "Instance"
+        "Instance",
+        "Type"
       ]
     },
     "BasicEventElement": {
@@ -374,12 +374,15 @@
     "DataTypeDefXsd": {
       "type": "string",
       "enum": [
+        "xs:NonNegativeInteger",
         "xs:anyURI",
         "xs:base64Binary",
         "xs:boolean",
+        "xs:byte",
         "xs:date",
         "xs:dateTime",
         "xs:dateTimeStamp",
+        "xs:dayTimeDuration",
         "xs:decimal",
         "xs:double",
         "xs:duration",
@@ -390,47 +393,44 @@
         "xs:gYear",
         "xs:gYearMonth",
         "xs:hexBinary",
-        "xs:string",
-        "xs:time",
-        "xs:dayTimeDuration",
-        "xs:yearMonthDuration",
+        "xs:int",
         "xs:integer",
         "xs:long",
-        "xs:int",
-        "xs:short",
-        "xs:byte",
-        "xs:NonNegativeInteger",
-        "xs:positiveInteger",
-        "xs:unsignedLong",
-        "xs:unsignedInt",
-        "xs:unsignedShort",
-        "xs:unsignedByte",
+        "xs:negativeInteger",
         "xs:nonPositiveInteger",
-        "xs:negativeInteger"
+        "xs:positiveInteger",
+        "xs:short",
+        "xs:string",
+        "xs:time",
+        "xs:unsignedByte",
+        "xs:unsignedInt",
+        "xs:unsignedLong",
+        "xs:unsignedShort",
+        "xs:yearMonthDuration"
       ]
     },
     "DataTypeIEC61360": {
       "type": "string",
       "enum": [
-        "DATE",
-        "STRING",
-        "STRING_TRANSLATABLE",
-        "INTEGER_MEASURE",
-        "INTEGER_COUNT",
-        "INTEGER_CURRENCY",
-        "REAL_MEASURE",
-        "REAL_COUNT",
-        "REAL_CURRENCY",
+        "BLOB",
         "BOOLEAN",
-        "IRI",
-        "IRDI",
-        "RATIONAL",
-        "RATIONAL_MEASURE",
-        "TIME",
-        "TIMESTAMP",
+        "DATE",
         "FILE",
         "HTML",
-        "BLOB"
+        "INTEGER_COUNT",
+        "INTEGER_CURRENCY",
+        "INTEGER_MEASURE",
+        "IRDI",
+        "IRI",
+        "RATIONAL",
+        "RATIONAL_MEASURE",
+        "REAL_COUNT",
+        "REAL_CURRENCY",
+        "REAL_MEASURE",
+        "STRING",
+        "STRING_TRANSLATABLE",
+        "TIME",
+        "TIMESTAMP"
       ]
     },
     "Direction": {
@@ -696,30 +696,30 @@
     "KeyTypes": {
       "type": "string",
       "enum": [
-        "FragmentReference",
-        "GlobalReference",
         "AnnotatedRelationshipElement",
         "AssetAdministrationShell",
         "BasicEventElement",
         "Blob",
         "Capability",
         "ConceptDescription",
-        "Identifiable",
         "DataElement",
         "Entity",
         "EventElement",
         "File",
+        "FragmentReference",
+        "GlobalReference",
+        "Identifiable",
         "MultiLanguageProperty",
         "Operation",
         "Property",
         "Range",
-        "ReferenceElement",
         "Referable",
+        "ReferenceElement",
         "RelationshipElement",
         "Submodel",
         "SubmodelElement",
-        "SubmodelElementList",
-        "SubmodelElementCollection"
+        "SubmodelElementCollection",
+        "SubmodelElementList"
       ]
     },
     "LangString": {
@@ -741,8 +741,8 @@
     "LevelType": {
       "type": "string",
       "enum": [
-        "Min",
         "Max",
+        "Min",
         "Nom",
         "Typ"
       ]
@@ -750,32 +750,32 @@
     "ModelType": {
       "type": "string",
       "enum": [
-        "AssetAdministrationShell",
-        "Submodel",
-        "RelationshipElement",
-        "SubmodelElementList",
-        "SubmodelElementCollection",
-        "Property",
-        "MultiLanguageProperty",
-        "Range",
-        "ReferenceElement",
-        "Blob",
-        "File",
         "AnnotatedRelationshipElement",
-        "Entity",
+        "AssetAdministrationShell",
         "BasicEventElement",
-        "Operation",
+        "Blob",
         "Capability",
         "ConceptDescription",
         "DataSpecificationIEC61360",
-        "DataSpecificationPhysicalUnit"
+        "DataSpecificationPhysicalUnit",
+        "Entity",
+        "File",
+        "MultiLanguageProperty",
+        "Operation",
+        "Property",
+        "Range",
+        "ReferenceElement",
+        "RelationshipElement",
+        "Submodel",
+        "SubmodelElementCollection",
+        "SubmodelElementList"
       ]
     },
     "ModelingKind": {
       "type": "string",
       "enum": [
-        "Template",
-        "Instance"
+        "Instance",
+        "Template"
       ]
     },
     "MultiLanguageProperty": {
@@ -917,9 +917,9 @@
     "QualifierKind": {
       "type": "string",
       "enum": [
-        "ValueQualifier",
         "ConceptQualifier",
-        "TemplateQualifier"
+        "TemplateQualifier",
+        "ValueQualifier"
       ]
     },
     "Range": {
@@ -1101,8 +1101,8 @@
     "StateOfEvent": {
       "type": "string",
       "enum": [
-        "ON",
-        "OFF"
+        "OFF",
+        "ON"
       ]
     },
     "Submodel": {
@@ -1165,7 +1165,8 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/SubmodelElement"
-              }
+              },
+              "minItems": 1
             }
           }
         }
@@ -1185,7 +1186,8 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/SubmodelElement"
-              }
+              },
+              "minItems": 1
             },
             "semanticIdListElement": {
               "$ref": "#/definitions/Reference"
@@ -1206,7 +1208,7 @@
     "ValueList": {
       "type": "object",
       "properties": {
-        "valueReferencePairTypes": {
+        "valueReferencePairs": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ValueReferencePair"
@@ -1215,7 +1217,7 @@
         }
       },
       "required": [
-        "valueReferencePairTypes"
+        "valueReferencePairs"
       ]
     },
     "ValueReferencePair": {
