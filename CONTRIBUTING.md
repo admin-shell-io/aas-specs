@@ -83,8 +83,6 @@ Major changes must first be reviewed and approved by the joint working group "As
 [Platform Industrie 4.0]: http://www.plattform-i40.de
 [IDTA]: https://industrialdigitaltwin.org/
 
-## Merge into Master Branch
-
 After the approval the pull request can be merged into the repository. This is done by one of the maintainers.
 
 
