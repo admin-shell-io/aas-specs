@@ -1,4 +1,4 @@
-# This is a Draft of the aas-specs V3.0 RC02
+# This is the repository of definition of the Asset Administration Shell V3.0 RC02
 
 [![Check](
 https://github.com/admin-shell-io/aas-specs/workflows/Check/badge.svg
@@ -10,8 +10,6 @@ https://licensebuttons.net/l/by/4.0/88x31.png
 )](
 https://creativecommons.org/licenses/by/4.0/
 )
-
-**The files provided here are for review purposes only and are not intended for productive use.**
 
 This repository contains the specifications of the Asset Administration Shell, including the schemas of the serializations, the rules applied, how the specification is mapped into the serializations, and examples of how to use the schemas.
 
