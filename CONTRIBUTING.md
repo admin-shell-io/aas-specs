@@ -1,6 +1,6 @@
 # Contributing
 
-The specification of [Asset Administration Shell - Part 1] is an official publication of the joint working group of the [Platform Industrie 4.0] and [IDTA].
+The specification of [Asset Administration Shell - Part 1] is an official publication of the joint working group "Asset Administration Shell" of the [Platform Industrie 4.0] and [IDTA].
 The specification and schema definition, including application examples in the aas-spec repository must be particularly compliant with this.
 However, we invite the community to review, report and fix the specification and schema definitions, including application examples. 
 Therefore, we demand a defined procedure for the contribution in this repository.
@@ -77,45 +77,14 @@ For the present development, however, this is not enforced.
 All changes must be **reviewed** and **approved**.
 
 Minor changes (simple failures, typos, *etc.*) and additional content (more examples, etc.) can be accepted straight away after a brief review by the responsible reviewers.
-In order to indicate the change, the reviewers in charge must be added to the pull request.
 
-The responsible reviewers are:
-
-| Topic | Path | Reviewer |
-| -------------------- | --------------- | ------------------------- |
-| JSON                 | [schemas/json/] | [@Manu3756] [@mristin] |
-| RDF                  | [schemas/rdf/]  | [@changqin26] [@mristin] |
-| XML                  | [schemas/xml/]  | [@mristin] [@g1zzm0] |
-| XMI                  | [schemas/xmi/]  | [@BirgitBoss]             |
-| aas-specs repository | [aas-specs/]    | [@mristin] [@BirgitBoss] |
-
-[schemas/json/]: https://github.com/admin-shell-io/aas-specs/tree/master/schemas/json
-[schemas/rdf/]: https://github.com/admin-shell-io/aas-specs/tree/master/schemas/rdf
-[schemas/xml/]: https://github.com/admin-shell-io/aas-specs/tree/master/schemas/xml
-[schemas/xmi/]: https://github.com/admin-shell-io/aas-specs/tree/master/schemas/xmi
-[aas-specs/]: https://github.com/admin-shell-io/aas-specs
-
-[@Manu3756]: https://github.com/Manu3756
-[@changqin26]: https://github.com/changqin26
-[@BirgitBoss]: https://github.com/BirgitBoss
-[@mristin]: https://github.com/mristin
-[@g1zzm0]:https://github.com/g1zzm0
-
-Major changes must first be reviewed and approved by the joint working group `Asset Administration Shell` of the [Platform Industrie 4.0] and [IDTA].
+Major changes must first be reviewed and approved by the joint working group "Asset Administration Shell" of the [Platform Industrie 4.0] and [IDTA].
 
 [Platform Industrie 4.0]: http://www.plattform-i40.de
 [IDTA]: https://industrialdigitaltwin.org/
 
-## Merge into Master Branch
+After the approval the pull request can be merged into the repository. This is done by one of the maintainers.
 
-After the approval the pull request can be merged into the repository.
-Therefore, an assignee with the ability to merge into the main branch has to be notified by adding it to the pull request.
-Those assignees are:
-- [@mristin]
-- [@BirgitBoss]
-- [@aorzelskiGH]
-
-[@aorzelskiGH]: https://github.com/aorzelskiGH
 
 ## Post-Merge Cleanup
 **Congratulation.**
