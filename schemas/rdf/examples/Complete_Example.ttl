@@ -170,7 +170,7 @@
                 <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "DigitalFile_PDF"^^xs:string ;
                 <http://www.admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xs:string ;
                 <http://www.admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
-                rdf:type aas:Reference ;
+                    rdf:type aas:Reference ;
                     <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
                     <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
                     rdf:type aas:Key ;
@@ -178,6 +178,15 @@
                     <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/escription/Title"^^xs:string ;
                     ]
                 ] ;
+                <http://www.admin-shell.io/aas/3/0/RC02/HasKind/kind> <http://www.admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+            ];
+            <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementCollection/value> [
+                rdf:type aas:Blob ;
+                rdfs:label "Blob"^^xs:string ;
+                <http://www.admin-shell.io/aas/3/0/RC02/Blob/contentType>  "text/plain" ;
+                <http://www.admin-shell.io/aas/3/0/RC02/Blob/value> "VGhpcyBpcyBhIGJsb2Iu"^^xs:base64Binary ;
+                <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "ExampleBlob"^^xs:string ;
+                <http://www.admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xs:string ;
                 <http://www.admin-shell.io/aas/3/0/RC02/HasKind/kind> <http://www.admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
             ];
         ] ;

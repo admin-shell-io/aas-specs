@@ -176,7 +176,8 @@ aas:BlobShape a sh:NodeShape ;
     sh:property [
         a sh:PropertyShape ;
         sh:path <http://www.admin-shell.io/aas/3/0/RC02/Blob/value> ;
-        sh:datatype xs:byte ;
+        sh:datatype xs:base64Binary ;
+        sh:pattern "^(?:[A-Za-z0-9/]{4})*(?:[A-Za-z0-9/]{3}=|[A-Za-z0-9/]{2}==)?$"^^xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;

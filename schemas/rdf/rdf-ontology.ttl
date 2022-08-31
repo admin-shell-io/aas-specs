@@ -341,7 +341,7 @@ aas:Blob rdf:type owl:Class ;
 <http://www.admin-shell.io/aas/3/0/RC02/Blob/value> rdf:type owl:DatatypeProperty ;
     rdfs:label "has value"^^xs:string ;
     rdfs:domain aas:Blob ;
-    rdfs:range xs:byte ;
+    rdfs:range xs:base64Binary ;
     rdfs:comment "The value of the 'Blob' instance of a blob data element."@en ;
 .
 
