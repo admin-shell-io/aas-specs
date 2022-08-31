@@ -1,20 +1,18 @@
-@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
-@prefix iec61360: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/3/0/RC02/> .
-@prefix phys_unit: <https://admin-shell.io/DataSpecificationTemplates/DataSpecificationPhysicalUnit/3/0/RC02/> .
+@prefix aas: <http://www.admin-shell.io/aas/3/0/RC02/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
 
 # Metadata
-<https://admin-shell.io/aas/3/0/RC02/> a owl:Ontology ;
+<http://www.admin-shell.io/aas/3/0/RC02/> a owl:Ontology ;
     owl:imports <http://datashapes.org/dash> ;
     owl:imports sh: ;
     sh:declare [
         a sh:PrefixDeclaration ;
-        sh:namespace "https://admin-shell.io/aas/3/0/RC02/"^^xsd:anyURI ;
-        sh:prefix "aas"^^xsd:string ;
+        sh:namespace "http://www.admin-shell.io/aas/3/0/RC02/"^^xs:anyURI ;
+        sh:prefix "aas"^^xs:string ;
     ] ;
 .
 
@@ -23,16 +21,16 @@ aas:AdministrativeInformationShape a sh:NodeShape ;
     rdfs:subClassOf aas:HasDataSpecificationShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/AdministrativeInformation/version> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/AdministrativeInformation/version> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/AdministrativeInformation/revision> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/AdministrativeInformation/revision> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
@@ -44,7 +42,7 @@ aas:AnnotatedRelationshipElementShape a sh:NodeShape ;
     rdfs:subClassOf aas:RelationshipElementShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/AnnotatedRelationshipElement/annotation> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/AnnotatedRelationshipElement/annotations> ;
         sh:class aas:DataElement ;
         sh:minCount 0 ;
     ] ;
@@ -56,23 +54,23 @@ aas:AssetAdministrationShellShape a sh:NodeShape ;
     rdfs:subClassOf aas:HasDataSpecificationShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/assetInformation> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/derivedFrom> ;
+        sh:class aas:Reference ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/assetInformation> ;
         sh:class aas:AssetInformation ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodels> ;
-        sh:class aas:ModelReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodels> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
-    ] ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/derivedFrom> ;
-        sh:class aas:ModelReference ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
     ] ;
 .
 
@@ -80,28 +78,27 @@ aas:AssetInformationShape a sh:NodeShape ;
     sh:targetClass aas:AssetInformation ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/AssetInformation/assetKind> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/AssetInformation/assetKind> ;
         sh:class aas:AssetKind ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/AssetInformation/globalAssetId> ;
-        sh:class aas:GlobalReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/AssetInformation/globalAssetId> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/AssetInformation/specificAssetId> ;
-        sh:class aas:IdentifierKeyValuePair ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/AssetInformation/specificAssetIds> ;
+        sh:class aas:SpecificAssetId ;
         sh:minCount 0 ;
-        sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/AssetInformation/defaultThumbnail> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/AssetInformation/defaultThumbnail> ;
         sh:class aas:Resource ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
@@ -113,60 +110,60 @@ aas:BasicEventElementShape a sh:NodeShape ;
     rdfs:subClassOf aas:EventElementShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/observed> ;
-        sh:class aas:ModelReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/BasicEventElement/observed> ;
+        sh:class aas:Reference ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/direction> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/BasicEventElement/direction> ;
         sh:class aas:Direction ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/state> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/BasicEventElement/state> ;
         sh:class aas:StateOfEvent ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/messageTopic> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/BasicEventElement/messageTopic> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/messageBroker> ;
-        sh:class aas:ModelReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/BasicEventElement/messageBroker> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/lastUpdate> ;
-        sh:datatype xsd:string ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
-        sh:pattern "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$" ;
-    ] ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/minInterval> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/BasicEventElement/lastUpdate> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:pattern "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$" ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/maxInterval> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/BasicEventElement/minInterval> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:pattern "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$" ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/BasicEventElement/maxInterval> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:pattern "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$" ;
@@ -178,19 +175,19 @@ aas:BlobShape a sh:NodeShape ;
     rdfs:subClassOf aas:DataElementShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Blob/mimeType> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Blob/value> ;
+        sh:datatype xs:byte ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Blob/contentType> ;
+        sh:datatype xs:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
         sh:pattern "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ 	]*;[ 	]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([	 !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([	 !-~]|[\\x80-\\xff]))*\"))*$" ;
-    ] ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Blob/value> ;
-        sh:datatype xsd:byte ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
     ] ;
 .
 
@@ -205,8 +202,8 @@ aas:ConceptDescriptionShape a sh:NodeShape ;
     rdfs:subClassOf aas:HasDataSpecificationShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/ConceptDescription/isCaseOf> ;
-        sh:class aas:GlobalReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/ConceptDescription/isCaseOf> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
     ] ;
 .
@@ -216,7 +213,7 @@ aas:DataElementShape a sh:NodeShape ;
     rdfs:subClassOf aas:SubmodelElementShape ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "(DataElementShape): An aas:DataElement is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+        sh:message "(DataElementShape): An aas:DataElement is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
         sh:prefixes aas: ;
         sh:select """
             SELECT ?this ?type
@@ -228,33 +225,264 @@ aas:DataElementShape a sh:NodeShape ;
     ] ;
 .
 
-aas:EntityShape a sh:NodeShape ;
-    sh:targetClass aas:Entity ;
-    rdfs:subClassOf aas:SubmodelElementShape ;
+aas:DataSpecificationContentShape a sh:NodeShape ;
+    sh:targetClass aas:DataSpecificationContent ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "(DataSpecificationContentShape): An aas:DataSpecificationContent is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
+        sh:prefixes aas: ;
+        sh:select """
+            SELECT ?this ?type
+            WHERE {
+                ?this rdf:type ?type .
+                FILTER (?type = aas:DataSpecificationContent)
+            }
+        """ ;
+    ] ;
+.
+
+aas:DataSpecificationIEC61360Shape a sh:NodeShape ;
+    sh:targetClass aas:DataSpecificationIEC61360 ;
+    rdfs:subClassOf aas:DataSpecificationContentShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Entity/entityType> ;
-        sh:class aas:EntityType ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> ;
+        sh:class aas:LangString ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Entity/statements> ;
-        sh:class aas:SubmodelElement ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/shortName> ;
+        sh:class aas:LangString ;
         sh:minCount 0 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Entity/globalAssetId> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unit> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unitId> ;
         sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Entity/specificAssetId> ;
-        sh:class aas:IdentifierKeyValuePair ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/sourceOfDefinition> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/symbol> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> ;
+        sh:class aas:DataTypeIEC61360 ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> ;
+        sh:class aas:LangString ;
+        sh:minCount 0 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/valueFormat> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/valueList> ;
+        sh:class aas:ValueList ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/value> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/levelType> ;
+        sh:class aas:LevelType ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+.
+
+aas:DataSpecificationPhysicalUnitShape a sh:NodeShape ;
+    sh:targetClass aas:DataSpecificationPhysicalUnit ;
+    rdfs:subClassOf aas:DataSpecificationContentShape ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/unitName> ;
+        sh:datatype xs:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/unitSymbol> ;
+        sh:datatype xs:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/definition> ;
+        sh:class aas:LangString ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/siNotation> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/siName> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/dinNotation> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/eceName> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/eceCode> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/nistName> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/sourceOfDefinition> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/conversionFactor> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/registrationAuthorityId> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/supplier> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+.
+
+aas:EmbeddedDataSpecificationShape a sh:NodeShape ;
+    sh:targetClass aas:EmbeddedDataSpecification ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> ;
+        sh:class aas:Reference ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> ;
+        sh:class aas:DataSpecificationContent ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+.
+
+aas:EntityShape a sh:NodeShape ;
+    sh:targetClass aas:Entity ;
+    rdfs:subClassOf aas:SubmodelElementShape ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Entity/statements> ;
+        sh:class aas:SubmodelElement ;
+        sh:minCount 0 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Entity/entityType> ;
+        sh:class aas:EntityType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Entity/globalAssetId> ;
+        sh:class aas:Reference ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Entity/specificAssetId> ;
+        sh:class aas:SpecificAssetId ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
@@ -264,19 +492,19 @@ aas:EnvironmentShape a sh:NodeShape ;
     sh:targetClass aas:Environment ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Environment/assetAdministrationShells> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Environment/assetAdministrationShells> ;
         sh:class aas:AssetAdministrationShell ;
         sh:minCount 0 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Environment/submodels> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Environment/submodels> ;
         sh:class aas:Submodel ;
         sh:minCount 0 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Environment/conceptDescriptions> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Environment/conceptDescriptions> ;
         sh:class aas:ConceptDescription ;
         sh:minCount 0 ;
     ] ;
@@ -287,7 +515,7 @@ aas:EventElementShape a sh:NodeShape ;
     rdfs:subClassOf aas:SubmodelElementShape ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "(EventElementShape): An aas:EventElement is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+        sh:message "(EventElementShape): An aas:EventElement is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
         sh:prefixes aas: ;
         sh:select """
             SELECT ?this ?type
@@ -303,59 +531,59 @@ aas:EventPayloadShape a sh:NodeShape ;
     sh:targetClass aas:EventPayload ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/EventPayload/source> ;
-        sh:class aas:ModelReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/EventPayload/source> ;
+        sh:class aas:Reference ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/EventPayload/sourceSemanticId> ;
-        sh:class aas:GlobalReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/EventPayload/sourceSemanticId> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/EventPayload/observableReference> ;
-        sh:class aas:ModelReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/EventPayload/observableReference> ;
+        sh:class aas:Reference ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/EventPayload/observableSemanticId> ;
-        sh:class aas:GlobalReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/EventPayload/observableSemanticId> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/EventPayload/topic> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/EventPayload/topic> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/EventPayload/subjectId> ;
-        sh:class aas:GlobalReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/EventPayload/subjectId> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/EventPayload/timeStamp> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/EventPayload/timeStamp> ;
+        sh:datatype xs:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:pattern "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$" ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/EventPayload/payload> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/EventPayload/payload> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
@@ -367,30 +595,30 @@ aas:ExtensionShape a sh:NodeShape ;
     rdfs:subClassOf aas:HasSemanticsShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Extension/name> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Extension/name> ;
+        sh:datatype xs:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Extension/valueType> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Extension/valueType> ;
         sh:class aas:DataTypeDefXsd ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Extension/value> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Extension/value> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Extension/refersTo> ;
-        sh:class aas:ModelReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Extension/refersTo> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
@@ -401,34 +629,21 @@ aas:FileShape a sh:NodeShape ;
     rdfs:subClassOf aas:DataElementShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/File/contentType> ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:minLength 1 ;
-        sh:pattern "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ 	]*;[ 	]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([	 !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([	 !-~]|[\\x80-\\xff]))*\"))*$" ;
-    ] ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/File/value> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/File/value> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
         sh:pattern "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$" ;
     ] ;
-.
-
-aas:GlobalReferenceShape a sh:NodeShape ;
-    sh:targetClass aas:GlobalReference ;
-    rdfs:subClassOf aas:ReferenceShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/GlobalReference/value> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/File/contentType> ;
+        sh:datatype xs:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
+        sh:pattern "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ 	]*;[ 	]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([	 !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([	 !-~]|[\\x80-\\xff]))*\"))*$" ;
     ] ;
 .
 
@@ -436,7 +651,7 @@ aas:HasDataSpecificationShape a sh:NodeShape ;
     sh:targetClass aas:HasDataSpecification ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "(HasDataSpecificationShape): An aas:HasDataSpecification is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+        sh:message "(HasDataSpecificationShape): An aas:HasDataSpecification is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
         sh:prefixes aas: ;
         sh:select """
             SELECT ?this ?type
@@ -448,8 +663,8 @@ aas:HasDataSpecificationShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/dataSpecifications> ;
-        sh:class aas:GlobalReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications> ;
+        sh:class aas:EmbeddedDataSpecification ;
         sh:minCount 0 ;
     ] ;
 .
@@ -458,7 +673,7 @@ aas:HasExtensionsShape a sh:NodeShape ;
     sh:targetClass aas:HasExtensions ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "(HasExtensionsShape): An aas:HasExtensions is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+        sh:message "(HasExtensionsShape): An aas:HasExtensions is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
         sh:prefixes aas: ;
         sh:select """
             SELECT ?this ?type
@@ -470,7 +685,7 @@ aas:HasExtensionsShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/HasExtensions/extensions> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/HasExtensions/extensions> ;
         sh:class aas:Extension ;
         sh:minCount 0 ;
     ] ;
@@ -480,7 +695,7 @@ aas:HasKindShape a sh:NodeShape ;
     sh:targetClass aas:HasKind ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "(HasKindShape): An aas:HasKind is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+        sh:message "(HasKindShape): An aas:HasKind is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
         sh:prefixes aas: ;
         sh:select """
             SELECT ?this ?type
@@ -492,7 +707,7 @@ aas:HasKindShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/HasKind/kind> ;
         sh:class aas:ModelingKind ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
@@ -503,7 +718,7 @@ aas:HasSemanticsShape a sh:NodeShape ;
     sh:targetClass aas:HasSemantics ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "(HasSemanticsShape): An aas:HasSemantics is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+        sh:message "(HasSemanticsShape): An aas:HasSemantics is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
         sh:prefixes aas: ;
         sh:select """
             SELECT ?this ?type
@@ -515,10 +730,16 @@ aas:HasSemanticsShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> ;
-        sh:class aas:GlobalReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/HasSemantics/supplementalSemanticIds> ;
+        sh:class aas:Reference ;
+        sh:minCount 0 ;
     ] ;
 .
 
@@ -527,7 +748,7 @@ aas:IdentifiableShape a sh:NodeShape ;
     rdfs:subClassOf aas:ReferableShape ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "(IdentifiableShape): An aas:Identifiable is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+        sh:message "(IdentifiableShape): An aas:Identifiable is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
         sh:prefixes aas: ;
         sh:select """
             SELECT ?this ?type
@@ -539,46 +760,18 @@ aas:IdentifiableShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:minLength 1 ;
-    ] ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Identifiable/administration> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Identifiable/administration> ;
         sh:class aas:AdministrativeInformation ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
-.
-
-aas:IdentifierKeyValuePairShape a sh:NodeShape ;
-    sh:targetClass aas:IdentifierKeyValuePair ;
-    rdfs:subClassOf aas:HasSemanticsShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/IdentifierKeyValuePair/key> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Identifiable/id> ;
+        sh:datatype xs:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
-    ] ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/IdentifierKeyValuePair/value> ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:minLength 1 ;
-    ] ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/IdentifierKeyValuePair/externalSubjectId> ;
-        sh:class aas:GlobalReference ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
     ] ;
 .
 
@@ -586,15 +779,15 @@ aas:KeyShape a sh:NodeShape ;
     sh:targetClass aas:Key ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Key/type> ;
-        sh:class aas:KeyElements ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Key/type> ;
+        sh:class aas:KeyTypes ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Key/value> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Key/value> ;
+        sh:datatype xs:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
@@ -605,45 +798,17 @@ aas:LangStringShape a sh:NodeShape ;
     sh:targetClass aas:LangString ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/LangString/language> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/LangString/language> ;
+        sh:datatype xs:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:pattern "^(([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){2})?|[a-zA-Z]{4}|[a-zA-Z]{5,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){1,8})+)?|[xX](-([a-zA-Z0-9]){1,8})+|((en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang)))$" ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/LangString/text> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/LangString/text> ;
+        sh:datatype xs:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-.
-
-aas:LangStringSetShape a sh:NodeShape ;
-    sh:targetClass aas:LangStringSet ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/LangStringSet/langStrings> ;
-        sh:class aas:LangString ;
-        sh:minCount 1 ;
-    ] ;
-.
-
-aas:ModelReferenceShape a sh:NodeShape ;
-    sh:targetClass aas:ModelReference ;
-    rdfs:subClassOf aas:ReferenceShape ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/ModelReference/keys> ;
-        sh:class aas:Key ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/ModelReference/referredSemanticId> ;
-        sh:class aas:GlobalReference ;
-        sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
 .
@@ -653,15 +818,14 @@ aas:MultiLanguagePropertyShape a sh:NodeShape ;
     rdfs:subClassOf aas:DataElementShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/MultiLanguageProperty/value> ;
-        sh:class aas:LangStringSet ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/MultiLanguageProperty/value> ;
+        sh:class aas:LangString ;
         sh:minCount 0 ;
-        sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/MultiLanguageProperty/valueId> ;
-        sh:class aas:GlobalReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/MultiLanguageProperty/valueId> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
@@ -672,19 +836,19 @@ aas:OperationShape a sh:NodeShape ;
     rdfs:subClassOf aas:SubmodelElementShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Operation/inputVariables> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Operation/inputVariables> ;
         sh:class aas:OperationVariable ;
         sh:minCount 0 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Operation/outputVariables> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Operation/outputVariables> ;
         sh:class aas:OperationVariable ;
         sh:minCount 0 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Operation/inoutputVariables> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Operation/inoutputVariables> ;
         sh:class aas:OperationVariable ;
         sh:minCount 0 ;
     ] ;
@@ -694,7 +858,7 @@ aas:OperationVariableShape a sh:NodeShape ;
     sh:targetClass aas:OperationVariable ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/OperationVariable/value> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/OperationVariable/value> ;
         sh:class aas:SubmodelElement ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
@@ -706,22 +870,22 @@ aas:PropertyShape a sh:NodeShape ;
     rdfs:subClassOf aas:DataElementShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Property/valueType> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Property/valueType> ;
         sh:class aas:DataTypeDefXsd ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Property/value> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Property/value> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Property/valueId> ;
-        sh:class aas:GlobalReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Property/valueId> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
@@ -731,7 +895,7 @@ aas:QualifiableShape a sh:NodeShape ;
     sh:targetClass aas:Qualifiable ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "(QualifiableShape): An aas:Qualifiable is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+        sh:message "(QualifiableShape): An aas:Qualifiable is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
         sh:prefixes aas: ;
         sh:select """
             SELECT ?this ?type
@@ -743,7 +907,7 @@ aas:QualifiableShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Qualifiable/qualifiers> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Qualifiable/qualifiers> ;
         sh:class aas:Qualifier ;
         sh:minCount 0 ;
     ] ;
@@ -754,30 +918,37 @@ aas:QualifierShape a sh:NodeShape ;
     rdfs:subClassOf aas:HasSemanticsShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Qualifier/type> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Qualifier/kind> ;
+        sh:class aas:QualifierKind ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Qualifier/type> ;
+        sh:datatype xs:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Qualifier/valueType> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Qualifier/valueType> ;
         sh:class aas:DataTypeDefXsd ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Qualifier/value> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Qualifier/value> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Qualifier/valueId> ;
-        sh:class aas:GlobalReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Qualifier/valueId> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
@@ -788,22 +959,22 @@ aas:RangeShape a sh:NodeShape ;
     rdfs:subClassOf aas:DataElementShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Range/valueType> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Range/valueType> ;
         sh:class aas:DataTypeDefXsd ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Range/min> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Range/min> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Range/max> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Range/max> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
@@ -814,7 +985,7 @@ aas:ReferableShape a sh:NodeShape ;
     rdfs:subClassOf aas:HasExtensionsShape ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "(ReferableShape): An aas:Referable is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+        sh:message "(ReferableShape): An aas:Referable is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
         sh:prefixes aas: ;
         sh:select """
             SELECT ?this ?type
@@ -826,39 +997,37 @@ aas:ReferableShape a sh:NodeShape ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Referable/category> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> ;
+        sh:datatype xs:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
         sh:maxLength 128 ;
+        sh:pattern "^[a-zA-Z][a-zA-Z0-9_]+$" ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Referable/displayName> ;
-        sh:class aas:LangStringSet ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Referable/displayName> ;
+        sh:class aas:LangString ;
         sh:minCount 0 ;
-        sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Referable/category> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Referable/description> ;
+        sh:class aas:LangString ;
         sh:minCount 0 ;
-        sh:maxCount 1 ;
-        sh:minLength 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Referable/description> ;
-        sh:class aas:LangStringSet ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Referable/checksum> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Referable/checksum> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
@@ -867,17 +1036,25 @@ aas:ReferableShape a sh:NodeShape ;
 
 aas:ReferenceShape a sh:NodeShape ;
     sh:targetClass aas:Reference ;
-    sh:sparql [
-        a sh:SPARQLConstraint ;
-        sh:message "(ReferenceShape): An aas:Reference is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-        sh:prefixes aas: ;
-        sh:select """
-            SELECT ?this ?type
-            WHERE {
-                ?this rdf:type ?type .
-                FILTER (?type = aas:Reference)
-            }
-        """ ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> ;
+        sh:class aas:ReferenceTypes ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Reference/referredSemanticId> ;
+        sh:class aas:Reference ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> ;
+        sh:class aas:Key ;
+        sh:minCount 1 ;
     ] ;
 .
 
@@ -886,7 +1063,7 @@ aas:ReferenceElementShape a sh:NodeShape ;
     rdfs:subClassOf aas:DataElementShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/ReferenceElement/value> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/ReferenceElement/value> ;
         sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
@@ -896,28 +1073,16 @@ aas:ReferenceElementShape a sh:NodeShape ;
 aas:RelationshipElementShape a sh:NodeShape ;
     sh:targetClass aas:RelationshipElement ;
     rdfs:subClassOf aas:SubmodelElementShape ;
-    sh:sparql [
-        a sh:SPARQLConstraint ;
-        sh:message "(RelationshipElementShape): An aas:RelationshipElement is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
-        sh:prefixes aas: ;
-        sh:select """
-            SELECT ?this ?type
-            WHERE {
-                ?this rdf:type ?type .
-                FILTER (?type = aas:RelationshipElement)
-            }
-        """ ;
-    ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/RelationshipElement/first> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/RelationshipElement/first> ;
         sh:class aas:Reference ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/RelationshipElement/second> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/RelationshipElement/second> ;
         sh:class aas:Reference ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
@@ -928,19 +1093,49 @@ aas:ResourceShape a sh:NodeShape ;
     sh:targetClass aas:Resource ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Resource/path> ;
-        sh:class aas:AssetKind ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Resource/path> ;
+        sh:datatype xs:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
+        sh:minLength 1 ;
+        sh:pattern "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$" ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Resource/contentType> ;
-        sh:datatype xsd:string ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Resource/contentType> ;
+        sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
         sh:pattern "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ 	]*;[ 	]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([	 !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([	 !-~]|[\\x80-\\xff]))*\"))*$" ;
+    ] ;
+.
+
+aas:SpecificAssetIdShape a sh:NodeShape ;
+    sh:targetClass aas:SpecificAssetId ;
+    rdfs:subClassOf aas:HasSemanticsShape ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/SpecificAssetId/name> ;
+        sh:datatype xs:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/SpecificAssetId/value> ;
+        sh:datatype xs:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:minLength 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/SpecificAssetId/externalSubjectId> ;
+        sh:class aas:Reference ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
     ] ;
 .
 
@@ -953,7 +1148,7 @@ aas:SubmodelShape a sh:NodeShape ;
     rdfs:subClassOf aas:HasDataSpecificationShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElements> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/Submodel/submodelElements> ;
         sh:class aas:SubmodelElement ;
         sh:minCount 0 ;
     ] ;
@@ -968,7 +1163,7 @@ aas:SubmodelElementShape a sh:NodeShape ;
     rdfs:subClassOf aas:HasDataSpecificationShape ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "(SubmodelElementShape): An aas:SubmodelElement is a abstract class. Please use one of the subclasses for the generation of instances."@en ;
+        sh:message "(SubmodelElementShape): An aas:SubmodelElement is an abstract class. Please use one of the subclasses for the generation of instances."@en ;
         sh:prefixes aas: ;
         sh:select """
             SELECT ?this ?type
@@ -980,52 +1175,80 @@ aas:SubmodelElementShape a sh:NodeShape ;
     ] ;
 .
 
+aas:SubmodelElementCollectionShape a sh:NodeShape ;
+    sh:targetClass aas:SubmodelElementCollection ;
+    rdfs:subClassOf aas:SubmodelElementShape ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementCollection/value> ;
+        sh:class aas:SubmodelElement ;
+        sh:minCount 0 ;
+    ] ;
+.
+
 aas:SubmodelElementListShape a sh:NodeShape ;
     sh:targetClass aas:SubmodelElementList ;
     rdfs:subClassOf aas:SubmodelElementShape ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/typeValueListElement> ;
-        sh:class aas:SubmodelElementElements ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/orderRelevant> ;
-        sh:datatype xsd:boolean ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementList/orderRelevant> ;
+        sh:datatype xs:boolean ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> ;
         sh:class aas:SubmodelElement ;
         sh:minCount 0 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdListElement> ;
-        sh:class aas:GlobalReference ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdListElement> ;
+        sh:class aas:Reference ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/valueTypeListElement> ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementList/typeValueListElement> ;
+        sh:class aas:AasSubmodelElements ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementList/valueTypeListElement> ;
         sh:class aas:DataTypeDefXsd ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
 .
 
-aas:SubmodelElementStructShape a sh:NodeShape ;
-    sh:targetClass aas:SubmodelElementStruct ;
-    rdfs:subClassOf aas:SubmodelElementShape ;
+aas:ValueListShape a sh:NodeShape ;
+    sh:targetClass aas:ValueList ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/RC02/SubmodelElementStruct/value> ;
-        sh:class aas:SubmodelElement ;
-        sh:minCount 0 ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/ValueList/valueReferencePairs> ;
+        sh:class aas:ValueReferencePair ;
+        sh:minCount 1 ;
+    ] ;
+.
+
+aas:ValueReferencePairShape a sh:NodeShape ;
+    sh:targetClass aas:ValueReferencePair ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/ValueReferencePair/value> ;
+        sh:datatype xs:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path <http://www.admin-shell.io/aas/3/0/RC02/ValueReferencePair/valueId> ;
+        sh:class aas:Reference ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
     ] ;
 .
