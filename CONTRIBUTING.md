@@ -77,6 +77,7 @@ For the present development, however, this is not enforced.
 All changes must be **reviewed** and **approved**.
 
 Minor changes (simple failures, typos, *etc.*) and additional content (more examples, etc.) can be accepted straight away after a brief review by the responsible reviewers.
+
 In order to indicate the change, the reviewers in charge must be added to the pull request.
 
 The responsible reviewers are:
@@ -115,7 +116,6 @@ Those assignees are:
 - [@BirgitBoss]
 - [@aorzelskiGH]
 
-[@aorzelskiGH]: https://github.com/aorzelskiGH
 
 ## Post-Merge Cleanup
 **Congratulation.**
