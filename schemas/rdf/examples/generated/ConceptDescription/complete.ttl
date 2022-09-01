@@ -1,0 +1,49 @@
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+
+<something_random_7d1e962e> rdf:type aas:ConceptDescription ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "something_random_7d1e962e"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/HasExtensions/extensions> [
+        rdf:type aas:Extension ;
+        <https://admin-shell.io/aas/3/0/RC02/Extension/name> "something_random_afaf8967"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/RC02/Extension/valueType> <https://admin-shell.io/aas/3/0/RC02/DataTypeDefXsd/Boolean> ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/category> "DOCUMENT"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Z0"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/displayName> "something_random_124dc54e"@en ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/description> "something_random_73d204bb"@en ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/checksum> "something_random_3362add6"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/administration> [
+        rdf:type aas:AdministrativeInformation ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications> [
+        rdf:type aas:EmbeddedDataSpecification ;
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+            rdf:type aas:Reference ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
+                rdf:type aas:Key ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/value> "something_random_864c4521"^^xs:string ;
+            ] ;
+        ] ;
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
+            rdf:type aas:DataSpecificationPhysicalUnit ;
+            <https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/unitName> "something_random_48a11858"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/unitSymbol> "something_random_b87f12c4"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/definition> "something_random_e863743d"@en ;
+        ] ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/ConceptDescription/isCaseOf> [
+        rdf:type aas:Reference ;
+        <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+        <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
+            rdf:type aas:Key ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "something_random_8fc8a489"^^xs:string ;
+        ] ;
+    ] ;
+.

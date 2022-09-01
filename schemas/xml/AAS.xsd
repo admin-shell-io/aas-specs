@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.admin-shell.io/aas/3/0/RC02" elementFormDefault="qualified" targetNamespace="http://www.admin-shell.io/aas/3/0/RC02">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="https://admin-shell.io/aas/3/0/RC02" elementFormDefault="qualified" targetNamespace="https://admin-shell.io/aas/3/0/RC02">
   <xs:group name="administrativeInformation">
     <xs:sequence>
       <xs:group ref="hasDataSpecification"/>
@@ -411,7 +411,7 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="valueType" type="dataTypeDefXsd_t" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="xs:anySimpleType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="refersTo" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
@@ -657,7 +657,7 @@
     <xs:sequence>
       <xs:group ref="dataElement"/>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="xs:anySimpleType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="valueId" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
@@ -703,7 +703,7 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="xs:anySimpleType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="valueId" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
@@ -711,8 +711,8 @@
     <xs:sequence>
       <xs:group ref="dataElement"/>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="min" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="max" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="min" type="xs:anySimpleType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="max" type="xs:anySimpleType" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="referable">
@@ -1026,8 +1026,8 @@
   </xs:simpleType>
   <xs:simpleType name="direction_t">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="INPUT"/>
-      <xs:enumeration value="OUTPUT"/>
+      <xs:enumeration value="input"/>
+      <xs:enumeration value="output"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="entityType_t">
@@ -1093,8 +1093,8 @@
   </xs:simpleType>
   <xs:simpleType name="stateOfEvent_t">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="ON"/>
-      <xs:enumeration value="OFF"/>
+      <xs:enumeration value="on"/>
+      <xs:enumeration value="off"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="administrativeInformation_t">
