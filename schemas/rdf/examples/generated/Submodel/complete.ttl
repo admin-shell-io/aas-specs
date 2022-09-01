@@ -1,0 +1,68 @@
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+
+<something_random_b0c234ba> rdf:type aas:Submodel ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "something_random_b0c234ba"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/HasExtensions/extensions> [
+        rdf:type aas:Extension ;
+        <https://admin-shell.io/aas/3/0/RC02/Extension/name> "something_random_74cc9e9b"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/RC02/Extension/valueType> <https://admin-shell.io/aas/3/0/RC02/DataTypeDefXsd/Boolean> ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/category> "something_random_6c273750"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Z0"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/displayName> "something_random_18705330"@en ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/description> "something_random_0bcec5eb"@en ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/checksum> "something_random_bb3da9d4"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/administration> [
+        rdf:type aas:AdministrativeInformation ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+    <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
+        rdf:type aas:Reference ;
+        <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+        <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
+            rdf:type aas:Key ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "something_random_920ea681"^^xs:string ;
+        ] ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/HasSemantics/supplementalSemanticIds> [
+        rdf:type aas:Reference ;
+        <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+        <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
+            rdf:type aas:Key ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "something_random_c2c84a40"^^xs:string ;
+        ] ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/Qualifiable/qualifiers> [
+        rdf:type aas:Qualifier ;
+        <https://admin-shell.io/aas/3/0/RC02/Qualifier/type> "something_random_cfd39ba4"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/RC02/Qualifier/valueType> <https://admin-shell.io/aas/3/0/RC02/DataTypeDefXsd/Boolean> ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications> [
+        rdf:type aas:EmbeddedDataSpecification ;
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+            rdf:type aas:Reference ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
+                rdf:type aas:Key ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/value> "something_random_27587fef"^^xs:string ;
+            ] ;
+        ] ;
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
+            rdf:type aas:DataSpecificationIEC61360 ;
+            <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> "something_random_0796a3b4"@en ;
+            <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/value> "something_random_09a283e0"^^xs:string ;
+        ] ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElements> [
+        rdf:type aas:Blob ;
+        <https://admin-shell.io/aas/3/0/RC02/Blob/contentType> "application/something-random"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "some_id_short_10b21b1b"^^xs:string ;
+    ] ;
+.
