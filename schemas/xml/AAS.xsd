@@ -411,7 +411,7 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="valueType" type="dataTypeDefXsd_t" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="value" type="xs:anySimpleType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="valueDataType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="refersTo" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
@@ -657,7 +657,7 @@
     <xs:sequence>
       <xs:group ref="dataElement"/>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="value" type="xs:anySimpleType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="valueDataType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="valueId" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
@@ -703,7 +703,7 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="value" type="xs:anySimpleType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="valueDataType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="valueId" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
@@ -711,8 +711,8 @@
     <xs:sequence>
       <xs:group ref="dataElement"/>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="min" type="xs:anySimpleType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="max" type="xs:anySimpleType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="min" type="valueDataType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="max" type="valueDataType" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="referable">
@@ -991,7 +991,7 @@
       <xs:enumeration value="xs:int"/>
       <xs:enumeration value="xs:short"/>
       <xs:enumeration value="xs:byte"/>
-      <xs:enumeration value="xs:NonNegativeInteger"/>
+      <xs:enumeration value="xs:nonNegativeInteger"/>
       <xs:enumeration value="xs:positiveInteger"/>
       <xs:enumeration value="xs:unsignedLong"/>
       <xs:enumeration value="xs:unsignedInt"/>
@@ -1096,6 +1096,9 @@
       <xs:enumeration value="on"/>
       <xs:enumeration value="off"/>
     </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="valueDataType">
+    <xs:union memberTypes="xs:anyURI xs:base64Binary xs:boolean xs:date xs:dateTime xs:dateTimeStamp xs:decimal xs:double xs:duration xs:float xs:gDay xs:gMonth xs:gMonthDay xs:gYear xs:gYearMonth xs:hexBinary xs:string xs:time xs:dayTimeDuration xs:yearMonthDuration xs:integer xs:long xs:int xs:short xs:byte xs:nonNegativeInteger xs:positiveInteger xs:unsignedLong xs:unsignedInt xs:unsignedShort xs:unsignedByte xs:nonPositiveInteger xs:negativeInteger"/>
   </xs:simpleType>
   <xs:complexType name="administrativeInformation_t">
     <xs:sequence>
