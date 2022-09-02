@@ -100,14 +100,67 @@ Third, the precision of the XSD numeric types is well-defined, while JSON specif
 XSD is very specific about the format, *e.g.*, [xs:float] is a 32-bit floating point number following IEEE 754, and [xs:long] is a 64-bit integer number.
 JSON specification leaves us in the dark about the precision, and defines only the lexical form (see [Section 2.4 of RFC 4627]).
 
-On top of that, most JSON libraries represent numbers as 64-bit floating-point which might lead to catastrophic failures due to silent round-ups or round-downs.
-This is especially problematic when large integers are converted to 64-bit floats.
+On top of that, most JSON libraries parse numbers as 64-bit floating-point which might lead to catastrophic failures due to silent round-ups or round-downs.
+This is especially problematic when 64-bit integers are converted to 64-bit floats.
 Despite popular belief, such catastrophic conversions do occur in practice more often than expected since 64-bit integers are used in applications for, *e.g.*, hash values, nanoseconds since epoch or randomized numeric IDs.
-For a concrete illustration of the problem, see [this StackOverflow question about int🠒float casting].
+
+For a concrete illustration of the problem, here is a short snippet in C# which demonstrates the problem:
+
+```cs
+using System;
+
+public class Program
+{
+  public static void Main()
+  {
+    // Mind the last digits in the following code!
+    Console.WriteLine(
+      double.Parse("9007199254740993") == 9007199254740992.0);
+    
+    Console.WriteLine(
+      double.Parse("9007199254740994") == 9007199254740994.0);
+    
+    Console.WriteLine(
+      double.Parse("9007199254740995") == 9007199254740996.0);
+    
+    Console.WriteLine(
+      double.Parse("9007199254740996") == 9007199254740996.0);
+
+    // Gives the output:
+    // True ?!💀?!
+    // True
+    // True ?!💀?!
+    // True
+
+    Console.WriteLine(
+      long.Parse("9007199254740993") == 9007199254740993);
+    
+    Console.WriteLine(
+      long.Parse("9007199254740994") == 9007199254740994);
+    
+    Console.WriteLine(
+      long.Parse("9007199254740995") == 9007199254740995);
+    
+    Console.WriteLine(
+      long.Parse("9007199254740996") == 9007199254740996);
+
+    // Gives the output (as expected):
+    // True
+    // True
+    // True
+    // True
+  }
+}
+```
+
+(The snippet is available on-line on [C# fiddle JkkIlT]).
+
+More information is available, say, on [this StackOverflow question about int🠒float casting].
 
 [xs:float]: https://www.w3.org/TR/xmlschema11-2/#float
 [xs:long]: https://www.w3.org/TR/xmlschema11-2/#long
 [Section 2.4 of RFC 4627]: https://www.rfc-editor.org/rfc/rfc4627#section-2.4
+[C# fiddle JkkIlT]: https://dotnetfiddle.net/JkkIlT
 [this StackOverflow question about int🠒float casting]: https://stackoverflow.com/questions/59635426/how-does-the-int-to-float-cast-work-for-large-numbers
 
 ### Inheritance
