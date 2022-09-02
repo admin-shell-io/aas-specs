@@ -31,6 +31,7 @@ To simplify exploration of the JSON data, identifiable instances are only availa
 ## Mapping Rules
 
 ### Classes 🠒 JSON definitions
+
 For each class of the [AAS meta-model], we provide [a definition] in the JSON schema.
 The instances of the classes, abstract and concrete alike, are modeled as [JSON objects].
 
@@ -38,11 +39,13 @@ The instances of the classes, abstract and concrete alike, are modeled as [JSON 
 [JSON objects]: https://json-schema.org/understanding-json-schema/reference/object.html
 
 ### Attributes  🠒 JSON properties
+
 The attributes of classes defined in the meta-model correspond directly to [JSON properties].
 
 [JSON properties]: https://json-schema.org/understanding-json-schema/reference/object.html#properties
 
 ### Cardinality
+
 Optional attributes, *i.e.*, the attributes with the cardinality ``0..1``, are modeled as [non-required properties].
 
 [non-required properties]: https://json-schema.org/understanding-json-schema/reference/object.html#required-properties
@@ -50,6 +53,10 @@ Optional attributes, *i.e.*, the attributes with the cardinality ``0..1``, are m
 Attributes describing aggregations, *i.e.*, the attributes with the cardinality ``0..*``, ``1..*`` *etc.*, are modeled as [JSON arrays].
 
 [JSON arrays]: https://json-schema.org/understanding-json-schema/reference/array.html
+
+We explicitly forbid empty JSON arrays to avoid confusion about attributes which have cardinality ``0..*``.
+Namely, an empty array is semantically equal to an omitted attribute (according to the meta-model).
+Thus, the JSON property representing an aggregation attribute must be omitted if the aggregation is empty.
 
 For better readability, we diverge from the meta-model and spell most properties in plural.
 For example, ``submodelElements`` instead of ``submodelElement`` in case of [Submodel] class.
@@ -60,12 +67,13 @@ The full list of exceptions is available [as code in aas-core-meta].
 [as code in aas-core-meta]: https://github.com/aas-core-works/aas-core-meta/blob/95055a55a8c8f60d75fb48c26eb932ff99945dd2/tests/test_v3rc2.py#L1122
 
 ### Primitive attribute value 🠒 JSON string
+
 We strictly use only [JSON strings] to represent the attribute values.
 
 [JSON strings]: https://json-schema.org/understanding-json-schema/reference/string.html
 
 This might come as a surprise, given that classes of the meta-model such as [Property] and [Range] allow for boolean and numeric values.
-The reason why we could not map those values to [JSON number] or [JSON boolean] is that the attribute values of the meta-model are based on [XSD types], and not on JSON (see Section [5.7.12.1 Predefined Simple Data Types] of the meta-model).
+The reason why we could not map those values to [JSON number] or [JSON boolean] is that the attribute values of the meta-model are based on [XSD types], and not on JSON (see Section [5.7.12 Primitive and Simple Data Types] of the meta-model).
 As [XSD types] do not map to JSON types, we can only represent them as strings.
 We will look more into this problem in the next section.
 
@@ -74,9 +82,10 @@ We will look more into this problem in the next section.
 [JSON number]: https://www.rfc-editor.org/rfc/rfc4627#section-2.4
 [JSON boolean]: https://json-schema.org/understanding-json-schema/reference/boolean.html
 [XSD types]: https://www.w3.org/TR/xmlschema11-2
-[5.7.12.1 Predefined Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
+[5.7.12 Primitive and Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 
 ### Why only JSON strings?
+
 Let us briefly elaborate at least two reasons why the mapping XSD types 🠒 JSON types is not possible, since the readers are often confused why numeric and boolean values are represented as strings.
 
 First, a [JSON number] can only be a concrete numerical value where special cases such as `INF` and `NaN` are not representable in JSON, whereas these values are completely valid instances of [xs:decimal].
@@ -96,8 +105,14 @@ This distinction would have been lost if we simply serialized the value to a JSO
 [Property/semanticId]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
 [Property/value]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
 
-Third, the precision of the XSD numeric types is well-defined, while JSON specification is vague when it comes to precision and size of the [JSON number].
-XSD is very specific about the format, *e.g.*, [xs:float] is a 32-bit floating point number following IEEE 754, and [xs:long] is a 64-bit integer number.
+Third, a round-trip conversions XML 🠒 JSON 🠒 XML or RDF 🠒 JSON 🠒 RDF would be lossy.
+This prevents proper testing, and can cause a lot of confusion both for the developers and end-users using, say, GUI editors.
+The result of a model saved as XML is different to the model saved as JSON.
+For example, if the user typed in `1` for a boolean [Property/value] in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` (since the JSON library would silently convert `1` to a JSON boolean `true`).
+This effect would not happen if we saved the model to XML (`1` will remain `1`).
+
+Fourth, the precision of the XSD numeric types is well-defined, while JSON specification is vague when it comes to precision and size of the [JSON number].
+XSD is very specific about the format, *e.g.*, [xs:float] is a 32-bit floating point number following IEEE 754, [xs:long] is a 64-bit integer number *etc.*
 JSON specification leaves us in the dark about the precision, and defines only the lexical form (see [Section 2.4 of RFC 4627]).
 
 On top of that, most JSON libraries parse numbers as 64-bit floating-point which might lead to catastrophic failures due to silent round-ups or round-downs.
@@ -164,12 +179,14 @@ More information is available, say, on [this StackOverflow question about int�
 [this StackOverflow question about int🠒float casting]: https://stackoverflow.com/questions/59635426/how-does-the-int-to-float-cast-work-for-large-numbers
 
 ### Inheritance
+
 The inheritance relationships between the classes are modeled using [allOf composition].
 While JSON schema knows no inheritance, we enforce through ``allOf`` that all the properties of the parent are defined in the descendants.
 
 [allOf composition]: https://json-schema.org/understanding-json-schema/reference/combining.html#allof
 
 ### Discriminator
+
 Many attributes in the meta-model refer to an abstract class.
 When we de-serialize such attributes, we need to know the concrete class at runtime, since otherwise the de-serialization algorithm would not know how to interpret the properties of the object.
 
@@ -186,6 +203,7 @@ Every class which has one or more descendants will have the discriminator `model
 When a deserializer needs to de-serialize an instance of an abstract class, it can do so by dispatching the de-serialization to the appropriate de-serialization method based on `modelType`.
 
 ### Enumerations
+
 The enumerations of the meta-model are directly mapped to [enumerated values in JSON schema].
 Each enumeration is defined separately, and we do not in-line enumerations for readability.
 
@@ -200,6 +218,8 @@ For example, subsets of [KeyTypes] are omitted since only [KeyTypes] is used to 
 
 The meta-model defines data specifications in abstract (see Section [6 Predefined Data Specification Templates]).
 However, the meta-model omits data specifications in an [Environment], and data specifications are intentionally non-identifiable.
+
+[6 Predefined Data Specification Templates]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=106 
 
 For practical applications, we need to access them *somehow*.
 Therefore, the meta-model mandates to embed them in serializations (see Section [9.2.5 Embedded Data Specifications]).
@@ -217,11 +237,13 @@ Examples of the JSON serializations can be found in [schemas/json/examples/](exa
 ## Background
 
 ### From Manual Transcription ...
+
 The serialization to and from JSON changed over the course of different versions of the meta-model.
 Originally, the schema had been manually designed, where a group of authors combed "the book" and manually transcribed it to JSON schema.
 This was obviously error-prone as it often caused mismatches between other serializations (*e.g.*, XML and RDF), contained inconsistencies *etc.*
 
 ### ... to Automatic Generation
+
 We eventually moved over to generate the serialization schemas based on a single-point-of-truth.
 The current source is [aas-core-meta], a domain-specific Python representation of the meta-model.
 The schemas are generated using [aas-core-codegen], a translating tool which transpiles aas-core-meta into different schemas and other targets such as SDKs.
