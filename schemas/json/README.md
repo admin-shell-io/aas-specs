@@ -20,7 +20,7 @@ This environment contains three aggregations, corresponding to all [Identifiable
 
 [Environment]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=82
 [Identifiable]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=51
-[AssetAdministrationShell]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=57 
+[AssetAdministrationShell]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=57
 [Submodel]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=61
 [ConceptDescription]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=81
 
@@ -70,7 +70,7 @@ As [XSD types] do not map to JSON types, we can only represent them as strings.
 [JSON number]: https://www.rfc-editor.org/rfc/rfc4627#section-2.4
 [JSON boolean]: https://json-schema.org/understanding-json-schema/reference/boolean.html
 [XSD types]: https://www.w3.org/TR/xmlschema11-2
-[5.7.12.1 Predefined Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95 
+[5.7.12.1 Predefined Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 
 ### Why only JSON strings?
 Let us briefly elaborate at least two reasons why the mapping XSD types 🠒 JSON types is not possible, since the readers are often confused why numeric and boolean values are represented as strings.
@@ -93,12 +93,12 @@ This distinction would have been lost if we simply serialized the value to a JSO
 [Property/value]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
 
 Third, the precision of the XSD numeric types is well-defined, while JSON specification is vague when it comes to precision and size of the [JSON number].
-XSD is very specific about the format, *e.g.*, [xs:float] is a 32-bit floating point number following IEEE 754, and [xs:long] is a 64-bit integer number. 
+XSD is very specific about the format, *e.g.*, [xs:float] is a 32-bit floating point number following IEEE 754, and [xs:long] is a 64-bit integer number.
 JSON specification leaves us in the dark about the precision, and defines only the lexical form (see [Section 2.4 of RFC 4627]).
 
 On top of that, most JSON libraries represent numbers as 64-bit floating-point which might lead to catastrophic failures due to silent round-ups or round-downs.
 This is especially problematic when large integers are converted to 64-bit floats.
-Despite popular belief, such catastrophic conversions do occur in practice more often than expected since 64-bit integers are often used in applications for, *e.g.*, hash values, nanoseconds since epoch or randomized numeric IDs. 
+Despite popular belief, such catastrophic conversions do occur in practice more often than expected since 64-bit integers are used in applications for, *e.g.*, hash values, nanoseconds since epoch or randomized numeric IDs.
 For a concrete illustration of the problem, see [this StackOverflow question about int🠒float casting].
 
 [xs:float]: https://www.w3.org/TR/xmlschema11-2/#float
@@ -126,13 +126,13 @@ This necessary nugget of information is commonly called "discriminator" (*e.g.*,
 We define the discriminator for our serialization as an additional property, `modelType`, which do not correspond to any attribute in the meta-model.
 Every class which has one or more descendants will have the discriminator `modelType` in its definition.
 
-When a deserializer needs to de-serialize an instance of an abstract class, it can do so by dispatching the de-serialization to the appropriate de-serialization method based on `modelType`.  
+When a deserializer needs to de-serialize an instance of an abstract class, it can do so by dispatching the de-serialization to the appropriate de-serialization method based on `modelType`.
 
 ### Enumerations
 The enumerations of the meta-model are directly mapped to [enumerated values in JSON schema].
 Each enumeration is defined separately, and we do not in-line enumerations for readability.
 
-[enumerated values in JSON schema]: https://json-schema.org/understanding-json-schema/reference/generic.html#enumerated-values 
+[enumerated values in JSON schema]: https://json-schema.org/understanding-json-schema/reference/generic.html#enumerated-values
 
 Enumerations which are not directly used in the schema are omitted.
 For example, subsets of [KeyTypes] are omitted since only [KeyTypes] is used to define value of an attribute.
@@ -142,7 +142,7 @@ For example, subsets of [KeyTypes] are omitted since only [KeyTypes] is used to 
 ### Embedded Data Specifications
 
 The meta-model defines data specifications in abstract (see Section [6 Predefined Data Specification Templates]).
-However, the meta-model omits data specifications in an [Environment], and data specifications are intentionally non-identifiable. 
+However, the meta-model omits data specifications in an [Environment], and data specifications are intentionally non-identifiable.
 
 For practical applications, we need to access them *somehow*.
 Therefore, the meta-model mandates to embed them in serializations (see Section [9.2.5 Embedded Data Specifications]).
