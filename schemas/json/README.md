@@ -1,7 +1,7 @@
 # JSON
 
 [JavaScript Object Notation (JSON)] is a popular serialization format.
-Beside XML, it is an  "official" serialization format for models of Asset Administration Shells (AAS).
+Beside XML and RDF, it is an  "official" serialization format for models of Asset Administration Shells (AAS).
 Since JSON is a very versatile format, there are many ways how we could map an AAS model to it.
 In this document, we explore our particular design of the serialization schema based on [JSON schema 2019-09], and explain in detail the rules how we mapped the [AAS meta-model] to it.
 
@@ -47,7 +47,7 @@ Optional attributes, *i.e.*, the attributes with the cardinality ``0..1``, are m
 
 [non-required properties]: https://json-schema.org/understanding-json-schema/reference/object.html#required-properties
 
-Attributes describing aggregations, *i.e.*, the attributes with the cardinality ``0..1`` or ``1..*``, are modeled as [JSON arrays].
+Attributes describing aggregations, *i.e.*, the attributes with the cardinality ``0..*``, ``1..*`` *etc.*, are modeled as [JSON arrays].
 
 [JSON arrays]: https://json-schema.org/understanding-json-schema/reference/array.html
 
@@ -55,6 +55,9 @@ For better readability, we diverge from the meta-model and spell most properties
 For example, ``submodelElements`` instead of ``submodelElement`` in case of [Submodel] class.
 
 If plural form made no sense for an attribute, we kept it as-is (*e.g.*, `isCaseOf`).
+The full list of exceptions is available [as code in aas-core-meta].
+
+[as code in aas-core-meta]: https://github.com/aas-core-works/aas-core-meta/blob/95055a55a8c8f60d75fb48c26eb932ff99945dd2/tests/test_v3rc2.py#L1122
 
 ### Primitive attribute value 🠒 JSON string
 We strictly use only [JSON strings] to represent the attribute values.
@@ -64,6 +67,7 @@ We strictly use only [JSON strings] to represent the attribute values.
 This might come as a surprise, given that classes of the meta-model such as [Property] and [Range] allow for boolean and numeric values.
 The reason why we could not map those values to [JSON number] or [JSON boolean] is that the attribute values of the meta-model are based on [XSD types], and not on JSON (see Section [5.7.12.1 Predefined Simple Data Types] of the meta-model).
 As [XSD types] do not map to JSON types, we can only represent them as strings.
+We will look more into this problem in the next section.
 
 [Property]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
 [Range]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=76
