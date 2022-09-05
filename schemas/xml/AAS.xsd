@@ -971,7 +971,6 @@
       <xs:enumeration value="xs:boolean"/>
       <xs:enumeration value="xs:date"/>
       <xs:enumeration value="xs:dateTime"/>
-      <xs:enumeration value="xs:dateTimeStamp"/>
       <xs:enumeration value="xs:decimal"/>
       <xs:enumeration value="xs:double"/>
       <xs:enumeration value="xs:duration"/>
@@ -984,8 +983,6 @@
       <xs:enumeration value="xs:hexBinary"/>
       <xs:enumeration value="xs:string"/>
       <xs:enumeration value="xs:time"/>
-      <xs:enumeration value="xs:dayTimeDuration"/>
-      <xs:enumeration value="xs:yearMonthDuration"/>
       <xs:enumeration value="xs:integer"/>
       <xs:enumeration value="xs:long"/>
       <xs:enumeration value="xs:int"/>
@@ -1098,7 +1095,7 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="valueDataType">
-    <xs:union memberTypes="xs:anyURI xs:base64Binary xs:boolean xs:date xs:dateTime xs:dateTimeStamp xs:decimal xs:double xs:duration xs:float xs:gDay xs:gMonth xs:gMonthDay xs:gYear xs:gYearMonth xs:hexBinary xs:string xs:time xs:dayTimeDuration xs:yearMonthDuration xs:integer xs:long xs:int xs:short xs:byte xs:nonNegativeInteger xs:positiveInteger xs:unsignedLong xs:unsignedInt xs:unsignedShort xs:unsignedByte xs:nonPositiveInteger xs:negativeInteger"/>
+    <xs:union memberTypes="xs:anyURI xs:base64Binary xs:boolean xs:date xs:dateTime xs:decimal xs:double xs:duration xs:float xs:gDay xs:gMonth xs:gMonthDay xs:gYear xs:gYearMonth xs:hexBinary xs:string xs:time   xs:integer xs:long xs:int xs:short xs:byte xs:nonNegativeInteger xs:positiveInteger xs:unsignedLong xs:unsignedInt xs:unsignedShort xs:unsignedByte xs:nonPositiveInteger xs:negativeInteger"/>
   </xs:simpleType>
   <xs:complexType name="administrativeInformation_t">
     <xs:sequence>
