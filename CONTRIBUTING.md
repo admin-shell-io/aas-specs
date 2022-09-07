@@ -1,6 +1,6 @@
 # Contributing
 
-The specification of [Asset Administration Shell - Part 1] is an official publication of the joint working group of the [Platform Industrie 4.0] and [IDTA].
+The specification of [Asset Administration Shell - Part 1] is an official publication of the joint working group "Asset Administration Shell" of the [Platform Industrie 4.0] and [IDTA].
 The specification and schema definition, including application examples in the aas-spec repository must be particularly compliant with this.
 However, we invite the community to review, report and fix the specification and schema definitions, including application examples. 
 Therefore, we demand a defined procedure for the contribution in this repository.
@@ -86,6 +86,7 @@ Major changes must first be reviewed and approved by the joint working group "As
 
 [Platform Industrie 4.0]: http://www.plattform-i40.de
 [IDTA]: https://industrialdigitaltwin.org/
+
 
 ## Merge into Master Branch
 

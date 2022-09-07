@@ -1,4 +1,4 @@
-@prefix aas: <http://www.admin-shell.io/aas/3/0/RC02/> .
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -7,341 +7,341 @@
 
 # Asset Administration Shell
 <http://customer.com/aas/9175_7013_7091_9168> rdf:type aas:AssetAdministrationShell ;
-      <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "ExampleMotor"^^xs:string ;
+      <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "ExampleMotor"^^xs:string ;
       rdfs:label "ExampleMotor"^^xs:string ;
-      <http://www.admin-shell.io/aas/3/0/RC02/Referable/description> "A very short description of the AAS instance" ;
+      <https://admin-shell.io/aas/3/0/RC02/Referable/description> "A very short description of the AAS instance"@en ;
       rdfs:comment "A very short description of the AAS instance."^^xs:string ;
-      <http://www.admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://customer.com/aas/9175_7013_7091_9168"^^xs:string ;
-	  <http://www.admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/assetInformation> [
-        rdf:type <http://www.admin-shell.io/aas/3/0/RC02/AssetInformation> ;
-        <http://www.admin-shell.io/aas/3/0/RC02/AssetInformation/globalAssetId> [
+      <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://customer.com/aas/9175_7013_7091_9168"^^xs:string ;
+	  <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/assetInformation> [
+        rdf:type <https://admin-shell.io/aas/3/0/RC02/AssetInformation> ;
+        <https://admin-shell.io/aas/3/0/RC02/AssetInformation/globalAssetId> [
           rdf:type  aas:Reference ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
-			<http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+            <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+			<https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
 			  rdf:type  aas:Key ;
-				<http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
-				<http://www.admin-shell.io/aas/3/0/RC02/Key/value> "https://customer.com/assets/KHBVZJSQKIY"^^xs:string ;
+				<https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+				<https://admin-shell.io/aas/3/0/RC02/Key/value> "https://customer.com/assets/KHBVZJSQKIY"^^xs:string ;
 			] ;
         ] ;
-        <http://www.admin-shell.io/aas/3/0/RC02/AssetInformation/assetKind> <http://www.admin-shell.io/aas/3/0/RC02/AssetKind/Instance> ;
+        <https://admin-shell.io/aas/3/0/RC02/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/RC02/AssetKind/Instance> ;
       ];
 
-      <http://www.admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodels> [
+      <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodels> [
           rdf:type aas:Reference ;
-		  <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
-          <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+		  <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
+          <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
             rdf:type aas:Key ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/Submodel>  ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/1/1/7A7104BDAB57E184"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/Submodel>  ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/1/1/7A7104BDAB57E184"^^xs:string ;
           ]
       ];
-      <http://www.admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodels> [
+      <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodels> [
           rdf:type aas:Reference ;
-		  <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
-          <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+		  <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
+          <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
             rdf:type aas:Key ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Key/type>  <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/Submodel>  ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/instance/1/1/AC69B1CB44F07935"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type>  <https://admin-shell.io/aas/3/0/RC02/KeyTypes/Submodel>  ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/instance/1/1/AC69B1CB44F07935"^^xs:string ;
           ]
       ];
-      <http://www.admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodels> [
+      <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/submodels> [
           rdf:type aas:Reference ;
-		  <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
-          <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+		  <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
+          <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
             rdf:type aas:Key ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/Submodel> ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/1/1/1A7B62B529F19152"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/Submodel> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://i40.customer.com/type/1/1/1A7B62B529F19152"^^xs:string ;
           ]
       ];
 .
 
 # Submodel
 <http://i40.customer.com/type/1/1/7A7104BDAB57E184> rdf:type aas:Submodel ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "TechnicalData"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "TechnicalData"^^xs:string ;
     rdfs:label "TechnicalData"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/type/1/1/7A7104BDAB57E184"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/HasKind/kind> <http://www.admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
-    <http://www.admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/type/1/1/7A7104BDAB57E184"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+    <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
            rdf:type aas:Reference ;
-		   <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
-			<http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+		   <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+			<https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
 			    rdf:type  aas:Key ;
-				<http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
-				<http://www.admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#01-AFZ615#016"^^xs:string ;
+				<https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+				<https://admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#01-AFZ615#016"^^xs:string ;
 			] ;
         ] ;
 
 
-    <http://www.admin-shell.io/aas/3/0/RC02/Submodel/submodelElements> [
+    <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElements> [
          rdf:type  aas:Property ;
          rdfs:label "MaxRotationSpeed"^^xs:string ;
-         <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "MaxRotationSpeed"^^xs:string ;
-         <http://www.admin-shell.io/aas/3/0/RC02/Property/valueType>  <http://www.admin-shell.io/aas/3/0/RC02/DataTypeDefXsd/Int> ;
-         <http://www.admin-shell.io/aas/3/0/RC02/Property/valueId> [
+         <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "MaxRotationSpeed"^^xs:string ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueType>  <https://admin-shell.io/aas/3/0/RC02/DataTypeDefXsd/Int> ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueId> [
                   rdf:type aas:Reference ;
-				  <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
-                  <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+				  <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
+                  <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
                     rdf:type aas:Key ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Key/type>  <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/ConceptDescription>  ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#02-BAA120#008"^^xs:string ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/type>  <https://admin-shell.io/aas/3/0/RC02/KeyTypes/ConceptDescription>  ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#02-BAA120#008"^^xs:string ;
                   ] ;
          ];
-          <http://www.admin-shell.io/aas/3/0/RC02/Property/value> "5000"^^xs:string ;
+          <https://admin-shell.io/aas/3/0/RC02/Property/value> "5000"^^xs:string ;
     ];
 .
 
 # Submodel
 <http://i40.customer.com/instance/1/1/AC69B1CB44F07935> rdf:type aas:Submodel ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "OperationalData"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "OperationalData"^^xs:string ;
     rdfs:label "OperationalData"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/instance/1/1/AC69B1CB44F07935"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/HasKind/kind> <http://www.admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "http://i40.customer.com/instance/1/1/AC69B1CB44F07935"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
 
-    <http://www.admin-shell.io/aas/3/0/RC02/Submodel/submodelElements> [
+    <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElements> [
          rdf:type  aas:Property ;
          rdfs:label "RotationSpeed"^^xs:string ;
-         <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "RotationSpeed"^^xs:string ;
-         <http://www.admin-shell.io/aas/3/0/RC02/HasKind/kind> <http://www.admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
-         <http://www.admin-shell.io/aas/3/0/RC02/Property/valueType>  <http://www.admin-shell.io/aas/3/0/RC02/DataTypeDefXsd/Int> ;
-         <http://www.admin-shell.io/aas/3/0/RC02/Property/valueId> [
+         <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "RotationSpeed"^^xs:string ;
+         <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueType>  <https://admin-shell.io/aas/3/0/RC02/DataTypeDefXsd/Int> ;
+         <https://admin-shell.io/aas/3/0/RC02/Property/valueId> [
                   rdf:type aas:Reference ;
-				  <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
-                  <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+				  <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
+                  <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
                     rdf:type aas:Key ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Key/type>  <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/ConceptDescription>  ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "http://customer.com/cd/1/1/18EBD56F6B43D895"^^xs:string ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/type>  <https://admin-shell.io/aas/3/0/RC02/KeyTypes/ConceptDescription>  ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/value> "http://customer.com/cd/1/1/18EBD56F6B43D895"^^xs:string ;
                   ]
 
               ];
-          <http://www.admin-shell.io/aas/3/0/RC02/Property/value> "4370"^^xs:string ;
+          <https://admin-shell.io/aas/3/0/RC02/Property/value> "4370"^^xs:string ;
     ];
 .
 
 # Submodel
 <http://i40.customer.com/type/1/1/1A7B62B529F19152> rdf:type aas:Submodel ;
-   <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "Documentation"^^xs:string ;
+   <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Documentation"^^xs:string ;
    rdfs:label "Documentation"^^xs:string ;
-   <http://www.admin-shell.io/aas/3/0/RC02/Identifiable/id> "<http://i40.customer.com/type/1A7B62B529F19152"^^xs:string ;
-   <http://www.admin-shell.io/aas/3/0/RC02/HasKind/kind> <http://www.admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
-   <http://www.admin-shell.io/aas/3/0/RC02/Submodel/submodelElements> [
+   <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "<http://i40.customer.com/type/1A7B62B529F19152"^^xs:string ;
+   <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+   <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElements> [
         rdf:type aas:SubmodelElementList ;
-        <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "OperatingManual"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "OperatingManual"^^xs:string ;
         rdfs:label "OperatingManual"^^xs:string ;
-        <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdListElement> [
+        <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/semanticIdListElement> [
             rdf:type aas:Reference ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+            <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
                 rdf:type aas:Key ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/ConceptDescription> ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/ConceptDescription> ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^xs:string ;
             ]
         ] ;
-        <http://www.admin-shell.io/aas/3/0/RC02/HasKind/kind> <http://www.admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
-        <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> [
+        <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+        <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> [
             rdf:type aas:SubmodelElementCollection ;
-            <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementCollection/value> [
-                rdf:type <http://www.admin-shell.io/aas/3/0/RC02/File>;
+            <https://admin-shell.io/aas/3/0/RC02/SubmodelElementCollection/value> [
+                rdf:type <https://admin-shell.io/aas/3/0/RC02/File>;
                 rdf:subject <http://i40.customer.com/type/7A7104BDAB57E184/OperatingManual/Title>;
                 rdfs:label "Title"^^xs:string ;
-                <http://www.admin-shell.io/aas/3/0/RC02/File/contentType>  "application/pdf" ;
-                <http://www.admin-shell.io/aas/3/0/RC02/File/value> "file:///aas/OperatingManual.pdf"^^xs:string ; # TODO
-                <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "Title"^^xs:string ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xs:string ;
-                <http://www.admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
+                <https://admin-shell.io/aas/3/0/RC02/File/contentType>  "application/pdf" ;
+                <https://admin-shell.io/aas/3/0/RC02/File/value> "file:///aas/OperatingManual.pdf"^^xs:string ; # TODO
+                <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Title"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
                 rdf:type aas:Reference ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+                    <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
+                    <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
                     rdf:type aas:Key ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/ConceptDescription> ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^xs:string ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/ConceptDescription> ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^xs:string ;
                     ]
                 ] ;
-                <http://www.admin-shell.io/aas/3/0/RC02/HasKind/kind> <http://www.admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+                <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
             ]
         ];
-        <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> [
+        <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/value> [
             rdf:type aas:SubmodelElementCollection ;
-            <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementCollection/value> [
+            <https://admin-shell.io/aas/3/0/RC02/SubmodelElementCollection/value> [
                 rdf:type aas:File;
                 rdf:subject <http://i40.customer.com/type/7A7104BDAB57E184/OperatingManual/DigitalFile_PDF>;
                 rdfs:label "DigitalFile_PDF"^^xs:string ;
-                <http://www.admin-shell.io/aas/3/0/RC02/File/contentType>  "application/pdf" ;
-                <http://www.admin-shell.io/aas/3/0/RC02/File/value> "file:///aasx/OperatingManual.pdf"^^xs:string ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "DigitalFile_PDF"^^xs:string ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xs:string ;
-                <http://www.admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
+                <https://admin-shell.io/aas/3/0/RC02/File/contentType>  "application/pdf" ;
+                <https://admin-shell.io/aas/3/0/RC02/File/value> "file:///aasx/OperatingManual.pdf"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DigitalFile_PDF"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/RC02/Referable/category> "CONSTANT"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/RC02/HasSemantics/semanticId> [
                 rdf:type aas:Reference ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+                    <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
+                    <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
                     rdf:type aas:Key ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/ConceptDescription> ;
-                    <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/escription/Title"^^xs:string ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/ConceptDescription> ;
+                    <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/escription/Title"^^xs:string ;
                     ]
                 ] ;
-                <http://www.admin-shell.io/aas/3/0/RC02/HasKind/kind> <http://www.admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
+                <https://admin-shell.io/aas/3/0/RC02/HasKind/kind> <https://admin-shell.io/aas/3/0/RC02/ModelingKind/Instance> ;
             ];
         ] ;
-        <http://www.admin-shell.io/aas/3/0/RC02/SubmodelElementList/typeValueListElement> <http://www.admin-shell.io/aas/3/0/RC02/AasSubmodelElements/SubmodelElement> ;
+        <https://admin-shell.io/aas/3/0/RC02/SubmodelElementList/typeValueListElement> <https://admin-shell.io/aas/3/0/RC02/AasSubmodelElements/SubmodelElement> ;
     ] ;
 .
 
 
 # ConceptDescription
 <http://i40.customer.com/type/F13E8576F6488342/MaxRotationSpeed> rdf:type aas:ConceptDescription ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "MaxRotationSpeed"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "MaxRotationSpeed"^^xs:string ;
     rdfs:label "MaxRotationSpeed"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Referable/category> "PARAMETER"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Identifiable/id> "0173-1#02-BAA120#008"^^xs:string ;
-	<http://www.admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications> [
+    <https://admin-shell.io/aas/3/0/RC02/Referable/category> "PARAMETER"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "0173-1#02-BAA120#008"^^xs:string ;
+	<https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications> [
         rdf:type aas:EmbeddedDataSpecification ;
-        <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
             rdf:type aas:Reference ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+            <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
                 rdf:type aas:Key ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360"^^xs:string ;
             ] ;
         ] ;
-        <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> <http://customer.com/aas/iec-data-specifications-content> ;
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> <http://customer.com/aas/iec-data-specifications-content> ;
     ] ;
 .
 
 <http://customer.com/aas/iec-data-specifications-content> rdf:type aas:DataSpecificationIEC61360 ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> "Max. rotation speed"@en, "max. Drehzahl"@de ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unit> "1/min"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unitId> [
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> "Max. rotation speed"@en, "max. Drehzahl"@de ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unit> "1/min"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unitId> [
         rdf:type aas:Reference ;
-        <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
-        <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+        <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+        <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
             rdf:type aas:Key ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#05-AAA650#002"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#05-AAA650#002"^^xs:string ;
         ] ;
     ] ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> <http://www.admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerMeasure> ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> "Höchste zulässige Drehzahl, mit welcher der Motor oder die Speiseinheit betrieben werden darf"@de, "Greatest permissible rotation speed with which the motor or feeding unit may be operated"@en ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerMeasure> ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> "Höchste zulässige Drehzahl, mit welcher der Motor oder die Speiseinheit betrieben werden darf"@de, "Greatest permissible rotation speed with which the motor or feeding unit may be operated"@en ;
 .
 
 
 # ConceptDescription
 <http://customer.com/cd/1/1/18EBD56F6B43D895> rdf:type aas:ConceptDescription ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "RotationSpeed"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "RotationSpeed"^^xs:string ;
     rdfs:label "RotationSpeed"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Referable/category> "PROPERTY"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://customer.com/cd/18EBD56F6B43D895/RotationSpeed"^^xs:string ;
-	<http://www.admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications> [
+    <https://admin-shell.io/aas/3/0/RC02/Referable/category> "PROPERTY"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://customer.com/cd/18EBD56F6B43D895/RotationSpeed"^^xs:string ;
+	<https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications> [
         rdf:type aas:EmbeddedDataSpecification ;
-        <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
             rdf:type aas:Reference ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+            <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
                 rdf:type aas:Key ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360"^^xs:string ;
             ] ;
         ] ;
-        <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> <http://customer.com/aas/iec-data-specifications-content-2> ;
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> <http://customer.com/aas/iec-data-specifications-content-2> ;
     ] .
 
 <http://customer.com/aas/iec-data-specifications-content-2> rdf:type aas:DataSpecificationIEC61360 ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> "Actual rotation speed"@en, "Aktuelle Drehzahl"@de ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unit> "1/min"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unitId> [
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> "Actual rotation speed"@en, "Aktuelle Drehzahl"@de ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unit> "1/min"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/unitId> [
         rdf:type aas:Reference ;
-        <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
-        <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+        <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+        <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
             rdf:type aas:Key ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#05-AAA650#002"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Key/value> "0173-1#05-AAA650#002"^^xs:string ;
         ] ;
     ] ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> <http://www.admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerMeasure> ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> "Aktuelle Drehzahl, mit welcher der Motor oder die Speiseinheit betrieben wird."@de, "Actual rotation speed with which the motor or feeding unit is operated."@en ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/IntegerMeasure> ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> "Aktuelle Drehzahl, mit welcher der Motor oder die Speiseinheit betrieben wird."@de, "Actual rotation speed with which the motor or feeding unit is operated."@en ;
   .
 
 
 # ConceptDescription
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document> rdf:type aas:ConceptDescription ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "Document"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Document"^^xs:string ;
     rdfs:label "Document"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications>      
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications>      
     [
         rdf:type aas:EmbeddedDataSpecification ;
-        <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
             rdf:type aas:Reference ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+            <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
                 rdf:type aas:Key ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360"^^xs:string ;
             ] ;
         ] ;
-        <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> <http://customer.com/aas/iec-data-specifications-content-3> ;
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> <http://customer.com/aas/iec-data-specifications-content-3> ;
     ] ;
 .
 
 <http://customer.com/aas/iec-data-specifications-content-3> rdf:type aas:DataSpecificationIEC61360 ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> "Document"@en, "Dokument"@de ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/shortName> "Document"@en ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/sourceOfDefinition> "[ISO 15519-1:2010]"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> <http://www.admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/String> ;
-    <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> "Feste und geordnete Menge von für die Verwendung durch Personen bestimmte Informationen, die verwaltet und als Einheit zwischen Benutzern und System ausgetauscht werden kann."@de ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> "Document"@en, "Dokument"@de ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/shortName> "Document"@en ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/sourceOfDefinition> "[ISO 15519-1:2010]"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/String> ;
+    <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> "Feste und geordnete Menge von für die Verwendung durch Personen bestimmte Informationen, die verwaltet und als Einheit zwischen Benutzern und System ausgetauscht werden kann."@de ;
 .
 
 # ConceptDescription
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title> rdf:type aas:ConceptDescription ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "Title"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "Title"^^xs:string ;
     rdfs:label "Title"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^xs:string ;
-	 <http://www.admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications>        
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"^^xs:string ;
+	 <https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications>        
     [
         rdf:type aas:EmbeddedDataSpecification ;
-        <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
             rdf:type aas:Reference ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+            <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
                 rdf:type aas:Key ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360"^^xs:string ;
             ] ;
         ] ;
-        <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> <http://customer.com/aas/iec-data-specifications-content-4> ;
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> <http://customer.com/aas/iec-data-specifications-content-4> ;
     ] ;
 .
 
 <http://customer.com/aas/iec-data-specifications-content-4> rdf:type aas:DataSpecificationIEC61360 ;
-       <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> "Titel"@en, "Titel"@de ;
-       <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/shortName> "Titel"@en ;
-       <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> <http://www.admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/StringTranslatable> ;
-       <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> "Sprachabhängiger Titel des Dokuments."@de ;
+       <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> "Titel"@en, "Titel"@de ;
+       <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/shortName> "Titel"@en ;
+       <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/StringTranslatable> ;
+       <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> "Sprachabhängiger Titel des Dokuments."@de ;
 .
 
 # ConceptDescription
 <http://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile> rdf:type aas:ConceptDescription ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Referable/idShort> "DigitalFile"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "DigitalFile"^^xs:string ;
     rdfs:label "DigitalFile"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile"^^xs:string ;
-    <http://www.admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications> [
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "https://www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications> [
         rdf:type aas:EmbeddedDataSpecification ;
-        <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
             rdf:type aas:Reference ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/type> <http://www.admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
-            <http://www.admin-shell.io/aas/3/0/RC02/Reference/keys> [
+            <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
                 rdf:type aas:Key ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/type> <http://www.admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
-                <http://www.admin-shell.io/aas/3/0/RC02/Key/value> "http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/value> "https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360"^^xs:string ;
             ] ;
         ] ;
-        <http://www.admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> <http://customer.com/aas/iec-data-specifications-content-5> ;
+        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> <http://customer.com/aas/iec-data-specifications-content-5> ;
     ] ;
 .
 
 <http://customer.com/aas/iec-data-specifications-content-5>
        rdf:type aas:DataSpecificationIEC61360 ;
-       <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> "Digital File"@en ;
-       <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/shortName> "DigitalFile"@en ;
-       <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> <http://www.admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/File> ;
-       <http://www.admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> "Eine Datei, die die DocumentVersion repräsentiert. Neben der obligatorischen PDF/A Datei können weitere Dateien angegeben werden."@de ;
+       <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/preferredName> "Digital File"@en ;
+       <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/shortName> "DigitalFile"@en ;
+       <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/dataType> <https://admin-shell.io/aas/3/0/RC02/DataTypeIEC61360/File> ;
+       <https://admin-shell.io/aas/3/0/RC02/DataSpecificationIEC61360/definition> "Eine Datei, die die DocumentVersion repräsentiert. Neben der obligatorischen PDF/A Datei können weitere Dateien angegeben werden."@de ;
 .
