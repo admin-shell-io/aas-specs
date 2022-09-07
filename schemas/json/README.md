@@ -38,30 +38,30 @@ The instances of the classes, abstract and concrete alike, are modeled as [JSON 
 [a definition]: https://json-schema.org/understanding-json-schema/structuring.html#defs
 [JSON objects]: https://json-schema.org/understanding-json-schema/reference/object.html
 
-### Attributes  🠒 JSON properties
+### UML properties  🠒 JSON properties
 
-The attributes of classes defined in the meta-model correspond directly to [JSON properties].
+The class properties of the meta-model (attributes and aggregations) correspond directly to [JSON properties].
 
 [JSON properties]: https://json-schema.org/understanding-json-schema/reference/object.html#properties
-
-### Cardinality
 
 Optional attributes, *i.e.*, the attributes with the cardinality ``0..1``, are modeled as [non-required properties].
 
 [non-required properties]: https://json-schema.org/understanding-json-schema/reference/object.html#required-properties
 
-Attributes describing aggregations, *i.e.*, the attributes with the cardinality ``0..*``, ``1..*`` *etc.*, are modeled as [JSON arrays].
+Aggregations, *i.e.*, the properties with the cardinality ``0..*``, ``1..*`` *etc.*, are modeled as [JSON arrays].
 
 [JSON arrays]: https://json-schema.org/understanding-json-schema/reference/array.html
 
-We explicitly forbid empty JSON arrays to avoid confusion about attributes which have cardinality ``0..*``.
+We explicitly forbid empty JSON arrays to avoid confusion about properties which have cardinality ``0..*``.
 Namely, an empty array is semantically equal to an omitted attribute (according to the meta-model).
 Thus, the JSON property representing an aggregation attribute must be omitted if the aggregation is empty.
 
-For better readability, we diverge from the meta-model and spell most properties in plural.
+In UML, associations and aggregations are given in singular form.
+This is, however, not common in programming code, which in majority of the cases uses plural form for the arrays in class properties.
+For better readability of the programming code, we diverge from the meta-model property names and spell most properties in plural.
 For example, ``submodelElements`` instead of ``submodelElement`` in case of [Submodel] class.
 
-If plural form made no sense for an attribute, we kept it as-is (*e.g.*, `isCaseOf`).
+If plural form made no sense for a property, we kept it as-is (*e.g.*, `isCaseOf`).
 The full list of exceptions is available [as code in aas-core-meta].
 
 [as code in aas-core-meta]: https://github.com/aas-core-works/aas-core-meta/blob/95055a55a8c8f60d75fb48c26eb932ff99945dd2/tests/test_v3rc2.py#L1122
