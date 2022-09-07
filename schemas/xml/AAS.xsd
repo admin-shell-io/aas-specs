@@ -411,7 +411,7 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="valueType" type="dataTypeDefXsd_t" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="value" type="valueDataType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="valueDataType_t" minOccurs="0" maxOccurs="1"/>
       <xs:element name="refersTo" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
@@ -657,7 +657,7 @@
     <xs:sequence>
       <xs:group ref="dataElement"/>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="value" type="valueDataType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="valueDataType_t" minOccurs="0" maxOccurs="1"/>
       <xs:element name="valueId" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
@@ -703,7 +703,7 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="value" type="valueDataType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="valueDataType_t" minOccurs="0" maxOccurs="1"/>
       <xs:element name="valueId" type="reference_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
@@ -711,8 +711,8 @@
     <xs:sequence>
       <xs:group ref="dataElement"/>
       <xs:element name="valueType" type="dataTypeDefXsd_t"/>
-      <xs:element name="min" type="valueDataType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="max" type="valueDataType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="min" type="valueDataType_t" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="max" type="valueDataType_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="referable">
@@ -1097,9 +1097,11 @@
       <xs:enumeration value="off"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="valueDataType">
-    <xs:restriction base="xs:string"/>
-  </xs:simpleType>
+	<xs:complexType name="valueDataType_t">
+		<xs:simpleContent>
+			<xs:extension base="xs:anySimpleType"/>
+		</xs:simpleContent>
+	</xs:complexType>
   <xs:complexType name="administrativeInformation_t">
     <xs:sequence>
       <xs:group ref="administrativeInformation"/>
