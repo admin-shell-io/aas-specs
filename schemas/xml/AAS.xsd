@@ -1098,7 +1098,7 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="valueDataType">
-    <xs:union memberTypes="xs:anyURI xs:base64Binary xs:boolean xs:date xs:dateTime xs:dateTimeStamp xs:decimal xs:double xs:duration xs:float xs:gDay xs:gMonth xs:gMonthDay xs:gYear xs:gYearMonth xs:hexBinary xs:string xs:time xs:dayTimeDuration xs:yearMonthDuration xs:integer xs:long xs:int xs:short xs:byte xs:nonNegativeInteger xs:positiveInteger xs:unsignedLong xs:unsignedInt xs:unsignedShort xs:unsignedByte xs:nonPositiveInteger xs:negativeInteger"/>
+    <xs:restriction base="xs:string"/>
   </xs:simpleType>
   <xs:complexType name="administrativeInformation_t">
     <xs:sequence>
