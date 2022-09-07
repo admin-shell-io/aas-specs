@@ -58,24 +58,35 @@ We explicitly forbid empty JSON arrays to avoid confusion about attributes which
 Namely, an empty array is semantically equal to an omitted attribute (according to the meta-model).
 Thus, the JSON property representing an aggregation attribute must be omitted if the aggregation is empty.
 
-For better readability, we diverge from the meta-model and spell most properties in plural.
+In UML, it is the convention to name associations and aggregations in singular form. The cardinality is to be taking into account to decide on whether there are none, a single or several elements in the corresponding association or aggregation. 
+In JSON it is the array that declares the set of elements, therefore we choose the plural name for it. The singular name is used for its descriminator (see section on decriminators).
+Typically the plural name is derived by just adding an "s" to the name.
 For example, ``submodelElements`` instead of ``submodelElement`` in case of [Submodel] class.
+
+If plural form made no sense for a property, we kept it as-is (*e.g.*, `isCaseOf`).
+The full list of exceptions is available [as code in aas-core-meta].
 
 If plural form made no sense for an attribute, we kept it as-is (*e.g.*, `isCaseOf`).
 The full list of exceptions is available [as code in aas-core-meta].
 
 [as code in aas-core-meta]: https://github.com/aas-core-works/aas-core-meta/blob/95055a55a8c8f60d75fb48c26eb932ff99945dd2/tests/test_v3rc2.py#L1122
 
-### Primitive attribute value 🠒 JSON string
+### Primitive attribute values
 
-We strictly use only [JSON strings] to represent the attribute values.
+The UML specification uses xsd types. For the mapping of xsd types to JSON types please refer to [Part 2 of the series of the Asset Adminsistration Shell].
+
+There are the following exceptions: For [Property]/value and [Range]/min and [Range]/min the type xs:string is used because the type is only known at run-time. Its type is declared in [Property]/valueType or [Range]/valueType, resp.
+Note: in valueOnly Format of [Part 2 of the series of the Asset Adminsistration Shell] value has the type as declared in Property/valueType.
+
+[Part 2 of the series of the Asset Adminsistration Shell]: https://industrialdigitaltwin.org/wp-content/uploads/2021/11/Details_of_the_Asset_Administration_Shell_Part_2_V1.pdf?__blob=publicationFile&v=10#page=81
+
+
+### Be aware of possible type mismatches between xsd and JSON types
+
+Type mappings are not trivial. Some sort of type mapping is always needed when using different programming languages and different serialization formats. One way to avoid some JSON type conversion problems would have been to just use [JSON strings] for all primitive attributes values. 
+However, besides loss of semantics and higher effort for programmers there also is the risk of JSON injection attacks. 
 
 [JSON strings]: https://json-schema.org/understanding-json-schema/reference/string.html
-
-This might come as a surprise, given that classes of the meta-model such as [Property] and [Range] allow for boolean and numeric values.
-The reason why we could not map those values to [JSON number] or [JSON boolean] is that the attribute values of the meta-model are based on [XSD types], and not on JSON (see Section [5.7.12 Primitive and Simple Data Types] of the meta-model).
-As [XSD types] do not map to JSON types, we can only represent them as strings.
-We will look more into this problem in the next section.
 
 [Property]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
 [Range]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=76
@@ -84,9 +95,7 @@ We will look more into this problem in the next section.
 [XSD types]: https://www.w3.org/TR/xmlschema11-2
 [5.7.12 Primitive and Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 
-### Why only JSON strings?
-
-Let us briefly elaborate at least two reasons why the mapping XSD types 🠒 JSON types is not possible, since the readers are often confused why numeric and boolean values are represented as strings.
+The following would have been arguments in favor to stricly use JSON strings for all primitive attribute values:
 
 First, a [JSON number] can only be a concrete numerical value where special cases such as `INF` and `NaN` are not representable in JSON, whereas these values are completely valid instances of [xs:decimal].
 
@@ -95,18 +104,17 @@ First, a [JSON number] can only be a concrete numerical value where special case
 Second, the [lexical space] of XSD values is much larger than the lexical space of JSON numbers and booleans.
 For example, both `1` and `true` are valid lexical representations of a true value.
 In contrast, JSON recognizes only `true`.
+We are not considering cases in which a semantic definition would even redefine the semantics of `1` as `false`.
 
 [lexical space]: https://www.w3.org/TR/xmlschema11-2/#lexical-space
 
-Since the semantic of the value is defined outside the model, and might depend directly on the lexical representation, we must represent these values as strings.
-For example, we might define through the attribute [Property/semanticId] that a [Property/value], given as a boolean, distinguishes between `1` and `true` where `1` has a completely different meaning from `true`.
-This distinction would have been lost if we simply serialized the value to a JSON boolean.
+In many cases the semantics of a [Property] or any other [SubmodelElement] is also restricting its value range in case of numerical values. However, when just looking at the [Property/valueType] this information is not given`and the value range seems larger than it actually is allowed to be.
 
 [Property/semanticId]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
 [Property/value]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
 
 Third, a round-trip conversions XML 🠒 JSON 🠒 XML or RDF 🠒 JSON 🠒 RDF would be lossy.
-This prevents proper testing, and can cause a lot of confusion both for the developers and end-users using, say, GUI editors.
+This makes proper testing hard, and can cause a lot of confusion both for the developers and end-users using, say, GUI editors.
 The result of a model saved as XML is different to the model saved as JSON.
 For example, if the user typed in `1` for a boolean [Property/value] in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` (since the JSON library would silently convert `1` to a JSON boolean `true`).
 This effect would not happen if we saved the model to XML (`1` will remain `1`).
