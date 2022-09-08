@@ -38,23 +38,21 @@ The instances of the classes, abstract and concrete alike, are modeled as [JSON 
 [a definition]: https://json-schema.org/understanding-json-schema/structuring.html#defs
 [JSON objects]: https://json-schema.org/understanding-json-schema/reference/object.html
 
-### Attributes  🠒 JSON properties
+### UML properties  🠒 JSON properties
 
-The attributes of classes defined in the meta-model correspond directly to [JSON properties].
+The class properties of the meta-model (attributes and aggregations) correspond directly to [JSON properties].
 
 [JSON properties]: https://json-schema.org/understanding-json-schema/reference/object.html#properties
-
-### Cardinality
 
 Optional attributes, *i.e.*, the attributes with the cardinality ``0..1``, are modeled as [non-required properties].
 
 [non-required properties]: https://json-schema.org/understanding-json-schema/reference/object.html#required-properties
 
-Attributes describing aggregations, *i.e.*, the attributes with the cardinality ``0..*``, ``1..*`` *etc.*, are modeled as [JSON arrays].
+Aggregations, *i.e.*, the properties with the cardinality ``0..*``, ``1..*`` *etc.*, are modeled as [JSON arrays].
 
 [JSON arrays]: https://json-schema.org/understanding-json-schema/reference/array.html
 
-We explicitly forbid empty JSON arrays to avoid confusion about attributes which have cardinality ``0..*``.
+We explicitly forbid empty JSON arrays to avoid confusion about properties which have cardinality ``0..*``.
 Namely, an empty array is semantically equal to an omitted attribute (according to the meta-model).
 Thus, the JSON property representing an aggregation attribute must be omitted if the aggregation is empty.
 
