@@ -45,7 +45,7 @@ Using these building blocks, we map an AAS model to XML.
 
 [text enclosed in an element]: https://www.w3schools.com/xml/xml_elements.asp
 
-### UML Property 🠒 XML Element
+### UML Property to XML Element
 
 Before we look into how to represent instances of classes, let us start bottom-up and see first how individual properties are represented.
 
