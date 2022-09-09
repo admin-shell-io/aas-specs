@@ -30,7 +30,7 @@ To simplify exploration of the JSON data, identifiable instances are only availa
 
 ## Mapping Rules
 
-### Classes 🠒 JSON definitions
+### Classes to JSON definitions
 
 For each class of the [AAS meta-model], we provide [a definition] in the JSON schema.
 The instances of the classes, abstract and concrete alike, are modeled as [JSON objects].
@@ -38,7 +38,7 @@ The instances of the classes, abstract and concrete alike, are modeled as [JSON 
 [a definition]: https://json-schema.org/understanding-json-schema/structuring.html#defs
 [JSON objects]: https://json-schema.org/understanding-json-schema/reference/object.html
 
-### UML properties  🠒 JSON properties
+### UML properties to JSON properties
 
 The class properties of the meta-model (attributes and aggregations) correspond directly to [JSON properties].
 
@@ -98,6 +98,7 @@ declared in [Property]/``valueType`` taking the mapping of XSD ot JSON types int
 #### Round-Trip Conversions
 
 Round-trip conversions XML 🠒 JSON 🠒 XML or RDF 🠒 JSON 🠒 RDF may not result in the original file.
+
 The result of a model saved as XML is different to the model saved as JSON.
 For example, if the user typed in `1` for a boolean [Property]/``value`` in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` (since the JSON library would silently convert `1` to a [JSON boolean] `true`).
 
