@@ -73,20 +73,13 @@ The full list of exceptions is available [as code in aas-core-meta].
 
 The UML specification uses XSD types. For the mapping of XSD types to JSON types please refer to [Part 2 of the series of the Asset Adminsistration Shell].
 
-There are the following exceptions: For [Property]/value and [Range]/min and [Range]/max a JSON string is used 
-because the type is only known at run-time. Its type is declared in [Property]/valueType or [Range]/valueType, resp.
+There are the following exceptions: For [Property]/``value`` and [Range]/``min`` and [Range]/``max`` a JSON string is used 
+because the type is only known at run-time. The type it needs to be converted to by the data consumer is declared in [Property]/``valueType`` or [Range]/``valueType``, resp.
+
 Note: in valueOnly Format of [Part 2 of the series of the Asset Adminsistration Shell] value has the JSON type as 
-declared in Property/valueType taking the mapping of XSD ot JSON types into account (see [Part 2 of the series of the Asset Adminsistration Shell]).
+declared in [Property]/``valueType`` taking the mapping of XSD ot JSON types into account (see [Part 2 of the series of the Asset Adminsistration Shell]).
 
 [Part 2 of the series of the Asset Adminsistration Shell]: https://industrialdigitaltwin.org/wp-content/uploads/2021/11/Details_of_the_Asset_Administration_Shell_Part_2_V1.pdf?__blob=publicationFile&v=10#page=81
-
-
-### Be aware of possible type mismatches between XSD and JSON types
-
-Type mappings are not trivial. 
-Some sort of type mapping is always needed when using different programming languages and different serialization formats. 
-One way to avoid some JSON type conversion problems would have been to just use [JSON strings] for all primitive attributes values. 
-However, besides loss of semantics and higher effort for programmers there also is a higher risk of using unsanitized JSON input.
 
 [JSON strings]: https://json-schema.org/understanding-json-schema/reference/string.html
 
@@ -97,95 +90,12 @@ However, besides loss of semantics and higher effort for programmers there also 
 [XSD types]: https://www.w3.org/TR/xmlschema11-2
 [5.7.12 Primitive and Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 
-The following would have been arguments in favor to stricly use JSON strings for all primitive attribute values:
+### Round-Trip Conversions
 
-First, a [JSON number] can only be a concrete numerical value where special cases such as `INF` and `NaN` are not representable in JSON, whereas these values are completely valid instances of [xs:decimal].
-
-[xs:decimal]: https://www.w3.org/TR/xmlschema11-2/#decimal
-
-Second, the [lexical space] of XSD values is much larger than the lexical space of JSON numbers and booleans.
-For example, both `1` and `true` are valid lexical representations of a true value.
-In contrast, JSON recognizes only `true`.
-
-
-[lexical space]: https://www.w3.org/TR/xmlschema11-2/#lexical-space
-
-In many cases the semantics of a [Property] or any other [SubmodelElement] is also restricting its value range in case of numerical values. However, when just looking at the [Property/valueType] this information is not given`and the value range seems larger than it actually is allowed to be.
-
-[Property/semanticId]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
-[Property/value]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
-
-Third, round-trip conversions XML 🠒 JSON 🠒 XML or RDF 🠒 JSON 🠒 RDF would be lossy.
+Round-trip conversions XML 🠒 JSON 🠒 XML or RDF 🠒 JSON 🠒 RDF may not result in the original file.
 The result of a model saved as XML is different to the model saved as JSON.
-For example, if the user typed in `1` for a boolean [Property/value] in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` (since the JSON library would silently convert `1` to a JSON boolean `true`).
-This effect would not happen if we saved the model to XML (`1` will remain `1`).
+For example, if the user typed in `1` for a boolean [Property/value] in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` (since the JSON library would silently convert `1` to a [JSON boolean] `true`).
 
-Fourth, the precision of the XSD numeric types is well-defined, while JSON specification is vague when it comes to precision and size of the [JSON number].
-XSD is very specific about the format, *e.g.*, [xs:float] is a 32-bit floating point number following IEEE 754, [xs:long] is a 64-bit integer number *etc.*
-JSON specification leaves us in the dark about the precision, and defines only the lexical form (see [Section 2.4 of RFC 4627]).
-
-On top of that, most JSON libraries parse numbers as 64-bit floating-point which might lead to catastrophic failures due to silent round-ups or round-downs.
-This is especially problematic when 64-bit integers are converted to 64-bit floats.
-Despite popular belief, such catastrophic conversions do occur in practice more often than expected since 64-bit integers are used in applications for, *e.g.*, hash values, nanoseconds since epoch or randomized numeric IDs.
-
-For a concrete illustration of the problem, here is a short snippet in C# which demonstrates the problem:
-
-```cs
-using System;
-
-public class Program
-{
-  public static void Main()
-  {
-    // Mind the last digits in the following code!
-    Console.WriteLine(
-      double.Parse("9007199254740993") == 9007199254740992.0);
-    
-    Console.WriteLine(
-      double.Parse("9007199254740994") == 9007199254740994.0);
-    
-    Console.WriteLine(
-      double.Parse("9007199254740995") == 9007199254740996.0);
-    
-    Console.WriteLine(
-      double.Parse("9007199254740996") == 9007199254740996.0);
-
-    // Gives the output:
-    // True ?!💀?!
-    // True
-    // True ?!💀?!
-    // True
-
-    Console.WriteLine(
-      long.Parse("9007199254740993") == 9007199254740993);
-    
-    Console.WriteLine(
-      long.Parse("9007199254740994") == 9007199254740994);
-    
-    Console.WriteLine(
-      long.Parse("9007199254740995") == 9007199254740995);
-    
-    Console.WriteLine(
-      long.Parse("9007199254740996") == 9007199254740996);
-
-    // Gives the output (as expected):
-    // True
-    // True
-    // True
-    // True
-  }
-}
-```
-
-(The snippet is available on-line on [C# fiddle JkkIlT]).
-
-More information is available, say, on [this StackOverflow question about int🠒float casting].
-
-[xs:float]: https://www.w3.org/TR/xmlschema11-2/#float
-[xs:long]: https://www.w3.org/TR/xmlschema11-2/#long
-[Section 2.4 of RFC 4627]: https://www.rfc-editor.org/rfc/rfc4627#section-2.4
-[C# fiddle JkkIlT]: https://dotnetfiddle.net/JkkIlT
-[this StackOverflow question about int🠒float casting]: https://stackoverflow.com/questions/59635426/how-does-the-int-to-float-cast-work-for-large-numbers
 
 ### Inheritance
 
