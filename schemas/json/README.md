@@ -71,19 +71,19 @@ The full list of exceptions is available [as code in aas-core-meta].
 
 ### Primitive attribute values
 
-The UML specification uses XSD types. For the mapping of XSD types to JSON types please refer to [Part 2 of the series of the Asset Adminsistration Shell].
+The UML specification uses XSD types. For the [mapping of XSD to JSON types] please refer to [Part 2 of the series of the Asset Adminsistration Shell].
 
 There are the following exceptions: 
 
-[Property]/``value`` and [Range]/``min`` and [Range]/``max`` are mapped to a JSON string 
-because the type is only known at run-time. The type it needs to be converted to by the data consumer is declared in [Property]/``valueType`` or [Range]/``valueType``, resp.
+[Property]/``value`` and [Range]/``min`` and [Range]/``max`` are mapped to a JSON string. The type it needs to be converted to by the data consumer is declared in [Property]/``valueType`` or [Range]/``valueType``, resp.
 
 Primitive type [BlobType] (group of ``byte``s) is mapped to a JSON string with base64 encoding.
 
 Note: in valueOnly Format of [Part 2 of the series of the Asset Adminsistration Shell] value has the JSON type as 
-declared in [Property]/``valueType`` taking the mapping of XSD ot JSON types into account (see [Part 2 of the series of the Asset Adminsistration Shell]).
+declared in [Property]/``valueType`` taking the [mapping of XSD to JSON types] into account.
 
-[Part 2 of the series of the Asset Adminsistration Shell]: https://industrialdigitaltwin.org/wp-content/uploads/2021/11/Details_of_the_Asset_Administration_Shell_Part_2_V1.pdf?__blob=publicationFile&v=10#page=81
+[Part 2 of the series of the Asset Adminsistration Shell]: https://industrialdigitaltwin.org/wp-content/uploads/2021/11/Details_of_the_Asset_Administration_Shell_Part_2_V1.pdf
+[mapping of XSD to JSON types]: https://industrialdigitaltwin.org/wp-content/uploads/2021/11/Details_of_the_Asset_Administration_Shell_Part_2_V1.pdf?__blob=publicationFile&v=10#page=83
 
 [JSON strings]: https://json-schema.org/understanding-json-schema/reference/string.html
 
@@ -95,12 +95,14 @@ declared in [Property]/``valueType`` taking the mapping of XSD ot JSON types int
 [XSD types]: https://www.w3.org/TR/xmlschema11-2
 [5.7.12 Primitive and Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 
-#### Round-Trip Conversions
+#### Hint: Round-Trip Conversions
 
 Round-trip conversions XML 🠒 JSON 🠒 XML or RDF 🠒 JSON 🠒 RDF may not result in the original file.
 
 The result of a model saved as XML is different to the model saved as JSON.
-For example, if the user typed in `1` for a boolean [Property]/``value`` in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` (since the JSON library would silently convert `1` to a [JSON boolean] `true`).
+For example, if the user typed in `1` for a boolean UML attribute (e.g. for ``SubmodelElementList``/``orderRelevant``)
+in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` 
+(since the JSON library would silently convert `1` to a [JSON boolean] `true`).
 
 ### Inheritance
 
@@ -112,10 +114,12 @@ While JSON schema knows no inheritance, we enforce through ``allOf`` that all th
 ### Discriminator
 
 Many attributes in the meta-model refer to an abstract class.
-When we de-serialize such attributes, we need to know the concrete class at runtime, since otherwise the de-serialization algorithm would not know how to interpret the properties of the object.
+When we de-serialize such attributes, we need to know the concrete class at runtime, since otherwise the de-serialization algorithm would 
+not know how to interpret the properties of the object.
 
 For example, consider the attribute [Submodel] which contains instances of [SubmodelElement].
-When the de-serializer encounters the property ``submodelElements`` as an array and starts de-serializing its items, how can it know which constructor to call to parse the item?
+When the de-serializer encounters the property ``submodelElements`` as an array and starts de-serializing its items, 
+how can it know which constructor to call to parse the item?
 This necessary nugget of information is commonly called "discriminator" (*e.g.*, see [OpenAPI 3 specification on polymorphism]).
 
 [SubmodelElement]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=62
@@ -178,3 +182,11 @@ The schemas are generated using [aas-core-codegen], a translating tool which tra
 While this approach reduced the rate of errors significantly, it also imposed certain limits on our schema design.
 For example, the classes and enumerations are now programmatically mapped to JSON definitions, allowing for no exceptions.
 Where we could in-line some of them for better readability, we are now forced to stick with the programmatic definitions.
+
+Nonetheless some minor manual fixes were needed:
+
+*XML*
+
+- Type ``ValueDataType`` was renamed to ``ValueDataType_t`` for consistency reasons
+- Type of attributes ``valueDataType`` was changed from ``xs:string`` to ``xs:anySimpleType`` for better consistency with the specification
+
