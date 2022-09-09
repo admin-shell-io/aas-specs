@@ -30,7 +30,7 @@ To simplify exploration of the JSON data, identifiable instances are only availa
 
 ## Mapping Rules
 
-### Classes 🠒 JSON definitions
+### Classes to JSON definitions
 
 For each class of the [AAS meta-model], we provide [a definition] in the JSON schema.
 The instances of the classes, abstract and concrete alike, are modeled as [JSON objects].
@@ -38,7 +38,7 @@ The instances of the classes, abstract and concrete alike, are modeled as [JSON 
 [a definition]: https://json-schema.org/understanding-json-schema/structuring.html#defs
 [JSON objects]: https://json-schema.org/understanding-json-schema/reference/object.html
 
-### UML properties  🠒 JSON properties
+### UML properties to JSON properties
 
 The class properties of the meta-model (attributes and aggregations) correspond directly to [JSON properties].
 
@@ -66,7 +66,7 @@ The full list of exceptions is available [as code in aas-core-meta].
 
 [as code in aas-core-meta]: https://github.com/aas-core-works/aas-core-meta/blob/95055a55a8c8f60d75fb48c26eb932ff99945dd2/tests/test_v3rc2.py#L1122
 
-### Primitive attribute value 🠒 JSON string
+### Primitive attribute value to JSON string
 
 We strictly use only [JSON strings] to represent the attribute values.
 
@@ -86,7 +86,7 @@ We will look more into this problem in the next section.
 
 ### Why only JSON strings?
 
-Let us briefly elaborate at least two reasons why the mapping XSD types 🠒 JSON types is not possible, since the readers are often confused why numeric and boolean values are represented as strings.
+Let us briefly elaborate at least two reasons why the mapping XSD types to JSON types is not possible, since the readers are often confused why numeric and boolean values are represented as strings.
 
 First, a [JSON number] can only be a concrete numerical value where special cases such as `INF` and `NaN` are not representable in JSON, whereas these values are completely valid instances of [xs:decimal].
 
@@ -105,7 +105,7 @@ This distinction would have been lost if we simply serialized the value to a JSO
 [Property/semanticId]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
 [Property/value]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
 
-Third, a round-trip conversions XML 🠒 JSON 🠒 XML or RDF 🠒 JSON 🠒 RDF would be lossy.
+Third, a round-trip conversions XML to JSON to XML or RDF to JSON to RDF would be lossy.
 This prevents proper testing, and can cause a lot of confusion both for the developers and end-users using, say, GUI editors.
 The result of a model saved as XML is different to the model saved as JSON.
 For example, if the user typed in `1` for a boolean [Property/value] in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` (since the JSON library would silently convert `1` to a JSON boolean `true`).
