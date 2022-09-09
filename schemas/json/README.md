@@ -73,8 +73,12 @@ The full list of exceptions is available [as code in aas-core-meta].
 
 The UML specification uses XSD types. For the mapping of XSD types to JSON types please refer to [Part 2 of the series of the Asset Adminsistration Shell].
 
-There are the following exceptions: For [Property]/``value`` and [Range]/``min`` and [Range]/``max`` a JSON string is used 
+There are the following exceptions: 
+
+[Property]/``value`` and [Range]/``min`` and [Range]/``max`` are mapped to a JSON string 
 because the type is only known at run-time. The type it needs to be converted to by the data consumer is declared in [Property]/``valueType`` or [Range]/``valueType``, resp.
+
+Primitive type [BlobType] (group of ``byte``s) is mapped to a JSON string.
 
 Note: in valueOnly Format of [Part 2 of the series of the Asset Adminsistration Shell] value has the JSON type as 
 declared in [Property]/``valueType`` taking the mapping of XSD ot JSON types into account (see [Part 2 of the series of the Asset Adminsistration Shell]).
@@ -85,17 +89,17 @@ declared in [Property]/``valueType`` taking the mapping of XSD ot JSON types int
 
 [Property]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
 [Range]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=76
+[BlobType]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 [JSON number]: https://www.rfc-editor.org/rfc/rfc4627#section-2.4
 [JSON boolean]: https://json-schema.org/understanding-json-schema/reference/boolean.html
 [XSD types]: https://www.w3.org/TR/xmlschema11-2
 [5.7.12 Primitive and Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 
-### Round-Trip Conversions
+#### Round-Trip Conversions
 
 Round-trip conversions XML 🠒 JSON 🠒 XML or RDF 🠒 JSON 🠒 RDF may not result in the original file.
 The result of a model saved as XML is different to the model saved as JSON.
-For example, if the user typed in `1` for a boolean [Property/value] in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` (since the JSON library would silently convert `1` to a [JSON boolean] `true`).
-
+For example, if the user typed in `1` for a boolean [Property]/``value`` in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` (since the JSON library would silently convert `1` to a [JSON boolean] `true`).
 
 ### Inheritance
 
@@ -145,7 +149,7 @@ Therefore, the meta-model mandates to embed them in serializations (see Section 
 
 [9.2.5 Embedded Data Specifications]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=150
 
-We consequently embed the data specifications by adding `embeddedDataSpecifications` property to the definition corresponding to [HasDataSpecification], and deliberately omit the attribute `HasDataSpecification/dataSpecification` in the schema.
+We consequently embed the data specifications by adding `embeddedDataSpecifications` property to the definition corresponding to [HasDataSpecification], and deliberately omit the attribute [HasDataSpecification]/``dataSpecification`` in the schema.
 
 [HasDataSpecification]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=56
 
