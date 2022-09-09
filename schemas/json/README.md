@@ -78,7 +78,7 @@ There are the following exceptions:
 [Property]/``value`` and [Range]/``min`` and [Range]/``max`` are mapped to a JSON string 
 because the type is only known at run-time. The type it needs to be converted to by the data consumer is declared in [Property]/``valueType`` or [Range]/``valueType``, resp.
 
-Primitive type [BlobType] (group of ``byte``s) is mapped to a JSON string.
+Primitive type [BlobType] (group of ``byte``s) is mapped to a JSON string with base64 encoding.
 
 Note: in valueOnly Format of [Part 2 of the series of the Asset Adminsistration Shell] value has the JSON type as 
 declared in [Property]/``valueType`` taking the mapping of XSD ot JSON types into account (see [Part 2 of the series of the Asset Adminsistration Shell]).
