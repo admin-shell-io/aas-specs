@@ -56,9 +56,12 @@ We explicitly forbid empty JSON arrays to avoid confusion about properties which
 Namely, an empty array is semantically equal to an omitted attribute (according to the meta-model).
 Thus, the JSON property representing an aggregation attribute must be omitted if the aggregation is empty.
 
-In UML, associations and aggregations are given in singular form.
-This is, however, not common in programming code, which in majority of the cases uses plural form for the arrays in class properties.
-For better readability of the programming code, we diverge from the meta-model property names and spell most properties in plural.
+In UML, it is the convention to name associations and aggregations in singular form. 
+The cardinality is to be taken into account to decide on whether there are none, a single or several elements in the 
+corresponding association or aggregation. 
+In JSON it is best practice to use plural form for array in class properties. 
+The singular name is used for its descriminator (see section on decriminators).
+Typically the plural name is derived by just adding an "s" to the name.
 For example, ``submodelElements`` instead of ``submodelElement`` in case of [Submodel] class.
 
 If plural form made no sense for a property, we kept it as-is (*e.g.*, `isCaseOf`).
@@ -66,117 +69,40 @@ The full list of exceptions is available [as code in aas-core-meta].
 
 [as code in aas-core-meta]: https://github.com/aas-core-works/aas-core-meta/blob/95055a55a8c8f60d75fb48c26eb932ff99945dd2/tests/test_v3rc2.py#L1122
 
-### Primitive attribute value to JSON string
+### Primitive attribute values
 
-We strictly use only [JSON strings] to represent the attribute values.
+The UML specification uses XSD types. For the [mapping of XSD to JSON types] please refer to [Part 2 of the series of the Asset Adminsistration Shell].
+
+There are the following exceptions: 
+
+[Property]/``value`` and [Range]/``min`` and [Range]/``max`` are mapped to a JSON string. The type it needs to be converted to by the data consumer is declared in [Property]/``valueType`` or [Range]/``valueType``, resp.
+
+Primitive type [BlobType] (group of ``byte``s) is mapped to a JSON string with base64 encoding.
+
+Note: in valueOnly Format of [Part 2 of the series of the Asset Adminsistration Shell] value has the JSON type as 
+declared in [Property]/``valueType`` taking the [mapping of XSD to JSON types] into account.
+
+[Part 2 of the series of the Asset Adminsistration Shell]: https://industrialdigitaltwin.org/wp-content/uploads/2021/11/Details_of_the_Asset_Administration_Shell_Part_2_V1.pdf
+[mapping of XSD to JSON types]: https://industrialdigitaltwin.org/wp-content/uploads/2021/11/Details_of_the_Asset_Administration_Shell_Part_2_V1.pdf?__blob=publicationFile&v=10#page=83
 
 [JSON strings]: https://json-schema.org/understanding-json-schema/reference/string.html
 
-This might come as a surprise, given that classes of the meta-model such as [Property] and [Range] allow for boolean and numeric values.
-The reason why we could not map those values to [JSON number] or [JSON boolean] is that the attribute values of the meta-model are based on [XSD types], and not on JSON (see Section [5.7.12 Primitive and Simple Data Types] of the meta-model).
-As [XSD types] do not map to JSON types, we can only represent them as strings.
-We will look more into this problem in the next section.
-
 [Property]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
 [Range]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=76
+[BlobType]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 [JSON number]: https://www.rfc-editor.org/rfc/rfc4627#section-2.4
 [JSON boolean]: https://json-schema.org/understanding-json-schema/reference/boolean.html
 [XSD types]: https://www.w3.org/TR/xmlschema11-2
 [5.7.12 Primitive and Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 
-### Why only JSON strings?
+#### Hint: Round-Trip Conversions
 
-Let us briefly elaborate at least two reasons why the mapping XSD types to JSON types is not possible, since the readers are often confused why numeric and boolean values are represented as strings.
+Round-trip conversions XML 🠒 JSON 🠒 XML or RDF 🠒 JSON 🠒 RDF may not result in the original file.
 
-First, a [JSON number] can only be a concrete numerical value where special cases such as `INF` and `NaN` are not representable in JSON, whereas these values are completely valid instances of [xs:decimal].
-
-[xs:decimal]: https://www.w3.org/TR/xmlschema11-2/#decimal
-
-Second, the [lexical space] of XSD values is much larger than the lexical space of JSON numbers and booleans.
-For example, both `1` and `true` are valid lexical representations of a true value.
-In contrast, JSON recognizes only `true`.
-
-[lexical space]: https://www.w3.org/TR/xmlschema11-2/#lexical-space
-
-Since the semantic of the value is defined outside the model, and might depend directly on the lexical representation, we must represent these values as strings.
-For example, we might define through the attribute [Property/semanticId] that a [Property/value], given as a boolean, distinguishes between `1` and `true` where `1` has a completely different meaning from `true`.
-This distinction would have been lost if we simply serialized the value to a JSON boolean.
-
-[Property/semanticId]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
-[Property/value]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
-
-Third, a round-trip conversions XML to JSON to XML or RDF to JSON to RDF would be lossy.
-This prevents proper testing, and can cause a lot of confusion both for the developers and end-users using, say, GUI editors.
 The result of a model saved as XML is different to the model saved as JSON.
-For example, if the user typed in `1` for a boolean [Property/value] in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` (since the JSON library would silently convert `1` to a JSON boolean `true`).
-This effect would not happen if we saved the model to XML (`1` will remain `1`).
-
-Fourth, the precision of the XSD numeric types is well-defined, while JSON specification is vague when it comes to precision and size of the [JSON number].
-XSD is very specific about the format, *e.g.*, [xs:float] is a 32-bit floating point number following IEEE 754, [xs:long] is a 64-bit integer number *etc.*
-JSON specification leaves us in the dark about the precision, and defines only the lexical form (see [Section 2.4 of RFC 4627]).
-
-On top of that, most JSON libraries parse numbers as 64-bit floating-point which might lead to catastrophic failures due to silent round-ups or round-downs.
-This is especially problematic when 64-bit integers are converted to 64-bit floats.
-Despite popular belief, such catastrophic conversions do occur in practice more often than expected since 64-bit integers are used in applications for, *e.g.*, hash values, nanoseconds since epoch or randomized numeric IDs.
-
-For a concrete illustration of the problem, here is a short snippet in C# which demonstrates the problem:
-
-```cs
-using System;
-
-public class Program
-{
-  public static void Main()
-  {
-    // Mind the last digits in the following code!
-    Console.WriteLine(
-      double.Parse("9007199254740993") == 9007199254740992.0);
-    
-    Console.WriteLine(
-      double.Parse("9007199254740994") == 9007199254740994.0);
-    
-    Console.WriteLine(
-      double.Parse("9007199254740995") == 9007199254740996.0);
-    
-    Console.WriteLine(
-      double.Parse("9007199254740996") == 9007199254740996.0);
-
-    // Gives the output:
-    // True ?!💀?!
-    // True
-    // True ?!💀?!
-    // True
-
-    Console.WriteLine(
-      long.Parse("9007199254740993") == 9007199254740993);
-    
-    Console.WriteLine(
-      long.Parse("9007199254740994") == 9007199254740994);
-    
-    Console.WriteLine(
-      long.Parse("9007199254740995") == 9007199254740995);
-    
-    Console.WriteLine(
-      long.Parse("9007199254740996") == 9007199254740996);
-
-    // Gives the output (as expected):
-    // True
-    // True
-    // True
-    // True
-  }
-}
-```
-
-(The snippet is available on-line on [C# fiddle JkkIlT]).
-
-More information is available, say, on [this StackOverflow question about int🠒float casting].
-
-[xs:float]: https://www.w3.org/TR/xmlschema11-2/#float
-[xs:long]: https://www.w3.org/TR/xmlschema11-2/#long
-[Section 2.4 of RFC 4627]: https://www.rfc-editor.org/rfc/rfc4627#section-2.4
-[C# fiddle JkkIlT]: https://dotnetfiddle.net/JkkIlT
-[this StackOverflow question about int🠒float casting]: https://stackoverflow.com/questions/59635426/how-does-the-int-to-float-cast-work-for-large-numbers
+For example, if the user typed in `1` for a boolean UML attribute (e.g. for ``SubmodelElementList``/``orderRelevant``)
+in the editor, saved the model as JSON and opened it again, she would suddenly see `true` instead of `1` 
+(since the JSON library would silently convert `1` to a [JSON boolean] `true`).
 
 ### Inheritance
 
@@ -188,10 +114,12 @@ While JSON schema knows no inheritance, we enforce through ``allOf`` that all th
 ### Discriminator
 
 Many attributes in the meta-model refer to an abstract class.
-When we de-serialize such attributes, we need to know the concrete class at runtime, since otherwise the de-serialization algorithm would not know how to interpret the properties of the object.
+When we de-serialize such attributes, we need to know the concrete class at runtime, since otherwise the de-serialization algorithm would 
+not know how to interpret the properties of the object.
 
 For example, consider the attribute [Submodel] which contains instances of [SubmodelElement].
-When the de-serializer encounters the property ``submodelElements`` as an array and starts de-serializing its items, how can it know which constructor to call to parse the item?
+When the de-serializer encounters the property ``submodelElements`` as an array and starts de-serializing its items, 
+how can it know which constructor to call to parse the item?
 This necessary nugget of information is commonly called "discriminator" (*e.g.*, see [OpenAPI 3 specification on polymorphism]).
 
 [SubmodelElement]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=62
@@ -226,7 +154,7 @@ Therefore, the meta-model mandates to embed them in serializations (see Section 
 
 [9.2.5 Embedded Data Specifications]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=150
 
-We consequently embed the data specifications by adding `embeddedDataSpecifications` property to the definition corresponding to [HasDataSpecification], and deliberately omit the attribute `HasDataSpecification/dataSpecification` in the schema.
+We consequently embed the data specifications by adding `embeddedDataSpecifications` property to the definition corresponding to [HasDataSpecification], and deliberately omit the attribute [HasDataSpecification]/``dataSpecification`` in the schema.
 
 [HasDataSpecification]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=56
 
@@ -254,3 +182,11 @@ The schemas are generated using [aas-core-codegen], a translating tool which tra
 While this approach reduced the rate of errors significantly, it also imposed certain limits on our schema design.
 For example, the classes and enumerations are now programmatically mapped to JSON definitions, allowing for no exceptions.
 Where we could in-line some of them for better readability, we are now forced to stick with the programmatic definitions.
+
+Nonetheless some minor manual fixes were needed:
+
+*XML*
+
+- Type ``ValueDataType`` was renamed to ``ValueDataType_t`` for consistency reasons
+- Type of attributes ``valueDataType`` was changed from ``xs:string`` to ``xs:anySimpleType`` for better consistency with the specification
+
