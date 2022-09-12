@@ -97,7 +97,7 @@ declared in [Property]/``valueType`` taking the [mapping of XSD to JSON types] i
 
 #### Hint: Round-Trip Conversions
 
-Round-trip conversions XML 🠒 JSON 🠒 XML or RDF 🠒 JSON 🠒 RDF may not result in the original file.
+Round-trip conversions XML to JSON to XML or RDF to JSON to RDF may not result in the original file.
 
 The result of a model saved as XML is different to the model saved as JSON.
 For example, if the user typed in `1` for a boolean UML attribute (e.g. for ``SubmodelElementList``/``orderRelevant``)
