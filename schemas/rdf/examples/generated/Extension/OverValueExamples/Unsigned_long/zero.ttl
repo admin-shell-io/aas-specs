@@ -1,0 +1,19 @@
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+
+<something_random_428f0205> rdf:type aas:AssetAdministrationShell ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "something_random_428f0205"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/assetInformation> [
+        rdf:type aas:AssetInformation ;
+        <https://admin-shell.io/aas/3/0/RC02/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/RC02/AssetKind/Instance> ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/RC02/HasExtensions/extensions> [
+        rdf:type aas:Extension ;
+        <https://admin-shell.io/aas/3/0/RC02/Extension/name> "something_random_8ddedf5d"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/RC02/Extension/valueType> <https://admin-shell.io/aas/3/0/RC02/DataTypeDefXsd/UnsignedLong> ;
+        <https://admin-shell.io/aas/3/0/RC02/Extension/value> "0"^^xs:string ;
+    ] ;
+.

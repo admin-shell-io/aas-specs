@@ -1,0 +1,7 @@
+# YAML
+The following repository presents a [YAML](https://yaml.org/spec/1.2.2/) representation of the Asset Administration Shell. The file [aas.yaml](aas.yaml) contains a one-to-one translation of the [AAS JSON Schema](../json/aas.json). 
+
+For the API definition specified in Details of the Asset Administration Shell - Part 2 - Interoperability at Runtime - Exchanging Information via Application Programming Interfaces (Version 1.0RC03), the elements of the AAS metamodel must be (de)serialized according to the [AAS OpenAPI Domain](aas-openapi.yaml). Note that this file is slightly different to [aas.yaml](aas.yaml) due to restrictions of the SwaggerHub platform (see also 
+ [SwaggerHub AAS Metamodel](https://app.swaggerhub.com/domains/Plattform_i40/Part1-MetaModel-Schemas/V3.0RC02#), mainly the different references (`#/definitions/...` vs. `#/components/schemas/...`) and the limited recursion support. The latter limitation leads to the introduction of the abstract class `ReferenceParent`, which should not be used in any application and only exists to prevent a rendering bug.
+
+Note that this directory only contains the AAS metamodel classes. Additional classes introduced by the Part 2 specification can be found e.g. at [SwaggerHub](https://app.swaggerhub.com/domains/Plattform_i40/Part2-API-Schemas/V1.0RC03). These classes are not part of the metamodel and are therefore explicitely not released in this repository.

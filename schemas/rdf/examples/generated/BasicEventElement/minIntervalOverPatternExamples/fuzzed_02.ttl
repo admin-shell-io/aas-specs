@@ -1,0 +1,30 @@
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+
+<something_random_b0c234ba> rdf:type aas:Submodel ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "something_random_b0c234ba"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElements> [
+        rdf:type aas:BasicEventElement ;
+        <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/observed> [
+            rdf:type aas:Reference ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/ModelReference> ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
+                rdf:type aas:Key ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/Submodel> ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/value> "something_random_d041916a"^^xs:string ;
+            ] ;
+            <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
+                rdf:type aas:Key ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/Blob> ;
+                <https://admin-shell.io/aas/3/0/RC02/Key/value> "something_random_c0f0d84b"^^xs:string ;
+            ] ;
+        ] ;
+        <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/direction> <https://admin-shell.io/aas/3/0/RC02/Direction/Output> ;
+        <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/state> <https://admin-shell.io/aas/3/0/RC02/StateOfEvent/Off> ;
+        <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "some_id_short_10b21b1b"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/RC02/BasicEventElement/minInterval> "0001-01-01T00:00:00Z"^^xs:string ;
+    ] ;
+.

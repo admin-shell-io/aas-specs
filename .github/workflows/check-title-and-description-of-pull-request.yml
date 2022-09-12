@@ -11,7 +11,9 @@ jobs:
       - uses: actions/checkout@master
 
       - name: Check the title and description of the pull request
-        uses: mristin/opinionated-commit-message@v2.3.2
+        uses: mristin/opinionated-commit-message@v3.0.0
+        with:
+          path-to-additional-verbs: .github/workflows/AdditionalVerbsInImperativeMood.txt
 
       - name: READ HERE ON FAILURE FOR MORE INSTRUCTIONS
         if: ${{ failure() }}

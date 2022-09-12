@@ -1,0 +1,15 @@
+@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+
+<something_random_b0c234ba> rdf:type aas:Submodel ;
+    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "something_random_b0c234ba"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/RC02/Submodel/submodelElements> [
+        rdf:type aas:Property ;
+        <https://admin-shell.io/aas/3/0/RC02/Property/valueType> <https://admin-shell.io/aas/3/0/RC02/DataTypeDefXsd/Decimal> ;
+        <https://admin-shell.io/aas/3/0/RC02/Referable/idShort> "some_id_short_10b21b1b"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/RC02/Property/value> "01195"^^xs:string ;
+    ] ;
+.

@@ -37,9 +37,13 @@ The commit messages follow the guidelines from https://chris.beams.io/posts/git-
 * Use the body to explain *what* and *why* (instead of *how*)
 
 ## Create Pull Request
-After all changes have been committed to your feature branch, a [pull request] has to be created. See [this Github tutorial] for more guidance. 
+After all changes have been committed to your feature branch, a [pull request] (PR) has to be created.
+Every PR should be linked to an issue for tracking.
+See [this Github tutorial] for more guidance. 
 
 [pull request]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
+
+[link PR to issue]: https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue
 
 ## Pre-Merge Checks
 **Continuous Integration.**
@@ -83,6 +87,9 @@ Major changes must first be reviewed and approved by the joint working group "As
 [Platform Industrie 4.0]: http://www.plattform-i40.de
 [IDTA]: https://industrialdigitaltwin.org/
 
+
+## Merge into Master Branch
+
 After the approval the pull request can be merged into the repository. This is done by one of the maintainers.
 
 
@@ -90,6 +97,6 @@ After the approval the pull request can be merged into the repository. This is d
 **Congratulation.**
 You successfully contributed to the aas-spec repository.
 
-If you are a member of the development team, pleas delete the feature branch you directly created within the aas-specs repository.
+If you are a member of the development team, please delete the feature branch you directly created within the aas-specs repository.
 
 Otherwise, if you are not part of the team and you forked the repository, feel free to delete your fork.
