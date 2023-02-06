@@ -7,9 +7,9 @@
       "$ref": "#/definitions/Environment"
     }
   ],
-  "$id": "https://admin-shell.io/aas/3/0/RC02",
+  "$id": "https://admin-shell.io/aas/3/0",
   "definitions": {
-    "AasSubmodelElements": {
+    "AASSubmodelElements": {
       "type": "string",
       "enum": [
         "AnnotatedRelationshipElement",
@@ -31,6 +31,24 @@
         "SubmodelElementList"
       ]
     },
+    "AbstractLangString": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string",
+          "pattern": "^(([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){2})?|[a-zA-Z]{4}|[a-zA-Z]{5,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){1,8})+)?|[xX](-([a-zA-Z0-9]){1,8})+|((en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang)))$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+        }
+      },
+      "required": [
+        "language",
+        "text"
+      ]
+    },
     "AdministrativeInformation": {
       "allOf": [
         {
@@ -40,11 +58,22 @@
           "properties": {
             "version": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "revision": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+            },
+            "creator": {
+              "$ref": "#/definitions/Reference"
+            },
+            "templateId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             }
           }
         }
@@ -105,7 +134,10 @@
           "$ref": "#/definitions/AssetKind"
         },
         "globalAssetId": {
-          "$ref": "#/definitions/Reference"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
         },
         "specificAssetIds": {
           "type": "array",
@@ -113,6 +145,12 @@
             "$ref": "#/definitions/SpecificAssetId"
           },
           "minItems": 1
+        },
+        "assetType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
         },
         "defaultThumbnail": {
           "$ref": "#/definitions/Resource"
@@ -147,22 +185,24 @@
             },
             "messageTopic": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 255,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "messageBroker": {
               "$ref": "#/definitions/Reference"
             },
             "lastUpdate": {
               "type": "string",
-              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)(Z|\\+00:00|-00:00)$"
             },
             "minInterval": {
               "type": "string",
-              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+              "pattern": "^-?P((([0-9]+Y([0-9]+M)?([0-9]+D)?|([0-9]+M)([0-9]+D)?|([0-9]+D))(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S)))?)|(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S))))$"
             },
             "maxInterval": {
               "type": "string",
-              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+              "pattern": "^-?P((([0-9]+Y([0-9]+M)?([0-9]+D)?|([0-9]+M)([0-9]+D)?|([0-9]+D))(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S)))?)|(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S))))$"
             }
           },
           "required": [
@@ -186,8 +226,18 @@
             },
             "contentType": {
               "type": "string",
-              "minLength": 1,
-              "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+              "allOf": [
+                {
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                {
+                  "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+                },
+                {
+                  "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+                }
+              ]
             }
           },
           "required": [
@@ -244,31 +294,34 @@
             "preferredName": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringTextType"
               },
               "minItems": 1
             },
             "shortName": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringTextType"
               },
               "minItems": 1
             },
             "unit": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "unitId": {
               "$ref": "#/definitions/Reference"
             },
             "sourceOfDefinition": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "symbol": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "dataType": {
               "$ref": "#/definitions/DataTypeIEC61360"
@@ -276,13 +329,14 @@
             "definition": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringTextType"
               },
               "minItems": 1
             },
             "valueFormat": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "valueList": {
               "$ref": "#/definitions/ValueList"
@@ -309,58 +363,70 @@
           "properties": {
             "unitName": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "unitSymbol": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "definition": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringTextType"
               },
               "minItems": 1
             },
             "siNotation": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "siName": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "dinNotation": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "eceName": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "eceCode": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "nistName": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "sourceOfDefinition": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "conversionFactor": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "registrationAuthorityId": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "supplier": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             }
           },
           "required": [
@@ -371,7 +437,7 @@
         }
       ]
     },
-    "DataTypeDefXsd": {
+    "DataTypeDefXSD": {
       "type": "string",
       "enum": [
         "xs:anyURI",
@@ -380,8 +446,6 @@
         "xs:byte",
         "xs:date",
         "xs:dateTime",
-        "xs:dateTimeStamp",
-        "xs:dayTimeDuration",
         "xs:decimal",
         "xs:double",
         "xs:duration",
@@ -405,8 +469,7 @@
         "xs:unsignedByte",
         "xs:unsignedInt",
         "xs:unsignedLong",
-        "xs:unsignedShort",
-        "xs:yearMonthDuration"
+        "xs:unsignedShort"
       ]
     },
     "DataTypeIEC61360": {
@@ -473,10 +536,17 @@
               "$ref": "#/definitions/EntityType"
             },
             "globalAssetId": {
-              "$ref": "#/definitions/Reference"
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
-            "specificAssetId": {
-              "$ref": "#/definitions/SpecificAssetId"
+            "specificAssetIds": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SpecificAssetId"
+              },
+              "minItems": 1
             }
           },
           "required": [
@@ -538,18 +608,20 @@
         },
         "topic": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "maxLength": 255,
+          "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
         },
         "subjectId": {
           "$ref": "#/definitions/Reference"
         },
         "timeStamp": {
           "type": "string",
-          "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+          "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)(Z|\\+00:00|-00:00)$"
         },
         "payload": {
           "type": "string",
-          "minLength": 1
+          "contentEncoding": "base64"
         }
       },
       "required": [
@@ -567,16 +639,23 @@
           "properties": {
             "name": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "valueType": {
-              "$ref": "#/definitions/DataTypeDefXsd"
+              "$ref": "#/definitions/DataTypeDefXSD"
             },
             "value": {
-              "type": "string"
+              "type": "string",
+              "pattern": "(xs:anyURI)|(xs:base64Binary)|(xs:boolean)|(xs:byte)|(xs:date)|(xs:dateTime)|(xs:decimal)|(xs:double)|(xs:duration)|(xs:float)|(xs:gDay)|(xs:gMonth)|(xs:gMonthDay)|(xs:gYear)|(xs:gYearMonth)|(xs:hexBinary)|(xs:int)|(xs:integer)|(xs:long)|(xs:negativeInteger)|(xs:nonNegativeInteger)|(xs:nonPositiveInteger)|(xs:positiveInteger)|(xs:short)|(xs:string)|(xs:time)|(xs:unsignedByte)|(xs:unsignedInt)|(xs:unsignedLong)|(xs:unsignedShort)"
             },
             "refersTo": {
-              "$ref": "#/definitions/Reference"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Reference"
+              },
+              "minItems": 1
             }
           },
           "required": [
@@ -594,13 +673,33 @@
           "properties": {
             "value": {
               "type": "string",
-              "minLength": 1,
-              "pattern": "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$"
+              "allOf": [
+                {
+                  "minLength": 1,
+                  "maxLength": 2000
+                },
+                {
+                  "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+                },
+                {
+                  "pattern": "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$"
+                }
+              ]
             },
             "contentType": {
               "type": "string",
-              "minLength": 1,
-              "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+              "allOf": [
+                {
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                {
+                  "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+                },
+                {
+                  "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+                }
+              ]
             }
           },
           "required": [
@@ -637,7 +736,7 @@
       "type": "object",
       "properties": {
         "kind": {
-          "$ref": "#/definitions/ModelingKind"
+          "$ref": "#/definitions/ModellingKind"
         }
       }
     },
@@ -668,7 +767,9 @@
             },
             "id": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             }
           },
           "required": [
@@ -685,7 +786,9 @@
         },
         "value": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
         }
       },
       "required": [
@@ -722,29 +825,55 @@
         "SubmodelElementList"
       ]
     },
-    "LangString": {
-      "type": "object",
-      "properties": {
-        "language": {
-          "type": "string",
-          "pattern": "^(([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){2})?|[a-zA-Z]{4}|[a-zA-Z]{5,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){1,8})+)?|[xX](-([a-zA-Z0-9]){1,8})+|((en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang)))$"
+    "LangStringNameType": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractLangString"
         },
-        "text": {
-          "type": "string"
+        {
+          "properties": {
+            "text": {
+              "maxLength": 128
+            }
+          }
         }
-      },
-      "required": [
-        "language",
-        "text"
+      ]
+    },
+    "LangStringTextType": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractLangString"
+        },
+        {
+          "properties": {
+            "text": {
+              "maxLength": 1023
+            }
+          }
+        }
       ]
     },
     "LevelType": {
-      "type": "string",
-      "enum": [
-        "Max",
-        "Min",
-        "Nom",
-        "Typ"
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "boolean"
+        },
+        "max": {
+          "type": "boolean"
+        },
+        "nom": {
+          "type": "boolean"
+        },
+        "typ": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "min",
+        "max",
+        "nom",
+        "typ"
       ]
     },
     "ModelType": {
@@ -767,11 +896,12 @@
         "ReferenceElement",
         "RelationshipElement",
         "Submodel",
+        "SubmodelElement",
         "SubmodelElementCollection",
         "SubmodelElementList"
       ]
     },
-    "ModelingKind": {
+    "ModellingKind": {
       "type": "string",
       "enum": [
         "Instance",
@@ -788,7 +918,7 @@
             "value": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringTextType"
               },
               "minItems": 1
             },
@@ -850,10 +980,11 @@
         {
           "properties": {
             "valueType": {
-              "$ref": "#/definitions/DataTypeDefXsd"
+              "$ref": "#/definitions/DataTypeDefXSD"
             },
             "value": {
-              "type": "string"
+              "type": "string",
+              "pattern": "(xs:anyURI)|(xs:base64Binary)|(xs:boolean)|(xs:byte)|(xs:date)|(xs:dateTime)|(xs:decimal)|(xs:double)|(xs:duration)|(xs:float)|(xs:gDay)|(xs:gMonth)|(xs:gMonthDay)|(xs:gYear)|(xs:gYearMonth)|(xs:hexBinary)|(xs:int)|(xs:integer)|(xs:long)|(xs:negativeInteger)|(xs:nonNegativeInteger)|(xs:nonPositiveInteger)|(xs:positiveInteger)|(xs:short)|(xs:string)|(xs:time)|(xs:unsignedByte)|(xs:unsignedInt)|(xs:unsignedLong)|(xs:unsignedShort)"
             },
             "valueId": {
               "$ref": "#/definitions/Reference"
@@ -895,13 +1026,16 @@
             },
             "type": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "valueType": {
-              "$ref": "#/definitions/DataTypeDefXsd"
+              "$ref": "#/definitions/DataTypeDefXSD"
             },
             "value": {
-              "type": "string"
+              "type": "string",
+              "pattern": "(xs:anyURI)|(xs:base64Binary)|(xs:boolean)|(xs:byte)|(xs:date)|(xs:dateTime)|(xs:decimal)|(xs:double)|(xs:duration)|(xs:float)|(xs:gDay)|(xs:gMonth)|(xs:gMonthDay)|(xs:gYear)|(xs:gYearMonth)|(xs:hexBinary)|(xs:int)|(xs:integer)|(xs:long)|(xs:negativeInteger)|(xs:nonNegativeInteger)|(xs:nonPositiveInteger)|(xs:positiveInteger)|(xs:short)|(xs:string)|(xs:time)|(xs:unsignedByte)|(xs:unsignedInt)|(xs:unsignedLong)|(xs:unsignedShort)"
             },
             "valueId": {
               "$ref": "#/definitions/Reference"
@@ -930,13 +1064,15 @@
         {
           "properties": {
             "valueType": {
-              "$ref": "#/definitions/DataTypeDefXsd"
+              "$ref": "#/definitions/DataTypeDefXSD"
             },
             "min": {
-              "type": "string"
+              "type": "string",
+              "pattern": "(xs:anyURI)|(xs:base64Binary)|(xs:boolean)|(xs:byte)|(xs:date)|(xs:dateTime)|(xs:decimal)|(xs:double)|(xs:duration)|(xs:float)|(xs:gDay)|(xs:gMonth)|(xs:gMonthDay)|(xs:gYear)|(xs:gYearMonth)|(xs:hexBinary)|(xs:int)|(xs:integer)|(xs:long)|(xs:negativeInteger)|(xs:nonNegativeInteger)|(xs:nonPositiveInteger)|(xs:positiveInteger)|(xs:short)|(xs:string)|(xs:time)|(xs:unsignedByte)|(xs:unsignedInt)|(xs:unsignedLong)|(xs:unsignedShort)"
             },
             "max": {
-              "type": "string"
+              "type": "string",
+              "pattern": "(xs:anyURI)|(xs:base64Binary)|(xs:boolean)|(xs:byte)|(xs:date)|(xs:dateTime)|(xs:decimal)|(xs:double)|(xs:duration)|(xs:float)|(xs:gDay)|(xs:gMonth)|(xs:gMonthDay)|(xs:gYear)|(xs:gYearMonth)|(xs:hexBinary)|(xs:int)|(xs:integer)|(xs:long)|(xs:negativeInteger)|(xs:nonNegativeInteger)|(xs:nonPositiveInteger)|(xs:positiveInteger)|(xs:short)|(xs:string)|(xs:time)|(xs:unsignedByte)|(xs:unsignedInt)|(xs:unsignedLong)|(xs:unsignedShort)"
             }
           },
           "required": [
@@ -954,30 +1090,38 @@
           "properties": {
             "category": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "idShort": {
               "type": "string",
-              "maxLength": 128,
-              "pattern": "^[a-zA-Z][a-zA-Z0-9_]+$"
+              "allOf": [
+                {
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                {
+                  "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+                },
+                {
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
+                }
+              ]
             },
             "displayName": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringNameType"
               },
               "minItems": 1
             },
             "description": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringTextType"
               },
               "minItems": 1
-            },
-            "checksum": {
-              "type": "string",
-              "minLength": 1
             },
             "modelType": {
               "$ref": "#/definitions/ModelType"
@@ -1028,7 +1172,7 @@
     "ReferenceTypes": {
       "type": "string",
       "enum": [
-        "GlobalReference",
+        "ExternalReference",
         "ModelReference"
       ]
     },
@@ -1058,13 +1202,33 @@
       "properties": {
         "path": {
           "type": "string",
-          "minLength": 1,
-          "pattern": "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$"
+          "allOf": [
+            {
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            {
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+            },
+            {
+              "pattern": "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$"
+            }
+          ]
         },
         "contentType": {
           "type": "string",
-          "minLength": 1,
-          "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+          "allOf": [
+            {
+              "minLength": 1,
+              "maxLength": 100
+            },
+            {
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+            },
+            {
+              "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+            }
+          ]
         }
       },
       "required": [
@@ -1080,11 +1244,15 @@
           "properties": {
             "name": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "value": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "externalSubjectId": {
               "$ref": "#/definitions/Reference"
@@ -1092,8 +1260,7 @@
           },
           "required": [
             "name",
-            "value",
-            "externalSubjectId"
+            "value"
           ]
         }
       ]
@@ -1141,9 +1308,6 @@
           "$ref": "#/definitions/Referable"
         },
         {
-          "$ref": "#/definitions/HasKind"
-        },
-        {
           "$ref": "#/definitions/HasSemantics"
         },
         {
@@ -1182,21 +1346,21 @@
             "orderRelevant": {
               "type": "boolean"
             },
+            "semanticIdListElement": {
+              "$ref": "#/definitions/Reference"
+            },
+            "typeValueListElement": {
+              "$ref": "#/definitions/AASSubmodelElements"
+            },
+            "valueTypeListElement": {
+              "$ref": "#/definitions/DataTypeDefXSD"
+            },
             "value": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/SubmodelElement"
               },
               "minItems": 1
-            },
-            "semanticIdListElement": {
-              "$ref": "#/definitions/Reference"
-            },
-            "typeValueListElement": {
-              "$ref": "#/definitions/AasSubmodelElements"
-            },
-            "valueTypeListElement": {
-              "$ref": "#/definitions/DataTypeDefXsd"
             }
           },
           "required": [
