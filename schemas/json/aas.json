@@ -9,7 +9,7 @@
   ],
   "$id": "https://admin-shell.io/aas/3/0",
   "definitions": {
-    "AASSubmodelElements": {
+    "AasSubmodelElements": {
       "type": "string",
       "enum": [
         "AnnotatedRelationshipElement",
@@ -294,14 +294,14 @@
             "preferredName": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangStringTextType"
+                "$ref": "#/definitions/LangStringPreferredNameTypeIEC61360"
               },
               "minItems": 1
             },
             "shortName": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangStringTextType"
+                "$ref": "#/definitions/LangStringShortNameTypeIEC61360"
               },
               "minItems": 1
             },
@@ -329,7 +329,7 @@
             "definition": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangStringTextType"
+                "$ref": "#/definitions/LangStringDefinitionTypeIEC61360"
               },
               "minItems": 1
             },
@@ -342,7 +342,7 @@
               "$ref": "#/definitions/ValueList"
             },
             "value": {
-              "type": "string"
+              "$ref": "#/definitions/LangStringShortNameTypeIEC61360"
             },
             "levelType": {
               "$ref": "#/definitions/LevelType"
@@ -437,7 +437,7 @@
         }
       ]
     },
-    "DataTypeDefXSD": {
+    "DataTypeDefXsd": {
       "type": "string",
       "enum": [
         "xs:anyURI",
@@ -644,7 +644,7 @@
               "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "valueType": {
-              "$ref": "#/definitions/DataTypeDefXSD"
+              "$ref": "#/definitions/DataTypeDefXsd"
             },
             "value": {
               "type": "string",
@@ -825,6 +825,20 @@
         "SubmodelElementList"
       ]
     },
+    "LangStringDefinitionTypeIEC61360": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractLangString"
+        },
+        {
+          "properties": {
+            "text": {
+              "maxLength": 1023
+            }
+          }
+        }
+      ]
+    },
     "LangStringNameType": {
       "allOf": [
         {
@@ -834,6 +848,34 @@
           "properties": {
             "text": {
               "maxLength": 128
+            }
+          }
+        }
+      ]
+    },
+    "LangStringPreferredNameTypeIEC61360": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractLangString"
+        },
+        {
+          "properties": {
+            "text": {
+              "maxLength": 255
+            }
+          }
+        }
+      ]
+    },
+    "LangStringShortNameTypeIEC61360": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractLangString"
+        },
+        {
+          "properties": {
+            "text": {
+              "maxLength": 18
             }
           }
         }
@@ -859,21 +901,21 @@
         "min": {
           "type": "boolean"
         },
-        "max": {
-          "type": "boolean"
-        },
         "nom": {
           "type": "boolean"
         },
         "typ": {
           "type": "boolean"
+        },
+        "max": {
+          "type": "boolean"
         }
       },
       "required": [
         "min",
-        "max",
         "nom",
-        "typ"
+        "typ",
+        "max"
       ]
     },
     "ModelType": {
@@ -896,7 +938,6 @@
         "ReferenceElement",
         "RelationshipElement",
         "Submodel",
-        "SubmodelElement",
         "SubmodelElementCollection",
         "SubmodelElementList"
       ]
@@ -980,7 +1021,7 @@
         {
           "properties": {
             "valueType": {
-              "$ref": "#/definitions/DataTypeDefXSD"
+              "$ref": "#/definitions/DataTypeDefXsd"
             },
             "value": {
               "type": "string",
@@ -1031,7 +1072,7 @@
               "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "valueType": {
-              "$ref": "#/definitions/DataTypeDefXSD"
+              "$ref": "#/definitions/DataTypeDefXsd"
             },
             "value": {
               "type": "string",
@@ -1064,7 +1105,7 @@
         {
           "properties": {
             "valueType": {
-              "$ref": "#/definitions/DataTypeDefXSD"
+              "$ref": "#/definitions/DataTypeDefXsd"
             },
             "min": {
               "type": "string",
@@ -1350,10 +1391,10 @@
               "$ref": "#/definitions/Reference"
             },
             "typeValueListElement": {
-              "$ref": "#/definitions/AASSubmodelElements"
+              "$ref": "#/definitions/AasSubmodelElements"
             },
             "valueTypeListElement": {
-              "$ref": "#/definitions/DataTypeDefXSD"
+              "$ref": "#/definitions/DataTypeDefXsd"
             },
             "value": {
               "type": "array",
@@ -1388,7 +1429,11 @@
       "type": "object",
       "properties": {
         "value": {
-          "type": "string"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LangStringShortNameTypeIEC61360"
+          },
+          "minItems": 1
         },
         "valueId": {
           "$ref": "#/definitions/Reference"

@@ -21,7 +21,10 @@
   </xs:group>
   <xs:group name="abstractLangString_choice">
     <xs:choice>
+      <xs:element name="langStringDefinitionTypeIec61360" type="langStringDefinitionTypeIec61360_t"/>
       <xs:element name="langStringNameType" type="langStringNameType_t"/>
+      <xs:element name="langStringPreferredNameTypeIec61360" type="langStringPreferredNameTypeIec61360_t"/>
+      <xs:element name="langStringShortNameTypeIec61360" type="langStringShortNameTypeIec61360_t"/>
       <xs:element name="langStringTextType" type="langStringTextType_t"/>
     </xs:choice>
   </xs:group>
@@ -221,14 +224,14 @@
       <xs:element name="preferredName">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="langStringTextType" type="langStringTextType_t" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="langStringPreferredNameTypeIec61360" type="langStringPreferredNameTypeIec61360_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="shortName" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="langStringTextType" type="langStringTextType_t" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="langStringShortNameTypeIec61360" type="langStringShortNameTypeIec61360_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -261,7 +264,7 @@
       <xs:element name="definition" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="langStringTextType" type="langStringTextType_t" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="langStringDefinitionTypeIec61360" type="langStringDefinitionTypeIec61360_t" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -274,7 +277,7 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="valueList" type="valueList_t" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="langStringShortNameTypeIec61360_t" minOccurs="0" maxOccurs="1"/>
       <xs:element name="levelType" type="levelType_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
@@ -558,7 +561,6 @@
   <xs:group name="hasDataSpecification_choice">
     <xs:choice>
       <xs:element name="administrativeInformation" type="administrativeInformation_t"/>
-      <xs:element name="submodelElement" type="submodelElement_t"/>
       <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="assetAdministrationShell" type="assetAdministrationShell_t"/>
@@ -591,7 +593,6 @@
   </xs:group>
   <xs:group name="hasExtensions_choice">
     <xs:choice>
-      <xs:element name="submodelElement" type="submodelElement_t"/>
       <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="assetAdministrationShell" type="assetAdministrationShell_t"/>
@@ -635,7 +636,6 @@
   </xs:group>
   <xs:group name="hasSemantics_choice">
     <xs:choice>
-      <xs:element name="submodelElement" type="submodelElement_t"/>
       <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="basicEventElement" type="basicEventElement_t"/>
@@ -692,7 +692,22 @@
       </xs:element>
     </xs:sequence>
   </xs:group>
+  <xs:group name="langStringDefinitionTypeIec61360">
+    <xs:sequence>
+      <xs:group ref="abstractLangString"/>
+    </xs:sequence>
+  </xs:group>
   <xs:group name="langStringNameType">
+    <xs:sequence>
+      <xs:group ref="abstractLangString"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="langStringPreferredNameTypeIec61360">
+    <xs:sequence>
+      <xs:group ref="abstractLangString"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="langStringShortNameTypeIec61360">
     <xs:sequence>
       <xs:group ref="abstractLangString"/>
     </xs:sequence>
@@ -705,9 +720,9 @@
   <xs:group name="levelType">
     <xs:sequence>
       <xs:element name="min" type="xs:boolean"/>
-      <xs:element name="max" type="xs:boolean"/>
       <xs:element name="nom" type="xs:boolean"/>
       <xs:element name="typ" type="xs:boolean"/>
+      <xs:element name="max" type="xs:boolean"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="multiLanguageProperty">
@@ -781,7 +796,6 @@
   </xs:group>
   <xs:group name="qualifiable_choice">
     <xs:choice>
-      <xs:element name="submodelElement" type="submodelElement_t"/>
       <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="basicEventElement" type="basicEventElement_t"/>
@@ -869,7 +883,6 @@
   </xs:group>
   <xs:group name="referable_choice">
     <xs:choice>
-      <xs:element name="submodelElement" type="submodelElement_t"/>
       <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="assetAdministrationShell" type="assetAdministrationShell_t"/>
@@ -1031,7 +1044,6 @@
   </xs:group>
   <xs:group name="submodelElement_choice">
     <xs:choice>
-      <xs:element name="submodelElement" type="submodelElement_t"/>
       <xs:element name="relationshipElement" type="relationshipElement_t"/>
       <xs:element name="annotatedRelationshipElement" type="annotatedRelationshipElement_t"/>
       <xs:element name="basicEventElement" type="basicEventElement_t"/>
@@ -1061,7 +1073,13 @@
   </xs:group>
   <xs:group name="valueReferencePair">
     <xs:sequence>
-      <xs:element name="value" type="xs:string"/>
+      <xs:element name="value">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="langStringShortNameTypeIec61360" type="langStringShortNameTypeIec61360_t" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="valueId" type="reference_t"/>
     </xs:sequence>
   </xs:group>
@@ -1347,9 +1365,24 @@
       <xs:group ref="key"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="langStringDefinitionTypeIec61360_t">
+    <xs:sequence>
+      <xs:group ref="langStringDefinitionTypeIec61360"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="langStringNameType_t">
     <xs:sequence>
       <xs:group ref="langStringNameType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="langStringPreferredNameTypeIec61360_t">
+    <xs:sequence>
+      <xs:group ref="langStringPreferredNameTypeIec61360"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="langStringShortNameTypeIec61360_t">
+    <xs:sequence>
+      <xs:group ref="langStringShortNameTypeIec61360"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="langStringTextType_t">
