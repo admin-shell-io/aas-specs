@@ -58,13 +58,31 @@
           "properties": {
             "version": {
               "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+              "allOf": [
+                {
+                  "minLength": 1
+                },
+                {
+                  "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+                },
+                {
+                  "pattern": "/^([0-9]|[1-9][0-9]*)$/"
+                }
+              ]
             },
             "revision": {
               "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+              "allOf": [
+                {
+                  "minLength": 1
+                },
+                {
+                  "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
+                },
+                {
+                  "pattern": "/^([0-9]|[1-9][0-9]*)$/"
+                }
+              ]
             },
             "creator": {
               "$ref": "#/definitions/Reference"
@@ -164,6 +182,7 @@
       "type": "string",
       "enum": [
         "Instance",
+        "NotApplicable",
         "Type"
       ]
     },
@@ -284,7 +303,7 @@
         "modelType"
       ]
     },
-    "DataSpecificationIEC61360": {
+    "DataSpecificationIec61360": {
       "allOf": [
         {
           "$ref": "#/definitions/DataSpecificationContent"
@@ -294,14 +313,14 @@
             "preferredName": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangStringPreferredNameTypeIEC61360"
+                "$ref": "#/definitions/LangStringPreferredNameTypeIec61360"
               },
               "minItems": 1
             },
             "shortName": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangStringShortNameTypeIEC61360"
+                "$ref": "#/definitions/LangStringShortNameTypeIec61360"
               },
               "minItems": 1
             },
@@ -324,12 +343,12 @@
               "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
             },
             "dataType": {
-              "$ref": "#/definitions/DataTypeIEC61360"
+              "$ref": "#/definitions/DataTypeIec61360"
             },
             "definition": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangStringDefinitionTypeIEC61360"
+                "$ref": "#/definitions/LangStringDefinitionTypeIec61360"
               },
               "minItems": 1
             },
@@ -342,7 +361,7 @@
               "$ref": "#/definitions/ValueList"
             },
             "value": {
-              "$ref": "#/definitions/LangStringShortNameTypeIEC61360"
+              "type": "string"
             },
             "levelType": {
               "$ref": "#/definitions/LevelType"
@@ -350,89 +369,6 @@
           },
           "required": [
             "preferredName"
-          ]
-        }
-      ]
-    },
-    "DataSpecificationPhysicalUnit": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/DataSpecificationContent"
-        },
-        {
-          "properties": {
-            "unitName": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            },
-            "unitSymbol": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            },
-            "definition": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LangStringTextType"
-              },
-              "minItems": 1
-            },
-            "siNotation": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            },
-            "siName": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            },
-            "dinNotation": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            },
-            "eceName": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            },
-            "eceCode": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            },
-            "nistName": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            },
-            "sourceOfDefinition": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            },
-            "conversionFactor": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            },
-            "registrationAuthorityId": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            },
-            "supplier": {
-              "type": "string",
-              "minLength": 1,
-              "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$"
-            }
-          },
-          "required": [
-            "unitName",
-            "unitSymbol",
-            "definition"
           ]
         }
       ]
@@ -472,7 +408,7 @@
         "xs:unsignedShort"
       ]
     },
-    "DataTypeIEC61360": {
+    "DataTypeIec61360": {
       "type": "string",
       "enum": [
         "BLOB",
@@ -647,8 +583,7 @@
               "$ref": "#/definitions/DataTypeDefXsd"
             },
             "value": {
-              "type": "string",
-              "pattern": "(xs:anyURI)|(xs:base64Binary)|(xs:boolean)|(xs:byte)|(xs:date)|(xs:dateTime)|(xs:decimal)|(xs:double)|(xs:duration)|(xs:float)|(xs:gDay)|(xs:gMonth)|(xs:gMonthDay)|(xs:gYear)|(xs:gYearMonth)|(xs:hexBinary)|(xs:int)|(xs:integer)|(xs:long)|(xs:negativeInteger)|(xs:nonNegativeInteger)|(xs:nonPositiveInteger)|(xs:positiveInteger)|(xs:short)|(xs:string)|(xs:time)|(xs:unsignedByte)|(xs:unsignedInt)|(xs:unsignedLong)|(xs:unsignedShort)"
+              "type": "string"
             },
             "refersTo": {
               "type": "array",
@@ -825,7 +760,7 @@
         "SubmodelElementList"
       ]
     },
-    "LangStringDefinitionTypeIEC61360": {
+    "LangStringDefinitionTypeIec61360": {
       "allOf": [
         {
           "$ref": "#/definitions/AbstractLangString"
@@ -853,7 +788,7 @@
         }
       ]
     },
-    "LangStringPreferredNameTypeIEC61360": {
+    "LangStringPreferredNameTypeIec61360": {
       "allOf": [
         {
           "$ref": "#/definitions/AbstractLangString"
@@ -867,7 +802,7 @@
         }
       ]
     },
-    "LangStringShortNameTypeIEC61360": {
+    "LangStringShortNameTypeIec61360": {
       "allOf": [
         {
           "$ref": "#/definitions/AbstractLangString"
@@ -927,8 +862,7 @@
         "Blob",
         "Capability",
         "ConceptDescription",
-        "DataSpecificationIEC61360",
-        "DataSpecificationPhysicalUnit",
+        "DataSpecificationIec61360",
         "Entity",
         "File",
         "MultiLanguageProperty",
@@ -1024,8 +958,7 @@
               "$ref": "#/definitions/DataTypeDefXsd"
             },
             "value": {
-              "type": "string",
-              "pattern": "(xs:anyURI)|(xs:base64Binary)|(xs:boolean)|(xs:byte)|(xs:date)|(xs:dateTime)|(xs:decimal)|(xs:double)|(xs:duration)|(xs:float)|(xs:gDay)|(xs:gMonth)|(xs:gMonthDay)|(xs:gYear)|(xs:gYearMonth)|(xs:hexBinary)|(xs:int)|(xs:integer)|(xs:long)|(xs:negativeInteger)|(xs:nonNegativeInteger)|(xs:nonPositiveInteger)|(xs:positiveInteger)|(xs:short)|(xs:string)|(xs:time)|(xs:unsignedByte)|(xs:unsignedInt)|(xs:unsignedLong)|(xs:unsignedShort)"
+              "type": "string"
             },
             "valueId": {
               "$ref": "#/definitions/Reference"
@@ -1075,8 +1008,7 @@
               "$ref": "#/definitions/DataTypeDefXsd"
             },
             "value": {
-              "type": "string",
-              "pattern": "(xs:anyURI)|(xs:base64Binary)|(xs:boolean)|(xs:byte)|(xs:date)|(xs:dateTime)|(xs:decimal)|(xs:double)|(xs:duration)|(xs:float)|(xs:gDay)|(xs:gMonth)|(xs:gMonthDay)|(xs:gYear)|(xs:gYearMonth)|(xs:hexBinary)|(xs:int)|(xs:integer)|(xs:long)|(xs:negativeInteger)|(xs:nonNegativeInteger)|(xs:nonPositiveInteger)|(xs:positiveInteger)|(xs:short)|(xs:string)|(xs:time)|(xs:unsignedByte)|(xs:unsignedInt)|(xs:unsignedLong)|(xs:unsignedShort)"
+              "type": "string"
             },
             "valueId": {
               "$ref": "#/definitions/Reference"
@@ -1108,12 +1040,10 @@
               "$ref": "#/definitions/DataTypeDefXsd"
             },
             "min": {
-              "type": "string",
-              "pattern": "(xs:anyURI)|(xs:base64Binary)|(xs:boolean)|(xs:byte)|(xs:date)|(xs:dateTime)|(xs:decimal)|(xs:double)|(xs:duration)|(xs:float)|(xs:gDay)|(xs:gMonth)|(xs:gMonthDay)|(xs:gYear)|(xs:gYearMonth)|(xs:hexBinary)|(xs:int)|(xs:integer)|(xs:long)|(xs:negativeInteger)|(xs:nonNegativeInteger)|(xs:nonPositiveInteger)|(xs:positiveInteger)|(xs:short)|(xs:string)|(xs:time)|(xs:unsignedByte)|(xs:unsignedInt)|(xs:unsignedLong)|(xs:unsignedShort)"
+              "type": "string"
             },
             "max": {
-              "type": "string",
-              "pattern": "(xs:anyURI)|(xs:base64Binary)|(xs:boolean)|(xs:byte)|(xs:date)|(xs:dateTime)|(xs:decimal)|(xs:double)|(xs:duration)|(xs:float)|(xs:gDay)|(xs:gMonth)|(xs:gMonthDay)|(xs:gYear)|(xs:gYearMonth)|(xs:hexBinary)|(xs:int)|(xs:integer)|(xs:long)|(xs:negativeInteger)|(xs:nonNegativeInteger)|(xs:nonPositiveInteger)|(xs:positiveInteger)|(xs:short)|(xs:string)|(xs:time)|(xs:unsignedByte)|(xs:unsignedInt)|(xs:unsignedLong)|(xs:unsignedShort)"
+              "type": "string"
             }
           },
           "required": [
@@ -1429,11 +1359,7 @@
       "type": "object",
       "properties": {
         "value": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LangStringShortNameTypeIEC61360"
-          },
-          "minItems": 1
+          "type": "string"
         },
         "valueId": {
           "$ref": "#/definitions/Reference"

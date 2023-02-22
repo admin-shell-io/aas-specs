@@ -34,7 +34,12 @@
       <xs:element name="version" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
+            <xs:restriction>
+              <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
+              <xs:restriction>
+                <xs:pattern value="/([0-9]|[1-9][0-9]*)/"/>
+              </xs:restriction>
+            </xs:restriction>
             <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
@@ -42,7 +47,12 @@
       <xs:element name="revision" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
+            <xs:restriction>
+              <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
+              <xs:restriction>
+                <xs:pattern value="/([0-9]|[1-9][0-9]*)/"/>
+              </xs:restriction>
+            </xs:restriction>
             <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
@@ -215,7 +225,6 @@
   <xs:group name="dataSpecificationContent_choice">
     <xs:choice>
       <xs:element name="dataSpecificationIec61360" type="dataSpecificationIec61360_t"/>
-      <xs:element name="dataSpecificationPhysicalUnit" type="dataSpecificationPhysicalUnit_t"/>
     </xs:choice>
   </xs:group>
   <xs:group name="dataSpecificationIec61360">
@@ -277,116 +286,8 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="valueList" type="valueList_t" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="value" type="langStringShortNameTypeIec61360_t" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="levelType" type="levelType_t" minOccurs="0" maxOccurs="1"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="dataSpecificationPhysicalUnit">
-    <xs:sequence>
-      <xs:group ref="dataSpecificationContent"/>
-      <xs:element name="unitName">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="unitSymbol">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="definition">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="langStringTextType" type="langStringTextType_t" minOccurs="1" maxOccurs="unbounded"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="siNotation" minOccurs="0" maxOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="siName" minOccurs="0" maxOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="dinNotation" minOccurs="0" maxOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="eceName" minOccurs="0" maxOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="eceCode" minOccurs="0" maxOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="nistName" minOccurs="0" maxOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="sourceOfDefinition" minOccurs="0" maxOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="conversionFactor" minOccurs="0" maxOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="registrationAuthorityId" minOccurs="0" maxOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="supplier" minOccurs="0" maxOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
-            <xs:minLength value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
     </xs:sequence>
   </xs:group>
   <xs:group name="embeddedDataSpecification">
@@ -1073,13 +974,7 @@
   </xs:group>
   <xs:group name="valueReferencePair">
     <xs:sequence>
-      <xs:element name="value">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="langStringShortNameTypeIec61360" type="langStringShortNameTypeIec61360_t" minOccurs="1" maxOccurs="unbounded"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="value" type="xs:string"/>
       <xs:element name="valueId" type="reference_t"/>
     </xs:sequence>
   </xs:group>
@@ -1108,6 +1003,7 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="Type"/>
       <xs:enumeration value="Instance"/>
+      <xs:enumeration value="NotApplicable"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="dataTypeDefXsd_t">
@@ -1293,11 +1189,6 @@
   <xs:complexType name="dataSpecificationIec61360_t">
     <xs:sequence>
       <xs:group ref="dataSpecificationIec61360"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="dataSpecificationPhysicalUnit_t">
-    <xs:sequence>
-      <xs:group ref="dataSpecificationPhysicalUnit"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="embeddedDataSpecification_t">
