@@ -396,6 +396,9 @@ aas:DataSpecificationIEC61360Shape a sh:NodeShape ;
         sh:datatype xs:string ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
+        sh:minLength 1 ;
+        sh:maxLength 2000 ;
+        sh:pattern "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$" ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -1306,6 +1309,9 @@ aas:ValueReferencePairShape a sh:NodeShape ;
         sh:datatype xs:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
+        sh:minLength 1 ;
+        sh:maxLength 2000 ;
+        sh:pattern "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$" ;
     ] ;
     sh:property [
         a sh:PropertyShape ;

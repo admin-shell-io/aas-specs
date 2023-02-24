@@ -286,7 +286,15 @@
         </xs:simpleType>
       </xs:element>
       <xs:element name="valueList" type="valueList_t" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="value" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
+            <xs:minLength value="1"/>
+            <xs:maxLength value="2000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="levelType" type="levelType_t" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:group>
@@ -974,7 +982,15 @@
   </xs:group>
   <xs:group name="valueReferencePair">
     <xs:sequence>
-      <xs:element name="value" type="xs:string"/>
+      <xs:element name="value">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
+            <xs:minLength value="1"/>
+            <xs:maxLength value="2000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="valueId" type="reference_t"/>
     </xs:sequence>
   </xs:group>
