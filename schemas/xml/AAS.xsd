@@ -37,7 +37,7 @@
             <xs:restriction>
               <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
               <xs:restriction>
-                <xs:pattern value="/([0-9]|[1-9][0-9]*)/"/>
+                <xs:pattern value="(0|[1-9][0-9]*)"/>
               </xs:restriction>
             </xs:restriction>
             <xs:minLength value="1"/>
@@ -50,7 +50,7 @@
             <xs:restriction>
               <xs:pattern value="[\t\n\r -\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]*"/>
               <xs:restriction>
-                <xs:pattern value="/([0-9]|[1-9][0-9]*)/"/>
+                <xs:pattern value="(0|[1-9][0-9]*)"/>
               </xs:restriction>
             </xs:restriction>
             <xs:minLength value="1"/>

@@ -60,7 +60,7 @@ aas:AdministrativeInformationShape a sh:NodeShape ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
         sh:pattern "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$" ;
-        sh:pattern "/^([0-9]|[1-9][0-9]*)$/" ;
+        sh:pattern "^(0|[1-9][0-9]*)$" ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
@@ -70,7 +70,7 @@ aas:AdministrativeInformationShape a sh:NodeShape ;
         sh:maxCount 1 ;
         sh:minLength 1 ;
         sh:pattern "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\U00010000-\\U0010FFFF]*$" ;
-        sh:pattern "/^([0-9]|[1-9][0-9]*)$/" ;
+        sh:pattern "^(0|[1-9][0-9]*)$" ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
