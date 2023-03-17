@@ -1,18 +1,21 @@
-<environment xmlns="https://admin-shell.io/aas/3/0/RC02">
+<environment xmlns="https://admin-shell.io/aas/3/0">
 	<submodels>
 		<submodel>
-			<id>something_random_b0c234ba</id>
+			<idShort>someSubmodel</idShort>
+			<id>https://example.com/some-submodel</id>
 			<submodelElements>
 				<submodelElementList>
-					<idShort>some_id_short_10b21b1b</idShort>
+					<idShort>someList</idShort>
+					<typeValueListElement>Property</typeValueListElement>
+					<valueTypeListElement>xs:boolean</valueTypeListElement>
 					<value>
 						<property>
 							<semanticId>
-								<type>GlobalReference</type>
+								<type>ExternalReference</type>
 								<keys>
 									<key>
 										<type>GlobalReference</type>
-										<value>something_random_d73cf4b5</value>
+										<value>urn:some-company08:6ddd7420</value>
 									</key>
 								</keys>
 							</semanticId>
@@ -20,19 +23,17 @@
 						</property>
 						<property>
 							<semanticId>
-								<type>GlobalReference</type>
+								<type>ExternalReference</type>
 								<keys>
 									<key>
 										<type>GlobalReference</type>
-										<value>something_random_d73cf4b5</value>
+										<value>urn:some-company08:6ddd7420</value>
 									</key>
 								</keys>
 							</semanticId>
 							<valueType>xs:boolean</valueType>
 						</property>
 					</value>
-					<typeValueListElement>Property</typeValueListElement>
-					<valueTypeListElement>xs:boolean</valueTypeListElement>
 				</submodelElementList>
 			</submodelElements>
 		</submodel>

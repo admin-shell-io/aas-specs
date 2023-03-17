@@ -1,0 +1,46 @@
+@prefix aas: <https://admin-shell.io/aas/3/0/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+
+<something_142922d6> rdf:type aas:AssetAdministrationShell ;
+    <https://admin-shell.io/aas/3/0/Referable/idShort> "something_783819f1"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/Identifiable/id> "something_142922d6"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/AssetAdministrationShell/assetInformation> [
+        rdf:type aas:AssetInformation ;
+        <https://admin-shell.io/aas/3/0/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/AssetKind/NotApplicable> ;
+        <https://admin-shell.io/aas/3/0/AssetInformation/specificAssetIds> [
+            rdf:type aas:SpecificAssetID ;
+            <https://admin-shell.io/aas/3/0/HasSemantics/semanticID> [
+                rdf:type aas:Reference ;
+                <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ModelReference> ;
+                <https://admin-shell.io/aas/3/0/Reference/keys> [
+                    rdf:type aas:Key ;
+                    <https://admin-shell.io/aas/3/0/Key/type> <https://admin-shell.io/aas/3/0/KeyTypes/Submodel> ;
+                    <https://admin-shell.io/aas/3/0/Key/value> "urn:some-company16:26c46e48"^^xs:string ;
+                ] ;
+            ] ;
+            <https://admin-shell.io/aas/3/0/HasSemantics/supplementalSemanticIds> [
+                rdf:type aas:Reference ;
+                <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ModelReference> ;
+                <https://admin-shell.io/aas/3/0/Reference/keys> [
+                    rdf:type aas:Key ;
+                    <https://admin-shell.io/aas/3/0/Key/type> <https://admin-shell.io/aas/3/0/KeyTypes/Submodel> ;
+                    <https://admin-shell.io/aas/3/0/Key/value> "urn:an-example17:bb4c21a1"^^xs:string ;
+                ] ;
+            ] ;
+            <https://admin-shell.io/aas/3/0/SpecificAssetID/name> "something_b0b6ce88"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/SpecificAssetID/value> "something_a37abe43"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/SpecificAssetID/externalSubjectID> [
+                rdf:type aas:Reference ;
+                <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ExternalReference> ;
+                <https://admin-shell.io/aas/3/0/Reference/keys> [
+                    rdf:type aas:Key ;
+                    <https://admin-shell.io/aas/3/0/Key/type> <https://admin-shell.io/aas/3/0/KeyTypes/GlobalReference> ;
+                    <https://admin-shell.io/aas/3/0/Key/value> "urn:something15:fa05a0ff"^^xs:string ;
+                ] ;
+            ] ;
+        ] ;
+    ] ;
+.

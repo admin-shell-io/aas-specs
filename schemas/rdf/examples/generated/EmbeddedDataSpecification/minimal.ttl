@@ -1,31 +1,41 @@
-@prefix aas: <https://admin-shell.io/aas/3/0/RC02/> .
+@prefix aas: <https://admin-shell.io/aas/3/0/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xs: <http://www.w3.org/2001/XMLSchema#> .
 
-<something_random_428f0205> rdf:type aas:AssetAdministrationShell ;
-    <https://admin-shell.io/aas/3/0/RC02/Identifiable/id> "something_random_428f0205"^^xs:string ;
-    <https://admin-shell.io/aas/3/0/RC02/AssetAdministrationShell/assetInformation> [
-        rdf:type aas:AssetInformation ;
-        <https://admin-shell.io/aas/3/0/RC02/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/RC02/AssetKind/Instance> ;
-    ] ;
-    <https://admin-shell.io/aas/3/0/RC02/HasDataSpecification/embeddedDataSpecifications> [
+<something_142922d6> rdf:type aas:AssetAdministrationShell ;
+    <https://admin-shell.io/aas/3/0/Referable/idShort> "something_783819f1"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/Identifiable/id> "something_142922d6"^^xs:string ;
+    <https://admin-shell.io/aas/3/0/HasDataSpecification/embeddedDataSpecifications> [
         rdf:type aas:EmbeddedDataSpecification ;
-        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecification> [
+        <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecification> [
             rdf:type aas:Reference ;
-            <https://admin-shell.io/aas/3/0/RC02/Reference/type> <https://admin-shell.io/aas/3/0/RC02/ReferenceTypes/GlobalReference> ;
-            <https://admin-shell.io/aas/3/0/RC02/Reference/keys> [
+            <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ExternalReference> ;
+            <https://admin-shell.io/aas/3/0/Reference/keys> [
                 rdf:type aas:Key ;
-                <https://admin-shell.io/aas/3/0/RC02/Key/type> <https://admin-shell.io/aas/3/0/RC02/KeyTypes/GlobalReference> ;
-                <https://admin-shell.io/aas/3/0/RC02/Key/value> "something_random_88965b19"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/Key/type> <https://admin-shell.io/aas/3/0/KeyTypes/GlobalReference> ;
+                <https://admin-shell.io/aas/3/0/Key/value> "urn:some-company06:e9f47be2"^^xs:string ;
             ] ;
         ] ;
-        <https://admin-shell.io/aas/3/0/RC02/EmbeddedDataSpecification/dataSpecificationContent> [
-            rdf:type aas:DataSpecificationPhysicalUnit ;
-            <https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/unitName> "something_random_3916f11a"^^xs:string ;
-            <https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/unitSymbol> "something_random_29dd6e48"^^xs:string ;
-            <https://admin-shell.io/aas/3/0/RC02/DataSpecificationPhysicalUnit/definition> "something_random_f05e0313"@en ;
+        <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecificationContent> [
+            rdf:type aas:DataSpecificationIEC61360 ;
+            <https://admin-shell.io/aas/3/0/DataSpecificationIEC61360/preferredName> [
+                rdf:type aas:LangStringPreferredNameTypeIEC61360 ;
+                <https://admin-shell.io/aas/3/0/AbstractLangString/language> "X-33DQI-g"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_84b0b440"^^xs:string ;
+            ] ;
+            <https://admin-shell.io/aas/3/0/DataSpecificationIEC61360/preferredName> [
+                rdf:type aas:LangStringPreferredNameTypeIEC61360 ;
+                <https://admin-shell.io/aas/3/0/AbstractLangString/language> "en-UK"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/AbstractLangString/text> "Something random in English 5b15c20d"^^xs:string ;
+            ] ;
+            <https://admin-shell.io/aas/3/0/DataSpecificationIEC61360/value> "something_13759f45"^^xs:string ;
         ] ;
+    ] ;
+    <https://admin-shell.io/aas/3/0/AssetAdministrationShell/assetInformation> [
+        rdf:type aas:AssetInformation ;
+        <https://admin-shell.io/aas/3/0/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/AssetKind/NotApplicable> ;
+        <https://admin-shell.io/aas/3/0/AssetInformation/globalAssetID> "something_eea66fa1"^^xs:string ;
     ] ;
 .
