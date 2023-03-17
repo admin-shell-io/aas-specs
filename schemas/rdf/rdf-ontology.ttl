@@ -1813,7 +1813,7 @@ aas:ReferenceElement rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/ReferenceTypes
 aas:ReferenceTypes rdf:type owl:Class ;
     rdfs:label "Reference Types"^^xs:string ;
-    rdfs:comment "ReferenceTypes"@en ;
+    rdfs:comment "Reference types"@en ;
     owl:oneOf (
         <https://admin-shell.io/aas/3/0/ReferenceTypes/ExternalReference>
         <https://admin-shell.io/aas/3/0/ReferenceTypes/ModelReference>
@@ -1823,13 +1823,13 @@ aas:ReferenceTypes rdf:type owl:Class ;
 ###  https://admin-shell.io/aas/3/0/ReferenceTypes/ExternalReference
 <https://admin-shell.io/aas/3/0/ReferenceTypes/ExternalReference> rdf:type aas:ReferenceTypes ;
     rdfs:label "External Reference"^^xs:string ;
-    rdfs:comment "ExternalReference."@en ;
+    rdfs:comment "External reference."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/ReferenceTypes/ModelReference
 <https://admin-shell.io/aas/3/0/ReferenceTypes/ModelReference> rdf:type aas:ReferenceTypes ;
     rdfs:label "Model Reference"^^xs:string ;
-    rdfs:comment "ModelReference"@en ;
+    rdfs:comment "Model reference."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/RelationshipElement
@@ -2046,7 +2046,7 @@ aas:ValueReferencePair rdf:type owl:Class ;
     rdfs:label "has value"^^xs:string ;
     rdfs:domain aas:ValueReferencePair ;
     rdfs:range xs:string ;
-    rdfs:comment "The value of the referenced concept definition of the value in valueId."@en ;
+    rdfs:comment "The value of the referenced concept definition of the value in 'valueID'."@en ;
 .
 
 ###  https://admin-shell.io/aas/3/0/ValueReferencePair/valueID
