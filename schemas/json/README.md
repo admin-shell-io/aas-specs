@@ -67,7 +67,7 @@ For example, ``submodelElements`` instead of ``submodelElement`` in case of [Sub
 If plural form made no sense for a property, we kept it as-is (*e.g.*, `isCaseOf`).
 The full list of exceptions is available [as code in aas-core-meta].
 
-[as code in aas-core-meta]: https://github.com/aas-core-works/aas-core-meta/blob/95055a55a8c8f60d75fb48c26eb932ff99945dd2/tests/test_v3rc2.py#L1122
+[as code in aas-core-meta]: https://github.com/aas-core-works/aas-core-meta/blob/02712deeff530a75fda99aee25961aa4ea38a420/tests/test_v3.py#L1069
 
 ### Primitive attribute values
 
@@ -92,7 +92,7 @@ declared in [Property]/``valueType`` taking the [mapping of XSD to JSON types] i
 [BlobType]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 [JSON number]: https://www.rfc-editor.org/rfc/rfc4627#section-2.4
 [JSON boolean]: https://json-schema.org/understanding-json-schema/reference/boolean.html
-[XSD types]: https://www.w3.org/TR/xmlschema11-2
+[XSD types]: https://www.w3.org/TR/xmlschema-2
 [5.7.12 Primitive and Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 
 #### Hint: Round-Trip Conversions
@@ -182,11 +182,3 @@ The schemas are generated using [aas-core-codegen], a translating tool which tra
 While this approach reduced the rate of errors significantly, it also imposed certain limits on our schema design.
 For example, the classes and enumerations are now programmatically mapped to JSON definitions, allowing for no exceptions.
 Where we could in-line some of them for better readability, we are now forced to stick with the programmatic definitions.
-
-Nonetheless some minor manual fixes were needed:
-
-*XML*
-
-- Type ``ValueDataType`` was renamed to ``ValueDataType_t`` for consistency reasons
-- Type of attributes ``valueDataType`` was changed from ``xs:string`` to ``xs:anySimpleType`` for better consistency with the specification
-
