@@ -318,21 +318,7 @@
       ]
     },
     "DataElement": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/SubmodelElement"
-        },
-        {
-          "properties": {
-            "modelType": {
-              "$ref": "#/definitions/ModelType"
-            }
-          },
-          "required": [
-            "modelType"
-          ]
-        }
-      ]
+      "$ref": "#/definitions/SubmodelElement"
     },
     "DataElement_choice": {
       "oneOf": [
@@ -605,21 +591,7 @@
       }
     },
     "EventElement": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/SubmodelElement"
-        },
-        {
-          "properties": {
-            "modelType": {
-              "$ref": "#/definitions/ModelType"
-            }
-          },
-          "required": [
-            "modelType"
-          ]
-        }
-      ]
+      "$ref": "#/definitions/SubmodelElement"
     },
     "EventPayload": {
       "type": "object",
@@ -802,14 +774,10 @@
               "minLength": 1,
               "maxLength": 2000,
               "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
-            },
-            "modelType": {
-              "$ref": "#/definitions/ModelType"
             }
           },
           "required": [
-            "id",
-            "modelType"
+            "id"
           ]
         }
       ]
@@ -1289,15 +1257,11 @@
             },
             "second": {
               "$ref": "#/definitions/Reference"
-            },
-            "modelType": {
-              "$ref": "#/definitions/ModelType"
             }
           },
           "required": [
             "first",
-            "second",
-            "modelType"
+            "second"
           ]
         }
       ]
@@ -1433,16 +1397,6 @@
         },
         {
           "$ref": "#/definitions/HasDataSpecification"
-        },
-        {
-          "properties": {
-            "modelType": {
-              "$ref": "#/definitions/ModelType"
-            }
-          },
-          "required": [
-            "modelType"
-          ]
         }
       ]
     },
