@@ -1,0 +1,28 @@
+{
+  "submodels": [
+    {
+      "id": "https://example.com/some-submodel",
+      "idShort": "someSubmodel",
+      "modelType": "Submodel",
+      "submodelElements": [
+        {
+          "idShort": "someElement",
+          "modelType": "ReferenceElement",
+          "value": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://example.com/something"
+              },
+              {
+                "type": "FragmentReference",
+                "value": "something-more"
+              }
+            ],
+            "type": "ExternalReference"
+          }
+        }
+      ]
+    }
+  ]
+}

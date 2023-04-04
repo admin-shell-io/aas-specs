@@ -1,0 +1,22 @@
+<environment xmlns="https://admin-shell.io/aas/3/0">
+	<submodels>
+		<submodel>
+			<idShort>someSubmodel</idShort>
+			<id>https://example.com/some-submodel</id>
+			<submodelElements>
+				<referenceElement>
+					<idShort>someElement</idShort>
+					<value>
+						<type>ExternalReference</type>
+						<keys>
+							<key>
+								<type>GlobalReference</type>
+								<value>https://example.com/something</value>
+							</key>
+						</keys>
+					</value>
+				</referenceElement>
+			</submodelElements>
+		</submodel>
+	</submodels>
+</environment>

@@ -1,25 +1,32 @@
 {
   "submodels": [
     {
-      "id": "some_submodel",
+      "id": "https://example.com/some-submodel",
+      "idShort": "someSubmodel",
       "modelType": "Submodel",
-      "semanticId": {
-        "keys": [
-          {
-            "type": "Submodel",
-            "value": "something"
-          },
-          {
-            "type": "Blob",
-            "value": "something_more"
-          },
-          {
-            "type": "FragmentReference",
-            "value": "yet_something_more"
+      "submodelElements": [
+        {
+          "idShort": "someElement",
+          "modelType": "ReferenceElement",
+          "value": {
+            "keys": [
+              {
+                "type": "Submodel",
+                "value": "https://example.com/something"
+              },
+              {
+                "type": "Blob",
+                "value": "something_more"
+              },
+              {
+                "type": "FragmentReference",
+                "value": "yet_something_more"
+              }
+            ],
+            "type": "ModelReference"
           }
-        ],
-        "type": "ModelReference"
-      }
+        }
+      ]
     }
   ]
 }

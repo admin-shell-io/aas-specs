@@ -7,7 +7,7 @@
       "$ref": "#/definitions/Environment"
     }
   ],
-  "$id": "https://admin-shell.io/aas/3/0/RC02",
+  "$id": "https://admin-shell.io/aas/3/0",
   "definitions": {
     "AasSubmodelElements": {
       "type": "string",
@@ -31,6 +31,24 @@
         "SubmodelElementList"
       ]
     },
+    "AbstractLangString": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string",
+          "pattern": "^(([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){2})?|[a-zA-Z]{4}|[a-zA-Z]{5,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){1,8})+)?|[xX](-([a-zA-Z0-9]){1,8})+|((en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang)))$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+        }
+      },
+      "required": [
+        "language",
+        "text"
+      ]
+    },
     "AdministrativeInformation": {
       "allOf": [
         {
@@ -40,11 +58,42 @@
           "properties": {
             "version": {
               "type": "string",
-              "minLength": 1
+              "allOf": [
+                {
+                  "minLength": 1,
+                  "maxLength": 4
+                },
+                {
+                  "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+                },
+                {
+                  "pattern": "^(0|[1-9][0-9]*)$"
+                }
+              ]
             },
             "revision": {
               "type": "string",
-              "minLength": 1
+              "allOf": [
+                {
+                  "minLength": 1,
+                  "maxLength": 4
+                },
+                {
+                  "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+                },
+                {
+                  "pattern": "^(0|[1-9][0-9]*)$"
+                }
+              ]
+            },
+            "creator": {
+              "$ref": "#/definitions/Reference"
+            },
+            "templateId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             }
           }
         }
@@ -53,16 +102,19 @@
     "AnnotatedRelationshipElement": {
       "allOf": [
         {
-          "$ref": "#/definitions/RelationshipElement"
+          "$ref": "#/definitions/RelationshipElement_abstract"
         },
         {
           "properties": {
             "annotations": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/DataElement"
+                "$ref": "#/definitions/DataElement_choice"
               },
               "minItems": 1
+            },
+            "modelType": {
+              "const": "AnnotatedRelationshipElement"
             }
           }
         }
@@ -90,6 +142,9 @@
                 "$ref": "#/definitions/Reference"
               },
               "minItems": 1
+            },
+            "modelType": {
+              "const": "AssetAdministrationShell"
             }
           },
           "required": [
@@ -105,7 +160,10 @@
           "$ref": "#/definitions/AssetKind"
         },
         "globalAssetId": {
-          "$ref": "#/definitions/Reference"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
         },
         "specificAssetIds": {
           "type": "array",
@@ -113,6 +171,12 @@
             "$ref": "#/definitions/SpecificAssetId"
           },
           "minItems": 1
+        },
+        "assetType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
         },
         "defaultThumbnail": {
           "$ref": "#/definitions/Resource"
@@ -126,6 +190,7 @@
       "type": "string",
       "enum": [
         "Instance",
+        "NotApplicable",
         "Type"
       ]
     },
@@ -147,22 +212,27 @@
             },
             "messageTopic": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 255,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "messageBroker": {
               "$ref": "#/definitions/Reference"
             },
             "lastUpdate": {
               "type": "string",
-              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)(Z|\\+00:00|-00:00)$"
             },
             "minInterval": {
               "type": "string",
-              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+              "pattern": "^-?P((([0-9]+Y([0-9]+M)?([0-9]+D)?|([0-9]+M)([0-9]+D)?|([0-9]+D))(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S)))?)|(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S))))$"
             },
             "maxInterval": {
               "type": "string",
-              "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+              "pattern": "^-?P((([0-9]+Y([0-9]+M)?([0-9]+D)?|([0-9]+M)([0-9]+D)?|([0-9]+D))(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S)))?)|(T(([0-9]+H)([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?|([0-9]+M)([0-9]+(\\.[0-9]+)?S)?|([0-9]+(\\.[0-9]+)?S))))$"
+            },
+            "modelType": {
+              "const": "BasicEventElement"
             }
           },
           "required": [
@@ -186,8 +256,21 @@
             },
             "contentType": {
               "type": "string",
-              "minLength": 1,
-              "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+              "allOf": [
+                {
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                {
+                  "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+                },
+                {
+                  "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \\t]*;[ \\t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\\t !#-\\[\\]-~]|[\u0080-\u00ff])|\\\\([\\t !-~]|[\u0080-\u00ff]))*\"))*$"
+                }
+              ]
+            },
+            "modelType": {
+              "const": "Blob"
             }
           },
           "required": [
@@ -197,7 +280,18 @@
       ]
     },
     "Capability": {
-      "$ref": "#/definitions/SubmodelElement"
+      "allOf": [
+        {
+          "$ref": "#/definitions/SubmodelElement"
+        },
+        {
+          "properties": {
+            "modelType": {
+              "const": "Capability"
+            }
+          }
+        }
+      ]
     },
     "ConceptDescription": {
       "allOf": [
@@ -215,6 +309,9 @@
                 "$ref": "#/definitions/Reference"
               },
               "minItems": 1
+            },
+            "modelType": {
+              "const": "ConceptDescription"
             }
           }
         }
@@ -222,6 +319,28 @@
     },
     "DataElement": {
       "$ref": "#/definitions/SubmodelElement"
+    },
+    "DataElement_choice": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Blob"
+        },
+        {
+          "$ref": "#/definitions/File"
+        },
+        {
+          "$ref": "#/definitions/MultiLanguageProperty"
+        },
+        {
+          "$ref": "#/definitions/Property"
+        },
+        {
+          "$ref": "#/definitions/Range"
+        },
+        {
+          "$ref": "#/definitions/ReferenceElement"
+        }
+      ]
     },
     "DataSpecificationContent": {
       "type": "object",
@@ -234,7 +353,14 @@
         "modelType"
       ]
     },
-    "DataSpecificationIEC61360": {
+    "DataSpecificationContent_choice": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/DataSpecificationIec61360"
+        }
+      ]
+    },
+    "DataSpecificationIec61360": {
       "allOf": [
         {
           "$ref": "#/definitions/DataSpecificationContent"
@@ -244,129 +370,68 @@
             "preferredName": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringPreferredNameTypeIec61360"
               },
               "minItems": 1
             },
             "shortName": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringShortNameTypeIec61360"
               },
               "minItems": 1
             },
             "unit": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "unitId": {
               "$ref": "#/definitions/Reference"
             },
             "sourceOfDefinition": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "symbol": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "dataType": {
-              "$ref": "#/definitions/DataTypeIEC61360"
+              "$ref": "#/definitions/DataTypeIec61360"
             },
             "definition": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringDefinitionTypeIec61360"
               },
               "minItems": 1
             },
             "valueFormat": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "valueList": {
               "$ref": "#/definitions/ValueList"
             },
             "value": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "levelType": {
               "$ref": "#/definitions/LevelType"
+            },
+            "modelType": {
+              "const": "DataSpecificationIec61360"
             }
           },
           "required": [
             "preferredName"
-          ]
-        }
-      ]
-    },
-    "DataSpecificationPhysicalUnit": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/DataSpecificationContent"
-        },
-        {
-          "properties": {
-            "unitName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "unitSymbol": {
-              "type": "string",
-              "minLength": 1
-            },
-            "definition": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LangString"
-              },
-              "minItems": 1
-            },
-            "siNotation": {
-              "type": "string",
-              "minLength": 1
-            },
-            "siName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "dinNotation": {
-              "type": "string",
-              "minLength": 1
-            },
-            "eceName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "eceCode": {
-              "type": "string",
-              "minLength": 1
-            },
-            "nistName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "sourceOfDefinition": {
-              "type": "string",
-              "minLength": 1
-            },
-            "conversionFactor": {
-              "type": "string",
-              "minLength": 1
-            },
-            "registrationAuthorityId": {
-              "type": "string",
-              "minLength": 1
-            },
-            "supplier": {
-              "type": "string",
-              "minLength": 1
-            }
-          },
-          "required": [
-            "unitName",
-            "unitSymbol",
-            "definition"
           ]
         }
       ]
@@ -380,8 +445,6 @@
         "xs:byte",
         "xs:date",
         "xs:dateTime",
-        "xs:dateTimeStamp",
-        "xs:dayTimeDuration",
         "xs:decimal",
         "xs:double",
         "xs:duration",
@@ -405,11 +468,10 @@
         "xs:unsignedByte",
         "xs:unsignedInt",
         "xs:unsignedLong",
-        "xs:unsignedShort",
-        "xs:yearMonthDuration"
+        "xs:unsignedShort"
       ]
     },
-    "DataTypeIEC61360": {
+    "DataTypeIec61360": {
       "type": "string",
       "enum": [
         "BLOB",
@@ -447,7 +509,7 @@
           "$ref": "#/definitions/Reference"
         },
         "dataSpecificationContent": {
-          "$ref": "#/definitions/DataSpecificationContent"
+          "$ref": "#/definitions/DataSpecificationContent_choice"
         }
       },
       "required": [
@@ -465,7 +527,7 @@
             "statements": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/SubmodelElement"
+                "$ref": "#/definitions/SubmodelElement_choice"
               },
               "minItems": 1
             },
@@ -473,10 +535,20 @@
               "$ref": "#/definitions/EntityType"
             },
             "globalAssetId": {
-              "$ref": "#/definitions/Reference"
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
-            "specificAssetId": {
-              "$ref": "#/definitions/SpecificAssetId"
+            "specificAssetIds": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SpecificAssetId"
+              },
+              "minItems": 1
+            },
+            "modelType": {
+              "const": "Entity"
             }
           },
           "required": [
@@ -538,18 +610,20 @@
         },
         "topic": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "maxLength": 255,
+          "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
         },
         "subjectId": {
           "$ref": "#/definitions/Reference"
         },
         "timeStamp": {
           "type": "string",
-          "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)Z$"
+          "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)(Z|\\+00:00|-00:00)$"
         },
         "payload": {
           "type": "string",
-          "minLength": 1
+          "contentEncoding": "base64"
         }
       },
       "required": [
@@ -567,7 +641,9 @@
           "properties": {
             "name": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "valueType": {
               "$ref": "#/definitions/DataTypeDefXsd"
@@ -576,7 +652,11 @@
               "type": "string"
             },
             "refersTo": {
-              "$ref": "#/definitions/Reference"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Reference"
+              },
+              "minItems": 1
             }
           },
           "required": [
@@ -594,13 +674,36 @@
           "properties": {
             "value": {
               "type": "string",
-              "minLength": 1,
-              "pattern": "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$"
+              "allOf": [
+                {
+                  "minLength": 1,
+                  "maxLength": 2000
+                },
+                {
+                  "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+                },
+                {
+                  "pattern": "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$"
+                }
+              ]
             },
             "contentType": {
               "type": "string",
-              "minLength": 1,
-              "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+              "allOf": [
+                {
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                {
+                  "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+                },
+                {
+                  "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \\t]*;[ \\t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\\t !#-\\[\\]-~]|[\u0080-\u00ff])|\\\\([\\t !-~]|[\u0080-\u00ff]))*\"))*$"
+                }
+              ]
+            },
+            "modelType": {
+              "const": "File"
             }
           },
           "required": [
@@ -637,7 +740,7 @@
       "type": "object",
       "properties": {
         "kind": {
-          "$ref": "#/definitions/ModelingKind"
+          "$ref": "#/definitions/ModellingKind"
         }
       }
     },
@@ -668,7 +771,9 @@
             },
             "id": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             }
           },
           "required": [
@@ -685,7 +790,9 @@
         },
         "value": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
         }
       },
       "required": [
@@ -722,29 +829,97 @@
         "SubmodelElementList"
       ]
     },
-    "LangString": {
-      "type": "object",
-      "properties": {
-        "language": {
-          "type": "string",
-          "pattern": "^(([a-zA-Z]{2,3}(-[a-zA-Z]{3}(-[a-zA-Z]{3}){2})?|[a-zA-Z]{4}|[a-zA-Z]{5,8})(-[a-zA-Z]{4})?(-([a-zA-Z]{2}|[0-9]{3}))?(-(([a-zA-Z0-9]){5,8}|[0-9]([a-zA-Z0-9]){3}))*(-[0-9A-WY-Za-wy-z](-([a-zA-Z0-9]){2,8})+)*(-[xX](-([a-zA-Z0-9]){1,8})+)?|[xX](-([a-zA-Z0-9]){1,8})+|((en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang)))$"
+    "LangStringDefinitionTypeIec61360": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractLangString"
         },
-        "text": {
-          "type": "string"
+        {
+          "properties": {
+            "text": {
+              "maxLength": 1023
+            }
+          }
         }
-      },
-      "required": [
-        "language",
-        "text"
+      ]
+    },
+    "LangStringNameType": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractLangString"
+        },
+        {
+          "properties": {
+            "text": {
+              "maxLength": 128
+            }
+          }
+        }
+      ]
+    },
+    "LangStringPreferredNameTypeIec61360": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractLangString"
+        },
+        {
+          "properties": {
+            "text": {
+              "maxLength": 255
+            }
+          }
+        }
+      ]
+    },
+    "LangStringShortNameTypeIec61360": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractLangString"
+        },
+        {
+          "properties": {
+            "text": {
+              "maxLength": 18
+            }
+          }
+        }
+      ]
+    },
+    "LangStringTextType": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractLangString"
+        },
+        {
+          "properties": {
+            "text": {
+              "maxLength": 1023
+            }
+          }
+        }
       ]
     },
     "LevelType": {
-      "type": "string",
-      "enum": [
-        "Max",
-        "Min",
-        "Nom",
-        "Typ"
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "boolean"
+        },
+        "nom": {
+          "type": "boolean"
+        },
+        "typ": {
+          "type": "boolean"
+        },
+        "max": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "min",
+        "nom",
+        "typ",
+        "max"
       ]
     },
     "ModelType": {
@@ -756,8 +931,7 @@
         "Blob",
         "Capability",
         "ConceptDescription",
-        "DataSpecificationIEC61360",
-        "DataSpecificationPhysicalUnit",
+        "DataSpecificationIec61360",
         "Entity",
         "File",
         "MultiLanguageProperty",
@@ -771,7 +945,7 @@
         "SubmodelElementList"
       ]
     },
-    "ModelingKind": {
+    "ModellingKind": {
       "type": "string",
       "enum": [
         "Instance",
@@ -788,12 +962,15 @@
             "value": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringTextType"
               },
               "minItems": 1
             },
             "valueId": {
               "$ref": "#/definitions/Reference"
+            },
+            "modelType": {
+              "const": "MultiLanguageProperty"
             }
           }
         }
@@ -826,6 +1003,9 @@
                 "$ref": "#/definitions/OperationVariable"
               },
               "minItems": 1
+            },
+            "modelType": {
+              "const": "Operation"
             }
           }
         }
@@ -835,7 +1015,7 @@
       "type": "object",
       "properties": {
         "value": {
-          "$ref": "#/definitions/SubmodelElement"
+          "$ref": "#/definitions/SubmodelElement_choice"
         }
       },
       "required": [
@@ -857,6 +1037,9 @@
             },
             "valueId": {
               "$ref": "#/definitions/Reference"
+            },
+            "modelType": {
+              "const": "Property"
             }
           },
           "required": [
@@ -895,7 +1078,9 @@
             },
             "type": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "valueType": {
               "$ref": "#/definitions/DataTypeDefXsd"
@@ -937,6 +1122,9 @@
             },
             "max": {
               "type": "string"
+            },
+            "modelType": {
+              "const": "Range"
             }
           },
           "required": [
@@ -954,30 +1142,38 @@
           "properties": {
             "category": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "idShort": {
               "type": "string",
-              "maxLength": 128,
-              "pattern": "^[a-zA-Z][a-zA-Z0-9_]+$"
+              "allOf": [
+                {
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                {
+                  "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+                },
+                {
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
+                }
+              ]
             },
             "displayName": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringNameType"
               },
               "minItems": 1
             },
             "description": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/LangString"
+                "$ref": "#/definitions/LangStringTextType"
               },
               "minItems": 1
-            },
-            "checksum": {
-              "type": "string",
-              "minLength": 1
             },
             "modelType": {
               "$ref": "#/definitions/ModelType"
@@ -1020,6 +1216,9 @@
           "properties": {
             "value": {
               "$ref": "#/definitions/Reference"
+            },
+            "modelType": {
+              "const": "ReferenceElement"
             }
           }
         }
@@ -1028,11 +1227,25 @@
     "ReferenceTypes": {
       "type": "string",
       "enum": [
-        "GlobalReference",
+        "ExternalReference",
         "ModelReference"
       ]
     },
     "RelationshipElement": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/RelationshipElement_abstract"
+        },
+        {
+          "properties": {
+            "modelType": {
+              "const": "RelationshipElement"
+            }
+          }
+        }
+      ]
+    },
+    "RelationshipElement_abstract": {
       "allOf": [
         {
           "$ref": "#/definitions/SubmodelElement"
@@ -1053,18 +1266,48 @@
         }
       ]
     },
+    "RelationshipElement_choice": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/RelationshipElement"
+        },
+        {
+          "$ref": "#/definitions/AnnotatedRelationshipElement"
+        }
+      ]
+    },
     "Resource": {
       "type": "object",
       "properties": {
         "path": {
           "type": "string",
-          "minLength": 1,
-          "pattern": "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$"
+          "allOf": [
+            {
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            {
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+            },
+            {
+              "pattern": "^file:(//((localhost|(\\[((([0-9A-Fa-f]{1,4}:){6}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|::([0-9A-Fa-f]{1,4}:){5}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|([0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){4}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){3}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){2}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:){2}([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){3}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){4}[0-9A-Fa-f]{1,4})?::([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{1,4}|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-Fa-f]{1,4}:){5}[0-9A-Fa-f]{1,4})?::[0-9A-Fa-f]{1,4}|(([0-9A-Fa-f]{1,4}:){6}[0-9A-Fa-f]{1,4})?::)|[vV][0-9A-Fa-f]+\\.([a-zA-Z0-9\\-._~]|[!$&'()*+,;=]|:)+)\\]|([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=])*)))?/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?|/((([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))+(/(([a-zA-Z0-9\\-._~]|%[0-9A-Fa-f][0-9A-Fa-f]|[!$&'()*+,;=]|[:@]))*)*)?)$"
+            }
+          ]
         },
         "contentType": {
           "type": "string",
-          "minLength": 1,
-          "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \t]*;[ \t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\t !#-\\[\\]-~]|[\\x80-\\xff])|\\\\([\t !-~]|[\\x80-\\xff]))*\"))*$"
+          "allOf": [
+            {
+              "minLength": 1,
+              "maxLength": 100
+            },
+            {
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
+            },
+            {
+              "pattern": "^([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+/([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+([ \\t]*;[ \\t]*([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+=(([!#$%&'*+\\-.^_`|~0-9a-zA-Z])+|\"(([\\t !#-\\[\\]-~]|[\u0080-\u00ff])|\\\\([\\t !-~]|[\u0080-\u00ff]))*\"))*$"
+            }
+          ]
         }
       },
       "required": [
@@ -1080,11 +1323,15 @@
           "properties": {
             "name": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "value": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "externalSubjectId": {
               "$ref": "#/definitions/Reference"
@@ -1092,8 +1339,7 @@
           },
           "required": [
             "name",
-            "value",
-            "externalSubjectId"
+            "value"
           ]
         }
       ]
@@ -1127,9 +1373,12 @@
             "submodelElements": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/SubmodelElement"
+                "$ref": "#/definitions/SubmodelElement_choice"
               },
               "minItems": 1
+            },
+            "modelType": {
+              "const": "Submodel"
             }
           }
         }
@@ -1139,9 +1388,6 @@
       "allOf": [
         {
           "$ref": "#/definitions/Referable"
-        },
-        {
-          "$ref": "#/definitions/HasKind"
         },
         {
           "$ref": "#/definitions/HasSemantics"
@@ -1164,9 +1410,12 @@
             "value": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/SubmodelElement"
+                "$ref": "#/definitions/SubmodelElement_choice"
               },
               "minItems": 1
+            },
+            "modelType": {
+              "const": "SubmodelElementCollection"
             }
           }
         }
@@ -1182,13 +1431,6 @@
             "orderRelevant": {
               "type": "boolean"
             },
-            "value": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/SubmodelElement"
-              },
-              "minItems": 1
-            },
             "semanticIdListElement": {
               "$ref": "#/definitions/Reference"
             },
@@ -1197,11 +1439,67 @@
             },
             "valueTypeListElement": {
               "$ref": "#/definitions/DataTypeDefXsd"
+            },
+            "value": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SubmodelElement_choice"
+              },
+              "minItems": 1
+            },
+            "modelType": {
+              "const": "SubmodelElementList"
             }
           },
           "required": [
             "typeValueListElement"
           ]
+        }
+      ]
+    },
+    "SubmodelElement_choice": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/RelationshipElement"
+        },
+        {
+          "$ref": "#/definitions/AnnotatedRelationshipElement"
+        },
+        {
+          "$ref": "#/definitions/BasicEventElement"
+        },
+        {
+          "$ref": "#/definitions/Blob"
+        },
+        {
+          "$ref": "#/definitions/Capability"
+        },
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "$ref": "#/definitions/File"
+        },
+        {
+          "$ref": "#/definitions/MultiLanguageProperty"
+        },
+        {
+          "$ref": "#/definitions/Operation"
+        },
+        {
+          "$ref": "#/definitions/Property"
+        },
+        {
+          "$ref": "#/definitions/Range"
+        },
+        {
+          "$ref": "#/definitions/ReferenceElement"
+        },
+        {
+          "$ref": "#/definitions/SubmodelElementCollection"
+        },
+        {
+          "$ref": "#/definitions/SubmodelElementList"
         }
       ]
     },
@@ -1224,7 +1522,10 @@
       "type": "object",
       "properties": {
         "value": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
         },
         "valueId": {
           "$ref": "#/definitions/Reference"

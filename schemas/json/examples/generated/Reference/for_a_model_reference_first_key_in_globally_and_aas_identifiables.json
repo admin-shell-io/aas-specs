@@ -1,17 +1,24 @@
 {
   "submodels": [
     {
-      "id": "some_submodel",
+      "id": "https://example.com/some-submodel",
+      "idShort": "someSubmodel",
       "modelType": "Submodel",
-      "semanticId": {
-        "keys": [
-          {
-            "type": "Submodel",
-            "value": "something"
+      "submodelElements": [
+        {
+          "idShort": "someElement",
+          "modelType": "ReferenceElement",
+          "value": {
+            "keys": [
+              {
+                "type": "Submodel",
+                "value": "https://example.com/something"
+              }
+            ],
+            "type": "ModelReference"
           }
-        ],
-        "type": "ModelReference"
-      }
+        }
+      ]
     }
   ]
 }

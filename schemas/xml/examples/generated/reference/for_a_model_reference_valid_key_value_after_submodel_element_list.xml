@@ -1,24 +1,30 @@
-<environment xmlns="https://admin-shell.io/aas/3/0/RC02">
+<environment xmlns="https://admin-shell.io/aas/3/0">
 	<submodels>
 		<submodel>
-			<id>some_submodel</id>
-			<semanticId>
-				<type>ModelReference</type>
-				<keys>
-					<key>
-						<type>Submodel</type>
-						<value>something</value>
-					</key>
-					<key>
-						<type>SubmodelElementList</type>
-						<value>something_more</value>
-					</key>
-					<key>
-						<type>Property</type>
-						<value>123</value>
-					</key>
-				</keys>
-			</semanticId>
+			<idShort>someSubmodel</idShort>
+			<id>https://example.com/some-submodel</id>
+			<submodelElements>
+				<referenceElement>
+					<idShort>someElement</idShort>
+					<value>
+						<type>ModelReference</type>
+						<keys>
+							<key>
+								<type>Submodel</type>
+								<value>https://example.com/something</value>
+							</key>
+							<key>
+								<type>SubmodelElementList</type>
+								<value>something_more</value>
+							</key>
+							<key>
+								<type>Property</type>
+								<value>123</value>
+							</key>
+						</keys>
+					</value>
+				</referenceElement>
+			</submodelElements>
 		</submodel>
 	</submodels>
 </environment>
