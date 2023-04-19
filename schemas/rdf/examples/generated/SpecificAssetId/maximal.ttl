@@ -5,14 +5,13 @@
 @prefix xs: <http://www.w3.org/2001/XMLSchema#> .
 
 <something_142922d6> rdf:type aas:AssetAdministrationShell ;
-    <https://admin-shell.io/aas/3/0/Referable/idShort> "something_783819f1"^^xs:string ;
     <https://admin-shell.io/aas/3/0/Identifiable/id> "something_142922d6"^^xs:string ;
     <https://admin-shell.io/aas/3/0/AssetAdministrationShell/assetInformation> [
         rdf:type aas:AssetInformation ;
         <https://admin-shell.io/aas/3/0/AssetInformation/assetKind> <https://admin-shell.io/aas/3/0/AssetKind/NotApplicable> ;
         <https://admin-shell.io/aas/3/0/AssetInformation/specificAssetIds> [
-            rdf:type aas:SpecificAssetID ;
-            <https://admin-shell.io/aas/3/0/HasSemantics/semanticID> [
+            rdf:type aas:SpecificAssetId ;
+            <https://admin-shell.io/aas/3/0/HasSemantics/semanticId> [
                 rdf:type aas:Reference ;
                 <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ModelReference> ;
                 <https://admin-shell.io/aas/3/0/Reference/keys> [
@@ -30,9 +29,9 @@
                     <https://admin-shell.io/aas/3/0/Key/value> "urn:an-example17:bb4c21a1"^^xs:string ;
                 ] ;
             ] ;
-            <https://admin-shell.io/aas/3/0/SpecificAssetID/name> "something_b0b6ce88"^^xs:string ;
-            <https://admin-shell.io/aas/3/0/SpecificAssetID/value> "something_a37abe43"^^xs:string ;
-            <https://admin-shell.io/aas/3/0/SpecificAssetID/externalSubjectID> [
+            <https://admin-shell.io/aas/3/0/SpecificAssetId/name> "something_b0b6ce88"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/SpecificAssetId/value> "something_a37abe43"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/SpecificAssetId/externalSubjectId> [
                 rdf:type aas:Reference ;
                 <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ExternalReference> ;
                 <https://admin-shell.io/aas/3/0/Reference/keys> [
