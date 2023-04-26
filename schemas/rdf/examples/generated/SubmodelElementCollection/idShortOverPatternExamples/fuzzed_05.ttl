@@ -5,7 +5,6 @@
 @prefix xs: <http://www.w3.org/2001/XMLSchema#> .
 
 <something_48c66017> rdf:type aas:Submodel ;
-    <https://admin-shell.io/aas/3/0/Referable/idShort> "something_f8c8ea97"^^xs:string ;
     <https://admin-shell.io/aas/3/0/Identifiable/id> "something_48c66017"^^xs:string ;
     <https://admin-shell.io/aas/3/0/Submodel/submodelElements> [
         rdf:type aas:SubmodelElementCollection ;
@@ -25,7 +24,7 @@
             <https://admin-shell.io/aas/3/0/AbstractLangString/language> "en"^^xs:string ;
             <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_be9deae0"^^xs:string ;
         ] ;
-        <https://admin-shell.io/aas/3/0/HasSemantics/semanticID> [
+        <https://admin-shell.io/aas/3/0/HasSemantics/semanticId> [
             rdf:type aas:Reference ;
             <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ExternalReference> ;
             <https://admin-shell.io/aas/3/0/Reference/keys> [
@@ -46,7 +45,7 @@
         <https://admin-shell.io/aas/3/0/Qualifiable/qualifiers> [
             rdf:type aas:Qualifier ;
             <https://admin-shell.io/aas/3/0/Qualifier/type> "something_500f973e"^^xs:string ;
-            <https://admin-shell.io/aas/3/0/Qualifier/valueType> <https://admin-shell.io/aas/3/0/DataTypeDefXSD/Long> ;
+            <https://admin-shell.io/aas/3/0/Qualifier/valueType> <https://admin-shell.io/aas/3/0/DataTypeDefXsd/Long> ;
         ] ;
         <https://admin-shell.io/aas/3/0/HasDataSpecification/embeddedDataSpecifications> [
             rdf:type aas:EmbeddedDataSpecification ;
@@ -60,18 +59,18 @@
                 ] ;
             ] ;
             <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecificationContent> [
-                rdf:type aas:DataSpecificationIEC61360 ;
-                <https://admin-shell.io/aas/3/0/DataSpecificationIEC61360/preferredName> [
-                    rdf:type aas:LangStringPreferredNameTypeIEC61360 ;
+                rdf:type aas:DataSpecificationIec61360 ;
+                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
+                    rdf:type aas:LangStringPreferredNameTypeIec61360 ;
                     <https://admin-shell.io/aas/3/0/AbstractLangString/language> "X-33DQI-g"^^xs:string ;
                     <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_7e795ee2"^^xs:string ;
                 ] ;
-                <https://admin-shell.io/aas/3/0/DataSpecificationIEC61360/preferredName> [
-                    rdf:type aas:LangStringPreferredNameTypeIEC61360 ;
+                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
+                    rdf:type aas:LangStringPreferredNameTypeIec61360 ;
                     <https://admin-shell.io/aas/3/0/AbstractLangString/language> "en-UK"^^xs:string ;
                     <https://admin-shell.io/aas/3/0/AbstractLangString/text> "Something random in English c8512bdf"^^xs:string ;
                 ] ;
-                <https://admin-shell.io/aas/3/0/DataSpecificationIEC61360/value> "something_4e9c19b7"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/value> "something_4e9c19b7"^^xs:string ;
             ] ;
         ] ;
         <https://admin-shell.io/aas/3/0/SubmodelElementCollection/value> [
