@@ -119,7 +119,7 @@ Section [Why no XML attributes?] on why we do not serialize them as XML attribut
 
 [5.7.12 Primitive and Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
 
-[Why no XML attributes?]: why-no-xml-attributes
+[Why no XML attributes?]: #why-no-xml-attributes
 
 The byte arrays (``BlobType`` in meta-model) are serialized as Base64-encoded text.
 
