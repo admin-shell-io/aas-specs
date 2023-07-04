@@ -1,6 +1,6 @@
 # XMI
 This is the XMI Representation of Details of the Asset Administration Shell - Part 1.
-The XML Metadata Interchange ([XMI](https://de.wikipedia.org/wiki/XML_Metadata_Interchange)) is an Object Management Group ([OMG](https://de.wikipedia.org/wiki/Unified_Modeling_Language) ) standard for exchanging metadata information via Extensible Markup Language (XML).
+The XML Metadata Interchange ([XMI](https://de.wikipedia.org/wiki/XML_Metadata_Interchange)) is an Object Management Group ([OMG](https://de.wikipedia.org/wiki/Unified_Modeling_Language)) standard for exchanging metadata information via Extensible Markup Language (XML).
 
 The most common use of XMI is as an interchange format for UML models, although it can also be used for serialization of models of other languages (metamodels). 
 
