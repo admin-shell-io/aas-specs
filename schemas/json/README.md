@@ -192,9 +192,9 @@ non-identifiable.
 
 For practical applications, we need to access them *somehow*. Therefore, the meta-model
 mandates to embed them in serializations (see
-Section [9.2.5 Embedded Data Specifications]).
+Section [7.2.5 Embedded Data Specifications]).
 
-[9.2.5 Embedded Data Specifications]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=114
+[7.2.5 Embedded Data Specifications]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=114
 
 We consequently embed the data specifications by adding `embeddedDataSpecifications`
 property to the definition corresponding to [HasDataSpecification], and deliberately
