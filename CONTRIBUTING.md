@@ -12,7 +12,7 @@ Therefore, we demand a defined procedure for the contribution in this repository
 **Create Feature branches**.
 We develop using the feature branches, see [this section of the Git book].
 
-[this section of the Git book]: https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows.
+[this section of the Git book]: https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows
 
 If you are a member of the development team, [create a feature branch] directly within the repository.
 
