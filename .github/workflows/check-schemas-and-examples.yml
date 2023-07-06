@@ -13,6 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
+      - name: Install netcore 3.1 (needed for schema validation)
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '3.1.x'
+
       - name: Install schema-validation
         working-directory: schemas
         run: powershell .\InstallSchemaValidation.ps1
