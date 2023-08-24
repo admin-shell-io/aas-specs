@@ -37,11 +37,6 @@ The XML schema, mapping rules and examples are available at [schemas/xml/](schem
 ### XMI
 
 The XMI file for the UML metamodel is available at [schemas/xmi/](schemas/xmi/).
-
-### YAML
-
-The YAML files for the API definitions are available at [schemas/yaml/](schemas/yaml/).
-
   
 ## Releases
 
