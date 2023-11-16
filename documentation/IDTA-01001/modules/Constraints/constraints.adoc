@@ -10,7 +10,7 @@ SPDX-License-Identifier: CC-BY-4.0
 // Constraints
 :aasd002: pass:q[[underline]#Constraint AASd-002:# _idShort_ of __Referable__s shall only feature letters, digits, underscore ("_"); starting mandatory with a letter, i.e. [a-zA-Z][a-zA-Z0-9_]*.]
 :aasd005: pass:q[[underline]#Constraint AASd-005:# If _AdministrativeInformation_/version is not specified, _AdministrativeInformation/revision_ shall also be unspecified. This means that a revision requires a version. If there is no version, there is no revision. Revision is optional.]
-:aasd006: pass:q[[underline]#Constraint AASd-006#: If both, the _value_ and the _valueId_ of a _Qualifier_ are present, the value needs to be identical to the value of the referenced coded value in _Qualifier/valueId_.]
+:aasd006: pass:q[[underline]#Constraint AASd-006:# If both, the _value_ and the _valueId_ of a _Qualifier_ are present, the value needs to be identical to the value of the referenced coded value in _Qualifier/valueId_.]
 :aasd007: pass:q[[underline]#Constraint AASd-007:# If both the _Property/value_ and the _Property/valueId_ are present, the value of _Property/value_ needs to be identical to the value of the referenced coded value in _Property/valueId_.]
 :aasd012: pass:q[[underline]#Constraint AASd-012#: if both the _MultiLanguageProperty/value_ and the _MultiLanguageProperty/valueId_ are present, the meaning must be the same for each string in a specific language, as specified in _MultiLanguageProperty/valueId_.]
 :aasd014: pass:q[[underline]#Constraint AASd-014:# Either the attribute _globalAssetId_ or _specificAssetId_ of an _Entity_ must be set if _Entity/entityType_ is set to "_SelfManagedEntity_". Otherwise, they do not exist.]
