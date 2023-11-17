@@ -13,6 +13,12 @@ https://creativecommons.org/licenses/by/4.0/
 
 This repository contains specifications of the Asset Administration Shell, including the normative schemas of the serializations, the rules applied to create them, how the specification is mapped into the serializations, and examples of how to use the schemas.
 
+## Industrial Digital Twin Association (IDTA)
+
+Governance of the specification is done in the working group Open Technology of the [IDTA](https://industrialdigitaltwin.org/en/)
+
+The specification number is: **IDTA-01001**
+
 ## Schemas
 
 The schemas of the Asset Administration Shell for JSON, RDF and XML as well as a XMI and YAML representation of the metmodel are provided in the respective directories. 
