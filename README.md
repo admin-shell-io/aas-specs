@@ -1,4 +1,4 @@
-# Specification of the Asset Administration Shell: Part 1 Metamodel
+# This is the repository of the Asset Administration Shell
 
 [![Check](
 https://github.com/admin-shell-io/aas-specs/workflows/Check/badge.svg
@@ -11,21 +11,15 @@ https://licensebuttons.net/l/by/4.0/88x31.png
 https://creativecommons.org/licenses/by/4.0/
 )
 
-This repository contains Part 1, the metamodel, of the specifications of the Asset Administration Shell, including the normative schemas of the serializations, the rules applied to create them, how the specification is mapped into the serializations, and examples of how to use the schemas.
-
-## Industrial Digital Twin Association (IDTA)
-
-Governance of the specification is done in the working group Open Technology of the [IDTA](https://industrialdigitaltwin.org/en/)
-
-The specification number is: **IDTA-01001**
-
-## Documentation
-
-The documentation of the specification is available at [documentation](documentation). It is maintained with [asciidoc](https://asciidoc.org/).
+This repository contains specifications of the Asset Administration Shell, including the normative schemas of the serializations, the rules applied to create them, how the specification is mapped into the serializations, and examples of how to use the schemas.
 
 ## Schemas
 
-The schemas of the Asset Administration Shell for JSON, RDF and XML as well as a XMI representation of the metamodel are provided in the respective directories. For more information on the schema and the mapping rules see the corresponding readme files in the directories.
+The schemas of the Asset Administration Shell for JSON, RDF and XML as well as a XMI and YAML representation of the metmodel are provided in the respective directories. 
+These schemas are derived from the document series, part 1,
+["Details of the Asset Administration Shell"](
+https://www.plattform-i40.de/PI40/Redaktion/EN/Standardartikel/specification-administrationshell.html
+) published by the [Platform Industrie 4.0](http://www.plattform-i40.de) and [IDTA](https://industrialdigitaltwin.org/en/).
 
 ### JSON
 
@@ -69,9 +63,10 @@ welcome! Please [submit a new issue](
 https://github.com/admin-shell-io/aas-specs/issues/new
 ).
 
-If you want to contribute, see [CONTRIBUTING.md](https://github.com/admin-shell-io/aas-specs/blob/master/CONTRIBUTING.md). The same contribution rules apply as for [aas-specs](https://github.com/admin-shell-io/aas-specs)
+If you want to contribute, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](
-https://creativecommons.org/licenses/by/4.0/). 
+https://creativecommons.org/licenses/by/4.0/). The implementation is based on the specifications of the "Details of the Asset Administration Shell" published on https://www.plattform-i40.de and https://industrialdigitaltwin.org/en/ 
+which is licensed under Creative Commons CC-BY-4.0.
