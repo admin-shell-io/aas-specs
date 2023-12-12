@@ -1,4 +1,4 @@
-# This is the repository of the Asset Administration Shell
+# IDTA-01001 - Metamodel of the Asset Administration Shell
 
 [![Check](
 https://github.com/admin-shell-io/aas-specs/workflows/Check/badge.svg
@@ -11,7 +11,13 @@ https://licensebuttons.net/l/by/4.0/88x31.png
 https://creativecommons.org/licenses/by/4.0/
 )
 
-This repository contains specifications of the Asset Administration Shell, including the normative schemas of the serializations, the rules applied to create them, how the specification is mapped into the serializations, and examples of how to use the schemas.
+This repository contains specifications of the metamodel of the Asset Administration Shell, including the normative schemas of the serializations, the rules applied to create them, how the specification is mapped into the serializations, and examples of how to use the schemas.
+
+## Industrial Digital Twin Association (IDTA)
+
+Governance of the specification is done in the working group Open Technology of the [IDTA](https://industrialdigitaltwin.org/en/)
+
+The specification number is: **IDTA-01001**
 
 ## Schemas
 
@@ -37,11 +43,6 @@ The XML schema, mapping rules and examples are available at [schemas/xml/](schem
 ### XMI
 
 The XMI file for the UML metamodel is available at [schemas/xmi/](schemas/xmi/).
-
-### YAML
-
-The YAML files for the API definitions are available at [schemas/yaml/](schemas/yaml/).
-
   
 ## Releases
 
@@ -65,7 +66,7 @@ Previous releases (deprecated by [3.0.7](https://github.com/admin-shell-io/aas-s
 
 Feature requests, reports about inconsistencies, mistakes *etc.* are highly
 welcome! Please [submit a new issue](
-https://github.com/admin-shell-io/aas-specs/issues/new
+https://github.com/admin-shell-io/aas-specs/issues/new/choose
 ).
 
 If you want to contribute, see [CONTRIBUTING.md](CONTRIBUTING.md).

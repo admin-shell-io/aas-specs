@@ -24,15 +24,15 @@ classes:
 * [Submodel]'s, and
 * [ConceptDescription]'s.
 
-[Environment]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=82
+[Environment]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=80
 
-[Identifiable]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=51
+[Identifiable]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=52
 
-[AssetAdministrationShell]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=57
+[AssetAdministrationShell]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=58
 
-[Submodel]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=61
+[Submodel]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=62
 
-[ConceptDescription]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=81
+[ConceptDescription]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=79
 
 To simplify exploration of the XML data, identifiable instances are only available at
 the level of the environment, and nowhere else.
@@ -68,7 +68,7 @@ programming code, we name the properties in plural form diverging from the name 
 meta-model. For example, ``submodelElements`` instead of ``submodelElement`` in case
 of [Submodel/submodelElement] property in the meta-model.
 
-[Submodel/submodelElement]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=61
+[Submodel/submodelElement]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=63
 
 In cases where plural form made no sense for a property, we kept it as-is in singular
 form (*e.g.*, `isCaseOf`). The full list of exceptions is
@@ -117,7 +117,7 @@ Section [5.7.12 Primitive and Simple Data Types] of the meta-model) are serializ
 text enclosed in the XML element corresponding to the property. Please see
 Section [Why no XML attributes?] on why we do not serialize them as XML attributes.
 
-[5.7.12 Primitive and Simple Data Types]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=95
+[5.7.12 Primitive and Simple Data Types]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=96
 
 [Why no XML attributes?]: #why-no-xml-attributes
 
@@ -144,13 +144,13 @@ of [SubmodelElement], but the deserializer does not know which *concrete*
 deserialization method to apply to understand the nested XML data: is it [Property]
 , [Range] or some other descendant of [SubmodelElement]?
 
-[Submodel/submodelElement]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=61
+[Submodel/submodelElement]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=63
 
-[SubmodelElement]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=62
+[SubmodelElement]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=63
 
-[Property]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=75
+[Property]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=74
 
-[Range]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=76
+[Range]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=75
 
 Therefore, the information about the concrete type of the serialized instance must be
 encoded somehow in XML when the type in the meta-model is too vague. This nugget of
@@ -327,9 +327,9 @@ meta-model as text.
 For example, the enumeration literal [EntityType/CoManagedEntity] is serialized
 as ``CoManagedEntity``, while the literal [Direction/input] as ``input``.
 
-[EntityType/CoManagedEntity]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=71
+[EntityType/CoManagedEntity]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=70
 
-[Direction/input]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=66
+[Direction/input]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=66
 
 ### Embedded Data Specifications
 
@@ -337,18 +337,18 @@ There is an abstract definition of data specifications as templates in the meta-
 see Section [6 Predefined Data Specification Templates]). This definition does not
 specify, though, how to access them from within an [Environment], which is a requirement
 for many systems. To address this practical issue, the meta-model indicates that they
-should be embedded in serializations (see Section [9.2.5 Embedded Data Specifications]).
+should be embedded in serializations (see Section [7.2.5 Embedded Data Specifications]).
 
-[6 Predefined Data Specification Templates]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=106
+[6 Predefined Data Specification Templates]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=106
 
-[9.2.5 Embedded Data Specifications]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=150
+[7.2.5 Embedded Data Specifications]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=114
 
 We therefore add additional XML element, named `embeddedDataSpecifications`, in the XML
 representations of [HasDataSpecification] class, and omit `dataSpecification` property
 by design. The embedded data specifications are serialized just as all the other classes
 of the meta-model, following the procedure outlined above.
 
-[HasDataSpecification]: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.pdf?__blob=publicationFile&v=10#page=56
+[HasDataSpecification]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=48
 
 ### Namespace
 
