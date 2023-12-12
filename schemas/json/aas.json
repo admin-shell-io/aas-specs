@@ -139,7 +139,7 @@
             "submodels": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Reference"
+                "$ref": "#/definitions/ModelReferenceToSubmodel"
               },
               "minItems": 1
             },
@@ -800,6 +800,23 @@
         "value"
       ]
     },
+    "SubmodelKey": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Key"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "Submodel"
+            }
+          },
+          "required": ["type"]
+        }
+      ]
+    },
     "KeyTypes": {
       "type": "string",
       "enum": [
@@ -1205,6 +1222,34 @@
       "required": [
         "type",
         "keys"
+      ]
+    },
+    "ModelReferenceToSubmodel": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Reference"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ModelReference"
+            },
+            "keys": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Key"
+              },
+              "minItems": 1,
+              "maxItems": 1
+            }
+          },
+          "required": [
+            "type",
+            "keys"
+          ]
+        }
       ]
     },
     "ReferenceElement": {
