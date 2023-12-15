@@ -5469,6 +5469,7 @@ Major Changes:
 * Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name [#295](https://github.com/admin-shell-io/aas-specs/issues/295)
 * Entity/entityType and Constraint AASd-014: now optional [#287](https://github.com/admin-shell-io/aas-specs/issues/287)
 
+
 Minor Changes:
 
 * editorial changes
@@ -5478,7 +5479,7 @@ Bugfixes:
 
 * (Editorial) MultiLanguageNameType inconsistent description, maxLength=128 (schemata were correct) ([#313](https://github.com/admin-shell-io/aas-specs/issues/313))
 * (Editorial) HasKind/kind explanataroy text: use template, not type ([#313](https://github.com/admin-shell-io/aas-specs/issues/313))
-* (Editorial) DataTypeDefXsd links now correctly to xmlschema11-2, not to xsd V1.1 ([#312](https://github.com/admin-shell-io/aas-specs/issues/312))
+* (Editorial) DataTypeDefXsd links now correctly to xmlschema11-2, not to xsd V1.1 ([#312](https://github.com/admin-shell-io/aas-specs/issues/312) (as implemented in schemata)
 
 
 .Changes
@@ -5486,10 +5487,11 @@ Bugfixes:
 |===
 |*Nc* |*V3.0 Change w.r.t. V2.0.1* |*Comment*
 | | AssetKind | Add new value "Role" to enumeration AssetKind
-| | DataTypeDefXsd | (bugfix) values in enumeration now reference xsd V1.0, not V1.1
+| | DataTypeDefXsd | (bugfix in Text only) values in enumeration now reference xsd V1.0, not V1.1
+| | EmbeddedDataSpecification/dataSpecification | (bugfix in Text only) now mandatory
 | | Entity/entityType | now optional
 | | Identifier | change length from 2000 to 2024 characters
-| | MultiLanguageNameType | (bugfix) maxLength=128 (as derived and implemented)
+| | MultiLanguageNameType | (bugfix in Text only) maxLength=128 (as derived and implemented)
 | | NameType | change due to change of Constraint AASd-002
 | | PathType | extend data type to support complete URI scheme for files RFC3986/RFC3987
 |===
