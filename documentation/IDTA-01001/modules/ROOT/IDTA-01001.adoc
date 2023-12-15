@@ -1984,7 +1984,7 @@ The content type states which file extensions the file can have.
 [cols="30%h,70%"]
 |===
 |Enumeration: |[[AssetKind]]AssetKind
-|Explanation: |Enumeration for denoting whether an asset is a type asset or an instance asset or whether this kind of classification is not applicable
+|Explanation: |Enumeration for denoting whether an asset is a type asset or an instance asset or is a role or whether this kind of classification is not applicable
 |Set of: |--
 |===
 [cols="30%,70%"],options="header"]
@@ -1992,7 +1992,8 @@ The content type states which file extensions the file can have.
 |Literal |Explanation
 |Type |Type asset
 |Instance |Instance asset
-|NotApplicable |Neither a type asset nor an instance asset
+|Role | Role asset
+|NotApplicable |Neither a type asset nor an instance asset nor a role asset
 |===
 
 For more information on types and instances, see Clause 4.2.
@@ -5456,6 +5457,8 @@ Note: before V3.0, the security metamodel and the predefined data specifications
 
 Major Changes:
 
+* New value "Role" to enumeration AssetKind [#294](https://github.com/admin-shell-io/aas-specs/issues/294)
+
 
 Bugfixes:
 
@@ -5463,7 +5466,19 @@ Bugfixes:
 * (Editorial) HasKind/kind explanataroy text: use template, not type ([#313](https://github.com/admin-shell-io/aas-specs/issues/313))
 * (Editorial) DataTypeDefXsd links now correctly to xmlschema11-2, not to xsd V1.1 ([#312](https://github.com/admin-shell-io/aas-specs/issues/312))
 
+.Changes
+[cols="5%,42%,48%",options="header",]
+|===
+|*Nc* |*V3.0 Change w.r.t. V2.0.1* |*Comment*
+| | AssetKind | Add new value "Role" to enumeration AssetKind
+|===
 
+.New Elements in Metamodel
+[cols="5%,41%,51%",options="header",]
+|===
+| |*New Elements V3.0 vs V2.0.1* |*Comment*
+|| AssetKind/Role | New value in enumeration
+|===
 
 === Changes V3.0 vs. V2.0.1
 
