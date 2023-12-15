@@ -58,16 +58,13 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ===  Scope of this Document
 
-The aim of this document is to define selected specifications of the structure of the Administration Shell to enable the meaningful exchange of information about assets and I4.0 components between partners in a value creation network.
+The aim of this document is to define the structure of the Administration Shell to enable the meaningful exchange of information about assets and I4.0 components between partners in a value creation network.
 
 This part of the document focuses on how such information needs to be processed and structured. In order to define these specifications, the document formally stipulates some structural principles of the Administration Shell. This part does not describe technical interfaces of the Administration Shell or other systems to exchange information, protocols, or interaction patterns.
 
 This document focuses on:
 
 * a metamodel for specifying information of an Asset Administration Shell and its submodels,
-* exchange format for the transport of information from one partner in the value chain to the next,
-* identifiers,
-* access control,
 * an introduction to the need of mappings to suitable technologies used in different life cycle phases of a product: XML, JSON, RDF, AutomationML, and OPC UA.
 
 This document presumes some familiarity with the concept of the Asset Administration Shell. Some of the concepts are described in Annex A for convenience sake. The concepts are being standardized as IEC standard IEC 63278 series link:#bib44[[44\]]. The main stakeholders addressed in this document are architects and software developers aiming to implement a digital twin using the Asset Administration Shell in an interoperable way. Additionally, the content can also be used as input for discussions with international standardization organizations and further initiatives. Please consult the continuously updated reading guide link:#bib38[[38\]] for an overview of documents on the Asset Administration Shell. The reading guide gives advice on which documents should be read depending on the role of the reader.
@@ -1529,7 +1526,7 @@ Default for an element is that it is representing an instance.
 |===
 |Attribute |Explanation |Type |Card.
 |kind a|
-Kind of the element: either type or instance
+Kind of the element: either template or instance
 
 Default Value = _Instance_
 
@@ -1549,7 +1546,7 @@ The kind enumeration is used to denote whether an element is of kind _Template_ 
 |===
 |Literal |Explanation
 |Template |specification of the common features of a structured element in sufficient detail that such a instance can be instantiated using it
-|Instance |concrete, clearly identifiable element instance. Its creation and validation may be guided by a corresponding element template.
+|Instance |concrete, clearly identifiable element instance. Its creation and validation may be guided by a corresponding element template
 |===
 
 ===== Has Semantics Attributes
@@ -2443,11 +2440,15 @@ image::image36.png[]
 .Metamodel of File Submodel Element
 image::image37.png[]
 
-A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted via the Internet. The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications.
+A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted via the Internet. 
+The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications.
 
 
 ====
-Note: for information on handling supplementary external files in exchanging Asset Administration Shell specification in AASX package format see also Part 5 of the series "Details of the Asset Administration Shell". An absolute path is used in case the file exists independently of the Asset Administration Shell. A relative path, relative to the package root, should be used if the file is part of a serialized package of the Asset Administration Shell.
+Note: for information on handling supplementary external files in exchanging Asset Administration Shells in AASX package format see also 
+[Part 5 of the series "Specification of the Asset Administration Shell"](https://industrialdigitaltwin.org/en/content-hub/aasspecifications). 
+An absolute path is used in case the file exists independently of the Asset Administration Shell.
+A relative path, relative to the package root, should be used if the file is part of a serialized package of the Asset Administration Shell.
 ====
 
 
@@ -3615,7 +3616,7 @@ In JSON:
 
 ]
 
-|[[MessageTopicType]]MessageTopicType |_string_ with max 255 and min 1 characters |
+|[[MessageTopicType]]MessageTopicType |_string_ with max 128 and min 1 characters |
 |[[MultiLanguageNameType]]MultiLanguageNameType a|
 _LangStringSet_
 
@@ -3932,37 +3933,37 @@ For more details see https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes
 [cols="30%,70%"],options="header"]
 |===
 |Literal |Explanation
-|xs:anyURI |see: https://www.w3.org/TR/xmlschema11-2/#anyURI
-|xs:base64Binary |see: https://www.w3.org/TR/xmlschema11-2/#base64Binary
-|xs:boolean |see https://www.w3.org/TR/xmlschema11-2/#boolean
-|xs:byte |see https://www.w3.org/TR/xmlschema11-2/#byte
-|xs:date |see https://www.w3.org/TR/xmlschema11-2/#date
-|xs:dateTime |see https://www.w3.org/TR/xmlschema11-2/#dateTime
-|xs:decimal |see https://www.w3.org/TR/xmlschema11-2/#decimal
-|xs:double |see https://www.w3.org/TR/xmlschema11-2/#double
-|xs:duration |see https://www.w3.org/TR/xmlschema11-2/#duration
-|xs:float |see https://www.w3.org/TR/xmlschema11-2/#float
-|xs:gDay |see https://www.w3.org/TR/xmlschema11-2/#gDay
-|xs:gMonth |see https://www.w3.org/TR/xmlschema11-2/#gMonth
-|xs:gMonthDay |see https://www.w3.org/TR/xmlschema11-2/#gMonthDay
-|xs:gYear |see https://www.w3.org/TR/xmlschema11-2/#gYear
-|xs:gYearMonth |see https://www.w3.org/TR/xmlschema11-2/#gYearMonth
-|xs:hexBinary |see https://www.w3.org/TR/xmlschema11-2/#hexBinary
-|xs:int |see https://www.w3.org/TR/xmlschema11-2/#int
-|xs:integer |see https://www.w3.org/TR/xmlschema11-2/#integer
-|xs:long |see https://www.w3.org/TR/xmlschema11-2/#long
-|xs:negativeInteger |see https://www.w3.org/TR/xmlschema11-2/#negativeInteger
-|xs:nonNegativeInteger |see: https://www.w3.org/TR/xmlschema11-2/#nonNegativeInteger
-|xs:nonPositiveInteger |see: https://www.w3.org/TR/xmlschema11-2/#nonPositiveInteger
-|xs:positiveInteger |see: https://www.w3.org/TR/xmlschema11-2/#positiveInteger
-|xs:short |see: https://www.w3.org/TR/xmlschema11-2/#short
+|xs:anyURI |see: https://www.w3.org/TR/xmlschema2/#anyURI
+|xs:base64Binary |see: https://www.w3.org/TR/xmlschema2/#base64Binary
+|xs:boolean |see https://www.w3.org/TR/xmlschema2/#boolean
+|xs:byte |see https://www.w3.org/TR/xmlschema2/#byte
+|xs:date |see https://www.w3.org/TR/xmlschema2/#date
+|xs:dateTime |see https://www.w3.org/TR/xmlschema2/#dateTime
+|xs:decimal |see https://www.w3.org/TR/xmlschema2/#decimal
+|xs:double |see https://www.w3.org/TR/xmlschema2/#double
+|xs:duration |see https://www.w3.org/TR/xmlschema2/#duration
+|xs:float |see https://www.w3.org/TR/xmlschema2/#float
+|xs:gDay |see https://www.w3.org/TR/xmlschema2/#gDay
+|xs:gMonth |see https://www.w3.org/TR/xmlschema2/#gMonth
+|xs:gMonthDay |see https://www.w3.org/TR/xmlschema2/#gMonthDay
+|xs:gYear |see https://www.w3.org/TR/xmlschema2/#gYear
+|xs:gYearMonth |see https://www.w3.org/TR/xmlschema2/#gYearMonth
+|xs:hexBinary |see https://www.w3.org/TR/xmlschema2/#hexBinary
+|xs:int |see https://www.w3.org/TR/xmlschema2/#int
+|xs:integer |see https://www.w3.org/TR/xmlschema2/#integer
+|xs:long |see https://www.w3.org/TR/xmlschema2/#long
+|xs:negativeInteger |see https://www.w3.org/TR/xmlschema2/#negativeInteger
+|xs:nonNegativeInteger |see: https://www.w3.org/TR/xmlschema2/#nonNegativeInteger
+|xs:nonPositiveInteger |see: https://www.w3.org/TR/xmlschema2/#nonPositiveInteger
+|xs:positiveInteger |see: https://www.w3.org/TR/xmlschema2/#positiveInteger
+|xs:short |see: https://www.w3.org/TR/xmlschema2/#short
 |xs:string |see: https://www.w3.org/TR/xmlschema-2/#string
 |xs:time |see: https://www.w3.org/TR/xmlschema-2/#time
-|xs:unsignedByte |see: https://www.w3.org/TR/xmlschema11-2/#unsignedShort
-|xs:unsignedInt |see: https://www.w3.org/TR/xmlschema11-2/#unsignedInt
-|xs:unsignedLong |see: https://www.w3.org/TR/xmlschema11-2/#unsignedLong
-|xs:unsignedShort |see: https://www.w3.org/TR/xmlschema11-2/#unsignedShort
-|xs:yearMonthDuration |see: https://www.w3.org/TR/xmlschema11-2/#yearMonthDuration
+|xs:unsignedByte |see: https://www.w3.org/TR/xmlschema2/#unsignedShort
+|xs:unsignedInt |see: https://www.w3.org/TR/xmlschema2/#unsignedInt
+|xs:unsignedLong |see: https://www.w3.org/TR/xmlschema2/#unsignedLong
+|xs:unsignedShort |see: https://www.w3.org/TR/xmlschema2/#unsignedShort
+|xs:yearMonthDuration |see: https://www.w3.org/TR/xmlschema2/#yearMonthDuration
 |===
 [.table-with-appendix-table]
 [cols="30%h,70%"]
@@ -4978,7 +4979,7 @@ Functions in the sense of executable entities are represented as __operation__s.
 [appendix]
 == Backus-Naur-Form
 
-The Backus-Naur form (BNF) – a meta-syntax notation for context-free grammars – is used to define grammars. For more information see Wikipediafootnote:[https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form].
+The Backus-Naur form (BNF) – a meta-syntax notation for context-free grammars – is used to define grammars. For more information see [Wikipedia](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form).
 
 A BNF specification is a set of derivation rules, written as
 
@@ -5449,6 +5450,19 @@ If there are no changes the corresponding tables are obmitted.
 ====
 Note: before V3.0, the security metamodel and the predefined data specifications were also part of this document. Therefore, security metamodel changes were listed using the three subclauses as described above.
 ====
+
+
+=== Changes V3.1 vs. V3.0
+
+Major Changes:
+
+
+Bugfixes:
+
+* (Editorial) MultiLanguageNameType inconsistent description, maxLength=128 (schemata were correct) ([#313](https://github.com/admin-shell-io/aas-specs/issues/313))
+* (Editorial) HasKind/kind explanataroy text: use template, not type ([#313](https://github.com/admin-shell-io/aas-specs/issues/313))
+* (Editorial) DataTypeDefXsd links now correctly to xmlschema11-2, not to xsd V1.1 ([#312](https://github.com/admin-shell-io/aas-specs/issues/312))
+
 
 
 === Changes V3.0 vs. V2.0.1
