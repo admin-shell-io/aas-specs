@@ -5465,7 +5465,8 @@ Major Changes:
 
 * New value "Role" to enumeration AssetKind [#294](https://github.com/admin-shell-io/aas-specs/issues/294)
 * PathType: support complete URI scheme for files RFC3986/RFC3987 [#299](https://github.com/admin-shell-io/aas-specs/issues/299)
-* Identifier: change length from 2000 to 2024 characters [#306](https://github.com/admin-shell-io/aas-specs/issues/306)
+* data type  Identifier: change length from 2000 to 2024 characters [#306](https://github.com/admin-shell-io/aas-specs/issues/306)
+* Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name
 
 Minor Changes:
 
@@ -5487,6 +5488,7 @@ Bugfixes:
 | | DataTypeDefXsd | (bugfix) values in enumeration now reference xsd V1.0, not V1.1
 | | Identifier | change length from 2000 to 2024 characters
 | | MultiLanguageNameType | (bugfix) maxLength=128 (as derived and implemented)
+| | NameType | change due to change of Constraint AASd-002
 | | PathType | extend data type to support complete URI scheme for files RFC3986/RFC3987
 |===
 
@@ -5496,6 +5498,18 @@ Bugfixes:
 | |*New Elements V3.0 vs V2.0.1* |*Comment*
 || AssetKind/Role | New value in enumeration
 |===
+
+
+.New, Changed or Removed Constraints
+[cols="5%,10%,15%,69%",options="header",]
+|===
+|*Nc* |*V3.0 vs. V2.0.1* |*New, Update, Removed, Reformulated* |*Comment*
+| |AASd-002 |Update a|
+now also allows hyphens to be included in name
+
+_idShort_ of __Referable__s shall only feature letters, digits, hyphen ("-") and  underscore ("_"); starting mandatory with a letter, and not ending with a hypen or underscore, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$.].
+|===
+
 
 === Changes V3.0 vs. V2.0.1
 
