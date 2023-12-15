@@ -1505,10 +1505,12 @@ Default: xs:string
 |refersTo |Reference to an element the extension refers to |ModelReference<xref:Referable[Referable]> |0..*
 |===
 
-.Metamodel of HasKind
-image::image17.png[]
+
 
 ===== Has Kind Attributes
+
+.Metamodel of HasKind
+image::image17.png[]
 
 [.table-with-appendix-table]
 [cols="25%h,75%"]
@@ -1984,7 +1986,8 @@ The content type states which file extensions the file can have.
 [cols="30%h,70%"]
 |===
 |Enumeration: |[[AssetKind]]AssetKind
-|Explanation: |Enumeration for denoting whether an asset is a type asset or an instance asset or is a role or whether this kind of classification is not applicable
+|Explanation: |Enumeration for denoting whether an asset is a type asset or 
+an instance asset or is a role or whether this kind of classification is not applicable
 |Set of: |--
 |===
 [cols="30%,70%"],options="header"]
@@ -3636,16 +3639,19 @@ _Identifier_
 
 
 ====
-Note: for any string conformant to link:https://datatracker.ietf.org/doc/html/rfc8089[RFC8089], the "file" URI scheme (for relative and absolute file paths) applies.
+Note: URL, based on [RFC-3986](https://www.rfc-editor.org/rfc/rfc3987) /[RFC-3987](https://www.rfc-editor.org/rfc/rfc3987), but more recently defined as living standard by WHATWG, as suggested by W3C: https://url.spec.whatwg.org/
 ====
 
 
 a|
-./Specification.pdf
+\./Specification.pdf
 
 file:c:/local/Specification.pdf
 
-file://host.example.com/path/to/file
+http://www.example.org
+
+FTP://unicode.org
+
 
 |[[RevisionType]]RevisionType a|
 _string_ with max 4 and min 1 characters
@@ -5458,6 +5464,11 @@ Note: before V3.0, the security metamodel and the predefined data specifications
 Major Changes:
 
 * New value "Role" to enumeration AssetKind [#294](https://github.com/admin-shell-io/aas-specs/issues/294)
+* PathType: support complete URI scheme for files RFC3986/RFC3987
+
+Minor Changes:
+
+* editorial changes
 
 
 Bugfixes:
@@ -5466,11 +5477,15 @@ Bugfixes:
 * (Editorial) HasKind/kind explanataroy text: use template, not type ([#313](https://github.com/admin-shell-io/aas-specs/issues/313))
 * (Editorial) DataTypeDefXsd links now correctly to xmlschema11-2, not to xsd V1.1 ([#312](https://github.com/admin-shell-io/aas-specs/issues/312))
 
+
 .Changes
 [cols="5%,42%,48%",options="header",]
 |===
 |*Nc* |*V3.0 Change w.r.t. V2.0.1* |*Comment*
 | | AssetKind | Add new value "Role" to enumeration AssetKind
+| | DataTypeDefXsd | (bugfix) values in enumeration now reference xsd V1.0, not V1.1
+| | MultiLanguageNameType | (bugfix) maxLength=128 (as derived and implemented)
+| | PathType | change regex to support complete URI scheme for files RFC3986/RFC3987
 |===
 
 .New Elements in Metamodel
