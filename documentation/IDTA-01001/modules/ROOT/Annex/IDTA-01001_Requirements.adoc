@@ -1,0 +1,292 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+
+
+[appendix]
+== Requirements
+
+This annex collects the requirements from various documents that have impact on the specific structure of the Administration Shell. They serve as input for the specific description of the structures of the Administration Shell.
+
+The following requirements are taken from the document "Implementation strategy of Plattform Industrie 4.0" link:#bib2[[2\]]footnote:[Only editorial changes]. They are marked "STRAT". The "Tracking" column validates the requirements by linking to features of the UML metamodel or this document in general.
+
+[cols="13%,55%,32%",options="header",]
+|===
+|*ID* |*Requirement* |*Tracking*
+|STRAT#1 |A network of Industry 4.0 components must be structured to ensure that connections between any end points (Industry 4.0 components) are possible. The Industry 4.0 components and their contents are to follow a common semantic model. a|
+Network possible but not scope of this part of the document series
+
+Common semantic model realized by domain-specific submodels (_HasSemantics_/ _ConceptDescription_ and by _RelationshipElements_)
+
+|STRAT#2 |It must be possible to define the concept of an Industry 4.0 component so that it can meet requirements with different focal areas, i.e. "office floor" or "shop floor". |Content-wise, many different submodels possible
+|STRAT#3 |Industry 4.0-compliant communication must be performed in a way that enables the data of a virtual representation of an Industry 4.0 component to be kept either in the object itself or in a (higher level) IT system. |Metamodel and information representation independent of any deployment scenario
+|STRAT#4 |In the case of a virtual representation of an I4.0 component in a higher-level system, the integrity must be ensured between the asset and its representation. |Integrity part of security approach
+|STRAT#5 |A suitable reference model must be established to describe how a higher-level IT system can make the Administration Shell available in an Industry 4.0-compliant manner (SOA approach, delegation principle). |Scope of upcoming part of the document series; not scope of this part
+|STRAT#6 |A description is required of how the Administration Shell can be "transported" from the originator (e.g. component manufacturer or electrical designer) to the higher-level IT system (e.g. as an attachment to an email). |Hierarchical representation by XML/JSON and package file format allows for different transport scenarios
+|STRAT#7 |Depending on the nature of the higher-level systems, it may be necessary for the administration objects to allow for deployment in more than one higher-level IT system. |Metamodel and information representation independent of any deployment scenario
+|STRAT#8 |The Industry 4.0 component, the Administration Shell, its inherent functionality, and the protocols concerned are to be "encapsulation-capable" or "separable" from any field busses in use. |Metamodel and information representation independent of any communication scenario
+|STRAT#9 |The aim of the Industry 4.0 component is to detect non-Industry 4.0-compliant communication relationships leading to or from the object’s Administration Shell and to make them accessible to end-to-end engineering. |Non-Industry 4.0-compliant communication relationships could be modelled and made available by submodels
+|STRAT#10 |It should be possible to logically assign other Industry 4.0 components to one Industry 4.0 component (e.g. an entire machine) to ensure (temporary) nesting. |_References, Entity, RelationshipElements_ (see _Composite components_ link:#bib12[[12\]])
+|STRAT#11 |Higher-level systems should be able to access all Industry 4.0 components in a purpose-driven and restricted manner, even when these are (temporarily) logically assigned. |Scope of upcoming part of the document series; not scope of this part
+|STRAT#12 |Characteristics (1) identifiability |Given by _Identifiable_
+|STRAT#13 |Characteristics (2) I4.0-compliant communication |Not scope of part 1
+|STRAT#14 |Characteristics (3) I4.0-compliant services and multiple status |Standardization of submodels
+|STRAT#15 |Characteristics (4) virtual description |Available by digital representation (_Submodel_ and _SubmodelElement_)
+|STRAT#16 |Characteristics (5) I4.0-compliant semantics |_HasSemantics_
+|STRAT#17 |Characteristics (6) security and safety a|
+Security through attribute-based and role-based access control
+
+Not scope of this part, security upcoming as Part 4
+
+|STRAT#18 |Characteristics (7) quality of services |Metamodel and information representation independent of any communication scenario
+|STRAT#19 |Characteristics (8) status |Standardization of _submodels_
+|STRAT#20 |Characteristics (9) nestability |Supported by _Submodels_ representing a _Bill of Material_ of an asset, _Entities_ and __RelationshipElement__s
+|STRAT#21 |The minimum infrastructure must satisfy the principles of Security by Design (SbD). a|
+Security through attribute-based and role-based access control
+
+Not scope of this part, security upcoming as Part 4
+
+|===
+
+The following requirements are taken from the document "The Structure of the Administration Shell:
+
+Trilateral perspectives from France, Italy and Germany" link:#bib19[[19\]]. They are marked "tAAS".
+
+
+====
+Note: the term "property" was used in a very broad sense in previous publications of Plattform Industrie 4.0. The metamodel in this document distinguishes between properties in a more classical sense such as data elements like "maximum temperature" and other submodel elements like operations, events, etc.
+====
+
+
+[cols="16%,30%,54%",options="header",]
+|===
+|*Source* |*Requirement* |*Tracking*
+|tAAS-#1 |The Administration Shell shall accept properties from different technical domains in mutually distinct submodels that can be version-controlled and maintained independently of each other. a|
+_Identifiable_
+
+_AdministrativeInformation_
+
+_Submodel_
+
+Requirement tAAS-#1 implicitly contains the requirements of versioning, which is supported for all elements inheriting from _Identifiable_.
+
+Requirement tAAS-#1 is fulfilled because several submodels per Asset Administration Shell are possible. Every submodel is identifiable and an _Identifiable_ may contain administrative information (_AdministrativeInformation_) for versioning.
+
+Submodels should be identifiable because they may be maintained independently of other submodels (requirement tAAS-#1) and can be reused within different Asset Administration Shells. However, since submodel elements may refer to elements from other Asset Administration Shells, dependencies have to be considered in parallel development and before reuse.
+
+|tAAS-#2 |The Administration Shell should be capable of including properties from a wide range of technical domains and identify of which domain they were derived from. a|
+_HasSemantics_
+
+Definitions from different dictionaries and different domains can be used within submodels via semantic reference properties.
+
+The only requirement is that the domain a property is derived from has a unique ID (_semanticId_).
+
+|tAAS-#3 |Different procedural models should be allowed to find definitions within each relevant technical domain. The models should meet the requirements of standards, consortium specifications, and manufacturer specifications sets. a|
+_HasSemantics/semanticId_ (see tAAS-#2)
+
+_ConceptDescription_
+
+Proprietary, manufacturer-specific property, or (more general) concept descriptions or copies from external dictionaries are supported by defining _ConceptDescriptions._ They are referenced in _semanticId_ via their global _ID_.
+
+Predefined data specifications, e.g. for defining concept descriptions conformant to IEC 61360 are available in separate documents.
+
+Usage of proprietary concept descriptions is not recommended because interoperability cannot be ensured.
+
+|tAAS-#4 a|
+Different Administration Shells in respect of an asset must be capable of referencing each other.
+
+In particular, elements of an Administration Shell should be able to play the role of a "copy" of the corresponding components from another Administration Shell.
+
+a|
+_AssetAdministrationShell/derivedFrom_
+
+The _derivedFrom_ relationship is especially designed to support the relationship between an Asset Administration Shell representing a type asset and the Asset Administration Shells representing the instance assets of this type asset.
+
+See also tAAS-#16
+
+|tAAS-#5 |Individual Administration Shells should, while retaining their structure, be combined into an overall Administration Shell. a|
+_AssetAdministrationShell/assetInformation_
+
+_RelationshipElement_
+
+Relations between entities can be defined via the submodel element "_RelationshipElement_".
+
+|tAAS-#6 |Identification of assets, Administration Shells, properties, and relationships shall be achieved using a limited set of identifiers (IRDI, URI, GUID), providing they offer global uniqueness. a|
+_Identifiable_
+
+Requirement tAAS-#6 is fulfilled for all elements inheriting from _Identifiable_. For example, this is the case for _Asset_, _AssetAdministrationShell,_ and concept descriptions. Properties (like any other submodel element) are only referable. However, unique referencing is possible via the unique submodel ID and the _Reference_ via __Key__s concept.
+
+The supported ID types include IRDI, URI (since URI are a subset of _IRI_), IRI and GUID (via _Custom_) as requested.
+
+|tAAS-#7 |The Administration Shell should allow retrieval of alternative identifiers such as a GS1 and GTIN identifier in return to asset ID (dereferencing). a|
+_AssetInformation/specificAssetIds_
+
+_AssetInformation/globalAssetId_
+
+Every asset has a globally unique identifier (_globalAssetId_). Besides this global identifier, additional external identifiers can be specified (_specificAssetIds_).
+
+|tAAS-#8 |The Administration Shell consists of header and body. a|
+_AssetAdministrationShell_
+
+_AssetAdministrationShell/id_
+
+_AssetAdministrationShell/administration_
+
+_AssetAdministrationShell/assetInformation_
+
+The Asset Administration Shell does not explicitly distinguish between header and body. However, the Asset Administration Shell has defined attributes like the global unique ID (_identification_), version information (_administration_), a mandatory reference to the asset identifier information (_assetInformation_), etc.
+
+|tAAS-#9 |The header contains information about the identification. a|
+_AssetAdministrationShell/assetInformation_
+
+The Asset Administrative Shell represents an asset with a unique ID.
+
+See also tAAS-#7
+
+See also tAAS-#13
+
+|tAAS-#10 |The body contains information about the respective asset(s). a|
+_AssetAdministrationShell/submodels_
+
+All submodels provide information related to the asset presented by the Asset Administration Shell.
+
+
+====
+Note: an Asset Administration Shell represents exactly one asset. In case of a composite Asset Administration Shell, it implicitly represents several assets (see also tAAS-#5).
+====
+
+
+|tAAS-#11 |The information and functionality in the Administration Shell is accessible by means of a standardized application programming interface (API). |Covered in Part 2 of this document series link:#bib37[[37\]]
+|tAAS-#12 |The Administration Shell has a unique ID. a|
+_AssetAdministrationShell/id_
+
+Since AssetAdministrationShell inherits from _Identifiable,_ requirement tAAS-#12 is fulfilled.
+
+|tAAS-#13 |The asset has a unique ID. a|
+_AssetInformation/globalAssetId_
+
+The unique ID of the asset is the value of the globalAssetId.
+
+See also Requirement tAAS-#7.
+
+|tAAS-#14 |An industrial facility is also an asset, it has an Administration Shell and is accessible by means of ID. a|
+_AssetInformation/globalAssetId_
+
+The only assumption is that the industrial facility also has a globally unique ID that can be used as value of the _globalAssetId_.
+
+
+====
+Note: see also composite Asset Administration Shell (tAAS-#5) that allows the modelling of complex assets consisting of other assets that are represented by an Asset Administration Shell each.
+====
+
+
+|tAAS-#15 |Types and instances must be identified as such. a|
+__AssetInformation/assetKind (__values: _Type or Instance)_
+
+_AssetAdministrationShell/derivedFrom_
+
+With attribute kind of Asset, Requirement tAAS-#15 is fulfilled, and type assets can be distinguished from instance assets.
+
+Additionally, a _derivedFrom_ relationship can be established between the Asset Administration Shell for an instance asset and the Asset Administration Shell for the type asset.
+
+|tAAS-#16 |The Administration Shell can include references to other Administration Shells or Smart Manufacturing information. a|
+_ReferenceElement_
+
+_File_
+
+_Blob_
+
+_AssetAdministrationShell/derivedFrom_
+
+The _derivedFrom_ relationship between two Asset Administration Shells is special and is e.g. used to establish a relationship between instance assets and the type asset.
+
+For composite Asset Administration Shells (see tAAS-#5), there is also the relationship to the Asset Administration Shell, which the composite Asset Administration Shell is composed of.
+
+The _ReferenceElement_ is very generic and can reference another Asset Administration Shell as well as information within another Asset Administration Shell or even some information that is completely outside any Asset Administration Shell (as long as it has a global unique ID).
+
+Files and blob can be used as submodel elements to include very generic manufacturing information that is not or cannot be modelled via properties or the other submodel elements defined for the Asset Administration Shell.
+
+|tAAS-#17 |Additional properties, e. g. manufacturer-specific, must be possible. a|
+_HasDataSpecification_
+
+_ConceptDescription_
+
+_HasExtensions_
+
+Additional attributes for assets, properties, and other submodel elements, submodels, and even the Asset Administration Shell itself can be defined via data specification templates and checked by tools.
+
+New proprietary concept descriptions (_ConceptDescription_) can be added and used for semantic definition of properties or other submodel elements.
+
+Proprietary information can be added to any referable via extensions. The latter are not subject to standardization and can be ignored for interoperability use cases.
+
+Other submodel elements and submodels can be added via API (see tAAS-#11), assuming the corresponding access permissions are given.
+
+|tAAS-#18 |A reliable minimum number of properties must be defined for each Administration Shell. a|
+_HasKind_ for _Submodel_
+
+A reliable minimum number of properties is defined by the metamodel itself. They are called (class) attributes.
+
+_HasKind_ _(with kind=Template) for Submodel_ enables the definition of submodel (element) templates. These templates define the structure and the semantics of a submodel instance (via _semanticId_).
+
+
+====
+Note: the term property within the metamodel has special semantics and shall not be confused with the implicitly available attributes of the different classes. Although these attributes might also be based on existing standards, they are no properties in the sense that a semantic reference can be added to define semantics externally. Semantics are defined for the metamodel itself in the class tables within this document.
+====
+
+
+|tAAS-#19 |The properties and other elements of information in the Administration Shell must be suitable for types and instances. a|
+_HasKind_ (with _kind=Template_ or _kind=Instance_) for _Submodel_
+
+All elements inheriting from _HasKind_ can distinguish between types (_kind=Template_) and instances (_kind=Instance_). This is especially true for _SubmodelElement_ and _Submodel_.
+
+
+====
+Note: submodels of _kind=Template_ do not describe an asset of _kind=Type_.
+====
+
+
+|tAAS-#20 |There must be a capability of hierarchical and countable structuring of the properties. a|
+_SubmodelElementList_
+
+_SubmodelElementCollection_
+
+Requirement tAAS-#20 is fulfilled by lists and structs of data elements. Lists and structs are built recursively and contain other submodel elements of the same Asset Administration Shell. For referencing properties or other submodel elements of other Asset Administration Shells, a reference (_ReferenceElement_) or relationship element (_RelationshipElement_) needs to be included in the list or as element of the collection.
+
+|tAAS-#21 |Properties shall be able to reference other properties, even in other Administration Shells. a|
+_SubmodelElementList_
+
+_SubmodelElementCollection_
+
+_ReferenceElement_
+
+_RelationshipElement_
+
+_OperationVariable_ in _Operation_
+
+A reference element can either reference any other element that is referable (i.e. inheriting from _Referable_) within the same or another Asset Administration Shell, or it can reference entities completely outside any Asset Administration Shell via its global ID.
+
+
+====
+Note: it is not always necessary to use a reference property for referencing elements within the same Asset Administration Shell. Depending on the context, submodel element collections, relations, etc. might be more suitable.
+====
+
+
+Other elements are also referenced or used as input or output argument via _OperationVariable_ within __operation__s.
+
+|tAAS-#22 |Properties must be able to reference information and functions of the Administration Shell. a|
+_Operation_
+
+See also tAAS-#21
+
+Functions in the sense of executable entities are represented as __operation__s.
+
+|===
