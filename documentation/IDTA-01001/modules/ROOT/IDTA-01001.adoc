@@ -941,7 +941,7 @@ Typically, the English short name of the concept definition that is referenced v
 | |displayName |multi language string a|
 optional
 
-If no display name is defined in the language requested by the application, the display name is selected in the following order, if available:
+If no display name is defined in the language requested by the application, the display name may be selected in the following order, if available:
 
 * the preferred name in the requested language of the concept description defining the semantics of the element,
 * if there is a default language list defined in the application, the corresponding preferred name in the language is chosen according to this order,
@@ -1602,7 +1602,7 @@ image::image19.png[]
 
 An identifiable element is a referable with a globally unique identifier (_Identifier_). Only the global ID (_Identifiable/id_) shall be used to reference an identifiable, because the _idShort_ is not unique for an identifiable. Identifiables may have administrative information like version, etc.
 
-Non-identifiable referable elements can be referenced. However, this requires the context of the element. A referable that is not identifiable has a short identifier (_idShort_) that is unique just in its context, its name space.
+Non-identifiable referable elements can be referenced. However, this requires the context of the element. A referable that is not identifiable and not child within a SubmodelElementList has a short identifier (_idShort_) that is unique just in its context, its name space.
 
 Information about identification can be found in Clause 4.3. See Clause 4.3.4 for constraints and recommendations on when to use which type of identifier.
 
@@ -1764,11 +1764,11 @@ image::image23.png[]
 
 The metamodel differentiates between elements that are identifiable, referable, or none of both. The latter means they are neither inheriting from _Referable_ nor from _Identifiable_, which applies e.g. to __Qualifier__s.
 
-Referable elements can be referenced via the _idShort_. For details on referencing, see Clause 5.3.9.
+Referable elements can be referenced via the _idShort_ (with exception of elements within a SubmodelElementList). For details on referencing, see Clause 5.3.9.
 
 Not every element of the metamodel is referable. There are elements that are just attributes of a referable.
 
-The __idShort__ shall be unique in its name space for non-identifiable referables (see Constraint AASd-022). A name space is defined as follows in this context: the parent element(s), which an element is part of and that is either referable or identifiable, is the name space of the element. Examples: a submodel is the name space for the properties directly contained in it; the name space of a submodel element contained in a submodel element collection is the submodel element collection.
+The __idShort__ shall be unique in its name space for non-identifiable referables (exception: referables within a SubmodelElementList) (see Constraint AASd-022). A name space is defined as follows in this context: the parent element(s), which an element is part of and that is either referable or identifiable, is the name space of the element. Examples: a submodel is the name space for the properties directly contained in it; the name space of a submodel element contained in a submodel element collection is the submodel element collection.
 
 [.table-with-appendix-table]
 [cols="25%h,75%"]
@@ -3423,6 +3423,9 @@ identifiers for the corresponding resource referenced.
 
 {aasd128}
 
+In the following examples for valid und invalid model references and external references are given.
+The notation follows the grammar as defined in section <<serialization_of_values_of type_reference,Serialization of Values of Type Reference>>.
+
 [.underline]#Examples for valid references:#
 
 *(Submodel)https://example.com/aas/1/1/1234859590*
@@ -3741,6 +3744,7 @@ shows the data types which can be used for submodel element values. The data typ
 "Καλημέρα κόσμε"
 
 "こんにちは世界"
+
 
 | |xs:boolean |true, false |true, false
 | |xs:decimal |Arbitrary-precision decimal numbers a|
@@ -5257,22 +5261,18 @@ Figure 76 shows an enumeration with the name "Enumeration1". An enumeration is a
 .Enumerationfootnote:[In Enterprise Architect, the single enumeration values also have a stereotype \<<enum>> each.]
 image::image76.png[]
 
-Figure 77 shows the definition of the data type with the name "DataType1". A data type has instances that are identified only by their value. It is a class with stereotype \<<dataType>>.
 
-.Data Type
-image::image77.png[]
-
-Figure 78 shows a primitive data type with the name "int". Primitive data types are predefined data types, without any substructure. The primitive data types are defined outside UML.
+Figure 77 shows a primitive data type with the name "int". Primitive data types are predefined data types, without any substructure. The primitive data types are defined outside UML.
 
 .Primitive Data Type
 image::image78.png[]
 
-Figure 79 shows how a note can be attached to an element, in this example to class "Class1".
+Figure 78 shows how a note can be attached to an element, in this example to class "Class1".
 
 .Note
 image::image79.png[]
 
-Figure 80 shows how a constraint is attached to an element, in this example to class "Class1".
+Figure 79 shows how a constraint is attached to an element, in this example to class "Class1".
 
 .Constraint
 image::image80.png[]
