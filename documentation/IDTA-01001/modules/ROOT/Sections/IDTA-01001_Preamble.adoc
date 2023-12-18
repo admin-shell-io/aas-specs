@@ -1,0 +1,39 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+== Preamble
+
+=== Editorial Notes
+
+This document (version 3.0) was produced from June 2022 to January 2023 by the joint sub working group "Asset Administration Shell" of the working group "Reference Architectures, Standards and Norms" of the Plattform Industrie 4.0 and the working group "Open Technology" of the Industrial Digital Twin Association (IDTA). It is the first release published by the Industrial Digital Twin Association.
+
+A major change consists in splitting the overall document into four parts: Part 1 (this document) covers the core metamodel of the Asset Administration Shell, Part 5 covers the AASX package exchange format, Part 3 is a series that covers the predefined data specifications and Part 4 covers the security metamodel. Another major change is that the mapping rules for the different supported exchange formats (XML, JSON and RDF) are moved to the github repositories themselves that also contain the schemata. Part 2, the API Specification, was defined in a separate document from the very beginning.
+
+Version 3.0RC02 was produced from November 2020 to May 2022 by the sub working group "Asset Administration Shell" of the joint working group of the Plattform Industrie 4.0 working group "Reference Architectures, Standards and Norms" and the "Open Technology" working group of the Industrial Digital Twin Association.
+
+Version 3.0RC01 of this document, published in November 2020, was produced from November 2019 to November 2020 by the sub working group "Asset Administration Shell" of the Plattform Industrie 4.0 working group "Reference Architectures, Standards and Norms".
+
+The second version V2.0 of this document was produced from August 2018 to November 2019 by the sub working group "Asset Administration Shell" of the Platform Industrie 4.0 working group "Reference Architectures, Standards and Norms". Version 2.0.l was published in May 2020.
+
+The first version of this document was produced September 2017 to July 2018 by a joint working group with members from ZVEI SG "Models and Standards" and the Plattform Industrie 4.0 working group "Reference Architectures, Standards and Norms ". The document was subsequently validated by the platform’s working group "Reference Architectures, Standards and Norms".
+
+For better readability the abbreviation "I4.0" is consistently used for "Industrie 4.0" in compound terms. The term "Industrie 4.0" continues to be used when standing on its own.
+
+This specification is versioned using https://semver.org/spec/v2.0.0.html[Semantic Versioning 2.0.0] (semver) and follows the semver specification link:#bib36[[36\]].
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in https://tools.ietf.org/html/bcp14[BCP 14] https://tools.ietf.org/html/rfc2119[RFC2119] https://tools.ietf.org/html/rfc8174[RFC8174]footnote:[https://www.ietf.org/rfc/rfc2119.txt]:
+
+* MUST word, or the terms "REQUIRED" or "SHALL", mean that the definition is an absolute requirement of the specification.
+* MUST NOT This phrase, or the phrase "SHALL NOT", mean that the definition is an absolute prohibition of the specification.
+* SHOULD This word, or the adjective "RECOMMENDED", mean that there may exist valid reasons in particular circumstances to ignore a particular item, but the full implications must be understood and carefully weighed before choosing a different course.
+* SHOULD NOT This phrase, or the phrase "NOT RECOMMENDED" mean that there may exist valid reasons in particular circumstances when the particular behavior is acceptable or even useful, but the full implications should be understood and the case carefully weighed before implementing any behavior described with this label.
+* MAY This word, or the adjective "OPTIONAL", mean that an item is truly optional. One vendor may choose to include the item because a particular marketplace requires it or because the vendor feels that it enhances the product while another vendor may omit the same item. An implementation which does not include a particular option MUST be prepared to interoperate with another implementation which does include the option, though perhaps with reduced functionality. In the same vein an implementation which does include a particular option MUST be prepared to interoperate with another implementation which does not include the option (except, of course, for the feature the option provides.)
