@@ -1,0 +1,69 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+
+
+[appendix]
+== Backus-Naur-Form
+
+The Backus-Naur form (BNF) – a meta-syntax notation for context-free grammars – is used to define grammars. For more information see [Wikipedia](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form).
+
+A BNF specification is a set of derivation rules, written as
+
+*<symbol> ::= __expression__*
+
+where:
+
+* <https://en.wikipedia.org/wiki/Symbol[symbol]> is a https://en.wikipedia.org/wiki/Nonterminal[nonterminal] (variable) and the https://en.wikipedia.org/wiki/Expression_(mathematics)[__expression__] consists of one or more sequences of either terminal or nonterminal symbols,
+* ::= means that the symbol on the left must be replaced with the expression on the right,
+* more sequences of symbols are separated by the https://en.wikipedia.org/wiki/Vertical_bar[vertical bar] "|", indicating a https://en.wikipedia.org/wiki/Alternation_(formal_language_theory)[choice], the whole being a possible substitution for the symbol on the left,
+* symbols that never appear on a left side are https://en.wikipedia.org/wiki/Terminal_symbol[terminals], while symbols that appear on a left side are https://en.wikipedia.org/wiki/Nonterminal_symbol[non-terminals] and are always enclosed between the pair of angle brackets <>,
+* terminals are enclosed with quotation marks: "text". "" is an empty string,
+* optional items are enclosed in square brackets: [<item-x>],
+* items existing 0 or more times are enclosed in curly brackets are suffixed with an asterisk (*) such as <word> ::= <letter> \{<letter>}*,
+* Items existing 1 or more times are suffixed with an addition (plus) symbol, +, such as <word> ::= \{<letter>}+,
+* round brackets are used to explicitly to define the order of expansion to indicate precedence, example: ( <symbol1> | <symbol2> ) <symbol3>,
+* text without quotation marks is an informal explanation of what is expected; this text is cursive if grammar is non-recursive and vice versa.
+
+[.underline]#Example:#
+
+____
+*<contact-address> ::= <name> "e-mail addresses:" <e-mail-Addresses>*
+
+*<e-mail-Addresses> ::= \{<e-mail-Address>}**
+
+*<e-mail-Addresse> ::= <local-part> "@" <domain>*
+
+*<name> ::= characters*
+
+*<local-part> ::= characters conformant to local-part in RFC 5322*
+
+*<domain> ::= characters conformant to domain in RFC 5322*
+____
+
+Valid contact addresses:
+
+____
+*Hugo Me e-mail addresses: Hugo@example.com*
+
+*Hugo e-mail addresses: Hugo.Me@text.de*
+____
+
+Invalid contact addresses:
+____
+
+*Hugo*
+
+*Hugo Hugo@ example.com*
+
+*Hugo@example.com*
+____
