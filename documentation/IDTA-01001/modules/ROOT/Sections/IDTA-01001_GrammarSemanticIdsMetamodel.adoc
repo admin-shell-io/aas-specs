@@ -11,7 +11,7 @@ ____
 
 *<AAS Namespace> ::= <Shell-Namespace> "/aas/" <Version>*
 
-*<Data Specification Namespace> ::= <Shell-Namespace> "/DataSpecifications/" <idShort of Data Specification> <Version>*
+*<Data Specification Namespace> ::= <Shell-Namespace> "/DataSpecificationTemplates/" <idShort of Data Specification> <Version>*
 
 *<Shell-Namespace> ::= "https://admin-shell.io/"*
 
@@ -22,7 +22,7 @@ ____
 *<Character> ::= characters conformant to regular expression [a..zA..Z-]*
 ____
 
-Up to this point, two data specification templates are defined. Now we need to define which data specification namespace is to be used for every data specification.
+For AAS a predefined namespace qualifier is defined. For data specifications this is defined within the corresponding specifications for single data specifications.
 
 ____
 *<AAS Namespace Qualifier> ::= "AAS:"*
