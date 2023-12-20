@@ -37,7 +37,7 @@ A template consists of the _DataSpecificationContent_ containing the additional 
 |===
 |Attribute |Explanation |Type |Card.
 
-|idShort | name of the data specification |xref:NameType[NameType] |0..1
+|idShort | Name of the data specification |xref:NameType[NameType] |0..1
 
 |description |Description of how and in which context the data specification template is applicable; can be provided in several languages. |xref:MultiLanguageTextType[MultiLanguageTextType] |0..1
 
@@ -51,7 +51,9 @@ Note: some of the administrative information like the version number might need 
 
 |xref:AdministrativeInformation[AdministrativeInformation] |0..1
 
-|id |The globally unique identification of the data specification
+|id a|
+The globally unique identification of the data specification
+
 
 ====
 Note: This identifier is used as value for xref:HasDataSpecification[HasDataSpecification/dataSpecification] 
@@ -123,7 +125,7 @@ include::IDTA-01001_GrammarSemanticIdsMetamodel.adoc[]
 
 ====  Embedded Data Specifications
 
-This specification predefines data specifications that can be used within an Asset Administration Shell to ensure interoperability.
+The document series "Specification Asset Administration Shell" predefines data specifications that can be used within an Asset Administration Shell to ensure interoperability (see Part 3 documents).
 
 Consequently, some serializations or mappings support exactly the data descriptions defined in this specification, although the metamodel as such is more flexible and would also support proprietary data specifications.
 
