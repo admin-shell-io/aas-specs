@@ -3474,6 +3474,7 @@ Note: The semanticId of a SpecificAssetId with the predefined name "gloablAssetI
 
 Constraint AASd-130 ensures that encoding and interoperability between different serializations is possible. It corresponds to the restrictions as defined for the XML Schema 1.0footnote:[https://www.w3.org/TR/xml/#charsets].
 
+== Data Specification Templates (normative)
 
 include::IDTA-01001_DataSpecifications.adoc[]
 
@@ -3516,10 +3517,17 @@ There are some general rules that apply to all serializations or can be used in 
 
 Blobs require the following encoding: base64 string.
 
+====  Serialization of Values of Type "Reference"
+
 include::IDTA-01001_GrammarSerializationReference.adoc[] 
 
 
+====  Semantic Identifiers for Metamodel and Data Specifications
+
 include::IDTA-01001_GrammarSemanticIdsMetamodel.adoc[]
+
+
+====  Embedded Data Specifications
 
 include::IDTA-01001_EmbeddedDataSpecifications.adoc[]
 
