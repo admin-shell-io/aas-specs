@@ -3474,6 +3474,7 @@ Note: The semanticId of a SpecificAssetId with the predefined name "gloablAssetI
 
 Constraint AASd-130 ensures that encoding and interoperability between different serializations is possible. It corresponds to the restrictions as defined for the XML Schema 1.0footnote:[https://www.w3.org/TR/xml/#charsets].
 
+
 == Data Specification Templates (normative)
 
 === Introduction
@@ -3512,6 +3513,11 @@ A template consists of the _DataSpecificationContent_ containing the additional 
 [cols="25%,40%,25%,10%",options="header"]
 |===
 |Attribute |Explanation |Type |Card.
+
+|idShort | name of the data specification |xref:NameType[NameType] |0..1
+
+|description |Description of how and in which context the data specification template is applicable; can be provided in several languages. |xref:MultiLanguageTextType[MultiLanguageTextType] |0..1
+
 |administration a|
 Administrative information of an identifiable element
 
@@ -3520,11 +3526,19 @@ Administrative information of an identifiable element
 Note: some of the administrative information like the version number might need to be part of the identification.
 ====
 
-
 |xref:AdministrativeInformation[AdministrativeInformation] |0..1
-|id |The globally unique identification of the element |xref:Identifier[Identifier] |1
-|dataSpecificationContent |The content of the template without meta data |xref:DataSpecificationContent[DataSpecificationContent] |1
-|description |Description of how and in which context the data specification template is applicable; can be provided in several languages. |xref:MultiLanguageTextType[MultiLanguageTextType] |0..1
+
+|id |The globally unique identification of the data specification
+
+====
+Note: This identifier is used as value for xref:HasDataSpecification[HasDataSpecification/dataSpecification] 
+====
+
+|xref:Identifier[Identifier] |1
+
+|dataSpecificationContent |The content of the template without meta data
+|xref:DataSpecificationContent[DataSpecificationContent] |1
+
 |===
 
 [.table-with-appendix-table]
@@ -3594,6 +3608,7 @@ In the case of restricted use of data specifications, we speak of "embedded data
 
 .Realization of Embedded Data Specifications
 image::image59.png[]
+
 
 ===  XML
 
