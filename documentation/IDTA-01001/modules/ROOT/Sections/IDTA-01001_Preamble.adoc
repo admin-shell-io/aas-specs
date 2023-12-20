@@ -1,0 +1,91 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+:imagesdir: ../images/
+
+== Preamble
+
+=== Editorial Notes
+
+This document (version 3.1) was produced by the Work Stream "Specification of the Asset Administration Shell" of the Working Group "Open Technology" of the https://industrialdigitaltwin.org/[Industrial Digital Twin Association (IDTA)].
+
+This document (version 3.0) was produced from June 2022 to January 2023 by the joint sub working group "Asset Administration Shell" of the working group "Reference Architectures, Standards and Norms" of the Plattform Industrie 4.0 and the working group "Open Technology" of the Industrial Digital Twin Association (IDTA). It is the first release published by the Industrial Digital Twin Association.
+
+A major change consists in splitting the overall document into four parts: Part 1 (this document) covers the core metamodel of the Asset Administration Shell, Part 5 covers the AASX package exchange format, Part 3 is a series that covers the predefined data specifications and Part 4 covers the security metamodel. Another major change is that the mapping rules for the different supported exchange formats (XML, JSON and RDF) are moved to the github repositories themselves that also contain the schemata. Part 2, the API Specification, was defined in a separate document from the very beginning.
+
+Version 3.0RC02 was produced from November 2020 to May 2022 by the sub working group "Asset Administration Shell" of the joint working group of the Plattform Industrie 4.0 working group "Reference Architectures, Standards and Norms" and the "Open Technology" working group of the Industrial Digital Twin Association.
+
+Version 3.0RC01 of this document, published in November 2020, was produced from November 2019 to November 2020 by the sub working group "Asset Administration Shell" of the Plattform Industrie 4.0 working group "Reference Architectures, Standards and Norms".
+
+The second version V2.0 of this document was produced from August 2018 to November 2019 by the sub working group "Asset Administration Shell" of the Platform Industrie 4.0 working group "Reference Architectures, Standards and Norms". Version 2.0.l was published in May 2020.
+
+The first version of this document was produced September 2017 to July 2018 by a joint working group with members from ZVEI SG "Models and Standards" and the Plattform Industrie 4.0 working group "Reference Architectures, Standards and Norms ". The document was subsequently validated by the platform’s working group "Reference Architectures, Standards and Norms".
+
+
+
+For better readability the abbreviation "I4.0" is consistently used for "Industrie 4.0" in compound terms. The term "Industrie 4.0" continues to be used when standing on its own.
+
+include::../../Shared/Sections/IDTA-01xxx_Versioning.adoc[]
+
+include::../../Shared/Sections/IDTA-01xxx_Conformance.adoc[]
+
+
+===  Scope of this Document
+
+The aim of this document is to define the structure of the Administration Shell to enable the meaningful exchange of information about assets and I4.0 components between partners in a value creation network.
+
+This part of the document focuses on how such information needs to be processed and structured. In order to define these specifications, the document formally stipulates some structural principles of the Administration Shell. This part does not describe technical interfaces of the Administration Shell or other systems to exchange information, protocols, or interaction patterns.
+
+This document focuses on:
+
+* a metamodel for specifying information of an Asset Administration Shell and its submodels,
+* an introduction to the need of mappings to suitable technologies used in different life cycle phases of a product: XML, JSON, RDF, AutomationML, and OPC UA.
+
+This document presumes some familiarity with the concept of the Asset Administration Shell. Some of the concepts are described in Annex A for convenience sake. The concepts are being standardized as IEC standard IEC 63278 series link:#bib44[[44\]]. The main stakeholders addressed in this document are architects and software developers aiming to implement a digital twin using the Asset Administration Shell in an interoperable way. Additionally, the content can also be used as input for discussions with international standardization organizations and further initiatives. Please consult the continuously updated reading guide link:#bib38[[38\]] for an overview of documents on the Asset Administration Shell. The reading guide gives advice on which documents should be read depending on the role of the reader.
+
+===  Structure of the Document
+
+All clauses that are normative have "(normative)" as a suffix in the heading of the clause.
+
+Clause 2 provides terms and definitions as well as abbreviations, both for abbreviations used in the document and for abbreviations that may be used for elements of the metamodel defined in this document.
+
+Clause 3 gives a short introduction into the content of this document.
+
+Clause 4 summarizes relevant, existing content from the standardization of Industry 4.0; i.e. it provides an overview and explains the motives, but is not absolutely necessary for an understanding of the subsequent definitions.
+
+Clause 5 is the main normative part of the document. It stipulates structural principles of the Administration Shell in a formal manner to ensure an exchange of information using Asset Administration Shells. A UML diagram has been defined for this purpose.
+
+Clause 6 explains how to define predefined data specifications, including those for defining concept descriptions.
+
+Clause 7 provides information on the exchange of information compliant to this specification in existing data formats like XML, AutomationML, OPC UA information models, JSON, or RDF.
+
+Clause 8 summarizes the content and gives an outlook on future work.
+
+Annex A contains additional background information on Asset Administration Shell, while a mapping to the requirements can be found in Annex B.
+
+Annex C defines the grammar language used in the specification. Annex E contains information about UML, while Annex D provides the tables used to specify UML classes etc. as used in this specification.
+
+Annex H describes metamodel changes compared to previous versions. Annex F provides some hints for modelers, and Annex G shows selected metamodel diagrams including all inherited attributes for developers.
+
+The bibliography can be found in Annex I.
+
+===  Working Principles
+
+The work is based on the following principle: keep it simple but do not simplify if it affects interoperability.
+
+To create a detailed specification of the Administration Shell according to the scope of Part 1 result papers published by Plattform Industrie 4.0, the trilateral cooperation between France, Italy, and Germany, as well as international standardization results were analyzed and taken as source of requirements for the specification process. As many ideas as possible from the discussion papers were considered. See Annex A for more information.
+
+The partners represented in the Plattform Industrie 4.0 and the Industrial Digital Twin Association (IDTA) and associations such as ZVEI, VDMA, VDI/ VDE and Bitkom, ensure that there is broad sectoral coverage of process, hybrid, and factory automation and in terms of integrating information technology (IT) and operational technology (OT).
+
+Design alternatives were intensively discussed within the working group. An extensive feedback process of this document series is additionally performed within the working groups of Plattform Industrie 4.0 and IDTA.
+
+Guiding principle for the specification was to provide detailed information, which can be easily implemented also by small and medium-sized enterprises.

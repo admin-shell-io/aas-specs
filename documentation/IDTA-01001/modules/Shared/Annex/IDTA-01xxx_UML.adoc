@@ -1,0 +1,225 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+:imagesdir: ../images/
+
+[appendix]
+== Legend for UML Modelling
+
+=== OMG UML General
+
+This annex explains the UML elements used in this specification. For more information, please refer to the comprehensive literature available for UML. The formal specification can be found in link:#bib35[[35\]].
+
+Figure 63 shows a class with name "Class1" and an attribute with name "attr" of type _Class2_. Attributes are owned by the class. Some of these attributes may represents the end of binary associations, see also Figure 70. In this case, the instance of _Class2_ is navigable via the instance of the owning class _Class1_.footnote:[„Navigability notation was often used in the past according to an informal convention, whereby non-navigable ends were assumed to be owned by the Association whereas navigable ends were assumed to be owned by the Classifier at the opposite end. This convention is now deprecated. Aggregation type, navigability, and end ownership are separate concepts, each with their own explicit notation. Association ends owned by classes are always navigable, while those owned by associations may be navigable or not. link:#bib35[[35\]]”]
+
+.Class
+image::image64.png[]
+
+Figure 64 shows that _Class4_ inherits all member elements from _Class3_. Or in other word, _Class3_ is a generalization of _Class4, Class4_ is a specialization of _Class3_. This means that each instance of _Class4_ is also an instance of _Class3_. An instance of _Class4_ has the attributes _attr1_ and _attr2,_ whereas instances of _Class3_ only have the attribute _attr1_.
+
+.Inheritance/Generalization
+image::image65.png[]
+
+Figure 65 defines the required and allowed multiplicity/cardinality within an association between instances of _Class1_ and _Class2_. In this example, an instance of _Class2_ is always related to exactly one instance of _Class1_. An instance of _Class1_ is either related to none, one, or more (unlimited, i.e. no constraint on the upper bound) instances of _Class2_. The relationship can change over time.
+
+Multiplicity constraints can also be added to attributes and aggregations.
+
+The notation of multiplicity is as follows:
+
+<lower-bound>.. <upper-bound>
+
+where <lower-bound> is a value specification of type Integer - i.e. 0, 1, 2, … - and <upper-bound> is a value specification of type UnlimitedNatural. The star character (*) is used to denote an unlimited upper bound.
+
+The default is 1 for lower-bound and upper-bound.
+
+.Multiplicity
+image::image66.png[]
+
+A multiplicity element represents a collection of values. The default is a set, i.e. it is not ordered and the elements within the collection are unique and contain no duplicates. Figure 66 shows an ordered collection: the instances of _Class2_ related to an instance of _Class1_. The stereotype \<<ordered>> is used to denote that the relationship is ordered.
+
+.Ordered Multiplicity
+image::image67.png[]
+
+Figure 67 shows that the member ends of an association can be named as well, i.e. an instance of _Class1_ can be in relationship "relation" to an instance of _Class2_. Vice versa, the instance of _Class2_ is in relationship "reverseRelation" to the instance of _Class1_.
+
+.Association
+image::image67.png[]
+
+Figure 68 shows a composition, also called a composite aggregation. A composition is a binary association, grouping a set of instances. The individuals in the set are typed as specified by _Class2_. The multiplicity of instances of _Class2_ to _Class1_ is always 1 (i.e. upper-bound and lower-bound have value "1"). One instance of _Class2_ belongs to exactly one instance of _Class1_. There is no instance of _Class2_ without a relationship to an instance of _Class1_. Figure 69 shows the composition using an association relationship with a filled diamond as composition adornment.
+
+.Composition (Composite Aggregation)
+image::image68.png[]
+
+Figure 69 shows an aggregation. An aggregation is a binary association. In contrast to a composition, an instance of _Class2_ can be shared by several instances of _Class1_. Figure 69 shows the shared aggregation using an association relationship with a hallow diamond as aggregation adornment.
+
+.Aggregation
+image::image69.png[]
+
+Figure 70 illustrates that the attribute notation can be used for an association end owned by a class. In this example, the attribute name is "attr" and the elements of this attribute are typed with _Class2._ The multiplicity, here "0..*", is added in square brackets. If the aggregation is ordered, it is added in curly brackets like in this example.
+
+.Navigable Attribute Notation for Associations
+image::image70.png[]
+
+Figure 71 shows a class with three attributes with primitive types and default values. When a property with a default value is instantiated in the absence of a specific setting for the property, the default value is evaluated to provide the initial values of the property.
+
+.Default Value
+image::image71.png[]
+
+Figure 72 shows that there is a dependency relationship between _Class1_ and _Class2_. In this case, the dependency means that _Class1_ depends on _Class2_ because the type of attribute _attr_ depends on the specification of class _Class2._ A dependency is depicted as dashed arrow between two model elements.
+
+.Dependency
+image::image72.png[]
+
+Figure 73 shows an abstract class. It uses the stereotype \<<abstract>>. There are no instances of abstract classes. They are typically used for specific member elements that are inherited by non-abstract classes.
+
+.Abstract Class
+image::image73.png[]
+
+Figure 74 shows a package named "Package2". A package is a namespace for its members. In this example, the member belonging to _Package2_ is class _Class2_.
+
+.Package
+image::image74.png[]
+
+Figure 75 shows that all elements in _Package2_ are imported into the namespace defined by _Package1_. This is a special dependency relationship between the two packages with stereotype \<<import>>.
+
+.Imported Package
+image::image75.png[]
+
+Figure 76 shows an enumeration with the name "Enumeration1". An enumeration is a data type with its values enumerated as literals. It contains two literal values, "a" and "b". It is a class with stereotype \<<enumeration>>. The literals owned by the enumeration are ordered.
+
+.Enumerationfootnote:[In Enterprise Architect, the single enumeration values also have a stereotype \<<enum>> each.]
+image::image76.png[]
+
+
+Figure 77 shows a primitive data type with the name "int". Primitive data types are predefined data types, without any substructure. The primitive data types are defined outside UML.
+
+.Primitive Data Type
+image::image78.png[]
+
+Figure 78 shows how a note can be attached to an element, in this example to class "Class1".
+
+.Note
+image::image79.png[]
+
+Figure 79 shows how a constraint is attached to an element, in this example to class "Class1".
+
+.Constraint
+image::image80.png[]
+
+
+=== UML Naming Rules
+
+The following rules are used for naming of classes, attributes etc.:
+
+* all names use CamelCase; for exceptions see rules for Enumeration values,
+* class names always start with a capital letter,
+* attribute names always start with a small letter,
+* primitive types start with a capital letter; exception: predefined types of XSD like string,
+* enumerations start with a capital letter,
+* names of member ends of an association start with a capital letter,
+* all stereotypes specific to the Asset Administration Shell specification start with a capital letter, e.g. "\<<Deprecated>>"; predefined stereotypes in UML start with a small letter, e.g. "\<<abstract>>" or "\<<enumeration>>".
+
+In UML, the convention is to name associations and aggregations in singular form. The multiplicity is to be taken into account to decide on whether there are none, a single, or several elements in the corresponding association or aggregation.
+
+
+====
+Note: a plural form of the name of attributes with cardinality >=1 may be needed in some serializations (e.g. in JSON). In this case, it is recommended to add an "s". In case of resulting incorrect English (e.g. isCaseOf isCaseOfs), it must be decided whether or not to support such exceptions.
+====
+
+
+=== Templates, Inheritance, Qualifiers, and Categories
+
+At first glance, there seems to be some overlapping within the concepts of data specification templates, extensions, inheritance, qualifiers, and categories introduced in the metamodel. This clause explains the commonalities and differences and gives hints for good practices.
+
+In general, an extension of the metamodel by inheritance is foreseen. Templates might also be used as alternatives.
+
+* Extensions can be used to add proprietary and/or temporary information to an element. Extensions do not support interoperability. They can be used as work-around for missing properties in the standard. In this case, the same extensions are attached to all elements of a specific class (e.g. to properties). However, in general, extensions can be attached in a quite arbitrary way. Properties are defined in a predefined way as key values pairs (in this case keys named "name").
+* In contrast to extensions, templates aim at enabling interoperability between the partners that agree on the template. A template defines a set of attributes, each of them with clear semantics. This set of attributes corresponds to a (sub-)schema. Templates should only be used if different instances of the class follow different schemas and the templates for the schemas are not known at design time of the metamodel. Templates might also be used if the overall metamodel is not yet stable enough or a tool supports templates but not (yet) the complete metamodel. Typically, all instances of a specific class with the same category provide the same attribute values conformant to the template. In contrast to extensions, the attributes in the template have speaking names.
+
+
+====
+Note: categories are deprecated and should no longer be used.
+====
+
+
+* However, when using non-standardized proprietary data specification templates, interoperability cannot be ensured and thus should be avoided whenever possible.
+* In case all instances of a class follow the same schema, inheritance and/or categories should be used.
+* Categories can be used if all instances of a class follow the same schema but have different constraints depending on their category. Such a constraint might specify that an optional attribute is mandatory for this category (like the unit that is mandatory for properties representing physical values). Realizing the same via inheritance would lead to multiple inheritance – a state that is to be avoidedfootnote:[Exception: multiple inheritance is used in this specification, but only in case of inheriting from abstract classes.].
+
+
+====
+Note: categories are deprecated and should no longer be used.
+====
+
+
+* Qualifiers are used if the structure and the semantics of the element is the same independent of its qualifiers. Only the quality or the meaning of the value for the element differs.
+* Value qualifiers are used if only the quantity but not the semantics of the value changes. Depending on the application, either both value and qualifier define the "real" semantics together, or the qualifier is not really relevant and is ignored by the application. Example: the actual temperature might be good enough for non-critical visualization of trends, independent of whether the temperature is measured or just estimated (qualifier would denote: measured or estimated).
+* Concept qualifiers are used to avoid multiplying existing semantically clearly defined concepts with the corresponding qualifier information, e.g. life cycle.
+* Template qualifiers are used to guide the creation and validation of element instances.
+
+=== Notes to Graphical UML Representation
+
+Specific graphical modelling rules, which are used in this specification but not included in this form, are explained below link:#bib35[[35\]].
+
+Figure 81 shows different graphical representations of a composition (composite aggregation). In Variant A, a relationship with a filled aggregation diamond is used. In Variant B, an attribute with the same semantics is defined. And in Variant C, the implicitly assumed default name of the attribute in Variant A is explicitly stated. This document uses notation B.
+
+It is assumed that only the end member of the association is navigable per default, i.e. it is possible to navigate from an instance of _Class1_ to the owned instance of _Class2_ but not vice versa. If there is no name for the end member of the association given, it is assumed that the name is identical to the class name but starting with a small letter – compared to Variant C.
+
+_Class2_ instance only exists if the parent object of type _Class1_ exists.
+
+.Graphical Representations of Composite Aggregation/Composition
+image::image81.png[]
+
+Figure 82 shows different representations of a shared aggregation: a _Class2_ instance can exist independently of a _Class1_ instance; it only references the instances of _Class2_. Now an attribute with the same semantics is defined In Variant B. The reference is denoted by a star added after the type of the attribute.
+
+It is assumed that only the end member of the aggregation association is navigable per default, i.e. it is possible to navigate from an instance of _Class1_ to the owned instance of _Class2_ but not vice versa. Otherwise, variant B would not be identical to Variant A.
+
+.Graphical Representation of Shared Aggregation
+image::image82.png[]
+
+A specialty in Figure 82 is that the aggregated instances are referables in the sense of the Asset Administration Shell metamodel (i.e. they inherit from the predefined abstract class "Referable"). This is why Variant B is identical to Variant A. This would not be the case for non-referable elements in the metamodel. The structure of a reference to a model element of the Asset Administration Shell is explicitly defined. A model reference consists of an ordered list of keys. The last key in the key chain shall reference an instance of type _Class2_ (i.e. Reference.
+
+Figure 83 show different graphical representations of generalization. Variant A is the classical graphical representation as defined in link:#bib35[[35\]]. Variant B is a short form, if _Class1_ is not on the same diagram. The name of the class that _Class3_ is inheriting from is depicted in the upper right corner.
+
+Variant C not only shows which class Class3 instances are inheriting from, but also what they are inheriting. This is depicted by the class name it is inheriting from, followed by "::" and then the list of all inherited elements – here attribute _class2_. Typically, the inherited elements are not shown.
+
+.Graphical Representation of Generalization/Inheritance
+image::image83.png[]
+
+Figure 84 depicts different graphical notations for enumerations in combination with inheritance. On the left side "Enumeration1" additionally contains the literals as defined by "Enumeration2".
+
+====
+Note 1: the direction of inheritance is opposite to the one for class inheritance. This can be seen at the right side of Figure 84 that defines the same enumeration but without inheritance.
+====
+
+.Graphical Representation for Enumeration with Inheritance
+image::image84.png[]
+
+====
+Note 2: in this specification all elements of an enumeration are ordered alphabetically.
+====
+
+
+Figure 85 shows an experimental class, marked by the stereotype "Experimental”.
+
+.Graphical Representation for Experimental Classes
+image::image85.png[Ein Bild, das Text enthält. Automatisch generierte Beschreibung]
+
+Figure 86 depicts a deprecated class, which is marked by the stereotype "Deprecated".
+
+.Graphical Representation for Deprecated Elements
+image::image86.png[Ein Bild, das Text enthält. Automatisch generierte Beschreibung]
+
+Figure 87 shows a class representing a template. It is marked by the stereotype "Template".
+
+.Graphical Representation of a Template Class
+image::image87.png[Ein Bild, das Text enthält. Automatisch generierte Beschreibung]

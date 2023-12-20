@@ -1,0 +1,510 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+
+
+== Terms, Definitions and Abbreviations
+
+=== Terms and Definitions
+
+====
+[.underline]#Please note#: the definitions of terms are only valid in a certain context. This glossary applies only within the context of this document.
+====
+
+If available, definitions were taken from IEC 63278-1 DRAFT, July 2022.
+
+*access control*
+
+protection of system resources against unauthorized access; a process by which use of system resources is regulated according to a security policy and is permitted by only authorized entities (users, programs, processes, or other systems) according to that policy
+
+* [SOURCE: IEC TS 62443-1-1]
+
+*application*
+
+software functional element specific to the solution of a problem in industrial-process measurement and control
+
+
+====
+Note 1 to entry: an application can be distributed among resources and may communicate with other applications.
+====
+
+
+* [SOURCE: IEC TR 62390:2005-01, 3.1.2]
+
+*asset*
+
+physical, digital, or intangible entity that has value to an individual, an organization, or a government
+
+
+====
+Note 1 to entry: an asset can be single entity, a collection of entities, an assembly of entities, or a composition of entities.
+====
+
+
+
+====
+EXAMPLE 1: examples for physical entities are equipment, raw material, parts components and pieces, supplies, consumables, physical products, and waste.
+====
+
+
+
+====
+EXAMPLE 2: examples for digital assets are process definitions, business procedures, or actual states.
+====
+
+
+
+====
+EXAMPLE 3: a software license is an example of an intangible asset.
+====
+
+
+* [SOURCE: IEC 63278-1, based on IEV 741-01-04, editorial changes]
+
+*attribute*
+
+data element of a _property_, a relation, or a class in information technology
+
+* [SOURCE: ISO/IEC Guide 77-2, ISO/IEC 27460, IEC 61360]
+
+*Asset Administration Shell (AAS)*
+
+standardized digital representation of an asset
+
+
+====
+Note 1 to entry: Asset Administration Shell and Administration Shell are used synonymously.
+====
+
+
+* [SOURCE: IEC 63278-1, note added]
+
+*class*
+
+description of a set of objects that share the same _attributes_, _operations_, methods, relationships, and semantics
+
+* [SOURCE: IEC TR 62390:2005-01, 3.1.4]
+
+*capability*
+
+implementation-independent potential of an Industrie 4.0 component to achieve an effect within a domain
+
+
+====
+Note 1 to entry: capabilities can be orchestrated and structured hierarchically.
+====
+
+
+
+====
+Note 2 to entry: capabilities can be made executable via services.
+====
+
+
+
+====
+Note 3 to entry: the impact manifests itself in a measurable effect within the physical world.
+====
+
+
+* [SOURCE: Glossary Industrie 4.0, minor changes]
+
+*coded value*
+
+value that can be looked up in a dictionary and can be translated
+
+* [SOURCE: link:https://eclass.eu/support/technical-specification/data-model/conceptual-data-model[ECLASS] footnote:[In IEC61360:2017, this refers to a "term" of a value list]]
+
+*component*
+
+product used as a constituent in an assembled product, _system_, or plant
+
+* [SOURCE: IEC 63278-1; IEC 61666:2010, 3.6, editorial changes]
+
+*concept*
+
+unit of knowledge created by a unique combination of characteristics
+
+* [SOURCE: EC 63278-1; IEC 61360-1:2016, 3.1.8; ISO 22274:2013, 3.7]
+
+*digital representation*
+
+information and services representing an entity from a given viewpoint
+
+
+====
+EXAMPLE 1: examples of information are properties (e.g. maximum temperature), actual parameters (e.g. actual velocity), events (e.g. notification of status change), schematics (electrical), and visualization information (2D and 3D drawings).
+====
+
+
+
+====
+EXAMPLE 2: examples of services are providing the history of the configuration data, providing the actual velocity, and providing a simulation.
+====
+
+
+
+====
+EXAMPLE 3: examples of viewpoints are mechanical, electrical, or commercial characteristics.
+====
+
+
+* [SOURCE: IEC 63278-1, editorial changes]
+
+*digital twin*
+
+_digital representation_, sufficient to meet the requirements of a set of use cases
+
+
+====
+Note 1 to entry: in this context, the entity in the definition of digital representation is typically an asset.
+====
+
+
+* [SOURCE: IIC Vocabulary IIC:IIVOC:V2.3:20201025, adapted (an asset, process, or system was changed to an asset)]
+
+*explicit value*
+
+commonly used _concept_, like numbers (e.g. 109, 25) which do not need lookup in dictionaries
+
+* [SOURCE: link:https://eclass.eu/support/technical-specification/data-model/conceptual-data-model[ECLASS]]
+
+*identifier (ID)*
+
+identity information that unambiguously distinguishes one entity from another one in a given domain
+
+
+====
+Note 1 to entry: there are specific identifiers, e.g. UUID Universal unique identifier, IEC 15418 (GS1).
+====
+
+
+* [SOURCE: Glossary Industrie 4.0]
+
+*instance*
+
+concrete, clearly identifiable component of a certain _type_
+
+
+====
+Note 1 to entry: an individual entity of a type, for example a device, is obtained by defining specific property values.
+====
+
+
+
+====
+Note 2 to entry: in an object-oriented view, an instance denotes an object of a class (of a type).
+====
+
+
+* [SOURCE: IEC 62890:2016, 3.1.16 65/617/CDV, editorial changes]
+
+*instance asset*
+
+specific _asset_ that is uniquely identifiable
+
+
+====
+EXAMPLE 1: examples of instance assets are material, a product, a part, a device, a machine, software, a control system, a production system.
+====
+
+
+* [SOURCE: IEC 63278-1, editorial changes]
+
+*operation*
+
+executable realization of a function
+
+
+====
+Note 1 to entry: the term method is synonymous to operation.
+====
+
+
+
+====
+Note 2 to entry: an operation has a name and a list of parameters [ISO 19119:2005, 4.1.3].
+====
+
+
+* [SOURCE: Glossary Industrie 4.0, editorial changes]
+
+*ontology*
+
+collection of concepts, where each concept is constituted by an identifier, name, description, and additional entities and where relationships between concepts can be described without restriction
+
+* [SOURCE: IEC 63278-1]
+
+*property*
+
+defined characteristic suitable for the description and differentiation of products or components
+
+
+====
+Note 1 to entry: the concept of type and instance applies to properties.
+====
+
+
+
+====
+Note 2 to entry: this definition applies to properties as described in IEC 61360/ ISO 13584-42.
+====
+
+
+
+====
+Note 3 to entry: the property types are defined in dictionaries (like IEC component data dictionary or ECLASS), they do not have a value. The property type is also called data element type in some standards.
+====
+
+
+
+====
+Note 4 to entry: the property instances have a value and are provided by the manufacturers. A property instance is also called property-value pair in certain standards.
+====
+
+
+
+====
+Note 5 to entry: properties include nominal value, actual value, runtime variables, measurement values, etc.
+====
+
+
+
+====
+Note 6 to entry: a property describes one characteristic of a given object.
+====
+
+
+
+====
+Note 7 to entry: a property can have attributes such as code, version, and revision.
+====
+
+
+
+====
+Note 8 to entry: the specification of a property can include predefined choices of values.
+====
+
+
+* [SOURCE: according to ISO/IEC Guide 77-2] as well as [SOURCE: according to Glossary Industrie 4.0]
+
+*qualifier*
+
+well-defined element associated with a _property_ instance or _submodel element_, restricting the value statement to a certain period of time or use case
+
+
+====
+Note 1 to entry: qualifiers can have associated values.
+====
+
+
+* [SOURCE: according to IEC 62569-1]
+
+*service*
+
+Demarcated scope of functionality which is offered by an https://www.plattform-i40.de/PI40/Redaktion/EN/Glossary/E/entity_glossary.html[entity] or organization via https://www.plattform-i40.de/PI40/Redaktion/EN/Glossary/I/interface_glossary.html[interfaces]
+
+
+====
+Note 1 to entry: one or multiple operations can be assigned to one service.
+====
+
+
+* [SOURCE: Glossary Industrie 4.0]
+
+*smart manufacturing*
+
+manufacturing that improves its performance aspects with integrated and intelligent use of processes and resources in cyber, physical and human spheres to create and deliver products and services, which also collaborates with other domains within enterprises' value chains
+
+
+====
+Note 1 to entry: performance aspects include agility, efficiency, safety, security, sustainability, or any other performance indicators identified by the enterprise.
+====
+
+
+
+====
+Note 2 to entry: in addition to manufacturing, other enterprise domains can include engineering, logistics, marketing, procurement, sales, or any other domains identified by the enterprise.
+====
+
+
+* [SOURCE: IEC TR 63283-1:2022 ED1]
+
+*Submodel*
+
+container of SubmodelElements defining a hierarchical structure consisting of SubmodelElements
+
+* [SOURCE: IEC 63278-1]
+
+*SubmodelElement*
+
+elements in a Submodel
+
+* [SOURCE: IEC 63278-1]
+
+*Submodel template*
+
+container of Submodel template elements defining a hierarchical structure consisting of Submodel template elements
+
+
+====
+Note 1 to entry: a Submodel template is a specific kind of concept.
+====
+
+
+* [SOURCE: IEC 63278-1]
+
+*Submodel template element*
+
+elements in a Submodel template
+
+
+====
+Note 1 to entry: a Submodel template element is a specific kind of concept.
+====
+
+
+* [SOURCE: IEC 63278-1]
+
+*system*
+
+interacting, interrelated, or interdependent elements forming a complex whole
+
+* [SOURCE: IEC 63278-1; IEC TS 62443-1-1:2009, 3.2.123]
+
+*technical functionality*
+
+functionality of the _Administration Shell_ that is exposed by an application programming interface (API) and that is creating added value to the respective _assets(s)_
+
+
+====
+Note 1 to entry: can consist of single elements, which are also known as functions, operations, methods, skills.
+====
+
+
+* [SOURCE: according to link:#bib18[[18\]]]
+
+*template*
+
+specification of the common features of an object in sufficient detail that such object can be instantiated using it
+
+
+====
+Note 1 to entry: object can be anything that has a type.
+====
+
+
+* [SOURCE: according to ISO/IEC 10746-2]
+
+*type*
+
+hardware or software element which specifies the common _attributes_ shared by all instances of the type
+
+* [SOURCE: IEC TR 62390:2005-01, 3.1.25]
+
+*type asset*
+
+(abstract) representation of a set of instance assets with common characteristics and features
+
+
+====
+Note 1 to entry: the set of instance assets may exist or may not exist.
+Examples of type assets are type of material, a product type, a type of a part, a device type, a machine type, a type of software, a type of control system, a type of production system.
+====
+
+
+* [SOURCE: IEC 63278-1]
+
+*variable*
+
+software _entity_ that may take different values, one at a time
+
+* [SOURCE: IEC 61499-1]
+
+===  Abbreviations Used in this Document
+
+[cols="21%,79%",options="header",]
+|===
+|*Abbreviation* |*Description*
+|AAS |Asset Administration Shell
+|AASX |Package file format for the Asset Administration Shell
+|AML |AutomationML
+|API |Application Programming Interface
+|BITKOM |Bundesverband Informationswirtschaft, Telekommunikation und neue Medien e. V.
+|BLOB |Binary Large Object
+|CDD |Common Data Dictionary
+|GUID |Globally unique identifier
+|I4.0 |Industrie 4.0
+|ID |identifier
+|IDTA |Industrial Digital Twin Association
+|IEC |International Electrotechnical Commission
+|IRDI |International Registration Data Identifier
+|IRI |Internationalized Resource Identifier
+|ISO |International Organization for Standardization
+|JSON |JavaScript Object Notation
+|MIME |Multipurpose Internet Mail Extensions
+|OPC |Open Packaging Conventions (ECMA-376, ISO/IEC 29500-2)
+|OPC UA |OPC Unified Architecture
+|PDF |Portable Document Format
+|RAMI4.0 |Reference Architecture Model Industrie 4.0
+|RDF |Resource Description Framework
+|REST |Representational State Transfer
+|RFC |Request for Comment
+|SOA |Service Oriented Architecture
+|UML |Unified Modelling Language
+|URI |Uniform Resource Identifier
+|URL |Uniform Resource Locator
+|URN |Uniform Resource Name
+|UTC |Universal Time Coordinated
+|VDE |Verband der Elektrotechnik, Elektronik und Informationstechnik e.V.
+|VDI |Verein Deutscher Ingenieure e.V.
+|VDMA |Verband Deutscher Maschinen- und Anlagenbau e.V.
+|W3C |World Wide Web Consortium
+|XML |eXtensible Markup Language
+|ZIP |archive file format that supports lossless data compression
+|ZVEI |Zentralverband Elektrotechnik- und Elektronikindustrie e. V.
+|===
+
+=== Abbreviations of Metamodel
+
+The following abbreviations are not used in the document but may be used as abbreviations for the elements in the metamodel defined in this document.
+
+. Elements with Allowed Identifying Values
+[cols="33%,67%",options=header]
+|===
+|*Abbreviation* |*Description*
+|AAS |Asset Administration Shell
+|Cap |Capability
+|CD |Concept Description
+|DE |DataElement
+|DST |DataSpecification Template
+|InOut |inoutputVariable
+|In |inputVariable
+|Prop |Property
+|MLP |MultiLanguageProperty
+|xref:Range[Range] |Range
+|Ent |Entity
+|Evt |Event
+|xref:File[File] |File
+|xref:Blob[Blob] |Blob
+|Opr |Operation
+|Out |outputVariable
+|Qfr |Qualifier
+|Ref |ReferenceElement
+|Rel |RelationshipElement
+|RelA |AnnotatedRelationshipElement
+|SM |Submodel
+|SMC |SubmodelElementCollection
+|SME |SubmodelElement
+|SML |SubmodelElementList
+|===
