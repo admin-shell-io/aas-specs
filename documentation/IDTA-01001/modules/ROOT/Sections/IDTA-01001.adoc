@@ -505,35 +505,35 @@ matches
 
 [.underline]#Examples for non-matching external references:#
 
-*(GlobalReference)https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, +
+*(GlobalReference)\https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, +
 (FragmentReference)Bibliography*
 
 does not match
 
-*(GlobalReference)https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, +
+*(GlobalReference)\https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, +
 (FragmentReference)Bibliographie*
 
 [.underline]#Examples for matching model references:#
 
 Although these two model references would match according to the matching rules, other rules are violated, i.e. that the ID of the submodel is unique. If the ID of a submodel is unique, it is not possible that there are two direct submodel element children with the same name (here: Specification). It is also not possible two different versions of the same submodel are compared here, because we would then assume that the ID also contains the version information (see Clause 5.3.2.2). The matching algorithm would still identify these two model references as matching although one of them is buggy.
 
-*(Submodel)https://example.com/aas/1/1/1234859590, (File)Specification*
+*(Submodel)\https://example.com/aas/1/1/1234859590, (File)Specification*
 
-*(Submodel)https://example.com/aas/1/1/1234859590, (Blob)Specification*
+*(Submodel)\https://example.com/aas/1/1/1234859590, (Blob)Specification*
 
 [.underline]#Examples for matching model and external references:#
 
-*(Submodel)https://example.com/aas/1/1/1234859590*
+*(Submodel)\https://example.com/aas/1/1/1234859590*
 
 is identical to
 
-*(GlobalReference)https://example.com/aas/1/1/1234859590*
+*(GlobalReference)\https://example.com/aas/1/1/1234859590*
 
-*(Submodel)https://example.com/aas/1/1/1234859590, (File)Specification (FragmentReference)Bibliography*
+*(Submodel)\https://example.com/aas/1/1/1234859590, (File)Specification (FragmentReference)Bibliography*
 
 is identical to
 
-*(GlobalReference)https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, +
+*(GlobalReference)\https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, +
 (FragmentReference)Bibliography*
 
 === Submodel Instances and Templates
@@ -2850,66 +2850,78 @@ The notation follows the grammar as defined in section xref:#trueserialization-o
 
 [.underline]#Examples for valid references:#
 
-*(Submodel)https://example.com/aas/1/1/1234859590*
+*(Submodel)\https://example.com/aas/1/1/1234859590*
 
-*(GlobalReference)https://example.com/specification.html*
+*(GlobalReference)\https://example.com/specification.html*
 
 [.underline]#Examples for valid external references:#
 
-*(GlobalReference)https://example.com/ressource*
+*(GlobalReference)\https://example.com/ressource*
 
 *(GlobalReference)0173-1#02-EXA123#001*
 
-*(GlobalReference)https://example.com/specification.html (FragmentReference)Hints*
+*(GlobalReference)\https://example.com/specification.html (FragmentReference)Hints*
 
 
 ====
-Note: (GlobalReference)https://example.com/specification.html (FragmentReference)Hints represents the path with fragment identifier https://example.com/specification.html#Hints
+Note: *(GlobalReference)\https://example.com/specification.html (FragmentReference)Hints* represents the path with fragment identifier \https://example.com/specification.html#Hints
 ====
 
 
 [.underline]#Examples for valid model references:#
 
-*(AssetAdministrationShell)https://example.com/aas/1/0/12348*
+*(AssetAdministrationShell)\https://example.com/aas/1/0/12348*
 
-*(Submodel)https://example.com/aas/1/1/1234859590*
+*(Submodel)\https://example.com/aas/1/1/1234859590*
 
-*(Submodel)https://example.com/aas/1/1/1234859590, (File)Specification*
+*(Submodel)\https://example.com/aas/1/1/1234859590, (File)Specification*
 
 *(ConceptDescription)0173-1#02-BAA120#008*
 
-*(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementList)Documents, (SubmodelElementCollection)0, (MultiLanguageProperty)Title*
+*(Submodel)\https://example.com/aas/1/1/1234859590, (SubmodelElementList)Documents, (SubmodelElementCollection)0, (MultiLanguageProperty)Title*
 
-*(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementCollection)Manual, (MultiLanguageProperty)Title*
-
-
-====
-Note: "(SubmodelElementCollection)0, (MultiLanguageProperty)Title" may be identical to "(SubmodelElementCollection)Manual, (MultiLanguageProperty)Title" semantically and content-wise. The difference is that more than one document is allowed in the first submodels and thus a submodel element list is defined: elements in a list are numbered. However, it is also possible to define a display name in this case. The display name of the SubmodelElementCollection should be the same in both bases, e.g. "Users Manual".
-====
-
-
-*(Submodel)https://example.com/aas/1/1/1234859590, (File)Specification, (FragmentReference)Hints*
+*(Submodel)\https://example.com/aas/1/1/1234859590, (SubmodelElementCollection)Manual, (MultiLanguageProperty)Title*
 
 
 ====
-Note: assuming the file has the value using the absolute path https://example.com/specification.html (and not a relative path), the first reference points to the same information as the global reference (GlobalReference)https://example.com/specification.html, (FragmentReference)Hints__.__
+Note: *(SubmodelElementCollection)0, (MultiLanguageProperty)Title* may be identical to 
+*(SubmodelElementCollection)Manual, (MultiLanguageProperty)Title* semantically and content-wise. 
+The difference is that more than one document is allowed in the first submodel and thus a submodel element list is defined: 
+elements in a list are numbered. However, it is also possible to define a display name in this case. 
+The display name of the SubmodelElementCollection should be the same in both bases, e.g. "Users Manual".
 ====
 
 
-*(Submodel)https://example.com/aas/1/1/1234859590, (Blob)Specification, (FragmentReference)Hints*
+*(Submodel)\https://example.com/aas/1/1/1234859590, (File)Specification, (FragmentReference)Hints*
+
+
+====
+Note: assuming the file has the value using the absolute path \https://example.com/specification.html (and not a relative path), the first reference points to the same information as the global reference (GlobalReference\https://example.com/specification.html, (FragmentReference)Hints__.__
+====
+
+
+*(Submodel)\https://example.com/aas/1/1/1234859590, (Blob)Specification, (FragmentReference)Hints*
+
+
 
 [.underline]#Examples for invalid model references:#
 
-*(GlobalReference)https://example.com/aas/1/1/1234859590*
+*(GlobalReference)\https://example.com/aas/1/1/1234859590*
+
+This is an external reference but no model reference.
 
 *(Property)0173-1#02-BAA120#008*
 
-*(Submodel)https://example.com/aas/1/1/1234859590, (EventElement)Event, (FragmentReference)Comment*
+This reference does not start with the ID of an Identiable. Additionally the value is not valid idShort for a Property submodel element.
 
-**(AssetAdministrationShell)**https://example.com/aas/1/0/12348**, +
-(Submodel)https://example.com/aas/1/1/1234859590, (Property)Temperature**
+*(Submodel)\https://example.com/aas/1/1/1234859590, (EventElement)Event, (FragmentReference)Comment*
 
-is not a valid model reference because _AssetAdministrationShell_ and _Submodel_ are both global identifiables.
+This model reference is invalid because fragment references so far are only defined for _File_ and _Blob_ submodel elements (see Constraint AASd-127, xref:AASd-127).
+
+*(AssetAdministrationShell)\https://example.com/aas/1/0/12348, +
+(Submodel)\https://example.com/aas/1/1/1234859590, (Property)Temperature*
+
+This is not a valid model reference because _AssetAdministrationShell_ and _Submodel_ are both global identifiables.
 
 ==== Primitive and Simple Data Types
 
@@ -2988,7 +3000,7 @@ application/pdf
 image/jpeg
 
 |[[Identifier]]Identifier |_string_ with max 2024 and min 1 characters a|
-https://cust/123456
+\https://cust/123456
 
 0173-1#02-BAA120#008
 
@@ -3073,7 +3085,7 @@ a|
 
 file:c:/local/Specification.pdf
 
-http://www.example.org
+\http://www.example.org
 
 FTP://unicode.org
 
@@ -3335,7 +3347,7 @@ NaN
 |Encoded binary data |xs:hexBinary |Hex-encoded binary data |"6b756d6f77617368657265"
 | |xs:base64Binary |Base64-encoded binary data |"a3Vtb3dhc2hlcmU="
 |Miscellaneous types |xs:anyURI |Absolute or relative URIs and IRIs a|
-https://customer.com/demo/aas/1/1/1234859590
+\https://customer.com/demo/aas/1/1/1234859590
 
 "urn:example:company:1.0.0"
 

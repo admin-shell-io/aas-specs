@@ -37,25 +37,31 @@ Note 2: _ReferenceType_ is optional. It is clear from the first key in the key c
 
 [.underline]#Valid Examples:#
 
-[.underline]#References#:
+[.underline]#External References#:
 
 ____
 *(GlobalReference)0173-1#02-BAA120#008*
 
+
 *[ExternalRef](GlobalReference)0173-1#02-BAA120#008*
 
-*(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementList)Documents, (SubmodelElementCollection)0, (MultiLanguageProperty)Title*
+
+*(GlobalReference)\https://example.com/specification.html (FragmentReference)Hints*
+
 ____
 
 [.underline]#Model References:#
 ____
+
+
 *(ConceptDescription)0173-1#02-BAA120#008*
+
 
 *[ModelRef](ConceptDescription)0173-1#02-BAA120#008*
 
-*(Submodel)https://example.com/aas/1/1/1234859590, (Property)Temperature*
 
-*[ModelRef- (ConceptDescription)0173-1#02-BAA120#008*
+*(Submodel)\https://example.com/aas/1/1/1234859590, (Property)Temperature*
 
-*-](Submodel)https://example.com/aas/1/1/1234859590*
+
+*(Submodel)\https://example.com/aas/1/1/1234859590, (SubmodelElementList)Documents, (SubmodelElementCollection)0, (MultiLanguageProperty)Title*
 ____
