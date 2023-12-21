@@ -12,6 +12,7 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 
 :imagesdir: ../images/
 
+
 [appendix]
 == Legend for UML Modelling
 
@@ -52,7 +53,7 @@ image::image67.png[]
 Figure 67 shows that the member ends of an association can be named as well, i.e. an instance of _Class1_ can be in relationship "relation" to an instance of _Class2_. Vice versa, the instance of _Class2_ is in relationship "reverseRelation" to the instance of _Class1_.
 
 .Association
-image::image67.png[]
+image::image67-2.png[]
 
 Figure 68 shows a composition, also called a composite aggregation. A composition is a binary association, grouping a set of instances. The individuals in the set are typed as specified by _Class2_. The multiplicity of instances of _Class2_ to _Class1_ is always 1 (i.e. upper-bound and lower-bound have value "1"). One instance of _Class2_ belongs to exactly one instance of _Class1_. There is no instance of _Class2_ without a relationship to an instance of _Class1_. Figure 69 shows the composition using an association relationship with a filled diamond as composition adornment.
 
@@ -99,11 +100,12 @@ Figure 76 shows an enumeration with the name "Enumeration1". An enumeration is a
 .Enumerationfootnote:[In Enterprise Architect, the single enumeration values also have a stereotype \<<enum>> each.]
 image::image76.png[]
 
-
+////
 Figure 77 shows a primitive data type with the name "int". Primitive data types are predefined data types, without any substructure. The primitive data types are defined outside UML.
 
 .Primitive Data Type
 image::image78.png[]
+////
 
 Figure 78 shows how a note can be attached to an element, in this example to class "Class1".
 
