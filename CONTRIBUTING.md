@@ -141,3 +141,25 @@ You successfully contributed to a specification repository of the Asset Administ
 If you are a member of the development team, please delete the feature branch you directly created within the aas-specs repository.
 
 Otherwise, if you are not part of the team and you forked the repository, feel free to delete your fork.
+
+
+## License Headers & Licensing
+
+All files contributed require headers - this will ensure the license and copyright clearing at the end. Also, all contributions must have the same license as the source.
+The header should follow the following template:
+
+```
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+////
+```
+
