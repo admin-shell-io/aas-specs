@@ -160,6 +160,5 @@ SPDX-License-Identifier: CC-BY-4.0
 Illustrations:
 Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
 ////
-////
 ```
 
