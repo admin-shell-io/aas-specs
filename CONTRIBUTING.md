@@ -10,7 +10,10 @@ of the [IDTA](https://industrialdigitaltwin.org/en/)
 However, we invite the community to review, report and fix the specification 
 and schema definitions, openAPI definition including application examples. 
 
+## Naming Convention for github repos
 
+For all github repositories that contain a part belong to the document series "Specification Asset Administration Shell" 
+the name of the github repository is starting with **aas-specs**.
 
 
 ## Issue Handling
