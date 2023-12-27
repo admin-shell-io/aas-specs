@@ -25,644 +25,6 @@ include::IDTA-01001_Constraints.adoc[]
 
 
 
-== Introduction
-
-This document specifies the metamodel of the Asset Administration Shell.
-
-The general concept and the structure of the Asset Administration Shell is described in IEC 63278-1 (see Figure 1).
-
-.Asset Administration Shell and Related Roles (Source: IEC 63278-1)
-image::image2.png[]
-
-These are the main specifics and roles defined for the Asset Administration Shell:
-
-* an Asset Administration Shell has an association to an asset,
-* an Asset Administration Shell provides an interface or several interfaces,
-* an Asset Administration Shell lists one or several submodels,
-* an Asset Administration Shell responsible creates and governs the Asset Administration Shell,
-* an Asset Administration Shell user application accesses the information of the Asset Administration Shell via IT interface(s).
-* a Submodel template guides the creation of a submodel following the template,
-* a Submodel template may reference concept dictionaries and ontologies,
-* concept dictionaries and ontologies define the common vocabulary as basis for interoperability,
-* submodels may reference the asset services provided by an asset via an asset integration; further services related to the asset can be referenced.
-
-This document specifies a technology-neutral specification of the information metamodel of the Asset Administration Shell in UML. It serves as the basis for deriving several different formats for exchanging Asset Administration Shells, e.g. for XML, JSON, RDF, AutomationML, and OPC UA information models.
-
-Figure 2 shows the different ways of exchanging information Asset Administration Shells. This part of the "Asset Administration Shell in Detail" series is the basis for all of these types of information exchange.
-
-.Types of Information Exchange via Asset Administration Shells
-image::image3.jpeg[]
-
-File exchange (1) is described in detail in Part 5 of this document series.
-
-The API (2) based on the information metamodel specified in this document is specified in Part 2 of the document series "Details of the Asset Administration Shell" link:#bib37[[37\]].
-
-The I4.0 language (3) is based on the information metamodel specified in this document link:#bib47[[47\]].
-
-== General
-
-=== Introduction
-
-Before specifying the information metamodel of the Asset Administration Shell, some general topics relevant for the Asset Administration Shell are explained.
-
-Subclause 4.2 describes some general aspects of handling type and instance assets.
-
-Subclause 4.3 explains the very important aspects of identification in the context of the Asset Administration Shell.
-
-Subclause 4.4 provides matching strategies for semantic identifiers and references.
-
-Subclause 4.5 explains the difference between submodel instances and templates.
-
-Subclause 4.6 discusses aspects of event handling.
-
-=== Types and Instances
-
-==== Life Cycle with Type Assets and Instance Assets
-
-Industry 4.0 utilizes an extended understanding of assets, comprising elements such as factories, production systems, equipment, machines, components, produced products and raw materials, business processes and orders, immaterial assets (such as processes, software, documents, plans, intellectual property, standards), services, human personnel, etc..
-
-The RAMI4.0 model link:#bib3[[3\]] defines a generalized life cycle concept derived from IEC 62890. The basic idea is to distinguish between possible types and instances for all assets within Industry 4.0. This makes it possible to apply the type/instance distinction for all elements such as material type/material instance, product type/product instance, machine type/ machine instance, etc. Business-related information is handled on the 'business' layer of the RAMI4.0 model. The business layer also covers order details and workflows, again for both type and instance assets.
-
-
-====
-Note: to distinguish asset 'type' and asset 'instance', the term 'asset kind' is used in this document. The three different relationship classes between assets, especially type assets and instance assets, explained below show why the distinction is so important. The attribute "derivedFrom" in the metamodel is used to explicitly state a relationship between assets that are being derived from one another. Other relationships are not explicitly supported by the metamodel of the Asset Administration Shell, but they can be modelled via the "RelationshipElement" submodel element type.
-====
-
-
-Table 1 gives an overview of the different life cycle phases and the role of type assets and instance assets as well as their relationship in these phases.
-
-This important relationship should be maintained throughout the life of the instance assets. It makes it possible to forward updates from the type assets to the instance assets, either automatically or on demand.
-
-
-
-.Life Cycle Phases and Roles of Type and Instance Assets
-[cols="20%,22%,58%", options=header]
-|===
-|*Asset Kind* |*Life Cycle Phase* |*Description*
-|Type asset |Development |Valid from the ideation/conceptualization to the first prototypes/test. The 'type' of an asset is defined; distinguishing properties and functionalities are defined and implemented. All (internal) design artefacts associated with the type asset are created, such as CAD data, schematics, embedded software.
-| |Usage/ +
-Maintenance |Ramping up production capacity. The 'external' information associated to the asset is created, such as technical data sheets, marketing information. The selling process starts.
-|Instance asset |Production |Instance assets are created/produced, based on the type asset information. Specific information about production, logistics, qualification, and test are associated with the instance assets.
-| |Usage/ +
-Maintenance a|
-Usage phase by the purchaser of the instance assets. Usage data is associated with the instance asset and might be shared with other value chain partners, such as the manufacturer of the instance asset.
-
-Also included: maintenance, re-design, optimization, and de-commissioning of the instance asset. The full life cycle history is associated with the asset and might be archived/shared for documentation.
-
-|===
-
-The second class of relationships are feedback loops/information within the life cycle of the type asset and instance asset. For product assets, for example, information on usage and maintenance of product instances may be used to improve product manufacturing as well as the design of the (next) product type.
-
-The third class of relationships are feedforward/information exchange with assets of other asset classes. For example, sourcing information from business assets can influence design aspects of products; or the design of the products affects the design of the manufacturing line.
-
-
-====
-Note: the NIST model link:#bib49[[49\]] provides an illustration of the second/third class of relationships.
-====
-
-
-A fourth class of relationships consists between assets of different hierarchy levels. For example, these could be the (dynamic) relationships between manufacturing stations and currently produced products. They could be also the decomposition of production systems in physical, functional, or safety hierarchies. In this class of relationships, automation equipment is seen as a complex, interrelated graph of automation devices and products, performing intelligent production and self-learning/optimization tasks.
-
-Details and examples for composite I4.0 Components can be found in link:#bib12[[12\]]. A composite I4.0 Component is the combination of a complex asset and its Asset Administration Shell. The hierarchy, typically a Bill of Material (BOM) but also any other relationship between different assets, can be represented in one of its submodels.
-
-
-====
-Note: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element "RelationshipElement", see above), it also explicitly supports the representation of another asset (via the submodel element "Entity"). The term "Entity" is chosen as superordinate concept in this context and refers to either an asset or another item that is not an asset but may be part of a more complex item or asset.
-====
-
-
-====  Asset Administration Shells Representing Type Assets and Instance Assets
-
-An Asset Administration Shell either represents a type asset or an instance asset. Typically, there is a relationship between instance assets and a type asset. However, not every instance asset is required to have a corresponding type asset.
-
-gives an example of how to handle type assets and their derived instance assets. The attribute "assetKind" indicates whether the Asset Administration Shell (denoted by the ": AAS" UML notation for a class instance) represents a type asset or an instance asset. Additionally, attributes are added to show that the attributes of type asset and instance assets typically differ from each other.
-
-.Example: Asset Administration Shells for Type and Instance Assets
-image::image4.png[]
-
-
-====
-Note 1: the example is simplified for ease of understanding and only roughly complies with the metamodel as specified in Clause 5. The ID handling is simplified as well: the names of the classes correspond to the unique global identifier of the Asset Administration Shells.
-====
-
-
-
-====
-Note 2: in the context of Plattform Industrie 4.0, types and instances typically refer to "type assets" and "instance assets". When referring to types or instances of an Asset Administration Shell, this is explicitly denoted as "Asset Administration Shell types" and "Asset Administration Shell instances" to not mix them up. Asset Administration Shell types are synonymously used with the term "Asset Administration Shell template".
-====
-
-
-
-====
-Note 3: please refer to 2 for the IEC definition of types and instances. Within the scope of this document, there is no full equivalency between these definitions and the type/instance concepts of object-oriented programming (OO).
-====
-
-
-There shall be a concrete type asset of a temperature sensor and two uniquely identifiable physical temperature sensors of this type. The intention is to provide a separate Asset Administration Shell for the type asset as well as for every single instance asset.
-
-In the example, the first sensor has the unique ID "0215551AAA_T1" and the second sensor has the unique ID "0215551AAA_T2". "0215551AAA_T1" and "0215551AAA_T2" are the global asset IDs of the two assets, i.e. sensors. The Asset Administration Shell for the first sensor has the unique URI "http://T1.com" and the Asset Administration Shell for the second sensor has the unique URI "http://T2.com". The asset kind of both is "Instance". The example shows that the measured temperature at operation time of the two sensors is different: for T1 it is 60 °C, for T2 it is 100 °C. For the time-being we ignore the relationship "derivedFrom" of the two Asset Administration Shells "http://T1.com " and "http://T2.com" with Asset Administration Shell "http://T0215551AA.com".
-
-
-====
-Note 1: even though the HTTP scheme is used for the identifier, please be aware that these identifiers are logical ones. Identifiers do not have to be URLs. At the same time, URLs used as identifiers do not have to refer to accessible content.
-====
-
-
-
-====
-Note 2: the physical unit can be obtained by the semantic reference of the element "measuredTemperature". This is not shown in the example for simplicity reasons.
-====
-
-
-These two instance assets share a lot of information on the type asset (in this example a sensor type), for which an own Asset Administration Shell is created. The unique ID for this Asset Administration Shell is "http://T0215551AA.com", the unique ID of the sensor type is "0215551AA". The asset kind is "Type" and not "Instance". The information shared by all instances of this temperature sensor type is the product class (="Component"), the manufacturer (="ExampleManufacturer"), the English Description (=”precise and fast temperature measurement"), and the value range ("-40 °C / 140 °C").
-
-Now the two Asset Administration Shells of the two instance assets may refer to the Asset Administration Shell of the type asset "0215551AA" using the relationship attribute "derivedFrom".
-
-
-====
-Note 1: in the UML sense, "attribute" refers to the property or characteristic of a class (instance).
-====
-
-
-
-====
-Note 2: if a specific type asset exists, it typically exists in time before the respective instance assets.
-====
-
-
-
-====
-Note 3: the term Asset Administration Shell is used synonymously with the term Asset Administration Shell instance. An Asset Administration Shell may be realized based on an Asset Administration Shell type. Asset Administration Shell types are out of the scope of this document.
-====
-
-
-
-====
-Note 4: in public standardization, the Asset Administration Shell types might be standardized. However, it is much more important to standardize the property types (called property definitions or concept descriptions) or other submodel element types as well as complete submodel types because these can be reused in different Asset Administration Shells.
-====
-
-
-
-====
-Note 5: in the domain of the Internet of Things (IoT), instance assets are typically denoted as "Things" whereas type assets are denoted as "Product".
-====
-
-
-====  Asset Administration Shell Types and Instances
-
-In the previous clause, type assets and instance assets were explained. The obvious question now is how to harmonize Asset Administration Shells and Asset Administration Shell types. The example in shows that the attributes "globalAssetId" and "assetKind" as well as the global Asset Administration Shell identifier (_id_, represented as name of the class) are present for all Asset Administration Shells. However, if there is no standard, the semantics of "id", "globalAssetId" or "kind" are not clear, although they are the same for all Asset Administration Shells. It is also not clear, which of the attributes are mandatory and which are specific for the asset (type or instance), as illustrated in .
-
-This is the purpose of this document: the definition of a metamodel that defines which attributes are mandatory and which are optional for all Asset Administration Shells. The Plattform Industrie 4.0 metamodel for Asset Administration Shells is defined in Clause 5.
-
-
-====
-Note 1: the metamodel of the Asset Administration Shell is suitable for type assets or instance assets. An alternative approach could have been to define two metamodels, one for type assets and one for instance assets. However, the large set of similarities led to the decision of only one metamodel.
-====
-
-
-
-====
-Note 2: the metamodel itself does not require the existence of mandatory submodels. This is another step of standardization similar to the standardization of submodels of the Asset Administration Shell type level.
-====
-
-
-
-====
-Note 3: an Asset Administration Shell type shall be realized based on the metamodel of an Asset Administration Shell as defined in this document. This metamodel is referred to as "Asset Administration Shell Metamodel".
-====
-
-
-
-====
-Note 4: it is not mandatory to define an Asset Administration Shell type before defining an Asset Administration Shell (instance). An Asset Administration Shell instance that does not realize an Asset Administration Shell type shall be realized based on the metamodel of an Asset Administration Shell as defined in this document.
-====
-
-
-.Example: Asset Administration Shell, Asset Administration Shell Types and Instances
-image::image5.png[]
-
-=== Identification of Elements
-
-====  Overview
-
-According to link:#bib4[[4\]], identifiers are needed for the unique identification of many different elements within the domain of smart manufacturing. They are a fundamental element of a formal description of the Administration Shell. Identification is especially required for
-
-* Asset Administration Shells,
-* assets,
-* submodel instances and submodel templates,
-* property definitions/concept descriptions in external repositories, such as ECLASS or IEC CDD.
-
-Identification will take place for two purposes
-
-* to uniquely distinguish all elements of an Administration Shell and the asset it is representing, and
-* to relate elements to external definitions, such as submodel templates and property definitions, in order to bind semantics to this data and the functional elements of an Administration Shell.
-
-==== Identifiers for Assets and Administration Shells
-
-In the domain of smart manufacturing, the assets need to be uniquely identified worldwide link:#bib4[[4\]] link:#bib20[[20\]] by the means of identifiers (IDs). The Administration Shell also has a unique ID (see Figure 5).
-
-.Unique Identifier for Administration Shell and Asset (Modified Figure from link:#bib4[[4\]])
-image::image6.jpeg[]
-
-An Administration Shell represents exactly one asset, with a unique asset ID. In a batch-based production, the batches will become the assets and will be described by a respective Administration Shell. If a set of assets shall be described by an Administration Shell, a unique ID for the composite asset needs to be created link:#bib13[[13\]].
-
-The ID of the asset needs to comply with the restrictions for global identifiers according to link:#bib4[[4\]]link:#bib20[[20\]]. If the asset features further identifications like serial numbers and alike, they are not to be confused with the unique global identifiers of the asset itselffootnote:[Such additional asset identifiers are contained in _AssetInformation/specificAssetIds_.].
-
-====  What Type of Identifiers Exist?
-
-In link:#bib4[[4\]]link:#bib20[[20\]], two standard-conforming global identification types are defined:
-
-* *IRDI* – ISO29002-5, ISO IEC 6523 and ISO IEC 11179-6 link:#bib20[[20\]] as an identifier scheme for properties and classifications. They are created in a process of consortium-wise specification or international standardization. To this end, users come together and feed their ideas into the consortia or standardization bodies. Properties in ISO, IEC help to safeguard key commercial interests. Repositories like ECLASS and others make it possible to standardize a relatively large number of identifiers in an appropriately short time.
-* *IRI* – IRI (link:https://tools.ietf.org/html/rfc3987[RFC 3987]) or URI and URL according to link:https://tools.ietf.org/html/rfc3986[RFC 3986] as identification of assets, Administration Shells and other (probably not standardized, but globally unique) properties and classifications.
-
-The following is also permitted:
-
-* *Custom* – internal custom identifiers such as UUIDs/GUIDs (link:https://en.wikipedia.org/wiki/Universally_unique_identifier[universally unique identifiers]/globally unique identifiers), which a manufacturer can use for all sorts of in-house purposes within the Administration Shell.
-
-This means that the IRIs/URIs/URLs and internal custom identifiers can represent and communicate manufacturer-specific information and functions in the Administration Shell and the 4.0 infrastructure just as well as standardized information and functions. One infrastructure can serve both purposes.
-
-CLSID are URIs for GUIDs. They start with a customer specific schema. Hence, Custom should really only be used if the customer-specific identifier is no IRDI nor IRI.
-
-Besides the global identifiers, there are also identifiers that are unique only within a defined namespace, typically its parent element. These identifiers are also called local identifiers. For example, properties within a submodel have local identifiers.
-
-Besides absolute URIs there are also relative URIs.
-
-See also DIN SPEC 91406 link:#bib31[[31\]] for further information on identification.
-
-====  Which Identifiers for Which Elements?
-
-Not every identifier is applicable for every element of the UML model representing the Asset Administration Shell. Table 2 therefore gives an overview on the different constraints and recommendations on the various entities, which implement "Identifiable" or "HasSemantics". Attributes relate to the metamodel in Clause 5.1 and Clause 5.3.
-
-See Annex A for more information on how to create new identifiers and best practices for creating URI identifiers.
-
-.Elements with Allowed Identifying Values
-[cols="21%,17%,22%,40%",options="header",]
-|===
-|*Elements with identifying values* |*Attribute* |*Allowed identifiers (recommended or typical)* |*Remarks*
-|xref:AssetAdministrationShell[AssetAdministrationShell] |id |IRI (URL) a|
-mandatory
-
-Typically, URLs will be used.
-
-| |idShort |string |optionalfootnote:[Note: in version V1.0 of this specification, idShort was optional for identifiables. This changed in V2.0: idShort was set to mandatory for all referables. With V3.0, idShort was again made optional.]
-| |displayName |multi language string |optional
-|xref:AssetInformation[AssetInformation] |globalAssetId |IRI a|
-recommended
-
-As soon as the Asset Administration Shell is "released" for production or operation, a globalAssetId should be assigned.
-
-An Asset ID may be retrieved e.g., by a QR code on the asset, by an RFID for the asset, from the firmware of the asset, or from an asset database. IEC 61406 (formerly DIN SPEC 91406) defines the format of such Asset IDs.
-
-| |specificAssetId |IRI, Custom a|
-recommended
-
-An asset typically may be represented by several different identification properties like for example the serial number, its RFID code etc.
-
-They are used for lookup of Asset Administration Shells in cases the globalAssetId is not available. However, they do not need to be globally unique.
-
-|xref:Submodel[Submodel] with kind = Template |id |IRDI, IRI (URI) a|
-mandatory
-
-IRDI, if the defined submodel is standardized and has been assigned an IRDI.
-
-| |idShort |string a|
-recommended
-
-Typically used as idShort for the submodel of kind Instance as well
-
-| |displayName |multi language string a|
-recommended
-
-Typically used as displayName for the submodel of kind Instance as well
-
-| |semanticId |IRDI, IRI (URI) a|
-recommended
-
-The semantic ID might refer to an external semantic model defining the semantics of the submodel.
-
-| |supplementalSemanticId |IRDI, IRI (URI) |optional
-|xref:Submodel[Submodel] with kind = Instance |id |IRI (URI), Custom |mandatory
-| |idShort |string a|
-recommended
-
-Typically, the idShort or English short name of the submodel template that is referenced via semanticId.
-
-| |displayName |multi language string |optional
-| |semanticId |IRDI, IRI (URI) a|
-recommended
-
-Typically, the semanticId is an external reference to an external standard defining the semantics of the submodel.
-
-| |supplementalSemanticId |IRDI, IRI (URI) |optional
-|xref:SubmodelElement[SubmodelElement] |idShort |string a|
-mandatory
-
-Typically, the English short name of the concept definition that is referenced via semanticId.
-
-| |displayName |multi language string a|
-optional
-
-If no display name is defined in the language requested by the application, the display name may be selected in the following order, if available:
-
-* the preferred name in the requested language of the concept description defining the semantics of the element,
-* if there is a default language list defined in the application, the corresponding preferred name in the language is chosen according to this order,
-* the English preferred name of the concept description defining the semantics of the element,
-* the short name of the concept description,
-* the idShort of the element.
-
-| |semanticId |IRDI, IRI (URI), Custom a|
-recommended
-
-link to a _ConceptDescription_ or the concept definition in an external repository via a global ID
-
-| |supplementalSemanticId |IRDI, IRI (URI) |optional
-|xref:ConceptDescription[ConceptDescription] |id |IRDI, IRI, Custom a|
-mandatory
-
-_ConceptDescription_ needs to have a global ID. If the concept description is a copy from an external dictionary like ECLASS or IEC CDD, it may use the same global ID as it is used in the external dictionary.
-
-| |idShort |string a|
-recommended
-
-e.g. same as English short name
-
-| |displayName |multi language string |optional
-| |isCaseOf |IRDI, IRI (URI) a|
-optional
-
-links to the concept definition in an external repository, which the concept description is a copy from, or that it corresponds to
-
-|xref:Qualifier[Qualifier] |semanticId |IRDI, IRI (URI), Custom a|
-recommended
-
-Links to the qualifier type definition in an external repository
-
-IRDI, if the defined qualifier type is standardized and has been assigned an IRDI.
-
-|===
-
-==== Usage of Short ID for Identifiable Elements
-
-The Administration Shell fosters the use of worldwide unique identifiers to a large degree. However, in some cases, this may lead to inefficiencies. Example: a property, which is part of a submodel, which in turn is part of an Administration Shell, each of which is identified by global identifiers link:#bib4[[4\]].
-
-In an application featuring a resource-oriented architecture (ROA), a worldwide unique resource locator (URL) might be composed of a series of segments, which do not need to be globally unique, see Figure 6.
-
-.Motivation of Exemplary Identifiers and idShort
-image::image7.jpeg[]
-
-To allow such efficient addressing by the chaining of elements by an API of an Administration Shell, _idShort_ is provided for a set of classes of the metamodel. It inherits from the abstract class _Referable_, in order to refer to such dependent elements (see 5.1).
-
-Before accessing concrete data provided via a submodel, an application typically checks if the submodel provides the required data, i.e. the semantics of the submodel is checked for suitability. A so-called _semanticId_ should be defined for this submodel as well as the submodel element. This semantic ID helps to easily find the semantic definition of the submodel (see Clause 5.3.2).
-
-=== Matching Strategies
-
-==== Matching Strategies for Semantic Identifiers
-
-When comparing two elements, different use cases should be considered in order to define how these two elements are semantically related. This clause gives first hints on the aspects to consider when dealing with matching semantic identifiers. For example, semantic references including context information as represented in IRDI-Path in ECLASS are not yet considered. Sometimes a concept description is derived from another concept description or is identical to or at least compatible with another concept description. The metamodel foresees an attribute "isCaseOf" for such semantic IDs. However, these are not considered in the matching strategies described in this clause.
-
-*Exact Matching (identical semanticIds) – DEFAULT*
-
-* With exact matching, two semantic IDs need to be string-identical.
-** Example: Property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#002 have exactly equal semantics.
-
-*Intelligent Matching (compatible semanticIds)*
-
-* Ignore Versioning
-** With intelligent matching, different versions of a concept definition may be matched. For example, if semantic versioning is used to version the concept description, then upward or backward compatible versions can be matched.
-** Example: property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#003 have equal semantics.
-
-====
-Note: to compare two semantic IDs, knowledge about versioning needs to be available. In the example above, two IRDIs from ECLASS are compared. ECLASS rules ensure that the semantics is always backward compatible for new versions; a new IRDI would be created for breaking changes.
-====
-
-* Consider Semantic Mappings
-** Existing semantic mapping information can be considered for intelligent matching. Semantic mappings may exist within one and the same dictionary, but also between different dictionaries and ontologies.
-** Example: 0112/2///61360_4#AAE530 for nominal capacity of a battery in dictionary IEC CDD and 0173-1#02-AAI048#004 in ECLASS have equal semanticsfootnote:[Semantic mapping files are also used in ECLASS between ECLASS Classic and ECLASS Advanced: https://eclass.eu/support/technical-specification/data-model/basic-advanced-mapping] footnote:[This is the format used for semantic mapping in ECLASS: https://eclass.eu/fileadmin/Redaktion/pdf-Dateien/Wiki/ECLASSXML_3.0/ECLASS_XML/mapping.xsd].
-====
-Note: this example does not represent an existing semantic mapping; it is only a candidate.
-====
-
-====
-Note: this example does not represent an existing semantic mapping; it is only a candidate.
-====
-
-* Consider Domain Knowledge
-** With intelligent matching, domain knowledge available in machine-readable form may be taken into account, such as an "is-a"-relationship between two concept definitions.
-** Example: a Hammer drill (0173-1#01-ADS698#010) and a percussion drill (0173-1#01-ADS700#010) are drills for mineral material (0173-1#01-ADN177#005) and are compatible with a request or constraints asking for drills for mineral material.
-
-==== Matching Algorithm for References
-
-Clause 4.4.1 has discussed matching strategies for semantic identifiers. This clause explains matching strategies based on the reference concept (see Clause 5.3.10) in more detail and covers other kinds of identifying elements.
-
-For example, the string serialization of references as defined in Clause 7.2.3 is used for easier understanding.
-
-Exact matching of two references
-
-* An external reference A matches an external reference B if all values of all keys are identical.
-
-
-====
-Note: it is unlikely that a fragment value is identical to a global reference value; it will reference something different.
-====
-
-
-A model reference A matches a model reference B if all values of all keys are identical. +
-
-====
-Note: the key type can be ignored since the fragment keys are always unique (e.g. all idShorts of submodel elements in a submodel or all submodel elements in a submodel element list or collection).
-====
-
-
-* An external reference A matches a model reference B and vice versa if all values of all keys are identical.
-
-
-====
-Note: since identifiables of the Asset Administration Shell are globally unique, model references are special cases of global references. The only difference is the handling of key types that are predefined for Asset Administration Shell elements. Other key types could be predefined, e.g. for IRDI paths etc. However, so far only generic key types are supported.
-====
-
-
-
-====
-Note: if the key types are not identical although all key values follow the correct order of the key chain, then at least one of the references is buggy and a warning should be issued.
-====
-
-
-The definition of link:https://www.w3.org/TR/xmlschema-2/#terminology[XML Schema] is used for matching
-
-* "(Of string or names:) Two strings or names being compared must be identical.
-* Characters with multiple possible representations in ISO/IEC 10646 (e.g. characters with both precomposed and base+diacritic forms) match only if they have the same representation in both strings.
-* No case folding is performed.
-* (Of strings and rules in the grammar:) A string matches a grammatical production if it belongs to the language generated by that production."
-
-[.underline]#Examples for matching external referencesfootnote:[The example only contains arbitrary IRDIs and does not represent a real-world example.]:#
-
-*(GlobalReference)0173-1#01-ADS698#010, (GlobalReference)0173-1#01-ADS700#010*
-
-matches
-
-*(GlobalReference 0173-1#01-ADS698#010, (FragmentReference)0173-1#01-ADS700#010*
-
-[.underline]#Examples for non-matching external references:#
-
-*(GlobalReference)\https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, +
-(FragmentReference)Bibliography*
-
-does not match
-
-*(GlobalReference)\https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, +
-(FragmentReference)Bibliographie*
-
-[.underline]#Examples for matching model references:#
-
-Although these two model references would match according to the matching rules, other rules are violated, i.e. that the ID of the submodel is unique. If the ID of a submodel is unique, it is not possible that there are two direct submodel element children with the same name (here: Specification). It is also not possible two different versions of the same submodel are compared here, because we would then assume that the ID also contains the version information (see Clause 5.3.2.2). The matching algorithm would still identify these two model references as matching although one of them is buggy.
-
-*(Submodel)\https://example.com/aas/1/1/1234859590, (File)Specification*
-
-*(Submodel)\https://example.com/aas/1/1/1234859590, (Blob)Specification*
-
-[.underline]#Examples for matching model and external references:#
-
-*(Submodel)\https://example.com/aas/1/1/1234859590*
-
-is identical to
-
-*(GlobalReference)\https://example.com/aas/1/1/1234859590*
-
-*(Submodel)\https://example.com/aas/1/1/1234859590, (File)Specification (FragmentReference)Bibliography*
-
-is identical to
-
-*(GlobalReference)\https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, +
-(FragmentReference)Bibliography*
-
-=== Submodel Instances and Templates
-
-==== Can New or Proprietary Submodels be Formed?
-
-It is in the interest of Industry 4.0 for as many submodels as possible, including free and proprietary submodels, to be formed (see link:#bib4[[4\]], "Free property sets"). A submodel can be formed at any time for a specific Administration Shell of an asset. The provider of the Administration Shell can form in-house identifiers for the type and instance of the submodel in line with Clause 4.3. All I4.0 systems are called on to ignore submodels and properties that are not individually known. Hence, it is always possible to deposit proprietary – e.g. manufacturer-specific or user-specific – information, submodels, or properties in an Administration Shell.
-
-
-====
-Note: it is the intention of the Administration Shell to include proprietary information, e.g. to link to company-wide identification schemes or information required for company-wide data processing. This way, a single infrastructure can be used to transport standardized and proprietary information at the same time. New information elements can also be conveyed and introduced (and standardized at a later stage).
-====
-
-
-==== Creating a Submodel Instance Based on an Existing Submodel Template
-
-A public specification of a submodel template (e.g. via publication by Plattform Industrie 4.0) should be available to instantiate an existing submodel template. In special cases, a submodel can also be instantiated from a non-public submodel template, such as a manufacturer specification.
-
-In November 2020, the first two submodel templates for the Asset Administration Shell were published, one for a nameplate link:#bib40[[40\]] and one for generic technical data link:#bib39[[39\]]. Others followed and will follow. Please see link:#bib45[[45\]] for an overview of registered submodel templates.
-
-The identifiers of concept definitions to be used as semantic references are already predefined in each submodel template. An instantiation of such a submodel merely requires the creation of properties with a semantic reference to the property definition and an attached value. The same applies to other subtypes of submodel elements.
-
-The only thing that cannot be defined in the template itself is the unique ID of the submodel instance itself (it is not identical to the ID of the submodel template), as well as the property values, etc. Templates also define cardinalities, for example whether an element is optional or not. Submodel element lists typically contain more than one element: the template contains an exemplary element template; the other elements can be created by copy/paste from this template.
-
-=== Events
-
-====  Overview
-
-Events are a very versatile mechanism of the Asset Administration Shell. The following subclauses describe some use cases for events. They summarize different types of events to depict requirements, introduce a _SubmodelElement_ “_Event_" to enable declaration of events of an Asset Administration Shell. Further, the general format of event messages is specified.
-
-
-====
-Note: the concept of event is still in the experimental phase. Please be aware that backward compatibility cannot be ensured for future versions of the metamodel.
-====
-
-
-====  Brief Use Cases for Events Used in Asset Administration Shells
-
-* Event use cases are briefly outlined in the following (see also ):
-
-image::image8.jpeg[]
-
-* An integrator has purchased a device. Later in time, the supplier of the device provides a new firmware. The integrator wants to detect the offer of a new firmware and wants to update the firmware after evaluating its suitability ("forward events"). A dependent Asset Administration Shell ("D4") detects events from a parent or type Asset Administration Shell ("D1"), which is described by the _derivedFrom_ relation. An illustration of the use case is given in Figure 7.
-* An integrator/operator operates a motor purchased from a supplier. During operation, condition monitoring incidents occur. Both parties agree on a business model providing availability. The supplier wants to monitor device statuses which are located further in the value chain ("reverse events"). An illustration of the use case is given in Figure 7.
-
-.Forward and Reverse Events
-image::image8.jpeg[]
-
-* An operator is operating a certain I4.0 component over time. Changes that occasionally occur to these I4.0 components from different systems shall be tracked for documentation and auditing purposes. This can be achieved by recording events over time. An illustration of the use case is given in Figure 8.
-
-.Tracking of Changes via Events
-image::image9.jpeg[]
-
-* An operator is operating different I4.0 components, which are deployed to manufacturer clouds. The operator wants to integrate data from these components, according to DIN SPEC 92222. For this purpose, information needs to be forwarded to the operator cloud ("value push"). An illustration of the use case is given in Figure 9.
-
-.Value Push Events Across Clouds
-image::image10.jpeg[]
-
-====  Input and Output Directions of Events
-
-We can distinguish between incoming and outgoing events. See Table 3 for more information on the event directions.
-
-.Directions of Events
-[cols="32%,68%",options="header",]
-|===
-|*Direction* |*Description*
-|Out |The event is monitoring the _Referable_ it is attached to. An outer message infrastructure, e.g. by OPC UA, MQTT or AMQP, will transport these events to other Asset Administration Shells, further outer systems and users.
-|In |The software entity, which implements the respective _Referable_, can handle incoming events. These incoming events will be delivered by an outer message infrastructure, e.g. OPC UA, MQTT or AMQP, to the software entity of the _Referable_.
-|===
-
-==== Types of Events
-
-The uses cases described in Clause 4.6.2 need different types of events. Each event type is identified by a _semanticId_ and features a specialized payload.
-
-Table 4 gives an overview of types of events. The possible directions of an event are described in Clause 4.6.3.
-
-.Types of Events
-[cols="26%,12%,62%",options="header",]
-|===
-|*Group* |*Direction* |*Motivation / Conditions*
-|Structural changes of the Asset Administration Shell |Out a|
-* CRUDfootnote:[Create, Retrieve, Update, Delete] of Submodels, Assets, SubmodelElements, etc.
-
-| |In a|
-* Detect updates on parent/type/_derivedFrom_ Asset Administration Shell
-
-|Updates of properties and dependent attribute |Out a|
-* update of values of SubmodelElements
-* time-stamped updates and time series updates
-* explicit triggering of an update event
-
-|Operation element of Asset Administration Shell |Out a|
-* monitoring of (long-lasting) execution of _OperationElement_ and updating events during execution
-
-|Monitoring, conditional, calculated events |Out a|
-* e.g. when voiding some limits (e.g. stated by Qualifiers with expression semantics)
-
-|Infrastructure events |Out a|
-* Booting, shutdown, out of memory, etc. of software entity of respective Referable (Asset Administration Shell, Submodel)
-
-|Repository events |In/ Out a|
-* Change of semantics of IRDIs (associated concept definition)
-
-|Security events |Out a|
-* logging events
-* access violations, unfitting roles and rights, denial of service, etc.
-
-|Alarms and events |Out a|
-* alarms and events management analog to distributed control systems (DCS)
-
-|===
-
-*Custom Event Types*
-
-Custom event types can be defined by using a proprietary, but worldwide unique, semanticId for this event type. Such customized events can be sent or received by the software entity of the respective referable, based on arbitrary conditions, triggers, or behavior. While the general format of the event messages needs to comply with this specification, the payload might be completely customized.
-
-*Event Scopes*
-
-Events can be stated with an _observableReference_ to the _Referables_ of Asset Administration Shell, __Submodel__s, and _SubmodelElements._ These _Referables_ define the scope of the events, which are to be received or sent. +
-Table 5 describes the different scopes of an event.
-
-.Event Scopes
-[cols="32%,68%",options="header",]
-|===
-|*Event attached to ...* |*Scope*
-|xref:AssetAdministrationShell[AssetAdministrationShell] |This event monitors/represents all logical elements of an Administration Shell, such as _AssetAdministrationShell, AssetInformation, Submodels_.
-|xref:Submodel[Submodel] |This event monitors/represents all logical elements of the respective _Submodel_ and all logical dependents.
-|xref:SubmodelElementList[SubmodelElementList] and xref:SubmodelElementCollection[SubmodelElementCollection] and xref:Entity[Entity] |This event monitors/represents all logical elements of the respective _SubmodelElementCollection, SubmodelElementList or Entity_ and all logical dependents (value or statement resp.).
-|xref:SubmodelElement[SubmodelElement] (others) |This event monitors/represents a single atomic _SubmodelElement_, e.g. a data element which might include the contents of a _Blob_ or _File_.
-|===
 
 == The Information Metamodel of the Asset Administration Shell (normative)
 
@@ -812,6 +174,7 @@ Administrative metainformation for an element like version information
 {aasd005}
 
 |Inherits from: |xref:HasDataSpecification[HasDataSpecification]
+|ID: | `\https://admin-shell.io/aas/3/0/AdministrativeInformation`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -854,6 +217,7 @@ image::image15.png[]
 |Class: |[[HasDataSpecification]]HasDataSpecification \<<abstract>>
 |Explanation: |Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. The data specifications used are explicitly specified with their global ID.
 |Inherits from: |--
+|ID: | `\https://admin-shell.io/aas/3/0/HasDataSpecification`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -898,6 +262,7 @@ Note 2: extensions are proprietary, i.e. they do not support global interoperabi
 
 
 |Inherits from: |-
+|ID: | `\https://admin-shell.io/aas/3/0/HasExtensions`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -905,12 +270,15 @@ Note 2: extensions are proprietary, i.e. they do not support global interoperabi
 |extension |An extension of the element. |xref:Extension[Extension] |0..*
 |===
 
+
+
 [.table-with-appendix-table]
 [cols="25%h,75%"]
 |===
 |Class: |[[Extension]]Extension
 |Explanation: |Single extension of an element
 |Inherits from: |xref:HasSemantics[HasSemantics]
+|ID: | `\https://admin-shell.io/aas/3/0/Extension`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -944,6 +312,7 @@ Default for an element is that it is representing an instance.
 
 
 |Inherits from: |--
+|ID: | `\https://admin-shell.io/aas/3/0/HasKind`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -964,6 +333,7 @@ The kind enumeration is used to denote whether an element is of kind _Template_ 
 |Enumeration: |[[ModellingKind]]ModellingKind
 |Explanation: |Enumeration for denoting whether an element is a template or an instance
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/0/ModellingKind`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -990,6 +360,7 @@ Element that can have a semantic definition plus some supplemental semantic defi
 
 
 |Inherits from: |--
+|ID: | `\https://admin-shell.io/aas/3/0/HasSemantics`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1044,6 +415,7 @@ Note: see Clause 5.3.12.2 for constraints related to identifiables.
 
 
 |Inherits from: |xref:Referable[Referable]
+|ID: | `\https://admin-shell.io/aas/3/0/Identifiable`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1081,6 +453,7 @@ Note: see Clause 5.3.12.3 for constraints related to qualifiables.
 
 
 |Inherits from: |--
+|ID: | `\https://admin-shell.io/aas/3/0/Qualifiable`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1114,6 +487,7 @@ A qualifier is essentially a type-value-pair. Depending on the kind of qualifier
 
 
 |Inherits from: |xref:HasSemantics[HasSemantics]
+|ID: | `\https://admin-shell.io/aas/3/0/Qualifier`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1147,6 +521,7 @@ It is recommended to add a _semanticId_ for the concept of the _Qualifier_. _Qua
 |Enumeration: |[[QualifierKind]]QualifierKind
 |Explanation: |Enumeration for kinds of qualifiers
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/0/QualifierKind`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -1208,6 +583,7 @@ Note 2: see Clause 5.3.12.2 for constraints related to referables.
 
 
 |Inherits from: |xref:HasExtensions[HasExtensions]
+|ID: | `\https://admin-shell.io/aas/3/0/Referable`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1304,6 +680,7 @@ The _derivedFrom_ attribute is used to establish a relationship between two Asse
 |Class: |[[AssetAdministrationShell]]AssetAdministrationShell
 |Explanation: |An Asset Administration Shell
 |Inherits from: |xref:Identifiable[Identifiable]; xref:HasDataSpecification[HasDataSpecification]]
+|ID: | `\https://admin-shell.io/aas/3/1/AssetAdministrationShell`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1348,11 +725,12 @@ Note: see Clause 5.3.12.5 for constraints related to asset information.
 
 
 |Inherits from: |--
+|ID: | `\https://admin-shell.io/aas/3/1/AssetInformation`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
 |Attribute |Explanation |Type |Card.
-|assetKind |Denotes whether the _Asset_ is of kind "Type" or "Instance" |xref:AssetKind[AssetKind]|1
+|assetKind |Denotes whether the _Asset_ is of kind "Type", Instance", "Role" or non of these types is applicable |xref:AssetKind[AssetKind]|1
 |globalAssetId a|
 Identifier of the asset the Asset Administration Shell is representing
 
@@ -1385,6 +763,7 @@ Note: besides this asset information, there still might be an identification sub
 |Class: |[[Resource]]Resource
 |Explanation: |Resource represents an address to a file (a locator). The value is a URI that can represent an absolute or relative path.
 |Inherits from: |--
+|ID: | `\https://admin-shell.io/aas/3/0/Resource`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1410,6 +789,7 @@ The content type states which file extensions the file can have.
 |Explanation: |Enumeration for denoting whether an asset is a type asset or 
 an instance asset or is a role or whether this kind of classification is not applicable
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/1/AssetKind`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -1433,6 +813,7 @@ A specific asset ID describes a generic supplementary identifying attribute of t
 
 
 |Inherits from: |xref:HasSemantics[HasSemantics]
+|ID: | `\https://admin-shell.io/aas/3/0/SpecificAssetId`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1491,6 +872,7 @@ A submodel is used to structure the digital representation and technical functio
 
 
 |Inherits from: |xref:Identifiable[Identifiable]; xref:HasKind[HasKind]; xref:HasSemantics[HasSemantics]; xref:Qualifiable[Qualifiable]; xref:HasDataSpecification[HasDataSpecification]
+|ID: | `\https://admin-shell.io/aas/3/0/Submodel`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1515,6 +897,7 @@ Submodel elements may also have defined data specification templates. A template
 |Class: |[[SubmodelElement]]SubmodelElement \<<abstract>>
 |Explanation: |A submodel element is an element suitable for the description and differentiation of assets.
 |Inherits from: |xref:Referable[Referable]; xref:HasSemantics[HasSemantics]; xref:Qualifiable[Qualifiable]; xref:HasDataSpecification[HasDataSpecification]
+|ID: | `\https://admin-shell.io/aas/3/0/SubmodelElement`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1545,6 +928,7 @@ An annotated relationship is a relationship similar to a ternary association in 
 |Class: |[[AnnotatedRelationshipElement]]AnnotatedRelationshipElement
 |Explanation: |An annotated relationship element is a relationship element that can be annotated with additional data elements.
 |Inherits from: |xref:RelationshipElement[RelationshipElement]
+|ID: | `\https://admin-shell.io/aas/3/0/AnnotatedRelationshipElement`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1563,6 +947,7 @@ image::image30.png[]
 |Class: |[[BasicEventElement]]BasicEventElement \<<Experimental>>
 |Explanation: |A basic event element
 |Inherits from: |xref:EventElement[EventElement]
+|ID: | `\https://admin-shell.io/aas/3/0/BasicEventElement`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1616,6 +1001,7 @@ Might not be specified, i.e. if there is no maximum interval.
 |Enumeration: |[[Direction]]Direction \<<Experimental>>
 |Explanation: |Direction
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/0/Direction`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -1630,6 +1016,7 @@ Might not be specified, i.e. if there is no maximum interval.
 |Enumeration: |[[StateOfEvent]]StateOfEvent \<<Experimental>>
 |Explanation: |State of an event
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/0/StateOfEvent`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -1656,6 +1043,7 @@ image::image31.png[]
 |Class: |[[EventPayload]]EventPayload \<<Experimental>>
 |Explanation: |Defines the necessary information of an event instance sent out or received
 |Inherits from: |-
+|ID: | `\https://admin-shell.io/aas/3/0/EventPayload`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1712,6 +1100,7 @@ For information on content type, see Clause 5.3.7.9 on submodel element "File".
 |Class: |[[Blob]]Blob
 |Explanation: |A Blob is a data element representing a file that is contained in the value attribute with its source code.
 |Inherits from: |xref:DataElement[DataElement]
+|ID: | `\https://admin-shell.io/aas/3/0/Blob`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1755,6 +1144,7 @@ Note: the _semanticId_ of a capability is typically an ontology, which enables r
 |Class: |[[Capability]]Capability
 |Explanation: |A capability is the implementation-independent description of the potential of an asset to achieve a certain effect in the physical or virtual world.
 |Inherits from: |xref:SubmodelElement[SubmodelElement]
+|ID: | `\https://admin-shell.io/aas/3/0/Capability`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1791,6 +1181,7 @@ Note: categories are deprecated and should no longer be used.
 
 
 |Inherits from: |xref:SubmodelElement[SubmodelElement]
+|ID: | `\https://admin-shell.io/aas/3/0/DataElement`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1815,6 +1206,7 @@ An entity is a submodel element that is used to model entities.
 
 
 |Inherits from: |xref:SubmodelElement[SubmodelElement]
+|ID: | `\https://admin-shell.io/aas/3/0/Entity`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1831,6 +1223,7 @@ An entity is a submodel element that is used to model entities.
 |Enumeration: |[[EntityType]]EntityType
 |Explanation: |Enumeration for denoting whether an entity is a self-managed entity or a co-managed entity
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/0/EntityType`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -1854,6 +1247,7 @@ image::image36.png[]
 |Class: |[[EventElement]]EventElement \<<abstract>> \<<Experimental>>
 |Explanation: |An event element
 |Inherits from: |xref:SubmodelElement[SubmodelElement]
+|ID: | `\https://admin-shell.io/aas/3/0/EventElement`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1883,6 +1277,7 @@ A relative path, relative to the package root, should be used if the file is par
 |Class: |[[File]]File
 |Explanation: |A file is a data element that represents an address to a file (a locator). The value is a URI that can represent an absolute or relative path.
 |Inherits from: |xref:DataElement[DataElement]
+|ID: | `\https://admin-shell.io/aas/3/0/File`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1914,6 +1309,7 @@ A property is a data element that has a multi-language value.
 
 
 |Inherits from: |xref:DataElement[DataElement]
+|ID: | `\https://admin-shell.io/aas/3/0/MultiLanguageProperty`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1947,6 +1343,7 @@ An operation is a submodel element with input and output variables.
 
 
 |Inherits from: |xref:SubmodelElement[SubmodelElement]
+|ID: | `\https://admin-shell.io/aas/3/0/Operation`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -1962,6 +1359,7 @@ An operation is a submodel element with input and output variables.
 |Class: |[[OperationVariable]]OperationVariable
 |Explanation: |The value of an operation variable is a submodel element that is used as input and/or output variable of an operation.
 |Inherits from: |--
+|ID: | `\https://admin-shell.io/aas/3/0/OperationVariable`
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -2003,6 +1401,7 @@ A property is a data element that has a single value.
 
 
 |Inherits from: |xref:DataElement[DataElement]
+|ID: | `\https://admin-shell.io/aas/3/0/Property`
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -2032,6 +1431,7 @@ image::image41.png[]
 |Class: |[[Range]]Range \<<Experimental>>
 |Explanation: |A range data element is a data element that defines a range with min and max.
 |Inherits from: |xref:DataElement[DataElement]
+|ID: | `\https://admin-shell.io/aas/3/0/Range`  
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -2062,6 +1462,7 @@ image::image42.png[]
 |Class: |[[ReferenceElement]]ReferenceElement
 |Explanation: |A reference element is a data element that defines a logical reference to another element within the same or another Asset Administration Shell or a reference to an external object or entity.
 |Inherits from: |xref:DataElement[DataElement]
+|ID: | `\https://admin-shell.io/aas/3/0/ReferenceElement`
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -2082,6 +1483,7 @@ image::image43.png[]
 |Class: |[[RelationshipElement]]RelationshipElement
 |Explanation: |A relationship element is used to define a relationship between two elements being either referable (model reference) or external (external reference).
 |Inherits from: |xref:SubmodelElement[SubmodelElement]
+|ID: | `\https://admin-shell.io/aas/3/0/RelationshipElement`
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -2117,6 +1519,7 @@ Note: the elements within a submodel element collection are not ordered. Every e
 |Class: |[[SubmodelElementCollection]]SubmodelElementCollection
 |Explanation: |A submodel element collection is a kind of struct, i.e. a logical encapsulation of multiple named values.
 |Inherits from: |xref:SubmodelElement[SubmodelElement]
+|ID: | `\https://admin-shell.io/aas/3/0/SubmodelElementCollection`
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -2170,6 +1573,7 @@ The numbering starts with Zero (0).
 
 
 |Inherits from: |xref:SubmodelElement[SubmodelElement]
+|ID: | `\https://admin-shell.io/aas/3/0/SubmodelElementList`
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -2211,6 +1615,7 @@ The description of the concept should follow a standardized schema (realized as 
 
 
 |Inherits from: |xref:Identifiable[Identifiable]; xref:HasDataSpecification[HasDataSpecification]
+|ID: | `\https://admin-shell.io/aas/3/0/ConceptDescription`
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -2254,6 +1659,7 @@ Note: _Environment_ is not an identifiable or referable element. It is introduce
 |Class: |[[Environment]]Environment
 |Explanation: |Container for the sets of different identifiables
 |Inherits from: |xref:Reference[Reference]
+|ID: | `\https://admin-shell.io/aas/3/0/Environment`
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -2297,6 +1703,7 @@ An external reference is a reference to an external entity.
 
 
 |Inherits from: |--
+|ID: | `\https://admin-shell.io/aas/3/0/Reference`
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -2332,6 +1739,7 @@ Note 2: it is recommended to use an external reference for the semantic ID expec
 |Enumeration: |[[ReferenceTypes]]ReferenceTypes
 |Explanation: |Enumeration for denoting whether an element is an external or model reference
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/0/ReferenceTypes`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -2362,6 +1770,7 @@ image::image51.png[]
 |Class: |[[Key]]Key
 |Explanation: |A key is a reference to an element by its ID
 |Inherits from: |--
+|ID: | `\https://admin-shell.io/aas/3/0/Key`
 |===
 [cols="25%,40%,25%,10%",options="header"]
 |===
@@ -2390,6 +1799,7 @@ image::image52.png[]
 |Enumeration: |[[KeyTypes]]KeyTypes
 |Explanation: |Enumeration of different key value types within a key
 |Set of: |FragementKeys; xref:AasReferables[AasReferables], xref:GloballyIdentifiables[GloballyIdentifiables]
+|ID: | `\https://admin-shell.io/aas/3/0/KeyTypes`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -2470,6 +1880,7 @@ Note: not used as type but in constraints.
 
 
 |Set of: |xref:AasReferableNonIdentifiables[AASReferableNonIdentifiables], xref:GenericFragmentKeys[GenericFragmentKeys]
+|ID: | `\https://admin-shell.io/aas/3/0/FragmentKeys`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -2532,6 +1943,7 @@ Note: not used as type but in constraints.
 
 
 |Set of: |xref:AasIdentifiables[AasIdentifiables], xref:GenericGloballyIdentifiables[GenericGloballyIdentifiables]
+|ID: | `\https://admin-shell.io/aas/3/0/GloballyIdentifiables`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -2565,6 +1977,7 @@ Note: not used as type but in constraints.
 
 
 |Set of: |xref:AasSubmodelElements[AasSubmodelElements]
+|ID: | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -2618,6 +2031,7 @@ Note: submodel elements are abstract, i.e. if a key uses "SubmodelElement", the 
 |Enumeration: |[[AasSubmodelElements]]AasSubmodelElements |
 |Explanation: |Enumeration of different fragment key value types within a key |
 |Set of: |-- |
+|ID: | `\https://admin-shell.io/aas/3/0/AasSubmodelElements`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -2679,6 +2093,7 @@ Note: not used as type but in constraints.
 
 
 |Set of: |xref:AasReferableNonIdentifiables[AASReferableNonIdentifiables], xref:AasIdentifiables[AasIdentifiables]
+|ID: | `\https://admin-shell.io/aas/3/0/AasReferables`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -2761,6 +2176,7 @@ Note: not used as type but in constraints.
 
 
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/0/GenericFragmentKeys`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -2782,6 +2198,7 @@ Note: not used as type but in constraints.
 
 
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/0/AasIdentifiables`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -2806,6 +2223,7 @@ Note: Identifiables are abstract, i.e. if a key uses "Identifiable", the referen
 |Enumeration: |[[GenericGloballyIdentifiables]]GenericGloballyIdentifiables
 |Explanation: |Enumeration of different key value types within a key
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/0/GenericGloballyIdentifiables`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -3374,6 +2792,7 @@ Enumeration listing all xsd anySimpleTypes
 For more details see https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes
 
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/0/DataTypeDefXsd`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -3416,6 +2835,7 @@ For more details see https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes
 |Enumeration: |[[DataTypeDefRdf]]DataTypeDefRdf
 |Explanation: |Enumeration listing all RDF types
 |Set of: |--
+|ID: | `\https://admin-shell.io/aas/3/0/DataTypeDefRdf`  
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -3487,193 +2907,10 @@ Note: The semanticId of a SpecificAssetId with the predefined name "gloablAssetI
 
 Constraint AASd-130 ensures that encoding and interoperability between different serializations is possible. It corresponds to the restrictions as defined for the XML Schema 1.0footnote:[https://www.w3.org/TR/xml/#charsets].
 
-== Data Specification Templates (normative)
 
-include::IDTA-01001_DataSpecifications.adoc[]
 
-== Mappings to Data Formats to Share I4.0-Compliant Information (normative)
 
-=== General
 
-It is crucial for Industry 4.0 applications to share information between different systems throughout the areas covered by the entire RAMI4.0 model link:#bib1[[1\]] link:#bib2[[2\]]. OPC UA is a frequently used format for information models in the domain of production operations, but there is a need for other formats for further areas and the relationships between them.
 
-This document specifies the Asset Administration Shell in a technology-neutral format, UML. Different data formats are used or recommended to be used in the different life cycle phases of a productfootnote:[The word “data formats” is used as shortcut and includes the use of conceptual advantages such as information models, schemes, transmission protocols, etc.]. Serializations and mappings of the Asset Administration Shell are provided to cover the complete life cycle of each of these formats. Figure 57.
-
-Table 10 explains the main purpose of each of the formats: OPC UA information modelsfootnote:[OPC UA Information Models should not be mixed up with the Client/Server or Pub/Sub Protocol of OPC UA. This would belong to the communication but not to the Asset Administration Shell representation layer.], AutomationML, XML, JSON, and RDF. The different purposes are visualized in Figure 57.
-
-.Distinction of Different Data Formats for the Asset Administration Shell
-[cols="21%,79%",options="header",]
-|===
-|Data format |Purpose / motivation
-|XML, JSON |Serialization of information for the technical communication between phases
-|RDF |Mapping of information to enable full use of the advantages of semantic technologies
-|AutomationML |Sharing of type and instance information about assets, particularly during engineering; transfer of this information into the operational phase (cf. OPC UA and the corresponding mapping)
-|OPC UA Information models |Access to all information of the administration data and sharing of live data within production operations; access for higher-level factory systems to this information
-|===
-
-.Graphic View on Exchange Data Formats for the Asset Administration Shellfootnote:[Only data formats considered in this document so far are mentioned in the figure.]
-image::image58.jpeg[]
-
-
-====
-Note: the mapping specifications and schemata themselves are not part of the specification any longer but maintained open source. This eases usage of the specification and the different formats in open-source code projects.
-====
-
-
-===  General Rules
-
-====  Introduction
-
-There are some general rules that apply to all serializations or can be used in different serializations.
-
-====  Encoding
-
-Blobs require the following encoding: base64 string.
-
-====  Serialization of Values of Type "Reference"
-
-include::IDTA-01001_GrammarSerializationReference.adoc[]
-
-
-====  Semantic Identifiers for Metamodel and Data Specifications
-
-include::IDTA-01001_GrammarSemanticIdsMetamodel.adoc[]
-
-
-====  Embedded Data Specifications
-
-include::IDTA-01001_EmbeddedDataSpecifications.adoc[]
-
-
-===  XML
-
-The metamodel of an Asset Administration Shell needs to be serialized for import and export scenarios. XML is a possible serialization format.
-
-eXtensible Markup Language (XMLfootnote:[see: https://www.w3.org/TR/2008/REC-xml-20081126/]) is very well suited to derive information from an IT system, e.g. to process it manually and then feed it into another IT system. It meets the needs of the information sharing scenario defined in the leading picture in Clause 4.1. XML provides the possibilities of scheme definitions, which can be used to syntactically validate the represented information in each step.
-
-
-====
-Note 1: the xml schema (.xsd files) is maintained in the repository "aas-specs" of the github project admin-shell-io link:#bib51[[51\]]: aas-specs-3.0\schemas\xml
-====
-
-
-
-====
-Note 2: the mapping rules of how to derive the xml schema from the technology-neutral metamodel as defined in this specification can be found here: aas-specs-3.0\schemas\xml\Readme.md#xml-mappingrules
-====
-
-
-
-====
-Note 3: example files can be found here: aas-specs-3.0\schemas\xml\examples
-====
-
-
-===  JSON
-
-JSONfootnote:[see: https://tools.ietf.org/html/rfc8259 or https://www.ecma-international.org/publications/standards/Ecma-404.htm] (JavaScript Object Notation) is a further serialization format that serializes the metamodel of an Asset Administration Shell for import and export scenarios.
-
-Additionally, JSON format is used to describe the payload in the http/REST API for active Asset Administration Shells link:#bib37[[37\]].
-
-
-====
-Note 1: the JSON schema (.json files) is maintained in the repository "aas-specs" of the github project admin-shell-io link:#bib51[[51\]]: aas-specs-3.0\schemas\json
-====
-
-
-
-====
-Note 2: the mapping rules of how to derive the JSON schema from the technology-neutral metamodel as defined in this specification can be found here: aas-specs-3.0\schemas\json\Readme.md#json-mappingrules
-====
-
-
-
-====
-Note 3: example files can be found here: aas-specs-3.0\schemas\json\examples
-====
-
-
-===  RDF
-
-The Resource Description Framework (RDF) link:#bib32[[32\]] is the recommended standard of the W3C to unambiguously model and present semantic data. RDF documents are structured in the form of triples, consisting of subjects, relations, and objects. The resulting model is often interpreted as a graph, with the subject and object elements as the nodes and the relations as the graph edges.
-
-RDF is closely related to web standards, illustrated by the fact that all elements are encoded using (HTTP-)IRIs. As a common practice, the provision of additional information at the referenced location of an RDF entity directly allows the interlinking of entitiesfootnote:[Note: entity as a generic term and entity as a specific submodel element subtype need tobe distinugished.] based on the web. This process – following links in order to discover related information – is called dereferencing a resource and is supported by any browser or web client. Connecting distributed data sources through the web in the described manner is referred to by the term “Linked Data”. Connecting the available resources and capabilities of linked data with the expressiveness of the Asset Administration Shell is one motivation for the RDF serialization.
-
-In addition, RDF is the basis of a wide range of logical inference and reasoning techniques. Vocabularies like RDF Schema (RDFS) and the Web Ontology Language (OWL) combine the graph-based syntax of RDF with formal definitions and axioms. This allows automated reasoners to understand the relation between entities to some extent and draw conclusions.
-
-Combining both features, the RDF mapping of the Asset Administration Shell can provide the basis for complex queries and requests. SPARQL, the standard query language for the Semantic Web, can combine reasoning features with the integration of external data sources. In order to benefit of these abilities, the Asset Administration Shell requires a clear scheme of its RDF representation.
-
-
-====
-Note 1: the RDF scheme/OWL files (.ttl files) are maintained in the repository "aas-specs" of the github project admin-shell-io link:#bib51[[51\]]: aas-specs-3.0\schemas\rdf
-====
-
-
-
-====
-Note 2: the mapping rules of how to derive the RDF schema from the technology-neutral metamodel as defined in this specification can be found here: aas-specs-3.0\schemas\rdf\Readme.md#rdf-mappingrules
-====
-
-
-
-====
-Note 3: example files can be found here: aas-specs-3.0\schemas\rdf\examples
-====
-
-
-===  AutomationML
-
-AutomationML (IEC 62714) is especially suited for serializing the import and export scenarios of the metamodel of an Asset Administration Shell in the engineering phase.
-
-In general, the serialization approach is to map each object of the Asset Administration Shell metamodel to an AutomationML Role Class or to an AutomationML Role Class accompanied by an AutomationML Interface Class. This role class and (if applied) interface class also define the required attributes in AutomationML.
-
-Asset Administration Shells themselves shall be modelled as AutomationML System Unit Classes or as Internal Elements within an Instance Hierarchy depending of the kind information of type and instance.
-
-For the role classes and interface classes that are required for serialization, an AutomationML Role Class Library resp. an Interface Class Library are defined and provided to the public.
-
-One of the goals is to ensure that the AutomationML model of the Asset Administration Shell can be used as a stand-alone AutomationML model, as well as in combination with existing AutomationML models such as the upcoming AutomationML Component Description. Therefore, the definition of the serialization approach defined in this clause is incorporated with the AutomationML definitions and applies the AutomationML technology definitions available on https://www.automationml.org/o.red.c/dateien.html.
-
-link:#bib28[[28\]] is the AutomationML application recommendation for the Asset Administration Shell (AR AAS).
-
-
-====
-Note 1: the mapping of the Asset Administration Shell to AutomationML is carried out in a joint working group between AutomationML e.V. and Plattform Industrie 4.0.
-====
-
-
-
-====
-Note 2: the resulting application recommendation (AR 004E) "Asset Administration Shell (AAS) Representation" link:#bib28[[28\]] can be found here: https://www.automationml.org/download-archive/, together with .aml files
-====
-
-
-===  OPC UA
-
-OPC UA is suited for the operating phase of Asset Administration Shellsfootnote:[OPC UA is used for several purposes in the context of Industry 4.0. In this document, however, the focus is on Asset Administration Shell representation only.] and especially applicable in case of machine-to-machine communication. The information model link:#bib42[[42\]] is the basis for the definition of so-called OPC UA Information Models, or OPC UA Companion Specifications link:#bib43[[43\]].
-
-Note1 : the mapping to the OPC UA are carried out in a joint working groupfootnote:[see: https://opcfoundation.org/collaboration/i4aas/] "I4AAS" between OPC Foundation, ZVEI and VDMA (https://opcfoundation.org/markets-collaboration/I4AAS/ link:#bib30[[30\]].
-
-
-====
-Note 2: the different versions of the OPC UA Companion Specification for I4AAS can be found here: https://reference.opcfoundation.org/%3cversion%3e/I4AAS/%3cversion%3e/docs/[https://reference.opcfoundation.org/<version>/I4AAS/<version>/docs/], e.g. https://reference.opcfoundation.org/v104/I4AAS/v100/docs/ for release 1.00 link:#bib41[[41\]].
-====
-
-== Summary and Outlook
-
-This document has defined the metamodel for the structural viewpoint of the Asset Administration Shell using the technology-neutral modelling language UML.
-
-Several serializations and mappings are offered for the Asset Administration Shell based on this specification:
-
-* XML and JSON for Exchange between partners via the exchange format _.aasx,_
-* RDF for reasoning,
-* AutomationML for the engineering phase,
-* OPC UA for the operation phase.
-
-Additional parts of the document series cover (see link:#bib37[[37\]]):
-
-* interfaces and APIs for accessing the information of Asset Administration Shells (access, modify, query, and execute information and active functionality), Part 2; the payload of these APIs is based on the definitions of the information model in this document, Part 1,
-* predefined data specification templates (Part 3 series), for example for concept descriptions of properties conformant to IEC61360 (Part 3a),
-* the infrastructure, which hosts and interconnects multiple Asset Administration Shells, implementing registry, discovery services, endpoint handling, and more,
-* security aspects including access control, Part 4.
 
 
