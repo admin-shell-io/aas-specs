@@ -17,11 +17,10 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 :toc-title: Specification of the Asset Administration Shell. Part 1: Metamodel
 :sectlinks:
 :sectnums:
-:imagesdir: ../images/
 :nofooter:
 
 
-include::../../Constraints/constraints.adoc[]
+include::IDTA-01001_Constraints.adoc[]
 
 
 
@@ -2348,8 +2347,9 @@ image::image49.png[]
 
 Keys are used to define references (_Reference_).
 
-Figure 49 presents a logical model of key types. These logical enumerations are used to formulate constraints.
+<<model_for_refs_keys>> presents a logical model of key types. These logical enumerations are used to formulate constraints.
 
+[#model_for_refs_keys]
 .Logical Model for Keys of References (non-normative)
 image::image50.png[]
 
@@ -2469,7 +2469,7 @@ Note: not used as type but in constraints.
 ====
 
 
-|Set of: |xref:AASReferableNonIdentifiables[AASReferableNonIdentifiables], xref:GenericFragmentKeys[GenericFragmentKeys]
+|Set of: |xref:AasReferableNonIdentifiables[AASReferableNonIdentifiables], xref:GenericFragmentKeys[GenericFragmentKeys]
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -2678,7 +2678,7 @@ Note: not used as type but in constraints.
 ====
 
 
-|Set of: |xref:AASReferableNonIdentifiables[AASReferableNonIdentifiables], xref:AasIdentifiables[AasIdentifiables]
+|Set of: |xref:AasReferableNonIdentifiables[AASReferableNonIdentifiables], xref:AasIdentifiables[AasIdentifiables]
 |===
 [cols="30%,70%"],options="header"]
 |===
@@ -2846,7 +2846,7 @@ identifiers for the corresponding resource referenced.
 {aasd128}
 
 In the following examples for valid und invalid model references and external references are given.
-The notation follows the grammar as defined in section xref:#trueserialization-of-values-of-type-reference[].
+The notation follows the grammar as defined in section xref:#_serialization_of_values_of_type_reference[].
 
 [.underline]#Examples for valid references:#
 
@@ -3532,7 +3532,7 @@ Blobs require the following encoding: base64 string.
 
 ====  Serialization of Values of Type "Reference"
 
-include::IDTA-01001_GrammarSerializationReference.adoc[] 
+include::IDTA-01001_GrammarSerializationReference.adoc[]
 
 
 ====  Semantic Identifiers for Metamodel and Data Specifications

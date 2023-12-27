@@ -2,7 +2,6 @@
 == Data Specification Templates (normative)
 ////
 
-:imagesdir: ../images/
 
 === Introduction
 
@@ -41,9 +40,9 @@ A template consists of the _DataSpecificationContent_ containing the additional 
 |===
 |Attribute |Explanation |Type |Card.
 
-|idShort | Name of the data specification |xref:NameType[NameType] |0..1
+|idShort | Name of the data specification |xref:page$IDTA-01001.adoc#NameType[NameType] |0..1
 
-|description |Description of how and in which context the data specification template is applicable; can be provided in several languages. |xref:MultiLanguageTextType[MultiLanguageTextType] |0..1
+|description |Description of how and in which context the data specification template is applicable; can be provided in several languages. |xref:page$IDTA-01001.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
 
 |administration a|
 Administrative information of an identifiable element
@@ -53,17 +52,17 @@ Administrative information of an identifiable element
 Note: some of the administrative information like the version number might need to be part of the identification.
 ====
 
-|xref:AdministrativeInformation[AdministrativeInformation] |0..1
+|xref:page$IDTA-01001.adoc#AdministrativeInformation[AdministrativeInformation] |0..1
 
 |id a|
 The globally unique identification of the data specification
 
 
 ====
-Note: This identifier is used as value for xref:HasDataSpecification[HasDataSpecification/dataSpecification] 
+Note: This identifier is used as value for xref:page$IDTA-01001.adoc#HasDataSpecification[HasDataSpecification/dataSpecification]
 ====
 
-|xref:Identifier[Identifier] |1
+|xref:page$IDTA-01001.adoc#Identifier[Identifier] |1
 
 |dataSpecificationContent |The content of the template without meta data
 |xref:DataSpecificationContent[DataSpecificationContent] |1
