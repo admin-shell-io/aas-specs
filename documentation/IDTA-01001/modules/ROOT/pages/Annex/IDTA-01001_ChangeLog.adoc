@@ -59,7 +59,7 @@ Bugfixes:
 * (Editorial) MultiLanguageNameType inconsistent description, maxLength=128 (schemata were correct) ([#313](https://github.com/admin-shell-io/aas-specs/issues/313))
 * (Editorial) HasKind/kind explanataroy text: use template, not type ([#313](https://github.com/admin-shell-io/aas-specs/issues/313))
 * (Editorial) DataTypeDefXsd links now correctly to xmlschema11-2, not to xsd V1.1 ([#312](https://github.com/admin-shell-io/aas-specs/issues/312) (as implemented in schemata)
-* (Editorial) make mbeddedDataSpecification/dataSpecification mandatory (as implemented in schemata) [#296](https://github.com/admin-shell-io/aas-specs/issues/296)
+* (Editorial) make EmbeddedDataSpecification/dataSpecification mandatory (as implemented in schemata) [#296](https://github.com/admin-shell-io/aas-specs/issues/296)
 * (Editorial) Qualifier/Kind changed to Qualifier/kind (typo in table, UML and schema correct)
 * (Editorial) BasicEventElement/Direction and BasicEventElement/State changed to BasicEventElement/direction and BasicEventElement/state typo in table, UML and schema correct)
 
@@ -68,14 +68,18 @@ Bugfixes:
 [cols="5%,42%,48%",options="header",]
 |===
 |*Nc* |*V3.0 Change w.r.t. V2.0.1* |*Comment*
-| | AssetKind | Add new value "Role" to enumeration AssetKind
-| | DataTypeDefXsd | (bugfix in Text only) values in enumeration now reference xsd V1.0, not V1.1
-| | EmbeddedDataSpecification/dataSpecification | (bugfix in Text only) now mandatory
-| | Entity/entityType | now optional
-| | Identifier | change length from 2000 to 2024 characters
-| | MultiLanguageNameType | (bugfix in Text only) maxLength=128 (as derived and implemented)
-| | NameType | change due to change of Constraint AASd-002
-| | PathType | extend data type to support complete URI scheme for files RFC3986/RFC3987
+| | AssetKind a| Add new value "Role" to enumeration AssetKind
+| | BasicEventElement/Direction a| (bugfix in Text only) attribute starts with small letter 
+| | BasicEventElement/State a|  (bugfix in Text only) attribute starts with small letter 
+| | DataTypeDefXsd a| (bugfix in Text only) values in enumeration now reference xsd V1.0, not V1.1
+| | EmbeddedDataSpecification/dataSpecification a| (bugfix in Text only) now mandatory
+| | Entity/entityType a| now optional
+| | Identifier a| change length from 2000 to 2024 characters
+| | MultiLanguageNameType a| (bugfix in Text only) maxLength=128 (as derived and implemented)
+| | NameType a| change due to change of Constraint AASd-002
+| | PathType a| extend data type to support complete URI scheme for files RFC3986/RFC3987
+| | Qualifier/Kind a| (bugfix in Text only) attribute starts with small letter 
+| | Referable/idShort a| changed constraint AASd-002 to also allow hyphen
 |===
 
 .New Elements in Metamodel
@@ -93,7 +97,7 @@ Bugfixes:
 | |AASd-002 |Update a|
 now also allows hyphens to be included in name
 
-Constraint AASd-002: _idShort_ of __Referable__s shall only feature letters, digits, hyphen ("-") and  underscore ("_"); starting mandatory with a letter, and not ending with a hypen or underscore, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$.].
+Constraint AASd-002: _idShort_ of __Referable__s shall only feature letters, digits, hyphen ("-") and  underscore ("\_"); starting mandatory with a letter, and not ending with a hyphen or underscore, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$.].
 | | AASd-014 | Update a|
 Change since Entity/entityType is now optional
 
