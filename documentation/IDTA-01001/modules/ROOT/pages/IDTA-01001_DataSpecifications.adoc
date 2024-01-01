@@ -30,21 +30,19 @@ It is required that a data specification template has a global unique ID so that
 A template consists of the _DataSpecificationContent_ containing the additional attributes to be added to the element instance that references the data specification template, as well as meta information about the template itself. These are two separate classes in UML.
 
 [.table-with-appendix-table]
-[cols="25%h,75%"]
+[cols="25%,40%,25%,10%"]
 |===
-|Class: |[[DataSpecification]]DataSpecification \<<Template>>
-|Explanation: |Data specification template
-|Inherits from: |--
-|===
-[cols="25%,40%,25%,10%",options="header"]
-|===
-|Attribute |Explanation |Type |Card.
+h|Class: 3+e|[[DataSpecification]]DataSpecification \<<Template>>
+h|Explanation: 3+a|Data specification template
+h|Inherits from: 3+|--
 
-|idShort | Name of the data specification |xref:page$IDTA-01001.adoc#NameType[NameType] |0..1
+h|Attribute h|Explanation h|Type h|Card.
 
-|description |Description of how and in which context the data specification template is applicable; can be provided in several languages. |xref:page$IDTA-01001.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
+e|idShort a| Name of the data specification |xref:page$IDTA-01001.adoc#NameType[NameType] |0..1
 
-|administration a|
+e|description |Description of how and in which context the data specification template is applicable; can be provided in several languages. |xref:page$IDTA-01001.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
+
+e|administration a|
 Administrative information of an identifiable element
 
 
@@ -54,7 +52,7 @@ Note: some of the administrative information like the version number might need 
 
 |xref:page$IDTA-01001.adoc#AdministrativeInformation[AdministrativeInformation] |0..1
 
-|id a|
+e|id a|
 The globally unique identification of the data specification
 
 
@@ -64,20 +62,20 @@ Note: This identifier is used as value for xref:page$IDTA-01001.adoc#HasDataSpec
 
 |xref:page$IDTA-01001.adoc#Identifier[Identifier] |1
 
-|dataSpecificationContent |The content of the template without meta data
+e|dataSpecificationContent |The content of the template without meta data
 |xref:DataSpecificationContent[DataSpecificationContent] |1
+
+
 
 |===
 
 [.table-with-appendix-table]
-[cols="25%h,75%"]
+[cols="25%,40%,25%,10%"]
 |===
-|Class: |[[DataSpecificationContent]]DataSpecificationContent \<<Template>>\<<abstract>>
-|Explanation: |Data specification content is part of a data specification template and defines, which additional attributes shall be added to the element instance that references the data specification template and meta information about the template itself.
-|Inherits from: |--
-|===
-[cols="25%,40%,25%,10%",options="header"]
-|===
-|Attribute |Explanation |Type |Card.
+h|Class: 3+e|[[DataSpecificationContent]]DataSpecificationContent \<<Template>>\<<abstract>>
+h|Explanation: 3+a|Data specification content is part of a data specification template and defines, which additional attributes shall be added to the element instance that references the data specification template and meta information about the template itself.
+h|Inherits from: 3+|--
+
+h|Attribute h|Explanation h|Type h|Card.
 |===
 
