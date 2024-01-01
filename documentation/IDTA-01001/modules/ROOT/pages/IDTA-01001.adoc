@@ -326,9 +326,14 @@ h|Explanation: |Enumeration for denoting whether an element is a template or an 
 |Set of: |--
 h|ID: | `\https://admin-shell.io/aas/3/0/ModellingKind`  
 
-h|Literal h|Explanation
-|Template a|specification of the common features of a structured element in sufficient detail that such a instance can be instantiated using it
-|Instance a|concrete, clearly identifiable element instance. Its creation and validation may be guided by a corresponding element template
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|Template | `\https://admin-shell.io/aas/3/0/ModellingKind/Template` 
+a|specification of the common features of a structured element in sufficient detail that such a instance can be instantiated using it
+
+.2+e|Instance | `\https://admin-shell.io/aas/3/0/ModellingKind/Instance` 
+a|concrete, clearly identifiable element instance. Its creation and validation may be guided by a corresponding element template
 |===
 
 ===== Has Semantics Attributes
@@ -504,14 +509,20 @@ h|Explanation: a|Enumeration for kinds of qualifiers
 |Set of: |--
 h|ID: | `\https://admin-shell.io/aas/3/0/QualifierKind`  
 
-h|Literal h|Explanation
-e|ValueQualifier a|
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|ValueQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/ValueQualifier` 
+a|
 Qualifies the value of the element; the corresponding qualifier value can change over time.
 
 Value qualifiers are only applicable to elements with __kind__="_Instance"._
 
-e|ConceptQualifier |Qualifies the semantic definition (_HasSemantics/semanticId_) the element is referring to; the corresponding qualifier value is static.
-e|TemplateQualifier a|
+.2+e|ConceptQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/ConceptQualifier` 
+a|Qualifies the semantic definition (_HasSemantics/semanticId_) the element is referring to; the corresponding qualifier value is static.
+
+.2+e|TemplateQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/TemplateQualifier` 
+a|
 Qualifies the elements within a specific submodel on concept level; the corresponding qualifier value is static.
 
 
@@ -762,11 +773,21 @@ an instance asset or is a role or whether this kind of classification is not app
 h|Set of: |--
 h|ID: | `\https://admin-shell.io/aas/3/1/AssetKind`  
 
-h|Literal h|Explanation
-e|Type |Type asset
-e|Instance |Instance asset
-e|Role | Role asset
-e|NotApplicable |Neither a type asset nor an instance asset nor a role asset
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|Type | `\https://admin-shell.io/aas/3/0/AssetKind/Type` 
+a|Type asset
+
+.2+e|Instance | `\https://admin-shell.io/aas/3/0/AssetKind/Instance` 
+a|Instance asset
+
+.2+e|Role | `\https://admin-shell.io/aas/3/1/AssetKind/Role` 
+a|Role asset
+
+.2+e|NotApplicable | `\https://admin-shell.io/aas/3/0/AssetKind/NotApplicable` 
+a|Neither a type asset nor an instance asset nor a role asset
+
 |===
 
 For more information on types and instances, see Clause 4.2.
@@ -964,9 +985,14 @@ h|Explanation: a|Direction
 |Set of: |--
 h|ID: | `\https://admin-shell.io/aas/3/0/Direction`  
 
-h|Literal h|Explanation
-e|input |Input direction
-eoutput |Output direction
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|input | `\https://admin-shell.io/aas/3/0/Direction/input` 
+a|Input direction
+
+.2+e|output | `\https://admin-shell.io/aas/3/0/Direction/output` 
+a|Output direction
 |===
 
 
@@ -978,9 +1004,14 @@ h|Explanation: a|State of an event
 |Set of: |--
 h|ID: | `\https://admin-shell.io/aas/3/0/StateOfEvent`  
 
-h|Literal h|Explanation
-e|on |Event is on
-e|off |Event is off
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|on | `\https://admin-shell.io/aas/3/0/StateOfEvent/on`  
+a|Event is on
+
+.2+e|off | `\https://admin-shell.io/aas/3/0/StateOfEvent/off`  
+a|Event is off
 |===
 
 Events sent or received by an Asset Administration Shell always comply with a general format. Exception: events exchanged in the course of an Industry 4.0 interaction pattern.
@@ -1173,9 +1204,14 @@ h|Explanation: a|Enumeration for denoting whether an entity is a self-managed en
 |Set of: |--
 h|ID: | `\https://admin-shell.io/aas/3/0/EntityType`  
 
-h|Literal h|Explanation
-e|CoManagedEntity |There is no separate Asset Administration Shell for co-managed entities. Co-managed entities need to be part of a self-managed entity.
-e|SelfManagedEntity a|
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|CoManagedEntity | `\https://admin-shell.io/aas/3/0/EntityType/CoManagedEntity` 
+a|There is no separate Asset Administration Shell for co-managed entities. Co-managed entities need to be part of a self-managed entity.
+
+.2+e|SelfManagedEntity | `\https://admin-shell.io/aas/3/0/EntityType/SelfManagedEntity` 
+a|
 Self-managed entities have their own Asset Administration Shell but can be part of another composite self-managed entity.
 
 The asset of an I4.0 Component is a self-managed entity per definition.
