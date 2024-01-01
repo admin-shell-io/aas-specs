@@ -2393,77 +2393,118 @@ The notation follows the grammar as defined in Clause xref:#_serialization_of_va
 
 [.underline]#Examples for valid references:#
 
-*(Submodel)\https://example.com/aas/1/1/1234859590*
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590
 
-*(GlobalReference)\https://example.com/specification.html*
+(GlobalReference)https://example.com/specification.html
+....
 
 [.underline]#Examples for valid external references:#
+[example]
+....
+(GlobalReference)https://example.com/ressource
 
-*(GlobalReference)\https://example.com/ressource*
+(GlobalReference)0173-1#02-EXA123#001
 
-*(GlobalReference)0173-1#02-EXA123#001*
-
-*(GlobalReference)\https://example.com/specification.html (FragmentReference)Hints*
-
+(GlobalReference)https://example.com/specification.html (FragmentReference)Hints
+....
 
 ====
-Note: *(GlobalReference)\https://example.com/specification.html (FragmentReference)Hints* represents the path with fragment identifier \https://example.com/specification.html#Hints
+Note: 
+[example]
+....
+(GlobalReference)https://example.com/specification.html (FragmentReference)Hints
+....
+represents the path with fragment identifier
+[example]
+....
+https://example.com/specification.html#Hints
+....
 ====
 
 
 [.underline]#Examples for valid model references:#
+[example]
+....
+(AssetAdministrationShell)https://example.com/aas/1/0/12348
 
-*(AssetAdministrationShell)\https://example.com/aas/1/0/12348*
+(Submodel)https://example.com/aas/1/1/1234859590
 
-*(Submodel)\https://example.com/aas/1/1/1234859590*
+(Submodel)https://example.com/aas/1/1/1234859590, (File)Specification
 
-*(Submodel)\https://example.com/aas/1/1/1234859590, (File)Specification*
+(ConceptDescription)0173-1#02-BAA120#008
 
-*(ConceptDescription)0173-1#02-BAA120#008*
+(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementList)Documents, (SubmodelElementCollection)0, (MultiLanguageProperty)Title
 
-*(Submodel)\https://example.com/aas/1/1/1234859590, (SubmodelElementList)Documents, (SubmodelElementCollection)0, (MultiLanguageProperty)Title*
-
-*(Submodel)\https://example.com/aas/1/1/1234859590, (SubmodelElementCollection)Manual, (MultiLanguageProperty)Title*
-
+(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementCollection)Manual, (MultiLanguageProperty)Title
+....
 
 ====
-Note: *(SubmodelElementCollection)0, (MultiLanguageProperty)Title* may be identical to 
-*(SubmodelElementCollection)Manual, (MultiLanguageProperty)Title* semantically and content-wise. 
+Note: 
+[example]
+....
+(SubmodelElementCollection)0, (MultiLanguageProperty)Title
+....
+may be identical to 
+
+[example]
+....
+(SubmodelElementCollection)Manual, (MultiLanguageProperty)Title
+....
+semantically and content-wise. 
 The difference is that more than one document is allowed in the first submodel and thus a submodel element list is defined: 
 elements in a list are numbered. However, it is also possible to define a display name in this case. 
 The display name of the SubmodelElementCollection should be the same in both bases, e.g. "Users Manual".
 ====
 
-
-*(Submodel)\https://example.com/aas/1/1/1234859590, (File)Specification, (FragmentReference)Hints*
-
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590, (File)Specification, (FragmentReference)Hints
+....
 
 ====
-Note: assuming the file has the value using the absolute path \https://example.com/specification.html (and not a relative path), the first reference points to the same information as the global reference (GlobalReference\https://example.com/specification.html, (FragmentReference)Hints__.__
+Note: assuming the file has the value using the absolute path
+[example]
+....
+https://example.com/specification.html 
+....
+(and not a relative path), the first reference points to the same information as the global reference
+[example]
+....
+(GlobalReferencehttps://example.com/specification.html, (FragmentReference)Hints
+....
+
 ====
 
-
-*(Submodel)\https://example.com/aas/1/1/1234859590, (Blob)Specification, (FragmentReference)Hints*
-
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590, (Blob)Specification, (FragmentReference)Hints
+....
 
 
 [.underline]#Examples for invalid model references:#
-
-*(GlobalReference)\https://example.com/aas/1/1/1234859590*
-
+[example]
+....
+(GlobalReference)https://example.com/aas/1/1/1234859590
+....
 This is an external reference but no model reference.
+[example]
+....
+(Property)0173-1#02-BAA120#008
+....
+This reference does not start with the ID of an Identiable. Additionally, the value is not valid idShort for a Property submodel element.
 
-*(Property)0173-1#02-BAA120#008*
-
-This reference does not start with the ID of an Identiable. Additionally the value is not valid idShort for a Property submodel element.
-
-*(Submodel)\https://example.com/aas/1/1/1234859590, (EventElement)Event, (FragmentReference)Comment*
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590, (EventElement)Event, (FragmentReference)Comment
+....
 
 This model reference is invalid because fragment references so far are only defined for _File_ and _Blob_ submodel elements (see Constraint AASd-127, xref:AASd-127).
-
-*(AssetAdministrationShell)\https://example.com/aas/1/0/12348, +
-(Submodel)\https://example.com/aas/1/1/1234859590, (Property)Temperature*
-
+[example]
+....
+(AssetAdministrationShell)https://example.com/aas/1/0/12348, (Submodel)https://example.com/aas/1/1/1234859590, (Property)Temperature
+....
 This is not a valid model reference because _AssetAdministrationShell_ and _Submodel_ are both global identifiables.
 
 ==== Primitive and Simple Data Types
