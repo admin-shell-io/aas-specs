@@ -145,21 +145,24 @@ In the table, syntax component "A" refers to authority of RFC 3986 (URI) and nam
 
 [.underline]#Grammar:#
 
-*<AAS URI> ::= <scheme> ":" <authority> [ <path> ]*
+[listing]
+....
+<AAS URI> ::= <scheme> ":" <authority> [ <path> ]
 
-*<scheme> ::= a valid URI scheme*
+<scheme> ::= a valid URI scheme
 
-*<authority> ::= Organization*
+<authority> ::= Organization
 
-*<path> ::= <subunit> <domain> <release> <element>*
+<path> ::= <subunit> <domain> <release> <element>
 
-*<subunit> ::= \{ ("/" | ":") <Organizational Subunit/Document ID/Document subunit> }**
+<subunit> ::= \{ ("/" | ":") <Organizational Subunit/Document ID/Document subunit> }*
 
-*<domain> ::= [ ("/" | ":") <Submodel / Domain-ID>*
+<domain> ::= [ ("/" | ":") <Submodel / Domain-ID>
 
-*<release> ::= [ ("/" | ":") <Version> [ ("/" | ":") <Revision> ]* ]*
+<release> ::= [ ("/" | ":") <Version> [ ("/" | ":") <Revision> ]* ]
 
-*<element> ::= [ ("/" | ":" | "#") \{( <Property/Element-ID> | <Instance number> )}* ]*
+<element> ::= [ ("/" | ":" | "#") \{( <Property/Element-ID> | <Instance number> )}* ]
+....
 
 Using this scheme, valid URNs and URLs can be both created as URIs. The latter are preferred for Administration Shells, as functionality (such as REST services) can be bound to the identifiers. Examples of such identifiers are given in Table 12.
 
@@ -170,29 +173,29 @@ Using this scheme, valid URNs and URLs can be both created as URIs. The latter a
 |Administration Shell ID a|
 urn:zvei:SG2:aas:1:1:demo11232322
 
-https://www.zvei.de/SG2/aas/1/1/demo11232322
+\https://www.zvei.de/SG2/aas/1/1/demo11232322
 
 |Submodel ID (Template) a|
 urn:GMA:7.20:contractnegotiation:1:1
 
-http://www.vdi.de/gma720/contractnegotiation/1/1
+\http://www.vdi.de/gma720/contractnegotiation/1/1
 
 |Submodel ID (Instance) a|
 urn:GMA:7.20:contractnegotiation:1:1#001
 
-http://www.vdi.de/gma720/ contractnegotiation/1/1#001
+\http://www.vdi.de/gma720/contractnegotiation/1/1#001
 
 |ID of type or Concept Description of a Property etc. a|
 urn:PROFIBUS:PROFIBUS-PA:V3-02:Parameter:1:1:MaxTemp
 
-https://www.zvei.de/SG2/aas/1/1/demo11232322/maxtemp
+\https://www.zvei.de/SG2/aas/1/1/demo11232322/maxtemp
 
 |Property, etc. +
-* +
-(not used by metamodel)* a|
+ 
+*(not used by metamodel)* a|
 urn:PROFIBUS:PROFIBUS-PA:V3-02:Parameter:1:1:MaxTemp#0002
 
-https://www.zvei.de/SG2/aas/1/1/demo11232322/maxtemp#0002
+\https://www.zvei.de/SG2/aas/1/1/demo11232322/maxtemp#0002
 
 |===
 
