@@ -7,122 +7,136 @@ Rules for creating identifiers are defined to enable the unique identification o
 
 The following grammar is used to create valid identifiers:
 
-____
-*<Namespace> ::= <AAS Namespace> | <Data Specification Namespace>*
 
-*<Namespace Qualifier> ::= <AAS Namespace Qualifier> | <Data Specification Qualifier>*
 
-*<AAS Namespace> ::= <Shell-Namespace> "/aas/" <Version>*
+[listing]
+....
+<Namespace> ::= <AAS Namespace> | <Data Specification Namespace>
 
-*<Data Specification Namespace> ::= <Shell-Namespace> "/DataSpecificationTemplates/" <idShort of Data Specification> <Version>*
+<Namespace Qualifier> ::= <AAS Namespace Qualifier> | <Data Specification Qualifier>
 
-*<Shell-Namespace> ::= "https://admin-shell.io/"*
+<AAS Namespace> ::= <Shell-Namespace> "/aas/" <Version>
 
-*<Version> ::= \{<Digit>}+ "/" \{<Digit>}+ [ "/" \{<Character>}+ ]*
+<Data Specification Namespace> ::= <Shell-Namespace> "/DataSpecificationTemplates/" <idShort of Data Specification> <Version>
 
-*<Digit> ::= "0"| "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"*
+<Shell-Namespace> ::= "https://admin-shell.io/"
 
-*<Character> ::= characters conformant to regular expression [a..zA..Z-]*
-____
+<Version> ::= {<Digit>}+ "/" {<Digit>}+ [ "/" {<Character>}+ ]
+
+<Digit> ::= "0"| "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+<Character> ::= characters conformant to regular expression [a..zA..Z-]
+....
 
 For AAS a predefined namespace qualifier is defined. For data specifications this is defined within the corresponding specifications for single data specifications.
 
-____
-*<AAS Namespace Qualifier> ::= "AAS:"*
+[listing]
+....
+<AAS Namespace Qualifier> ::= "AAS:"
 
-*<Data Specification Qualifier> ::= defined per Data Specification*
-____
+<Data Specification Qualifier> ::= defined per Data Specification
+....
 
 A concrete unique identifier is defined as follows:
 
-____
-*<AAS Unique Concept Identifier> ::= (<Namespace> | <Namespace Qualifier>) "/" <AAS Concept Identifier>*
+[listing]
+....
+<AAS Unique Concept Identifier> ::= (<Namespace> | <Namespace Qualifier>) "/" <AAS Concept Identifier>
 
-*<AAS Concept Identifier> ::= <AAS Class Name> [( <AAS Attribute> | <AAS Enumeration >)]*
+<AAS Concept Identifier> ::= <AAS Class Name> [( <AAS Attribute> | <AAS Enumeration>)]
 
-*<AAS Attribute> ::= "/" <AAS Attribute Name> [\{ "/" <AAS Attribute Name>}* ]*
+<AAS Attribute> ::= "/" <AAS Attribute Name> [{ "/" <AAS Attribute Name>}* ]
 
-*<AAS Enumeration> ::= [\{ "/" <AAS Attribute Name>}*] "/" <AAS Enumeration Value>*
-____
+<AAS Enumeration> ::= [{ "/" <AAS Attribute Name>}*] "/" <AAS Enumeration Value>
+....
 
 [.underline]#Examples for valid unique Asset Administration Shell concept identifiers:#
 
-____
-*https://admin-shell.io/aas/2/0/AssetAdministrationShell/administration/version*
+[listing]
+....
+https://admin-shell.io/aas/2/0/AssetAdministrationShell/administration/version
 
-*AAS:AssetAdministrationShell/administration/version*
+AAS:AssetAdministrationShell/administration/version
 
-*AAS:AssetInformation/assetKind/Instance*
-____
+AAS:AssetInformation/assetKind/Instance
+....
 
 The application of the pattern is explained as follows:
 
 The concept identifier of a Class follows the pattern
 
-____
-_<_*AAS Class name>*
-____
+[listing]
+....
+<AAS Class name>
+....
 
 This also applies to abstract classes and types including enumerations.
 
 [.underline]#Valid examples:#
-____
 
-*AAS:Submodel*
+[example]
+....
 
-*AAS:Qualifier*
+AAS:Submodel
 
-*AAS:Reference*
+AAS:Qualifier
 
-*AAS:ContentType*
+AAS:Reference
 
-*AAS:KeyTypes*
-____
+AAS:ContentType
+
+AAS:KeyTypes
+....
 
 Attributes of classes are separated by "/". Inherited attributes can also be referenced in this way, if the concrete referable is important in the context.
 
 Basic Pattern:
 
-____
-*<AAS Class name>"/"<AAS Attribute Name>*
-____
+[listing]
+....
+<AAS Class name>"/"<AAS Attribute Name>
+....
 
 Examplesfootnote:[For simplicity reasons, most examples use the namespace qualifier and not the full path of the namespace.]:
 
-____
+[example]
+....
 
-*AAS:Referable/idShort*
+AAS:Referable/idShort
 
-*AAS:Property/idShort*
+AAS:Property/idShort
 
-*AAS:Qualifier/semanticId*
-____
+AAS:Qualifier/semanticId
+....
 
 This also applies to attributes of attributes, if the cardinality of the attributes involved is not greater than 1:
-____
 
-*<AAS Class Name> "/" <AAS Attribute Name> [\{ "/" <AAS Attribute Name>}* ]*
-____
+[listing]
+....
+<AAS Class Name> "/" <AAS Attribute Name> [\{ "/" <AAS Attribute Name>}* ]
+....
 
 [.underline]#Valid examples:#
-____
+[example]
+....
 
-*AAS:Identifiable/administration/version*
-____
+AAS:Identifiable/administration/version
+....
 
 This also applies to values of enumerations:
-____
-
-*<AAS Class Name>[\{ "/" <AAS Attribute Name>}*][ "/" <AAS Enumeration Value>]*
-____
+[listing]
+....
+<AAS Class Name>[\{ "/" <AAS Attribute Name>}*][ "/" <AAS Enumeration Value>]
+....
 
 [.underline]#Valid examples:#
-____
+[example]
+....
 
-*AAS:Key/type/Submodel*
+AAS:Key/type/Submodel
 
-*AAS:AasSubmodelElements/Submodel*
-____
+AAS:AasSubmodelElements/Submodel
+....
 
 In case of an attribute with a cardinality greater than 1, no further attributes or enumeration values can be added.
 
@@ -133,22 +147,24 @@ Note: although the attribute name in UML is always singular, the attribute name 
 
 
 [.underline]#Valid examples#:
-____
+[example]
+....
 
-*AAS:Operation/InputVariables*
+AAS:Operation/InputVariables
 
-*AAS:AssetAdministrationShell/submodels*
+AAS:AssetAdministrationShell/submodels
 
-*AAS:Submodel/submodelElements*
-____
+AAS:Submodel/submodelElements
+....
 
 _[.underline]#Invalid examples:#_
 
-____
-*AAS:AssetAdministrationShell/submodels/administration/version*
+[example]
+....
+AAS:AssetAdministrationShell/submodels/administration/version
 
-*AAS:Submodel/Property/idShort*
-____
+AAS:Submodel/Property/idShort
+....
 
 These semantic identifiers are used as values for the _RefSemantic_ attribute in AutomationML Mapping of the Asset Administration Shell. They are also used in OPC UA to describe the semantics of the metamodel via the OPC UA _HasDictionaryEntry_ reference type.
 
@@ -159,9 +175,9 @@ Data specification handling is special. Data specification templates do not belo
 [.underline]#Examples:#
 
 In xml and JSON, data specifications are embedded into the schema itself using the attribute "embeddedDataSpecification". Here, no concept identifier shall be used. For example,
-____
-
-*AAS:ConceptDescription/embeddedDataSpecifications*
-____
+[example]
+....
+AAS:ConceptDescription/embeddedDataSpecifications
+....
 
 is not a valid concept identifier. _AAS:DataSpecificationContent_ is a valid concept identifier.
