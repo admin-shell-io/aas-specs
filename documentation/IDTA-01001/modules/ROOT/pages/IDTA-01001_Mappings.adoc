@@ -1,6 +1,19 @@
-== Mappings to Data Formats to Share I4.0-Compliant Information (normative)
+////
+Copyright (c) 2023 Industrial Digital Twin Association
 
-=== General
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+
+== Data Format for Sharing Data (normative)
+
+=== Technical Data Formats
 
 It is crucial for Industry 4.0 applications to share information between different systems throughout the areas covered by the entire RAMI4.0 model link:#bib1[[1\]] link:#bib2[[2\]]. OPC UA is a frequently used format for information models in the domain of production operations, but there is a need for other formats for further areas and the relationships between them.
 
@@ -27,32 +40,67 @@ Note: the mapping specifications and schemata themselves are not part of the spe
 ====
 
 
-===  General Rules
+=== Content Format Types
 
-====  Introduction
+For different use case scenarios different formats are suitable to fulfill the needs.
+Besides technical formats like JSON and XML also different content formats are available.
 
-There are some general rules that apply to all serializations or can be used in different serializations.
 
-====  Encoding
+.Format Types
+[%autowidth, width="100%", cols="29%,71%",options="header",]
+|===
+|*Format* |*Explanation*
+|Normal a|The standard serialization of the model element or child elements is applied.
+
+|Metadata a|Only metadata of an element or child elements is returned; the value is not.
+
+|Value a|Only the raw value of the model element or child elements is returned; it is commonly referred to as _ValueOnly_-serialization.
+
+|Reference |Only applicable to Referables. Only the reference to the found element is returned; potential child elements are ignored.
+
+|Path a|Returns the idShort of the requested element and a list of _idShort_ paths to child elements if the requested element is a Submodel, a SubmodelElementCollection, a SubmodelElementList, a AnnotatedRelationshipElement, or an Entity.
+|===
+
+
+===  Encoding
 
 Blobs require the following encoding: base64 string.
 
-====  Serialization of Values of Type "Reference"
+
+===  Serialization of Values of Type "Reference"
 
 include::IDTA-01001_GrammarSerializationReference.adoc[]
 
 
-====  Semantic Identifiers for Metamodel and Data Specifications
+include::./IDTA-01001_MetaDataObjects.adoc[]
 
-include::IDTA-01001_GrammarSemanticIdsMetamodel.adoc[]
+include::IDTA-01001_ValueOnly.adoc[]
 
+include::IDTA-01001_idShortPath.adoc[]
 
-====  Embedded Data Specifications
+=== Format "Reference"
 
-include::IDTA-01001_EmbeddedDataSpecifications.adoc[]
+In some use cases only the (model) reference to the object is needed in the first place.
 
+References are possible for Referables, only. Potential child elements are ignored.
 
-===  XML
+For references see Clause xref:#_referencing_in_asset_administration_shells[].
+
+.Format "Reference" - Example in JSON
+[source,json,linenums]
+----
+        "keys": [
+          {
+            "type": "AssetAdministrationShell",
+            "value": "urn:an-example08:f3f73640"
+          }
+        ],
+        "type": "ModelReference"
+      }
+
+----
+
+=== Format "Normal" in  XML
 
 The metamodel of an Asset Administration Shell needs to be serialized for import and export scenarios. XML is a possible serialization format.
 
@@ -76,7 +124,7 @@ Note 3: example files can be found here: aas-specs-3.0\schemas\xml\examples
 ====
 
 
-===  JSON
+===  Format "Normal" in JSON
 
 JSONfootnote:[see: https://tools.ietf.org/html/rfc8259 or https://www.ecma-international.org/publications/standards/Ecma-404.htm] (JavaScript Object Notation) is a further serialization format that serializes the metamodel of an Asset Administration Shell for import and export scenarios.
 
@@ -100,7 +148,7 @@ Note 3: example files can be found here: aas-specs-3.0\schemas\json\examples
 ====
 
 
-===  RDF
+===  Format "Normal" in RDF
 
 The Resource Description Framework (RDF) link:#bib32[[32\]] is the recommended standard of the W3C to unambiguously model and present semantic data. RDF documents are structured in the form of triples, consisting of subjects, relations, and objects. The resulting model is often interpreted as a graph, with the subject and object elements as the nodes and the relations as the graph edges.
 
@@ -128,7 +176,7 @@ Note 3: example files can be found here: aas-specs-3.0\schemas\rdf\examples
 ====
 
 
-===  AutomationML
+===  Format "Normal" in AutomationML
 
 AutomationML (IEC 62714) is especially suited for serializing the import and export scenarios of the metamodel of an Asset Administration Shell in the engineering phase.
 
@@ -154,7 +202,7 @@ Note 2: the resulting application recommendation (AR 004E) "Asset Administration
 ====
 
 
-===  OPC UA
+===  Format "Normal" in OPC UA
 
 OPC UA is suited for the operating phase of Asset Administration Shellsfootnote:[OPC UA is used for several purposes in the context of Industry 4.0. In this document, however, the focus is on Asset Administration Shell representation only.] and especially applicable in case of machine-to-machine communication. The information model link:#bib42[[42\]] is the basis for the definition of so-called OPC UA Information Models, or OPC UA Companion Specifications link:#bib43[[43\]].
 

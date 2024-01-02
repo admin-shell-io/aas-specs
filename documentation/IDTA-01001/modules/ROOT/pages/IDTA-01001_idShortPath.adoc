@@ -1,0 +1,52 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+=== Format "Path" (IdShortPath Serialization) in JSON
+
+To get only the idShort paths of a submodel element hierarchy, the serialization format is specified in terms of an idShortPath notation to be returned in an unnamed JSON-array. The notation differs depending on whether a SubmodelElementCollection or a SubmodelElementList is used. In the first case, the submodel element’s idShort is separated by “.” (dot) from top level down to child level. In the second case, square brackets with an index “[\<<index>>]” are appended after the idShort of the containing SubmodelElementList.
+
+In the following example, where a request for idShort paths starts at _MySubmodelElementCollection_ with SerializationModifier level = deep, the list of idShort paths is returned as follows:
+
+Submodel: MySubmodel
+
+* Property: MyTopLevelProperty
+* SMC: MySubmodelElementCollection
+** Property: MySubProperty1
+** Property: MySubProperty2
+** SMC: MySubSubmodelElementCollection
+*** Property: MySubSubProperty1
+*** Property: MySubSubProperty2
+** SML: MySubSubmodelElementList1
+*** Property: “MySubTestValue1”,
+*** Property: “MySubTestValue2”,
+** SML: MySubSubmodelElementList2
+*** SML
+**** Property: “MySubTestValue3”
+
+
+[source,json,linenums]
+----
+[
+  "MySubmodelElementCollection",
+  "MySubmodelElementCollection.MySubProperty1",
+  "MySubmodelElementCollection.MySubProperty2",
+  "MySubmodelElementCollection.MySubmodelElementCollection",
+  "MySubmodelElementCollection.MySubmodelElementCollection.MySubProperty1",
+  "MySubmodelElementCollection.MySubmodelElementCollection.MySubProperty2",
+  "MySubmodelElementCollection.MySubSubmodelElementList1",
+  "MySubmodelElementCollection.MySubSubmodelElementList1[0]",
+  "MySubmodelElementCollection.MySubSubmodelElementList1[1]",
+  "MySubmodelElementCollection.MySubSubmodelElementList2",
+  "MySubmodelElementCollection.MySubSubmodelElementList2[0]",
+  "MySubmodelElementCollection.MySubSubmodelElementList2[0][0]"
+]
+----
