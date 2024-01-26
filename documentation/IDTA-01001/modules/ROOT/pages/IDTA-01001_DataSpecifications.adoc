@@ -35,14 +35,19 @@ A template consists of the _DataSpecificationContent_ containing the additional 
 h|Class: 3+e|[[DataSpecification]]DataSpecification \<<Template>>
 h|Explanation: 3+a|Data specification template
 h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/DataSpecification`  
 
-h|Attribute h|Explanation h|Type h|Card.
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
 
-e|idShort a| Name of the data specification |xref:page$IDTA-01001.adoc#NameType[NameType] |0..1
+.2+e|idShort 3+| `\https://admin-shell.io/aas/3/1/DataSpecification/idShort`
+a| Name of the data specification |xref:page$IDTA-01001.adoc#NameType[NameType] |0..1
 
-e|description |Description of how and in which context the data specification template is applicable; can be provided in several languages. |xref:page$IDTA-01001.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
+.2+e|description 3+| `\https://admin-shell.io/aas/3/1/DataSpecification/description`
+a|Description of how and in which context the data specification template is applicable; can be provided in several languages. |xref:page$IDTA-01001.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
 
-e|administration a|
+.2+e|administration 3+| `\https://admin-shell.io/aas/3/1/DataSpecification/administration`
+a|
 Administrative information of an identifiable element
 
 
@@ -52,7 +57,8 @@ Note: some of the administrative information like the version number might need 
 
 |xref:page$IDTA-01001.adoc#AdministrativeInformation[AdministrativeInformation] |0..1
 
-e|id a|
+.2+e|id 3+| `\https://admin-shell.io/aas/3/1/DataSpecification/id`
+a|
 The globally unique identification of the data specification
 
 
@@ -62,12 +68,15 @@ Note: This identifier is used as value for xref:page$IDTA-01001.adoc#HasDataSpec
 
 |xref:page$IDTA-01001.adoc#Identifier[Identifier] |1
 
-e|dataSpecificationContent |The content of the template without meta data
+.2+e|dataSpecificationContent 3+| `\https://admin-shell.io/aas/3/1/DataSpecification/dataSpecificationContent`
+a|The content of the template without meta data
 |xref:DataSpecificationContent[DataSpecificationContent] |1
 
 
 
 |===
+
+{empty} +
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -75,7 +84,9 @@ e|dataSpecificationContent |The content of the template without meta data
 h|Class: 3+e|[[DataSpecificationContent]]DataSpecificationContent \<<Template>>\<<abstract>>
 h|Explanation: 3+a|Data specification content is part of a data specification template and defines, which additional attributes shall be added to the element instance that references the data specification template and meta information about the template itself.
 h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/DataSpecificationContent`  
 
-h|Attribute h|Explanation h|Type h|Card.
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
 |===
 
