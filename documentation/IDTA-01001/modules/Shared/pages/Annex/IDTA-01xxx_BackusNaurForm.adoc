@@ -32,37 +32,41 @@ where:
 * Items existing 1 or more times are suffixed with an addition (plus) symbol, +, such as <word> ::= \{<letter>}+,
 * round brackets are used to explicitly to define the order of expansion to indicate precedence, example: ( <symbol1> | <symbol2> ) <symbol3>,
 * text without quotation marks is an informal explanation of what is expected; this text is cursive if grammar is non-recursive and vice versa.
+* ^ means 'begin of line' and $ means "end of line" (optional, used in regular expressions)
 
 [.underline]#Example:#
 
-____
-*<contact-address> ::= <name> "e-mail addresses:" <e-mail-Addresses>*
+[listing]
+....
+<contact-address> ::= <name> "e-mail addresses:" <e-mail-Addresses>
 
-*<e-mail-Addresses> ::= \{<e-mail-Address>}**
+<e-mail-Addresses> ::= \{<e-mail-Address>}*
 
-*<e-mail-Addresse> ::= <local-part> "@" <domain>*
+<e-mail-Addresse> ::= <local-part> "@" <domain>
 
-*<name> ::= characters*
+<name> ::= characters
 
-*<local-part> ::= characters conformant to local-part in RFC 5322*
+<local-part> ::= characters conformant to local-part in RFC 5322
 
-*<domain> ::= characters conformant to domain in RFC 5322*
-____
+<domain> ::= characters conformant to domain in RFC 5322
+....
 
 Valid contact addresses:
 
-____
-*Hugo Me e-mail addresses: Hugo@example.com*
+[listing]
+....
+Hugo Me e-mail addresses: Hugo@example.com
 
-*Hugo e-mail addresses: Hugo.Me@text.de*
-____
+Hugo e-mail addresses: Hugo.Me@text.de
+....
 
 Invalid contact addresses:
-____
 
-*Hugo*
+[listing]
+....
+Hugo
 
-*Hugo Hugo@ example.com*
+Hugo Hugo@ example.com
 
-*Hugo@example.com*
-____
+Hugo@example.com
+....
