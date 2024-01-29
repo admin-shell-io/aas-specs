@@ -1,0 +1,3351 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+
+
+:toc: left
+:toclevels: 4
+:toc-title: Specification of the Asset Administration Shell. Part 1: Metamodel
+:sectlinks:
+:sectnums:
+:nofooter:
+
+
+include::IDTA-01001_Constraints.adoc[]
+
+
+
+
+
+== The Information Metamodel of the Asset Administration Shell (normative)
+
+=== Introduction
+
+This clause specifies the information metamodel of the Asset Administration Shell.
+
+An overview of the metamodel of the Asset Administration Shell is given in Subclause 5.1; Subclause 5.3 describes the classes and all their attributes in detail.
+
+The legend of the UML diagrams and the table specification of the classes is explained in Annex D and Annex E. Readers familiar with UML may skip the first clause in Annex E. It is however recommended to have a look at the specifics used in this modelling, especially those on dealing with model references.
+
+
+====
+Note: an xmi representation of the UML model can be found in the repository "aas-specs" in the github project admin-shell-io *link:#bib51[[51\]]*: https://github.com/admin-shell-io/aas-specs/tree/master/schemas/xmi
+====
+
+
+=== Overview Metamodel of the Asset Administration Shell
+
+This clause gives an overview of the main classes of the Asset Administration Shell (AAS) metamodel.
+
+Figure 10 shows the main classes to describe a single Asset Administration Shell.
+
+An Asset Administration Shell represents exactly one asset (_AssetAdministrationShell/assetInformation_). Type assets and instance assets are distinguished by the attribute "_AssetInformation/assetKind_". See Clause 5.3.4 for details.
+
+
+====
+Note: the UML modelling uses so-called abstract classes for denoting reused concepts like "HasSemantics", "Qualifiable" etc.
+====
+
+
+In case of an Asset Administration Shell of an instance asset, a reference to the Asset Administration Shell representing the corresponding type asset or another instance asset it was derived from may be added (_AssetAdministrationShell/derivedFrom_). The same holds true for the Asset Administration Shell of an type asset. Types can also be derived from other types.
+
+.Overview Metamodel of the Asset Administration Shell
+image::image11.png[]
+
+An asset may typically be represented by several different identification properties like the serial number, the manufacturer part ID or the different customer part IDs, its RFID code, etc. Such external identifiers are defined as specific asset IDs, each characterized by a user-defined name, a value, and the user domain (tenant, subject in Attribute Based Access Control; _AssetInformation/specificAssetId_). See Clause 5.3.4 for details. Additionally, a global asset identifier should be assigned to the asset (_AssetInformation/globalAssetId_) in the production and operation phase.
+
+Asset Administration Shells, submodels and concept descriptions need to be globally uniquely identifiable (_Identifiable_). Other elements like properties only need to be referable within the model and thus only require a local identifier (_idShort_ from _Referable_). For details on identification, see Clause 4.3; details on _Identifiable_ and _Referable_ are provided in Clause 5.3.2.7 and Clause 5.3.2.10.
+
+__Submodel__s consist of a set of submodel elements. Submodel elements may be qualified by a so-called _Qualifier_. There might be more than one qualifier per _Qualifiable_. See Clause 5.3.2.8 and Clause 5.3.2.9 for details.
+
+There are different subtypes of submodel elements like properties, operations, lists, etc. See Clause 5.3.7 for details. A typical submodel element is shown in the overview figure: a property is a data element that has a value of simple type like string, date, etc. Every data element is a submodel element (not visible in the figure but implicitly the case, since _DataElement_ is inheriting from _SubmodelElement_). For details on properties, see Clause 5.3.7.12.
+
+Every submodel element needs a semantic definition _(semanticId_ in _HasSemantics_) to have a well-defined meaning. The submodel element might either refer directly to a corresponding semantic definition provided by an external reference (e.g. to an ECLASS or IEC CDD property definition) or it may indirectly reference a concept description (_ConceptDescription_). See Clause 4.4.1 for matching strategies, and Clause 5.3.2.6 for details.
+
+A concept description may be derived from another property definition of an external standard or another concept description (_ConceptDescription/isCaseOf_). _isCaseOf_ is a more formal definition of _sourceOfDefinition_, which is just text.
+
+
+====
+Note: in this case, most of the attributes are redundant because they are defined in the external standard. Attributes for information like _preferredName_, _unit_ etc. are added to increase usability. Consistency w.r.t. the referenced submodel element definitions should be ensured by corresponding tooling.
+====
+
+
+If a concept description is not just a copy or refinement of an external standard, the provider of the Asset Administration Shell using this concept description shall be aware that an interoperability with other Asset Administration Shells cannot be ensured.
+
+Data specification templates (_DataSpecification_) can be used to define a named set of additional attributes (besides those predefined by the metamodel) for an element. The data specification template following IEC 61360 is typically used for the concept description of properties, providing e.g. an attribute "preferredName". The _\<<template>>_ dependency is used to denote recommended data specification templates. See Clause 5.3.2.2 for details.
+
+Data specification templates like the template for IEC 61360 property definitions (Part 3a) are explicitly predefined and recommended to be used by Plattform Industrie 4.0. See Clause 6 for details. If proprietary templates are used, interoperability with other Asset Administration Shells cannot be ensured.
+
+Besides submodel elements including properties and concept descriptions, other identifiable elements may also use additional templates (_HasDataSpecification_). Data specification templates are selected at design time. Further details are provided in Clause 6.
+
+Figure 12 gives a complete overview of all elements defined in the metamodel and specified in Clause 5.3. The UML packages reflect the structure of Clause 5.3. The elements of package "Core" are specified as first class citizens in Clause 5.3, except for their imported packages: the elements of package "SubmodelElements" are specified in Clause 5.3.6. Elements of package "Common" are specified in Clause 5.3.2. The elements of package "Reference" are specified in Clause 5.3.10. Elements from package "Types" are specified in Clause 5.3.11. The only package that is not listed is "Data Specifications (Templates)" because data specifications are handled differently. Data specification templates are explained in Clause 6.
+
+
+====
+Note: the abstract classes are numbered h0_, h1_, etc. (e.g. h1_Referable); their aliases however are defined without this prefix. The reason for this naming is that no order for inherited classes can be defined in the tooling used for UML modelling (Enterprise Architect), since they are ordered alphabetically. The order is important for some serializations (e.g. for XML).
+====
+
+
+Figure 11 shows the so-called environment. The environment’s purpose is to list all Asset Administration Shells, all submodels, and all concept descriptions – in other word, all identifiables within an ecosystem.
+
+.Metamodel of Environment
+image::image12.png[]
+
+.Metamodel Package Overview
+image::image13.png[]
+
+=== Metamodel Specification Details: Designators
+
+==== General
+
+This clause specifies the classes of the metamodel in detail. An overview is provided in Clause 5.2. Annex E explains UML modelling together with the specifics used in this specification. Annex D depicts the templates used to describe the classes and relationships. Annex G shows some of the diagrams together with all their inherited attributes to give a complete overview.
+
+To understand the specifications, it is crucial to understand the common attributes first (Clause 5.3.2). They are reused throughout the specifications of the other classes ("inherits from") and define important concepts like identifiable, qualifiable, etc. They are abstract, i.e. there is no object instance of such classes.
+
+The concept of referencing and how a reference is represented in the UML diagrams and the tables is explained in Clause 5.3.9 and Annex E.
+
+Constraints that are no invariants of classes are specified in Clause 5.3.11.3.
+
+==== Common Attributes
+
+===== General
+
+This clause specifies the abstract classes that represent commonly used attributes and terminology, together with the classes and data types exclusively used in these classes. They are represented in alphabetical order.
+
+===== Administrative Information Attributes
+
+.Metamodel of Administrative Information
+image::image14.png[]
+
+Every identifiable may contain administrative information. Administrative information includes, for example,
+
+* information about the version of the element,
+* information about who created or who made the last change to the element,
+* information about the languages available in case the element contains text; the master or default language may also be defined for translating purposes,
+* information about the submodel template that guides the creation of the submodel
+
+In principle, the version corresponds to the _version_identifier_ according to IEC 62832. However, it is not used for concept identifiers only (IEC TS 62832-1), but for all identifiable elements. Together, version and revision correspond to the version number according to IEC 62832.
+
+Other attributes of the administrative information like creator refer to ISO 15836-1:2017, the Dublin Core metadata element set.
+
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) link:#bib49[[49\]]. The assumption is that every subject has a unique identifier.
+
+
+xref:AdministrativeInformation[AdministrativeInformation] allows the usage of templates (xref:HasDataSpecification[HasDataSpecification]). Data specifications are defined in separate documents.
+
+
+====
+Note 1: two submodels with the same semanticId but different administrative information shall have different IDs (_Submodel/id_), since they denote that the submodel is not backward compatible or has some other major administrative changes. The _idShort_ typically does not change. The same applies to other identifiables (_Identifiable/id_). Otherwise, the ID of a submodel would not be sufficient to identify the data or service provided by the submodel.
+====
+
+
+
+====
+Note 2: since submodels with different versions shall have different identifiers, it is possible that an Asset Administration Shell has two submodels with the same _semanticId_ but different versions, i.e. different administrative metainformation.
+====
+
+
+
+====
+Note 3: some of the administrative information like the version number might need to be part of the identification. This is similar to the handling of identifiers for concept descriptions using IRDIs. In ECLASS, the IRDI 0173-1#02-AO677#002 contains the version information #002.
+====
+
+
+
+====
+Note 4: the process of versioning or adding other administrative information to elements is done by external version or configuration management software and not by the Asset Administration Shell itself.
+====
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[AdministrativeInformation]]AdministrativeInformation
+h|Explanation: 3+a|
+Administrative metainformation for an element like version information
+
+{aasd005}
+
+h|Inherits from: 3+|xref:HasDataSpecification[HasDataSpecification]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|version 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/version`  
+|Version of the element |xref:VersionType[VersionType] |0..1
+
+.2+e|revision 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/revision`  
+|Revision of the element |xref:RevisionType[RevisionType] |0..1
+
+.2+e|creator 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/creator`  
+a|The subject ID of the subject responsible for making the element |xref:Reference[Reference] |0..1
+
+.2+e|templateId 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/templateId`  
+a|
+Identifier of the template that guided the creation of the element
+
+
+====
+Note 1: in case of a submodel, the template ID is the identifier of the submodel template that guided the creation of the submodel.
+====
+
+
+
+====
+Note 2: the submodel template ID is not relevant for validation. Here, the _Submodel/semanticId_ shall be used.
+====
+
+
+
+====
+Note 3: usage of the template ID is not restricted to submodel instances. The creation of submodel templates can also be guided by another submodel template.
+====
+
+
+|xref:Identifier[Identifier] |0..1
+|===
+
+===== Has Data Specification Attributes
+
+.Metamodel of HasDataSpecification
+image::image15.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[HasDataSpecification]]HasDataSpecification \<<abstract>>
+h|Explanation: 3+a|Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. The data specifications used are explicitly specified with their global ID.
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasDataSpecification`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|dataSpecification 3+| `\https://admin-shell.io/aas/3/1/HasDataSpecification/dataSpecifications`  
+a|
+External reference to the data specification template used by the element
+
+
+====
+Note: this is an external reference.
+====
+
+
+|xref:Reference[Reference] |0..* |
+|===
+
+For more details on data specifications, please see Clause 6.
+
+===== Extensions Attributes
+
+.Metamodel of Has Extensions
+image::image16.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[HasExtensions]]HasExtensions \<<abstract>>
+h|Explanation: 3+a|
+Element that can be extended by proprietary extensions
+
+
+====
+Note 1: see Clause 5.3.12.4 for constraints related to extensions.
+====
+
+
+
+====
+Note 2: extensions are proprietary, i.e. they do not support global interoperability.
+====
+
+
+
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasExtensions`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|extension 3+| `\https://admin-shell.io/aas/3/1/HasExtensions/extensions`  
+a|An extension of the element. |xref:Extension[Extension] |0..*
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Extension]]Extension
+h|Explanation: 3+|Single extension of an element
+h|Inherits from: 3+|xref:HasSemantics[HasSemantics]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Extension`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|name 3+| `\https://admin-shell.io/aas/3/1/Extension`  
+a|Name of the extension |xref:NameType[NameType] |1
+
+.2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Extension/valueType`  
+a|Data type of the value attribute of the extension
+
+Default: xs:string
+
+|xref:DataTypeDefXsd[DataTypeDefXsd]|0..1
+
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/Extension/value` 
+a|Value of the extension |xref:ValueDataType[ValueDataType] |0..1
+
+.2+e|refersTo 3+| `\https://admin-shell.io/aas/3/1/Extension/refersTos` 
+a|Reference to an element the extension refers to |ModelReference<xref:Referable[Referable]> |0..*
+|===
+
+
+
+===== Has Kind Attributes
+
+.Metamodel of HasKind
+image::image17.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[HasKind]]HasKind
+h|Explanation: 3+a|
+An element with a kind is an element that can either represent a template or an instance.
+
+Default for an element is that it is representing an instance.
+
+
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/0/HasKind`  
+
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+
+.2+e|kind 3+| `\https://admin-shell.io/aas/3/0/HasKind/kind`
+a| Kind of the element: either template or instance
+
+Default Value = _Instance_
+
+|xref:ModellingKind[ModellingKind]|0..1
+|===
+
+The kind enumeration is used to denote whether an element is of kind _Template_ or _Instance_. It is used to distinguish between submodels and submodel templates.
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+h|Enumeration: e|[[ModellingKind]]ModellingKind
+h|Explanation: |Enumeration for denoting whether an element is a template or an instance
+|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/0/ModellingKind`  
+
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|Template | `\https://admin-shell.io/aas/3/0/ModellingKind/Template` 
+a|specification of the common features of a structured element in sufficient detail that such a instance can be instantiated using it
+
+.2+e|Instance | `\https://admin-shell.io/aas/3/0/ModellingKind/Instance` 
+a|concrete, clearly identifiable element instance. Its creation and validation may be guided by a corresponding element template
+|===
+
+===== Has Semantics Attributes
+
+.Metamodel of Semantic References (HasSemantics)
+image::image18.png[]
+
+For matching algorithm, see Clause 4.4.1.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[HasSemantics]]HasSemantics \<<abstract>>
+h|Explanation: 3+a|
+Element that can have a semantic definition plus some supplemental semantic definitions
+
+{aasd118}
+
+
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasSemantics`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|semanticId 3+| `\https://admin-shell.io/aas/3/1/HasSemantics/semanticId` 
+a|
+Identifier of the semantic definition of the element called semantic ID or also main semantic ID of the element
+
+
+====
+Note: it is recommended to use an external reference.
+====
+
+
+|xref:Reference[Reference] |0..1
+
+.2+e|supplementalSemanticId 3+| `\https://admin-shell.io/aas/3/1/HasSemantics/supplementalIds` 
+a|
+Identifier of a supplemental semantic definition of the element called supplemental semantic ID of the element
+
+
+====
+Note: it is recommended to use an external reference.
+====
+
+
+|xref:Reference[Reference] |0..*
+|===
+
+===== Identifiable Attributes
+
+.Metamodel of Identifiables
+image::image19.png[]
+
+An identifiable element is a referable with a globally unique identifier (_Identifier_). Only the global ID (_Identifiable/id_) shall be used to reference an identifiable, because the _idShort_ is not unique for an identifiable. Identifiables may have administrative information like version, etc.
+
+Non-identifiable referable elements can be referenced. However, this requires the context of the element. A referable that is not identifiable and not child within a SubmodelElementList has a short identifier (_idShort_) that is unique just in its context, its name space.
+
+Information about identification can be found in Clause 4.3. See Clause 4.3.4 for constraints and recommendations on when to use which type of identifier.
+
+See Clause 4.3.4 for information about which identifier types are supported.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Identifiable]]Identifiable \<<abstract>>
+h|Explanation: 3+a|
+An element that has a globally unique identifier
+
+
+====
+Note: see Clause 5.3.12.2 for constraints related to identifiables.
+====
+
+
+
+h|Inherits from: 3+|xref:Referable[Referable]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Identifiable`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|administration 3+| `\https://admin-shell.io/aas/3/1/Identifiable/administration`  
+a|
+Administrative information of an identifiable element
+
+
+====
+Note: some of the administrative information like the version number might need to be part of the identification.
+====
+
+
+|xref:AdministrativeInformation[AdministrativeInformation] |0..1
+
+.2+e|id 3+| `\https://admin-shell.io/aas/3/1/Identifiable/id`  
+a|The globally unique identification of the element |xref:Identifier[Identifier] |1
+|===
+
+===== Qualifiable Attributes
+
+.Metamodel of Qualifiables
+image::image20.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Qualifiable]]Qualifiable \<<abstract>>
+h|Explanation: 3+a|
+A qualifiable element may be further qualified by one or more qualifiers.
+
+
+====
+Note: see Clause 5.3.12.3 for constraints related to qualifiables.
+====
+
+
+
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Qualifiable`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|qualifier 3+| `\https://admin-shell.io/aas/3/1/Qualifiable/qualifiers`  
+a|Additional qualification of a qualifiable element |xref:Qualifier[Qualifier] |0..*
+|===
+
+===== Qualifier Attributes
+
+.Metamodel of Qualifiers
+image::image21.png[]
+
+Qualifiers may be defined for qualifiable elements.
+
+There are standardized qualifiers defined in IEC CDD, IEC61360-4 – IEC/SC 3D. A level qualifier defining the level type minimal, maximal, typical, and nominal value is specified in IEC 62569-1. In DIN SPEC 92000, qualifier types like e.g. expression semantics and expression logic are defined.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Qualifier]]Qualifier
+h|Explanation: 3+a|
+A qualifier is essentially a type-value-pair. Depending on the kind of qualifier, it makes additional statements
+
+* w.r.t. the value of the qualified element,
+* w.r.t the concept, i.e. semantic definition of the qualified element,
+* w.r.t. existence and other meta information of the qualified element type.
+
+{aasd006}
+
+{aasd020}
+
+
+h|Inherits from: 3+|xref:HasSemantics[HasSemantics]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Qualifier`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|kind \<<Experimental>> 
+a|
+The qualifier kind describes the kind of qualifier that is applied to the element.
+
+Default: ConceptQualifier
+
+|xref:QualifierKind[QualifierKind] |0..1
+
+.2+e|type 3+| `\https://admin-shell.io/aas/3/1/Qualifier/type`  
+a|The qualifier type describes the type of qualifier that is applied to the element. |xref:QualifierType[QualifierType] |1
+
+.2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Qualifier/valueType`  
+a|Data type of the qualifier _value_ |xref:DataTypeDefXsd[DataTypeDefXsd] |1
+
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/Qualifier/value`  
+a|The qualifier value is the value of the qualifier. |xref:ValueDataType[ValueDataType] |0..1
+
+.2+e|valueId 3+| `\https://admin-shell.io/aas/3/1/Qualifier/valueId`  
+a|
+Reference to the global unique ID of a coded value
+
+
+====
+Note: it is recommended to use an external reference.
+====
+
+
+|xref:Reference[Reference] |0..1
+|===
+
+It is recommended to add a _semanticId_ for the concept of the _Qualifier_. _Qualifier/type_ is the preferred name of the concept of the qualifier or its short name.
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+|Enumeration: e|[[QualifierKind]]QualifierKind
+h|Explanation: a|Enumeration for kinds of qualifiers
+|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/0/QualifierKind`  
+
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|ValueQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/ValueQualifier` 
+a|
+Qualifies the value of the element; the corresponding qualifier value can change over time.
+
+Value qualifiers are only applicable to elements with __kind__="_Instance"._
+
+.2+e|ConceptQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/ConceptQualifier` 
+a|Qualifies the semantic definition (_HasSemantics/semanticId_) the element is referring to; the corresponding qualifier value is static.
+
+.2+e|TemplateQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/TemplateQualifier` 
+a|
+Qualifies the elements within a specific submodel on concept level; the corresponding qualifier value is static.
+
+
+====
+Note: template qualifiers are only applicable to elements with kind="Template". See constraint AASd-129.
+====
+
+
+|===
+
+Example of a _ValueQualifier_: property "temperature" and qualifier "value quality" with different qualifier values like "measured", "substitute value".
+
+Example of a _ConceptQualifier:_ an Asset Administration Shell with two submodels with different IDs but the same semanticId = "Bill of Material". The qualifier could denote the life cycle with qualifier values like "as planned", "as maintained" etc. (see +
+Figure 21).
+
+Example of a _TemplateQualifier:_ a submodel element with qualifier value "mandatory" or "optional". This qualification is needed to build a correct submodel instance. For more information see link:#bib48[[48\]].
+
+.Example: Qualifier from IEC CDD
+image::image22.png[Ein Bild, das Text enthält. Automatisch generierte Beschreibung]
+
+===== Referable Attributes
+
+.Metamodel of Referables
+image::image23.png[]
+
+The metamodel differentiates between elements that are identifiable, referable, or none of both. The latter means they are neither inheriting from _Referable_ nor from _Identifiable_, which applies e.g. to __Qualifier__s.
+
+Referable elements can be referenced via the _idShort_ (with exception of elements within a SubmodelElementList). For details on referencing, see Clause 5.3.9.
+
+Not every element of the metamodel is referable. There are elements that are just attributes of a referable.
+
+The __idShort__ shall be unique in its name space for non-identifiable referables (exception: referables within a SubmodelElementList) (see Constraint AASd-022). A name space is defined as follows in this context: the parent element(s), which an element is part of and that is either referable or identifiable, is the name space of the element. Examples: a submodel is the name space for the properties directly contained in it; the name space of a submodel element contained in a submodel element collection is the submodel element collection.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%""]
+|===
+h|Class: 3+e|[[Referable]]Referable \<<abstract>>
+h|Explanation: 3+a|
+Note1 : an element that is referable by its idShort. This ID is not globally unique. This ID is unique within the name space of the element.
+
+
+====
+Note 2: see Clause 5.3.12.2 for constraints related to referables.
+====
+
+
+{aasd002}
+
+
+h|Inherits from: 3+|xref:HasExtensions[HasExtensions]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Referable`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|category \<<Deprecated>> 3+| `\https://admin-shell.io/aas/3/1/Referable/category` 
+a|
+The category is a value that gives further meta information w.r.t. the class of the element. It affects the expected existence of attributes and the applicability of constraints.
+
+
+====
+Note: The category is not identical to the semantic definition (_HasSemantics_) of an element. The category could e.g. denote that the element is a measurement value, whereas the semantic definition of the element would denote that it is the measured temperature.
+====
+
+
+|xref:NameType[NameType] |0..1
+
+.2+e|idShort 3+| `\https://admin-shell.io/aas/3/1/Referable/idShort` 
+a|
+In case of identifiables, this attribute is a short name of the element. In case of a referable, this ID is an identifying string of the element within its name space.
+
+
+====
+Note: if the element is a property and the property has a semantic definition (_HasSemantics/semanticId_) conformant to IEC61360, the _idShort_ is typically identical to the short name in English, if available.
+====
+
+
+|xref:NameType[NameType] |0..1
+
+.2+e|displayName 3+| `\https://admin-shell.io/aas/3/1/Referable/displayName` 
+a|Display name; can be provided in several languages |xref:MultiLanguageNameType[MultiLanguageNameType] |0..1
+
+.2+e|description 3+| `\https://admin-shell.io/aas/3/1/Referable/description` 
+a|
+Description or comments on the element
+
+The description can be provided in several languages.
+
+If no description is defined, the definition of the concept description that defines the semantics of the element is used.
+
+Additional information can be provided, e.g. if the element is qualified and which qualifier types can be expected in which context or which additional data specification templates.
+
+|xref:MultiLanguageTextType[MultiLanguageTextType] |0..1
+|===
+
+Predefined categories are described in Table 6.
+
+
+====
+Note: categories are deprecated and should no longer be used.
+====
+
+
+.Categoriesfootnote:[Note: categories of referables are deprecated.] for Elements with Value
+[cols="18%,28%,54%",options="header",]
+|===
+|Category: |Applicable to, Examples: |Explanation:
+e|CONSTANT a|
+Property
+
+ReferenceElement
+
+a|
+An element with the category CONSTANT is an element with a value that does not change over time.
+
+In ECLASS, this kind of category has the category "Coded Value".
+
+e|PARAMETER a|
+Property
+
+MultiLanguageProperty
+
+Range
+
+SubmodelElementCollection
+
+a|
+An element with the category PARAMETER is an element that is once set and then typically does not change over time.
+
+This applies e.g. to configuration parameters.
+
+e|VARIABLE a|
+Property
+
+SubmodelElementList
+
+|An element with the category VARIABLE is an element that is calculated during runtime, i.e. its value is a runtime value.
+|===
+
+==== Asset Administration Shell Attributes
+
+.Metamodel of an AssetAdministrationShell
+image::image24.png[]
+
+An Administration Shell is uniquely identifiable since it inherits from _Identifiable_.
+
+The _derivedFrom_ attribute is used to establish a relationship between two Asset Administration Shells that are derived from each other. For more detailed information on the _derivedFrom_ concept, see Clause 4.2.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[AssetAdministrationShell]]AssetAdministrationShell
+h|Explanation: 3+a|An Asset Administration Shell
+h|Inherits from: 3+|xref:Identifiable[Identifiable]; xref:HasDataSpecification[HasDataSpecification]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|derivedFrom 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/derivedFrom`
+a|The reference to the Asset Administration Shell, which the Asset Administration Shell was derived from |ModelReference<xref:AssetAdministrationShell[AssetAdministrationShell]> |0..1
+
+.2+e|assetInformation 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/assetInformation`
+a|Meta information about the asset the Asset Administration Shell is representing |xref:AssetInformation[AssetInformation] |1
+
+.2+e|submodel 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/submodels`
+a|
+Reference to a submodel of the Asset Administration Shell
+
+A submodel is a description of an aspect of the asset the Asset Administration Shell is representing.
+
+The asset of an Asset Administration Shell is typically described by one or more submodels.
+
+Temporarily, no submodel might be assigned to the Asset Administration Shell.
+
+|ModelReference<xref:Submodel[Submodel]> |0..*
+|===
+
+==== Asset Information Attributes
+
+.Metamodel of Asset Information
+image::image25.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[AssetInformation]]AssetInformation
+h|Explanation: 3+a|
+In _AssetInformation,_ identifying meta data of the asset that is represented by an Asset Administration Shell is defined.
+
+The asset may either represent a type asset or an instance asset.
+
+The asset has a globally unique identifier, plus – if needed – additional domain-specific (proprietary) identifiers. However, to support the corner case of very first phase of life cycle where a stabilized/constant global asset identifier does not already exist, the corresponding attribute "globalAssetId" is optional.
+
+{aasd131}
+
+
+====
+Note: see Clause 5.3.12.5 for constraints related to asset information.
+====
+
+
+
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/AssetInformation`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|assetKind 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetKind`  
+a|Denotes whether the _Asset_ is of kind "Type", Instance", "Role" or non of these types is applicable |xref:AssetKind[AssetKind]|1
+
+.2+e|globalAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`  
+a|
+Identifier of the asset the Asset Administration Shell is representing
+
+This attribute is required as soon as the Asset Administration Shell is exchanged via partners in the life cycle of the asset. In a first phase of the life cycle, the asset might not yet have a global asset ID but already an internal identifier. The internal identifier would be modelled via "specificAssetId".
+
+|xref:Identifier[Identifier] |0..1
+
+.2+e|specificAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/specificAssetIds`  
+a|Additional domain-specific, typically proprietary identifier for the asset like serial number, manufacturer part ID, customer part IDs, etc |xref:SpecificAssetId[SpecificAssetId] |0..*
+
+.2+e|assetType 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetType`  
+a|
+In case _AssetInformation/assetKind_ is applicable the _AssetInformation/assetType_ is the asset ID of the type asset of the asset under consideration as identified by _AssetInformation/globalAssetId_.
+
+
+====
+Note: in case _AssetInformation/assetKind_ is "Instance" then the AssetInformation/assetType denotes which "Type" the asset is of. But it is also possible to have an _AssetInformation/assetType_ of an asset of kind "Type".
+====
+
+
+|xref:Identifier[Identifier] |0..1
+
+.2+e|defaultThumbnail 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/defaultThumbnail`  
+a|Thumbnail of the asset represented by the Asset Administration Shell; used as default. |xref:Resource[Resource] |0..1
+|===
+
+
+====
+Note: besides this asset information, there still might be an identification submodel with further information. Specific asset IDs mainly serve the purpose of supporting discovery of Asset Administration Shells for an asset.
+====
+
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%""]
+|===
+h|Class: 3+e|[[Resource]]Resource
+h|Explanation: 3+a|Resource represents an address to a file (a locator). The value is a URI that can represent an absolute or relative path.
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Resource`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|path 3+| `\https://admin-shell.io/aas/3/1/Resource/path`  
+a|
+Path and name of the resource (with file extension)
+
+The path can be absolute or relative.
+
+|xref:PathType[PathType] |1
+
+.2+e|contentType 3+| `\https://admin-shell.io/aas/3/1/Resource/contentType`  
+a|
+Content type of the content of the file
+
+The content type states which file extensions the file can have.
+
+|xref:ContentType[ContentType] |0..1
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+|Enumeration: e|[[AssetKind]]AssetKind
+h|Explanation: a|Enumeration for denoting whether an asset is a type asset or 
+an instance asset or is a role or whether this kind of classification is not applicable
+h|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/1/AssetKind`  
+
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|Type | `\https://admin-shell.io/aas/3/0/AssetKind/Type` 
+a|Type asset
+
+.2+e|Instance | `\https://admin-shell.io/aas/3/0/AssetKind/Instance` 
+a|Instance asset
+
+.2+e|Role | `\https://admin-shell.io/aas/3/1/AssetKind/Role` 
+a|Role asset
+
+.2+e|NotApplicable | `\https://admin-shell.io/aas/3/0/AssetKind/NotApplicable` 
+a|Neither a type asset nor an instance asset nor a role asset
+
+|===
+
+For more information on types and instances, see Clause 4.2.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[SpecificAssetId]]SpecificAssetId
+h|Explanation: 3+a|
+A specific asset ID describes a generic supplementary identifying attribute of the asset. The specific asset ID is not necessarily globally unique.
+
+{aasd133}
+
+
+h|Inherits from: 3+|xref:HasSemantics[HasSemantics]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|name 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId/name`  
+a|Name of the asset identifier |xref:LabelType[LabelType] |1
+
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId/value`  
+a|The value of the specific asset identifier with the corresponding name |xref:Identifier[Identifier] |1
+
+.2+e|externalSubjectId 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId/externalSubjectId`  
+a|
+The unique ID of the (external) subject the specific asset ID _value_ belongs to or has meaning to
+
+
+====
+Note: this is an external reference.
+====
+
+
+|xref:Reference[Reference] |0..1
+|===
+
+
+====
+Note 1: names for specificAssetIds do not need to be unique.
+====
+
+
+
+====
+Note 2: semanticIds for the single specificAssetIds do not need to be unique.
+====
+
+
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) link:#bib49[[49\]]. The assumption is that every subject has a unique identifier.
+
+==== Submodel Attributes
+
+.Metamodel of Submodel
+image::image26.png[]
+
+Adding a _semanticId_ for a submodel is recommended (see Table 2).
+
+If the submodel is of _kind=Template_ (modelling kind as inherited by _HasKind_), the submodel elements within the submodel are presenting submodel element templates. If the submodel is of _kind=Instance_, its submodel elements represent submodel element instances.
+
+
+====
+Note: validators shall handle a submodel like _SubmodelElementCollection/submodelElements_ and not like a _SubmodelElementList/value_. The difference is that a submodel is identifiable and a predefined unit of information within the Asset Administration Shell.
+====
+
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Submodel]]Submodel
+h|Explanation: 3+a|
+A submodel defines a specific aspect of the asset represented by the Asset Administration Shell.
+
+A submodel is used to structure the digital representation and technical functionality of an Administration Shell into distinguishable parts. Each submodel refers to a well-defined domain or subject matter. Submodels can become standardized and, in turn, submodel templates.
+
+
+h|Inherits from: 3+|xref:Identifiable[Identifiable]; xref:HasKind[HasKind]; xref:HasSemantics[HasSemantics]; xref:Qualifiable[Qualifiable]; xref:HasDataSpecification[HasDataSpecification]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Submodel`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|submodelElement 3+| `\https://admin-shell.io/aas/3/1/Submodel/submodelElements` 
+a|A submodel consists of zero or more submodel elements. |xref:SubmodelElement[SubmodelElement] |0..*
+|===
+
+==== Submodel Element Attributes
+
+.Metamodel of Submodel Element
+image::image27.png[]
+
+Submodel elements are qualifiable elements, i.e. one or more qualifiers may be defined for each of them.
+
+It is recommended to add a _semanticId_ to a _SubmodelElement._
+
+Submodel elements may also have defined data specification templates. A template might be defined to mirror some of the attributes like _preferredName_ and _unit_ of a property concept definition if there is no corresponding concept description available. Otherwise, there is only the property definition referenced by _semanticId_ available for the property; the attributes must be looked up online in a different way and are not available offline.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[SubmodelElement]]SubmodelElement \<<abstract>>
+h|Explanation: 3+a|A submodel element is an element suitable for the description and differentiation of assets.
+h|Inherits from: 3+|xref:Referable[Referable]; xref:HasSemantics[HasSemantics]; xref:Qualifiable[Qualifiable]; xref:HasDataSpecification[HasDataSpecification]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/SubmodelElement`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+|===
+
+==== Overview of Submodel Element Types
+
+.Metamodel Overview for Submodel Element Subtypes
+image::image28.png[]
+
+Submodel elements include data properties as well as operations, events and other elements needed to describe a model for an asset (see Figure 27).
+
+===== General
+
+All submodel elements including abstract classes like data elements are specified in alphabetical order.
+
+===== Annotated Relationship Element Attributes
+
+.Metamodel of Annotated Relationship Elements
+image::image29.png[]
+
+An annotated relationship is a relationship similar to a ternary association in UML. The semantics of the relationship is defined via the _semanticId_ of the _RelationshipElement_. If this semantic definition requires additional information not contained in the _first_ or _second_ object referenced via the relationship, this information needs to be stored as annotation.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[AnnotatedRelationshipElement]]AnnotatedRelationshipElement
+h|Explanation: 3+a|An annotated relationship element is a relationship element that can be annotated with additional data elements.
+h|Inherits from: 3+|xref:RelationshipElement[RelationshipElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|annotation 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement/annotations`  
+a|A data element that represents an annotation that holds for the relationship between the two elements |xref:DataElement[DataElement] |0..*
+|===
+
+===== Basic Event Element Attributes
+
+.Metamodel of Basic Event Element
+image::image30.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[BasicEventElement]]BasicEventElement \<<Experimental>>
+h|Explanation: 3+a|A basic event element
+h|Inherits from: 3+|xref:EventElement[EventElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|observed 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement`  
+a|Reference to a referable, e.g. a data element or a submodel that is being observed |ModelReference<xref:Referable[Referable]> |1
+
+.2+e|direction 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/direction` 
+a|
+Direction of event
+
+Can be \{ input, output }
+
+|xref:Direction[Direction]|1
+
+.2+e|state 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/state`  
+a|
+State of event
+
+Can be { on, off }
+
+|xref:StateOfEvent[StateOfEvent]|1
+
+.2+e|messageTopic 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/messageTopic`  
+a|Information for the outer message infrastructure to schedule the event for the respective communication channel. |xref:MessageTopicType[MessageTopicType] |0..1
+
+.2+e|messageBroker 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/messageBroker`  
+a|
+Information about which outer message infrastructure shall handle messages for the _EventElement_; refers to a _Submodel,_ _SubmodelElementList_, _SubmodelElementCollection_ or _Entity_, which contains __DataElement__s describing the proprietary specification for the message broker
+
+
+====
+Note: this proprietary specification could be standardized by using respective submodels for different message infrastructure, e.g. OPC UA, MQTT or AMQP.
+====
+
+
+|ModelReference<xref:Referable[Referable]> |0..1
+
+.2+e|lastUpdate 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/lastUpdate`  
+a|Timestamp in UTC, when the last event was received (input direction) or sent (output direction) |dateTime |0..1
+
+.2+e|minInterval 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/minInterval`  
+a|
+For input direction reports on the maximum frequency, the software entity behind the respective referable can handle input events.
+
+For output events, the maximum frequency of outputting this event to an outer infrastructure is specified.
+
+Might be not specified, i.e. if there is no minimum interval.
+
+|duration |0..1
+
+.2+e|maxInterval 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/maxInterval`  
+a|
+Not applicable for input direction
+
+For output direction: maximum interval in time, the respective referable shall send an update of the status of the event, even if no other trigger condition for the event was not met.
+
+Might not be specified, i.e. if there is no maximum interval.
+
+|duration |0..1
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+|Enumeration: e|[[Direction]]Direction \<<Experimental>>
+h|Explanation: a|Direction
+|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/0/Direction`  
+
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|input | `\https://admin-shell.io/aas/3/0/Direction/input` 
+a|Input direction
+
+.2+e|output | `\https://admin-shell.io/aas/3/0/Direction/output` 
+a|Output direction
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+|Enumeration: e|[[StateOfEvent]]StateOfEvent \<<Experimental>>
+h|Explanation: a|State of an event
+|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/0/StateOfEvent`  
+
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|on | `\https://admin-shell.io/aas/3/0/StateOfEvent/on`  
+a|Event is on
+
+.2+e|off | `\https://admin-shell.io/aas/3/0/StateOfEvent/off`  
+a|Event is off
+|===
+
+Events sent or received by an Asset Administration Shell always comply with a general format. Exception: events exchanged in the course of an Industry 4.0 interaction pattern.
+
+The payload of such an event is specified below.
+
+====
+Note: the payload is not part of the information model as exchanged via the AASX package format but used in re-active Asset Administration Shells.
+====
+
+.Metamodel of Event Payload
+image::image31.png[]
+
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[EventPayload]]EventPayload \<<Experimental>>
+h|Explanation: 3+a|Defines the necessary information of an event instance sent out or received
+h|Inherits from: 3+|-
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/EventPayload`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|source 3+| `\https://admin-shell.io/aas/3/1/EventPayload/source` 
+a|Reference to the source event element |ModelReference<xref:EventElement[EventElement]> |1
+
+.2+e|sourceSemanticId 3+| `\https://admin-shell.io/aas/3/1/EventPayload/sourceSemanticId` 
+a|
+semanticId of the source event element, if available
+
+
+====
+Note: it is recommended to use an external reference.
+====
+
+
+|xref:Reference[Reference] |0..1
+
+.2+e|observableReference 3+| `\https://admin-shell.io/aas/3/1/EventPayload/observableReference` 
+a|Reference to the referable, which defines the scope of the event. |ModelReference<xref:Referable[Referable]> |1
+
+.2+e|observableSemanticId 3+| `\https://admin-shell.io/aas/3/1/EventPayload/observableSemanticId` 
+a|
+semanticId of the referable, which defines the scope of the event, if available.
+
+
+====
+Note: it is recommended to use an external reference.
+====
+
+
+|xref:Reference[Reference] |0..1
+
+.2+e|topic 3+| `\https://admin-shell.io/aas/3/1/EventPayload/topic` 
+a|Information for the outer message infrastructure to schedule the event for the respective communication channel |xref:MessageTopicType[MessageTopicType] |0..1
+
+.2+e|subjectId 3+| `\https://admin-shell.io/aas/3/1/EventPayload/subjectId` 
+a|
+Subject, who/which initiated the creation
+
+
+====
+Note: this is an external reference.
+====
+
+
+|xref:Reference[Reference] |0..1
+
+.2+e|timestamp 3+| `\https://admin-shell.io/aas/3/1/EventPayload/timestamp` 
+a|Timestamp in UTC, when this event was triggered |dateTime |1
+
+.2+e|payload 3+| `\https://admin-shell.io/aas/3/1/EventPayload/payload` 
+a|Event-specific payload |xref:BlobType[BlobType] |0..1
+|===
+
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) link:#bib49[[49\]]. The assumption is that every subject has a unique identifier.
+
+===== Blob Attributes
+
+.Metamodel of Blobs
+image::image32.png[]
+
+For information on content type, see Clause 5.3.7.9 on submodel element "File".
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Blob]]Blob
+h|Explanation: 3+a|A Blob is a data element representing a file that is contained in the value attribute with its source code.
+h|Inherits from: 3+|xref:DataElement[DataElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Blob`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|value  3+| `\https://admin-shell.io/aas/3/1/Blob/value`  
+a|
+The value of the blob instance of a blob data element
+
+
+====
+Note: in contrast to the file property, the file content is stored directly as value in the Blob data element.
+====
+
+
+|xref:BlobType[BlobType] |0..1
+
+.2+e|contentType  3+| `\https://admin-shell.io/aas/3/1/Blob/contentType`  
+a|
+Content type of the content of the blob.
+
+The content type (MIME type) states which file extensions the file can have.
+
+Valid values are content types like "application/json", "application/xls", "image/jpg".
+
+The allowed values are defined as in RFC2046.
+
+|xref:ContentType[ContentType] |1
+|===
+
+===== Capability Attributes
+
+.Metamodel of Capabilities
+image::image33.png[]
+
+
+====
+Note: the _semanticId_ of a capability is typically an ontology, which enables reasoning on capabilities. For information and examples on how to apply the concept of capability and how to map it to one or more skills implementing the capability, please refer to link:#bib27[[27\]]. The mapping is done via a relationship element with the corresponding semantics. A skill is typically a property or an operation. In more complex cases, the mapping can also be a collection or a complete submodel.
+====
+
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Capability]]Capability
+h|Explanation: 3+a|A capability is the implementation-independent description of the potential of an asset to achieve a certain effect in the physical or virtual world.
+h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Capability`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+|===
+
+===== Data Element and Overview of Data Element Types
+
+.Metamodel of Data Elements
+image::image34.png[]
+
+A data element is a submodel element that is not further composed of other submodel elements.
+
+A data element is a submodel element that has a value or a predefined number of values like range data elements.
+
+The type of value differs for different subtypes of data elements. Data elements include properties, file handling, and reference elements, see Figure 33.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[DataElement]]DataElement \<<abstract>>
+h|Explanation: 3+a|
+A data element is a submodel element that is not further composed of other submodel elements.
+
+A data element is a submodel element that has a value. The type of value differs for different subtypes of data elements.
+
+{aasd090}
+
+
+====
+Note: categories are deprecated and should no longer be used.
+====
+
+
+
+h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/DataElement`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+|===
+
+===== Entity Attributes
+
+.Metamodel of Entities
+image::image35.png[]
+
+The entity submodel element is designed to be used in submodels defining the relationship between the parts of the composite asset it is composed of (e.g. bill of material). These parts are called entities. Not all entities have a global asset ID.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Entity]]Entity
+h|Explanation: 3+a|
+An entity is a submodel element that is used to model entities.
+
+{aasd014}
+
+
+h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Entity`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|statement 3+| `\https://admin-shell.io/aas/3/1/Entity/statements`  
+a|Describes statements applicable to the entity by a set of submodel elements, typically with a qualified value |xref:SubmodelElement[SubmodelElement] |0..*
+
+.2+e|entityType 3+| `\https://admin-shell.io/aas/3/1/Entity/entityType`  
+a|Describes whether the entity is a co-managed entity or a self-managed entity |xref:EntityType[EntityType]|0..1
+
+.2+e|globalAssetId 3+| `\https://admin-shell.io/aas/3/1/Entity/globalAssetId`  
+a|Global identifier of the asset the entity is representing |xref:Identifier[Identifier] |0..1
+
+.2+e|specificAssetId 3+| `\https://admin-shell.io/aas/3/1/Entity/specificAssetIds`  
+a|Reference to a specific asset ID representing a supplementary identifier of the asset represented by the Asset Administration Shell |xref:SpecificAssetId[SpecificAssetId] |0..*
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+|Enumeration: e|[[EntityType]]EntityType
+h|Explanation: a|Enumeration for denoting whether an entity is a self-managed entity or a co-managed entity
+|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/0/EntityType`  
+
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|CoManagedEntity | `\https://admin-shell.io/aas/3/0/EntityType/CoManagedEntity` 
+a|There is no separate Asset Administration Shell for co-managed entities. Co-managed entities need to be part of a self-managed entity.
+
+.2+e|SelfManagedEntity | `\https://admin-shell.io/aas/3/0/EntityType/SelfManagedEntity` 
+a|
+Self-managed entities have their own Asset Administration Shell but can be part of another composite self-managed entity.
+
+The asset of an I4.0 Component is a self-managed entity per definition.
+
+|===
+
+===== Event Attributes
+
+.Metamodel of Events
+image::image36.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[EventElement]]EventElement \<<abstract>> \<<Experimental>>
+h|Explanation: 3+a|An event element
+h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/EventElement`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+|===
+
+===== File Attributes
+
+.Metamodel of File Submodel Element
+image::image37.png[]
+
+A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted via the Internet. 
+The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications.
+
+
+====
+Note: for information on handling supplementary external files in exchanging Asset Administration Shells in AASX package format see also 
+[Part 5 of the series "Specification of the Asset Administration Shell"](https://industrialdigitaltwin.org/en/content-hub/aasspecifications). 
+An absolute path is used in case the file exists independently of the Asset Administration Shell.
+A relative path, relative to the package root, should be used if the file is part of a serialized package of the Asset Administration Shell.
+====
+
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[File]]File
+h|Explanation: 3+a|A file is a data element that represents an address to a file (a locator). The value is a URI that can represent an absolute or relative path.
+h|Inherits from: 3+|xref:DataElement[DataElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/File`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/File/value`  
+a|
+Path and name of the file (with file extension)
+
+The path can be absolute or relative.
+
+|xref:PathType[PathType] |0..1
+
+.2+e|contentType 3+| `\https://admin-shell.io/aas/3/1/File/contentType`  
+a|Content type of the content of the file |xref:ContentType[ContentType] |1
+|===
+
+===== Multi Language Property Attributes
+
+
+
+.Metamodel of Multi Language Properties
+image::image38.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[MultiLanguageProperty]]MultiLanguageProperty
+h|Explanation: 3+a|
+A property is a data element that has a multi-language value.
+
+{aasd012}
+
+
+h|Inherits from: 3+|xref:DataElement[DataElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/MultiLanguageProperty`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/MultiLanguageProperty/value`  
+a|The value of the property instance |xref:MultiLanguageTextType[MultiLanguageTextType] |0..1
+
+.2+e|valueId 3+| `\https://admin-shell.io/aas/3/1/MultiLanguageProperty/valueId`  
+a|
+Reference to the global unique ID of a coded value.
+
+
+====
+Note: it is recommended to use an external reference.
+====
+
+
+|xref:Reference[Reference] |0..1
+|===
+
+===== Operation Attributes
+
+.Metamodel of Operations
+image::image39.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Operation]]Operation
+h|Explanation: 3+a|
+An operation is a submodel element with input and output variables.
+
+{aasd134}
+
+
+h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Operation`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|inputVariable 3+| `\https://admin-shell.io/aas/3/1/Operation/inputVariables`  
+a|Input parameter of the operation |xref:OperationVariable[OperationVariable] |0..*
+
+.2+e|outputVariable 3+| `\https://admin-shell.io/aas/3/1/Operation/outputVariables`  
+a|Output parameter of the operation |xref:OperationVariable[OperationVariable] |0..*
+
+.2+e|inoutputVariable 3+| `\https://admin-shell.io/aas/3/1/Operation/inoutputVariables`  
+a|Parameter that is input and output of the operation |xref:OperationVariable[OperationVariable] |0..*
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[OperationVariable]]OperationVariable
+h|Explanation: 3+a|The value of an operation variable is a submodel element that is used as input and/or output variable of an operation.
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/OperationVariable`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/OperationVariable/value`
+a|Describes an argument or result of an operation via a submodel element |xref:SubmodelElement[SubmodelElement] |1
+|===
+
+
+====
+Note 1: operations typically specify the behavior of a component in terms of procedures. Hence, operations enable the specification of services with procedure-based interactions link:#bib23[[23\]].
+====
+
+
+
+====
+Note 2: OperationVariable is introduced as separate class to enable future extensions, e.g. for adding a default value or cardinality (option/mandatory).
+====
+
+
+
+====
+Note 3: even if the submodel element as the value of an input and an output variable have the same idShort, this does not mean that they are identical or mapped to the same variable since OperationVariables are no referables. The same applies to two input variables or an input variable and an inoutputVariable a.s.o.
+====
+
+
+===== Property Attributes
+
+.Metamodel of Properties
+image::image40.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Property]]Property
+h|Explanation: 3+a|
+A property is a data element that has a single value.
+
+{aasd007}
+
+
+h|Inherits from: 3+|xref:DataElement[DataElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Property`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Property/valueType`
+a|Data type of the value attribute |xref:DataTypeDefXsd[DataTypeDefXsd] |1
+
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/Property/value`
+a|The value of the property instance |xref:ValueDataType[ValueDataType] |0..1
+
+.2+e|valueId 3+| `\https://admin-shell.io/aas/3/1/Property/valueId`
+a| Reference to the global unique ID of a coded value
+
+
+====
+Note: it is recommended to use an external reference.
+====
+
+
+|xref:Reference[Reference] |0..1
+|===
+
+===== Range Attributes
+
+.Metamodel of Ranges
+image::image41.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Range]]Range \<<Experimental>>
+h|Explanation: 3+a|A range data element is a data element that defines a range with min and max.
+h|Inherits from: 3+|xref:DataElement[DataElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Range`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Range/valueType`  
+a|Data type of the min und max attributes |xref:DataTypeDefXsd[DataTypeDefXsd] |1
+
+.2+e|min 3+| `\https://admin-shell.io/aas/3/1/Range/min`  
+a|
+The minimum value of the range
+
+If the min value is missing, the value is assumed to be negative infinite.
+
+|xref:ValueDataType[ValueDataType] |0..1
+
+.2+e|max 3+| `\https://admin-shell.io/aas/3/1/Range/max`  
+a|
+The maximum value of the range
+
+If the max value is missing, the value is assumed to be positive infinite.
+
+|xref:ValueDataType[ValueDataType] |0..1
+|===
+
+===== Reference Element Attributes
+
+.Metamodel of Reference Elements
+image::image42.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[ReferenceElement]]ReferenceElement
+h|Explanation: 3+a|A reference element is a data element that defines a logical reference to another element within the same or another Asset Administration Shell or a reference to an external object or entity.
+h|Inherits from: 3+|xref:DataElement[DataElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/ReferenceElement`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|value  3+| `\https://admin-shell.io/aas/3/1/ReferenceElement/value`
+a|External reference to an external object or entity or a logical reference to another element within the same or another Asset Administration Shell (i.e. a model reference to a _Referable_) |xref:Reference[Reference] |0..1
+|===
+
+For more information on references, see Clause 5.3.9.
+
+===== Relationship Element Attributes
+
+.Metamodel of Relationship Elements
+image::image43.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[RelationshipElement]]RelationshipElement
+h|Explanation: 3+a|A relationship element is used to define a relationship between two elements being either referable (model reference) or external (external reference).
+h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/RelationshipElement`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|first 3+| `\https://admin-shell.io/aas/3/1/RelationshipElement/first`
+a|Reference to the first element in the relationship taking the role of the subject |xref:Reference[Reference] |1
+
+.2+e|second 3+| `\https://admin-shell.io/aas/3/1/RelationshipElement/second`
+a|Reference to the second element in the relationship taking the role of the object |xref:Reference[Reference] |1
+|===
+
+===== Submodel Element Collection Attributes
+
+.Metamodel of Submodel Element Collections
+image::image44.png[]
+
+Submodel Element Collections are used for complex elements with a typically fixed set of properties with unique names. This set of properties is typically predefined by the semantic definition (referenced via _semanticId_) of the submodel element collection. Each property within the collection itself should have clearly defined semantics.
+
+
+====
+Note: the different elements of a submodel element collection do not have to have different __semanticId__s. However, in these cases the usage of a _SubmodelElementList_ should be considered.
+====
+
+
+Example: a single document has a predefined set of properties like title, version, author, etc. They logically belong to a document. So a single document is represented by a _SubmodelElementCollection_. An asset usually has many different documents available like operating instructions, safety instructions, etc. The set of all documents is represented by a _SubmodelElementList_ (see Clause _5.3.7.17)_. In this case, we have a _SubmodelElementList_ of __SubmodelElementCollection__s.
+
+
+====
+Note: the elements within a submodel element collection are not ordered. Every element has a unique ID (its "idShort"). However, it is recommended to adhere to the order defined in the submodel template.
+====
+
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[SubmodelElementCollection]]SubmodelElementCollection
+h|Explanation: 3+a|A submodel element collection is a kind of struct, i.e. a logical encapsulation of multiple named values.
+h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementCollection`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementCollection/values`
+|Submodel element contained in the collection |xref:SubmodelElement[SubmodelElement] |0..*
+|===
+
+===== Submodel Element List Attributes
+
+.Metamodel of Submodel Element Lists
+image::image45.png[]
+
+Submodel element lists are used for sets (i.e. unordered collections without duplicates), ordered lists (i.e. ordered collections that may contain duplicates), bags (i.e. unordered collections that may contain duplicates), and ordered sets (i.e. ordered collections without duplicates).
+
+
+====
+Note: there is no _idShort_ for submodel elements in lists (see Constraint AASd-120).
+====
+
+
+Submodel element lists are also used to create multi-dimensional arrays. A two-dimensional array listlink:#bib3[[3\]]link:#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements. Each of these three _SubmodelElementLists_ would contain 5 single _Property_ elements. The _semanticId_ of the contained properties would be the same for all lists in the first list, i.e. _semanticIdListElement_ would be identical for all three lists contained in the first list. The _semanticId_ of the three contained lists would differ depending on the dimension it represents. In case of complex values in the array, a _SubmodelElementCollection_ would be used as values in the leaf lists.
+
+Similarly, a table with three columns can be represented. In this case a _SubmodelElementCollection_ with three _SubmodelElementLists_ would be contained and the _semanticId_ as well as the _semanticIdListElement_ for the three columns would differ.
+
+Matching strategies for semantic IDs are explained in Clause 4.4.1.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[SubmodelElementList]]SubmodelElementList
+h|Explanation: 3+a|
+A submodel element list is an ordered list of submodel elements.
+
+
+====
+Note: the list is ordered although the ordering might not be relevant (see attribute "orderRelevant".)
+====
+
+
+The numbering starts with Zero (0).
+
+{aasd107}
+
+{aasd114}
+
+{aasd115}
+
+{aasd108}
+
+{aasd109}
+
+
+h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|orderRelevant 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/orderRelevant`
+a|
+Defines whether order in list is relevant. If _orderRelevant_ = false, the list represents a set or a bag.
+
+Default: True
+
+|boolean |0..1
+
+.2+e|value 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/values`
+a|Submodel element contained in the list |xref:SubmodelElement[SubmodelElement] |0..*
+
+.2+e|semanticIdListElement 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/semanticIdListElement`
+a|
+Semantic ID which the submodel elements contained in the list match
+
+
+====
+Note: it is recommended to use an external reference.
+====
+
+
+|xref:Reference[Reference] |0..1
+
+.2+e|typeValueListElement  3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/typeValueListElement/typeValueListElement`
+a|The submodel element type of the submodel elements contained in the list |xref:AasSubmodelElements[AasSubmodelElements]|1
+
+.2+e|valueTypeListElement 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/valueTypeListElement`
+a|The value type of the submodel element contained in the list |xref:DataTypeDefXsd[DataTypeDefXsd]|0..1
+|===
+
+==== Concept Description Attributes
+
+.Metamodel of Concept Descriptions
+image::image46.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[ConceptDescription]]ConceptDescription
+h|Explanation: 3+a|
+The semantics of a property or other elements that may have a semantic description is defined by a concept description.
+
+The description of the concept should follow a standardized schema (realized as data specification template).
+
+
+h|Inherits from: 3+|xref:Identifiable[Identifiable]; xref:HasDataSpecification[HasDataSpecification]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/ConceptDescription`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|isCaseOf 3+| `\https://admin-shell.io/aas/3/1/ConceptDescription/isCaseOfs`
+a|
+Reference to an external definition the concept is compatible to or was derived from
+
+
+====
+Note: it is recommended to use an external reference, i.e. _Reference/type = ExternalReference_.
+====
+
+
+
+====
+Note: compare with is-case-of relationship in ISO 13584-32 & IEC EN 61360
+====
+
+
+|xref:Reference[Reference] |0..*
+|===
+
+Different types of submodel elements require different attributes to describe their semantics. This is why a concept description has at least one data specification template associated with it. This template defines the attributes needed to describe the semantics.
+
+See Clause 5.3.11.3 for predefined data specification templates.
+
+==== Environment Attributes
+
+.Metamodel for Environment
+image::image47.png[]
+
+
+====
+Note: _Environment_ is not an identifiable or referable element. It is introduced to enable file transfer as well as serialization.
+====
+
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Environment]]Environment
+h|Explanation: 3+a|Container for the sets of different identifiables
+h|Inherits from: 3+|xref:Reference[Reference]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Environment`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|assetAdministrationShell 3+| `\https://admin-shell.io/aas/3/1/Environment/assetAdministrationShells`
+a|Asset Administration Shell |xref:AssetAdministrationShell[AssetAdministrationShell] |0..*
+
+.2+e|submodel 3+| `\https://admin-shell.io/aas/3/1/Environment/submodels`
+a|Submodel |xref:Submodel[Submodel] |0..*
+
+.2+e|conceptDescription 3+| `\https://admin-shell.io/aas/3/1/Environment/conceptDescriptions`
+a|Concept description |xref:ConceptDescription[ConceptDescription] |0..*
+|===
+
+==== Referencing in Asset Administration Shells
+
+===== Overview
+
+To date, two kinds of references are distinguished: references to external objects or entities (external reference) and references to model elements of the same or another Asset Administration Shell (model reference). Model references are also used for metamodel inherent relationships like submodels of an Asset Administration Shell (notation see Annex A).
+
+An external reference is a unique identifier. The identifier can be a concatenation of different identifiers, representing e.g. an IRDI path.
+
+
+====
+Note: references should not be mixed up with locators. Even URLs can be used as identifiers and do not necessarily describe a resource that can be accessed.
+====
+
+
+=====  Reference Attributes
+
+.Metamodel of Reference
+image::image48.png[]
+
+See Clause 4.4.2 for reference matching.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Reference]]Reference
+h|Explanation: 3+a|
+Reference to either a model element of the same or another Asset Administration Shell or to an external entity
+
+A model reference is an ordered list of keys, each key referencing an element. The complete list of keys may, for example, be concatenated to a path that gives unique access to an element.
+
+An external reference is a reference to an external entity.
+
+
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Reference`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|type 3+| `\https://admin-shell.io/aas/3/1/Reference/type`
+a|
+Type of the reference
+
+Denotes whether reference is an external reference or a model reference
+
+|xref:ReferenceTypes[ReferenceTypes]|1
+
+.2+e|referredSemanticId 3+| `\https://admin-shell.io/aas/3/1/Reference/referredSemanticId`
+a|
+Expected semantic ID of the referenced model element (_Reference/type=ModelReference_); there typically is no semantic ID for for the referenced object of external references _(Reference/type=ExternalReference)_.
+
+
+====
+Note 1: if Reference/referredSemanticId is defined, the semanticId of the model element referenced should have a matching semantic ID. If this is not the case, a validator should raise a warning.
+====
+
+
+
+====
+Note 2: it is recommended to use an external reference for the semantic ID expected from the referenced model element.
+====
+
+
+|xref:Reference[Reference] |0..1
+
+.2+e|key \<<ordered>> 3+| `\https://admin-shell.io/aas/3/1/Reference/keys`
+a|Unique reference in its name space |xref:Key[Key] |1..*
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+|Enumeration: e|[[ReferenceTypes]]ReferenceTypes
+h|Explanation: |Enumeration for denoting whether an element is an external or model reference
+|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/0/ReferenceTypes`  
+
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|ExternalReference | `\https://admin-shell.io/aas/3/0/ReferenceTypes/ExternalReference`
+a|External reference
+
+.2+e|ModelReference | `\https://admin-shell.io/aas/3/0/ReferenceTypes/ExternalReference/ExternalReference`
+a|Model reference
+|===
+
+===== Key Attributes
+
+.Metamodel of Keys
+image::image49.png[]
+
+Keys are used to define references (_Reference_).
+
+<<model_for_refs_keys>> presents a logical model of key types. These logical enumerations are used to formulate constraints.
+
+[#model_for_refs_keys]
+.Logical Model for Keys of References (non-normative)
+image::image50.png[]
+
+.Metamodel of KeyTypes Enumeration
+image::image51.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Key]]Key
+h|Explanation: 3+a|A key is a reference to an element by its ID
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Key`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|type 3+| `\https://admin-shell.io/aas/3/1/Key`
+a|
+Denotes which kind of entity is referenced
+
+If _Key/type = GlobalReference,_ the key represents a reference to a source that can be globally identified.
+
+If _Key/type = FragmentReference,_ the key represents a bookmark or a similar local identifier within its parent element as specified by the key that precedes this key.
+
+In all other cases, the key references a model element of the same or another Asset Administration Shell. The name of the model element is explicitly listed.
+
+|xref:KeyTypes[KeyTypes]|1
+
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/Key`
+a|The key value, for example an IRDI or an URI |xref:Identifier[Identifier] |1
+|===
+
+An example for using a _FragmentId_ as type of a key is a reference to an element within a file that is part of an Asset Administration Shell aasx package.
+
+.Metamodel of AasSubmodelElements Enumeration
+image::image52.png[]
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+|Enumeration: e|[[KeyTypes]]KeyTypes
+h|Explanation: a|Enumeration of different key value types within a key
+|Set of: |xref:FragmentKeys[FragmentKeys]; xref:AasReferables[AasReferables], xref:GloballyIdentifiables[GloballyIdentifiables]
+h|ID: | `\https://admin-shell.io/aas/3/0/KeyTypes`  
+
+.2+h|Literal h| ID
+   h|Explanation
+
+
+.2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/0/KeyTypes/AnnotatedRelationshipElement`
+a|Annotated relationship element
+
+.2+e|AssetAdministrationShell | `\https://admin-shell.io/aas/3/0/KeyTypes/AssetAdministrationShell`
+a|Asset Administration Shell
+
+.2+e|BasicEventElement | `\https://admin-shell.io/aas/3/0/KeyTypes/BasicEventElement`
+a|Basic event element
+
+.2+e|Blob | `\https://admin-shell.io/aas/3/0/KeyTypes/Blob`
+a|Blob
+
+.2+e|Capability | `\https://admin-shell.io/aas/3/0/KeyTypes/Capability`
+a|Capability
+
+.2+e|ConceptDescription | `\https://admin-shell.io/aas/3/0/KeyTypes/ConceptDescription`
+a|Concept Description
+
+.2+e|DataElement | `\https://admin-shell.io/aas/3/0/KeyTypes/DataElement`
+a|
+Data Element
+
+
+====
+Note: data elements are abstract, i.e. if a key uses "DataElement", the reference may be a property, file, etc.
+====
+
+
+.2+e|Entity | `\https://admin-shell.io/aas/3/0/KeyTypes/Entity`
+a|Entity
+
+.2+e|EventElement | `\https://admin-shell.io/aas/3/0/KeyTypes/EventElement`
+a|
+Event
+
+
+====
+Note: event element is abstract.
+====
+
+
+.2+e|File | `\https://admin-shell.io/aas/3/0/KeyTypes/File`
+a|File
+
+.2+e|FragmentReference | `\https://admin-shell.io/aas/3/0/KeyTypes/FragmentReference`
+a|Bookmark or a similar local identifier of a subordinate part of a primary resource
+
+.2+e|GlobalReference | `\https://admin-shell.io/aas/3/0/KeyTypes/GlobalReference`
+a|Global reference
+
+.2+e|Identifiable | `\https://admin-shell.io/aas/3/0/KeyTypes/Identifiable`
+a|
+Identifiable
+
+
+====
+Note: identifiable is abstract, i.e. if a key uses "Identifiable" the reference may be an Asset Administration Shell, a submodel or a concept description.
+====
+
+
+.2+e|MultiLanguageProperty | `\https://admin-shell.io/aas/3/0/KeyTypes/MultiLanguageProperty`
+a|Property with a value that can be provided in multiple languages
+
+.2+e|Operation| `\https://admin-shell.io/aas/3/0/KeyTypes/Operation`
+a|Operation
+
+.2+e|Property | `\https://admin-shell.io/aas/3/0/KeyTypes/Property`
+a|Property
+
+.2+e|Range | `\https://admin-shell.io/aas/3/0/KeyTypes/Range`
+a|Range with min and max
+
+.2+e|Referable | `\https://admin-shell.io/aas/3/0/KeyTypes/Referable`
+a|
+====
+Note: referables are abstract, i.e. if a key uses "Referable", the reference may be an Asset Administration Shell, a property, etc.
+====
+
+.2+e|ReferenceElement | `\https://admin-shell.io/aas/3/0/KeyTypes/ReferenceElement`
+a|Reference
+
+.2+e|RelationshipElement | `\https://admin-shell.io/aas/3/0/KeyTypes/RelationshipElement`
+a|Relationship
+
+.2+e|Submodel | `\https://admin-shell.io/aas/3/0/KeyTypes/Submodel`
+a|Submodel
+
+.2+e|SubmodelElement | `\https://admin-shell.io/aas/3/0/KeyTypes/SubmodelElement`
+a|
+Submodel element
+
+
+====
+Note: submodel elements are abstract, i.e. if a key uses "SubmodelElement", the reference may be a property, a submodel element list, an operation, etc.
+====
+
+
+.2+e|SubmodelElementCollection | `\https://admin-shell.io/aas/3/0/KeyTypes/SubmodelElementCollection`
+a|Struct of submodel elements
+
+.2+e|SubmodelElementList | `\https://admin-shell.io/aas/3/0/KeyTypes/SubmodelElementList`
+a|List of submodel elements
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+h|Enumeration: e|[[FragmentKeys]]FragmentKeys
+h|Explanation: a|
+Enumeration of different fragment key value types within a key
+
+
+====
+Note: not used as type but in constraints.
+====
+
+
+h|Set of: |xref:AasReferableNonIdentifiables[AASReferableNonIdentifiables], xref:GenericFragmentKeys[GenericFragmentKeys]
+h|ID: | `\https://admin-shell.io/aas/3/0/FragmentKeys`  
+
+
+.2+h|Literal h| ID
+   h|Explanation
+
+
+.2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/0/FragmentKeys/AnnotatedRelationshipElement`
+a|Annotated relationship element
+
+
+.2+e|BasicEventElement | `\https://admin-shell.io/aas/3/0/FragmentKeys/BasicEventElement`
+a|Basic event element
+
+.2+e|Blob | `\https://admin-shell.io/aas/3/0/FragmentKeys/Blob`
+a|Blob
+
+.2+e|Capability | `\https://admin-shell.io/aas/3/0/FragmentKeys/Capability`
+a|Capability
+
+
+.2+e|DataElement | `\https://admin-shell.io/aas/3/0/FragmentKeys/DataElement`
+a|
+Data Element
+
+
+====
+Note: data elements are abstract, i.e. if a key uses "DataElement", the reference may be a property, file, etc.
+====
+
+
+.2+e|Entity | `\https://admin-shell.io/aas/3/0/FragmentKeys/Entity`
+a|Entity
+
+.2+e|EventElement | `\https://admin-shell.io/aas/3/0/FragmentKeys/EventElement`
+a|
+Event
+
+
+====
+Note: event element is abstract.
+====
+
+
+.2+e|File | `\https://admin-shell.io/aas/3/0/FragmentKeys/File`
+a|File
+
+.2+e|FragmentReference | `\https://admin-shell.io/aas/3/0/FragmentKeys/FragmentReference`
+a|Bookmark or a similar local identifier of a subordinate part of a primary resource
+
+
+.2+e|MultiLanguageProperty | `\https://admin-shell.io/aas/3/0/FragmentKeys/MultiLanguageProperty`
+a|Property with a value that can be provided in multiple languages
+
+.2+e|Operation| `\https://admin-shell.io/aas/3/0/FragmentKeys/Operation`
+a|Operation
+
+.2+e|Property | `\https://admin-shell.io/aas/3/0/FragmentKeys/Property`
+a|Property
+
+.2+e|Range | `\https://admin-shell.io/aas/3/0/FragmentKeys/Range`
+a|Range with min and max
+
+.2+e|Referable | `\https://admin-shell.io/aas/3/0/FragmentKeys/Referable`
+a|
+====
+Note: referables are abstract, i.e. if a key uses "Referable", the reference may be an Asset Administration Shell, a property, etc.
+====
+
+.2+e|ReferenceElement | `\https://admin-shell.io/aas/3/0/FragmentKeys/ReferenceElement`
+a|Reference
+
+.2+e|RelationshipElement | `\https://admin-shell.io/aas/3/0/FragmentKeys/RelationshipElement`
+a|Relationship
+
+
+.2+e|SubmodelElement | `\https://admin-shell.io/aas/3/0/FragmentKeys/SubmodelElement`
+a|
+Submodel element
+
+
+====
+Note: submodel elements are abstract, i.e. if a key uses "SubmodelElement", the reference may be a property, a submodel element list, an operation, etc.
+====
+
+
+.2+e|SubmodelElementCollection | `\https://admin-shell.io/aas/3/0/FragmentKeys/SubmodelElementCollection`
+a|Struct of submodel elements
+
+.2+e|SubmodelElementList | `\https://admin-shell.io/aas/3/0/FragmentKeys/SubmodelElementList`
+a|List of submodel elements
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+h|Enumeration: e|[[AasReferableNonIdentifiables]]AasReferableNonIdentifiables
+h|Explanation: a|
+Enumeration of different fragment key value types within a key
+
+
+====
+Note: not used as type but in constraints.
+====
+
+
+h|Set of: |xref:AasSubmodelElements[AasSubmodelElements]
+h|ID: | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables`  
+
+.2+h|Literal h| ID
+   h|Explanation
+
+
+.2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/AnnotatedRelationshipElement`
+a|Annotated relationship element
+
+
+.2+e|BasicEventElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/BasicEventElement`
+a|Basic event element
+
+.2+e|Blob | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Blob`
+a|Blob
+
+.2+e|Capability | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Capability`
+a|Capability
+
+
+.2+e|DataElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/DataElement`
+a|
+Data Element
+
+
+====
+Note: data elements are abstract, i.e. if a key uses "DataElement", the reference may be a property, file, etc.
+====
+
+
+.2+e|Entity | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Entity`
+a|Entity
+
+.2+e|EventElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/EventElement`
+a|
+Event
+
+
+====
+Note: event element is abstract.
+====
+
+
+.2+e|File | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/File`
+a|File
+
+
+.2+e|MultiLanguageProperty | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/MultiLanguageProperty`
+a|Property with a value that can be provided in multiple languages
+
+.2+e|Operation| `\https://admin-shell.io/aas/3/0/AasSubmodelElements/Operation`
+a|Operation
+
+.2+e|Property | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Property`
+a|Property
+
+.2+e|Range | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Range`
+a|Range with min and max
+
+.2+e|Referable | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Referable`
+a|
+====
+Note: referables are abstract, i.e. if a key uses "Referable", the reference may be an Asset Administration Shell, a property, etc.
+====
+
+.2+e|ReferenceElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/ReferenceElement`
+a|Reference
+
+.2+e|RelationshipElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/RelationshipElement`
+a|Relationship
+
+
+.2+e|SubmodelElement | `\https://admin-shell.io/aas/3/0/AAasReferableNonIdentifiables/SubmodelElement`
+a|
+Submodel element
+
+
+====
+Note: submodel elements are abstract, i.e. if a key uses "SubmodelElement", the reference may be a property, a submodel element list, an operation, etc.
+====
+
+
+.2+e|SubmodelElementCollection | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/SubmodelElementCollection`
+a|Struct of submodel elements
+
+.2+e|SubmodelElementList | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/SubmodelElementList`
+a|List of submodel elements
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+h|Enumeration: e|[[AasSubmodelElements]]AasSubmodelElements 
+h|Explanation: a|Enumeration of submodel element types including abstract submodel element types
+h|Set of: |-- 
+h|ID: | `\https://admin-shell.io/aas/3/1/AasSubmodelElements`  
+
+.2+h|Literal h| ID
+   h|Explanation
+
+
+.2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/AnnotatedRelationshipElement`
+a|Annotated relationship element
+
+
+.2+e|BasicEventElement | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/BasicEventElement`
+a|Basic event element
+
+.2+e|Blob | `\https://admin-shell.io/aas/3/0/AasSubmodelElements[/Blob`
+a|Blob
+
+.2+e|Capability | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/Capability`
+a|Capability
+
+
+.2+e|DataElement | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/DataElement`
+a|
+Data Element
+
+
+====
+Note: data elements are abstract, i.e. if a key uses "DataElement", the reference may be a property, file, etc.
+====
+
+
+.2+e|Entity | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/Entity`
+a|Entity
+
+.2+e|EventElement | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/EventElement`
+a|
+Event
+
+
+====
+Note: event element is abstract.
+====
+
+
+.2+e|File | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/File`
+a|File
+
+
+.2+e|MultiLanguageProperty | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/MultiLanguageProperty`
+a|Property with a value that can be provided in multiple languages
+
+.2+e|Operation| `\https://admin-shell.io/aas/3/0/AasSubmodelElements/Operation`
+a|Operation
+
+.2+e|Property | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/Property`
+a|Property
+
+.2+e|Range | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/Range`
+a|Range with min and max
+
+
+
+.2+e|ReferenceElement | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/ReferenceElement`
+a|Reference
+
+.2+e|RelationshipElement | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/RelationshipElement`
+a|Relationship
+
+
+.2+e|SubmodelElement | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/SubmodelElement`
+a|
+Submodel element
+
+
+====
+Note: submodel elements are abstract, i.e. if a key uses "SubmodelElement", the reference may be a property, a submodel element list, an operation, etc.
+====
+
+
+.2+e|SubmodelElementCollection | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/SubmodelElementCollection`
+a|Struct of submodel elements
+
+.2+e|SubmodelElementList | `\https://admin-shell.io/aas/3/0/AasSubmodelElements/SubmodelElementList`
+a|List of submodel elements
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+h|Enumeration: e|[[AasReferables]]AasReferables
+h|Explanation: a|
+Enumeration of referables
+
+
+====
+Note: not used as type but in constraints.
+====
+
+
+h|Set of: |xref:AasReferableNonIdentifiables[AASReferableNonIdentifiables], xref:AasIdentifiables[AasIdentifiables]
+h|ID: | `\https://admin-shell.io/aas/3/0/AasReferables`  
+
+.2+h|Literal h| ID
+   h|Explanation
+
+
+.2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/AnnotatedRelationshipElement`
+a|Annotated relationship element
+
+.2+e|AssetAdministrationShell | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/AssetAdministrationShell`
+a|Asset Administration Shell
+
+.2+e|BasicEventElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/BasicEventElement`
+a|Basic event element
+
+.2+e|Blob | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Blob`
+a|Blob
+
+.2+e|Capability | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Capability`
+a|Capability
+
+
+
+.2+e|DataElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/DataElement`
+a|
+Data Element
+
+
+====
+Note: data elements are abstract, i.e. if a key uses "DataElement", the reference may be a property, file, etc.
+====
+
+
+.2+e|Entity | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Entity`
+a|Entity
+
+.2+e|EventElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/EventElement`
+a|
+Event
+
+
+====
+Note: event element is abstract.
+====
+
+
+.2+e|File | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/File`
+a|File
+
+
+
+
+
+.2+e|MultiLanguageProperty | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/MultiLanguageProperty`
+a|Property with a value that can be provided in multiple languages
+
+.2+e|Operation| `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Operation`
+a|Operation
+
+.2+e|Property | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Property`
+a|Property
+
+.2+e|Range | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Range`
+a|Range with min and max
+
+.2+e|Referable | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/Referable`
+a|
+====
+Note: referables are abstract, i.e. if a key uses "Referable", the reference may be an Asset Administration Shell, a property, etc.
+====
+
+.2+e|ReferenceElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/ReferenceElement`
+a|Reference
+
+.2+e|RelationshipElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/RelationshipElement`
+a|Relationship
+
+
+.2+e|SubmodelElement | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/SubmodelElement`
+a|
+Submodel element
+
+
+====
+Note: submodel elements are abstract, i.e. if a key uses "SubmodelElement", the reference may be a property, a submodel element list, an operation, etc.
+====
+
+
+.2+e|SubmodelElementCollection | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/SubmodelElementCollection`
+a|Struct of submodel elements
+
+.2+e|SubmodelElementList | `\https://admin-shell.io/aas/3/0/AasReferableNonIdentifiables/SubmodelElementList`
+a|List of submodel elements
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+|Enumeration: e|[[GenericFragmentKeys]]GenericFragmentKeys
+|Explanation: a|
+Enumeration of different fragment key value types within a key
+
+
+====
+Note: not used as type but in constraints.
+====
+
+
+|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/0/GenericFragmentKeys`  
+
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|FragmentReference | `\https://admin-shell.io/aas/3/0/GenericFragmentKeys/FragmentReference`
+a|Bookmark or a similar local identifier of a subordinate part of a primary resource
+
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+h|Enumeration: e|[[AasIdentifiables]]AasIdentifiables
+h|Explanation: a|
+Enumeration of all metamodel element types that represent identifiables
+
+
+====
+Note: not used as type but in constraints.
+====
+
+
+h|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/0/AasIdentifiables`  
+
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|AssetAdministrationShell | `\https://admin-shell.io/aas/3/0/AasIdentifiables/AssetAdministrationShell` 
+a|Asset Administration Shell
+
+.2+e|ConceptDescription | `\https://admin-shell.io/aas/3/0/AasIdentifiables/ConceptDescription` 
+a|Concept description
+
+.2+e|Identifiable | `\https://admin-shell.io/aas/3/0/AasIdentifiables/Identifiable` 
+a|
+Identifiable
+
+
+====
+Note: Identifiables are abstract, i.e. if a key uses "Identifiable", the reference may be an Asset Administration Shell, a submodel, or a concept description.
+====
+
+
+.2+e|Submodel | `\https://admin-shell.io/aas/3/1/AasIdentifiables/Submodel` 
+a|Submodel
+
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+h|Enumeration: e|[[GenericGloballyIdentifiables]]GenericGloballyIdentifiables
+h|Explanation: a|Enumeration of different key value types within a key
+h|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/0/GenericGloballyIdentifiables`  
+
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|GlobalReference | `\https://admin-shell.io/aas/3/0/GenericGloballyIdentifiables/GlobalReference` 
+a|Global reference
+
+|===
+
+===== Constraints
+
+{aasd121}
+
+{aasd122}
+
+{aasd123}
+
+{aasd124}
+
+{aasd125}
+
+
+====
+Note: constraint AASd-125 ensures that the shortest path is used.
+====
+
+
+{aasd126}
+
+{aasd127}
+
+
+====
+Note: which kind of fragments are supported depends on the content type and the specification of allowed fragment
+identifiers for the corresponding resource referenced.
+====
+
+
+
+{aasd128}
+
+In the following examples for valid und invalid model references and external references are given.
+The notation follows the grammar as defined in Clause xref:#_serialization_of_values_of_type_reference[].
+
+[.underline]#Examples for valid references:#
+
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590
+
+(GlobalReference)https://example.com/specification.html
+....
+
+[.underline]#Examples for valid external references:#
+[example]
+....
+(GlobalReference)https://example.com/ressource
+
+(GlobalReference)0173-1#02-EXA123#001
+
+(GlobalReference)https://example.com/specification.html (FragmentReference)Hints
+....
+
+====
+Note: 
+[example]
+....
+(GlobalReference)https://example.com/specification.html (FragmentReference)Hints
+....
+represents the path with fragment identifier
+[example]
+....
+https://example.com/specification.html#Hints
+....
+====
+
+
+[.underline]#Examples for valid model references:#
+[example]
+....
+(AssetAdministrationShell)https://example.com/aas/1/0/12348
+
+(Submodel)https://example.com/aas/1/1/1234859590
+
+(Submodel)https://example.com/aas/1/1/1234859590, (File)Specification
+
+(ConceptDescription)0173-1#02-BAA120#008
+
+(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementList)Documents, (SubmodelElementCollection)0, (MultiLanguageProperty)Title
+
+(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementCollection)Manual, (MultiLanguageProperty)Title
+....
+
+====
+Note: 
+[example]
+....
+(SubmodelElementCollection)0, (MultiLanguageProperty)Title
+....
+may be identical to 
+
+[example]
+....
+(SubmodelElementCollection)Manual, (MultiLanguageProperty)Title
+....
+semantically and content-wise. 
+The difference is that more than one document is allowed in the first submodel and thus a submodel element list is defined: 
+elements in a list are numbered. However, it is also possible to define a display name in this case. 
+The display name of the SubmodelElementCollection should be the same in both bases, e.g. "Users Manual".
+====
+
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590, (File)Specification, (FragmentReference)Hints
+....
+
+====
+Note: assuming the file has the value using the absolute path
+[example]
+....
+https://example.com/specification.html 
+....
+(and not a relative path), the first reference points to the same information as the global reference
+[example]
+....
+(GlobalReferencehttps://example.com/specification.html, (FragmentReference)Hints
+....
+
+====
+
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590, (Blob)Specification, (FragmentReference)Hints
+....
+
+
+[.underline]#Examples for invalid model references:#
+[example]
+....
+(GlobalReference)https://example.com/aas/1/1/1234859590
+....
+This is an external reference but no model reference.
+[example]
+....
+(Property)0173-1#02-BAA120#008
+....
+This reference does not start with the ID of an Identiable. Additionally, the value is not valid idShort for a Property submodel element.
+
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590, (EventElement)Event, (FragmentReference)Comment
+....
+
+This model reference is invalid because fragment references so far are only defined for _File_ and _Blob_ submodel elements (see Constraint AASd-127, xref:AASd-127).
+[example]
+....
+(AssetAdministrationShell)https://example.com/aas/1/0/12348, (Submodel)https://example.com/aas/1/1/1234859590, (Property)Temperature
+....
+This is not a valid model reference because _AssetAdministrationShell_ and _Submodel_ are both global identifiables.
+
+==== Primitive and Simple Data Types
+
+===== Predefined Simple Data Types
+
+The metamodel of the Asset Administration Shell uses basic data types as defined in the link:https://www.w3.org/XML/Core/[XML Schema Definition] (XSD)footnote:[https://www.w3.org/XML/Core/, former https://www.w3.org/XML/Schema]. See Table 7 for an overview of the used types. Their definition is outside the scope of this document.
+
+The meaning and format of xsd types is specified in https://www.w3.org/XML/Schema. The simple type "langString" is specified in the Resource Description Framework (RDF)footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
+
+See Clause 5.3.12.6 for constraints on types.
+
+.Simple Data Types Used in Metamodel
+[cols="10%,19%,38%,33%",options="header",]
+|===
+|Source |Basic Data Type |Value Range |Sample Values
+|xsd |string |Character string (but not all Unicode character strings) |"Hello world", "Καλημέρα κόσμε", +
+"ハローワールド""
+|xsd |base64Binary |base64-encoded binary data |"a3Vtb3dhc2hlcmU="
+|xsd |boolean |true, false |true, false
+|xsd |dateType |Date and time with or without time zone |"2000-01-01T14:23:00", +
+"2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to xs:dateTimeStamp in XML Schema 1.1]
+|xsd |duration |Duration of time |"-P1Y2M3DT1H", +
+"PT1H5M0S"
+|rdf |langString |Strings with language tags a|
+"Hello"@en, +
+"Hallo"@de
+
+
+====
+Note: this is written in RDF/Turtle syntax, only "Hello" and "Hallo" are the actual values.
+====
+
+
+|===
+
+===== Primitive Data Types
+
+Table 8 lists the Primitives used in the metamodel. Primitive data types start with a capital letter.
+
+
+====
+Note: see Clause 5.3.12.6 for constraints on types.
+====
+
+
+
+
+.Primitive Data Types Used in Metamodel
+[cols="13%,30%,57%"]
+|===
+
+.2+h|Primitive 2+h| ID 
+    h|Definition h|Value Examples
+
+.2+e|[[BlobType]]BlobType 2+| `\https://admin-shell.io/aas/3/0/BlobType` 
+a|
+_base64binary_
+
+to represent file content (binaries and non-binaries)
+
+a|
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema elementFormDefault="qualified" targetNamespace="http://www.admin-shell.io/aas/2/0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:aas="http://www.admin-shell.io/aas/2/0" />
+
+pass:[MZ_________ÿÿ__¸_______@___________________________________€_____º__´	Í!¸_LÍ!This program cannot be run in DOS mode.$_______PE__L___Rö\^________à_]
+
+.2+e|[[ContentType]]ContentType 2+| `admin-shell.io/aas/3/0/ContentType`
+a|
+_string_ with max 100 and min 1 characters
+
+
+====
+Note: any content type as in RFC2046.
+====
+
+
+A media type (also MIME type and content type) […] is a two-part identifier for file formats and format contents transmitted on the Internet. The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications. Media types were originally defined in Request for Comments 2045 in November 1996 as a part of MIME specification, for denoting type of email message content and attachments.footnote:[Wikipedia.org, date: 2018-04-09]
+
+a|
+application/pdf
+
+image/jpeg
+
+.2+e|[[Identifier]]Identifier 2+| `\https://admin-shell.io/aas/3/1/Identifier`
+|_string_ with max 2024 and min 1 characters a|
+\https://cust/123456
+
+0173-1#02-BAA120#008
+
+.2+e|[[LabelType]]LabelType 2+| `\https://admin-shell.io/aas/3/0/LabelType`
+a|_string_ with max 64 and min 1 characters a|"ABC1234"
+
+
+.2+e|[[LangStringSet]]LangStringSet 2+| `\https://admin-shell.io/aas/3/0/LangStringSet`
+a|
+_Array of elements of type langString_
+
+
+====
+Note 1: langString is a RDF data type.
+====
+
+
+
+====
+Note 2: a langString is a string value tagged with a language code.
+====
+
+
+Realization depends on the serialization rules for a technology.
+
+a|
+In xml:
+
+<aas:langString lang="EN">This is a multi-language value in English</aas:langString>
+
+<aas:langString lang="DE"> Das ist ein Multi-Language-Wert in Deutsch </aas:langString>
+
+In rdf:
+
+"This is a multi-language value in English"@en ;
+
+"Das ist ein Multi-Language-Wert in Deutsch"@de
+
+In JSON:
+
+"description": [
+
+  \{
+
+      "language":"en", 
+
+         "text": "This is a multi-language value in English."
+
+  },
+
+  \{
+
+"language":"de",
+
+"text": "Das ist ein Multi-Language-Wert in Deutsch." 
+
+   }
+
+]
+
+.2+e|[[MessageTopicType]]MessageTopicType 2+| `\https://admin-shell.io/aas/3/0/MessageTopicType`
+a|_string_ with max 128 and min 1 characters |
+
+.2+e|[[MultiLanguageNameType]]MultiLanguageNameType 2+| `\https://admin-shell.io/aas/3/1/MultiLanguageNameType`
+a| xref:LangStringSet[LangStringSet]
+
+Each langString within the array of strings has a max of 1,023 and a min of 1 characters (as for NameType).
+
+| See xref:LangStringSet[LangStringSet]
+
+.2+e|[[MultiLanguageTextType]]MultiLanguageTextType 2+| `\https://admin-shell.io/3/0/MultiLanguageTextType`
+a| xref:LangStringSet[LangStringSet]
+
+Each string within langString has a max of 1,023 and min of 1 characters.
+
+|See xref:LangStringSet[LangStringSet]
+
+.2+e|[[NameType]]NameType 2+| `\https://admin-shell.io/aas/3/0/NameType`
+a|_string_ with max 128 and min 1 characters |"ManufacturerPartId"
+
+.2+e|[[PathType]]PathType 2+| `\https://admin-shell.io/aas/3/1/PathType`
+a|
+_Identifier_
+
+
+====
+Note: URL, based on [RFC-3986](https://www.rfc-editor.org/rfc/rfc3987) /[RFC-3987](https://www.rfc-editor.org/rfc/rfc3987), but more recently defined as living standard by WHATWG, as suggested by W3C: https://url.spec.whatwg.org/
+====
+
+
+a|
+\./Specification.pdf
+
+file:c:/local/Specification.pdf
+
+\http://www.example.org
+
+FTP://unicode.org
+
+
+.2+e|[[RevisionType]]RevisionType 2+| `\https://admin-shell.io/aas/3/0/RevisionType`
+a|
+_string_ with max 4 and min 1 characters
+
+following the following regular expression:
+
+^([0-9]\|[1-9][0-9]*)$
+
+a|
+"0"
+
+"7"
+
+"567"
+
+.2+e|[[QualifierType]]QualifierType 2+| `\https://admin-shell.io/aas/3/0/QualifierType`
+a|_NameType_ a|
+"ExpressionSemantic" (as specified in DIN SPEC 92000:2019-09, see link:#bib16[[16\]])
+
+"life cycle qual" (as specified in IEC 61360-7 - IEC/SC 3D - Common Data Dictionary (link:https://cdd.iec.ch/cdd/common/iec61360-7.nsf/SearchFrameset?OpenFrameSet[CDD - V2.0015.0004])
+
+.2+e|[[VersionType]]VersionType 2+| `\https://admin-shell.io/aas/3/0/VersionType`
+a|
+_string_ with max 4 and min 1 characters
+
+following the following regular expression:
+
+^([0-9]\|[1-9][0-9]*)$
+
+a|
+"1"
+
+"9999"
+
+.2+e|[[ValueDataType]]ValueDataType 2+| `\https://admin-shell.io/aas/3/0/ValueDataType`
+a|_any xsd atomic type as specified via DataTypeDefXsd_ a|
+"This is a string value"
+
+10
+
+1.5
+
+2020-04-01
+
+True
+
+|===
+
+===== Enumeration for Submodel Element Value Types
+
+Enumerations are primitive data types. Most of the enumerations are defined in the context of their class. This clause defines enumerations for submodel element value typesfootnote:[E.g. Property/valueType].
+
+The predefined types used to define the type of values of properties and other values use the names and the semantics of XML Schema Definition (XSD)footnote:[see https://www.w3.org/XML/Schema, https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes]. Additionally, the type "langString" with the semantics as defined in the Resource Description Framework (RDF)footnote:[see: https://www.w3.org/TR/rdf11-concepts/] is used. "langString" is a string value tagged with a language code.
+
+
+====
+Note 1: RDFfootnote:[See https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes] recommends to not use the following xsd data types. That is why they are excluded from the allowed data types.
+====
+
+
+* XSD BuildIn List types are not supported (ENTITIES, IDREFS and NMTOKENS).
+* XSD string BuildIn types are not supported (normalizedString, token, language, NCName, ENTITY, ID, IDREF).
+* The following XSD primitive types are not supported: NOTATION, QName.
+
+
+====
+Note 2: the following RDF types are not supported: HTML and XMLLiteral.
+====
+
+
+.DefTypeDefRdf Enumeration
+image::image53.png[]
+
+The enumeration is derived from Figure 54.
+
+.Data TypeDefXsd Enumeration
+image::image54.png[]
+
+Table 9 depicts example values and the value range of the different data type"
+
+shows the data types which can be used for submodel element values. The data types are defined according to the W3C XML Schema (https://www.w3.org/TR/xmlschema-2/#built-in-datatypes and https://www.w3.org/TR/xmlschema-2/#built-in-derived). "Value Range" further explains the possible range of data values for this data type. The right column shows related examples for values of the corresponding data type.
+
+.Data Types with Examplesfootnote:[See list of RDF-compatible XSD types with short description https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes. Examples from https://openmanufacturingplatform.github.io/sds-bamm-aspect-meta-model/bamm-specification/v1.0.0/datatypes.html]
+[cols="15%,22%,24%,39%",options="header",]
+|===
+| |Data Type |Value Range |Sample Values
+|Core types e|xs:string |Character string (but not all Unicode character strings) a|
+"Hello world"
+
+"Καλημέρα κόσμε"
+
+"こんにちは世界"
+
+
+| e|xs:boolean |true, false |true, false
+| e|xs:decimal |Arbitrary-precision decimal numbers a|
+-1.23
+
+126789672374892739424.543233
+
++100000.00, 210
+
+| e|xs:integer |Arbitrary-size integer numbers a|
+-1
+
+0
+
+126789675432332938792837429837429837429
+
++100000
+
+|IEEE floating-point numbers e|xs:double |64-bit floating point numbers incl. ±Inf, ±0, NaN a|
+-1.0
+
++0.0
+
+-0.0
+
+234.567e8
+
+-INF
+
+NaN
+
+| e|xs:float |32-bit floating point numbers incl. ±Inf, ±0, NaN a|
+-1.0
+
++0.0
+
+-0.0
+
+234.567e8
+
+-INF
+
+NaN
+
+|Time and dates e|xs:date |Dates (yyyy-mm-dd) with or without time zone a|
+"2000-01-01"
+
+"2000-01-01Z"
+
+"2000-01-01+12:05"
+
+| e|xs:time |Times (hh:mm:ss.sss…​) with or without time zone a|
+"14:23:00"
+
+"14:23:00.527634Z"
+
+"14:23:00+03:00"
+
+| e|xs:dateTime |Date and time with or without time zone a|
+"2000-01-01T14:23:00"
+
+"2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to xs:dateTimeStamp in XML Schema 1.1]
+
+|Recurring and partial dates |xs:gYear |Gregorian calendar year a|
+"2000"
+
+"2000+03:00"
+
+| e|xs:gMonth |Gregorian calendar month a|
+"--04"
+
+"--04+03:00"
+
+| e|xs:gDay |Gregorian calendar day of the month a|
+"---04"
+
+"---04+03:00"
+
+| e|xs:gYearMonth |Gregorian calendar year and month a|
+"2000-01"
+
+"2000-01+03:00"
+
+| e|xs:gMonthDay |Gregorian calendar month and day a|
+"--01-01"
+
+"--01-01+03:00"
+
+| e|xs:duration |Duration of time a|
+"P30D"
+
+"-P1Y2M3DT1H", "PT1H5M0S"
+
+|Limited-range integer numbers |xs:byte |-128…+127 (8 bit) a|
+-1, 0
+
+127
+
+| e|xs:short |-32768…+32767 (16 bit) a|
+-1, 0
+
+32767
+
+| e|xs:int |2147483648…+2147483647 (32 bit) a|
+-1, 0
+
+2147483647
+
+| e|xs:long |-9223372036854775808…+9223372036854775807 (64 bit) a|
+-1
+
+0, 9223372036854775807
+
+| e|xs:unsignedByte |0…255 (8 bit) a|
+0
+
+1
+
+255
+
+| e|xs:unsignedShort |0…65535 (16 bit) a|
+0
+
+1
+
+65535
+
+| e|xs:unsignedInt |0…4294967295 (32 bit) a|
+0
+
+1
+
+4294967295
+
+| e|xs:unsignedLong |0…18446744073709551615 (64 bit) a|
+0
+
+1
+
+18446744073709551615
+
+| e|xs:positiveInteger |Integer numbers >0 a|
+1
+
+7345683746578364857368475638745
+
+| e|xs:nonNegativeInteger |Integer numbers ≥0 a|
+0
+
+1
+
+734568374657836485736847563
+
+| e|xs:negativeInteger |Integer numbers <0 a|
+-1
+
+- 23487263847628376482736487263
+
+| e|xs:nonPositiveInteger |Integer numbers ≤0 a|
+-1
+
+0
+
+-938458374985739874987989873
+
+|Encoded binary data e|xs:hexBinary |Hex-encoded binary data |"6b756d6f77617368657265"
+
+| e|xs:base64Binary |Base64-encoded binary data |"a3Vtb3dhc2hlcmU="
+
+|Miscellaneous types e|xs:anyURI |Absolute or relative URIs and IRIs a|
+\https://customer.com/demo/aas/1/1/1234859590
+
+"urn:example:company:1.0.0"
+
+| e|rdf:langString |Strings with language tags a|
+"Hello"@en
+
+"Hallo"@de
+
+
+====
+Note: this is written in RDF/Turtle syntax, @en and de are the language tags.
+====
+
+
+|===
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+|Enumeration: |[[DataTypeDefXsd]]DataTypeDefXsd
+|Explanation: a|
+Enumeration listing all xsd anySimpleTypes
+
+For more details see https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes
+
+|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/1/DataTypeDefXsd`  
+
+h|Literal h|Explanation
+e|xs:anyURI |see: https://www.w3.org/TR/xmlschema2/#anyURI
+e|xs:base64Binary |see: https://www.w3.org/TR/xmlschema2/#base64Binary
+e|xs:boolean |see https://www.w3.org/TR/xmlschema2/#boolean
+e|xs:byte |see https://www.w3.org/TR/xmlschema2/#byte
+e|xs:date |see https://www.w3.org/TR/xmlschema2/#date
+e|xs:dateTime |see https://www.w3.org/TR/xmlschema2/#dateTime
+e|xs:decimal |see https://www.w3.org/TR/xmlschema2/#decimal
+e|xs:double |see https://www.w3.org/TR/xmlschema2/#double
+e|xs:duration |see https://www.w3.org/TR/xmlschema2/#duration
+e|xs:float |see https://www.w3.org/TR/xmlschema2/#float
+e|xs:gDay |see https://www.w3.org/TR/xmlschema2/#gDay
+e|xs:gMonth |see https://www.w3.org/TR/xmlschema2/#gMonth
+e|xs:gMonthDay |see https://www.w3.org/TR/xmlschema2/#gMonthDay
+e|xs:gYear |see https://www.w3.org/TR/xmlschema2/#gYear
+e|xs:gYearMonth |see https://www.w3.org/TR/xmlschema2/#gYearMonth
+e|xs:hexBinary |see https://www.w3.org/TR/xmlschema2/#hexBinary
+e|xs:int |see https://www.w3.org/TR/xmlschema2/#int
+e|xs:integer |see https://www.w3.org/TR/xmlschema2/#integer
+e|xs:long |see https://www.w3.org/TR/xmlschema2/#long
+e|xs:negativeInteger |see https://www.w3.org/TR/xmlschema2/#negativeInteger
+e|xs:nonNegativeInteger |see: https://www.w3.org/TR/xmlschema2/#nonNegativeInteger
+e|xs:nonPositiveInteger |see: https://www.w3.org/TR/xmlschema2/#nonPositiveInteger
+e|xs:positiveInteger |see: https://www.w3.org/TR/xmlschema2/#positiveInteger
+e|xs:short |see: https://www.w3.org/TR/xmlschema2/#short
+e|xs:string |see: https://www.w3.org/TR/xmlschema-2/#string
+e|xs:time |see: https://www.w3.org/TR/xmlschema-2/#time
+e|xs:unsignedByte |see: https://www.w3.org/TR/xmlschema2/#unsignedShort
+e|xs:unsignedInt |see: https://www.w3.org/TR/xmlschema2/#unsignedInt
+e|xs:unsignedLong |see: https://www.w3.org/TR/xmlschema2/#unsignedLong
+e|xs:unsignedShort |see: https://www.w3.org/TR/xmlschema2/#unsignedShort
+e|xs:yearMonthDuration |see: https://www.w3.org/TR/xmlschema2/#yearMonthDuration
+|===
+
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+h|Enumeration: |[[DataTypeDefRdf]]DataTypeDefRdf
+h|Explanation: |Enumeration listing all RDF types
+|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/0/DataTypeDefRdf`  
+
+h|Literal h|Explanation
+e|rdf:langString |String with a language tag
+|===
+
+RDF requires IETF BCP 47footnote:[see https://tools.ietf.org/rfc/bcp/bcp47.txt] language tags. Simple two-letter language tags for locales like "de" conformant to ISO 639-1 are allowed, as well as language tags plus extension like "de-DE" for country code, dialect, etc. like in "en-US" for English (United States) or "en-GB" for English (United Kingdom). IETF language tags are referencing ISO 639, ISO 3166 and ISO 15924.
+
+.Built-In Types of XML Schema Definition 1.0 (XSD)footnote:[Source: https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes]
+image::image55.png[]
+
+====  Constraints: Global Invariants
+
+===== Introduction
+
+This clause documents constraints that represent global invariants, i.e. constraints that cannot be assigned to a single class.
+
+In contrast, a class invariant is a constraint that must be true for all instances of a class at any time. They are documented as part of the class specification.
+
+===== Constraints for Referables and Identifiables
+
+{aasd117}
+
+
+====
+Note: in other words (AASd-117), __idShort__ is mandatory for all __Referable__s except for referables being direct childs of __SubmodelElementList__s and for all __Identifiable__s.
+====
+
+
+{aasd120}
+
+{aasd022}
+
+
+====
+Note: AASd-022 also means that __idShort__s of referables shall be matched sensitive to the case.
+====
+
+
+===== Constraints for Qualifiers
+
+{aasd021}
+
+{aasd119}
+
+{aasd129}
+
+===== Constraints for Extensions
+
+{aasd077}
+
+===== Constraints for Asset-Related Information
+
+{aasd116}
+
+
+====
+Note: AASd-116 is important to enable a generic search across global and specific asset IDs.
+====
+
+====
+Note: The semanticId of a SpecificAssetId with the predefined name "gloablAssetId" corresponds to the metamodel attribute "https://admin-shell-io/aas/3/1/AssetInformation/globalAssetId"
+====
+
+===== Constraints for Types
+
+{aasd130}
+
+Constraint AASd-130 ensures that encoding and interoperability between different serializations is possible. It corresponds to the restrictions as defined for the XML Schema 1.0footnote:[https://www.w3.org/TR/xml/#charsets].
+
+
+
+
+
+
+
+

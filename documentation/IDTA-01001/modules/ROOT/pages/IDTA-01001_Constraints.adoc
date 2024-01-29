@@ -1,0 +1,47 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+////
+
+// Constraints
+:aasd002: pass:q[[underline]#Constraint AASd-002:# _idShort_ of __Referable__s shall only feature letters, digits, hyphen ("-") and  underscore ("\_"); starting mandatory with a letter, and not ending with a hyphen or underscore, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$.]
+:aasd005: pass:q[[underline]#Constraint AASd-005:# If _AdministrativeInformation_/version is not specified, _AdministrativeInformation/revision_ shall also be unspecified. This means that a revision requires a version. If there is no version, there is no revision. Revision is optional.]
+:aasd006: pass:q[[underline]#Constraint AASd-006:# If both, the _value_ and the _valueId_ of a _Qualifier_ are present, the value needs to be identical to the value of the referenced coded value in _Qualifier/valueId_.]
+:aasd007: pass:q[[underline]#Constraint AASd-007:# If both the _Property/value_ and the _Property/valueId_ are present, the value of _Property/value_ needs to be identical to the value of the referenced coded value in _Property/valueId_.]
+:aasd012: pass:q[[underline]#Constraint AASd-012:# if both the _MultiLanguageProperty/value_ and the _MultiLanguageProperty/valueId_ are present, the meaning must be the same for each string in a specific language, as specified in _MultiLanguageProperty/valueId_.]
+:aasd014: pass:q[[underline]#Constraint AASd-014:# Either the attribute _globalAssetId_ or _specificAssetId_ of an _Entity_ must be set if _Entity/entityType_ is set to "_SelfManagedEntity_".]
+:aasd020: pass:q[[underline]#Constraint AASd-020:# The value of _Qualifier/value_ shall be consistent with the data type as defined in _Qualifier/valueType_.]
+:aasd021: pass:q[[underline]#Constraint AASd-021:# Every qualifiable can only have one qualifier with the same _Qualifier/type._]
+:aasd022: pass:q[[underline]#Constraint AASd-022:# _idShort_ of non-identifiable referables within the same name space shall be unique (case-sensitive).]
+:aasd077: pass:q[[underline]#Constraint AASd-077:# The name of an extension (_Extension/name_) within _HasExtensions_ needs to be unique.]
+:aasd080: pass:q[[underline]#Constraint AASd-080:# In case _Key/type_ == _GlobalReference_ _idType_ shall not be any LocalKeyType (_IdShort, FragmentId)._]
+:aasd081: pass:q[[underline]#Constraint AASd-081:# In case Key/type==AssetAdministrationShell Key/idType shall not be any LocalKeyType (IdShort, FragmentId).]
+:aasd090: pass:q[[underline]#Constraint AASd-090:# for data elements, _category_ (inherited by _Referable_) shall be one of the following values: CONSTANT, PARAMETER or VARIABLE. Default: VARIABLE]
+:aasd107: pass:q[[underline]#Constraint AASd-107:# If a first level child element in a _SubmodelElementList_ has a semanticId, it shall be identical to _SubmodelElementList/semanticIdListElement_.]
+:aasd108: pass:q[[underline]#Constraint AASd-108:# All first level child elements in a _SubmodelElementList_ shall have the same submodel element type as specified in _SubmodelElementList/typeValueListElement_.]
+:aasd109: pass:q[[underline]#Constraint AASd-109:# If _SubmodelElementList/typeValueListElement_ is equal to _Property_ or _Range,_ _SubmodelElementList/valueTypeListElement_ shall be set and all first level child elements in the _SubmodelElementList_ shall have the value type as specified in _SubmodelElementList/valueTypeListElement_.]
+:aasd114: pass:q[[underline]#Constraint AASd-114:# If two first level child elements in a _SubmodelElementList_ have a _semanticId_, they shall be identical.]
+:aasd115: pass:q[[underline]#Constraint AASd-115:# If a first level child element in a _SubmodelElementList_ does not specify a _semanticId_, the value is assumed to be identical to _SubmodelElementList/semanticIdListElement_.]
+:aasd116: pass:q[[underline]#Constraint AASd-116:# "_globalAssetId_" (case-insensitive) is a reserved key. If used as value for _SpecificAssetId/name,_ _SpecificAssetId/value_ shall be identical to _AssetInformation/globalAssetId_.]
+:aasd117: pass:q[[underline]#Constraint AASd-117:# _idShort_ of non-identifiable __Referable__s not being a direct child of a _SubmodelElementList_ shall be specified.]
+:aasd118: pass:q[[underline]#Constraint AASd-118:# If a supplemental semantic ID (_HasSemantics/supplementalSemanticId_) is defined, there shall also be a main semantic ID (_HasSemantics/semanticId_).]
+:aasd119: pass:q[[underline]#Constraint AASd-119:# If any _Qualifier/kind_ value of a _Qualifiable/qualifier_ is equal to _TemplateQualifier_ and the qualified element inherits from "_hasKind"_, the qualified element shall be of kind _Template_ (_HasKind/kind = "Template"_).]
+:aasd120: pass:q[[underline]#Constraint AASd-120:# _idShort_ of submodel elements being a direct child of a _SubmodelElementList_ shall not be specified.]
+:aasd121: pass:q[[underline]#Constraint AASd-121:# For __Reference__s, the value of _Key/type_ of the first _key_ of _Reference/keys_ shall be one of _GloballyIdentifiables_.]
+:aasd122: pass:q[[underline]#Constraint AASd-122:# For external references, i.e. __Reference__s with _Reference/type = ExternalReference_, the value of _Key/type_ of the first key of _Reference/keys_ shall be one of _GenericGloballyIdentifiables_.]
+:aasd123: pass:q[[underline]#Constraint AASd-123:# For model references, i.e. __Reference__s with _Reference/type = ModellReference_, the value of _Key/type_ of the first _key_ of _Reference/keys_ shall be one of _AasIdentifiables._]
+:aasd124: pass:q[[underline]#Constraint AASd-124:# For external references, i.e. __Reference__s with _Reference/type = ExternalReference_, the last _key_ of _Reference/keys_ shall be either one of _GenericGloballyIdentifiables_ or one of _GenericFragmentKeys._]
+:aasd125: pass:q[[underline]#Constraint AASd-125:# For model references, i.e. __Reference__s with _Reference/type_ = _ModelReference_ with more than one key in _Reference/keys,_ the value of _Key/type_ of each of the keys following the first key of _Reference/keys_ shall be one of _FragmentKeys_.]
+:aasd126: pass:q[[underline]#Constraint AASd-126:# For model references, i.e. __Reference__s with _Reference/type = ModelReference_ with more than one key in _Reference/keys,_ the value of _Key/type_ of the last _Key_ in the reference key chain may be one of _GenericFragmentKeys_ or no key at all shall have a value out of _GenericFragmentKeys._]
+:aasd127: pass:q[[underline]#Constraint AASd-127:# For model references, i.e. __Reference__s with _Reference/type = ModelReference_ with more than one key in _Reference/keys,_ a key with _Key/type_ _FragmentReference_ shall be preceded by a key with _Key/type_ _File_ or _Blob_. All other Asset Administration Shell fragments, i.e. _Key/type_ values out of _AasSubmodelElements,_ do not support fragments__.__]
+:aasd128: pass:q[[underline]#Constraint AASd-128:# For model references, i.e. __Reference__s with _Reference/type = ModelReference_, the _Key/value_ of a _Key_ preceded by a _Key_ with _Key/type=SubmodelElementList_ is an integer number denoting the position in the array of the submodel element list.]
+:aasd129: pass:q[[underline]#Constraint AASd-129:# If any _Qualifier/kind_ value of a __SubmodelElement/qualifie__r (attribute _qualifier_ inherited via _Qualifiable_) is equal to _TemplateQualifier_, the submodel element shall be part of a submodel template, i.e. a _Submodel_ with _Submodel/kind_ (attribute _kind_ inherited via _HasKind_) value equal to _Template._]
+:aasd130: pass:q[[underline]#Constraint AASd-130:# an attribute with data type "string" shall consist of these characters only: ^[\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u00010000-\u0010FFFF]*$.]
+:aasd131: pass:q[[underline]#Constraint AASd-131:# The _globalAssetId_ or at least one _specificAssetId_ shall be defined for _AssetInformation_.]
+:aasd133: pass:q[[underline]#Constraint AASd-133:# _SpecificAssetId/externalSubjectId_ shall be a global reference, i.e. _Reference/type_ _= ExternalReference_.]
+:aasd134: pass:q[[underline]#Constraint AASd-134:# For an _Operation,_ the _idShort_ of all _inputVariable/value_, _outputVariable/value,_ and _inoutputVariable/value_ shall be unique.]
+

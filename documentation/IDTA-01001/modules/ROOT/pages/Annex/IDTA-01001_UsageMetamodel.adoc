@@ -1,0 +1,43 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+
+
+[appendix]
+== How to Use the Metamodel
+
+=== Composite I4.0 Components
+
+As described in Clause 4.2.1, there is a class of relationships between assets of different hierarchy levels. In this class of relationships, automation equipment is explained as a complex, interrelated graph of automation devices and products, performing intelligent production and self-learning/optimization tasks.
+
+Details and examples for composite I4.0 Components can be found in link:#bib13[[13\]].
+
+The following modelling elements in the Asset Administration Shell metamodel can be used to realize such composite I4.0 Components:
+
+* _RelationshipElement,_ used to describe relationships between assets and other elements,
+* _Submodel,_ where a complex asset is composed out of other entities and assets, which are specified in a bill of material together with their relationship to each other.
+
+
+====
+Note: the submodel template defining the structure of such a bill of material is not predefined by the Asset Administration Shell metamodel. However, _Entity_ elements were designed for the purpose of building bills of material.
+====
+
+
+* Not every entity (_Entity_) that is part of the bill of material of an asset necessarily has its own Asset Administration Shell. As described in link:#bib13[[13\]], self-managed entities are distinguished from co-managed entities (_Entity/entityType_).
+[arabic]
+. Self-Managed Entities have their own Asset Administration Shell. This is why a reference to this asset is specified via _Entity/globalAssetId_ or an _Entity/specificAssetId_. Additionally, further property statements (_Entity/statement_) link:#bib16[[16\]] can be added to the asset that are not specified in the Asset Administration Shell of the asset itself, since they are specified in relation to the composite I4.0 Component only.
+. There is no separate Asset Administration Shell for co-managed entities. The relationships and property statements of such entities are managed within the Asset Administration Shell of the composite I4.0 Component.
+
+Figure 88 shows an extract of the metamodel containing the most important elements to describe composite I4.0 Components.
+
+.Extract From Metamodel for Composite I4.0 Components
+image::image88.png[]

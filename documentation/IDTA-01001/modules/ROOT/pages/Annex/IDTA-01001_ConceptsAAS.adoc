@@ -1,0 +1,205 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+
+
+[appendix]
+== Concepts of the Administration Shell
+
+=== General
+
+Annex A provides general information about sources of information and relevant concepts for the Asset Administration Shell. Some of these concepts are explained in a general manner. Some concepts are update in order to reflect actual design decisions. No new concepts are introduced. Thus, this clause can be seen as a fully informative annex to the specifications of the Administration Shell.
+
+=== Relevant Sources and Documents
+
+The following documents were used to identify requirements and concepts for the Administration Shell:
+
+* implementation strategy of Plattform Industrie 4.0 link:#bib1[[1\]]link:#bib2[[2\]],
+* aspects of the research roadmap in application scenarios link:#bib7[[7\]],
+* continuation of the application scenarios link:#bib8[[8\]],
+* structure of the Administration Shell link:#bib4[[4\]] link:#bib19[[19\]],
+* examples for the Administration Shell of the Industrie 4.0 Components link:#bib6[[6\]],
+* technical overview "Secure identities" link:#bib9[[9\]],
+* security of the Administration Shell link:#bib15[[15\]],
+* relationships between I4.0 components – composite components and smart production link:#bib13[[13\]].
+
+
+====
+Note 1: the global Plattform Industrie 4.0 glossary can be found at: https://www.plattform-i40.de/PI40/Navigation/EN/Industrie40/Glossary/glossary.html
+====
+
+
+
+====
+Note 2: the online library of the Plattform Industrie 4.0 can be found at: https://www.plattform-i40.de/PI40/Navigation/EN/Downloads-News/downloads-news.html
+====
+
+
+
+====
+Note 3: the online library of the Industrial Digital Twin Association can be found at: https://industrialdigitaltwin.org/en/content-hub/downloads
+====
+
+
+=== Basic Concepts for Industry 4.0
+
+Industry 4.0 describes concepts and definitions for the domain of smart manufacturing. For Industry 4.0, the term asset, being any "object which has a value for an organization", is of central importance link:#bib2[[2\]] link:#bib21[[21\]]. Industry 4.0 assets can take almost any form, e.g. a production system, a product, a software installation, intellectual properties, or even human resources.
+
+According to link:#bib21[[21\]], the "reference architecture model Industry 4.0 (RAMI4.0) provides a structured view of the main elements of an asset using a level model consisting of three axes [...]. Complex interrelationships can thus be broken down into smaller, more manageable sections by combining all three axes at each point in the asset’s life to represent each relevant aspect."
+
+Assets shall have a logical representation in the "information world", e.g. managed by IT systems. Consequently, an asset needs a precise identification as an entity, shall have a "specific state within its life (at least a type or instance)", shall have communication capabilities, shall be represented by means of information and shall be able to provide technical functionality link:#bib21[[21\]]. This logical representation of an asset is called Administration Shell link:#bib4[[4\]]. The combination of asset and Administration Shell forms the so-called I4.0 component. In international papers link:#bib19[[19\]], the term smart manufacturing replaces the term Industry 4.0.
+
+As far as the large variety of assets in Industry 4.0 are concerned, the Asset Administration Shell allows these assets to be handled in the same manner within the information world. This reduces complexity and allows for scalability. Additional motivation can be found in link:#bib2[[2\]] link:#bib4[[4\]] link:#bib7[[7\]] link:#bib8[[8\]].
+
+.Important Concepts of Industry 4.0 attached to the Asset link:#bib2[[2\]] link:#bib21[[21\]]
+image::image60.jpeg[]
+
+=== The Concept of Properties
+
+According to link:#bib20[[20\]], the "IEC 61360 series provides a framework and an information model for product dictionaries. The concept of product type is represented by 'classes' and the product characteristics are represented by 'properties'".
+
+Standardized data elements are an example for such properties. The definitions can be found in a range of repositories, such as IEC CDD (common data dictionary) or ECLASS. The definition of a property (aka standardized data element type, property type) associates a worldwide unique identifier with a definition, which is a set of well-defined attributes. Relevant attributes for the Administration Shell are, amongst others, the preferred name, the symbol, the unit of measure, and a human-readable textual definition of the property.
+
+.Exemplary Definition of a Property the IEC CDD
+image::image61.png[Ein Bild, das Tisch enthält. Automatisch generierte Beschreibung]
+
+The instantiation of such a definition (just 'property', property instance) typically associates a value to the property. This mechanism makes it possible to convey semantically well-defined information to the Administration Shell.
+
+
+====
+Note: Industry 4.0 and smart manufacturing in general will require many properties, which are beyond the current scope of IEC CDD, ECLASS, or other repositories. It is expected that these sets of properties will be introduced, as more and more domains are modelled and standardized (see next clause).
+====
+
+
+=== The Concept of Submodels
+
+"The Administration Shell is the standardized digital representation of the asset, corner stone of the interoperability between the applications managing the manufacturing systems" link:#bib19[[19\]]. Hence, it should provide a minimal but sufficient description according to the different application scenarios in Industry 4.0 link:#bib7[[7\]] link:#bib8[[8\]]. Many different (international) standards, consortia and manufacturer specifications can already contribute to this description link:#bib19[[19\]].
+
+As the figure shows, information from many different domains can be associated with a respective asset, and many different properties are required to be represented in Administration Shells of future I4.0 components. The architectural principle "separation of concerns" is supported by submodels.
+
+.Examples of Different Domains Providing Properties for Submodels of the Administration Shell
+image::image62.jpg[]
+
+The Administration Shell is made up of a series of submodels link:#bib4[[4\]]. These represent different aspects of the asset concerned. For example, they may contain a description relating to safety or security link:#bib15[[15\]] but they could also outline various process capabilities such as drilling or installation link:#bib6[[6\]].
+
+From an interoperability perspective, the goal is to standardize only a single submodel for each aspect/ technical domain. For example, it will be possible to find a drilling machine by searching for an Administration Shell containing a submodel "Drilling" with appropriate properties. Certain properties can then be assumed to exist for communication between different I4.0 components. In our example, a second submodel "energy efficiency" could make sure the drilling machine is able to cut its electricity consumption when out of operation.
+
+
+====
+Note: a side benefit of the Administration Shell will be to simplify the update of properties from product design (and in particular system design) tools, update properties from real data collected in the instances of assets, improve traceability of assets along the life cycle, and help certify assets from data.
+====
+
+
+=== Basic Structure of the Asset Administration Shell
+
+The document on the structure of the Asset Administration Shell link:#bib4[[4\]] link:#bib19[[19\]] presents a rough, logical view of the Asset Administration Shell’s structure. The Asset Administration Shell – shown in blue in the following figure – comprises different sets of information. Both the asset and the Administration Shell are identified by a globally unique identifier. It comprises a number of submodels, which characterize the Asset Administration Shell.
+
+.Basic Structure of the Asset Administration Shell
+image::image63.jpeg[]
+
+Properties, data, and functions will contain information that not every partner within a value-added network or even within an organizational unit should be able to access; its integrity and availability should be guaranteed. Therefore, the structure of the Administration Shell shall be able to handle aspects such as access protection, visibility, identity, and rights management, confidentiality, and integrity. Information security needs to be respected and has to be aligned with an overall security concept. Security implementation must go together with the implementation of other components of an overall system.
+
+Each submodel contains a structured quantity of properties that can refer to data and functions. A standardized format based on IEC 61360-1/ ISO 13584-42 is envisaged for the properties. Property value definition shall follow the same principles as ISO 29002-10 and IEC 62832-2. Data and functions may be available in various complementary formats.
+
+The properties of all the submodels therefore result in a constantly readable key information directory of the Administration Shell and hence of the I4.0 component. To enable binding semantics, Administration Shells, assets, submodels, and properties must all be clearly identified. For identification of these element the following types of global identifiers are allowed: IRDIs (used for example in ISO TS 29002-5, ECLASS and IEC CDD) and IRIs (Internationalized Resource Identifier, used for example in ontologies).
+
+It should be possible to filter elements of the Administration Shell or submodels according to different given views (see example C.4 in link:#bib19[[19\]]). This facilitates different perspectives or use cases to access the Administration Shell's information.
+
+=== How Are New Identifiers Created?
+
+Following the different identification types from Clause 4.3.4, it can be stated that:
+
+[loweralpha]
+. IRDIs are assumed to already exist due to an external specification and standardization process in the creation of a certain Administration Shell. To bring such IRDI identifiers to life, please refer to Clause 5 of this document link:#bib4[[4\]].
+. URIs and URLs can easily be created by developers when forming a certain Administration Shell. All they need is a valid authenticated URL, for example of the company. They also need to make sure that the domain (e.g. admin-shell.io) appended to the host’s name is reserved in a semantically unique way for these identifiers. This way, each developer can create an arbitrary URI or URL by combining the host name and some chosen path, which only needs to be unique in the developer's organization.
+. Custom identifiers can also be easily formed by developers. They only need to make sure that internal custom identifiers can be clearly distinguished from (a) or (b).
+. Local identifiers can also be created on the fly. They have to be unique within their namespace.
+
+=== Best Practice for Creating URI Identifiers
+
+The approach for semantics and interaction for I4.0 components link:#bib18[[18\]] suggests the use of the following structure (see Table 11) for URIsfootnote:[URLs are also URIs], which is slightly modified here. The idea is to always structure URIs following a scheme of different elements. However, this is just a recommendation and by no means mandatory.
+
+.Proposed Structure for URIs
+[cols="23%,64%,13%",options="header",]
+|===
+|*Element* |*Description* |*Syntax component*
+|Organization |Legal body, administrative unit, or company issuing the ID |A
+|Organizational subunit/document ID/document subunit |Sub entity in organization above, released specification, or publication of organization above |P
+|Submodel/domain ID |Submodel of functional or knowledge-wise domain of asset or Administration Shell, which the identifier belongs to |P
+|Version |Version number in line with release of specification or publication of identifier |P
+|Revision |Revision number in line with release of specification or publication of identifier |P
+|Property/element ID |Property or further structural element ID of the Administration Shell |P
+|Instance number |Individual numbering of the instances within release of specification or publication |P
+|===
+
+In the table, syntax component "A" refers to authority of RFC 3986 (URI) and namespace identifier of RFC 2141 (URN); "P" refers to path of RFC 3986 (URI) and namespace specific string of RFC 2141 (URN).
+
+[.underline]#Grammar:#
+
+[listing]
+....
+<AAS URI> ::= <scheme> ":" <authority> [ <path> ]
+
+<scheme> ::= a valid URI scheme
+
+<authority> ::= Organization
+
+<path> ::= <subunit> <domain> <release> <element>
+
+<subunit> ::= \{ ("/" | ":") <Organizational Subunit/Document ID/Document subunit> }*
+
+<domain> ::= [ ("/" | ":") <Submodel / Domain-ID>
+
+<release> ::= [ ("/" | ":") <Version> [ ("/" | ":") <Revision> ]* ]
+
+<element> ::= [ ("/" | ":" | "#") \{( <Property/Element-ID> | <Instance number> )}* ]
+....
+
+Using this scheme, valid URNs and URLs can be both created as URIs. The latter are preferred for Administration Shells, as functionality (such as REST services) can be bound to the identifiers. Examples of such identifiers are given in Table 12.
+
+.Example URN and URL-based Identifiers of the Asset Administration Shell
+[cols="27%,73%",options="header",]
+|===
+|*Identifier* |*Examples*
+|Administration Shell ID a|
+urn:zvei:SG2:aas:1:1:demo11232322
+
+\https://www.zvei.de/SG2/aas/1/1/demo11232322
+
+|Submodel ID (Template) a|
+urn:GMA:7.20:contractnegotiation:1:1
+
+\http://www.vdi.de/gma720/contractnegotiation/1/1
+
+|Submodel ID (Instance) a|
+urn:GMA:7.20:contractnegotiation:1:1#001
+
+\http://www.vdi.de/gma720/contractnegotiation/1/1#001
+
+|ID of type or Concept Description of a Property etc. a|
+urn:PROFIBUS:PROFIBUS-PA:V3-02:Parameter:1:1:MaxTemp
+
+\https://www.zvei.de/SG2/aas/1/1/demo11232322/maxtemp
+
+|Property, etc. +
+ 
+*(not used by metamodel)* a|
+urn:PROFIBUS:PROFIBUS-PA:V3-02:Parameter:1:1:MaxTemp#0002
+
+\https://www.zvei.de/SG2/aas/1/1/demo11232322/maxtemp#0002
+
+|===
+
+
+====
+Note: the last row of Table 12 is only used for completion; the metamodel does not foresee own unique identifiers for property/parameter/status instances.
+====
