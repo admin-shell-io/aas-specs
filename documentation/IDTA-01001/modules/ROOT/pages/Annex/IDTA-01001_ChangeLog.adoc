@@ -47,6 +47,8 @@ Major Changes:
 * data type  Identifier: change length from 2000 to 2024 characters [#306](https://github.com/admin-shell-io/aas-specs/issues/306)
 * Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name [#295](https://github.com/admin-shell-io/aas-specs/issues/295)
 * Entity/entityType and Constraint AASd-014: now optional [#287](https://github.com/admin-shell-io/aas-specs/issues/287)
+* Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications
+[#]307(https://github.com/admin-shell-io/aas-specs/issues/307)
 * Individual versioning of metamodel element IDs (note: the version of many 
 class metamodel IDs needed to be increased to 3.1 due to the change of data types 
 Identifier and idShort of Referable) 
@@ -103,7 +105,7 @@ Bugfixes:
 | |AASd-002 |Update a|
 now also allows hyphens to be included in name
 
-Constraint AASd-002: _idShort_ of __Referable__s shall only feature letters, digits, hyphen ("-") and  underscore ("_"); starting mandatory with a letter, and not ending with a hypen or underscore, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$.].
+Constraint AASd-002: _idShort_ of __Referable__s shall only feature letters, digits, hyphen ("-") and  underscore ("_"); starting mandatory with a letter, and not ending with a hyphen, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$.].
 | | AASd-014 | Update a|
 Change since Entity/entityType is now optional
 
