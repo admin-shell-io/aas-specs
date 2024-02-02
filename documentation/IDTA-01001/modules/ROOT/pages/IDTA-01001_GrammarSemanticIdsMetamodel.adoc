@@ -1,5 +1,7 @@
+:page-partial:
 
-==  Semantic Identifiers for Metamodel and Data Specifications
+[[semantic-ids-for-metamodel]]
+=  Semantic Identifiers for Metamodel and Data Specifications
 
 
 
@@ -11,13 +13,11 @@ The following grammar is used to create valid identifiers:
 
 [listing]
 ....
-<Namespace> ::= <AAS Namespace> | <Data Specification Namespace>
+<Namespace> ::= <AAS Namespace> | <ID of Data Specification>
 
 <Namespace Qualifier> ::= <AAS Namespace Qualifier> | <Data Specification Qualifier>
 
 <AAS Namespace> ::= <Shell-Namespace> "/aas/" <Version>
-
-<Data Specification Namespace> ::= <Shell-Namespace> "/DataSpecificationTemplates/" <idShort of Data Specification> <Version>
 
 <Shell-Namespace> ::= "https://admin-shell.io/"
 
@@ -32,10 +32,17 @@ For AAS a predefined namespace qualifier is defined. For data specifications thi
 
 [listing]
 ....
-<AAS Namespace Qualifier> ::= "AAS:"
+<ID of Data Specification> ::= defined per Data Specification
 
 <Data Specification Qualifier> ::= defined per Data Specification
+
+<AAS Namespace Qualifier> ::= "AAS:"
 ....
+
+====
+Note: The Data Specification ID should include versioning information. Data Specifications defined by the IDTA typically start with the <AAS namespace> as well. 
+Additionally, a sub-namespace is defined following the rules of the  https://github.com/admin-shell-io/id?tab=readme-ov-file#identifier-scheme-and-description[Identification Scheme of the Asset Administration Shell].
+====
 
 A concrete unique identifier is defined as follows:
 

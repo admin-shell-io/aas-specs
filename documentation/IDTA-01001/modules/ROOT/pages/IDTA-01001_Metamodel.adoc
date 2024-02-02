@@ -11,24 +11,26 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 ////
 
 
-
+////
 :toc: left
 :toclevels: 4
 :toc-title: Specification of the Asset Administration Shell. Part 1: Metamodel
 :sectlinks:
 :sectnums:
 :nofooter:
+////
+
+:page-partial:
+
+include::./includes/IDTA-01001_Constraints.adoc[]
 
 
-include::IDTA-01001_Constraints.adoc[]
 
 
 
+= The Information Metamodel of the Asset Administration Shell (normative)
 
-
-== The Information Metamodel of the Asset Administration Shell (normative)
-
-=== Introduction
+== Introduction
 
 This clause specifies the information metamodel of the Asset Administration Shell.
 
@@ -42,7 +44,7 @@ Note: an xmi representation of the UML model can be found in the repository "aas
 ====
 
 
-=== Overview Metamodel of the Asset Administration Shell
+== Overview Metamodel of the Asset Administration Shell
 
 This clause gives an overview of the main classes of the Asset Administration Shell (AAS) metamodel.
 
@@ -103,9 +105,9 @@ image::image12.png[]
 .Metamodel Package Overview
 image::image13.png[]
 
-=== Metamodel Specification Details: Designators
+== Metamodel Specification Details: Designators
 
-==== General
+=== General
 
 This clause specifies the classes of the metamodel in detail. An overview is provided in Clause 5.2. Annex E explains UML modelling together with the specifics used in this specification. Annex D depicts the templates used to describe the classes and relationships. Annex G shows some of the diagrams together with all their inherited attributes to give a complete overview.
 
@@ -115,9 +117,9 @@ The concept of referencing and how a reference is represented in the UML diagram
 
 Constraints that are no invariants of classes are specified in Clause 5.3.11.3.
 
-==== Common Attributes
+=== Common Attributes
 
-===== General
+==== General
 
 This clause specifies the abstract classes that represent commonly used attributes and terminology, together with the classes and data types exclusively used in these classes. They are represented in alphabetical order.
 
@@ -520,7 +522,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Qualifier`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|kind \<<Experimental>> 
+.2+e|kind \<<Experimental>> 3+| `\https://admin-shell.io/aas/3/1/Qualifier/kind` 
 a|
 The qualifier kind describes the kind of qualifier that is applied to the element.
 
