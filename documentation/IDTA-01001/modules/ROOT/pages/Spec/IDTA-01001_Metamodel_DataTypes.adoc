@@ -1,0 +1,539 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+////
+
+= Primitive and Simple Data Types
+
+== Predefined Simple Data Types
+
+The metamodel of the Asset Administration Shell uses basic data types as defined in the link:https://www.w3.org/XML/Core/[XML Schema Definition] (XSD)footnote:[https://www.w3.org/XML/Core/, former https://www.w3.org/XML/Schema]. See Table 7 for an overview of the used types. Their definition is outside the scope of this document.
+
+The meaning and format of xsd types is specified in https://www.w3.org/XML/Schema. The simple type "langString" is specified in the Resource Description Framework (RDF)footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
+
+See Clause 5.3.12.6 for constraints on types.
+
+.Simple Data Types Used in Metamodel
+[cols="10%,19%,38%,33%",options="header",]
+|===
+|Source |Basic Data Type |Value Range |Sample Values
+|xsd |string |Character string (but not all Unicode character strings) |"Hello world", "Καλημέρα κόσμε", +
+"ハローワールド""
+|xsd |base64Binary |base64-encoded binary data |"a3Vtb3dhc2hlcmU="
+|xsd |boolean |true, false |true, false
+|xsd |dateType |Date and time with or without time zone |"2000-01-01T14:23:00", +
+"2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to xs:dateTimeStamp in XML Schema 1.1]
+|xsd |duration |Duration of time |"-P1Y2M3DT1H", +
+"PT1H5M0S"
+|rdf |langString |Strings with language tags a|
+"Hello"@en, +
+"Hallo"@de
+
+
+====
+Note: this is written in RDF/Turtle syntax, only "Hello" and "Hallo" are the actual values.
+====
+
+
+|===
+
+== Primitive Data Types
+
+Table 8 lists the Primitives used in the metamodel. Primitive data types start with a capital letter.
+
+
+====
+Note: see Clause 5.3.12.6 for constraints on types.
+====
+
+
+
+
+.Primitive Data Types Used in Metamodel
+[cols="13%,30%,57%"]
+|===
+
+.2+h|Primitive 2+h| ID 
+    h|Definition h|Value Examples
+
+.2+e|[[BlobType]]BlobType 2+| `\https://admin-shell.io/aas/3/0/BlobType` 
+a|
+_base64binary_
+
+to represent file content (binaries and non-binaries)
+
+a|
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema elementFormDefault="qualified" targetNamespace="http://www.admin-shell.io/aas/2/0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:aas="http://www.admin-shell.io/aas/2/0" />
+
+pass:[MZ_________ÿÿ__¸_______@___________________________________€_____º__´	Í!¸_LÍ!This program cannot be run in DOS mode.$_______PE__L___Rö\^________à_]
+
+.2+e|[[ContentType]]ContentType 2+| `admin-shell.io/aas/3/0/ContentType`
+a|
+_string_ with max 100 and min 1 characters
+
+
+====
+Note: any content type as in RFC2046.
+====
+
+
+A media type (also MIME type and content type) […] is a two-part identifier for file formats and format contents transmitted on the Internet. The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications. Media types were originally defined in Request for Comments 2045 in November 1996 as a part of MIME specification, for denoting type of email message content and attachments.footnote:[Wikipedia.org, date: 2018-04-09]
+
+a|
+application/pdf
+
+image/jpeg
+
+.2+e|[[Identifier]]Identifier 2+| `\https://admin-shell.io/aas/3/1/Identifier`
+|_string_ with max 2024 and min 1 characters a|
+\https://cust/123456
+
+0173-1#02-BAA120#008
+
+.2+e|[[LabelType]]LabelType 2+| `\https://admin-shell.io/aas/3/0/LabelType`
+a|_string_ with max 64 and min 1 characters a|"ABC1234"
+
+
+.2+e|[[LangStringSet]]LangStringSet 2+| `\https://admin-shell.io/aas/3/0/LangStringSet`
+a|
+_Array of elements of type langString_
+
+
+====
+Note 1: langString is a RDF data type.
+====
+
+
+
+====
+Note 2: a langString is a string value tagged with a language code.
+====
+
+
+Realization depends on the serialization rules for a technology.
+
+a|
+In xml:
+
+<aas:langString lang="EN">This is a multi-language value in English</aas:langString>
+
+<aas:langString lang="DE"> Das ist ein Multi-Language-Wert in Deutsch </aas:langString>
+
+In rdf:
+
+"This is a multi-language value in English"@en ;
+
+"Das ist ein Multi-Language-Wert in Deutsch"@de
+
+In JSON:
+
+"description": [
+
+  \{
+
+      "language":"en", 
+
+         "text": "This is a multi-language value in English."
+
+  },
+
+  \{
+
+"language":"de",
+
+"text": "Das ist ein Multi-Language-Wert in Deutsch." 
+
+   }
+
+]
+
+.2+e|[[MessageTopicType]]MessageTopicType 2+| `\https://admin-shell.io/aas/3/0/MessageTopicType`
+a|_string_ with max 128 and min 1 characters |
+
+.2+e|[[MultiLanguageNameType]]MultiLanguageNameType 2+| `\https://admin-shell.io/aas/3/1/MultiLanguageNameType`
+a| xref:LangStringSet[LangStringSet]
+
+Each langString within the array of strings has a max 128 of and a min of 1 characters (as for NameType).
+
+| See xref:LangStringSet[LangStringSet]
+
+.2+e|[[MultiLanguageTextType]]MultiLanguageTextType 2+| `\https://admin-shell.io/3/0/MultiLanguageTextType`
+a| xref:LangStringSet[LangStringSet]
+
+Each string within langString has a max of 1,023 and min of 1 characters.
+
+|See xref:LangStringSet[LangStringSet]
+
+.2+e|[[NameType]]NameType 2+| `\https://admin-shell.io/aas/3/0/NameType`
+a|_string_ with max 128 and min 1 characters |"ManufacturerPartId"
+
+.2+e|[[PathType]]PathType 2+| `\https://admin-shell.io/aas/3/1/PathType`
+a|
+_Identifier_
+
+
+====
+Note: URL, based on [RFC-3986](https://www.rfc-editor.org/rfc/rfc3987) /[RFC-3987](https://www.rfc-editor.org/rfc/rfc3987), but more recently defined as living standard by WHATWG, as suggested by W3C: https://url.spec.whatwg.org/
+====
+
+
+a|
+./Specification.pdf
+
+file:c:/local/Specification.pdf
+
+\http://www.example.org
+
+FTP://unicode.org
+
+
+.2+e|[[RevisionType]]RevisionType 2+| `\https://admin-shell.io/aas/3/0/RevisionType`
+a|
+_string_ with max 4 and min 1 characters
+
+following the following regular expression:
+
+^([0-9]\|[1-9][0-9]*)$
+
+a|
+"0"
+
+"7"
+
+"567"
+
+.2+e|[[QualifierType]]QualifierType 2+| `\https://admin-shell.io/aas/3/0/QualifierType`
+a|_NameType_ a|
+"ExpressionSemantic" (as specified in DIN SPEC 92000:2019-09, see link:#bib16[[16\]])
+
+"life cycle qual" (as specified in IEC 61360-7 - IEC/SC 3D - Common Data Dictionary (link:https://cdd.iec.ch/cdd/common/iec61360-7.nsf/SearchFrameset?OpenFrameSet[CDD - V2.0015.0004])
+
+.2+e|[[VersionType]]VersionType 2+| `\https://admin-shell.io/aas/3/0/VersionType`
+a|
+_string_ with max 4 and min 1 characters
+
+following the following regular expression:
+
+^([0-9]\|[1-9][0-9]*)$
+
+a|
+"1"
+
+"9999"
+
+.2+e|[[ValueDataType]]ValueDataType 2+| `\https://admin-shell.io/aas/3/0/ValueDataType`
+a|_any xsd atomic type as specified via DataTypeDefXsd_ a|
+"This is a string value"
+
+10
+
+1.5
+
+2020-04-01
+
+True
+
+|===
+
+== Enumeration for Submodel Element Value Types
+
+Enumerations are primitive data types. Most of the enumerations are defined in the context of their class. This clause defines enumerations for submodel element value typesfootnote:[E.g. Property/valueType].
+
+The predefined types used to define the type of values of properties and other values use the names and the semantics of XML Schema Definition (XSD)footnote:[see https://www.w3.org/XML/Schema, https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes]. Additionally, the type "langString" with the semantics as defined in the Resource Description Framework (RDF)footnote:[see: https://www.w3.org/TR/rdf11-concepts/] is used. "langString" is a string value tagged with a language code.
+
+
+====
+Note 1: RDFfootnote:[See https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes] recommends to not use the following xsd data types. That is why they are excluded from the allowed data types.
+====
+
+
+* XSD BuildIn List types are not supported (ENTITIES, IDREFS and NMTOKENS).
+* XSD string BuildIn types are not supported (normalizedString, token, language, NCName, ENTITY, ID, IDREF).
+* The following XSD primitive types are not supported: NOTATION, QName.
+
+
+====
+Note 2: the following RDF types are not supported: HTML and XMLLiteral.
+====
+
+
+.DefTypeDefRdf Enumeration
+image::image53.png[]
+
+The enumeration is derived from Figure 54.
+
+.Data TypeDefXsd Enumeration
+image::image54.png[]
+
+Table 9 depicts example values and the value range of the different data type"
+
+shows the data types which can be used for submodel element values. The data types are defined according to the W3C XML Schema (https://www.w3.org/TR/xmlschema-2/#built-in-datatypes and https://www.w3.org/TR/xmlschema-2/#built-in-derived). "Value Range" further explains the possible range of data values for this data type. The right column shows related examples for values of the corresponding data type.
+
+.Data Types with Examplesfootnote:[See list of RDF-compatible XSD types with short description https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes. Examples from https://openmanufacturingplatform.github.io/sds-bamm-aspect-meta-model/bamm-specification/v1.0.0/datatypes.html]
+[cols="15%,22%,24%,39%",options="header",]
+|===
+| |Data Type |Value Range |Sample Values
+|Core types e|xs:string |Character string (but not all Unicode character strings) a|
+"Hello world"
+
+"Καλημέρα κόσμε"
+
+"こんにちは世界"
+
+
+| e|xs:boolean |true, false |true, false
+| e|xs:decimal |Arbitrary-precision decimal numbers a|
+-1.23
+
+126789672374892739424.543233
+
++100000.00, 210
+
+| e|xs:integer |Arbitrary-size integer numbers a|
+-1
+
+0
+
+126789675432332938792837429837429837429
+
++100000
+
+|IEEE floating-point numbers e|xs:double |64-bit floating point numbers incl. ±Inf, ±0, NaN a|
+-1.0
+
++0.0
+
+-0.0
+
+234.567e8
+
+-INF
+
+NaN
+
+| e|xs:float |32-bit floating point numbers incl. ±Inf, ±0, NaN a|
+-1.0
+
++0.0
+
+-0.0
+
+234.567e8
+
+-INF
+
+NaN
+
+|Time and dates e|xs:date |Dates (yyyy-mm-dd) with or without time zone a|
+"2000-01-01"
+
+"2000-01-01Z"
+
+"2000-01-01+12:05"
+
+| e|xs:time |Times (hh:mm:ss.sss…​) with or without time zone a|
+"14:23:00"
+
+"14:23:00.527634Z"
+
+"14:23:00+03:00"
+
+| e|xs:dateTime |Date and time with or without time zone a|
+"2000-01-01T14:23:00"
+
+"2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to xs:dateTimeStamp in XML Schema 1.1]
+
+|Recurring and partial dates |xs:gYear |Gregorian calendar year a|
+"2000"
+
+"2000+03:00"
+
+| e|xs:gMonth |Gregorian calendar month a|
+"--04"
+
+"--04+03:00"
+
+| e|xs:gDay |Gregorian calendar day of the month a|
+"---04"
+
+"---04+03:00"
+
+| e|xs:gYearMonth |Gregorian calendar year and month a|
+"2000-01"
+
+"2000-01+03:00"
+
+| e|xs:gMonthDay |Gregorian calendar month and day a|
+"--01-01"
+
+"--01-01+03:00"
+
+| e|xs:duration |Duration of time a|
+"P30D"
+
+"-P1Y2M3DT1H", "PT1H5M0S"
+
+|Limited-range integer numbers |xs:byte |-128…+127 (8 bit) a|
+-1, 0
+
+127
+
+| e|xs:short |-32768…+32767 (16 bit) a|
+-1, 0
+
+32767
+
+| e|xs:int |2147483648…+2147483647 (32 bit) a|
+-1, 0
+
+2147483647
+
+| e|xs:long |-9223372036854775808…+9223372036854775807 (64 bit) a|
+-1
+
+0, 9223372036854775807
+
+| e|xs:unsignedByte |0…255 (8 bit) a|
+0
+
+1
+
+255
+
+| e|xs:unsignedShort |0…65535 (16 bit) a|
+0
+
+1
+
+65535
+
+| e|xs:unsignedInt |0…4294967295 (32 bit) a|
+0
+
+1
+
+4294967295
+
+| e|xs:unsignedLong |0…18446744073709551615 (64 bit) a|
+0
+
+1
+
+18446744073709551615
+
+| e|xs:positiveInteger |Integer numbers >0 a|
+1
+
+7345683746578364857368475638745
+
+| e|xs:nonNegativeInteger |Integer numbers ≥0 a|
+0
+
+1
+
+734568374657836485736847563
+
+| e|xs:negativeInteger |Integer numbers <0 a|
+-1
+
+- 23487263847628376482736487263
+
+| e|xs:nonPositiveInteger |Integer numbers ≤0 a|
+-1
+
+0
+
+-938458374985739874987989873
+
+|Encoded binary data e|xs:hexBinary |Hex-encoded binary data |"6b756d6f77617368657265"
+
+| e|xs:base64Binary |Base64-encoded binary data |"a3Vtb3dhc2hlcmU="
+
+|Miscellaneous types e|xs:anyURI |Absolute or relative URIs and IRIs a|
+\https://customer.com/demo/aas/1/1/1234859590
+
+"urn:example:company:1.0.0"
+
+| e|rdf:langString |Strings with language tags a|
+"Hello"@en
+
+"Hallo"@de
+
+
+====
+Note: this is written in RDF/Turtle syntax, @en and de are the language tags.
+====
+
+
+|===
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+|Enumeration: |[[DataTypeDefXsd]]DataTypeDefXsd
+|Explanation: a|
+Enumeration listing all xsd anySimpleTypes
+
+For more details see https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes
+
+|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/1/DataTypeDefXsd`  
+
+h|Literal h|Explanation
+e|xs:anyURI |see: https://www.w3.org/TR/xmlschema2/#anyURI
+e|xs:base64Binary |see: https://www.w3.org/TR/xmlschema2/#base64Binary
+e|xs:boolean |see https://www.w3.org/TR/xmlschema2/#boolean
+e|xs:byte |see https://www.w3.org/TR/xmlschema2/#byte
+e|xs:date |see https://www.w3.org/TR/xmlschema2/#date
+e|xs:dateTime |see https://www.w3.org/TR/xmlschema2/#dateTime
+e|xs:decimal |see https://www.w3.org/TR/xmlschema2/#decimal
+e|xs:double |see https://www.w3.org/TR/xmlschema2/#double
+e|xs:duration |see https://www.w3.org/TR/xmlschema2/#duration
+e|xs:float |see https://www.w3.org/TR/xmlschema2/#float
+e|xs:gDay |see https://www.w3.org/TR/xmlschema2/#gDay
+e|xs:gMonth |see https://www.w3.org/TR/xmlschema2/#gMonth
+e|xs:gMonthDay |see https://www.w3.org/TR/xmlschema2/#gMonthDay
+e|xs:gYear |see https://www.w3.org/TR/xmlschema2/#gYear
+e|xs:gYearMonth |see https://www.w3.org/TR/xmlschema2/#gYearMonth
+e|xs:hexBinary |see https://www.w3.org/TR/xmlschema2/#hexBinary
+e|xs:int |see https://www.w3.org/TR/xmlschema2/#int
+e|xs:integer |see https://www.w3.org/TR/xmlschema2/#integer
+e|xs:long |see https://www.w3.org/TR/xmlschema2/#long
+e|xs:negativeInteger |see https://www.w3.org/TR/xmlschema2/#negativeInteger
+e|xs:nonNegativeInteger |see: https://www.w3.org/TR/xmlschema2/#nonNegativeInteger
+e|xs:nonPositiveInteger |see: https://www.w3.org/TR/xmlschema2/#nonPositiveInteger
+e|xs:positiveInteger |see: https://www.w3.org/TR/xmlschema2/#positiveInteger
+e|xs:short |see: https://www.w3.org/TR/xmlschema2/#short
+e|xs:string |see: https://www.w3.org/TR/xmlschema-2/#string
+e|xs:time |see: https://www.w3.org/TR/xmlschema-2/#time
+e|xs:unsignedByte |see: https://www.w3.org/TR/xmlschema2/#unsignedShort
+e|xs:unsignedInt |see: https://www.w3.org/TR/xmlschema2/#unsignedInt
+e|xs:unsignedLong |see: https://www.w3.org/TR/xmlschema2/#unsignedLong
+e|xs:unsignedShort |see: https://www.w3.org/TR/xmlschema2/#unsignedShort
+e|xs:yearMonthDuration |see: https://www.w3.org/TR/xmlschema2/#yearMonthDuration
+|===
+
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+h|Enumeration: |[[DataTypeDefRdf]]DataTypeDefRdf
+h|Explanation: |Enumeration listing all RDF types
+|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/0/DataTypeDefRdf`  
+
+h|Literal h|Explanation
+e|rdf:langString |String with a language tag
+|===
+
+RDF requires IETF BCP 47footnote:[see https://tools.ietf.org/rfc/bcp/bcp47.txt] language tags. Simple two-letter language tags for locales like "de" conformant to ISO 639-1 are allowed, as well as language tags plus extension like "de-DE" for country code, dialect, etc. like in "en-US" for English (United States) or "en-GB" for English (United Kingdom). IETF language tags are referencing ISO 639, ISO 3166 and ISO 15924.
+
+.Built-In Types of XML Schema Definition 1.0 (XSD)footnote:[Source: https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes]
+image::image55.png[]
