@@ -42,11 +42,14 @@ Note: before V3.0, the security metamodel and the predefined data specifications
 
 Major Changes:
 
-* New value "Role" to enumeration AssetKind [#294](https://github.com/admin-shell-io/aas-specs/issues/294)
-* PathType: support complete URI scheme for files RFC3986/RFC3987 [#299](https://github.com/admin-shell-io/aas-specs/issues/299)
-* data type  Identifier: change length from 2000 to 2024 characters [#306](https://github.com/admin-shell-io/aas-specs/issues/306)
-* Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name [#295](https://github.com/admin-shell-io/aas-specs/issues/295)
-* Entity/entityType and Constraint AASd-014: now optional [#287](https://github.com/admin-shell-io/aas-specs/issues/287)
+
+* New value "Role" to enumeration AssetKind (https://github.com/admin-shell-io/aas-specs/issues/294[#294])
+* PathType: support complete URI scheme for files RFC3986/RFC3987 (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
+* data type  Identifier: change length from 2000 to 2024 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
+* Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name (https://github.com/admin-shell-io/aas-specs/issues/295[#295])
+* Entity/entityType and Constraint AASd-014: now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
+* Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications
+(https://github.com/admin-shell-io/aas-specs/issues/307[#307])
 * Individual versioning of metamodel element IDs (note: the version of many 
 class metamodel IDs needed to be increased to 3.1 due to the change of data types 
 Identifier and idShort of Referable) 
@@ -61,10 +64,10 @@ Minor Changes:
 
 Bugfixes:
 
-* (Editorial) MultiLanguageNameType inconsistent description, maxLength=128 (schemata were correct) ([#313](https://github.com/admin-shell-io/aas-specs/issues/313))
-* (Editorial) HasKind/kind explanataroy text: use template, not type ([#313](https://github.com/admin-shell-io/aas-specs/issues/313))
-* (Editorial) DataTypeDefXsd links now correctly to xmlschema11-2, not to xsd V1.1 ([#312](https://github.com/admin-shell-io/aas-specs/issues/312) (as implemented in schemata)
-* (Editorial) make EmbeddedDataSpecification/dataSpecification mandatory (as implemented in schemata) [#296](https://github.com/admin-shell-io/aas-specs/issues/296)
+* (Editorial) MultiLanguageNameType inconsistent description, maxLength=128 (schemata were correct) (https://github.com/admin-shell-io/aas-specs/issues/313[#313])
+* (Editorial) HasKind/kind explanataroy text: use template, not type (https://github.com/admin-shell-io/aas-specs/issues/313[#313])
+* (Editorial) DataTypeDefXsd links now correctly to xmlschema11-2, not to xsd V1.1 (https://github.com/admin-shell-io/aas-specs/issues/312[#312]) (as implemented in schemata)
+* (Editorial) make EmbeddedDataSpecification/dataSpecification mandatory (as implemented in schemata) (https://github.com/admin-shell-io/aas-specs/issues/296[#296])
 * (Editorial) Qualifier/Kind changed to Qualifier/kind (typo in table, UML and schema correct)
 * (Editorial) BasicEventElement/Direction and BasicEventElement/State changed to BasicEventElement/direction and BasicEventElement/state typo in table, UML and schema correct)
 * (Editorial) Enumerations (used in Constraints only) FragmentKeys and AasReferableNonIdentifiables contain the value "Referable" as well: added (see Figure "Model for Keys of References (non-normative)"
@@ -73,25 +76,25 @@ Bugfixes:
 .Changes
 [cols="5%,42%,48%",options="header",]
 |===
-|*Nc* |*V3.0 Change w.r.t. V2.0.1* |*Comment*
+|*Nc* |*V3.1 Change w.r.t. V3.0* |*Comment*
 | | AssetKind a| Add new value "Role" to enumeration AssetKind
 | | BasicEventElement/Direction a| (bugfix in Text only) attribute starts with small letter 
 | | BasicEventElement/State a|  (bugfix in Text only) attribute starts with small letter 
 | | DataTypeDefXsd a| (bugfix in Text only) values in enumeration now reference xsd V1.0, not V1.1
 | | EmbeddedDataSpecification/dataSpecification a| (bugfix in Text only) now mandatory
 | | Entity/entityType a| now optional
-| | Identifier a| change length from 2000 to 2024 characters
+| | Identifier a| data type: change length from 2000 to 2024 characters
 | | MultiLanguageNameType a| (bugfix in Text only) maxLength=128 (as derived and implemented)
-| | NameType a| change due to change of Constraint AASd-002
+| | NameType a| implicit change due to change of Constraint AASd-002
 | | PathType a| extend data type to support complete URI scheme for files RFC3986/RFC3987
 | | Qualifier/Kind a| (bugfix in Text only) attribute starts with small letter 
-| | Referable/idShort a| changed constraint AASd-002 to also allow hyphen
+| | Referable/idShort a| implicit change because constraint AASd-002 now also allows hyphen
 |===
 
 .New Elements in Metamodel
 [cols="5%,41%,51%",options="header",]
 |===
-| |*New Elements V3.0 vs V2.0.1* |*Comment*
+| |*New Elements V3.1 vs V3.0* |*Comment*
 || AssetKind/Role | New value in enumeration
 |===
 
@@ -99,11 +102,12 @@ Bugfixes:
 .New, Changed or Removed Constraints
 [cols="5%,10%,15%,69%",options="header",]
 |===
-|*Nc* |*V3.0 vs. V2.0.1* |*New, Update, Removed, Reformulated* |*Comment*
+|*Nc* |*V3.1 vs. V3.0* |*New, Update, Removed, Reformulated* |*Comment*
 | |AASd-002 |Update a|
 now also allows hyphens to be included in name
 
-Constraint AASd-002: _idShort_ of __Referable__s shall only feature letters, digits, hyphen ("-") and  underscore ("_"); starting mandatory with a letter, and not ending with a hypen or underscore, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$.].
+Constraint AASd-002: _idShort_ of __Referable__s shall only feature letters, digits, hyphen ("-") and  underscore ("_"); starting mandatory with a letter, and not ending with a hyphen, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$.].
+
 | | AASd-014 | Update a|
 Change since Entity/entityType is now optional
 
@@ -193,22 +197,22 @@ Removed
 Note: Security is still part of the Asset Administration Shell, but the Asset Administration Shell and its elements are referenced from Security.
 ====
 
-| x |AssetAdministrationShell/view |Removed, Views no longer supported
+|x |AssetAdministrationShell/view |Removed, Views no longer supported
 |  |AssetKind/Instance |Updated description of value "Instance" of enumeration "AssetKind" conformant to IEC 63278-1
 |  |AssetKind/Type |Updated description of value "Type" of enumeration "AssetKind" conformant to IEC 63278-1
-|X |BasicEvent |Renamed to BasicEventElement and set to \<<Experimental>>
-|file:///C:/__localWork/Asset%20Administration%20Shell%20-%20Verwaltungsschale/Verwaltungsschale%20im%20Detail%20-%20part%201a%20V3.0/Change%202.0%20-%203.0.xlsx#RANGE!#REF![(x)link:#bib2[[2\]]] |xref:page$IDTA-01001.adoc#BlobType[BlobType |Primitive changed from "group of bytes" to Base64Binary
-|X |ConceptDictionary |Removed
-|X |Constraint |Abstract class removed. Formula now used in Security part only
-|x  |xref:page$IDTA-01001.adoc#DataSpecification[DataSpecification] |No longer inherits from Identifiable. However, same attribute names and types
+|x |BasicEvent |Renamed to BasicEventElement and set to \<<Experimental>>
+|file:///C:/__localWork/Asset%20Administration%20Shell%20-%20Verwaltungsschale/Verwaltungsschale%20im%20Detail%20-%20part%201a%20V3.0/Change%202.0%20-%203.0.xlsx#RANGE!#REF![(x)link:#bib2[[2\]]] |xref:page$IDTA-01001_Metamodel.adoc#BlobType[BlobType |Primitive changed from "group of bytes" to Base64Binary
+|x |ConceptDictionary |Removed
+|x |Constraint |Abstract class removed. Formula now used in Security part only
+|x |xref:file§IDTA-01001_DataSpecifications.adoc#DataSpecification[DataSpecification] |No longer inherits from Identifiable. However, same attribute names and types
 |x |DataSpecification/description |Type changed from LangStringSet to MultiLanguageTextType, thus adding a length constraint
-| |xref:page$IDTA-01001.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
+| |xref:page$IDTA-01001_DataSpecifications.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
 |(x) |DataTypeDef |Removed and split into DataTypeDefXsd and DataTypeDefRdf. Some types excluded and not supported because now XML Schema 1.0 reference +
  +
 Before: just string allowing any xsd simple type as string +
  +
 + added prefix xs: or rdf:, resp., to every value in enumeration
-|X |Entity/asset |Removed, substituted by Entity/globalAssetId and Entity/specificAssetId
+|x |Entity/asset |Removed, substituted by Entity/globalAssetId and Entity/specificAssetId
 |x |Event |Renamed to EventElement
 |x |File/mimeType |Renamed to contentType + Type changed from MimeType to ContentType
 |x |Formula a|
@@ -221,7 +225,7 @@ Formula now used in Security part only
  +
 Substituted by Identifiable/id
 |x |IdentifiableElements |Renamed to AasIdentifiables
-|x |xref:page$IDTA-01001.adoc#Identifier[Identifier] a|
+|x |xref:page$IDTA-01001_Metamodel.adoc#Identifier[Identifier] a|
 Type changed
 
 Before struct class with two attributes: id and idType. Now string data type only.
@@ -241,12 +245,12 @@ The elements remain, except for new SubmodelElementList, and renamed submodel el
 |  |LocalKeyType |Enumeration removed because no Key/idType any longer
 |x |MimeType |Type name changed to ContentType
 |x |MultiLanguageProperty/value |Type changed from LangStringSet to MultiLanguageTextType, thus adding a length constraint
-|x |xref:page$IDTA-01001.adoc#PathType[PathType] |Same as Identifier, i.e. length constraint added
+|x |xref:page$IDTA-01001_Metamodel.adoc#PathType[PathType] |Same as Identifier, i.e. length constraint added
 |  |Property/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 |x |Qualifiable/qualifier |Type changed from Constraint to Qualifier
-|  |xref:page$IDTA-01001.adoc#Qualifier[Qualifier] |No longer inherits from abstract class "Constraint"
+|  |xref:page$IDTA-01001_Metamodel.adoc#Qualifier[Qualifier] |No longer inherits from abstract class "Constraint"
 |  |Qualifier/valueType |Type changed from DataTypeDef to DataTypeDefXsd
-|x |xref:page$IDTA-01001.adoc#QualifierType[QualifierType] |Type changed from string to NameType (i.e. length constraint added)
+|x |xref:page$IDTA-01001_Metamodel.adoc#QualifierType[QualifierType] |Type changed from string to NameType (i.e. length constraint added)
 |  |Range/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 |x |Referable/category a|
 Type changed from string to NameType (i.e. length constraint added)
@@ -280,7 +284,7 @@ Now part of AasSubmodelElements
 |  |RelationshipElement/first |Type changes from model reference Referable to Reference (global or model reference)
 |  |RelationshipElement/second |Type changes from model reference Referable to Reference (global or model reference)
 |file:///C:/__localWork/Asset%20Administration%20Shell%20-%20Verwaltungsschale/Verwaltungsschale%20im%20Detail%20-%20part%201a%20V3.0/Change%202.0%20-%203.0.xlsx#RANGE!B79[xlink:#bib1[[1\]]] |SubmodelElement/kind |Removed. SubmodelElement no longer inheritsfrom HasKind
-|  |xref:page$IDTA-01001.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
+|  |xref:page$IDTA-01001_Metamodel.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
 | x |View |Removed
 |===
 
@@ -288,25 +292,25 @@ Now part of AasSubmodelElements
 [cols="5%,41%,51%",options="header",]
 |===
 | |*New Elements V3.0 vs V2.0.1* |*Comment*
-|  |xref:page$IDTA-01001.adoc#AasIdentifiables[AasIdentifiables] |New enumeration used for References, includes abstract Identifiable +
+|  |xref:page$IDTA-01001_Metamodel.adoc#AasIdentifiables[AasIdentifiables] |New enumeration used for References, includes abstract Identifiable +
  +
 Before: Identifiables
-|  |xref:page$IDTA-01001.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
-|  |xref:page$IDTA-01001.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
-|  |xref:page$IDTA-01001.adoc#AasSubmodelElements[AasSubmodelElements] |New enumeration used for References +
+|  |xref:page$IDTA-01001_Metamodel.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
+|  |xref:page$IDTA-01001_Metamodel.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
+|  |xref:page$IDTA-01001_Metamodel.adoc#AasSubmodelElements[AasSubmodelElements] |New enumeration used for References +
  +
 Before: ReferableElements
 |  |AdministrativeInformation/creator |New optional attribute
 |  |AdministrativeInformation/templateId |New optional attribute
 |x |AssetAdministrationShell/assetInformation |Substitute for AssetAdministrationShell/asset; no reference any longer, instead aggregation
-|  |xref:page$IDTA-01001.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset because not specific to Asset but AAS
+|  |xref:page$IDTA-01001_Metamodel.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset because not specific to Asset but AAS
 |  |AssetInformation/assetKind |Former Asset/assetKind
 |  |AssetInformation/assetType |New optional attribute
 |  |AssetInformation/globalAssetId |Former Asset/identification/id
 |  |AssetInformation/specificAssetId |Former Asset/assetIdentificationModel
 |  |AssetInformation/thumbnail |Optional Attribute of new class AssetInformation that was not available in Asset class before
 |  |AssetKind/NotApplicable |New enumeration value
-|  |xref:page$IDTA-01001.adoc#BasicEventElement[BasicEventElement] |Former BasicEvent +
+|  |xref:page$IDTA-01001_Metamodel.adoc#BasicEventElement[BasicEventElement] |Former BasicEvent +
  +
 New \<<Experimental>> submodel element for events
 |  |BasicEventElement/direction |Was part of non-normative part before
@@ -319,23 +323,23 @@ Type changed from dateTime to duration
 Type changed from dateTime to duration
 | |BasicEventElement/observed |Former name: BasicEvent/observed
 | |BasicEventElement/state |Was part of non-normative part before
-|  |xref:page$IDTA-01001.adoc#ContentType[ContentType] |Former name: MimeType +
+|  |xref:page$IDTA-01001_Metamodel.adoc#ContentType[ContentType] |Former name: MimeType +
 Maximum length defined: 100 characters
-|  |xref:page$IDTA-01001.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + added prefix rdf: to every value in enumeration
-|  |xref:page$IDTA-01001.adoc#DataTypeDefXsd[DataTypeDefXsd] |Enumeration that corresponds to anySimpleTypes of XML Schema 1.0 +
+|  |xref:page$IDTA-01001_Metamodel.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + added prefix rdf: to every value in enumeration
+|  |xref:page$IDTA-01001_Metamodel.adoc#DataTypeDefXsd[DataTypeDefXsd] |Enumeration that corresponds to anySimpleTypes of XML Schema 1.0 +
  +
 + added prefix xs: to every value in enumeration
 |  |dateTimeStamp |New data type for metamodel as used in EventPayload
 | |DataSpecification/administration |Was inherited before by Identifiable
 | |DataSpecification/id |Was inherited before by Identifiable
-| |DataSpecification/desciption |Was inherited before by Identifiable
-|  |xref:page$IDTA-01001.adoc#Direction[Direction] |New Enumeration for BasicEventElement
+| |DataSpecification/description |Was inherited before by Identifiable
+|  |xref:page$IDTA-01001_Metamodel.adoc#Direction[Direction] |New Enumeration for BasicEventElement
 | |Entity/globalAssetId |Former Entity/asset was split into globalAssetId and specificAssetId
 |  |Entity/specificAssetId |Former Entity/asset was split into globalAssetId and specificAssetId
-|  |xref:page$IDTA-01001.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions.
-|  |xref:page$IDTA-01001.adoc#EventElement[EventElement] |Former name: Event +
+|  |xref:page$IDTA-01001_Metamodel.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions.
+|  |xref:page$IDTA-01001_Metamodel.adoc#EventElement[EventElement] |Former name: Event +
 Set to \<<Experimental>>
-|  |xref:page$IDTA-01001.adoc#EventPayload[EventPayload] |New experimental class for event payload +
+|  |xref:page$IDTA-01001_Metamodel.adoc#EventPayload[EventPayload] |New experimental class for event payload +
 Was part of non-normative part before
 |  |EventPayload/observableSemanticId |Was part of non-normative part before
 |  |EventPayload/payload |Was part of non-normative part before +
@@ -348,44 +352,44 @@ Type changed from ModelReference(Referable) to ModelReference(EventElement)
 Type changed from dateTimeStamp to dateTime because restriction to types of XML Schema 1.0 that does not contain dateTimeStamp. dateTimeStamp is a derived type of dateTime in XML Schema 1.1
 |  |EventPayload/topic |Was part of non-normative part before +
 Type changed from string to MessageTopicType (i.e. length constraint added, maximum 255 characters)
-|  |xref:page$IDTA-01001.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
+|  |xref:page$IDTA-01001_Metamodel.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
 | |Extension/name | 
 | |Extension/refersTo | 
 | |Extension/valueType | 
 | |Extension/valueType | 
 |  |File/contentType |Fromer File/mimeType
-|  |xref:page$IDTA-01001.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
-|  |xref:page$IDTA-01001.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
+|  |xref:page$IDTA-01001_Metamodel.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
+|  |xref:page$IDTA-01001_Metamodel.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
 |  |GenericGloballyIdentifiers |New enumeration used for References
-|  |xref:page$IDTA-01001.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
-|  |xref:page$IDTA-01001.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
+|  |xref:page$IDTA-01001_Metamodel.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
+|  |xref:page$IDTA-01001_Metamodel.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
 |  |HasSemantics/supplementalSemanticId |New attribute
 |  |Identifiable/id |Substitute for Identifiable/identification
-|  |xref:page$IDTA-01001.adoc#KeyTypes[KeyTypes] |Before: KeyElements +
+|  |xref:page$IDTA-01001_Metamodel.adoc#KeyTypes[KeyTypes] |Before: KeyElements +
  +
 New submodel element SubmodelElementList added, renamed submodel elements Event and BasicEvent to EventElement and BasicEventElement
-|  |xref:page$IDTA-01001.adoc#LabelType[LabelType] |New string type with maximum 64 characters
-|  |xref:page$IDTA-01001.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
-| |xref:page$IDTA-01001.adoc#ModellingKind[ModellingKind] |Renamed enumeration, before: ModelingKind
-|  |xref:page$IDTA-01001.adoc#MultiLanguageNameType[MultiLanguageNameType] |Substitute for LangStringSet with short multi-language strings, maximum 64 characters
-|  |xref:page$IDTA-01001.adoc#MultiLanguageTextType[MultiLanguageTextType] |Substitute for LangStringSet with long multi-language strings, maximum 64 characters
-|  |xref:page$IDTA-01001.adoc#NameType[NameType] |New string type with maximum 128 characters
+|  |xref:page$IDTA-01001_Metamodel.adoc#LabelType[LabelType] |New string type with maximum 64 characters
+|  |xref:page$IDTA-01001_Metamodel.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
+| |xref:page$IDTA-01001_Metamodel.adoc#ModellingKind[ModellingKind] |Renamed enumeration, before: ModelingKind
+|  |xref:page$IDTA-01001_Metamodel.adoc#MultiLanguageNameType[MultiLanguageNameType] |Substitute for LangStringSet with short multi-language strings, maximum 64 characters
+|  |xref:page$IDTA-01001_Metamodel.adoc#MultiLanguageTextType[MultiLanguageTextType] |Substitute for LangStringSet with long multi-language strings, maximum 64 characters
+|  |xref:page$IDTA-01001_Metamodel.adoc#NameType[NameType] |New string type with maximum 128 characters
 |  |Qualifier/kind |New experimental attribute for Qualifier
-|  |xref:page$IDTA-01001.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
+|  |xref:page$IDTA-01001_Metamodel.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
 |  |Referable/displayName |New optional attribute for all referables
 |  |Reference/referredSemanticId |New optional attribute for Reference
 | |Reference/type |New mandatory attribute for Reference
-|  |xref:page$IDTA-01001.adoc#ReferenceTypes[ReferenceTypes] |New enumeration for Reference/type
+|  |xref:page$IDTA-01001_Metamodel.adoc#ReferenceTypes[ReferenceTypes] |New enumeration for Reference/type
 |  |ReferenceTypes/ExternalReference |Enumeration value, was named GlobalReference before
-|  |xref:page$IDTA-01001.adoc#Resource[Resource] |new type for AssetInformation/defaultThumbnail
+|  |xref:page$IDTA-01001_Metamodel.adoc#Resource[Resource] |new type for AssetInformation/defaultThumbnail
 |  |ShortNameType |New string type with maximum 64 characters
-|  |xref:page$IDTA-01001.adoc#SpecificAssetId[SpecificAssetId] |New type for AssetInformation/specificAssetId
+|  |xref:page$IDTA-01001_Metamodel.adoc#SpecificAssetId[SpecificAssetId] |New type for AssetInformation/specificAssetId
 |  |SpecificAssetId/externalSubjectId |See Attribute Based Access Control (ABAC) for subject concept
 |  |SpecificAssetId/name |New type for AssetInformation/specificAssetId
 |  |SpecificAssetId/value |New type for AssetInformation/specificAssetId
-|  |xref:page$IDTA-01001.adoc#StateOfEvent[StateOfEvent] |New experimental enumeration for BasicEventElement
+|  |xref:page$IDTA-01001_Metamodel.adoc#StateOfEvent[StateOfEvent] |New experimental enumeration for BasicEventElement
 |  |SubmodelElementElements |Enumeration for submodel elements (split of ReferableElements)
-|  |xref:page$IDTA-01001.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and collections
+|  |xref:page$IDTA-01001_Metamodel.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and collections
 |  |SubmodelElementList/orderRelevant |Similar to SubmodelElementCollection/ordered
 |  |SubmodelElementList/semanticIdListElement |Attribute of new class SubmodelElementList
 |  |SubmodelElementList/typeValueListElement |Attribute of new class SubmodelElementList
@@ -546,17 +550,17 @@ Smaller changes
 [cols="5%,32%,61%",options="header",]
 |===
 |*nc* |*V3.0 Change w.r.t. V3.0RC02* |*Comment*
-| |xref:page$IDTA-01001.adoc#AdministrativeInformation[AdministrativeInformation] |Stereotype \<<dataType>> removed
+| |xref:page$IDTA-01001_Metamodel.adoc#AdministrativeInformation[AdministrativeInformation] |Stereotype \<<dataType>> removed
 | |AssetInformation/externalSubjectId |Not mandatory any longer; now optional
 |x |AssetInformation/globalAssetId |Type changed from Reference to Identifier
 | |AssetKind/Type |Updated description of value "Type" of enumeration "AssetKind" conformant to IEC 63278-1
 | |AssetKind/Instance |Updated description of value "Instance" of enumeration "AssetKind" - conformant to IEC 63278-1
-| |xref:page$IDTA-01001.adoc#BasicEventElement[BasicEventElement] |Set to \<<Experimental>>
+| |xref:page$IDTA-01001_Metamodel.adoc#BasicEventElement[BasicEventElement] |Set to \<<Experimental>>
 |x |BasicEventElement/messageTopic |Type changed from string to MessageTopicType (i.e. length constraint added, maximum 255 characters)
 |x |BasicEventElement/minInterval |Type changed from dateTime to duration
 |x |BasicEventElement/maxInterval |Type changed from dateTime to duration
-|(x)footnote:[Derived Schemata used Base64Binary and not hexBinary, therefore this change is considered to be backward compatible for most applications.] |xref:page$IDTA-01001.adoc#BlobType[BlobType] |Primitive changed from "group of bytes" to Base64Binary
-| |xref:page$IDTA-01001.adoc#ContentType[ContentType] |Maximum length defined: 100 characters
+|(x)footnote:[Derived Schemata used Base64Binary and not hexBinary, therefore this change is considered to be backward compatible for most applications.] |xref:page$IDTA-01001_Metamodel.adoc#BlobType[BlobType] |Primitive changed from "group of bytes" to Base64Binary
+| |xref:page$IDTA-01001_Metamodel.adoc#ContentType[ContentType] |Maximum length defined: 100 characters
 | |decimalBuildInTypes |Removed
 | |durationBuildInTypes |Removed
 |x |DataSpecification/description |Type changed from LangStringSet to MultiLanguageTextType; length constraint added
@@ -564,24 +568,24 @@ Smaller changes
 |x |DateTypeDefXsd/dateTimeStamp |Removed since not part of XML Schema 1.0
 |x |DataTypeDefXsd/dayTimeDuration |Removed since not part of XML Schema 1.0
 |x |DataTypeDefXsd/yearMonthDuration |Removed since not part of XML Schema 1.0
-| |xref:page$IDTA-01001.adoc#Direction[Direction] |Set to \<<Experimental>>
+| |xref:page$IDTA-01001_Metamodel.adoc#Direction[Direction] |Set to \<<Experimental>>
 |x |Entity/globalAssetId |Type changed from Reference to Identifier
 |x |Extension/name |Type changed from string to NameType; length constraint added
-| |xref:page$IDTA-01001.adoc#EventElement[EventElement] |Set to \<<Experimental>>
+| |xref:page$IDTA-01001_Metamodel.adoc#EventElement[EventElement] |Set to \<<Experimental>>
 | |EventElement/duration |Type changed from dateTimeStamp to dateTime
-| |xref:page$IDTA-01001.adoc#EventPayload[EventPayload] |Set to \<<Experimental>>
+| |xref:page$IDTA-01001_Metamodel.adoc#EventPayload[EventPayload] |Set to \<<Experimental>>
 | |EventPayload/payload |Type changed from string to BlobType
 | |EventPayload/source |Type changed from ModelReference(Referable) to ModelReference(EventElement)
 | |EventPayload/timestamp |Type changed from dateTimeStamp to dateTime because restriction to types of XML Schema 1.0 that does not contain dateTimeStamp. dateTimeStamp is a derived type of dateTime in XML Schema 1.1
 | |EventPayload/topic |Type changed from string to MessageTopicType (i.e. length constraint added, maximum 255 characters)
 |x |HasKind/kind |Type changed from ModelingKind to ModellingKind
-|x |xref:page$IDTA-01001.adoc#Identifier[Identifier] |Maximum length defined: 2,000 characters
+|x |xref:page$IDTA-01001_Metamodel.adoc#Identifier[Identifier] |Maximum length defined: 2,000 characters
 |x |Key/value |Type changed from string to Identifier; length constraint added
 |x |MultiLanguageProperty/value |Type changed from LangStringSet to MultiLanguageTextType; length constraint added
-|x |xref:page$IDTA-01001.adoc#PathType[PathType] |Same as Identifier; length constraint added
+|x |xref:page$IDTA-01001_Metamodel.adoc#PathType[PathType] |Same as Identifier; length constraint added
 | |PrimitiveTypes |Removed
 | |Qualifier/kind |Set to \<<Experimental>>
-|x |xref:page$IDTA-01001.adoc#QualifierType[QualifierType] |Type changed from string to NameType; length constraint added
+|x |xref:page$IDTA-01001_Metamodel.adoc#QualifierType[QualifierType] |Type changed from string to NameType; length constraint added
 | |rdfBuildInTypes |Removed
 |x |Referable/category a|
 Type changed from string to NameType; length constraint added
@@ -597,8 +601,8 @@ Text how to select a suitable display name removed; now explained in Table 2
 |x |Referable/description |Type changed from string to MultiLanguageTextType; length constraint added
 |x |Referable/idShort |Type changed from string to NameType; length constraint added
 |x |ReferenceTypes/GlobalReference |Renamed to ExternalReference
-| |xref:page$IDTA-01001.adoc#Resource[Resource] |Stereotype \<<DataType>> removed.
-| |xref:page$IDTA-01001.adoc#StateOfEvent[StateOfEvent] |Set to \<<Experimental>>
+| |xref:page$IDTA-01001_Metamodel.adoc#Resource[Resource] |Stereotype \<<DataType>> removed.
+| |xref:page$IDTA-01001_Metamodel.adoc#StateOfEvent[StateOfEvent] |Set to \<<Experimental>>
 |x |SpecificAssetId/name |Type changed from string to LabelType (a string with length constraint)
 |x |SpecificAssetId/value |Type changed from string to Identifier (because of length constraint)
 |xfootnote:[Since _HasKind/kind_ had the default _Instance,_ this change has no impact if the attribute was omitted for submodel instances.] |SubmodelElement/kind |Removed. SubmodelElement does not inherit from HasKind any longer
@@ -612,16 +616,16 @@ Text how to select a suitable display name removed; now explained in Table 2
 | |AdministrativeInformation/templateId |New optional attribute
 | |AssetInformation/assetType |New optional attribute
 | |AssetKind/NotApplicable |New enumeration value
-| |xref:page$IDTA-01001.adoc#LabelType[LabelType] |New string type with maximum 64 characters
-| |xref:page$IDTA-01001.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
-| |xref:page$IDTA-01001.adoc#ModellingKind[ModellingKind] |Renamed enumeration, before: ModelingKind
-| |xref:page$IDTA-01001.adoc#MultiLanguageNameType[MultiLanguageNameType] |Substitute for LangStringSet with short multi-language strings, maximum 64 characters
-| |xref:page$IDTA-01001.adoc#MultiLanguageTextType[MultiLanguageTextType] |Substitute for LangStringSet with long multi-language strings, maximum 64 characters
-| |xref:page$IDTA-01001.adoc#NameType[NameType] |New string type with maximum 128 characters
+| |xref:page$IDTA-01001_Metamodel.adoc#LabelType[LabelType] |New string type with maximum 64 characters
+| |xref:page$IDTA-01001_Metamodel.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
+| |xref:page$IDTA-01001_Metamodel.adoc#ModellingKind[ModellingKind] |Renamed enumeration, before: ModelingKind
+| |xref:page$IDTA-01001_Metamodel.adoc#MultiLanguageNameType[MultiLanguageNameType] |Substitute for LangStringSet with short multi-language strings, maximum 64 characters
+| |xref:page$IDTA-01001_Metamodel.adoc#MultiLanguageTextType[MultiLanguageTextType] |Substitute for LangStringSet with long multi-language strings, maximum 64 characters
+| |xref:page$IDTA-01001_Metamodel.adoc#NameType[NameType] |New string type with maximum 128 characters
 | |ReferenceTypes/ExternalReference |Enumeration value: before: GlobalReference
-| |xref:page$IDTA-01001.adoc#RevisionType[RevisionType] |New type for _AdministrativeInformation/version_ with length constraints and regular expression
+| |xref:page$IDTA-01001_Metamodel.adoc#RevisionType[RevisionType] |New type for _AdministrativeInformation/version_ with length constraints and regular expression
 | |ShortNameType |New string type with maximum 64 characters
-| |xref:page$IDTA-01001.adoc#VersionType[VersionType] |New type for _AdministrativeInformation/revision_ with length constraints and regular expression
+| |xref:page$IDTA-01001_Metamodel.adoc#VersionType[VersionType] |New type for _AdministrativeInformation/revision_ with length constraints and regular expression
 |===
 
 .New, Changed or Removed Constraints
@@ -751,8 +755,8 @@ Note: ReferableElements was substituted by AasSubmodelElements and Aas Identifia
 [cols="5%,43%,50%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V2.0.1* |*Comment*
-| |xref:page$IDTA-01001.adoc#AdministrativeInformation[AdministrativeInformation] |Bugfix: Stereotype "DataType" added
-| |AnnotatedRelationship/annotation |Bugfix: Type changed from ModelReference<xref:page$IDTA-01001.adoc#DataElement[DataElement]> to DataElement
+| |xref:page$IDTA-01001_Metamodel.adoc#AdministrativeInformation[AdministrativeInformation] |Bugfix: Stereotype "DataType" added
+| |AnnotatedRelationship/annotation |Bugfix: Type changed from ModelReference<xref:page$IDTA-01001_Metamodel.adoc#DataElement[DataElement]> to DataElement
 | |anySimpleTypeDef |Type removed, was no longer used in any class definition, was mentioned in text only
 |x |Asset |Removed, asset referenced via AssetInformation/globalAssetId only
 |x |AssetAdministrationShell/asset |Removed, substituted by AssetAdministrationShell/assetInformation (no reference any longer, instead now aggregation)
@@ -792,7 +796,7 @@ Removed
 Substituted by Identifiable/id
 
 |x |IdentifiableElements |Renamed to AasIdentifiables
-|x |xref:page$IDTA-01001.adoc#Identifier[Identifier] a|
+|x |xref:page$IDTA-01001_Metamodel.adoc#Identifier[Identifier] a|
 Type changed
 
 Before struct class with two attributes: id and idType; now string data type only
@@ -814,7 +818,7 @@ Note: the elements remain, except for new SubmodelElementList and renamed submod
 |x |MimeType |Type name changed to ContentType
 | |Property/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 |x |Qualifiable/qualifier |Type changed from Constraint to Qualifier
-| |xref:page$IDTA-01001.adoc#Qualifier[Qualifier] |No longer inherits from abstract class "Constraint"
+| |xref:page$IDTA-01001_Metamodel.adoc#Qualifier[Qualifier] |No longer inherits from abstract class "Constraint"
 | |Qualifier/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 | |Range/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 | |Referable/idShort |Now optional, was mandatory
@@ -842,7 +846,7 @@ Now part of AasSubmodelElements
 
 | |RelationshipElement/first |Type changes from model reference Referable to Reference (global or model reference)
 | |RelationshipElement/second |Type changes from model reference Referable to Reference (global or model reference)
-| |xref:page$IDTA-01001.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
+| |xref:page$IDTA-01001_Metamodel.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
 | x |View |Removed
 |===
 
@@ -860,15 +864,15 @@ New enumeration used for References, includes abstract Identifiable
 
 Before: Identifiables
 
-| |xref:page$IDTA-01001.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
-| |xref:page$IDTA-01001.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
+| |xref:page$IDTA-01001_Metamodel.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
+| |xref:page$IDTA-01001_Metamodel.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
 |x |AssetAdministrationShell/assetInformation |substitute for AssetAdministrationShell/asset; no reference any longer, instead now aggregation
-| |xref:page$IDTA-01001.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset, because not specific to Asset but to AAS
+| |xref:page$IDTA-01001_Metamodel.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset, because not specific to Asset but to AAS
 | |AssetInformation/assetKind |Former Asset/assetKind
 | |AssetInformation/globalAssetId |Former Asset/identification/id
 | |AssetInformation/specificAssetId |Former Asset/assetIdentificationModel
 | |AssetInformation/thumbnail |Optional Attribute of new class AssetInformation that was not available in Asset class before
-| |xref:page$IDTA-01001.adoc#BasicEventElement[BasicEventElement] a|
+| |xref:page$IDTA-01001_Metamodel.adoc#BasicEventElement[BasicEventElement] a|
 Former name: BasicEvent
 
 Was part of non-normative part before
@@ -885,30 +889,30 @@ Was part of non-normative part before
 | |BasicEventElement/maxInterval |Was part of non-normative part before
 | |BasicEventElement/observed |Was part of non-normative part before
 | |BasicEventElement/state |Was part of non-normative part before
-| |xref:page$IDTA-01001.adoc#ContentType[ContentType] |Former name: MimeType
+| |xref:page$IDTA-01001_Metamodel.adoc#ContentType[ContentType] |Former name: MimeType
 | |dateTimeStamp |New data type for metamodel as used in EventPayload
-| |xref:page$IDTA-01001.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + prefix rdf: added to every value in enumeration
+| |xref:page$IDTA-01001_Metamodel.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + prefix rdf: added to every value in enumeration
 | |DataTypeDefXsd a|
 Enumeration consisting of enumerations
 
 decimalBuildInTypes, durationBuildInTypes, PrimitiveTypes that correspond to anySimpleTypes of xsd. + added prefix xs: to every value in enumeration
 
-| |xref:page$IDTA-01001.adoc#Direction[Direction] |New enumeration for BasicEventElement
-| |xref:page$IDTA-01001.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions
-| |xref:page$IDTA-01001.adoc#EventElement[EventElement] |Former name: Event
-| |xref:page$IDTA-01001.adoc#EventPayload[EventPayload] |New class for event payload
+| |xref:page$IDTA-01001_Metamodel.adoc#Direction[Direction] |New enumeration for BasicEventElement
+| |xref:page$IDTA-01001_Metamodel.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions
+| |xref:page$IDTA-01001_Metamodel.adoc#EventElement[EventElement] |Former name: Event
+| |xref:page$IDTA-01001_Metamodel.adoc#EventPayload[EventPayload] |New class for event payload
 | |EventPayload/observableSemanticId |Was part of non-normative part before
 | |EventPayload/payload |Was part of non-normative part before
 | |EventPayload/source |Was part of non-normative part before
 | |EventPayload/sourceSemanticId |Was part of non-normative part before
 | |EventPayload/subjectId |Was part of non-normative part before
 | |EventPayload/timestamp |Was part of non-normative part before
-| |xref:page$IDTA-01001.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
-| |xref:page$IDTA-01001.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
-| |xref:page$IDTA-01001.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
+| |xref:page$IDTA-01001_Metamodel.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
+| |xref:page$IDTA-01001_Metamodel.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
+| |xref:page$IDTA-01001_Metamodel.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
 | |GenericGloballyIdentifiers |New enumeration used for References
-| |xref:page$IDTA-01001.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
-| |xref:page$IDTA-01001.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
+| |xref:page$IDTA-01001_Metamodel.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
+| |xref:page$IDTA-01001_Metamodel.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
 | |HasSemantics/supplementalSemanticId |New attribute
 | |Identifiable/id |Substitute for Identifiable/identification
 | |IdentifierKeyValuePair |New class for AssetInformation/specificAssetId
@@ -918,15 +922,15 @@ Before: KeyElements
 New submodel element SubmodelElementList added, submodel elements Event and BasicEvent to EventElement and BasicEventElement renamed
 
 | |Qualifier/kind |New attribute for Qualifier
-| |xref:page$IDTA-01001.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
+| |xref:page$IDTA-01001_Metamodel.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
 |  |PrimitiveTypes |Enumeration for DataTypeDefXsd
 | |Referable/checksum |New optional attribute for all referables
 | |Referable/displayName |New optional attribute for all referables
 | |Reference/referredSemanticId |New optional attribute for Reference
 |x |Reference/type |New mandatory attribute for Reference
-| |xref:page$IDTA-01001.adoc#ReferenceTypes[ReferenceTypes] |New enumeration for Reference/type
-| |xref:page$IDTA-01001.adoc#StateOfEvent[StateOfEvent] |New enumeration for BasicEventElement
-| |xref:page$IDTA-01001.adoc#SpecificAssetId[SpecificAssetId] |New type for AssetInformation/specificAssetId
+| |xref:page$IDTA-01001_Metamodel.adoc#ReferenceTypes[ReferenceTypes] |New enumeration for Reference/type
+| |xref:page$IDTA-01001_Metamodel.adoc#StateOfEvent[StateOfEvent] |New enumeration for BasicEventElement
+| |xref:page$IDTA-01001_Metamodel.adoc#SpecificAssetId[SpecificAssetId] |New type for AssetInformation/specificAssetId
 | |SpecificAssetId/name |New type for AssetInformation/specificAssetId
 | |SpecificAssetId/value |New type for AssetInformation/specificAssetId
 | |SpecificAssetId/externalSubjectId a|
@@ -935,7 +939,7 @@ New type for AssetInformation/specificAssetId
 See Attribute Based Access Control (ABAC) for subject concept
 
 | |SubmodelElementElements |Enumeration for submodel elements (split of ReferableElements)
-|  |xref:page$IDTA-01001.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and structs
+|  |xref:page$IDTA-01001_Metamodel.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and structs
 | |SubmodelElementList/orderRelevant |Similar to SubmodelElementCollection/ordered
 | |SubmodelElementList/value |Similar to SubmodelElementCollection/value but ordered and with all elements having the same semanticId
 | |SubmodelElementList/semanticIdListElement |Attribute of new class SubmodelElementList
@@ -1027,7 +1031,7 @@ Constraint AASD-120: idShort of submodel elements within a SubmodelElementList s
 [cols="5%,46%,43%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V2.0.1* |*Comment*
-| |xref:page$IDTA-01001.adoc#DataSpecification[DataSpecification] a|
+| |xref:page$IDTA-01001_DataSpecifications.adoc#DataSpecification[DataSpecification] a|
 Stereotype \<<Template>> added + does not inherit from Identifiable any longer because Data Specification are handled in a different way
 
 Some attributes are added to DataSpecification as new attributes like id, administration and description.(see separate entries)
@@ -1037,7 +1041,7 @@ Some attributes are added to DataSpecification as new attributes like id, admini
 | |DataSpecification/idShort |Removed, was inherited before by Identifiable
 |x |DataSpecificationIEC61360/value |Type changed from ValueDataType to string
 | |DataSpecificationIEC61360/valueId |Removed, the valueId is identical to the ID of the concept description
-| |xref:page$IDTA-01001.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
+| |xref:page$IDTA-01001_DataSpecifications.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
 |x |DataTypeIEC61360 |Some new values were added: BLOB, FILE, HTML, IRDI. URL renamed to IRI. +
  +
 See separate entries for individual changes.
@@ -1183,8 +1187,8 @@ Bugfixes:
 [cols="5%,45%,51%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V3.0RC01* |*Comment*
-| |xref:page$IDTA-01001.adoc#AdministrativeInformation[AdministrativeInformation] |Bugfix: Stereotype "DataType" added
-| |AnnotatedRelationship/annotation |Type changed from ModelReference<xref:page$IDTA-01001.adoc#DataElement[DataElement]> to DataElement
+| |xref:page$IDTA-01001_Metamodel.adoc#AdministrativeInformation[AdministrativeInformation] |Bugfix: Stereotype "DataType" added
+| |AnnotatedRelationship/annotation |Type changed from ModelReference<xref:page$IDTA-01001_Metamodel.adoc#DataElement[DataElement]> to DataElement
 |x |Asset |Removed, asset referenced via globalAssetId only
 |x |AssetAdministrationShell/security a|
 Removed
@@ -1212,7 +1216,7 @@ Bugfix:
 Type change from reference of Reference to Reference (from Reference* to Reference)
 
 |x |Event |Renamed to EventElement
-|x |Extension/refersTo |Type changed from Reference to ModelReference<xref:page$IDTA-01001.adoc#Referable[Referable]>
+|x |Extension/refersTo |Type changed from Reference to ModelReference<xref:page$IDTA-01001_Metamodel.adoc#Referable[Referable]>
 |x |File/mimeType |Renamed to contentType + Type name changed from MimeType to ContentType
 |x |Formula |Now abstract class now used in Security part only
 |x |Formula/dependsOn |Removed since formula language not yet defined
@@ -1222,7 +1226,7 @@ Removed
 Substituted by Identifiable/id
 
 |(x) |IdentifiableElements |Renamed to AasIdentifiables
-|x |xref:page$IDTA-01001.adoc#Identifier[Identifier] a|
+|x |xref:page$IDTA-01001_Metamodel.adoc#Identifier[Identifier] a|
 Type changed
 
 Before struct class with two attributes: id and idType; now string data type only
@@ -1244,7 +1248,7 @@ Note: the elements remain, except for new SubmodelElementList and renamed submod
 |x |MimeType |Type name changed to ContentType
 | |Property/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 |x |Qualifiable/qualifier |Type changed from Constraint to Qualifier
-| |xref:page$IDTA-01001.adoc#Qualifier[Qualifier] |Does not inherit from abstract class "Constraint" any longer
+| |xref:page$IDTA-01001_Metamodel.adoc#Qualifier[Qualifier] |Does not inherit from abstract class "Constraint" any longer
 | |Qualifier/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 | |Range/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 | |Referable/idShort |Now optional, was mandatory
@@ -1271,7 +1275,7 @@ Now part of AasSubmodelElements
 
 | |RelationshipElement/first |Type changes from model reference Referable to Reference (global or model reference)
 | |RelationshipElement/second |Type changes from model reference Referable to Reference (global or model reference)
-| |xref:page$IDTA-01001.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd + Prefix xs: added to every value in list
+| |xref:page$IDTA-01001_Metamodel.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd + Prefix xs: added to every value in list
 |x |ValueList/valueReferencePairType |Bugfix: renamed to ValueList/valueReferencePairs
 | x |View |removed
 |===
@@ -1290,9 +1294,9 @@ New enumeration used for References, includes abstract Identifiable
 
 Before: Identifiables
 
-| |xref:page$IDTA-01001.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
-| |xref:page$IDTA-01001.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
-| |xref:page$IDTA-01001.adoc#BasicEventElement[BasicEventElement] |Former name: BasicEvent
+| |xref:page$IDTA-01001_Metamodel.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
+| |xref:page$IDTA-01001_Metamodel.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
+| |xref:page$IDTA-01001_Metamodel.adoc#BasicEventElement[BasicEventElement] |Former name: BasicEvent
 | |BasicEventElement/direction |
 | |BasicEventElement/lastUpdate |
 | |BasicEventElement/messageBroker |
@@ -1301,16 +1305,16 @@ Before: Identifiables
 | |BasicEventElement/maxInterval |
 | |BasicEventElement/observed |Former name: BasicEvent/observed
 | |BasicEventElement/state |
-| |xref:page$IDTA-01001.adoc#ContentType[ContentType] |Former name: MimeType
-| |xref:page$IDTA-01001.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + prefix rdf: added to every value in enumeration
-| |xref:page$IDTA-01001.adoc#DataTypeDefXsd[DataTypeDefXsd] |Enumeration consisting of enumerations decimalBuildInTypes, durationBuildInTypes, PrimitiveTypes that correspond to anySimpleTypes of xsd. + prefix xs: added to every value in enumeration
+| |xref:page$IDTA-01001_Metamodel.adoc#ContentType[ContentType] |Former name: MimeType
+| |xref:page$IDTA-01001_Metamodel.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + prefix rdf: added to every value in enumeration
+| |xref:page$IDTA-01001_Metamodel.adoc#DataTypeDefXsd[DataTypeDefXsd] |Enumeration consisting of enumerations decimalBuildInTypes, durationBuildInTypes, PrimitiveTypes that correspond to anySimpleTypes of xsd. + prefix xs: added to every value in enumeration
 | |dateTimeStamp |New data type for metamodel as used in EventPayload
 |  |decimalBuildInTypes |Enumeration for DataTypeDef
-| |xref:page$IDTA-01001.adoc#Direction[Direction] |New enumeration for BasicEventElement
+| |xref:page$IDTA-01001_Metamodel.adoc#Direction[Direction] |New enumeration for BasicEventElement
 |  |durationBuildInTypes |Enumeration for DataTypeDef
-| |xref:page$IDTA-01001.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions
-| |xref:page$IDTA-01001.adoc#EventElement[EventElement] |Former name: Event
-| |xref:page$IDTA-01001.adoc#EventPayload[EventPayload] |New class for event payload
+| |xref:page$IDTA-01001_Metamodel.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions
+| |xref:page$IDTA-01001_Metamodel.adoc#EventElement[EventElement] |Former name: Event
+| |xref:page$IDTA-01001_Metamodel.adoc#EventPayload[EventPayload] |New class for event payload
 | |EventPayload/observableReference |
 | |EventPayload/observableSemanticId |
 | |EventPayload/payload |
@@ -1320,10 +1324,10 @@ Before: Identifiables
 | |EventPayload/timestamp |
 | |EventPayload/topic |
 | |File/contentType |Former name: mimeType
-| |xref:page$IDTA-01001.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
-| |xref:page$IDTA-01001.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
+| |xref:page$IDTA-01001_Metamodel.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
+| |xref:page$IDTA-01001_Metamodel.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
 | |GenericGloballyIdentifiers |New enumeration used for References
-| |xref:page$IDTA-01001.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
+| |xref:page$IDTA-01001_Metamodel.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
 | |HasSemantics/supplementalSemanticId |New attribute
 | |Identifiable/id |Substitute for Identifiable/identification
 | |KeyTypes a|
@@ -1336,15 +1340,15 @@ New submodel element SubmodelElementList added, renamed submodel elements Event 
 | |Reference/referredSemanticId |New optional attribute of Reference
 |  |PrimitiveTypes |Enumeration for DataTypeDefXsd
 | |Qualifier/kind |New attribute for Qualifier
-| |xref:page$IDTA-01001.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
+| |xref:page$IDTA-01001_Metamodel.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
 | |Referable/checksum |
-| |xref:page$IDTA-01001.adoc#SpecificAssetId[SpecificAssetId] |Before: IdentifierKeyValuePair, was renamed
+| |xref:page$IDTA-01001_Metamodel.adoc#SpecificAssetId[SpecificAssetId] |Before: IdentifierKeyValuePair, was renamed
 | |SpecificAssetId/name |Before: IdentifierKeyValuePair/key, was renamed
 | |SpecificAssetId/value |Before: IdentifierKeyValuePair/value
 | |SpecificAssetId/externalSubjectId |Before: IdentifierKeyValuePair/externalSubjectId
-| |xref:page$IDTA-01001.adoc#StateOfEvent[StateOfEvent] |New enumeration for BasicEventElement
+| |xref:page$IDTA-01001_Metamodel.adoc#StateOfEvent[StateOfEvent] |New enumeration for BasicEventElement
 | |SubmodelElementElements |Enumeration for submodel elements (split of ReferableElements into SubmodelElementElements and IdentifiableElements)
-|  |xref:page$IDTA-01001.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and structs
+|  |xref:page$IDTA-01001_Metamodel.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and structs
 | |SubmodelElementList/orderRelevant |Similar to SubmodelElementCollection/ordered
 | |SubmodelElementList/value |Similar to SubmodelElementCollection/value but ordered and with all elements having the same semanticId
 | |SubmodelElementList/semanticIdListElement |Attribute for new class SubmodelElementList
@@ -1556,7 +1560,7 @@ Constraint AASD-120: idShort of submodel elements within a SubmodelElementList s
 [cols="5%,46%,43%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V3.0RC01* |*Comment*
-| |xref:page$IDTA-01001.adoc#DataSpecification[DataSpecification] a|
+| |xref:page$IDTA-01001_DataSpecifications.adoc#DataSpecification[DataSpecification] a|
 Stereotype \<<Template>> added + does not inherit from Identifiable any longer because Data Specification are handled differently
 
 Some attributes are added to DataSpecification as new attributes like id, administration and description
@@ -1567,7 +1571,7 @@ Some attributes are added to DataSpecification as new attributes like id, admini
 | |DataSpecificationIEC61360/unitId |Type changes from Reference to GlobalReference
 |x |DataSpecificationIEC61360/value |Type changed from ValueDataType to string
 | |DataSpecificationIEC61360/valueId |Removed, the valueId is identical to the ID of the concept description
-| |xref:page$IDTA-01001.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
+| |xref:page$IDTA-01001_DataSpecifications.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
 |x |DataTypeIEC61360 a|
 Some new values were added: BLOB, FILE, HTML, IRDI; URL renamed to IRI
 
@@ -1703,12 +1707,12 @@ Major changes:
 |===
 |*nc* |*V3.0RC01 vs. V2.0.1* |*Comment*
 |x |AssetAdministrationShell/assetInformation |Substitute for AssetAdministrationShell/asset (no reference any longer, instead aggregation)
-| |xref:page$IDTA-01001.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset because not specific to Asset but AAS
+| |xref:page$IDTA-01001_Metamodel.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset because not specific to Asset but AAS
 | |AssetInformation/thumbnail |Optional Attribute of new class AssetInformation that was not available in Asset class before
 |x |Entity/globalAssetId |Substitute for Entity/asset (together with Entity/specificAssetId)
 |x |Entity/specificAssetId |Substitute for Entity/asset (together with Entity/globalAssetId)
-| |xref:page$IDTA-01001.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
-| |xref:page$IDTA-01001.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
+| |xref:page$IDTA-01001_Metamodel.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
+| |xref:page$IDTA-01001_Metamodel.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
 | |IdentifierKeyValuePair |New class for AssetInformation/specificAssetId
 | |Referable/displayName |New optional attribute for all referables
 |===
@@ -1827,7 +1831,7 @@ Major changes:
 | |DataTypeIEC61360/INTEGER_MEASURE |Bugfix, was missing
 | |DataTypeIEC61360/INTEGER_CURRENCY |Bugfix, was missing
 | |hasDataSpecification |Bugfix, is abstract class – was mixed up with DataSpecification class that is not abstract
-| |xref:page$IDTA-01001.adoc#DataSpecification[DataSpecification] |Bugfix, is not abstract
+| |xref:page$IDTA-01001_DataSpecifications.adoc#DataSpecification[DataSpecification] |Bugfix, is not abstract
 | |AnnotatedRelationshipElement/annotation |Bugfix, Annotation ist not a reference to Data Elements
 |===
 
@@ -1886,14 +1890,14 @@ Cardinality changed from mandatory to optional
 
 |x |DataSpecificationIEC61360/code |Attribute code removed
 | |DataSpecificationIEC61360/definition |Cardinality changed from mandatory to optional
-| |xref:page$IDTA-01001.adoc#HasDataSpecification[HasDataSpecification] |Was abstract before
+| |xref:page$IDTA-01001_Metamodel.adoc#HasDataSpecification[HasDataSpecification] |Was abstract before
 | |HasDataSpecification/hasDataSpecification |Renamed to HasDataSpecification/dataSpecification
 |x |HasKind/kind |Now of type "ModellingKind" instead of "Kind". Values changed: Type now Template; Instance remains
 |x |File/value |File name not without but with extension
 |x |Identifiable/description |Type changed from langString to LangStringSet
 |x |IdentifierType/URI |URI renamed to IRI
 | |Kind |Type Kind removed and substituted by types AssetKind and ModellingKind
-|x |xref:page$IDTA-01001.adoc#OperationVariable[OperationVariable] |No longer inherits from SubmodelElement
+|x |xref:page$IDTA-01001_Metamodel.adoc#OperationVariable[OperationVariable] |No longer inherits from SubmodelElement
 | |Property/value |Type changed from anySimpleTypeDef to ValueDataType
 |x |Qualifier/qualifierType |Renamed to Qualifier/type
 |x |Qualifier/qualifierValue a|
@@ -1910,35 +1914,35 @@ Type changed from AnySimpleTypeDef to ValueDataType
 [cols="43%,57%",options="header",]
 |===
 |*V2.0* |*Comment*
-|xref:page$IDTA-01001.adoc#AnnotatedRelationshipElement[AnnotatedRelationshipElement] |New submodel element, inheriting from RelationshipElement
+|xref:page$IDTA-01001_Metamodel.adoc#AnnotatedRelationshipElement[AnnotatedRelationshipElement] |New submodel element, inheriting from RelationshipElement
 |Asset/billOfMaterial |New attribute
-|xref:page$IDTA-01001.adoc#AssetKind[AssetKind] |New enumeration type
+|xref:page$IDTA-01001_Metamodel.adoc#AssetKind[AssetKind] |New enumeration type
 |BasicEvent |New submodel element, inherits from Event
-|xref:page$IDTA-01001.adoc#Capability[Capability] |New submodel element
+|xref:page$IDTA-01001_Metamodel.adoc#Capability[Capability] |New submodel element
 |DataSpecificationIEC61360/valueList |For value lists (string)
 |DataSpecificationIEC61360/value |For coded and explicit values
 |DataSpecificationIEC61360/valueId |For coded values
 |DataSpecificationIEC61360/levelType |For Ranges
 |DataSpecificationPhysicalUnit |New data specification template
 |DataTypeIEC61360 |New enumeration type
-|xref:page$IDTA-01001.adoc#Entity[Entity] |New submodel Element
-|xref:page$IDTA-01001.adoc#EntityType[EntityType] |New enumeration type
+|xref:page$IDTA-01001_Metamodel.adoc#Entity[Entity] |New submodel Element
+|xref:page$IDTA-01001_Metamodel.adoc#EntityType[EntityType] |New enumeration type
 |IdentifierType |Is a subset of KeyType Enumeration
 |KeyElements/FragmentReference |New value FragmentReference as part of KeyElements Enumeration
 |LocalKeyType |Is a subset of KeyType Enumeration
 |LocalKeyType/FragmentId |New value for KeyType Enumeration (via subset LocalKeyType)
-|xref:page$IDTA-01001.adoc#LangStringSet[LangStringSet] |New type, used for example in MultiLanguageProperty
+|xref:page$IDTA-01001_Metamodel.adoc#LangStringSet[LangStringSet] |New type, used for example in MultiLanguageProperty
 |LevelType |New enumeration type
-|xref:page$IDTA-01001.adoc#ModellingKind[ModellingKind] |New enumeration type
-|xref:page$IDTA-01001.adoc#MultiLanguageProperty[MultiLanguageProperty] |New submodel element
+|xref:page$IDTA-01001_Metamodel.adoc#ModellingKind[ModellingKind] |New enumeration type
+|xref:page$IDTA-01001_Metamodel.adoc#MultiLanguageProperty[MultiLanguageProperty] |New submodel element
 |Qualifier/valueType |New attribute to be consistent with valueType of Property etc.
-|xref:page$IDTA-01001.adoc#Range[Range] |New submodel element
+|xref:page$IDTA-01001_Metamodel.adoc#Range[Range] |New submodel element
 |ReferableElements/BasicEvent |New enumeration value
 |ReferableElements/Capability |New enumeration value
 |ReferableElements/Event |New enumeration value
 |ReferableElements/MultiLanguageProperty |New enumeration value
 |ReferableElements/Range |New enumeration value
-|xref:page$IDTA-01001.adoc#ValueDataType[ValueDataType] |New type, used for example for Property value
+|xref:page$IDTA-01001_Metamodel.adoc#ValueDataType[ValueDataType] |New type, used for example for Property value
 |ValueList |New class
 |ValueReferencePairType |New class
 |===
