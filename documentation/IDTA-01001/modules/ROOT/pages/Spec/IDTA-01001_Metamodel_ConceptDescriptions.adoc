@@ -1,0 +1,55 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+////
+
+== Concept Description Attributes
+
+.Metamodel of Concept Descriptions
+image::image46.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[ConceptDescription]]ConceptDescription
+h|Explanation: 3+a|
+The semantics of a property or other elements that may have a semantic description is defined by a concept description.
+
+The description of the concept should follow a standardized schema (realized as data specification template).
+
+
+h|Inherits from: 3+|xref:Identifiable[Identifiable]; xref:HasDataSpecification[HasDataSpecification]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/ConceptDescription`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|isCaseOf 3+| `\https://admin-shell.io/aas/3/1/ConceptDescription/isCaseOfs`
+a|
+Reference to an external definition the concept is compatible to or was derived from
+
+
+====
+Note: it is recommended to use an external reference, i.e. _Reference/type = ExternalReference_.
+====
+
+
+
+====
+Note: compare with is-case-of relationship in ISO 13584-32 & IEC EN 61360
+====
+
+
+|xref:Reference[Reference] |0..*
+|===
+
+Different types of submodel elements require different attributes to describe their semantics. This is why a concept description has at least one data specification template associated with it. This template defines the attributes needed to describe the semantics.
+
+See Clause 5.3.11.3 for predefined data specification templates.
+
+
