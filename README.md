@@ -19,9 +19,10 @@ Governance of the specification is done in the working group Open Technology of 
 
 The specification number is: **IDTA-01001**
 
-## Industrial Digital Twin Association (IDTA)
+## Documentation
 
-Governance of the specification is done in the working group Open Technology of the [IDTA](https://industrialdigitaltwin.org/en/)
+The documentation is found in folder "documentation/IDTA-01001".
+[asciidoc](https://docs.asciidoctor.org/) and [antora](https://github.com/admin-shell-io/aas-specs-antora-ui) are used to generate the documentation.
 
 The specification number is: **IDTA-01001**
 
