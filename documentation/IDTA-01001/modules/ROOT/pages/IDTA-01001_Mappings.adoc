@@ -9,15 +9,20 @@ SPDX-License-Identifier: CC-BY-4.0
 Illustrations:
 Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
 ////
+////
+includes:
+IDTA-01001_GrammarSerializationReference.adoc[leveloffset=-1]
+IDTA-01001_MetaDataObjects.adoc[leveloffset=-1]
+IDTA-01001_ValueOnly.adoc[leveloffset=-1]
+IDTA-01001_idShortPath.adoc[leveloffset=-1]
+////
 
 :page-partial:
 
 [[part1-mappings]]
-= Mappings
+= Mappings (normative)
 
-== Data Format for Sharing Data (normative)
-
-=== Technical Data Formats
+== Technical Data Formats
 
 It is crucial for Industry 4.0 applications to share information between different systems throughout the areas covered by the entire RAMI4.0 model link:#bib1[[1\]] link:#bib2[[2\]]. OPC UA is a frequently used format for information models in the domain of production operations, but there is a need for other formats for further areas and the relationships between them.
 
@@ -44,7 +49,7 @@ Note: the mapping specifications and schemata themselves are not part of the spe
 ====
 
 
-=== Content Format Types
+==  Content Format Types
 
 For different use case scenarios different formats are suitable to fulfill the needs.
 Besides technical formats like JSON and XML also different content formats are available.
@@ -66,20 +71,20 @@ Besides technical formats like JSON and XML also different content formats are a
 |===
 
 
-===  Encoding
+==   Encoding
 
 Blobs require the following encoding: base64 string.
 
-include::./includes/IDTA-01001_GrammarSerializationReference.adoc[leveloffset=0]
+include::./includes/IDTA-01001_GrammarSerializationReference.adoc[leveloffset=-1]
 
 
-include::./includes/IDTA-01001_MetaDataObjects.adoc[leveloffset=0]
+include::./includes/IDTA-01001_MetaDataObjects.adoc[leveloffset=-1]
 
-include::./includes/IDTA-01001_ValueOnly.adoc[leveloffset=0]
+include::./includes/IDTA-01001_ValueOnly.adoc[leveloffset=-1]
 
-include::./includes/IDTA-01001_idShortPath.adoc[leveloffset=0]
+include::./includes/IDTA-01001_idShortPath.adoc[leveloffset=-1]
 
-=== Format "Reference"
+==  Format "Reference"
 
 In some use cases only the (model) reference to the object is needed in the first place.
 
@@ -101,7 +106,7 @@ For references see Clause xref:#_referencing_in_asset_administration_shells[].
 
 ----
 
-=== Format "Normal" in  XML
+==  Format "Normal" in  XML
 
 The metamodel of an Asset Administration Shell needs to be serialized for import and export scenarios. XML is a possible serialization format.
 
@@ -125,7 +130,7 @@ Note 3: example files can be found here: aas-specs-3.0\schemas\xml\examples
 ====
 
 
-===  Format "Normal" in JSON
+==   Format "Normal" in JSON
 
 JSONfootnote:[see: https://tools.ietf.org/html/rfc8259 or https://www.ecma-international.org/publications/standards/Ecma-404.htm] (JavaScript Object Notation) is a further serialization format that serializes the metamodel of an Asset Administration Shell for import and export scenarios.
 
@@ -149,7 +154,7 @@ Note 3: example files can be found here: aas-specs-3.0\schemas\json\examples
 ====
 
 
-===  Format "Normal" in RDF
+==   Format "Normal" in RDF
 
 The Resource Description Framework (RDF) link:#bib32[[32\]] is the recommended standard of the W3C to unambiguously model and present semantic data. RDF documents are structured in the form of triples, consisting of subjects, relations, and objects. The resulting model is often interpreted as a graph, with the subject and object elements as the nodes and the relations as the graph edges.
 
@@ -177,7 +182,7 @@ Note 3: example files can be found here: aas-specs-3.0\schemas\rdf\examples
 ====
 
 
-===  Format "Normal" in AutomationML
+==   Format "Normal" in AutomationML
 
 AutomationML (IEC 62714) is especially suited for serializing the import and export scenarios of the metamodel of an Asset Administration Shell in the engineering phase.
 
@@ -203,7 +208,7 @@ Note 2: the resulting application recommendation (AR 004E) "Asset Administration
 ====
 
 
-===  Format "Normal" in OPC UA
+==  Format "Normal" in OPC UA
 
 OPC UA is suited for the operating phase of Asset Administration Shellsfootnote:[OPC UA is used for several purposes in the context of Industry 4.0. In this document, however, the focus is on Asset Administration Shell representation only.] and especially applicable in case of machine-to-machine communication. The information model link:#bib42[[42\]] is the basis for the definition of so-called OPC UA Information Models, or OPC UA Companion Specifications link:#bib43[[43\]].
 

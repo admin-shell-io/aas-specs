@@ -11,58 +11,13 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 ////
 
 
-////
-:toc: left
-:toclevels: 4
-:toc-title: Specification of the Asset Administration Shell. Part 1: Metamodel
-:sectlinks:
-:sectnums:
-:nofooter:
-////
 
 :page-partial:
-
 
 [[part1-general]]
 = General
 
 == Introduction
-
-This document specifies the metamodel of the Asset Administration Shell.
-
-The general concept and the structure of the Asset Administration Shell is described in IEC 63278-1 (see Figure 1).
-
-.Asset Administration Shell and Related Roles (Source: IEC 63278-1)
-image::image2.png[]
-
-These are the main specifics and roles defined for the Asset Administration Shell:
-
-* an Asset Administration Shell has an association to an asset,
-* an Asset Administration Shell provides an interface or several interfaces,
-* an Asset Administration Shell lists one or several submodels,
-* an Asset Administration Shell responsible creates and governs the Asset Administration Shell,
-* an Asset Administration Shell user application accesses the information of the Asset Administration Shell via IT interface(s).
-* a Submodel template guides the creation of a submodel following the template,
-* a Submodel template may reference concept dictionaries and ontologies,
-* concept dictionaries and ontologies define the common vocabulary as basis for interoperability,
-* submodels may reference the asset services provided by an asset via an asset integration; further services related to the asset can be referenced.
-
-This document specifies a technology-neutral specification of the information metamodel of the Asset Administration Shell in UML. It serves as the basis for deriving several different formats for exchanging Asset Administration Shells, e.g. for XML, JSON, RDF, AutomationML, and OPC UA information models.
-
-Figure 2 shows the different ways of exchanging information Asset Administration Shells. This part of the "Asset Administration Shell in Detail" series is the basis for all of these types of information exchange.
-
-.Types of Information Exchange via Asset Administration Shells
-image::image3.jpeg[]
-
-File exchange (1) is described in detail in Part 5 of this document series.
-
-The API (2) based on the information metamodel specified in this document is specified in Part 2 of the document series "Details of the Asset Administration Shell" link:#bib37[[37\]].
-
-The I4.0 language (3) is based on the information metamodel specified in this document link:#bib47[[47\]].
-
-== General
-
-=== Introduction
 
 Before specifying the information metamodel of the Asset Administration Shell, some general topics relevant for the Asset Administration Shell are explained.
 
@@ -76,9 +31,9 @@ Subclause 4.5 explains the difference between submodel instances and templates.
 
 Subclause 4.6 discusses aspects of event handling.
 
-=== Types and Instances
+== Types and Instances
 
-==== Life Cycle with Type Assets and Instance Assets
+=== Life Cycle with Type Assets and Instance Assets
 
 Industry 4.0 utilizes an extended understanding of assets, comprising elements such as factories, production systems, equipment, machines, components, produced products and raw materials, business processes and orders, immaterial assets (such as processes, software, documents, plans, intellectual property, standards), services, human personnel, etc..
 
@@ -132,7 +87,7 @@ Note: for submodels representing the Bill of Material of a complex asset, the me
 ====
 
 
-====  Asset Administration Shells Representing Type Assets and Instance Assets
+===  Asset Administration Shells Representing Type Assets and Instance Assets
 
 An Asset Administration Shell either represents a type asset or an instance asset. Typically, there is a relationship between instance assets and a type asset. However, not every instance asset is required to have a corresponding type asset.
 
@@ -209,7 +164,7 @@ Note 5: in the domain of the Internet of Things (IoT), instance assets are typic
 ====
 
 
-====  Asset Administration Shell Types and Instances
+===  Asset Administration Shell Types and Instances
 
 In the previous clause, type assets and instance assets were explained. The obvious question now is how to harmonize Asset Administration Shells and Asset Administration Shell types. The example in shows that the attributes "globalAssetId" and "assetKind" as well as the global Asset Administration Shell identifier (_id_, represented as name of the class) are present for all Asset Administration Shells. However, if there is no standard, the semantics of "id", "globalAssetId" or "kind" are not clear, although they are the same for all Asset Administration Shells. It is also not clear, which of the attributes are mandatory and which are specific for the asset (type or instance), as illustrated in .
 
@@ -242,9 +197,9 @@ Note 4: it is not mandatory to define an Asset Administration Shell type before 
 .Example: Asset Administration Shell, Asset Administration Shell Types and Instances
 image::image5.png[]
 
-=== Identification of Elements
+== Identification of Elements
 
-====  Overview
+===  Overview
 
 According to link:#bib4[[4\]], identifiers are needed for the unique identification of many different elements within the domain of smart manufacturing. They are a fundamental element of a formal description of the Administration Shell. Identification is especially required for
 
@@ -258,7 +213,7 @@ Identification will take place for two purposes
 * to uniquely distinguish all elements of an Administration Shell and the asset it is representing, and
 * to relate elements to external definitions, such as submodel templates and property definitions, in order to bind semantics to this data and the functional elements of an Administration Shell.
 
-==== Identifiers for Assets and Administration Shells
+=== Identifiers for Assets and Administration Shells
 
 In the domain of smart manufacturing, the assets need to be uniquely identified worldwide link:#bib4[[4\]] link:#bib20[[20\]] by the means of identifiers (IDs). The Administration Shell also has a unique ID (see Figure 5).
 
@@ -269,7 +224,7 @@ An Administration Shell represents exactly one asset, with a unique asset ID. In
 
 The ID of the asset needs to comply with the restrictions for global identifiers according to link:#bib4[[4\]]link:#bib20[[20\]]. If the asset features further identifications like serial numbers and alike, they are not to be confused with the unique global identifiers of the asset itselffootnote:[Such additional asset identifiers are contained in _AssetInformation/specificAssetIds_.].
 
-====  What Type of Identifiers Exist?
+=== What Type of Identifiers Exist?
 
 In link:#bib4[[4\]]link:#bib20[[20\]], two standard-conforming global identification types are defined:
 
@@ -290,7 +245,7 @@ Besides absolute URIs there are also relative URIs.
 
 See also DIN SPEC 91406 link:#bib31[[31\]] for further information on identification.
 
-====  Which Identifiers for Which Elements?
+===  Which Identifiers for Which Elements?
 
 Not every identifier is applicable for every element of the UML model representing the Asset Administration Shell. Table 2 therefore gives an overview on the different constraints and recommendations on the various entities, which implement "Identifiable" or "HasSemantics". Attributes relate to the metamodel in Clause 5.1 and Clause 5.3.
 
@@ -402,7 +357,7 @@ IRDI, if the defined qualifier type is standardized and has been assigned an IRD
 
 |===
 
-==== Usage of Short ID for Identifiable Elements
+=== Usage of Short ID for Identifiable Elements
 
 The Administration Shell fosters the use of worldwide unique identifiers to a large degree. However, in some cases, this may lead to inefficiencies. Example: a property, which is part of a submodel, which in turn is part of an Administration Shell, each of which is identified by global identifiers link:#bib4[[4\]].
 
@@ -415,9 +370,9 @@ To allow such efficient addressing by the chaining of elements by an API of an A
 
 Before accessing concrete data provided via a submodel, an application typically checks if the submodel provides the required data, i.e. the semantics of the submodel is checked for suitability. A so-called _semanticId_ should be defined for this submodel as well as the submodel element. This semantic ID helps to easily find the semantic definition of the submodel (see Clause 5.3.2).
 
-=== Matching Strategies
+== Matching Strategies
 
-==== Matching Strategies for Semantic Identifiers
+=== Matching Strategies for Semantic Identifiers
 
 When comparing two elements, different use cases should be considered in order to define how these two elements are semantically related. This clause gives first hints on the aspects to consider when dealing with matching semantic identifiers. For example, semantic references including context information as represented in IRDI-Path in ECLASS are not yet considered. Sometimes a concept description is derived from another concept description or is identical to or at least compatible with another concept description. The metamodel foresees an attribute "isCaseOf" for such semantic IDs. However, these are not considered in the matching strategies described in this clause.
 
@@ -451,7 +406,7 @@ Note: this example does not represent an existing semantic mapping; it is only a
 ** With intelligent matching, domain knowledge available in machine-readable form may be taken into account, such as an "is-a"-relationship between two concept definitions.
 ** Example: a Hammer drill (0173-1#01-ADS698#010) and a percussion drill (0173-1#01-ADS700#010) are drills for mineral material (0173-1#01-ADN177#005) and are compatible with a request or constraints asking for drills for mineral material.
 
-==== Matching Algorithm for References
+=== Matching Algorithm for References
 
 Clause 4.4.1 has discussed matching strategies for semantic identifiers. This clause explains matching strategies based on the reference concept (see Clause 5.3.10) in more detail and covers other kinds of identifying elements.
 
@@ -536,9 +491,9 @@ is identical to
 *(GlobalReference)\https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, +
 (FragmentReference)Bibliography*
 
-=== Submodel Instances and Templates
+== Submodel Instances and Templates
 
-==== Can New or Proprietary Submodels be Formed?
+=== Can New or Proprietary Submodels be Formed?
 
 It is in the interest of Industry 4.0 for as many submodels as possible, including free and proprietary submodels, to be formed (see link:#bib4[[4\]], "Free property sets"). A submodel can be formed at any time for a specific Administration Shell of an asset. The provider of the Administration Shell can form in-house identifiers for the type and instance of the submodel in line with Clause 4.3. All I4.0 systems are called on to ignore submodels and properties that are not individually known. Hence, it is always possible to deposit proprietary – e.g. manufacturer-specific or user-specific – information, submodels, or properties in an Administration Shell.
 
@@ -548,7 +503,7 @@ Note: it is the intention of the Administration Shell to include proprietary inf
 ====
 
 
-==== Creating a Submodel Instance Based on an Existing Submodel Template
+=== Creating a Submodel Instance Based on an Existing Submodel Template
 
 A public specification of a submodel template (e.g. via publication by Plattform Industrie 4.0) should be available to instantiate an existing submodel template. In special cases, a submodel can also be instantiated from a non-public submodel template, such as a manufacturer specification.
 
@@ -558,9 +513,9 @@ The identifiers of concept definitions to be used as semantic references are alr
 
 The only thing that cannot be defined in the template itself is the unique ID of the submodel instance itself (it is not identical to the ID of the submodel template), as well as the property values, etc. Templates also define cardinalities, for example whether an element is optional or not. Submodel element lists typically contain more than one element: the template contains an exemplary element template; the other elements can be created by copy/paste from this template.
 
-=== Events
+== Events
 
-====  Overview
+=== Overview
 
 Events are a very versatile mechanism of the Asset Administration Shell. The following subclauses describe some use cases for events. They summarize different types of events to depict requirements, introduce a _SubmodelElement_ “_Event_" to enable declaration of events of an Asset Administration Shell. Further, the general format of event messages is specified.
 
@@ -570,7 +525,7 @@ Note: the concept of event is still in the experimental phase. Please be aware t
 ====
 
 
-====  Brief Use Cases for Events Used in Asset Administration Shells
+===  Brief Use Cases for Events Used in Asset Administration Shells
 
 * Event use cases are briefly outlined in the following (see also ):
 
@@ -592,7 +547,7 @@ image::image9.jpeg[]
 .Value Push Events Across Clouds
 image::image10.jpeg[]
 
-====  Input and Output Directions of Events
+===  Input and Output Directions of Events
 
 We can distinguish between incoming and outgoing events. See Table 3 for more information on the event directions.
 
@@ -604,7 +559,7 @@ We can distinguish between incoming and outgoing events. See Table 3 for more in
 |In |The software entity, which implements the respective _Referable_, can handle incoming events. These incoming events will be delivered by an outer message infrastructure, e.g. OPC UA, MQTT or AMQP, to the software entity of the _Referable_.
 |===
 
-==== Types of Events
+=== Types of Events
 
 The uses cases described in Clause 4.6.2 need different types of events. Each event type is identified by a _semanticId_ and features a specialized payload.
 

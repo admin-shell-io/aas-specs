@@ -10,11 +10,13 @@ Illustrations:
 Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
 ////
 
+include::../includes/IDTA-01001_Constraints.adoc[]
+
 [appendix]
 
-== Metamodel Changes
+= Metamodel Changes
 
-=== General
+== General
 
 This annex lists the changes from version to version of the metamodel, together with major changes in the overall document. Non-backward compatible changes (nc) are marked as such.
 
@@ -38,7 +40,7 @@ Note: before V3.0, the security metamodel and the predefined data specifications
 ====
 
 
-=== Changes V3.1 vs. V3.0
+== Changes V3.1 vs. V3.0
 
 Major Changes:
 
@@ -72,6 +74,7 @@ Bugfixes:
 * (Editorial) BasicEventElement/Direction and BasicEventElement/State changed to BasicEventElement/direction and BasicEventElement/state typo in table, UML and schema correct)
 * (Editorial) Enumerations (used in Constraints only) FragmentKeys and AasReferableNonIdentifiables contain the value "Referable" as well: added (see Figure "Model for Keys of References (non-normative)"
 
+=== Metamodel Changes V3.1 vs. V3.0
 
 .Changes
 [cols="5%,42%,48%",options="header",]
@@ -115,7 +118,7 @@ Constraint AASd-014: Either the attribute globalAssetId or specificAssetId of an
 |===
 
 
-=== Changes V3.0 vs. V2.0.1
+== Changes V3.0 vs. V2.0.1
 
 Major Changes:
 
@@ -179,7 +182,7 @@ Smaller changes:
 * EDITORIAL: Asset type and asset instance now type asset and instance asset (conformant to IEC 63278-1)
 * EDITORIAL: example for langString serialization changed (table 6)
 
-==== Metamodel Changes V3.0 vs. V2.0.1
+=== Metamodel Changes V3.0 vs. V2.0.1
 
 .Changes
 [cols="5%,42%,48%",options="header",]
@@ -201,7 +204,7 @@ Note: Security is still part of the Asset Administration Shell, but the Asset Ad
 |  |AssetKind/Instance |Updated description of value "Instance" of enumeration "AssetKind" conformant to IEC 63278-1
 |  |AssetKind/Type |Updated description of value "Type" of enumeration "AssetKind" conformant to IEC 63278-1
 |x |BasicEvent |Renamed to BasicEventElement and set to \<<Experimental>>
-|file:///C:/__localWork/Asset%20Administration%20Shell%20-%20Verwaltungsschale/Verwaltungsschale%20im%20Detail%20-%20part%201a%20V3.0/Change%202.0%20-%203.0.xlsx#RANGE!#REF![(x)link:#bib2[[2\]]] |xref:page$IDTA-01001_Metamodel.adoc#BlobType[BlobType |Primitive changed from "group of bytes" to Base64Binary
+|file:///C:/__localWork/Asset%20Administration%20Shell%20-%20Verwaltungsschale/Verwaltungsschale%20im%20Detail%20-%20part%201a%20V3.0/Change%202.0%20-%203.0.xlsx#RANGE!#REF![(x)link:#bib2[[2\]]] |xref:page$IDTA-01001_Metamodel.adoc#BlobType[BlobType] |Primitive changed from "group of bytes" to Base64Binary
 |x |ConceptDictionary |Removed
 |x |Constraint |Abstract class removed. Formula now used in Security part only
 |x |xref:file§IDTA-01001_DataSpecifications.adoc#DataSpecification[DataSpecification] |No longer inherits from Identifiable. However, same attribute names and types
@@ -492,7 +495,7 @@ Constraint AASd-130: An attribute with data type "string" shall consist of these
 |x |AASd-136 |New |Constraint AASd-136: AdministrativeInformation/revision shall have a length of maximum 4 characters.
 |===
 
-=== Changes V3.0 Vs. V3.0RC02
+== Changes V3.0 vs. V3.0RC02
 
 Major changes
 
@@ -544,7 +547,7 @@ Smaller changes
 * EDITORIAL: asset type and asset instance now type asset and instance asset (conformant to IEC 63278-1)
 * EDITORIAL: example for langString serialization changed (table 6)
 
-==== Changes V3.0 vs. V3.0RC02
+=== Metamodel Changes V3.0 vs. V3.0RC02
 
 .Changes
 [cols="5%,32%,61%",options="header",]
@@ -703,9 +706,9 @@ Constraint AASd-051: A _ConceptDescription_ shall have one of the following cate
 
 |===
 
-=== Changes V3.0RC02 vs. V2.0.1
+== Changes V3.0RC02 vs. V2.0.1
 
-==== Metamodel Changes V3.0RC02 vs. V2.0.1 w/o Security Part
+=== Metamodel Changes V3.0RC02 vs. V2.0.1 w/o Security Part
 
 
 ====
@@ -756,7 +759,7 @@ Note: ReferableElements was substituted by AasSubmodelElements and Aas Identifia
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V2.0.1* |*Comment*
 | |xref:page$IDTA-01001_Metamodel.adoc#AdministrativeInformation[AdministrativeInformation] |Bugfix: Stereotype "DataType" added
-| |AnnotatedRelationship/annotation |Bugfix: Type changed from ModelReference<xref:page$IDTA-01001_Metamodel.adoc#DataElement[DataElement]> to DataElement
+| |AnnotatedRelationship/annotation |Bugfix: Type changed from ModelReference<xref:page$IDTA-01001_Metamodel_SubmodelElements.adoc#DataElement[DataElement]> to DataElement
 | |anySimpleTypeDef |Type removed, was no longer used in any class definition, was mentioned in text only
 |x |Asset |Removed, asset referenced via AssetInformation/globalAssetId only
 |x |AssetAdministrationShell/asset |Removed, substituted by AssetAdministrationShell/assetInformation (no reference any longer, instead now aggregation)
@@ -796,7 +799,7 @@ Removed
 Substituted by Identifiable/id
 
 |x |IdentifiableElements |Renamed to AasIdentifiables
-|x |xref:page$IDTA-01001_Metamodel.adoc#Identifier[Identifier] a|
+|x |xref:page$IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] a|
 Type changed
 
 Before struct class with two attributes: id and idType; now string data type only
@@ -818,7 +821,7 @@ Note: the elements remain, except for new SubmodelElementList and renamed submod
 |x |MimeType |Type name changed to ContentType
 | |Property/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 |x |Qualifiable/qualifier |Type changed from Constraint to Qualifier
-| |xref:page$IDTA-01001_Metamodel.adoc#Qualifier[Qualifier] |No longer inherits from abstract class "Constraint"
+| |xref:page$IDTA-01001_Metamodel_Common.adoc#Qualifier[Qualifier] |No longer inherits from abstract class "Constraint"
 | |Qualifier/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 | |Range/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 | |Referable/idShort |Now optional, was mandatory
@@ -846,7 +849,7 @@ Now part of AasSubmodelElements
 
 | |RelationshipElement/first |Type changes from model reference Referable to Reference (global or model reference)
 | |RelationshipElement/second |Type changes from model reference Referable to Reference (global or model reference)
-| |xref:page$IDTA-01001_Metamodel.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
+| |xref:page$IDTA-01001_Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
 | x |View |Removed
 |===
 
@@ -865,14 +868,14 @@ New enumeration used for References, includes abstract Identifiable
 Before: Identifiables
 
 | |xref:page$IDTA-01001_Metamodel.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
-| |xref:page$IDTA-01001_Metamodel.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
+| |xref:page$IDTA-01001_Metamodel_Referencing.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
 |x |AssetAdministrationShell/assetInformation |substitute for AssetAdministrationShell/asset; no reference any longer, instead now aggregation
 | |xref:page$IDTA-01001_Metamodel.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset, because not specific to Asset but to AAS
 | |AssetInformation/assetKind |Former Asset/assetKind
 | |AssetInformation/globalAssetId |Former Asset/identification/id
 | |AssetInformation/specificAssetId |Former Asset/assetIdentificationModel
 | |AssetInformation/thumbnail |Optional Attribute of new class AssetInformation that was not available in Asset class before
-| |xref:page$IDTA-01001_Metamodel.adoc#BasicEventElement[BasicEventElement] a|
+| |xref:page$IDTA-01001_Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement] a|
 Former name: BasicEvent
 
 Was part of non-normative part before
@@ -889,17 +892,17 @@ Was part of non-normative part before
 | |BasicEventElement/maxInterval |Was part of non-normative part before
 | |BasicEventElement/observed |Was part of non-normative part before
 | |BasicEventElement/state |Was part of non-normative part before
-| |xref:page$IDTA-01001_Metamodel.adoc#ContentType[ContentType] |Former name: MimeType
+| |xref:page$IDTA-01001_Metamodel_DataTypes.adoc#ContentType[ContentType] |Former name: MimeType
 | |dateTimeStamp |New data type for metamodel as used in EventPayload
-| |xref:page$IDTA-01001_Metamodel.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + prefix rdf: added to every value in enumeration
+| |xref:page$IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + prefix rdf: added to every value in enumeration
 | |DataTypeDefXsd a|
 Enumeration consisting of enumerations
 
 decimalBuildInTypes, durationBuildInTypes, PrimitiveTypes that correspond to anySimpleTypes of xsd. + added prefix xs: to every value in enumeration
 
-| |xref:page$IDTA-01001_Metamodel.adoc#Direction[Direction] |New enumeration for BasicEventElement
-| |xref:page$IDTA-01001_Metamodel.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions
-| |xref:page$IDTA-01001_Metamodel.adoc#EventElement[EventElement] |Former name: Event
+| |xref:page$IDTA-01001_Metamodel_SubmodelElements.adoc#Direction[Direction] |New enumeration for BasicEventElement
+| |xref:page$IDTA-01001_Metamodel_Environment.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions
+| |xref:page$IDTA-01001_Metamodel_SubmodelElements.adoc#EventElement[EventElement] |Former name: Event
 | |xref:page$IDTA-01001_Metamodel.adoc#EventPayload[EventPayload] |New class for event payload
 | |EventPayload/observableSemanticId |Was part of non-normative part before
 | |EventPayload/payload |Was part of non-normative part before
@@ -1025,7 +1028,7 @@ Constraint AASD-120: idShort of submodel elements within a SubmodelElementList s
 | |AA-128 |New |Constraint AASd-128: For model references, i.e. References with Reference/type = ModelReference, the Key/value of a Key preceeded by a Key with Key/type=SubmodelElementList is an integer number denoting the position in the array of the submodel element list.
 |===
 
-==== Metamodel Changes V3.0RC02 vs. V2.0.1 – Data Specification IEC61360
+=== Metamodel Changes V3.0RC02 vs. V2.0.1 – Data Specification IEC61360
 
 .Changes w.r.t. Data Specification IEC61360
 [cols="5%,46%,43%",options="header",]
@@ -1083,7 +1086,7 @@ Constraint AASc-002: DataSpecificationIEC61360/preferredName shall be provided a
 |(x) |AASc-010 |New |Constraint AASc-010: If DataSpecificationIEC61360/value is not empty then DataSpecificationIEC61360/valueList shall be empty and vice versa
 |===
 
-==== Metamodel Changes V3.0RC02 vs. V2.0.1 – Security Part
+=== Metamodel Changes V3.0RC02 vs. V2.0.1 – Security Part
 
 Changes:
 
@@ -1145,9 +1148,9 @@ Constraint AASs-011: the property referenced in Permission/permission shall be p
 | |AASs-015 |NEW |Constraint AASs-015: every data element in SubjectAttributes/subjectAttributes shall be part of the submodel that is referenced within the "selectableSubjectAttributes" attribute of "AccessControl".
 |===
 
-=== Changes V3.0RC02 vs. V3.0RC01
+== Changes V3.0RC02 vs. V3.0RC01
 
-==== Metamodel Changes V3.0RC02 vs. V3.0RC01 w/o Security Part
+=== Metamodel Changes V3.0RC02 vs. V3.0RC01 w/o Security Part
 
 Major changes:
 
@@ -1554,7 +1557,7 @@ Constraint AASD-120: idShort of submodel elements within a SubmodelElementList s
 | |AAS-128 |New |Constraint AASd-128: For model references, i.e. References with Reference/type = ModelReference, the Key/value of a Key preceeded by a Key with Key/type=SubmodelElementList is an integer number denoting the position in the array of the submodel element list.
 |===
 
-==== Metamodel Changes V3.0RC02 vs. V3.0RC01 – Data Specification IEC61360
+=== Metamodel Changes V3.0RC02 vs. V3.0RC01 – Data Specification IEC61360
 
 .Changes w.r.t. Data Specification IEC61360
 [cols="5%,46%,43%",options="header",]
@@ -1616,7 +1619,7 @@ Constraint AASc-002: Data¬Specification¬IEC61360-/preferredName shall be provi
 |(x) |AASc-010 |New |Constraint AASc-010: If DataSpecificationIEC61360/value is not empty then DataSpecificationIEC61360/valueList shall be empty and vice versa
 |===
 
-==== Metamodel Changes V3.0RC02 vs. V3.0RC01 – Security Part
+=== Metamodel Changes V3.0RC02 vs. V3.0RC01 – Security Part
 
 Changes:
 
@@ -1667,9 +1670,9 @@ Constraint AASs-009: Either there is an external policy administration point end
 | |AASs-015 |Updated |Constraint AASs-015: Every data element in SubjectAttributes/subjectAttributes shall be part of the submodel that is referenced within the "selectableSubjectAttributes" attribute of "AccessControl".
 |===
 
-=== Changes V3.0RC01 vs. V2.0.1
+== Changes V3.0RC01 vs. V2.0.1
 
-==== Metamodel Changes V3.0RC01 w/o Security Part
+=== Metamodel Changes V3.0RC01 w/o Security Part
 
 Major changes:
 
@@ -1788,7 +1791,7 @@ Constraint AASd-022: idShort of non-identifiable referables shall be unique in i
 | |AASd-100 |New |Constraint AASd-100: An attribute with data type "string" is not allowed to be empty.
 |===
 
-==== Metamodel Changes V3.0RC01 – Security Part
+=== Metamodel Changes V3.0RC01 – Security Part
 
 Major changes:
 
@@ -1815,9 +1818,9 @@ Constraint AASs-011: The property referenced in Permission/permission shall be p
 | |AASs-015 |NEW |Constraint AASd-015: The data element SubjectAttributes/subjectAttribute shall be part of the submodel that is referenced within the "selectableSubjectAttributes" attribute of "AccessControl".
 |===
 
-=== Changes V2.0.1 vs. V2.0
+== Changes V2.0.1 vs. V2.0
 
-==== Metamodel Changes V2.0.1 w/o Security Part
+=== Metamodel Changes V2.0.1 w/o Security Part
 
 Major changes:
 
@@ -1849,9 +1852,9 @@ Constraint AASd-001: In case of a referable element not being an identifiable el
 | |AASd-013 |Removed |Constraint AASd-013: In case of a range with kind=Instance either the min or the max value or both need to be defined.
 |===
 
-=== Changes V2.0 vs. V1.0
+== Changes V2.0 vs. V1.0
 
-==== Metamodel Changes V2.0 w/o Security Part
+=== Metamodel Changes V2.0 w/o Security Part
 
 Major changes:
 
@@ -1968,7 +1971,7 @@ Constraint AASd-025: The data element shall be part of the submodel that is refe
 
 |===
 
-==== Metamodel Changes V2.0 – Security Part
+=== Metamodel Changes V2.0 – Security Part
 
 .Changes Metamodel w.r.t. V1.0 Security
 [cols="5%,42%,53%",options="header",]
