@@ -11,13 +11,16 @@ https://licensebuttons.net/l/by/4.0/88x31.png
 https://creativecommons.org/licenses/by/4.0/
 )
 
-This repository contains specifications of the metamodel of the Asset Administration Shell, including the normative schemas of the serializations, the rules applied to create them, how the specification is mapped into the serializations, and examples of how to use the schemas.
+This repository contains the specification of the metamodel of the 
+Asset Administration Shell (AAS) including the normative schemas 
+of the serializations, the rules applied to create them, 
+how the specification is mapped into the serializations, 
+and examples of how to use the schemas.
 
 ## Industrial Digital Twin Association (IDTA)
 
-Governance of the specification is done in the working group Open Technology of the [IDTA](https://industrialdigitaltwin.org/en/)
-
-The specification number is: **IDTA-01001**
+Governance of the specification is done in the working group *Open Technology* 
+of the [IDTA](https://industrialdigitaltwin.org/en/)
 
 ## Documentation
 
@@ -28,11 +31,13 @@ The specification number is: **IDTA-01001**
 
 ## Schemas
 
-The schemas of the Asset Administration Shell for JSON, RDF and XML as well as a XMI and YAML representation of the metmodel are provided in the respective directories. 
+The schemas of the Asset Administration Shell for JSON, RDF and XML as well 
+as a XMI and YAML representation of the metmodel are provided in the 
+respective directories. 
 These schemas are derived from the document series, part 1,
-["Details of the Asset Administration Shell"](
-https://www.plattform-i40.de/PI40/Redaktion/EN/Standardartikel/specification-administrationshell.html
-) published by the [Platform Industrie 4.0](http://www.plattform-i40.de) and [IDTA](https://industrialdigitaltwin.org/en/).
+["Specification Asset Administration Shell"](
+https://industrialdigitaltwin.org/en/content-hub/aasspecifications
+) published by the [IDTA](https://industrialdigitaltwin.org/en/).
 
 ### JSON
 
@@ -41,23 +46,34 @@ The JSON schema, mapping rules and examples are available at
 
 ### RDF
 
-The RDF data model, mapping rules and examples are available at [schemas/rdf/](schemas/rdf/).
+The RDF data model, mapping rules and examples are available 
+at [schemas/rdf/](schemas/rdf/).
 
 ### XML
 
-The XML schema, mapping rules and examples are available at [schemas/xml/](schemas/xml/).
+The XML schema, mapping rules and examples are available 
+at [schemas/xml/](schemas/xml/).
 
 ### XMI
 
-The XMI file for the UML metamodel is available at [schemas/xmi/](schemas/xmi/).
+The XMI file for the UML metamodel is available 
+at [schemas/xmi/](schemas/xmi/).
   
 ## Releases
 
 The following versioning scheme is applied: 'V\<major>.\<minor>.\<patch>'. 
-Major versions indicate breaking changes while minor updates are backward compatible.
+Major versions indicate breaking changes while minor updates are 
+backward compatible.
 The patch position is increased whenever bugfixes need to be applied. 
-The following release contains the latest version of the AAS schemas (see also the [releases](https://github.com/admin-shell-io/aas-specs/releases) section of this repository):
-* [3.0.7](https://github.com/admin-shell-io/aas-specs/releases/tag/V3.0.7) is the corresponding release for the `V3.0` version of the AAS metamodel, containing the normative schemas for the published document "Specification of the Asset Administration Shell: Part 1 - **Version 3.0**", including a number of minor bugifxes in the schema files. *Use this release if you want to work with the latest specified AAS version.*
+The following release contains the latest version of the AAS schemas
+ (see also the [releases](https://github.com/admin-shell-io/aas-specs/releases) 
+section of this repository):
+* [3.0.7](https://github.com/admin-shell-io/aas-specs/releases/tag/V3.0.7) 
+is the corresponding release for the `V3.0` version of the AAS metamodel, 
+containing the normative schemas for the published document
+ "Specification of the Asset Administration Shell: Part 1 - **Version 3.0**", 
+including a number of minor bugfixes in the schema files. 
+*Use this release if you want to work with the latest specified AAS version.*
 
 Previous releases (deprecated by [3.0.7](https://github.com/admin-shell-io/aas-specs/releases/tag/V3.0.7)):
 * [3.0.6](https://github.com/admin-shell-io/aas-specs/releases/tag/v3.0.6) is the release for the `V3.0` version of the AAS metamodel as published in April 2023, containing the normative schemas for the published document "Part 1: Details of the Asset Administration Shell - The exchange of information between partners in the value chain of Industrie 4.0 - **Version 3.0**". *Note that [3.0.7](https://github.com/admin-shell-io/aas-specs/releases/tag/V3.0.7) fixes a number of known bugs in this version.*
