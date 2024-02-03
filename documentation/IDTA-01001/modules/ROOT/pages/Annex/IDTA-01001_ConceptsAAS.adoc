@@ -13,13 +13,13 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 
 
 [appendix]
-== Concepts of the Administration Shell
+= Concepts of the Administration Shell
 
-=== General
+== General
 
 Annex A provides general information about sources of information and relevant concepts for the Asset Administration Shell. Some of these concepts are explained in a general manner. Some concepts are update in order to reflect actual design decisions. No new concepts are introduced. Thus, this clause can be seen as a fully informative annex to the specifications of the Administration Shell.
 
-=== Relevant Sources and Documents
+== Relevant Sources and Documents
 
 The following documents were used to identify requirements and concepts for the Administration Shell:
 
@@ -50,7 +50,7 @@ Note 3: the online library of the Industrial Digital Twin Association can be fou
 ====
 
 
-=== Basic Concepts for Industry 4.0
+== Basic Concepts for Industry 4.0
 
 Industry 4.0 describes concepts and definitions for the domain of smart manufacturing. For Industry 4.0, the term asset, being any "object which has a value for an organization", is of central importance link:#bib2[[2\]] link:#bib21[[21\]]. Industry 4.0 assets can take almost any form, e.g. a production system, a product, a software installation, intellectual properties, or even human resources.
 
@@ -63,7 +63,7 @@ As far as the large variety of assets in Industry 4.0 are concerned, the Asset A
 .Important Concepts of Industry 4.0 attached to the Asset link:#bib2[[2\]] link:#bib21[[21\]]
 image::image60.jpeg[]
 
-=== The Concept of Properties
+== The Concept of Properties
 
 According to link:#bib20[[20\]], the "IEC 61360 series provides a framework and an information model for product dictionaries. The concept of product type is represented by 'classes' and the product characteristics are represented by 'properties'".
 
@@ -80,7 +80,7 @@ Note: Industry 4.0 and smart manufacturing in general will require many properti
 ====
 
 
-=== The Concept of Submodels
+== The Concept of Submodels
 
 "The Administration Shell is the standardized digital representation of the asset, corner stone of the interoperability between the applications managing the manufacturing systems" link:#bib19[[19\]]. Hence, it should provide a minimal but sufficient description according to the different application scenarios in Industry 4.0 link:#bib7[[7\]] link:#bib8[[8\]]. Many different (international) standards, consortia and manufacturer specifications can already contribute to this description link:#bib19[[19\]].
 
@@ -99,7 +99,7 @@ Note: a side benefit of the Administration Shell will be to simplify the update 
 ====
 
 
-=== Basic Structure of the Asset Administration Shell
+== Basic Structure of the Asset Administration Shell
 
 The document on the structure of the Asset Administration Shell link:#bib4[[4\]] link:#bib19[[19\]] presents a rough, logical view of the Asset Administration Shell’s structure. The Asset Administration Shell – shown in blue in the following figure – comprises different sets of information. Both the asset and the Administration Shell are identified by a globally unique identifier. It comprises a number of submodels, which characterize the Asset Administration Shell.
 
@@ -114,7 +114,7 @@ The properties of all the submodels therefore result in a constantly readable ke
 
 It should be possible to filter elements of the Administration Shell or submodels according to different given views (see example C.4 in link:#bib19[[19\]]). This facilitates different perspectives or use cases to access the Administration Shell's information.
 
-=== How Are New Identifiers Created?
+== How Are New Identifiers Created?
 
 Following the different identification types from Clause 4.3.4, it can be stated that:
 
@@ -124,7 +124,7 @@ Following the different identification types from Clause 4.3.4, it can be stated
 . Custom identifiers can also be easily formed by developers. They only need to make sure that internal custom identifiers can be clearly distinguished from (a) or (b).
 . Local identifiers can also be created on the fly. They have to be unique within their namespace.
 
-=== Best Practice for Creating URI Identifiers
+== Best Practice for Creating URI Identifiers
 
 The approach for semantics and interaction for I4.0 components link:#bib18[[18\]] suggests the use of the following structure (see Table 11) for URIsfootnote:[URLs are also URIs], which is slightly modified here. The idea is to always structure URIs following a scheme of different elements. However, this is just a recommendation and by no means mandatory.
 
