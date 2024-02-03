@@ -1,8 +1,12 @@
 :xrefstyle: short
 
+### Page reference example:
+
+See xref:Annex/IDTA-01001_ConceptsAAS.adoc[Concepts of the AAS] for more information on how to create new identifiers and best practices for creating URI identifiers.
+
 ### Section reference example:
 
-See xref:Annex/IDTA-01001_ConceptsAAS.adoc[] for more information on how to create new identifiers and best practices for creating URI identifiers.
+See <<bib_ref_example>> for more information on how to create references to the bibliography.
 
 ### Image reference example:
 
@@ -12,6 +16,17 @@ The general concept and the structure of the Asset Administration Shell is descr
 [[aas-roles]]
 image::image2.png[]
 
+[[bib_ref_example]]
 ### Bib reference example:
 
 It is crucial for Industry 4.0 applications to share information between different systems throughout the areas covered by the entire RAMI4.0 model [xref:Annex/IDTA-01xxx_Bibliography.adoc#Acatech2013[Acatech2013]]
+
+////
+Snippet from the bibliography file:
+
+[bibliography]
+== Bibliography
+
+[#bib1]
+* [[[Acatech2013]]] "Recommendations for implementing the strategic initiative INDUSTRIE 4.0", acatech, April 2013. [Online]. Available: https://www.acatech.de/Publikation/recommendations-for-implementing-the-strategic-initiative-industrie-4-0-final-report-of-the-industrie-4-0-working-group/
+////
