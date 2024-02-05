@@ -13,8 +13,8 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 include::./includes/IDTA-01001_Constraints.adoc[]
 
 
-
 = Metamodel Changes
+
 
 == General
 
@@ -205,7 +205,11 @@ Note: Security is still part of the Asset Administration Shell, but the Asset Ad
 |  |AssetKind/Instance |Updated description of value "Instance" of enumeration "AssetKind" conformant to IEC 63278-1
 |  |AssetKind/Type |Updated description of value "Type" of enumeration "AssetKind" conformant to IEC 63278-1
 |x |BasicEvent |Renamed to BasicEventElement and set to \<<Experimental>>
+<<<<<<< HEAD:documentation/IDTA-01001/modules/ROOT/pages/IDTA-01001_ChangeLog.adoc
 |file:///C:/__localWork/Asset%20Administration%20Shell%20-%20Verwaltungsschale/Verwaltungsschale%20im%20Detail%20-%20part%201a%20V3.0/Change%202.0%20-%203.0.xlsx#RANGE!#REF![(x)link:#bib2[[2\]]] |xref:page$Spec/IDTA-01001_Metamodel_DataTypes.adoc#BlobType[BlobType] |Primitive changed from "group of bytes" to Base64Binary
+=======
+|file:///C:/__localWork/Asset%20Administration%20Shell%20-%20Verwaltungsschale/Verwaltungsschale%20im%20Detail%20-%20part%201a%20V3.0/Change%202.0%20-%203.0.xlsx#RANGE!#REF![(x)link:#bib2[[2\]]] |xref:page$IDTA-01001_Metamodel.adoc#BlobType[BlobType] |Primitive changed from "group of bytes" to Base64Binary
+>>>>>>> origin/IDTA-01001-3-1_working:documentation/IDTA-01001/modules/ROOT/pages/Annex/IDTA-01001_ChangeLog.adoc
 |x |ConceptDictionary |Removed
 |x |Constraint |Abstract class removed. Formula now used in Security part only
 |x |xref:file$IDTA-01001_DataSpecifications.adoc#DataSpecification[DataSpecification] |No longer inherits from Identifiable. However, same attribute names and types
@@ -759,7 +763,11 @@ Note: ReferableElements was substituted by AasSubmodelElements and Aas Identifia
 [cols="5%,43%,50%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V2.0.1* |*Comment*
+<<<<<<< HEAD:documentation/IDTA-01001/modules/ROOT/pages/IDTA-01001_ChangeLog.adoc
 | |xref:page$IDTA-01001_Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] |Bugfix: Stereotype "DataType" added
+=======
+| |xref:page$IDTA-01001_Metamodel.adoc#AdministrativeInformation[AdministrativeInformation] |Bugfix: Stereotype "DataType" added
+>>>>>>> origin/IDTA-01001-3-1_working:documentation/IDTA-01001/modules/ROOT/pages/Annex/IDTA-01001_ChangeLog.adoc
 | |AnnotatedRelationship/annotation |Bugfix: Type changed from ModelReference<xref:page$IDTA-01001_Metamodel_SubmodelElements.adoc#DataElement[DataElement]> to DataElement
 | |anySimpleTypeDef |Type removed, was no longer used in any class definition, was mentioned in text only
 |x |Asset |Removed, asset referenced via AssetInformation/globalAssetId only
@@ -868,7 +876,11 @@ New enumeration used for References, includes abstract Identifiable
 
 Before: Identifiables
 
+<<<<<<< HEAD:documentation/IDTA-01001/modules/ROOT/pages/IDTA-01001_ChangeLog.adoc
 | |xref:page$IDTA-01001_Metamodel_Referencing.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
+=======
+| |xref:page$IDTA-01001_Metamodel.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
+>>>>>>> origin/IDTA-01001-3-1_working:documentation/IDTA-01001/modules/ROOT/pages/Annex/IDTA-01001_ChangeLog.adoc
 | |xref:page$IDTA-01001_Metamodel_Referencing.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
 |x |AssetAdministrationShell/assetInformation |substitute for AssetAdministrationShell/asset; no reference any longer, instead now aggregation
 | |xref:page$IDTA-01001_Metamodel_Core.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset, because not specific to Asset but to AAS
@@ -904,7 +916,11 @@ decimalBuildInTypes, durationBuildInTypes, PrimitiveTypes that correspond to any
 | |xref:page$IDTA-01001_Metamodel_SubmodelElements.adoc#Direction[Direction] |New enumeration for BasicEventElement
 | |xref:page$IDTA-01001_Metamodel_Environment.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions
 | |xref:page$IDTA-01001_Metamodel_SubmodelElements.adoc#EventElement[EventElement] |Former name: Event
+<<<<<<< HEAD:documentation/IDTA-01001/modules/ROOT/pages/IDTA-01001_ChangeLog.adoc
 | |xref:page$IDTA-01001_Metamodel_SubmodelElements.adoc#EventPayload[EventPayload] |New class for event payload
+=======
+| |xref:page$IDTA-01001_Metamodel.adoc#EventPayload[EventPayload] |New class for event payload
+>>>>>>> origin/IDTA-01001-3-1_working:documentation/IDTA-01001/modules/ROOT/pages/Annex/IDTA-01001_ChangeLog.adoc
 | |EventPayload/observableSemanticId |Was part of non-normative part before
 | |EventPayload/payload |Was part of non-normative part before
 | |EventPayload/source |Was part of non-normative part before
