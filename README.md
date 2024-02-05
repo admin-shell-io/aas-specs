@@ -20,7 +20,7 @@ and examples of how to use the schemas.
 ## Industrial Digital Twin Association (IDTA)
 
 Governance of the specification is done in the working group *Open Technology* 
-of the [IDTA](https://industrialdigitaltwin.org/en/)
+of the [IDTA](https://industrialdigitaltwin.org/en/).
 
 ## Documentation
 
@@ -97,5 +97,4 @@ If you want to contribute, see [CONTRIBUTING.md](CONTRIBUTING.md).
 ## License
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](
-https://creativecommons.org/licenses/by/4.0/). The implementation is based on the specifications of the "Details of the Asset Administration Shell" published on https://www.plattform-i40.de and https://industrialdigitaltwin.org/en/ 
-which is licensed under Creative Commons CC-BY-4.0.
+https://creativecommons.org/licenses/by/4.0/). 
