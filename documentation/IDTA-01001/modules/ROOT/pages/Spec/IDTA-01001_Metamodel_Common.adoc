@@ -66,7 +66,7 @@ Note 4: the process of versioning or adding other administrative information to 
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
-|=
+|===
 h|Class: 3+e|[[AdministrativeInformation]]AdministrativeInformation
 h|Explanation: 3+a|
 Administrative metainformation for an element like version information
@@ -140,7 +140,7 @@ Note: this is an external reference.
 
 
 |xref:Reference[Reference] |0..* |
-|=
+|===
 
 For more details on data specifications, please see Clause 6.
 
@@ -151,7 +151,7 @@ image::image16.png[]
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
-|=
+|===
 h|Class: 3+e|[[HasExtensions]]HasExtensions \<<abstract>>
 h|Explanation: 3+a|
 Element that can be extended by proprietary extensions
@@ -207,7 +207,7 @@ a|Value of the extension |xref:ValueDataType[ValueDataType] |0..1
 
 .2+e|refersTo 3+| `\https://admin-shell.io/aas/3/1/Extension/refersTos` 
 a|Reference to an element the extension refers to |ModelReference<xref:Referable[Referable]> |0..*
-|=
+|===
 
 
 
@@ -218,7 +218,7 @@ image::image17.png[]
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
-|=
+|===
 h|Class: 3+e|[[HasKind]]HasKind
 h|Explanation: 3+a|
 An element with a kind is an element that can either represent a template or an instance.
@@ -308,7 +308,7 @@ Note: it is recommended to use an external reference.
 
 
 |xref:Reference[Reference] |0..*
-|=
+|===
 
 == Identifiable Attributes
 
@@ -325,7 +325,7 @@ See Clause 4.3.4 for information about which identifier types are supported.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
-|=
+|===
 h|Class: 3+e|[[Identifiable]]Identifiable \<<abstract>>
 h|Explanation: 3+a|
 An element that has a globally unique identifier
@@ -386,7 +386,7 @@ h|Explanation h|Type h|Card.
 
 .2+e|qualifier 3+| `\https://admin-shell.io/aas/3/1/Qualifiable/qualifiers`  
 a|Additional qualification of a qualifiable element |xref:Qualifier[Qualifier] |0..*
-|=
+|===
 
 == Qualifier Attributes
 
@@ -399,7 +399,7 @@ There are standardized qualifiers defined in IEC CDD, IEC61360-4 – IEC/SC 3D. 
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
-|=
+|===
 h|Class: 3+e|[[Qualifier]]Qualifier
 h|Explanation: 3+a|
 A qualifier is essentially a type-value-pair. Depending on the kind of qualifier, it makes additional statements
@@ -481,7 +481,7 @@ Note: template qualifiers are only applicable to elements with kind="Template". 
 ====
 
 
-|=
+|===
 
 Example of a _ValueQualifier_: property "temperature" and qualifier "value quality" with different qualifier values like "measured", "substitute value".
 
@@ -508,7 +508,7 @@ The __idShort__ shall be unique in its name space for non-identifiable referable
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%""]
-|=
+|===
 h|Class: 3+e|[[Referable]]Referable \<<abstract>>
 h|Explanation: 3+a|
 Note1 : an element that is referable by its idShort. This ID is not globally unique. This ID is unique within the name space of the element.
@@ -566,7 +566,7 @@ If no description is defined, the definition of the concept description that def
 Additional information can be provided, e.g. if the element is qualified and which qualifier types can be expected in which context or which additional data specification templates.
 
 |xref:MultiLanguageTextType[MultiLanguageTextType] |0..1
-|=
+|===
 
 Predefined categories are described in Table 6.
 
@@ -578,7 +578,7 @@ Note: categories are deprecated and should no longer be used.
 
 .Categoriesfootnote:[Note: categories of referables are deprecated.] for Elements with Value
 [cols="18%,28%,54%",options="header",]
-|=
+|===
 |Category: |Applicable to, Examples: |Explanation:
 e|CONSTANT a|
 Property
@@ -610,4 +610,4 @@ Property
 SubmodelElementList
 
 |An element with the category VARIABLE is an element that is calculated during runtime, i.e. its value is a runtime value.
-|=
+|===
