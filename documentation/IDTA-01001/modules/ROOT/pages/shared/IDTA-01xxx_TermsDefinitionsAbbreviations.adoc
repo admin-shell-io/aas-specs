@@ -22,7 +22,7 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 [.underline]#Please note#: the definitions of terms are only valid in a certain context. This glossary applies only within the context of this document.
 ====
 
-If available, definitions were taken from IEC 63278-1 DRAFT, July 2022.
+If available, definitions were taken from IEC 63278-1 Edition 1.0 2023-12.
 
 *access control*::
 
@@ -44,11 +44,12 @@ _[SOURCE: IEC TR 62390:2005-01, 3.1.2]_
 
 *asset*::
 
-physical, digital, or intangible entity that has value to an individual, an organization, or a government
+entity owned by or under the custodial duties of an organization, which has either a perceived
+or actual value to the organization
 
 
 ====
-Note 1 to entry: an asset can be single entity, a collection of entities, an assembly of entities, or a composition of entities.
+Note 1 to entry: an asset can be single entity, a collection of entities, an assembly of entities or a composition of entities.
 ====
 
 
@@ -60,7 +61,7 @@ EXAMPLE 1: examples for physical entities are equipment, raw material, parts com
 
 
 ====
-EXAMPLE 2: examples for digital assets are process definitions, business procedures, or actual states.
+EXAMPLE 2: software is an example of a digital asset.
 ====
 
 
@@ -70,13 +71,14 @@ EXAMPLE 3: a software license is an example of an intangible asset.
 ====
 
 
-_[SOURCE: IEC 63278-1, based on IEV 741-01-04, editorial changes]_
+_[SOURCE: IEC 63278-1:2023, editorial changes]_
+
 
 *attribute*::
 
 data element of a _property_, a relation, or a class in information technology
 
-_[SOURCE: ISO/IEC Guide 77-2, ISO/IEC 27460, IEC 61360]_
+_[SOURCE: IEC 63278-1:2023; ISO/IEC Guide 77-2; ISO/IEC 27460; IEC 61360]_
 
 
 *Asset Administration Shell (AAS)*::
@@ -89,7 +91,7 @@ Note 1 to entry: Asset Administration Shell and Administration Shell are used sy
 ====
 
 
-_[SOURCE: IEC 63278-1, note added]_
+_[SOURCE: IEC 63278-1:2023, note added]_
 
 *class*::
 
@@ -131,13 +133,13 @@ _[SOURCE: link:https://eclass.eu/support/technical-specification/data-model/conc
 
 product used as a constituent in an assembled product, _system_, or plant
 
-_[SOURCE: IEC 63278-1; IEC 61666:2010, 3.6, editorial changes]_
+_[SOURCE: IEC 63278-1:2023; IEC 61666:2010+AMD1:2021 CSV, 3.6]_
 
 *concept*::
 
 unit of knowledge created by a unique combination of characteristics
 
-_[SOURCE: EC 63278-1; IEC 61360-1:2016, 3.1.8; ISO 22274:2013, 3.7]_
+_[SOURCE: IEC 63278-1:2023; IEC 61360-1:2016, 3.1.8; ISO 22274:2013, 3.7]_
 
 *digital representation*::
 
@@ -151,7 +153,8 @@ EXAMPLE 1: examples of information are properties (e.g. maximum temperature), ac
 
 
 ====
-EXAMPLE 2: examples of services are providing the history of the configuration data, providing the actual velocity, and providing a simulation.
+EXAMPLE 2: examples of services are asset services (for example providing the history of the configuration data or providing the actual velocity) and asset related services 
+(for example providing a simulation).
 ====
 
 
@@ -161,7 +164,7 @@ EXAMPLE 3: examples of viewpoints are mechanical, electrical, or commercial char
 ====
 
 
-_[SOURCE: IEC 63278-1, editorial changes]_
+_[SOURCE: IEC 63278-1:2023, editorial changes]_
 
 *digital twin*::
 
@@ -218,11 +221,11 @@ specific _asset_ that is uniquely identifiable
 
 
 ====
-EXAMPLE 1: examples of instance assets are material, a product, a part, a device, a machine, software, a control system, a production system.
+EXAMPLE 1: examples of instance assets are material, a product, a part, a device, a machine, software, a control system, or a production system.
 ====
 
 
-_[SOURCE: IEC 63278-1, editorial changes]_
+_[SOURCE: IEC 63278-1:2023, editorial changes]_
 
 *operation*::
 
@@ -242,13 +245,15 @@ Note 2 to entry: an operation has a name and a list of parameters [ISO 19119:200
 
 _[SOURCE: Glossary Industrie 4.0, editorial changes]_
 
+////
 *ontology*::
 
 collection of concepts, where each concept is constituted by an identifier, name, description, and additional entities and where relationships between concepts can be described without restriction
 
-_[SOURCE: IEC 63278-1]_
+_[SOURCE: ??]_
+////
 
-*property*
+*property*::
 
 defined characteristic suitable for the description and differentiation of products or components
 
@@ -316,16 +321,12 @@ _[SOURCE: according to IEC 62569-1]_
 
 *service*::
 
-Demarcated scope of functionality which is offered by an https://www.plattform-i40.de/PI40/Redaktion/EN/Glossary/E/entity_glossary.html[entity] or organization via https://www.plattform-i40.de/PI40/Redaktion/EN/Glossary/I/interface_glossary.html[interfaces]
+distinct part of the functionality that is provided by an entity through interfaces
 
 
-====
-Note 1 to entry: one or multiple operations can be assigned to one service.
-====
+_[SOURCE: IEC 63278-1:2023; IEC 60050-741:2020, 741-01-28]_
 
-
-_[SOURCE: Glossary Industrie 4.0]_
-
+////
 *smart manufacturing*::
 
 manufacturing that improves its performance aspects with integrated and intelligent use of processes and resources in cyber, physical and human spheres to create and deliver products and services, which also collaborates with other domains within enterprises' value chains
@@ -343,49 +344,42 @@ Note 2 to entry: in addition to manufacturing, other enterprise domains can incl
 
 
 _[SOURCE: IEC TR 63283-1:2022 ED1]_
+////
 
 *Submodel*::
 
-container of SubmodelElements defining a hierarchical structure consisting of SubmodelElements
+representation of an aspect of an _asset_
 
-_[SOURCE: IEC 63278-1]_
+_[SOURCE: IEC 63278-1:2023]_
 
 *SubmodelElement*::
 
-elements in a Submodel
+element of a _Submodel_
 
-_[SOURCE: IEC 63278-1]_
+_[SOURCE: IEC 63278-1:2023]_
 
 *Submodel template*::
 
-container of Submodel template elements defining a hierarchical structure consisting of Submodel template elements
+_template_ for the representation of an aspect of an _asset_
 
 
-====
-Note 1 to entry: a Submodel template is a specific kind of concept.
-====
 
-
-_[SOURCE: IEC 63278-1]_
+_[SOURCE: IEC 63278-1:2023]_
 
 *Submodel template element*::
 
-elements in a Submodel template
+element of a _Submodel template_
 
 
-====
-Note 1 to entry: a Submodel template element is a specific kind of concept.
-====
-
-
-_[SOURCE: IEC 63278-1]_
+_[SOURCE: IEC 63278-1:2023]_
 
 *system*::
 
 interacting, interrelated, or interdependent elements forming a complex whole
 
-_[SOURCE: IEC 63278-1; IEC TS 62443-1-1:2009, 3.2.123]_
+_[SOURCE: IEC 63278-1:2023; IEC TS 62443-1-1:2009, 3.2.123]_
 
+////
 *technical functionality*::
 
 functionality of the _Administration Shell_ that is exposed by an application programming interface (API) and that is creating added value to the respective _assets(s)_
@@ -397,6 +391,7 @@ Note 1 to entry: can consist of single elements, which are also known as functio
 
 
 _[SOURCE: according to link:#bib18[[18\]]]_
+////
 
 *template*::
 
@@ -414,26 +409,30 @@ _[SOURCE: according to ISO/IEC 10746-2]_
 
 hardware or software element which specifies the common _attributes_ shared by all instances of the type
 
-* [SOURCE: IEC TR 62390:2005-01, 3.1.25]
+_[SOURCE: IEC TR 62390:2005-01, 3.1.25]_
 
 *type asset*::
 
-(abstract) representation of a set of instance assets with common characteristics and features
+(abstract) representation of a set of _instance assets_ with common characteristics and features
 
 
 ====
 Note 1 to entry: the set of instance assets may exist or may not exist.
-Examples of type assets are type of material, a product type, a type of a part, a device type, a machine type, a type of software, a type of control system, a type of production system.
+====
+
+====
+EXAMPLE: Examples of type assets are type of material, a product type, a type of a part, a device type, a machine type, a type of software, a type of control system, a type of production system.
 ====
 
 
-_[SOURCE: IEC 63278-1]_
+_[SOURCE: IEC 63278-1:2023]_
 
 *variable*::
 
 software _entity_ that may take different values, one at a time
 
 _[SOURCE: IEC 61499-1]_
+
 
 ==  Abbreviations Used in this Document
 
@@ -442,7 +441,7 @@ _[SOURCE: IEC 61499-1]_
 |*Abbreviation* |*Description*
 |AAS |Asset Administration Shell
 |AASX |Package file format for the Asset Administration Shell
-|AML |AutomationML
+|AML |AutomationML, Automation Markup Language
 |API |Application Programming Interface
 |BITKOM |Bundesverband Informationswirtschaft, Telekommunikation und neue Medien e. V.
 |BLOB |Binary Large Object
@@ -458,7 +457,7 @@ _[SOURCE: IEC 61499-1]_
 |JSON |JavaScript Object Notation
 |MIME |Multipurpose Internet Mail Extensions
 |OPC |Open Packaging Conventions (ECMA-376, ISO/IEC 29500-2)
-|OPC UA |OPC Unified Architecture
+|OPC UA |OPC Unified Architecture maintained by the OPC Foundation
 |PDF |Portable Document Format
 |RAMI4.0 |Reference Architecture Model Industrie 4.0
 |RDF |Resource Description Framework
@@ -469,6 +468,7 @@ _[SOURCE: IEC 61499-1]_
 |URI |Uniform Resource Identifier
 |URL |Uniform Resource Locator
 |URN |Uniform Resource Name
+|UUID |Universally Unique Identifier
 |UTC |Universal Time Coordinated
 |VDE |Verband der Elektrotechnik, Elektronik und Informationstechnik e.V.
 |VDI |Verein Deutscher Ingenieure e.V.
