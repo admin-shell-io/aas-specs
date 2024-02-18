@@ -36,8 +36,6 @@ specific for IDTA-01001 Metamodel:
 - **aas-core** (major): the issue has impact on the generation of the schema etc. but no impact on the specification itself.
     Note: Every issue that has impact on the specification (label *specification* also has impact on aas-core). So this label is only for bugfixes etc. in aas-core and needs to be forwarded to this project.
 
-// Labels classified as **major** need workstream approval (see [Approval_Process](#approval-process-for-pr)).
-
 Labeling can only be done by the reponsibles of the github repository. See [How to label issues in github] for information on labeling.
 
 After accepting an issue the milestone shall be set to the corresponding version of the specification that shall contain the change, e.g. "V3.1".
