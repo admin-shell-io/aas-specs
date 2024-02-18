@@ -1,16 +1,53 @@
 # Contributing
 
-The specification of [Asset Administration Shell - Part 1] is an official publication of the joint working group "Asset Administration Shell" of the [Platform Industrie 4.0] and [IDTA].
-The specification and schema definition, including application examples in the aas-spec repository must be particularly compliant with this.
-However, we invite the community to review, report and fix the specification and schema definitions, including application examples. 
-Therefore, we demand a defined procedure for the contribution in this repository.
+Thank you for your interest in the specifications of the Asset Administration Shell!
 
-[Asset Administration Shell - Part 1]: https://www.plattform-i40.de/PI40/Redaktion/EN/Standardartikel/specification-administrationshell.html
+## Industrial Digital Twin Association (IDTA)
+
+Governance of the specifications of the Asset Administration Shell is done in the working group *Open Technology* 
+of the [IDTA](https://industrialdigitaltwin.org/en/)
+
+However, we invite the community to review, report and fix the specification documents and associated files, e.g. schema definitions, OpenAPI definitions, or application examples. 
+
+## Naming Convention for github repos
+
+For all github repositories that contain a part belong to the document series "Specification Asset Administration Shell" 
+the name of the github repository is starting with **aas-specs**.
+
+
+## Issue Handling
+
+It is requested that every pull request is assigned to at least one related issue.
+
+There are two types of issues:
+- Minor changes (simple failures, typos, *etc.*) and additional content (more examples, etc.) can be accepted straight away after a brief review by the responsible reviewers.
+  The corresponding issue will be labeled with **accepted** or **accepted in principle**.
+
+- Major changes must first be reviewed and approved by the Workstream "Specification Asset Administration Shell" within the "OpenTechnology" Working Group of the [IDTA](www.idtwin.org). The decision proposals are typically prepared by Task Forces dedicated to specific parts of the specification.
+  Corresponding issues will be labeled with **requires workstream approval** and with **accepted** or **accepted in principle**. 
+  If they are not accepted they will be closed without resolution.
+
+Additionally the following classification by labeling is recommended:
+- **specification** (major): the issue has impact on the implementation of the specification, e.g. adding new attribute to class, adding new API-operations, deprecating elements etc. 
+- **documentation**: the issue has only impact on the editorial part of the specification but no impact on the implementation
+- **process**: the issue has no impact on the specification but requires changes or improvements of the process as e.g. defined in this contribution guide
+
+specific for IDTA-01001 Metamodel:
+- **aas-core** (major): the issue has impact on the generation of the schema etc. but no impact on the specification itself.
+    Note: Every issue that has impact on the specification (label *specification* also has impact on aas-core). So this label is only for bugfixes etc. in aas-core and needs to be forwarded to this project.
+
+Labeling can only be done by the reponsibles of the github repository. See [How to label issues in github] for information on labeling.
+
+After accepting an issue the milestone shall be set to the corresponding version of the specification that shall contain the change, e.g. "V3.1".
+[Learn about milestones in github].
+
+[How to label issues in github]: https://docs.github.com/en/issues/tracking-your-work-with-issues/quickstart#adding-labels
+[Learn about milestones in github]: https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones
 
 ## Before the Pull Requests
 
 **Create Feature branches**.
-We develop using the feature branches, see [this section of the Git book].
+We develop using feature branches, see [this section of the Git book].
 
 [this section of the Git book]: https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows
 
@@ -52,8 +89,9 @@ Every pull request automatically runs the continuous integration with every upda
 
 The continuous integration must be **successfully completed** with `All checks have passed` before proceeding with the approval process.
 
-### Schema Validation
-We use the sample programs from [schema-validation] repository in the continuous integration to validate the schemas against the [JSON], [XML] and [RDF] examples from the aas-spec repository.
+### IDTA-01001: Schema Validation
+We use the sample executables from [schema-validation] repository in the continuous integration to validate the 
+schemas against the [JSON], [XML] and [RDF] examples from the aas-spec repository.
 It is possible, but not necessary to check the schema-validation without creating the pull request. 
 
 [schema-validation]: https://github.com/admin-shell-io/schema-validation
@@ -77,14 +115,14 @@ schemas\Validate.ps1
 In accordance with Section "Recommendation for Commit Messages" the continuous integration checks the previously defined conditions.
 For the present development, however, this is not enforced.
 
-## Approval Process
+## Approval Process for PR
 All changes must be **reviewed** and **approved**.
 
 Minor changes (simple failures, typos, *etc.*) and additional content (more examples, etc.) can be accepted straight away after a brief review by the responsible reviewers.
 
-Major changes must first be reviewed and approved by the joint working group "Asset Administration Shell" of the [Platform Industrie 4.0] and [IDTA].
+Major changes (i.e. pull requests associated to issues labels classified as "major") must first be reviewed and approved by the Workstream "Specification Asset Administration Shell" within the "OpenTechnology" Working Group of the [IDTA].
 
-[Platform Industrie 4.0]: http://www.plattform-i40.de
+
 [IDTA]: https://industrialdigitaltwin.org/
 
 
@@ -95,8 +133,30 @@ After the approval the pull request can be merged into the repository. This is d
 
 ## Post-Merge Cleanup
 **Congratulation.**
-You successfully contributed to the aas-spec repository.
+You successfully contributed to a specification repository of the Asset Administration Shell.
 
 If you are a member of the development team, please delete the feature branch you directly created within the aas-specs repository.
 
 Otherwise, if you are not part of the team and you forked the repository, feel free to delete your fork.
+
+
+## License Headers & Licensing
+
+By default, all files contributed require headers - this will ensure the license and copyright clearing at the end. Only if inline comments are not possible, e.g., for JSON files, the copyright declaration can be omitted. 
+
+Also, all contributions must have the same license as the source.
+
+The header should follow the following template:
+
+```
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+////
+```
+
