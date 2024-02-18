@@ -420,7 +420,24 @@ A typical query would be to find some element with a specific semantic ID. In th
 Matching does not mean to define equivalence classes that allow to overwrite constraints as defined in the specification for  valid instances of the metamodel.
 ====
 
-**Exact matching of two references**
+**Equivalence matching of two references**
+
+* Two References are identical if all attributes values are identical.
+
+[.underline]#Examples for non-matching external referencesfootnote:[The example only contains arbitrary IRDIs and does not represent a real-world example.]:#
+
+[listing]
+....
+(GlobalReference)0173-1#01-ADS698#010, (GlobalReference)0173-1#01-ADS700#010
+....
+
+matches
+[listing]
+....
+(GlobalReference 0173-1#01-ADS698#010, (FragmentReference)0173-1#01-ADS700#010
+....
+
+**Value matching of two references**
 
 * An external reference A matches an external reference B if all values of all keys are identical.
 
@@ -430,7 +447,7 @@ Note: it is unlikely that a fragment value is identical to a global reference va
 ====
 
 
-* A model reference A matches a model reference B if all values of all keys are identical. +
+* A model reference A matches a model reference B if all values of all keys are identical.
 
 ====
 Note: the key type can be ignored since the fragment keys are always unique (e.g. all idShorts of submodel elements in a submodel or all submodel elements in a submodel element list or collection).
@@ -439,11 +456,15 @@ Note: the key type can be ignored since the fragment keys are always unique (e.g
 
 * An external reference A matches a model reference B and vice versa if all values of all keys are identical.
 
+* The Reference/type and Reference/referredSemanticId are ignored for matching.
 
 ====
 Note: since identifiables of the Asset Administration Shell are globally unique, model references are special cases of global references. The only difference is the handling of key types that are predefined for Asset Administration Shell elements. Other key types could be predefined, e.g. for IRDI paths etc. However, so far only generic key types are supported.
 ====
 
+====
+Note: If the values for attribute "referredSemanticId" of the two references compared are not identical then there is a mismatch between the two that should be resolved. However, the two are considered to match.
+====
 
 
 ====
