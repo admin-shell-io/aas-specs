@@ -7,8 +7,7 @@ Thank you for your interest in the specifications of the Asset Administration Sh
 Governance of the specifications of the Asset Administration Shell is done in the working group *Open Technology* 
 of the [IDTA](https://industrialdigitaltwin.org/en/)
 
-However, we invite the community to review, report and fix the specification 
-and schema definitions, openAPI definition including application examples. 
+However, we invite the community to review, report and fix the specification documents and associated files, e.g. schema definitions, OpenAPI definitions, or application examples. 
 
 ## Naming Convention for github repos
 
@@ -22,22 +21,22 @@ It is requested that every pull request is assigned to at least one related issu
 
 There are two types of issues:
 - Minor changes (simple failures, typos, *etc.*) and additional content (more examples, etc.) can be accepted straight away after a brief review by the responsible reviewers.
-  The corresponding issue will be labeled with **accepted** or **accepted in principle**
+  The corresponding issue will be labeled with **accepted** or **accepted in principle**.
 
-- Major changes must first be reviewed and approved by the Workstream "Specification Asset Administration Shell" within the "OpenTechnology" Working "Asset Administration Shell" of the  [IDTA].
-  Corresponding issues will be labeled with **requires workstream approval** and - after review in the Workstream - with **accepted** or **accepted in principle**.
+- Major changes must first be reviewed and approved by the Workstream "Specification Asset Administration Shell" within the "OpenTechnology" Working Group of the [IDTA](www.idtwin.org). The decision proposals are typically prepared by Task Forces dedicated to specific parts of the specification.
+  Corresponding issues will be labeled with **requires workstream approval** and with **accepted** or **accepted in principle**. 
   If they are not accepted they will be closed without resolution.
 
 Additionally the following classification by labeling is recommended:
-- **specification** (major): the issue has impact on the implementation of the specifciation, e.g. adding new attribute to class, adding new API-operations, depracting element etc. 
-- **documentation**: the issue has only impact on the editorial part of the specification but not impact on the implementation
+- **specification** (major): the issue has impact on the implementation of the specification, e.g. adding new attribute to class, adding new API-operations, deprecating elements etc. 
+- **documentation**: the issue has only impact on the editorial part of the specification but no impact on the implementation
 - **process**: the issue has no impact on the specification but requires changes or improvements of the process as e.g. defined in this contribution guide
 
 specific for IDTA-01001 Metamodel:
-- **aas-core** (major): the issues has impact on the generation of the schema etc. but not impact on the specification itself.
-    Note: Every issue that has impact on the specification (label *specification* also has impact on aas-core).
+- **aas-core** (major): the issue has impact on the generation of the schema etc. but no impact on the specification itself.
+    Note: Every issue that has impact on the specification (label *specification* also has impact on aas-core). So this label is only for bugfixes etc. in aas-core and needs to be forwarded to this project.
 
-Labels classified as **major** need workstream approval (see [Approval_Process](#approval-process-for-pr)).
+// Labels classified as **major** need workstream approval (see [Approval_Process](#approval-process-for-pr)).
 
 Labeling can only be done by the reponsibles of the github repository. See [How to label issues in github] for information on labeling.
 
@@ -93,7 +92,7 @@ Every pull request automatically runs the continuous integration with every upda
 The continuous integration must be **successfully completed** with `All checks have passed` before proceeding with the approval process.
 
 ### IDTA-01001: Schema Validation
-We use the sample programs from [schema-validation] repository in the continuous integration to validate the 
+We use the sample executables from [schema-validation] repository in the continuous integration to validate the 
 schemas against the [JSON], [XML] and [RDF] examples from the aas-spec repository.
 It is possible, but not necessary to check the schema-validation without creating the pull request. 
 
@@ -123,7 +122,7 @@ All changes must be **reviewed** and **approved**.
 
 Minor changes (simple failures, typos, *etc.*) and additional content (more examples, etc.) can be accepted straight away after a brief review by the responsible reviewers.
 
-Major changes (i.e. pull requests associated to issues labels classified as "major") must first be reviewed and approved by the Workstream "Specification Asset Administration Shell" within the "OpenTechnology" Working "Asset Administration Shell" of the  [IDTA].
+Major changes (i.e. pull requests associated to issues labels classified as "major") must first be reviewed and approved by the Workstream "Specification Asset Administration Shell" within the "OpenTechnology" Working Group of the [IDTA].
 
 
 [IDTA]: https://industrialdigitaltwin.org/
@@ -145,7 +144,10 @@ Otherwise, if you are not part of the team and you forked the repository, feel f
 
 ## License Headers & Licensing
 
-All files contributed require headers - this will ensure the license and copyright clearing at the end. Also, all contributions must have the same license as the source.
+By default, all files contributed require headers - this will ensure the license and copyright clearing at the end. Only if inline comments are not possible, e.g., for JSON files, the copyright declaration can be omitted. 
+
+Also, all contributions must have the same license as the source.
+
 The header should follow the following template:
 
 ```
@@ -157,8 +159,6 @@ https://creativecommons.org/licenses/by/4.0/).
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Illustrations:
-Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
 ////
 ```
 
