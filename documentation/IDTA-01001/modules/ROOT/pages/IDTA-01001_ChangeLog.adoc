@@ -49,13 +49,26 @@ Major Changes:
 * PathType: support complete URI scheme for files RFC3986/RFC3987 (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
 * data type  Identifier: change length from 2000 to 2024 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
 * Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name (https://github.com/admin-shell-io/aas-specs/issues/295[#295])
-* Entity/entityType and Constraint AASd-014: now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
+* Entity/entityType and Constraint AASd-014: entityType now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
 * Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications
 (https://github.com/admin-shell-io/aas-specs/issues/307[#307])
 * Individual versioning of metamodel element IDs (note: the version of many 
 class metamodel IDs needed to be increased to 3.1 due to the change of data types 
 Identifier and idShort of Referable) 
     ** Adding metamodel element IDs to tables themselves (before only grammar)
+* Terms and Definitions adopted to IEC 63278-1:2023 (before IEC 63278-1 Draft July 2022 was the basis), also abbreviations partly adopted; changes:
+	** changed: asset
+	** changed: digital representation (example only)
+	** removed: ontology
+	** changed: service
+	** removed: smart manufacturing
+	** changed: Submodel
+	** changed: Submodel template
+	** changed: Submodel template element
+	** removed: technical functionality
+* Update clause on matching algorithm for references
+	** introduce equivalent matching and rename exact matching to value matching
+	** added notes 
 * Transfer from .docx to asciidoc (.adoc) and maintenance in github
 
 
@@ -72,12 +85,12 @@ Bugfixes:
 * (Editorial) make EmbeddedDataSpecification/dataSpecification mandatory (as implemented in schemata) (https://github.com/admin-shell-io/aas-specs/issues/296[#296])
 * (Editorial) Qualifier/Kind changed to Qualifier/kind (typo in table, UML and schema correct)
 * (Editorial) BasicEventElement/Direction and BasicEventElement/State changed to BasicEventElement/direction and BasicEventElement/state typo in table, UML and schema correct)
-* (Editorial) Enumerations (used in Constraints only) FragmentKeys and AasReferableNonIdentifiables contain the value "Referable" as well: added (see Figure "Model for Keys of References (non-normative))"
+* (Editorial) Enumerations (used in Constraints only) FragmentKeys and AasReferableNonIdentifiables contain the value "Referable" as well: added (see Figure "Model for Keys of References (non-normative)")
 * (Editorial) wrong figure updated for "Association" in Annex for UML (https://github.com/admin-shell-io/aas-specs/issues/328[#328]) 
 
 === Metamodel Changes V3.1 vs. V3.0
 
-.Changes
+.Changes in Metamodel
 [cols="5%,42%,48%",options="header",]
 |===
 |*Nc* |*V3.1 Change w.r.t. V3.0* |*Comment*
