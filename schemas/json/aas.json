@@ -7,7 +7,7 @@
       "$ref": "#/definitions/Environment"
     }
   ],
-  "$id": "https://admin-shell.io/aas/3/0",
+  "$id": "https://admin-shell.io/aas/3/1",
   "definitions": {
     "AasSubmodelElements": {
       "type": "string",
@@ -92,7 +92,7 @@
             "templateId": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 2000,
+              "maxLength": 2024,
               "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             }
           }
@@ -162,7 +162,7 @@
         "globalAssetId": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 2000,
+          "maxLength": 2024,
           "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
         },
         "specificAssetIds": {
@@ -175,7 +175,7 @@
         "assetType": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 2000,
+          "maxLength": 2024,
           "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
         },
         "defaultThumbnail": {
@@ -191,6 +191,7 @@
       "enum": [
         "Instance",
         "NotApplicable",
+        "Role",
         "Type"
       ]
     },
@@ -537,7 +538,7 @@
             "globalAssetId": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 2000,
+              "maxLength": 2024,
               "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "specificAssetIds": {
@@ -550,10 +551,7 @@
             "modelType": {
               "const": "Entity"
             }
-          },
-          "required": [
-            "entityType"
-          ]
+          }
         }
       ]
     },
@@ -677,7 +675,7 @@
               "allOf": [
                 {
                   "minLength": 1,
-                  "maxLength": 2000
+                  "maxLength": 2024
                 },
                 {
                   "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
@@ -772,7 +770,7 @@
             "id": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 2000,
+              "maxLength": 2024,
               "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             }
           },
@@ -791,7 +789,7 @@
         "value": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 2000,
+          "maxLength": 2024,
           "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
         }
       },
@@ -1157,7 +1155,7 @@
                   "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
                 },
                 {
-                  "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$"
                 }
               ]
             },
@@ -1284,7 +1282,7 @@
           "allOf": [
             {
               "minLength": 1,
-              "maxLength": 2000
+              "maxLength": 2024
             },
             {
               "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
@@ -1330,7 +1328,7 @@
             "value": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 2000,
+              "maxLength": 2024,
               "pattern": "^([\\t\\n\\r -\ud7ff\ue000-\ufffd]|\\ud800[\\udc00-\\udfff]|[\\ud801-\\udbfe][\\udc00-\\udfff]|\\udbff[\\udc00-\\udfff])*$"
             },
             "externalSubjectId": {
