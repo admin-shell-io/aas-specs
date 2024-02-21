@@ -174,13 +174,20 @@ Each string within langString has a max of 1,023 and min of 1 characters.
 .2+e|[[NameType]]NameType 2+| `\https://admin-shell.io/aas/3/0/NameType`
 a|_string_ with max 128 and min 1 characters |"ManufacturerPartId"
 
+
+
 .2+e|[[PathType]]PathType 2+| `\https://admin-shell.io/aas/3/1/PathType`
 a|
-_Identifier_
+
+_anyUri_
+
+with max 2024 and min 1 characters
 
 
 ====
-Note: URL, based on [RFC-3986](https://www.rfc-editor.org/rfc/rfc3987) /[RFC-3987](https://www.rfc-editor.org/rfc/rfc3987), but more recently defined as living standard by WHATWG, as suggested by W3C: https://url.spec.whatwg.org/
+"[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per [RFC 3986] and its successor(s)." 
+
+Source: https://www.w3.org/TR/xmlschema11-2/#anyURI[W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes]
 ====
 
 
