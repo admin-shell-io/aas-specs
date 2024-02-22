@@ -12,9 +12,10 @@ SPDX-License-Identifier: CC-BY-4.0
 
 == Predefined Simple Data Types
 
-The metamodel of the Asset Administration Shell uses basic data types as defined in the link:https://www.w3.org/XML/Core/[XML Schema Definition] (XSD)footnote:[https://www.w3.org/XML/Core/, former https://www.w3.org/XML/Schema]. See Table 7 for an overview of the used types. Their definition is outside the scope of this document.
+The metamodel of the Asset Administration Shell uses some of the predefined simple data types of the  link:https://www.w3.org/XML/Core/[XML Schema Definition] (XSD) 
+as its basic data types footnote:[https://www.w3.org/XML/Core/, former https://www.w3.org/XML/Schema]. See Table 7 for an overview of the used types. Their definition is outside the scope of this document.
 
-The meaning and format of xsd types is specified in https://www.w3.org/XML/Schema. The simple type "langString" is specified in the Resource Description Framework (RDF)footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
+The meaning and format of xsd types is specified in https://www.w3.org/XML/Schema. The simple type "langString" is specified in the Resource Description Framework (RDF) footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
 
 See Clause 5.3.12.6 for constraints on types.
 
@@ -26,6 +27,13 @@ See Clause 5.3.12.6 for constraints on types.
 "ハローワールド""
 |xsd |base64Binary |base64-encoded binary data |"a3Vtb3dhc2hlcmU="
 |xsd |boolean |true, false |true, false
+|xsd |anyUri | Represents an Internationalized Resource Identifier Reference (IRI) conformant to https://www.ietf.org/rfc/rfc3987.txt[RFC 3987], can be absolute or relative, and may have an optional fragment identifier  a| ./Specification.pdf
+
+file:c:/local/Specification.pdf
+
+\http://www.example.org
+
+FTP://unicode.org
 |xsd |dateType |Date and time with or without time zone |"2000-01-01T14:23:00", +
 "2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to xs:dateTimeStamp in XML Schema 1.1]
 |xsd |duration |Duration of time |"-P1Y2M3DT1H", +
