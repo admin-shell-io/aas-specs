@@ -24,14 +24,16 @@ See Clause 5.3.12.6 for constraints on types.
 |===
 |Source |Basic Data Type |Value Range |Sample Values
 
-|xsd |string |Character string (but not all Unicode character strings) |"Hello world", "Καλημέρα κόσμε", +
+|xsd |https://www.w3.org/TR/xmlschema2/#string[string] |Character string (but not all Unicode character strings) |"Hello world", "Καλημέρα κόσμε", +
 "ハローワールド""
 
-|xsd |base64Binary |base64-encoded binary data |"a3Vtb3dhc2hlcmU="
+|xsd |https://www.w3.org/TR/xmlschema2/#base64Binary[base64Binary] |base64-encoded binary data |"a3Vtb3dhc2hlcmU="
 
-|xsd |boolean |true, false |true, false
+|xsd |https://www.w3.org/TR/xmlschema2/#boolean[boolean] |true, false |true, false
 
-|xsd |anyUri | Represents an Internationalized Resource Identifier Reference (IRI) conformant to https://www.ietf.org/rfc/rfc3987.txt[RFC 3987], can be absolute or relative, and may have an optional fragment identifier  a| {blank}./Specification.pdf
+|xsd |https://www.w3.org/TR/xmlschema2/#anyURI[anyUri] | "[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema11-2/#RFC3986[RFC 3986] and its successor(s)." 
+
+It can be absolute or relative, and may have an optional fragment identifier  a| {blank}./Specification.pdf
 
 file:c:/local/Specification.pdf
 
@@ -39,10 +41,10 @@ file:c:/local/Specification.pdf
 
 FTP://unicode.org
 
-|xsd |dateType |Date and time with or without time zone |"2000-01-01T14:23:00", +
+|xsd |https://www.w3.org/TR/xmlschema2/#dateType[dateType] |Date and time with or without time zone |"2000-01-01T14:23:00", +
 "2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to xs:dateTimeStamp in XML Schema 1.1]
 
-|xsd |duration |Duration of time |"-P1Y2M3DT1H", +
+|xsd |https://www.w3.org/TR/xmlschema2/#duration[duration] |Duration of time |"-P1Y2M3DT1H", +
 "PT1H5M0S"
 
 |rdf |langString |Strings with language tags a|
@@ -200,7 +202,7 @@ with max 2024 and min 1 characters
 
 
 ====
-"[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per [RFC 3986] and its successor(s)." 
+"[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema11-2/#RFC3986[RFC 3986] and its successor(s)." 
 
 Source: https://www.w3.org/TR/xmlschema11-2/#anyURI[W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes]
 ====
