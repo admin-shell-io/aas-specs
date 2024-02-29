@@ -46,7 +46,7 @@ Major Changes:
 
 
 * New value "Role" to enumeration AssetKind (https://github.com/admin-shell-io/aas-specs/issues/294[#294])
-* PathType: support complete URI scheme for files RFC3986/RFC3987 (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
+* Change PathType: support complete URI scheme for files RFC2396/RFC2732  (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
 * data type  Identifier: change length from 2000 to 2024 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
 * Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name (https://github.com/admin-shell-io/aas-specs/issues/295[#295])
 * Entity/entityType and Constraint AASd-014: entityType now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
@@ -103,7 +103,7 @@ Bugfixes:
 | | Identifier a| data type: change length from 2000 to 2024 characters
 | | MultiLanguageNameType a| (bugfix in Text only) maxLength=128 (as derived and implemented)
 | | NameType a| implicit change due to change of Constraint AASd-002
-| | PathType a| extend data type to support complete URI scheme for files RFC3986/RFC3987
+| | PathType a| extend data type to support complete URI scheme for files RFC 2396/RFC 2732
 | | Qualifier/Kind a| (bugfix in Text only) attribute starts with small letter 
 | | Referable/idShort a| implicit change because constraint AASd-002 now also allows hyphen
 |===
