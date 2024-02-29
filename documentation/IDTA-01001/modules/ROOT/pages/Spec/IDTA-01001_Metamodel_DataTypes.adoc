@@ -12,9 +12,10 @@ SPDX-License-Identifier: CC-BY-4.0
 
 == Predefined Simple Data Types
 
-The metamodel of the Asset Administration Shell uses basic data types as defined in the link:https://www.w3.org/XML/Core/[XML Schema Definition] (XSD)footnote:[https://www.w3.org/XML/Core/, former https://www.w3.org/XML/Schema]. See Table 7 for an overview of the used types. Their definition is outside the scope of this document.
+The metamodel of the Asset Administration Shell uses some of the predefined simple data types of the  link:https://www.w3.org/XML/Core/[XML Schema Definition] (XSD) 
+as its basic data types footnote:[https://www.w3.org/XML/Core/, former https://www.w3.org/TR/xmlschema-2/#built-in-datatypes]. See Table 7 for an overview of the used types. Their definition is outside the scope of this document.
 
-The meaning and format of xsd types is specified in https://www.w3.org/XML/Schema. The simple type "langString" is specified in the Resource Description Framework (RDF)footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
+The meaning and format of xsd types is specified in https://www.w3.org/XML/Schema. The simple type "langString" is specified in the Resource Description Framework (RDF) footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
 
 See Clause 5.3.12.6 for constraints on types.
 
@@ -22,14 +23,30 @@ See Clause 5.3.12.6 for constraints on types.
 [cols="10%,19%,38%,33%",options="header",]
 |===
 |Source |Basic Data Type |Value Range |Sample Values
-|xsd |string |Character string (but not all Unicode character strings) |"Hello world", "Καλημέρα κόσμε", +
+
+|xsd |https://www.w3.org/TR/xmlschema2/#string[string] |Character string (but not all Unicode character strings) |"Hello world", "Καλημέρα κόσμε", +
 "ハローワールド""
-|xsd |base64Binary |base64-encoded binary data |"a3Vtb3dhc2hlcmU="
-|xsd |boolean |true, false |true, false
-|xsd |dateType |Date and time with or without time zone |"2000-01-01T14:23:00", +
+
+|xsd |https://www.w3.org/TR/xmlschema2/#base64Binary[base64Binary] |base64-encoded binary data |"a3Vtb3dhc2hlcmU="
+
+|xsd |https://www.w3.org/TR/xmlschema2/#boolean[boolean] |true, false |true, false
+
+|xsd |https://www.w3.org/TR/xmlschema2/#anyURI[anyUri] | "[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema11-2/#RFC3986[RFC 3986] and its successor(s)." 
+
+It can be absolute or relative, and may have an optional fragment identifier  a| {blank}./Specification.pdf
+
+file:c:/local/Specification.pdf
+
+\http://www.example.org
+
+FTP://unicode.org
+
+|xsd |https://www.w3.org/TR/xmlschema2/#dateType[dateType] |Date and time with or without time zone |"2000-01-01T14:23:00", +
 "2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to xs:dateTimeStamp in XML Schema 1.1]
-|xsd |duration |Duration of time |"-P1Y2M3DT1H", +
+
+|xsd |https://www.w3.org/TR/xmlschema2/#duration[duration] |Duration of time |"-P1Y2M3DT1H", +
 "PT1H5M0S"
+
 |rdf |langString |Strings with language tags a|
 "Hello"@en, +
 "Hallo"@de
@@ -174,18 +191,25 @@ Each string within langString has a max of 1,023 and min of 1 characters.
 .2+e|[[NameType]]NameType 2+| `\https://admin-shell.io/aas/3/0/NameType`
 a|_string_ with max 128 and min 1 characters |"ManufacturerPartId"
 
+
+
 .2+e|[[PathType]]PathType 2+| `\https://admin-shell.io/aas/3/1/PathType`
 a|
-_Identifier_
+
+_anyURI_
+
+with max 2024 and min 1 characters
 
 
 ====
-Note: URL, based on [RFC-3986](https://www.rfc-editor.org/rfc/rfc3987) /[RFC-3987](https://www.rfc-editor.org/rfc/rfc3987), but more recently defined as living standard by WHATWG, as suggested by W3C: https://url.spec.whatwg.org/
+"[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema11-2/#RFC3986[RFC 3986] and its successor(s)." 
+
+Source: https://www.w3.org/TR/xmlschema11-2/#anyURI[W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes]
 ====
 
 
 a|
-./Specification.pdf
+{blank}./Specification.pdf
 
 file:c:/local/Specification.pdf
 
@@ -197,7 +221,6 @@ FTP://unicode.org
 .2+e|[[RevisionType]]RevisionType 2+| `\https://admin-shell.io/aas/3/0/RevisionType`
 a|
 _string_ with max 4 and min 1 characters
-
 following the following regular expression:
 
 ^([0-9]\|[1-9][0-9]*)$
