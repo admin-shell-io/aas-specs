@@ -10,11 +10,11 @@ Some mappings or serializations convert the type "Reference" into a single strin
 
 [listing]
 ....
-<Reference> ::= ["[" <ReferenceType> [ "- " <referredSemanticId> " -" ] "]" ] <Key> \{(", " <Key> }*
+<Reference> ::= ["[" <ReferenceType> [ "- " <referredSemanticId> " -" ] "]" ] <Key> {(", " <Key> }*
 
 <ReferenceType> ::= "ExternalRef" | "ModelRef"     value of AAS:Reference/type
 
-<SemanticId> ::= ["[" <ReferenceType> "]"] <Key> \{(", " <Key> }*     value of AAS:Reference/referredSemanticId
+<SemanticId> ::= ["[" <ReferenceType> "]"] <Key> {(", " <Key> }*     value of AAS:Reference/referredSemanticId
 
 <Key> ::= "(" <KeyType> ")" <KeyValue>
 
