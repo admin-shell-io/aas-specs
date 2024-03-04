@@ -14,7 +14,7 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 === Format "Value" (ValueOnly-Serialization) in JSON
 
 
-In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics. Consequently, there is not always a need to receive the entire model information, which can be requested separately via _Content_ modifier set to _Metadata_, in each request since it is constant most of the time. Instead, applications are most likely only interested in the values of the modelled data. Furthermore, having limited processing power or limited bandwidth, one use case of this SerializationModifier is to transfer data as efficiently as possible. Semantics and data might be split into two separate architecture building blocks. For example, a database would suit the needs for querying semantics, while a device would only provide the data at runtime. Two separate requests make it possible to build up a user interface (UI) and show new upcoming values highly efficiently.
+In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics. Consequently, there is not always a need to receive the entire model information, which can be requested separately via _Content_ modifier set to _Metadata_, in each request since it is constant most of the time. Instead, applications are most likely only interested in the values of the modelled data. Furthermore, having limited processing power or limited bandwidth, one use case of this format is to transfer data as efficiently as possible. Semantics and data might be split into two separate architecture building blocks. For example, a database would suit the needs for querying semantics, while a device would only provide the data at runtime. Two separate requests make it possible to build up a user interface (UI) and show new upcoming values highly efficiently.
 
 Values are only available for
 
@@ -25,9 +25,9 @@ Values are only available for
 * Entity,
 * BasicEventElement.
 
-Capabilities are excluded from the SerializationModifier’s scope since only data containing elements are in the focus. They are consequently omitted in the serialization.
+Capabilities are excluded from the serialization scope since only data containing elements are in the focus. They are consequently omitted in the serialization.
 
-The following rules shall be adhered to when serializing a submodel with the SerializationModifier _Value_:
+The following rules shall be adhered to when serializing a submodel with the format _Value_footnote:[see SerializationModifier in Part 2 of the Specification of the Asset Administration Shell]:
 
 * A submodel is serialized as an unnamed JSON object.
 * A submodel element is considered a leaf submodel element if it does not contain other submodel elements. A leaf submodel element follows the rules for the different submodel elements considered in the serialization, as described below. If it is not a leaf element, the serialization rules must be transitively followed until the value is a leaf submodel element.
