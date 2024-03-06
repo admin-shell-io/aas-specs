@@ -370,47 +370,12 @@ To allow such efficient addressing by the chaining of elements by an API of an A
 
 Before accessing concrete data provided via a submodel, an application typically checks if the submodel provides the required data, i.e. the semantics of the submodel is checked for suitability. A so-called _semanticId_ should be defined for this submodel as well as the submodel element. This semantic ID helps to easily find the semantic definition of the submodel (see Clause 5.3.2).
 
+
+
+[[matching-strategies]]
 == Matching Strategies
 
-=== Matching Strategies for Semantic Identifiers
-
-When comparing two elements, different use cases should be considered in order to define how these two elements are semantically related. This clause gives first hints on the aspects to consider when dealing with matching semantic identifiers. For example, semantic references including context information as represented in IRDI-Path in ECLASS are not yet considered. Sometimes a concept description is derived from another concept description or is identical to or at least compatible with another concept description. The metamodel foresees an attribute "isCaseOf" for such semantic IDs. However, these are not considered in the matching strategies described in this clause.
-
-*Exact Matching (identical semanticIds) – DEFAULT*
-
-* With exact matching, two semantic IDs need to be string-identical.
-** Example: Property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#002 have exactly equal semantics.
-
-*Intelligent Matching (compatible semanticIds)*
-
-* Ignore Versioning
-** With intelligent matching, different versions of a concept definition may be matched. For example, if semantic versioning is used to version the concept description, then upward or backward compatible versions can be matched.
-** Example: property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#003 have equal semantics.
-
-====
-Note: to compare two semantic IDs, knowledge about versioning needs to be available. In the example above, two IRDIs from ECLASS are compared. ECLASS rules ensure that the semantics is always backward compatible for new versions; a new IRDI would be created for breaking changes.
-====
-
-* Consider Semantic Mappings
-** Existing semantic mapping information can be considered for intelligent matching. Semantic mappings may exist within one and the same dictionary, but also between different dictionaries and ontologies.
-** Example: 0112/2///61360_4#AAE530 for nominal capacity of a battery in dictionary IEC CDD and 0173-1#02-AAI048#004 in ECLASS have equal semanticsfootnote:[Semantic mapping files are also used in ECLASS between ECLASS Classic and ECLASS Advanced: https://eclass.eu/support/technical-specification/data-model/basic-advanced-mapping] footnote:[This is the format used for semantic mapping in ECLASS: https://eclass.eu/fileadmin/Redaktion/pdf-Dateien/Wiki/ECLASSXML_3.0/ECLASS_XML/mapping.xsd].
-
-
-====
-Note: this example does not represent an existing semantic mapping; it is only a candidate.
-====
-
-
-
-* Consider Domain Knowledge
-** With intelligent matching, domain knowledge available in machine-readable form may be taken into account, such as an "is-a"-relationship between two concept definitions.
-** Example: a Hammer drill (0173-1#01-ADS698#010) and a percussion drill (0173-1#01-ADS700#010) are drills for mineral material (0173-1#01-ADN177#005) and are compatible with a request or constraints asking for drills for mineral material.
-
-=== Matching Algorithm for References
-
-Clause 4.4.1 has discussed matching strategies for semantic identifiers. This clause explains matching strategies based on the reference concept (see Clause 5.3.10) in more detail and covers other kinds of identifying elements.
-
-For example, the string serialization of references as defined in Clause 7.2.3 is used for easier understanding.
+=== Introduction
 
 ====
 Note: Matching in this context means supporting a discovery query against an existing model. 
@@ -420,60 +385,9 @@ A typical query would be to find some element with a specific semantic ID. In th
 Matching does not mean to define equivalence classes that allow to overwrite constraints as defined in the specification for valid instances of the metamodel.
 ====
 
-**Equivalence matching of two references**
+For examples used to illustrate valid and invalid matching candidates, the string serialization of references as defined in Clause 7.2.3 is used for easier understanding.
 
-* Two References are identical if all attributes values are identical.
-
-[.underline]#Examples for non-matching external referencesfootnote:[The example only contains arbitrary IRDIs and does not represent a real-world example.]:#
-
-[listing]
-....
-(GlobalReference)0173-1#01-ADS698#010, (GlobalReference)0173-1#01-ADS700#010
-....
-
-matches
-[listing]
-....
-(GlobalReference 0173-1#01-ADS698#010, (FragmentReference)0173-1#01-ADS700#010
-....
-
-**Value matching of two references**
-
-* An external reference A matches an external reference B if all values of all keys are identical.
-
-
-====
-Note: it is unlikely that a fragment value is identical to a global reference value; it will reference something different.
-====
-
-
-* A model reference A matches a model reference B if all values of all keys are identical.
-
-
-====
-Note: the key type can be ignored since the fragment keys are always unique (e.g. all idShorts of submodel elements in a submodel or all submodel elements in a submodel element list or collection).
-====
-
-
-* An external reference A matches a model reference B and vice versa if all values of all keys are identical.
-
-* The Reference/type and Reference/referredSemanticId are ignored for matching.
-
-====
-Note: since identifiables of the Asset Administration Shell are globally unique, model references are special cases of global references. The only difference is the handling of key types that are predefined for Asset Administration Shell elements. Other key types could be predefined, e.g. for IRDI paths etc. However, so far only generic key types are supported.
-====
-
-====
-Note: If the values for attribute "referredSemanticId" of the two references compared are not identical then there is a mismatch between the two that should be resolved. However, the two are considered to match in the context of discovery.
-====
-
-
-====
-Note: if the key types are not identical although all key values follow the correct order of the key chain, then at least one of the references is buggy and a warning should be issued.
-====
-
-
-The definition of link:https://www.w3.org/TR/xmlschema-2/#terminology[XML Schema] is used for matching
+The definition of link:https://www.w3.org/TR/xmlschema-2/#terminology[XML Schema] is used for matching string values:
 
 
 * (Of string or names:) Two strings or names being compared must be identical.
@@ -486,9 +400,73 @@ in both strings
 
 * (Of strings and rules in the grammar:) A string matches a grammatical production if it 
 belongs to the language generated by that production.
-
-
 "
+
+
+
+
+[[matching-strategies-for-refences]]
+=== Matching Strategies for References
+
+ This clause explains matching strategies based on the reference concept (see Clause 5.3.10), 
+ i.e. for two elements with type xref:IDTA-01001_Metamodel_Referencing.adoc#Reference[Reference]. 
+ clause  xref:matching-strategies-for-semantic-identifiers[] additional hints for matching 
+ strategies with respect to semantic IDs are given.
+
+
+**Exact matching of two references**
+
+====
+Definition Exact-Matching: Two References are matching if all attribute values match.
+====
+
+====
+Note 1: The definition of axact-matching includes that the values of the Key/type attributes match and not only the Key/value values.
+====
+
+====
+Note 2: The definition of axact-matching includes that also the values for the Reference/type and Reference/referredSemanticId match. The latter again is a value of type xref:IDTA-01001_Metamodel_Referencing.adoc#Reference[Reference] and the same rules apply.
+====
+
+**Value matching of two references**
+
+====
+Definition Value-Matching: Two References are matching if all values of the keys, i.e. the values of Key/value match.
+====
+
+====
+Note 1:
+The Reference/type and Reference/referredSemanticId are ignored for value-matching. This means that an external reference can also match a model reference.
+====
+
+====
+Note 2: the key type can be ignored since the fragment keys are always unique (e.g. all idShorts of submodel elements in a submodel or all submodel elements in a submodel element list or collection).
+====
+
+====
+Note 3: the Reference/referredSemanticId can be ignored because it does not serve identifiying purposes.
+====
+
+====
+Note 4: the case that a fragement value matches a global reference value is considered to be unlikely: this risk of mismatch is accepted in the matching strategy. that a fragment value is identical to a global reference value.
+====
+
+
+====
+Note 5: since identifiables of the Asset Administration Shell are globally unique, model references are special cases of global references. The only difference is the handling of key types that are predefined for Asset Administration Shell elements. Other key types could be predefined, e.g. for IRDI paths etc. However, so far only generic key types are supported.
+====
+
+====
+Note 6: If the values for attribute "referredSemanticId" of the two references compared do not match then there is a mismatch between the two that should be resolved. However, the two are considered to value-match in the context of discovery.
+====
+
+
+====
+Note 7: if the key type values (i.e. value of Key/type) do not match although all key values follow the correct order of the key chain, then at least one of the references is buggy and a warning should be issued.
+====
+
+
+
 
 [.underline]#Examples for matching external referencesfootnote:[The example only contains arbitrary IRDIs and does not represent a real-world example.]:#
 
@@ -560,6 +538,45 @@ matches
 ....
 (GlobalReference)https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, (FragmentReference)Bibliography
 ....
+
+[[matching-strategies-for-semantic-identifiers]]
+=== Matching Strategies for Semantic Identifiers
+
+Semantic identifiers are a special case of elements with type xref:Reference[], see clause xref:matching-strategies-for-refences[].
+
+
+When comparing two elements, different use cases should be considered in order to define how these two elements are semantically related. This clause gives first hints on the aspects to consider when dealing with matching semantic identifiers. For example, semantic references including context information as represented in IRDI-Path in ECLASS are not yet considered. Sometimes a concept description is derived from another concept description or is identical to or at least compatible with another concept description. The metamodel foresees an attribute "isCaseOf" for such semantic IDs. However, these are not considered in the matching strategies described in this clause.
+
+*Exact Matching (identical semanticIds) – DEFAULT*
+
+* With exact matching, two semantic IDs need to be string-identical.
+** Example: Property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#002 have exactly equal semantics.
+
+*Intelligent Matching (compatible semanticIds)*
+
+* Ignore Versioning
+** With intelligent matching, different versions of a concept definition may be matched. For example, if semantic versioning is used to version the concept description, then upward or backward compatible versions can be matched.
+** Example: property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#003 have equal semantics.
+
+====
+Note: to compare two semantic IDs, knowledge about versioning needs to be available. In the example above, two IRDIs from ECLASS are compared. ECLASS rules ensure that the semantics is always backward compatible for new versions; a new IRDI would be created for breaking changes.
+====
+
+* Consider Semantic Mappings
+** Existing semantic mapping information can be considered for intelligent matching. Semantic mappings may exist within one and the same dictionary, but also between different dictionaries and ontologies.
+** Example: 0112/2///61360_4#AAE530 for nominal capacity of a battery in dictionary IEC CDD and 0173-1#02-AAI048#004 in ECLASS have equal semanticsfootnote:[Semantic mapping files are also used in ECLASS between ECLASS Classic and ECLASS Advanced: https://eclass.eu/support/technical-specification/data-model/basic-advanced-mapping] footnote:[This is the format used for semantic mapping in ECLASS: https://eclass.eu/fileadmin/Redaktion/pdf-Dateien/Wiki/ECLASSXML_3.0/ECLASS_XML/mapping.xsd].
+
+
+====
+Note: this example does not represent an existing semantic mapping; it is only a candidate.
+====
+
+
+
+* Consider Domain Knowledge
+** With intelligent matching, domain knowledge available in machine-readable form may be taken into account, such as an "is-a"-relationship between two concept definitions.
+** Example: a Hammer drill (0173-1#01-ADS698#010) and a percussion drill (0173-1#01-ADS700#010) are drills for mineral material (0173-1#01-ADN177#005) and are compatible with a request or constraints asking for drills for mineral material.
+
 == Submodel Instances and Templates
 
 === Can New or Proprietary Submodels be Formed?
