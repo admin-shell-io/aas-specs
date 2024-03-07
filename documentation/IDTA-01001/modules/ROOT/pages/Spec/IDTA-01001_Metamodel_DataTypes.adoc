@@ -24,14 +24,14 @@ See Clause 5.3.12.6 for constraints on types.
 |===
 |Source |Basic Data Type |Value Range |Sample Values
 
-|xsd |https://www.w3.org/TR/xmlschema2/#string[string] |Character string (but not all Unicode character strings) |"Hello world", "Καλημέρα κόσμε", +
+|xsd |https://www.w3.org/TR/xmlschema-2/#string[string] |Character string (but not all Unicode character strings) |"Hello world", "Καλημέρα κόσμε", +
 "ハローワールド""
 
-|xsd |https://www.w3.org/TR/xmlschema2/#base64Binary[base64Binary] |base64-encoded binary data |"a3Vtb3dhc2hlcmU="
+|xsd |https://www.w3.org/TR/xmlschema-2/#base64Binary[base64Binary] |base64-encoded binary data |"a3Vtb3dhc2hlcmU="
 
-|xsd |https://www.w3.org/TR/xmlschema2/#boolean[boolean] |true, false |true, false
+|xsd |https://www.w3.org/TR/xmlschema-2/#boolean[boolean] |true, false |true, false
 
-|xsd |https://www.w3.org/TR/xmlschema2/#anyURI[anyUri] | "[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema11-2/#RFC3986[RFC 3986] and its successor(s)." 
+|xsd |https://www.w3.org/TR/xmlschema-2/#anyURI[anyUri] | "[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396] and its successor(s)." 
 
 It can be absolute or relative, and may have an optional fragment identifier  a| {blank}./Specification.pdf
 
@@ -41,10 +41,10 @@ file:c:/local/Specification.pdf
 
 FTP://unicode.org
 
-|xsd |https://www.w3.org/TR/xmlschema2/#dateType[dateType] |Date and time with or without time zone |"2000-01-01T14:23:00", +
+|xsd |https://www.w3.org/TR/xmlschema-2/#dateType[dateType] |Date and time with or without time zone |"2000-01-01T14:23:00", +
 "2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to xs:dateTimeStamp in XML Schema 1.1]
 
-|xsd |https://www.w3.org/TR/xmlschema2/#duration[duration] |Duration of time |"-P1Y2M3DT1H", +
+|xsd |https://www.w3.org/TR/xmlschema-2/#duration[duration] |Duration of time |"-P1Y2M3DT1H", +
 "PT1H5M0S"
 
 |rdf |langString |Strings with language tags a|
@@ -202,9 +202,9 @@ with max 2024 and min 1 characters
 
 
 ====
-"[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema11-2/#RFC3986[RFC 3986] and its successor(s)." 
+"[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396] and its successor(s)." 
 
-Source: https://www.w3.org/TR/xmlschema11-2/#anyURI[W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes]
+Source: https://www.w3.org/TR/xmlschema-2/#anyURI[W3C XML Schema Definition Language (XSD) 1.0 Part 2: Datatypes]
 ====
 
 
@@ -510,37 +510,37 @@ For more details see https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes
 h|ID: | `\https://admin-shell.io/aas/3/1/DataTypeDefXsd`  
 
 h|Literal h|Explanation
-e|xs:anyURI |see: https://www.w3.org/TR/xmlschema2/#anyURI
-e|xs:base64Binary |see: https://www.w3.org/TR/xmlschema2/#base64Binary
-e|xs:boolean |see https://www.w3.org/TR/xmlschema2/#boolean
-e|xs:byte |see https://www.w3.org/TR/xmlschema2/#byte
-e|xs:date |see https://www.w3.org/TR/xmlschema2/#date
-e|xs:dateTime |see https://www.w3.org/TR/xmlschema2/#dateTime
-e|xs:decimal |see https://www.w3.org/TR/xmlschema2/#decimal
-e|xs:double |see https://www.w3.org/TR/xmlschema2/#double
-e|xs:duration |see https://www.w3.org/TR/xmlschema2/#duration
-e|xs:float |see https://www.w3.org/TR/xmlschema2/#float
-e|xs:gDay |see https://www.w3.org/TR/xmlschema2/#gDay
-e|xs:gMonth |see https://www.w3.org/TR/xmlschema2/#gMonth
-e|xs:gMonthDay |see https://www.w3.org/TR/xmlschema2/#gMonthDay
-e|xs:gYear |see https://www.w3.org/TR/xmlschema2/#gYear
-e|xs:gYearMonth |see https://www.w3.org/TR/xmlschema2/#gYearMonth
-e|xs:hexBinary |see https://www.w3.org/TR/xmlschema2/#hexBinary
-e|xs:int |see https://www.w3.org/TR/xmlschema2/#int
-e|xs:integer |see https://www.w3.org/TR/xmlschema2/#integer
-e|xs:long |see https://www.w3.org/TR/xmlschema2/#long
-e|xs:negativeInteger |see https://www.w3.org/TR/xmlschema2/#negativeInteger
-e|xs:nonNegativeInteger |see: https://www.w3.org/TR/xmlschema2/#nonNegativeInteger
-e|xs:nonPositiveInteger |see: https://www.w3.org/TR/xmlschema2/#nonPositiveInteger
-e|xs:positiveInteger |see: https://www.w3.org/TR/xmlschema2/#positiveInteger
-e|xs:short |see: https://www.w3.org/TR/xmlschema2/#short
+e|xs:anyURI |see: https://www.w3.org/TR/xmlschema-2/#anyURI
+e|xs:base64Binary |see: https://www.w3.org/TR/xmlschema-2/#base64Binary
+e|xs:boolean |see https://www.w3.org/TR/xmlschema-2/#boolean
+e|xs:byte |see https://www.w3.org/TR/xmlschema-2/#byte
+e|xs:date |see https://www.w3.org/TR/xmlschema-2/#date
+e|xs:dateTime |see https://www.w3.org/TR/xmlschema-2/#dateTime
+e|xs:decimal |see https://www.w3.org/TR/xmlschema-2/#decimal
+e|xs:double |see https://www.w3.org/TR/xmlschema-2/#double
+e|xs:duration |see https://www.w3.org/TR/xmlschema-2/#duration
+e|xs:float |see https://www.w3.org/TR/xmlschema-2/#float
+e|xs:gDay |see https://www.w3.org/TR/xmlschema-2/#gDay
+e|xs:gMonth |see https://www.w3.org/TR/xmlschema-2/#gMonth
+e|xs:gMonthDay |see https://www.w3.org/TR/xmlschema-2/#gMonthDay
+e|xs:gYear |see https://www.w3.org/TR/xmlschema-2/#gYear
+e|xs:gYearMonth |see https://www.w3.org/TR/xmlschema-2/#gYearMonth
+e|xs:hexBinary |see https://www.w3.org/TR/xmlschema-2/#hexBinary
+e|xs:int |see https://www.w3.org/TR/xmlschema-2/#int
+e|xs:integer |see https://www.w3.org/TR/xmlschema-2/#integer
+e|xs:long |see https://www.w3.org/TR/xmlschema-2/#long
+e|xs:negativeInteger |see https://www.w3.org/TR/xmlschema-2/#negativeInteger
+e|xs:nonNegativeInteger |see: https://www.w3.org/TR/xmlschema-2/#nonNegativeInteger
+e|xs:nonPositiveInteger |see: https://www.w3.org/TR/xmlschema-2/#nonPositiveInteger
+e|xs:positiveInteger |see: https://www.w3.org/TR/xmlschema-2/#positiveInteger
+e|xs:short |see: https://www.w3.org/TR/xmlschema-2/#short
 e|xs:string |see: https://www.w3.org/TR/xmlschema-2/#string
 e|xs:time |see: https://www.w3.org/TR/xmlschema-2/#time
-e|xs:unsignedByte |see: https://www.w3.org/TR/xmlschema2/#unsignedShort
-e|xs:unsignedInt |see: https://www.w3.org/TR/xmlschema2/#unsignedInt
-e|xs:unsignedLong |see: https://www.w3.org/TR/xmlschema2/#unsignedLong
-e|xs:unsignedShort |see: https://www.w3.org/TR/xmlschema2/#unsignedShort
-e|xs:yearMonthDuration |see: https://www.w3.org/TR/xmlschema2/#yearMonthDuration
+e|xs:unsignedByte |see: https://www.w3.org/TR/xmlschema-2/#unsignedShort
+e|xs:unsignedInt |see: https://www.w3.org/TR/xmlschema-2/#unsignedInt
+e|xs:unsignedLong |see: https://www.w3.org/TR/xmlschema-2/#unsignedLong
+e|xs:unsignedShort |see: https://www.w3.org/TR/xmlschema-2/#unsignedShort
+e|xs:yearMonthDuration |see: https://www.w3.org/TR/xmlschema-2/#yearMonthDuration
 |===
 
 
