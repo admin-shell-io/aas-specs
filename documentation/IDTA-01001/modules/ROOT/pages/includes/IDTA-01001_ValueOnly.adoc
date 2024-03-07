@@ -55,6 +55,7 @@ The following rules shall be adhered to when serializing a submodel element diff
 * The submodel element is serialized as an unnamed JSON object.
 * A submodel element is considered a leaf submodel element if it does not contain other submodel elements. A leaf submodel element follows the rules for the different submodel elements considered in the serialization, as described for a submodel above. If it is not a leaf element, the serialization rules must be transitively followed until the value is a leaf submodel element.
 
+Optional submodel elements are omitted if not specified for the requesting submodel or submodel element.
 
 *Data type to value mapping* footnote:[cf. https://openmanufacturingplatform.github.io/sds-documentation/bamm-specification/2.0.0/datatypes.html]
 
