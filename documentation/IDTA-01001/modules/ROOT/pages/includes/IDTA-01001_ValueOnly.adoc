@@ -109,7 +109,7 @@ Note: the examples are written in RDF/Turtle syntax, and only "Hello" and "Hallo
 
 |===
 
-The following types defined by the XSD and RDF specifications are explicitly omitted for serialization:
+The following types defined by the XSD and RDF specifications are explicitly omitted for serialization. This is ensured because they are not part of enumerations xref:IDTA-01001_Metamodel_DataTypes.adoc#[DataTypeDefXsd] and xref:IDTA-01001_Metamodel_DataTypes.adoc#[DataTypeDefRdf]:
 
 xs:language, xs:normalizedString, xs:token, xs:NMTOKEN, xs:Name, xs:NCName, xs:QName, xs:ENTITY, xs:ID, xs:IDREF, xs:NOTATION, xs:IDREFS, xs:ENTITIES, xs:NMTOKENS, rdf:HTML and rdf:XMLLiteral.
 
