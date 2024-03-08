@@ -70,4 +70,27 @@ Note: The semanticId of a SpecificAssetId with the predefined name "gloablAssetI
 
 {aasd130}
 
+An attribute with data type "string" shall consist of these characters only:
+The string contains only valid Unicode characters encoded in UTF-16 format
+The string can include common characters like tabs, newlines, carriage returns, and spaces.
+It allows a broad range of Unicode characters, including those beyond the Basic Multilingual Plane (BMP) which are represented using surrogate pairs in UTF-16 encoding.
+It ensures that the entire string adheres to the rules of UTF-16 encoding, which is a standard way of representing a wide range of characters from different languages.
+
+This lead to te resulting RegEx:
+
+^: Asserts the start of the string.
+[\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u00010000-\u0010FFFF]: Defines a character class that allows various Unicode characters.
+
+\x09: ASCII horizontal tab.
+\x0A: ASCII linefeed (newline).
+\x0D: ASCII carriage return.
+\x20: ASCII space.
+-: Represents a range.
+\uD7FF: The upper limit of the Basic Multilingual Plane (BMP) in UTF-16.
+\uE000-\uFFFD: Represents the range of characters from the start of the supplementary planes up to the last valid Unicode character (excluding surrogate pairs).
+\u00010000-\u0010FFFF: Represents the range of valid surrogate pairs used for characters beyond the BMP.
+*: Allows for zero or more occurrences of the characters within the character class.
+
+$: Asserts the end of the string.
+
 Constraint AASd-130 ensures that encoding and interoperability between different serializations is possible. It corresponds to the restrictions as defined for the XML Schema 1.0footnote:[https://www.w3.org/TR/xml/#charsets].
