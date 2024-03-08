@@ -70,9 +70,12 @@ Note: The semanticId of a SpecificAssetId with the predefined name "gloablAssetI
 
 {aasd130}
 
-We have to restrict an attribute with data type "string" to the characters which are representable in XML.
+Constraint AASd-130 ensures that encoding and interoperability between different serializations is possible. It corresponds to the restrictions as defined for the XML Schema 1.0footnote:[https://www.w3.org/TR/xml/#charsets].
+
+Therefore, we need to restrict an attribute of data type 'string' to the characters that can be represented in any exchange format and language.
 Otherwise, strings in other formats such as JSON could not be converted to XML.
 
+The string contains only valid Unicode characters in the range of encoded in UTF-16 format
 The character set of XML includes (given as numerical code points and/or ranges in Unicode):
 * 0x09: ASCII horizontal tab,
 * 0x0A: ASCII linefeed (newline),
@@ -102,5 +105,3 @@ Where:
 *: Allows for zero or more occurrences of the characters within the character class.
 
 $: Asserts the end of the string.
-
-Constraint AASd-130 ensures that encoding and interoperability between different serializations is possible. It corresponds to the restrictions as defined for the XML Schema 1.0footnote:[https://www.w3.org/TR/xml/#charsets].
