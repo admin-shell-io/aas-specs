@@ -70,7 +70,16 @@ Note: The semanticId of a SpecificAssetId with the predefined name "gloablAssetI
 
 {aasd130}
 
-An attribute with data type "string" shall consist of these characters only:
+We have to restrict an attribute with data type "string" to the characters which are representable in XML.
+Otherwise, strings in other formats such as JSON could not be converted to XML.
+
+The character set of XML includes (given as numerical code points and/or ranges in Unicode):
+* 0x09: ASCII horizontal tab,
+* 0x0A: ASCII linefeed (newline),
+* 0x0D: ASCII carriage return.
+* 0x20: ASCII space,
+* 0x20 - 0xD7FF: all the characters above space in the Basic Multilingual Plane, and
+* 0x00010000-0x0010FFFF: all the characters beyond the Basic Multilingual Plane (*e.g.*, emoticons).
 The string can include common characters like tabs, newlines, carriage returns, and spaces.
 It allows a broad range of Unicode characters, including those beyond the Basic Multilingual Plane (BMP) which are represented using surrogate pairs in UTF-16 encoding.
 It ensures that the entire string adheres to the rules of UTF-16 encoding, which is a standard way of representing a wide range of characters from different languages.
