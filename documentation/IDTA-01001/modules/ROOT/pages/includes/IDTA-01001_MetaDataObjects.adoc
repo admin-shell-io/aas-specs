@@ -14,9 +14,11 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 === Format "Metadata" (Metadata-Serialization)
 
 
-Metadata objects are defined for scenarios where a client only wants to access the metadata of an object, but not the value. *Metadata objects are only part of HTTP/REST and do not change the metamodel.* Metadata objects are used to reduce the payload response to a minimum and to avoid the recursive traversing through the data model when not needed. In many cases, a client is not interested in each child element or value of a resource, but only in the resource itself.
+Metadata objects are defined for scenarios where a client only wants to access the metadata of an object, but not the value. Metadata objects are used to reduce the payload response to a minimum and to avoid the recursive traversing through the data model when not needed. In many cases, a client is not interested in each child element or value of a resource, but only in the resource itself.
 
 A metadata object does not contain any additional fields in relation to its full object representation, only some fields are left off. The left off fields are fields which could be requested by an own API call and may consist of a recursive or potentially large substructure. The serialization of a metadata object is the same as for the original full object, but without the left off fields.
+
+For elements in the metamodel that are not listed in the table not "Metadata"-serialization is available.
 
 .Metadata Attributes
 [%autowidth, width="100%", cols="48%,52%",options="header",]
