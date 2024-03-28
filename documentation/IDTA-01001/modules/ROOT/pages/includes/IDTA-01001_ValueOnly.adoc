@@ -11,55 +11,221 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 ////
 
 
-=== Format "Value" (ValueOnly-Serialization) in JSON
+=== Format "Value" (Value-Only Serialization) in JSON
 
 
-In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics. Consequently, there is not always a need to receive the entire model information, which can be requested separately via _Content_ modifier set to _Metadata_, in each request since it is constant most of the time. Instead, applications are most likely only interested in the values of the modelled data. Furthermore, having limited processing power or limited bandwidth, one use case of this SerializationModifier is to transfer data as efficiently as possible. Semantics and data might be split into two separate architecture building blocks. For example, a database would suit the needs for querying semantics, while a device would only provide the data at runtime. Two separate requests make it possible to build up a user interface (UI) and show new upcoming values highly efficiently.
+In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics, for example via the used Submodel Template. Consequently, there is not always a need to receive the entire model information. Instead, applications are most likely only interested in the values of the modelled data. Furthermore, having limited processing power or limited bandwidth, one use case of the Format "Value" is to transfer data as efficiently as possible. Semantics and data might be split into two separate architecture building blocks. For example, a database would suit the needs for querying semantics, while a device would only provide the data at runtime. Two separate requests make it possible to build up a user interface (UI) and show new upcoming values highly efficiently.
 
 Values are only available for
 
 * All subtypes of abstract type _DataElement_,
-* SubmodelElementList and SubmodelElementCollection resp. for their included SubmodelElements,
+* SubmodelElementList and SubmodelElementCollection, resp. and for their included SubmodelElements,
 * ReferenceElement,
 * RelationshipElement + AnnotatedRelationshipElement,
 * Entity,
 * BasicEventElement,
 * Submodel.
 
-Capabilities are excluded from the SerializationModifier’s scope since only data containing elements are in the focus. They are consequently omitted in the serialization.
+Capabilities are excluded from the Value-Only serialization scope since only data containing elements are in the focus. They are consequently omitted in the serialization.
 
-The following rules shall be adhered to when serializing a submodel with the SerializationModifier _Value_:
+The Value-Only Format does not contain Metadata attributes (see xref:IDTA-01001_Mappings.adoc#table:meta-data-attributes[Metadata Attributes]). So it is quite the other way around:
 
-* A submodel is serialized as an unnamed JSON object.
-* A submodel element is considered a leaf submodel element if it does not contain other submodel elements. A leaf submodel element follows the rules for the different submodel elements considered in the serialization, as described below. If it is not a leaf element, the serialization rules must be transitively followed until the value is a leaf submodel element.
-* For each submodel element:
-** _Property_ is serialized as $\{Property/idShort}: $\{Property/value} where $\{Property/value} is the JSON serialization of the respective property’s value in accordance with the data type to value mapping (see table after this section).
-** _MultiLanguageProperty_ is serialized as named JSON object with $\{MultiLanguageProperty/idShort} as the name of the containing JSON property. The JSON object contains an array of JSON objects for each language of the _MultiLanguageProperty_ with the language as name and the corresponding localized string as value of the respective JSON property. The language name is defined as two chars according to ISO 639-1.
-** _Range_ is serialized as named JSON object with $\{Range/idShort} as the name of the containing JSON property. The JSON object contains two JSON properties. The first is named “min”. The second is named “max”. Their corresponding values are $\{Range/min} and $\{Range/max}.
-** _File_ and _Blob_ are serialized as named JSON objects with $\{File/idShort} or $\{Blob/idShort}as the name of the containing JSON property. The JSON object contains two JSON properties. The first refers to the content type named $\{File/contentType} resp. $\{Blob/contentType}. The latter refers to the value named “value” $\{File/value} resp. $\{Blob/value}. The resulting ValueOnly object is indistinguishable whether it contains File or Blob attributes. Therefore, the receiver needs to take the type of the target resource into account. Since the receiver knows in advance if a File or a Blob SubmodelElement shall be manipulated, it can parse the transferred ValueOnly object accordingly as a File or Blob object.
-** _SubmodelElementCollection_ is serialized as named JSON object with $\{SubmodelElementCollection/idShort} as the name of the containing JSON property. The elements contained within the struct are serialized according to their respective type with $\{SubmodelElement/idShort} as the name of the containing JSON property.
-** _SubmodelElementList_ is serialized as a named JSON array with $\{SubmodelElementList/idShort} as the name of the containing JSON property. The elements in the JSON array are the ValueOnly serializations of the elements contained in the SubmodelElementList while preserving the order, i.e. index n in the JSON array is the ValueOnly serialization of the element at index n of the SubmodelElementList.
-** _ReferenceElement_ is serialized as $\{ReferenceElement/idShort}: $\{ReferenceElement/value} where $\{ReferenceElement/value} is the serialization of the _Reference_ class.
-** _RelationshipElement_ is serialized as named JSON object with $\{RelationshipElement/idShort} as the name of the containing JSON property. The JSON object contains two JSON properties. The first is named “first”. The second is named “second”. Their corresponding values are $\{RelationshipElement/first} resp. $\{Relationship/second}. The values are serialized according to the serialization of a _ReferenceElement_ (see above).
-** _AnnotatedRelationshipElement_ is serialized according to the serialization of a _ReleationshipElement_ (see above). Additionally, a third named JSON object is introduced with “annotations” as the name of the containing JSON property. The value is $\{AnnotatedRelationshipElement/annotations}. The values of the array items are serialized depending on the type of the annotation data element.
-** _Entity_ is serialized as named JSON object with $\{Entity/idShort} as the name of the containing JSON property. The JSON object contains three JSON properties. The first is named “statements” $\{Entity/statements} and contains an array of the serialized submodel elements according to their respective serialization mentioned in this clause. The second is named either “globalAssetId” or “specificAssetId” and contains either a _Reference_ (see above) or a _SpecificAssetId_. The third property is named “entityType” and contains a string representation of $\{Entity/entityType}.
-** _BasicEventElement_ is serialized as named JSON object with $\{BasicEventElement/idShort} as the name of the containing JSON property. The JSON object contains one JSON property named “observed” with the corresponding value of $\{BasicEventElement/observed} as the standard serialization of the _Reference_ class.
-** _SpecificAssetId_ is serialized as named JSON object with three JSON properties named as the attributes of _SpecificAssetId._
+[[table:value-data-attributes]]
+.Metadata Attributes
+[%autowidth, width="100%", cols="48%,52%",options="header",]
+|===
+|*Class Name* |*Fields for Value-Only representationfootnote:[(value) means that the attribute name is not relevant, only its value, 
+for the other attributes the attribute itself will be seen in the payload]*
+2+|*Identifiables*
+|AssetAdministrationShell |assetInformation, submodels
+|Submodel |submodelElements
+2+|*SubmodelElements*
+|SubmodelElementCollection | (value)
+|SubmodelElementList | (value)
+|Entity |statements, globalAssetId, specificAssetId
+|BasicEventElement |observed
+|Capability |--
+|Operation |--
+2+|*DataElements*
+|Property | (value)
+|MultilanguageProperty | (value)
+|Range |min, max
+|ReferenceElement |value
+|RelationshipElement |first, second
+|AnnotatedRelationshipElement |first, second, annotations
+|Blob |value, contentType
+|File |value, contentType
+|===
 
-* Submodel elements defined in the submodel other than the ones mentioned above are not subject to serialization of that SerializationModifier.
-
-
-
-The following rules shall be adhered to when serializing a submodel element different than a submodel with the SerializationModifier _Value_:
-
-* The submodel element is serialized as an unnamed JSON object.
-* A submodel element is considered a leaf submodel element if it does not contain other submodel elements. A leaf submodel element follows the rules for the different submodel elements considered in the serialization, as described for a submodel above. If it is not a leaf element, the serialization rules must be transitively followed until the value is a leaf submodel element.
+Exception:
+Property/valueId and MultiLanguagePropertyId are also no Metadata attributes. However, they are ignored in the Value-Only serialization.
 
 A submodel element is omitted if no value is defined for it for the requesting submodel or submodel element.
 
-*Data type to value mapping* footnote:[cf. https://openmanufacturingplatform.github.io/sds-documentation/bamm-specification/2.0.0/datatypes.html]
+==== Grammar Value-Only Serialization
 
-The serialization of submodel element values is described in the following table. The left column “Data Type” shows the data types which can be used for submodel element values. The data types are defined according to the W3C XML Schema (https://www.w3.org/TR/xmlschema-2/#built-in-datatypes and https://www.w3.org/TR/xmlschema-2/#built-in-derived). “Value Range” further explains the possible range of data values for this data type. The right column comprises related examples of the serialization of submodel element values.
+In the following the grammar for Value-Only serialization is defined in a formal way:
+
+[listing]
+....
+
+<value-only-of-Submodel> ::= 
+    <value-only-of-SubmodelElementCollection>
+
+<value-only-of-sme> ::= 
+    <value-only-of-SubmodelElementCollection> | <value-only-of-SubmodelElementList> | 
+    <value-only-of-DataElement> | <value-only-of-RelationshipElement> | 
+    <value-only-of-AnnotatedRelationshipElement> | <value-only-of-Entity> | 
+    <value-only-of-BasicEvent>
+
+<value-only-of-DataElement> ::=  
+    <value-only-of-Property> | <value-only-of-MultiLanguageProperty> | 
+    <value-of-Range> | <value-of-ReferenceElement> |  
+    <value-only-of-File> | <value-only-of-Blob> 
+
+
+<value-only-of-SubmodelElementCollection> ::=
+     '{' 
+        {<jd><idShort-of-sme><jd>':' <jd><value-only-of-sme><jd>','}*  
+         <jd><idShort-of-sme><jd>':' <jd><value-only-of-sme><jd>
+        |
+        ''
+     '}'
+
+<value-only-of-SubmodelElementList> ::= 
+    '[' 
+       {<value-only-of-sme>','}* 
+	    <value-only-of-sme> | 
+       ''
+    ']' 
+    
+<value-only-of-Property> ::= 
+	<value-of-Property> 
+
+<value-only-of-MultiLanguageProperty> ::=
+   '['
+      { '{' <language-tag>':' <value-string> '},' }* 
+        '{' <language-tag>':' <value-string> '}'
+   ']'
+
+<value-only-of-Range> ::=  
+    '{  
+		"min":' <value of Range>',' 
+       '"max":' <value of Range>
+    '}'
+
+<value-of-ReferenceElement> ::= 
+    <value-Reference>
+
+<value-of-File> ::= 
+    '{
+        "Contenttype":' <value-ContentType>','
+       '"value":' <value-PathType>
+    '}'
+
+<value-of-Blob> ::= 
+    '{'
+       '"ContentType":' <value-ContentType>[','
+       '"value":' <value-BlobType> ]
+    '}'
+
+<value-only-of-RelationshipElement> ::= 
+    '{
+        "first":' <value-Reference>','
+       '"second":' <value-Reference> 
+    '}'
+    
+<value-only-of-AnnotatedRelationshipElement> ::=
+    '{
+        "first"': <value-Reference>','
+       '"second"': <value-Reference>[','
+       '"annotations": ['  
+            {<jd><idShort-of-sme><jd>':' <value-only-of-DataElement>','}*  
+             <jd><idShort-of-DataElement><jd>':'  <value-only-of-sme>
+        ']'
+    '}'
+        
+<value-only-of-Entity> ::=
+    '{'
+      ['"statements": ['
+          {<jd><idShort-of-sme><jd>':' <value-only-of-sme>','}*  
+           <jd><idShort-of-sme><jd>':' <value-only-of-sme>
+        '],']
+       '"entityType":' <value-EntityType>[',' (
+       '"globalAssetId":' <value-Identifier>[','
+       '"specificAssetIds":' <value-of-specificAssetIds>','] | 
+       '"specificAssetIds":' <value-of-specificAssetIds> )
+       ]
+    '}'
+    
+<value-only-of-BasicEvent> ::= 
+    '{
+        "observed":' <value-Reference>
+    '}'
+    
+<value-of-Property> ::= 
+	value of attribute Property/value with data type as specified in Property/valueType. 
+	In case of data type "xs:string" delimiters '"' are added (e.g. "this-is-mystring")
+
+<value-of-Range> ::= 
+	value of Range/min or Range/max, resp. 
+	with data type as specified in Range/valueType
+
+<value-Reference> ::= 
+    '{'
+       '"type":' <value-of-Reference-type>','
+       '"keys":' <value-of-Reference-keys>
+    '}'
+
+<idShort-of-sme> ::= 
+	value of SubmodelElement/idShort
+
+<language-tag> ::= 
+	language tag as defined for values of type langString, i.e.
+	in accordance with IETF https://tools.ietf.org/html/rfc5646#page-5[RFC 5646], the language names match the following regular expression:
+
+		^[a-z]\{2,4}(-[A-Z][a-z]\{3})?(-([A-Z]\{2}|[0-9]\{3}))?$
+	
+	e.g. "en" for Englisch
+
+<value-of-Reference-type> ::= 
+	value of Reference/type
+
+<value-of-Reference-keys> ::= 
+	"Normal" JSON serialization of list of elements of type Key
+
+<value-of-specificAssetIds> ::= 
+	"Normal" JSON serialization of list of elements of type SpecificAssetId
+
+<value-string> ::= 
+	value of type string with delimiters '"', e.g. "this is my string"
+
+<value-PathType> ::= 
+	value of type PathType
+
+<value-BlobType> ::= 
+	value of type BlobType
+
+<value-Identifier> ::= 
+	value of type Identifier
+
+<jd> ::= 
+	<json-delimiter>  
+
+<sd> ::= 
+	<string-delimiter>  
+
+<json-delimiter> ::= 
+	'"'
+
+<string-delimiter> ::= 
+	'"'
+....
+
+
+==== Data Type to Value Mapping
+
+The serialization of submodel element values is described in the following tablefootnote:[cf. https://eclipse-esmf.github.io/samm-specification/2.0.0/datatypes.html]. The left column “Data Type” shows the data types which can be used for submodel element values. The data types are defined according to the W3C XML Schema 1.0 (https://www.w3.org/TR/xmlschema-2/#built-in-datatypes and https://www.w3.org/TR/xmlschema-2/#built-in-derived). “Value Range” further explains the possible range of data values for this data type. The right column comprises related examples of the serialization of submodel element values.
 
 .Mapping of Data Types in ValueOnly-Serialization
 [%autowidth, width="100%", cols="15%,15%,9%,30%,31%",options="header",]
@@ -115,7 +281,7 @@ xs:language, xs:normalizedString, xs:token, xs:NMTOKEN, xs:Name, xs:NCName, xs:Q
 
 
 ====
-Note 1: due to the limits in the representation of numbers in JSON, the maximum integer number that can be used without losing precision is 2⁵³-1 (defined as Number.MAX_SAFE_INTEGER). Even if the used data type would allow higher or lower values, they cannot be used if they cannot be represented in JSON. Affected data types are unbounded numeric types xs:decimal, xs:integer, xs:positiveInteger, xs:nonNegativeInteger, xs:negativeInteger, xs:nonPositiveInteger and the bounded type xs:unsignedLong. Other numeric types are not affected. footnote:[cf. https://openmanufacturingplatform.github.io/sds-documentation/bamm-specification/v1.0.0/datatypes.html (with adjustments for +/-INF, NaN, and language-typed literal support)]
+Note 1: due to the limits in the representation of numbers in JSON, the maximum integer number that can be used without losing precision is 2⁵³-1 (defined as Number.MAX_SAFE_INTEGER). Even if the used data type would allow higher or lower values, they cannot be used if they cannot be represented in JSON. Affected data types are unbounded numeric types xs:decimal, xs:integer, xs:positiveInteger, xs:nonNegativeInteger, xs:negativeInteger, xs:nonPositiveInteger and the bounded type xs:unsignedLong. Other numeric types are not affected. footnote:[cf. https://eclipse-esmf.github.io/samm-specification/2.0.0/datatypes.html (with adjustments for +/-INF, NaN, and language-typed literal support)]
 ====
 
 
@@ -132,21 +298,78 @@ Note 3: language-tagged strings (rdf:langString) containing single quotes (‘) 
 ====
 
 
-*Examples conformant to link:#bib1[[1\]]:*
+==== Example Value-Only serialization for a Submodel
 
-Full serialization of single submodel element _Property_:
+The following example shows the JSON Value-Only serialization for a Submodel with name "Example" and two direct SubmodelElements "Families" and "MaxRotationSpeed". "Families" is represented by a SubmodelElementList with SubmodelElementCollections as its elements. Each of the SubmodelCollections has two mandatory elements "NameOfMother" and "NameOfFather" and two optional elements "NameOfSon" and "NameOfDaugther". All of these elements have data type "xs:string". "MaxRotationSpeed" is a property with data type "xs:int".
+
+[source,json,linenums]
+----
+{ "Families": 
+   [
+    {
+    "NameOfMother": "Martha ExampleFamily1",
+    "NameOfFather": "Jonathan ExampleFamily1",
+    "NameOfSon": "Clark ExampleFamily1"
+    },
+    {
+    "NameOfMother": "Anna ExampleFamily2",
+    "NameOfFather": "Hugo ExampleFamily2",
+    "NameOfDaughter": "Eve ExampleFamily2"
+    }
+   ],
+  "MaxRotationSpeed": 5000
+}
+----
+
+The JSON Value-Only serialization for the element "Families" within the submodel above looks like this:
+
+[source,json,linenums]
+----
+[
+ {
+    "NameOfMother": "Martha ExampleFamily1",
+    "NameOfFather": "Jonathan ExampleFamily1",
+    "NameOfSon": "Clark ExampleFamily1"
+ },
+ {
+    "NameOfMother": "Anna ExampleFamily2",
+    "NameOfFather": "Hugo ExampleFamily2",
+    "NameOfDaughter": "Eve ExampleFamily2"
+ }
+]
+----
+
+The JSON Value-Only serialization for the  first element within the "Families" list above looks like this:
+
+[source,json,linenums]
+----
+{
+    "NameOfMother": "Martha ExampleFamily1",
+    "NameOfFather": "Jonathan ExampleFamily1",
+    "NameOfSon": "Clark ExampleFamily1"
+}
+----
+
+The JSON Value-Only serialization for the  property "MaxRotationSpeed" of the submodel above looks like this:
+[source,json,linenums]
+----
+5000
+----
+
+
+
+
+The Format "Normal" in comparison to this Value-Only serialization of the property "MaxRotationSpeed" would look like this:
 
 [source,json,linenums]
 ----
 {
   "idShort": "MaxRotationSpeed",
-  "category": "PARAMETER",
-  "kind": "Instance",
-  "semanticlId": {
-    "type": "ModelReference",
+  "semanticId": {
+    "type": "ExternalReference",
     "keys": [
       {
-        "type": "ConceptDescription",
+        "type": "GlobalReference",
         "value": "0173-1#02-BAA120#008"
       }
     ]
@@ -157,64 +380,33 @@ Full serialization of single submodel element _Property_:
 }
 ----
 
-With the SerializationModifier set to _Value,_ the payload within a submodel or structured submodel element is minimized to the following:
+==== Examples Value-Only serialization for all submodel element types 
 
+In the following examples for Value-Only serializations for all submodel element types are given.
+
+
+For a single _Property_ named "MaxRotationSpeed", the value-Only payload is minimized to the following (assuming its value is 5000):
 [source,json,linenums]
 ----
-{
-  "MaxRotationSpeed": 5000
-}
-----
-
-If the property itself is the subject for ValueOnly the serialization is minimized to the following:
-[source,json,linenums]
-----
-{
   5000
-}
 ----
 
 
-For a _SubmodelElementCollection_, the struct is serialized within a submodel or structured submodel element as objects denoted by curly brackets:
+
+For a _SubmodelElementCollection_ named "ExampleFamily", the Value-Only payload is minimized to the following,
+i.e. the name of the SubmodelElementCollection is not part of the Value-Only serialization:
 
 [source,json,linenums]
 ----
 {
-  "NamesOfFamilyMembers": {
     "NameOfMother": "Martha ExampleFamily",
     "NameOfFather": "Jonathan ExampleFamily",
     "NameOfSon": "Clark ExampleFamily"
-  }
 }
 ----
 
-If the _SubmodelElementCollection_ itself is the subject for ValueOnly the serialization is minimized to the following:
 
-[source,json,linenums]
-----
-{
-
-    "NameOfMother": "Martha ExampleFamily",
-    "NameOfFather": "Jonathan ExampleFamily",
-    "NameOfSon": "Clark ExampleFamily"
-
-}
-----
-
-For a _SubmodelElementList,_ the struct is serialized within a submodel or structured submodel element as array denoted by square brackets:
-
-[source,json,linenums]
-----
-{
-  "NamesOfFamilyMembers": [
-    "Martha ExampleFamily",
-    "Jonathan ExampleFamily",
-    "Clark ExampleFamily"
-  ]
-}
-----
-
-If the _SubmodelElementList_ itself is the subject for ValueOnly the serialization is minimized to the following:
+For a _SubmodelElementList_ names "FamilyMembers", the Value-Only payload is minimized to the following (values within a SubmodelElementList do not have idShort values):
 
 [source,json,linenums]
 ----
@@ -227,19 +419,7 @@ If the _SubmodelElementList_ itself is the subject for ValueOnly the serializati
 
 
 
-For a _MultiLanguageProperty_ named “Label”, the payload within a submodel or structured submodel element is minimized to the following:
-
-[source,json,linenums]
-----
-{
-  "Label": [
-    {"de": "Das ist ein deutscher Bezeichner"},
-    {"en": "That's an English label"}
-  ]
-}
-----
-
-If the _MultiLanguageProperty_ itself is the subject for ValueOnly the serialization is minimized to the following:
+For a _MultiLanguageProperty_ the Value-Only payload is minimized to the following:
 [source,json,linenums]
 ----
 [
@@ -250,31 +430,10 @@ If the _MultiLanguageProperty_ itself is the subject for ValueOnly the serializa
 ----
 
 
-====
-Note: in accordance with IETF https://tools.ietf.org/html/rfc5646#page-5[RFC 5646], the language names match the following regular expression:
-====
 
 
-[source]
-----
-^[a-z]\{2,4}(-[A-Z][a-z]\{3})?(-([A-Z]\{2}|[0-9]\{3}))?$
-----
 
-
-For a _Range_ named “TorqueRange”, the payload within a submodel or structured submodel element is minimized to the following:
-
-[source,json,linenums]
-----
-{
-  "TorqueRange": {
-    "min": 3,
-    "max": 15
-  }
-}
-----
-
-If the _Range_ itself is the subject for ValueOnly the serialization is minimized to the following:
-[source,json,linenums]
+For a _Range_ named “TorqueRange”, the Value-Only payload  is minimized to the following:
 
 [source,json,linenums]
 ----
@@ -284,47 +443,8 @@ If the _Range_ itself is the subject for ValueOnly the serialization is minimize
 }
 ----
 
-For a _ReferenceElement_ named “MaxRotationSpeedReference”, the payload within a submodel or structured submodel element is minimized to the following:
+For a _ReferenceElement_ named “MaxRotationSpeedReference”, the Value-Only payload  is minimized to the following:
 
-[source,json,linenums]
-----
-{
-  "MaxRotationSpeedReference": {
-    "type": "ModelReference",
-    "keys": [
-      {
-        "type": "Submodel",
-        "value": "http://customer.com/demo/aas/1/1/1234859590"
-      },
-      {
-        "type": "Property",
-        "value": "MaxRotationSpeed"
-      }
-    ]
-  }
-}
-----
-
-For an _ReferenceElement_ representing an _ExternalReference_ with the same name the payload within a submodel or structured submodel element is minimized to the following:
-
-
-[source,json,linenums]
-----
-{
-  "MaxRotationSpeedReference": {
-    "type": "ExternalReference",
-    "keys": [
-      {
-        "type": "GlobalReference",
-        "value": "0173-1#02-BAA120#008"
-      }
-    ]
-  }
-}
-----
-
-If the _Reference_ itself is the subject for ValueOnly the serialization is minimized to the following:
-[source,json,linenums]
 
 [source,json,linenums]
 ----
@@ -339,20 +459,7 @@ If the _Reference_ itself is the subject for ValueOnly the serialization is mini
 }
 ----
 
-For a _File_ named “Document”, the payload within a submodel or structured submodel element is minimized to the following:
-
-[source,json,linenums]
-----
-{
-  "Document": {
-    "contentType": "application/pdf",
-    "value": "SafetyInstructions.pdf"
-  }
-}
-----
-
-If the _File_ itself is the subject for ValueOnly the serialization is minimized to the following:
-[source,json,linenums]
+For a _File_ named “Document”, the Value-Only payload is minimized to the following:
 
 [source,json,linenums]
 ----
@@ -363,30 +470,20 @@ If the _File_ itself is the subject for ValueOnly the serialization is minimized
 ----
 
 
-For a _Blob_ named “Library”, the payload within a submodel or structured submodel element is minimized to the following if the SerializationModifier _Extent_ is set to *_WithoutBLOBValue_*
+For a _Blob_ named “Library”, there are two possibilities for the Value-Only payload. In case the Blob value - that can be very large - 
+shall not be part of the payload the payload is minimized to the followingfootnote:[ 
+for the API a special JSON query parameter, the SerializationModifier _Extent_, is set to *_WithoutBLOBValue_* for this case]
 
 [source,json,linenums]
 ----
 {
-  "Library": {
     "contentType": "application/octet-stream"
   }
 }
 ----
 
-If the SerializationModifier Extent is set to *_WithBlobValue_*, there is an additional attribute containing the base64-encoded value:
-
-[source,json,linenums]
-----
-{
-  "Library": {
-    "contentType": "application/octet-stream",
-    "value": "VGhpcyBpcyBteSBibG9i"
-  }
-}
-----
- 
-If the _Blob_ itself is the subject for ValueOnly the serialization for Extent set to *_WithBlobValue_  is minimized to the following:
+In the second case the Blob value is part of the payload.footnote:[in this case the JSON query parameter SerializationModifier Extent is set to *_WithBlobValue_*], 
+there is an additional attribute containing the base64-encoded value:
 
 [source,json,linenums]
 ----
@@ -396,43 +493,8 @@ If the _Blob_ itself is the subject for ValueOnly the serialization for Extent s
 }
 ----
 
-For a _RelationshipElement_ named “CurrentFlowsFrom”, the payload within a submodel or structured submodel element is minimized to the following:
+For a _RelationshipElement_ named “CurrentFlowsFrom”, the Value-Only payload is minimized to the following:
 
-[source,json,linenums]
-----
-{
-  "CurrentFlowsFrom": {
-    "first": {
-      "type": "ModelReference",
-      "keys": [
-        {
-          "type": "Submodel",
-          "value": "http://customer.com/demo/aas/1/1/1234859590"
-        },
-        {
-          "type": "Property",
-          "value": "PlusPole"
-        }
-      ]
-    },
-    "second": {
-      "type": "ModelReference",
-      "keys": [
-        {
-          "type": "Submodel",
-          "value": "http://customer.com/demo/aas/1/0/1234859123490"
-        },
-        {
-          "type": "Property",
-          "value": "MinusPole"
-        }
-      ]
-    }
-  }
-}
-----
-
-If the _RelationshipElement_ itself is the subject for ValueOnly the serialization is minimized to the following:
 
 [source,json,linenums]
 ----
@@ -466,48 +528,9 @@ If the _RelationshipElement_ itself is the subject for ValueOnly the serializati
 }
 ----
 
-For an _AnnotatedRelationshipElement_ named “CurrentFlowFrom”, with an annotated _Property_-DataElement “AppliedRule”, the payload within a submodel or structured submodel element is minimized to the following:
+For an _AnnotatedRelationshipElement_ named “CurrentFlowFrom”, with an annotated _Property_-DataElement “AppliedRule”, the Value-Only-payload  is minimized to the following:
 
-[source,json,linenums]
-----
-{
-  "CurrentFlowsFrom": {
-    "first": {
-      "type": "ModelReference",
-      "keys": [
-        {
-          "type": "Submodel",
-          "value": "http://customer.com/demo/aas/1/1/1234859590"
-        },
-        {
-          "type": "Property",
-          "value": "PlusPole"
-        }
-      ]
-    },
-    "second": {
-      "type": "ModelReference",
-      "keys": [
-        {
-          "type": "Submodel",
-          "value": "http://customer.com/demo/aas/1/0/1234859123490"
-        },
-        {
-          "type": "Property",
-          "value": "MinusPole"
-        }
-      ]
-    },
-    "annotation": [
-      {
-        "AppliedRule": "TechnicalCurrentFlowDirection"
-      }
-    ]
-  }
-}
-----
 
-If the _RelationshipElementAnnotation_ itself is the subject for ValueOnly the serialization is minimized to the following:
 
 [source,json,linenums]
 ----
@@ -546,30 +569,8 @@ If the _RelationshipElementAnnotation_ itself is the subject for ValueOnly the s
 }
 ----
 
-For an _Entity_ named “MySubAssetEntity”, the payload within a submodel or structured submodel element is minimized to the following:
+For an _Entity_ named “MySubAssetEntity”, the Value-Only-payload is minimized to the following:
 
-[source,json,linenums]
-----
-{
-  "MySubAssetEntity": {
-    "statements": {
-      "MaxRotationSpeed": 5000
-    },
-    "entityType": "SelfManagedEntity",
-    "globalAssetId": {
-      "type": "ExternalReference",
-      "keys": [
-        {
-          "type": "GlobalReference",
-          "value": "http://customer.com/demo/asset/1/1/MySubAsset"
-        }
-      ]
-    }
-  }
-}
-----
-
-If the _Entity_ itself is the subject for ValueOnly the serialization is minimized to the following:
 
 [source,json,linenums]
 ----
@@ -590,30 +591,9 @@ If the _Entity_ itself is the subject for ValueOnly the serialization is minimiz
 }
 ----
 
-For a BasicEventElement named “MyBasicEvent”, the payload within a submodel or structured submodel element is minimized to the following:
+For a BasicEventElement named “MyBasicEvent”, the Value-Only-payload is minimized to the following:
 
-[source,json,linenums]
-----
-{
-  "MyBasicEvent": {
-    "observed": {
-      "type": "ModelReference",
-      "keys": [
-        {
-          "type": "Submodel",
-          "value": "http://customer.com/demo/aas/1/1/1234859590"
-        },
-        {
-          "type": "Property",
-          "value": "CurrentValue"
-        }
-      ]
-    }
-  }
-}
-----
 
-If the _BasicEventElement_ itself is the subject for ValueOnly the serialization is minimized to the following:
 
 [source,json,linenums]
 ----
@@ -627,14 +607,14 @@ If the _BasicEventElement_ itself is the subject for ValueOnly the serialization
         },
         {
           "type": "Property",
-          "value": "CurrentValue"
+          "value": "MaxRotation"
         }
       ]
     }
 }
 ----
 
-===== JSON-Schema for the ValueOnly-Serialization
+==== JSON-Schema for the ValueOnly-Serialization
 
 The following JSON-Schema represents the validation schema for the ValueOnly-Serialization of submodel elements. This holds true for all submodel elements mentioned in the previous clause except for _SubmodelElementCollections_. Since _SubmodelElementCollections_ are treated as objects containing submodel elements of any kind, the integration into the same validation schema would result in a circular reference or ambiguous results ignoring the actual validation of submodel elements other than _SubmodelElementCollections_. Hence, the same validation schema must be applied for each _SubmodelElementCollection_ within a submodel element hierarchy. In this case, it may be necessary to create a specific JSON-Schema for the individual use case. The _SubmodelElementCollection_ is added to the following schema for completeness and clarity. It is, however, not referenced from the _SubmodelElementValue_-oneOf-Enumeration due to the reasons mentioned above. +
 See Annex B for an example that validates against this schema.
