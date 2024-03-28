@@ -86,8 +86,8 @@ In the following the grammar for Value-Only serialization is defined in a formal
 
 <value-only-of-SubmodelElementCollection> ::=
      '{' 
-        {<jd><idShort-of-sme><jd>':' <jd><value-only-of-sme><jd>','}*  
-         <jd><idShort-of-sme><jd>':' <jd><value-only-of-sme><jd>
+        {<jd><idShort-of-sme><jd>':' <value-only-of-sme>','}*  
+         <jd><idShort-of-sme><jd>':' <value-only-of-sme>
         |
         ''
      '}'
