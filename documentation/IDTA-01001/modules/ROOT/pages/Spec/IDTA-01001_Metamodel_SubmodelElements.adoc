@@ -763,7 +763,7 @@ The numbering starts with Zero (0).
 {aasd109}
 
 
-h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Core.adoc#:SubmodelElement[SubmodelElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList`
 
 .2+h|Attribute 3+h| ID
@@ -778,7 +778,7 @@ Default: True
 |boolean |0..1
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/values`
-a|Submodel element contained in the list |xref:SubmodelElement[SubmodelElement] |0..*
+a|Submodel element contained in the list |xref:Spec/IDTA-01001_Metamodel_Core.adoc#:SubmodelElement[SubmodelElement] |0..*
 
 .2+e|semanticIdListElement 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/semanticIdListElement`
 a|
@@ -790,11 +790,11 @@ Note: it is recommended to use an external reference.
 ====
 
 
-|xref:Reference[Reference] |0..1
+|xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#:Reference[Reference] |0..1
 
 .2+e|typeValueListElement  3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/typeValueListElement/typeValueListElement`
-a|The submodel element type of the submodel elements contained in the list |xref:AasSubmodelElements[AasSubmodelElements]|1
+a|The submodel element type of the submodel elements contained in the list |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#:AasSubmodelElements[AasSubmodelElements]|1
 
 .2+e|valueTypeListElement 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/valueTypeListElement`
-a|The value type of the submodel element contained in the list |xref:DataTypeDefXsd[DataTypeDefXsd]|0..1
+a|The value type of the submodel element contained in the list |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#:DataTypeDefXsd[DataTypeDefXsd]|0..1
 |===
