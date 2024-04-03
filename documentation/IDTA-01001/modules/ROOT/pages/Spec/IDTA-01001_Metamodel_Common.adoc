@@ -111,7 +111,7 @@ Note 3: usage of the template ID is not restricted to submodel instances. The cr
 
 
 |xref:Identifier[Identifier] |0..1
-|=
+|===
 
 == Has Data Specification Attributes
 
@@ -120,7 +120,7 @@ image::image15.png[]
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
-|=
+|===
 h|Class: 3+e|[[HasDataSpecification]]HasDataSpecification \<<abstract>>
 h|Explanation: 3+a|Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. The data specifications used are explicitly specified with their global ID.
 h|Inherits from: 3+|--
@@ -177,13 +177,13 @@ h|Explanation h|Type h|Card.
 
 .2+e|extension 3+| `\https://admin-shell.io/aas/3/1/HasExtensions/extensions`  
 a|An extension of the element. |xref:Extension[Extension] |0..*
-|=
+|===
 
 {empty} +
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
-|=
+|===
 h|Class: 3+e|[[Extension]]Extension
 h|Explanation: 3+|Single extension of an element
 h|Inherits from: 3+|xref:HasSemantics[HasSemantics]
@@ -240,13 +240,13 @@ a| Kind of the element: either template or instance
 Default Value = _Instance_
 
 |xref:ModellingKind[ModellingKind]|0..1
-|=
+|===
 
 The kind enumeration is used to denote whether an element is of kind _Template_ or _Instance_. It is used to distinguish between submodels and submodel templates.
 
 [.table-with-appendix-table]
 [cols="30%h,70%"]
-|=
+|===
 h|Enumeration: e|[[ModellingKind]]ModellingKind
 h|Explanation: |Enumeration for denoting whether an element is a template or an instance
 |Set of: |--
@@ -260,7 +260,7 @@ a|specification of the common features of a structured element in sufficient det
 
 .2+e|Instance | `\https://admin-shell.io/aas/3/0/ModellingKind/Instance` 
 a|concrete, clearly identifiable element instance. Its creation and validation may be guided by a corresponding element template
-|=
+|===
 
 == Has Semantics Attributes
 
@@ -271,7 +271,7 @@ For matching algorithm, see Clause 4.4.1.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
-|=
+|===
 h|Class: 3+e|[[HasSemantics]]HasSemantics \<<abstract>>
 h|Explanation: 3+a|
 Element that can have a semantic definition plus some supplemental semantic definitions
@@ -357,7 +357,7 @@ Note: some of the administrative information like the version number might need 
 
 .2+e|id 3+| `\https://admin-shell.io/aas/3/1/Identifiable/id`  
 a|The globally unique identification of the element |xref:Identifier[Identifier] |1
-|=
+|===
 
 == Qualifiable Attributes
 
@@ -366,7 +366,7 @@ image::image20.png[]
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
-|=
+|===
 h|Class: 3+e|[[Qualifiable]]Qualifiable \<<abstract>>
 h|Explanation: 3+a|
 A qualifiable element may be further qualified by one or more qualifiers.
@@ -447,13 +447,13 @@ Note: it is recommended to use an external reference.
 
 
 |xref:Reference[Reference] |0..1
-|=
+|===
 
 It is recommended to add a _semanticId_ for the concept of the _Qualifier_. _Qualifier/type_ is the preferred name of the concept of the qualifier or its short name.
 
 [.table-with-appendix-table]
 [cols="30%h,70%"]
-|=
+|===
 |Enumeration: e|[[QualifierKind]]QualifierKind
 h|Explanation: a|Enumeration for kinds of qualifiers
 |Set of: |--
