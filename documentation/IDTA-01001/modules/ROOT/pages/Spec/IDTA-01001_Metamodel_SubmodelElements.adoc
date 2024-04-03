@@ -424,12 +424,12 @@ A media type (also MIME type and content type) is a two-part identifier for file
 The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications.
 
 
-=
+====
 Note: for information on handling supplementary external files in exchanging Asset Administration Shells in AASX package format see also 
-[Part 5 of the series "Specification of the Asset Administration Shell"](https://industrialdigitaltwin.org/en/content-hub/aasspecifications). 
+Part 5 of the series link:https://industrialdigitaltwin.org/en/content-hub/aasspecifications["Specification of the Asset Administration Shell"]. 
 An absolute path is used in case the file exists independently of the Asset Administration Shell.
 A relative path, relative to the package root, should be used if the file is part of a serialized package of the Asset Administration Shell.
-=
+====
 
 
 [.table-with-appendix-table]
@@ -486,9 +486,9 @@ a|
 Reference to the global unique ID of a coded value.
 
 
-=
+====
 Note: it is recommended to use an external reference.
-=
+====
 
 
 |xref:Reference[Reference] |0..1
@@ -591,9 +591,9 @@ a|The value of the property instance |xref:ValueDataType[ValueDataType] |0..1
 a| Reference to the global unique ID of a coded value
 
 
-=
+====
 Note: it is recommended to use an external reference.
-=
+====
 
 
 |xref:Reference[Reference] |0..1
@@ -690,17 +690,17 @@ image::image44.png[]
 Submodel Element Collections are used for complex elements with a typically fixed set of properties with unique names. This set of properties is typically predefined by the semantic definition (referenced via _semanticId_) of the submodel element collection. Each property within the collection itself should have clearly defined semantics.
 
 
-=
+====
 Note: the different elements of a submodel element collection do not have to have different __semanticId__s. However, in these cases the usage of a _SubmodelElementList_ should be considered.
-=
+====
 
 
 Example: a single document has a predefined set of properties like title, version, author, etc. They logically belong to a document. So a single document is represented by a _SubmodelElementCollection_. An asset usually has many different documents available like operating instructions, safety instructions, etc. The set of all documents is represented by a _SubmodelElementList_ (see Clause _5.3.7.17)_. In this case, we have a _SubmodelElementList_ of __SubmodelElementCollection__s.
 
 
-=
+====
 Note: the elements within a submodel element collection are not ordered. Every element has a unique ID (its "idShort"). However, it is recommended to adhere to the order defined in the submodel template.
-=
+====
 
 
 [.table-with-appendix-table]
@@ -726,9 +726,9 @@ image::image45.png[]
 Submodel element lists are used for sets (i.e. unordered collections without duplicates), ordered lists (i.e. ordered collections that may contain duplicates), bags (i.e. unordered collections that may contain duplicates), and ordered sets (i.e. ordered collections without duplicates).
 
 
-=
+====
 Note: there is no _idShort_ for submodel elements in lists (see Constraint AASd-120).
-=
+====
 
 
 Submodel element lists are also used to create multi-dimensional arrays. A two-dimensional array listlink:#bib3[[3\]]link:#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements. Each of these three _SubmodelElementLists_ would contain 5 single _Property_ elements. The _semanticId_ of the contained properties would be the same for all lists in the first list, i.e. _semanticIdListElement_ would be identical for all three lists contained in the first list. The _semanticId_ of the three contained lists would differ depending on the dimension it represents. In case of complex values in the array, a _SubmodelElementCollection_ would be used as values in the leaf lists.
@@ -745,9 +745,9 @@ h|Explanation: 3+a|
 A submodel element list is an ordered list of submodel elements.
 
 
-=
+====
 Note: the list is ordered although the ordering might not be relevant (see attribute "orderRelevant".)
-=
+====
 
 
 The numbering starts with Zero (0).
@@ -785,9 +785,9 @@ a|
 Semantic ID which the submodel elements contained in the list match
 
 
-=
+====
 Note: it is recommended to use an external reference.
-=
+====
 
 
 |xref:Reference[Reference] |0..1
