@@ -13,6 +13,7 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 
 === Format "Value" (Value-Only Serialization) in JSON
 
+==== Fields for Value-Only Serialization
 
 In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics, for example via the used Submodel Template. Consequently, there is not always a need to receive the entire model information. Instead, applications are most likely only interested in the values of the modelled data. Furthermore, having limited processing power or limited bandwidth, one use case of the Format "Value" is to transfer data as efficiently as possible. Semantics and data might be split into two separate architecture building blocks. For example, a database would suit the needs for querying semantics, while a device would only provide the data at runtime. Two separate requests make it possible to build up a user interface (UI) and show new upcoming values highly efficiently.
 
@@ -28,40 +29,158 @@ Values are only available for
 
 Capabilities are excluded from the Value-Only serialization scope since only data containing elements are in the focus. They are consequently omitted in the serialization.
 
-The Value-Only Format does not contain Metadata attributes (see xref:IDTA-01001_Mappings.adoc#format-metadata-metadata-serialization[Metadata Attributes]). So it is quite the other way around:
+The Value-Only Format does not contain Metadata attributes (see xref:IDTA-01001_Mappings.adoc#format-metadata-metadata-serialization[Metadata Attributes]). So the serialization contains the value-related data, only and ignored the metadata:
 
-[[table:value-data-attributes]]
-.Metadata Attributes
+[[table-value-data-attributes]]
+.Value-Only Attributes
 [%autowidth, width="100%", cols="48%,52%",options="header",]
 |===
-|*Class Name* |*Fields for Value-Only representationfootnote:[(value) means that the attribute name is not relevant, only its value, 
-for the other attributes the attribute itself will be seen in the payload]*
+|*Class Name* |*Fields for Value-Only representationfootnote:[ attribute in parenthesis (like e.g. (value)) means that the attribute name is not displayed, only its Value-Only serialization. 
+For the other attributes the attribute itself will be part of the serialization]*
 2+|*Identifiables*
-|AssetAdministrationShell |assetInformation, submodels
-|Submodel |submodelElements
-2+|*SubmodelElements*
-|SubmodelElementCollection | (value)
-|SubmodelElementList | (value)
+|AssetAdministrationShell a|assetInformation, submodels
+|Submodel a| (submodelElements)
+
+====
+Qualifiers are ignored. This also holds for qualifiers of kind "ValueQualifier".
+====
+
+|*SubmodelElements* a| 
+
+====
+Qualifiers are ignored. This also holds for qualifiers of kind "ValueQualifier".
+====
+
+|SubmodelElementCollection a| (value) 
+
+====
+If the collection contains submodel elements of type
+ Operation or Capability: these are ignored in the Value-Only serialization
+====
+
+|SubmodelElementList a| (value) 
+
+if defined: type equal to SubmodelElementList/valueTypeListElement
+
+====
+If the submodel element list is part the Value-Only serialization of its parent element (e.g. in the context of a submodel or submodel element collection) and the list consists of submodel elements of type Operation or Capability the complete list is ignored. 
+
+If the Value-Only serialization of the list is explicitly requested without context a corresponding error message shall be returned. 
+====
+
 |Entity |statements, globalAssetId, specificAssetId
-|BasicEventElement |observed
-|Capability |--
-|Operation |--
+|BasicEventElement a|observed
+|Capability a| -
+|Operation a| -
+
+====
+There is not Value-Only serialization for an Operation. However, a Value-Only serialization is useful for its arguments when executing the operation (see Value-Only serialization of "OperationVariable")
+====
+
+|RelationshipElement a|first, second
+|AnnotatedRelationshipElement a|first, second, annotations
+
 2+|*DataElements*
-|Property | (value)
-|MultilanguageProperty | (value)
-|Range |min, max
-|ReferenceElement |value
-|RelationshipElement |first, second
-|AnnotatedRelationshipElement |first, second, annotations
-|Blob |value, contentType
-|File |value, contentType
+|Property a| (value)
+
+type equal to Property/valueType
+
+====
+valueId is ignored in Value-Only serialization
+====
+|MultilanguageProperty a| (value)
+
+====
+valueId is ignored in Value-Only serialization
+====
+|Range a|min, max
+
+type equal to Range/valueType
+
+====
+In the Value-Only serialization only number ranges are supported
+====
+
+|ReferenceElement a|(value)
+
+|Blob a|value, contentType
+|File a|value, contentType
+
+2+|*Data Types*
+|OperationVariable a| (value)
+
+|MultiLanguageTextType a| The value of this type is identicial to its "Normal"-format serialization: it consists of a list of pairs: a language tag and the value in the corresponding language
+
+[listing]
+....
+<language-tag> ::= 
+	language tag as defined for values of type langString, i.e.
+	in accordance with IETF https://tools.ietf.org/html/rfc5646#page-5[RFC 5646], 
+	the language names match the following regular expression:
+
+		^[a-z]\{2,4}(-[A-Z][a-z]\{3})?(-([A-Z]\{2}|[0-9]\{3}))?$
+	
+....	
+
+	e.g. "en" for Englisch
 |===
 
-Exception:
-Property/valueId and MultiLanguagePropertyId are also no Metadata attributes. However, they are ignored in the Value-Only serialization.
 
 A submodel element is omitted if no value is defined for it for the requesting submodel or submodel element.
 
+==== How-To Value-Only Serialization
+
+The Value-Only serialization is defined by the following rules:
+
+* If the submodel element has an attribute with name "value" then its Value-Only serialization corresponds directly to this value.
+In some cases the type of the value is defined via another attribute: this needs to be explicitly defined as done in xref:table-value-data-attributes[] for example for "Property".
+
+====
+EXAMPLE: 
+The JSON Value-Only serialization for the  property "MaxRotationSpeed" with "Property/valueType" equal to "xs:int" looks like this:
+    
+[source,json,linenums]
+----
+5000
+----
+    
+====
+
+* If the submodel element has no attribute with name "value" then the attributes that are value-related need to be explicitly identified as such, for example by a table as defined in xref:table-value-data-attributes[]. These attributes are part of the serialization with their name, the name being the value of the attribute "idShort". 
+
+====
+EXAMPLE: 
+For a _SubmodelElementCollection_ named "ExampleFamily" with four string attributes "NameOfMother", "NameOfFather" and "NameOfSon" of type "Property" and one attribute "CalculateAge" of type "Operation", the Value-Only JSON payload is minimized to the following,
+i.e. the name of the SubmodelElementCollection is not part of the Value-Only serialization and attribute "CalculateAge" is ignored:
+    
+[source,json,linenums]
+----
+{
+    "NameOfMother": "Martha ExampleFamily",
+    "NameOfFather": "Jonathan ExampleFamily",
+    "NameOfSon": "Clark ExampleFamily"
+}
+----
+    
+====
+
+* Submodel is an exception. Its attribute "submodelElements" is treated like the attribute "value" of a submodel element collection.
+
+* For complex types the serialization is identical to the "Normal"-format serialization. If this is not the case its serialization needs to be explicitly defined.
+
+====
+EXAMPLE:
+For a _MultiLanguageProperty_ of type "MultiLanguageTextType" the Value-Only payload is minimized to the following:
+[source,json,linenums]
+----
+[
+    {"de": "Das ist ein deutscher Bezeichner"},
+    {"en": "That's an English label"}
+]
+
+====
+
+////
 ==== Grammar Value-Only Serialization
 
 In the following the grammar for Value-Only serialization is defined in a formal way:
@@ -210,7 +329,7 @@ In the following the grammar for Value-Only serialization is defined in a formal
 	value of type Identifier
 
 ....
-
+////
 
 ==== Data Type to Value Mapping
 
@@ -604,7 +723,8 @@ For a BasicEventElement named “MyBasicEvent”, the Value-Only-payload is mini
 
 ==== JSON-Schema for the ValueOnly-Serialization
 
-The following JSON-Schema represents the validation schema for the ValueOnly-Serialization of submodel elements. This holds true for all submodel elements mentioned in the previous clause except for _SubmodelElementCollections_. Since _SubmodelElementCollections_ are treated as objects containing submodel elements of any kind, the integration into the same validation schema would result in a circular reference or ambiguous results ignoring the actual validation of submodel elements other than _SubmodelElementCollections_. Hence, the same validation schema must be applied for each _SubmodelElementCollection_ within a submodel element hierarchy. In this case, it may be necessary to create a specific JSON-Schema for the individual use case. The _SubmodelElementCollection_ is added to the following schema for completeness and clarity. It is, however, not referenced from the _SubmodelElementValue_-oneOf-Enumeration due to the reasons mentioned above. +
+The following JSON-Schema represents the validation schema for the ValueOnly-Serialization of submodel elements. This holds true for all submodel elements mentioned in the previous clause except for _SubmodelElementCollections_. Since _SubmodelElementCollections_ are treated as objects containing submodel elements of any kind, the integration into the same validation schema would result in a circular reference or ambiguous results ignoring the actual validation of submodel elements other than _SubmodelElementCollections_. Hence, the same validation schema must be applied for each _SubmodelElementCollection_ within a submodel element hierarchy. In this case, it may be necessary to create a specific JSON-Schema for the individual use case. The _SubmodelElementCollection_ is added to the following schema for completeness and clarity. It is, however, not referenced from the _SubmodelElementValue_-oneOf-Enumeration due to the reasons mentioned above. 
+
 See Annex B for an example that validates against this schema.
 
 [source,json,linenums]
@@ -623,7 +743,7 @@ See Annex B for an example that validates against this schema.
         "second": {
           "$ref": "#/definitions/ReferenceValue"
         },
-        "annotation": {
+        "annotations": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ValueOnly"
@@ -633,7 +753,6 @@ See Annex B for an example that validates against this schema.
       "required": [
         "first",
         "second",
-        "annotation"
       ],
       "additionalProperties": false
     },
@@ -751,33 +870,6 @@ See Annex B for an example that validates against this schema.
     },
     "NumberValue": {
       "type": "number",
-      "additionalProperties": false
-    },
-    "OperationRequestValueOnly": {
-      "inoutputArguments": {
-        "$ref": "#/definitions/ValueOnly"
-      },
-      "inputArguments": {
-        "$ref": "#/definitions/ValueOnly"
-      },
-      "timestamp": {
-        "type": "string",
-        "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)(Z|\\+00:00|-00:00)$"
-      },
-      "additionalProperties": false
-    },
-    "OperationResultValueOnly": {
-      "executionState": {
-        "type": "string",
-        "enum": ["Initiated", "Running", "Completed", "Canceled", "string",
-                 "Failed", "Timeout"]
-      },
-      "inoutputArguments": {
-        "$ref": "#/definitions/ValueOnly"
-      },
-      "outputArguments": {
-        "$ref": "#/definitions/ValueOnly"
-      },
       "additionalProperties": false
     },
     "PropertyValue": {
