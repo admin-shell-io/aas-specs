@@ -89,6 +89,8 @@ https://github.com/admin-shell-io/aas-specs/issues/new/choose
 
 If you want to contribute, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
+The working branch for the next release is named **IDTA-01001-<major version>-<minor version>**,_working e.g. IDTA-01001-3-1_working.
+
 ## License
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](
