@@ -150,7 +150,7 @@ Other Bugfixes:
 |x| xref:page$Spec/IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd] a| BUGFIX: Remove xs:yearMonthDuration from enumeration
 
 Updated links to XML Schema 1.0 (not 1.1)
-|(x)| xref:page$IDTA-01001_DataSpecificatins.adoc#EmbeddedDataSpecification[EmbeddedDataSpecification/dataSpecification] a| (bugfix in Text only) now mandatory
+|(x)| EmbeddedDataSpecification/dataSpecification a| (bugfix in Text only) now mandatory
 |(x) | xref:page$Spec/IDTA-01001_Metamodel_DataTypes.adoc#MultiLanguageNameType[MultiLanguageNameType] a| (bugfix in Text only) maxLength=128 (as derived and implemented)
 |(x)  | xref:page$Spec/IDTA-01001_Metamodel_Common.adoc#Qualifier[Qualifier/Kind] a| (bugfix in Text only) attribute starts with small letter 
 |===
@@ -537,7 +537,7 @@ Constraint AASd-130: An attribute with data type "string" shall consist of these
 
 == Changes V3.0 vs. V3.0RC02
 
-Major changes
+Major changes:
 
 * Document split into several documents: Part 1 on metamodel of the AAS (this document), Part 5 on the aasx package exchange format, Part 3 series on the predefined data specifications, and Part 4 (security)
 * CHANGED: SubmodelElements do not inherit from HasKind any longer, only Submodel has distinction between submodel template or submodel instance (including update of tAAS-#18 and -#19)
@@ -565,7 +565,8 @@ Major changes
 * EDITORIAL (REMOVED): Clause on Tooling and Open Source
 * EDITORIAL: vector graphics
 * NEW: Besides type assets and instance assets now also assets for which this kind of classification is not applicable are supported (conformant to IEC 63278-1)
-* Bugfixes:
+
+Bugfixes:
 * Corrected Japanese example for xd:string
 * UML figure for HasExtensions did not show inheritance (table for Extension was correct)
 * HasDataSpecification/embeddedDataSpecs 0..* not 0..1
@@ -577,7 +578,7 @@ Major changes
 * AASd-117 it is not the SubmodelElementList having no idShort but its childs
 * KeyTypes Table: set of AasReferables added
 
-Smaller changes
+Smaller changes:
 
 * EDITORIAL: Qualifier description updated
 * EDITORIAL: Reformulation of constraints dealing with References and Key/type
