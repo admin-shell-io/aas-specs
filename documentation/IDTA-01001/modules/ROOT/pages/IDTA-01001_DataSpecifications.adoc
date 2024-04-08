@@ -6,8 +6,6 @@ https://creativecommons.org/licenses/by/4.0/).
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Illustrations:
-Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
 ////
 
 :page-partial:
@@ -55,7 +53,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/DataSpecification`
 h|Explanation h|Type h|Card.
 
 .2+e|description 3+| `\https://admin-shell.io/aas/3/1/DataSpecification/description`
-a|Description of how and in which context the data specification template is applicable; can be provided in several languages. |xref:page$IDTA-01001_Metamodel.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
+a|Description of how and in which context the data specification template is applicable; can be provided in several languages. |xref:page$Spec/IDTA-01001_Metamodel_DataTypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
 
 .2+e|administration 3+| `\https://admin-shell.io/aas/3/1/DataSpecification/administration`
 a|
@@ -66,7 +64,7 @@ Administrative information of an identifiable element
 Note: some of the administrative information like the version number might need to be part of the identification.
 ====
 
-|xref:page$IDTA-01001_Metamodel.adoc#AdministrativeInformation[AdministrativeInformation] |0..1
+|xref:page$Spec/IDTA-01001_Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] |0..1
 
 .2+e|id 3+| `\https://admin-shell.io/aas/3/1/DataSpecification/id`
 a|
@@ -74,14 +72,14 @@ The globally unique identification of the data specification
 
 
 ====
-Note: This identifier is used as value for xref:page$IDTA-01001_Metamodel.adoc#HasDataSpecification[HasDataSpecification/dataSpecification]
+Note: This identifier is used as value for xref:page$Spec/IDTA-01001_Metamodel_Common.adoc#HasDataSpecification[HasDataSpecification/dataSpecification]
 ====
 
-|xref:page$IDTA-01001_Metamodel.adoc#Identifier[Identifier] |1
+|xref:page$Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] |1
 
 .2+e|dataSpecificationContent 3+| `\https://admin-shell.io/aas/3/1/DataSpecification/dataSpecificationContent`
 a|The content of the template without meta data
-|xref:DataSpecificationContent[DataSpecificationContent] |1
+|xref:page$IDTA-01001_DataSpecifications.adoc#DataSpecificationContent[DataSpecificationContent] |1
 
 
 
