@@ -136,6 +136,15 @@ Note 2: a langString is a string value tagged with a language code.
 
 Realization depends on the serialization rules for a technology.
 
+The language code is as defined for values of type langString, i.e.
+in accordance with IETF https://tools.ietf.org/html/rfc5646#page-5[RFC 5646], 
+the language names match the following regular expression:
+
+[listing]
+....
+		^[a-z]\{2,4}(-[A-Z][a-z]\{3})?(-([A-Z]\{2}|[0-9]\{3}))?$
+....	
+
 a|
 In xml:
 

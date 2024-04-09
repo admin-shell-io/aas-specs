@@ -6,8 +6,6 @@ https://creativecommons.org/licenses/by/4.0/).
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Illustrations:
-Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
 ////
 
 
@@ -31,6 +29,7 @@ Capabilities are excluded from the Value-Only serialization scope since only dat
 
 The Value-Only Format does not contain Metadata attributes (see xref:IDTA-01001_Mappings.adoc#format-metadata-metadata-serialization[Metadata Attributes]). So the serialization contains the value-related data, only and ignored the metadata:
 
+////
 [[table-value-data-attributes]]
 .Value-Only Attributes
 [%autowidth, width="100%", cols="48%,52%",options="header",]
@@ -42,13 +41,13 @@ For the other attributes the attribute itself will be part of the serialization]
 |Submodel a| (submodelElements)
 
 ====
-Qualifiers are ignored. This also holds for qualifiers of kind "ValueQualifier".
+Qualifiers are ignored. This also holds for qualifiers of kind "ValueQualifier"
 ====
 
 |*SubmodelElements* a| 
 
 ====
-Qualifiers are ignored. This also holds for qualifiers of kind "ValueQualifier".
+Qualifiers are ignored. This also holds for qualifiers of kind "ValueQualifier"
 ====
 
 |SubmodelElementCollection a| (value) 
@@ -74,7 +73,7 @@ If the Value-Only serialization of the list is explicitly requested without cont
 |Operation a| -
 
 ====
-There is not Value-Only serialization for an Operation. However, a Value-Only serialization is useful for its arguments when executing the operation (see Value-Only serialization of "OperationVariable")
+There is no Value-Only serialization for an Operation. However, a Value-Only serialization is useful for its arguments when executing the operation (see Value-Only serialization of "OperationVariable")
 ====
 
 |RelationshipElement a|first, second
@@ -106,50 +105,154 @@ In the Value-Only serialization only number ranges are supported
 |Blob a|value, contentType
 |File a|value, contentType
 
-2+|*Data Types*
+2+|*Non-Referables*
 |OperationVariable a| (value)
 
-|MultiLanguageTextType a| The value of this type is identicial to its "Normal"-format serialization: it consists of a list of pairs: a language tag and the value in the corresponding language
 
-[listing]
-....
-<language-tag> ::= 
-	language tag as defined for values of type langString, i.e.
-	in accordance with IETF https://tools.ietf.org/html/rfc5646#page-5[RFC 5646], 
-	the language names match the following regular expression:
 
-		^[a-z]\{2,4}(-[A-Z][a-z]\{3})?(-([A-Z]\{2}|[0-9]\{3}))?$
-	
-....	
 
-	e.g. "en" for Englisch
 |===
 
 
+////
+
+[[table-value-data-attributes]]
+.Value-Only Attributes
+[%autowidth, width="100%", cols="48%,52%",options="header",]
+|===
+|*Class Name* |*Fields for Value-Only representationfootnote:[ attribute in parenthesis (like e.g. (value)) means that the attribute name is not displayed, only its Value-Only serialization. 
+For the other attributes the attribute itself will be part of the serialization]*
+
+2+|*Structured Value Elements*
+|Submodel a| (submodelElements)
+
+|SubmodelElementCollection a| (value) 
+
+====
+If the collection contains submodel elements of type
+ Operation or Capability: these are ignored in the Value-Only serialization
+====
+
+
+
+2+|*List Value Elements*
+
+|SubmodelElementList a| (value) 
+
+type of values of the contained elements equal to SubmodelElementList/typeValueListElement
+
+if defined (e.g. if typeValueListElement equal to Property or Range): value type of a single element contained in the list equal to SubmodelElementList/valueTypeListElement 
+
+====
+If the submodel element list is part the Value-Only serialization of its parent element (e.g. in the context of a submodel or submodel element collection) and the list consists of submodel elements of type Operation or Capability the complete list is ignored. 
+
+If the Value-Only serialization of the list is explicitly requested without context a corresponding error message shall be returned. 
+====
+
+2+|*Pure Value Elements* 
+|Property a| (value)
+
+type of value equal to Property/valueType
+
+====
+valueId is ignored in Value-Only serialization
+====
+
+|MultilanguageProperty a| (value) _tagged with language code_
+
+====
+valueId is ignored in Value-Only serialization
+====
+
+|ReferenceElement a|(value) _value corresponds to default serialization of its type "Reference"_
+
+|OperationVariable a| (value) _value corresponds to the Value-Only serialization of the corresponding SubmodelElement subtype_
+
+2+|*Complex Value Elements* 
+|Blob a|value, contentType
+
+|File a|value, contentType
+
+
+
+
+
+2+|*Structured Non-Value Elements*
+|AssetAdministrationShell a|assetInformation, submodels
+
+|Entity |statements, globalAssetId, specificAssetId
+
+|BasicEventElement a|observed
+
+|RelationshipElement a|first, second
+
+|AnnotatedRelationshipElement a|first, second, annotations
+
+
+
+|Range a|min, max
+
+type equal to Range/valueType
+
+====
+In the Value-Only serialization only number ranges are supported
+====
+
+
+|Capability a| -
+
+====
+There is no Value-Only serialization for a Capability. 
+====
+
+|Operation a| -
+
+====
+There is no Value-Only serialization for an Operation. However, a Value-Only serialization is useful for its arguments when executing the operation (see Value-Only serialization of "OperationVariable")
+====
+
+
+|===
+
 A submodel element is omitted if no value is defined for it for the requesting submodel or submodel element.
+
+Qualifiers are ignored. This also holds for qualifiers of kind "ValueQualifier"
+
 
 ==== How-To Value-Only Serialization
 
 The Value-Only serialization is defined by the following rules:
 
-* If the submodel element has an attribute with name "value" then its Value-Only serialization corresponds directly to this value.
-In some cases the type of the value is defined via another attribute: this needs to be explicitly defined as done in xref:table-value-data-attributes[] for example for "Property".
+===== *Value Elements*
+
+If the submodel element has an attribute with name "value" then its Value-Only serialization typically corresponds directly to this value.
+
+For Value Elements see Structured Value Elements and
+ Pure Value Elements as well as Complex Value Elements in xref:table-value-data-attributes[]).
+
+In some cases the type of the value is defined via another attribute: this needs to be explicitly defined, see xref:table-value-data-attributes[], for example for "Property".
+
+For a Structured Value Element the attributes are part of the serialization with their name, the name being the value of the attribute "idShort". 
+
+If the serialization does not directly corresponds to this value this needs to be explicitly defined, see xref:table-value-data-attributes[], for example for "File".
+
+Submodel is an exception. Its attribute "submodelElements" is treated like the attribute "value" of a submodel element collection.
+
+A List Value Element is serialized as an array.
 
 ====
-EXAMPLE: 
+EXAMPLE for a Pure Value Element: 
 The JSON Value-Only serialization for the  property "MaxRotationSpeed" with "Property/valueType" equal to "xs:int" looks like this:
     
 [source,json,linenums]
 ----
 5000
 ----
-    
-====
-
-* If the submodel element has no attribute with name "value" then the attributes that are value-related need to be explicitly identified as such, for example by a table as defined in xref:table-value-data-attributes[]. These attributes are part of the serialization with their name, the name being the value of the attribute "idShort". 
 
 ====
-EXAMPLE: 
+
+====
+EXAMPLE for a Structured Value Element: 
 For a _SubmodelElementCollection_ named "ExampleFamily" with four string attributes "NameOfMother", "NameOfFather" and "NameOfSon" of type "Property" and one attribute "CalculateAge" of type "Operation", the Value-Only JSON payload is minimized to the following,
 i.e. the name of the SubmodelElementCollection is not part of the Value-Only serialization and attribute "CalculateAge" is ignored:
     
@@ -164,12 +267,46 @@ i.e. the name of the SubmodelElementCollection is not part of the Value-Only ser
     
 ====
 
-* Submodel is an exception. Its attribute "submodelElements" is treated like the attribute "value" of a submodel element collection.
+====
+EXAMPLE for a Complex Value Element, a "File" submodel element:
 
-* For complex types the serialization is identical to the "Normal"-format serialization. If this is not the case its serialization needs to be explicitly defined.
+[source,json,linenums]
+----
+{
+    "contentType": "application/pdf",
+    "value": "SafetyInstructions.pdf"
+}
+----
 
 ====
-EXAMPLE:
+
+===== *Non-Value Elements*
+
+If the submodel element has no attribute with name "value" then the attributes that are value-related need to be explicitly identified as such, see Structured Non-Value Elements in xref:table-value-data-attributes[]. These attributes are part of the serialization with their name. 
+
+There some Non-Value Elements there is no Value-Only serialization defined at all, example "Cabability".
+
+====
+EXAMPLE for a Structured Non-Value Element
+
+[source,json,linenums]
+----
+{
+    "min": 3,
+    "max": 15
+}
+----
+
+====
+
+===== *Serialization of value itself* 
+
+The serialization of a value with a type that is not listed in xref:table-value-data-attributes[] is identical to its default serialization. This holds for attributes of primitive data types like LangStringSet or for attributes with non-primitive data types like "Reference".
+
+If this is would not the case its serialization needs to be explicitly defined.
+
+====
+EXAMPLE for value with type not corresponding to an element in xref:table-value-data-attributes[]:
 For a _MultiLanguageProperty_ of type "MultiLanguageTextType" the Value-Only payload is minimized to the following:
 [source,json,linenums]
 ----
@@ -383,7 +520,7 @@ Note: the examples are written in RDF/Turtle syntax, and only "Hello" and "Hallo
 
 |===
 
-The following types defined by the XSD and RDF specifications are explicitly omitted for serialization. This is ensured because they are not part of enumerations xref:IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd] and xref:IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefRdf[DataTypeDefRdf]:
+The following types defined by the XSD and RDF specifications are explicitly omitted for serialization. This is ensured because they are not part of enumerations xref:page$Spec/IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd] and xref:page$Spec/IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefRdf[DataTypeDefRdf]:
 
 xs:language, xs:normalizedString, xs:token, xs:NMTOKEN, xs:Name, xs:NCName, xs:QName, xs:ENTITY, xs:ID, xs:IDREF, xs:NOTATION, xs:IDREFS, xs:ENTITIES, xs:NMTOKENS, rdf:HTML and rdf:XMLLiteral.
 
