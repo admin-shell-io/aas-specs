@@ -27,7 +27,7 @@ Values are only available for
 
 Capabilities are excluded from the Value-Only serialization scope since only data containing elements are in the focus. They are consequently omitted in the serialization.
 
-The Value-Only Format does not contain Metadata attributes (see xref:IDTA-01001_Mappings.adoc#format-metadata-metadata-serialization[Metadata Attributes]). So the serialization contains the value-related data, only and ignored the metadata:
+The Value-Only Format does not contain Metadata attributes (see xref:IDTA-01001_Mappings.adoc#format-metadata-metadata-serialization[Metadata Attributes]) but only the value-related data
 
 ////
 [[table-value-data-attributes]]
@@ -178,7 +178,11 @@ valueId is ignored in Value-Only serialization
 
 
 2+|*Structured Non-Value Elements*
-|AssetAdministrationShell a|assetInformation, submodels
+|AssetAdministrationShell a| assetInformation, submodels
+
+====
+Up to now there is no Value-Only serialization for an Asset Administration Shell in use.
+====
 
 |Entity |statements, globalAssetId, specificAssetId
 
@@ -216,7 +220,7 @@ There is no Value-Only serialization for an Operation. However, a Value-Only ser
 
 A submodel element is omitted if no value is defined for it for the requesting submodel or submodel element.
 
-Qualifiers are ignored. This also holds for qualifiers of kind "ValueQualifier"
+Qualifiers are ignored. This also holds for qualifiers of kind "ValueQualifier".
 
 
 ==== How-To Value-Only Serialization
@@ -526,7 +530,7 @@ xs:language, xs:normalizedString, xs:token, xs:NMTOKEN, xs:Name, xs:NCName, xs:Q
 
 
 ====
-Note 1: due to the limits in the representation of numbers in JSON, the maximum integer number that can be used without losing precision is 2⁵³-1 (defined as Number.MAX_SAFE_INTEGER). Even if the used data type would allow higher or lower values, they cannot be used if they cannot be represented in JSON. Affected data types are unbounded numeric types xs:decimal, xs:integer, xs:positiveInteger, xs:nonNegativeInteger, xs:negativeInteger, xs:nonPositiveInteger and the bounded type xs:unsignedLong. Other numeric types are not affected. footnote:[cf. https://eclipse-esmf.github.io/samm-specification/2.0.0/datatypes.html (with adjustments for +/-INF, NaN, and language-typed literal support)]
+Note 1: due to the limits in the representation of numbers in JSON, the maximum integer number that can be used without losing precision is 2⁵³-1 (defined as https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER[Number.MAX_SAFE_INTEGER]). Even if the used data type would allow higher or lower values, they cannot be used if they cannot be represented in JSON. Affected data types are unbounded numeric types xs:decimal, xs:integer, xs:positiveInteger, xs:nonNegativeInteger, xs:negativeInteger, xs:nonPositiveInteger and the bounded type xs:unsignedLong. Other numeric types are not affected. footnote:[cf. https://eclipse-esmf.github.io/samm-specification/snapshot/payloads.html (with adjustments for +/-INF, NaN, and language-typed literal support)]
 ====
 
 
