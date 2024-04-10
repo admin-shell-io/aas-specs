@@ -27,7 +27,7 @@ The semantics of a property or other elements that may have a semantic descripti
 The description of the concept should follow a standardized schema (realized as data specification template).
 
 
-h|Inherits from: 3+|xref:Identifiable[Identifiable]; xref:HasDataSpecification[HasDataSpecification]
+h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Common.adoc#Identifiable[Identifiable]; xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasDataSpecification[HasDataSpecification]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/ConceptDescription`
 
 .2+h|Attribute 3+h| ID
@@ -49,7 +49,7 @@ Note: compare with is-case-of relationship in ISO 13584-32 & IEC EN 61360
 ====
 
 
-|xref:Reference[Reference] |0..*
+|xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#Reference[Reference] |0..*
 |===
 
 Different types of submodel elements require different attributes to describe their semantics. This is why a concept description has at least one data specification template associated with it. This template defines the attributes needed to describe the semantics.
