@@ -20,9 +20,12 @@ To get only the idShort paths of a submodel element hierarchy, the serialization
 ....
 <idShortPath> ::= <idShort> {["." <idShort> | "["<Index>"]" ]}* 
 
-<Index> ::= {<Digit>}+ 
+<Index> ::= <Zero> | <PositiveNumber>
 
-<Digit> ::= "0"| "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<PositiveNumber>  ::= <NonZeroDigit>{<Digit>}*
+<Digit> ::= <Zero> | <NonZeroDigit>
+<Zero>  ::= "0"
+<NonZeroDigit>  ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 ....
 
 In the following example the IdShortPaths of an element within the Submodel are described: 
