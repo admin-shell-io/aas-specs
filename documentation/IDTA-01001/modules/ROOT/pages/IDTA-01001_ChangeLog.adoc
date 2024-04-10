@@ -46,14 +46,14 @@ Major Changes:
 
 
 * New value "Role" to enumeration AssetKind (https://github.com/admin-shell-io/aas-specs/issues/294[#294])
-
 * Change PathType: support complete URI scheme for files RFC2396 conformant to anyURI of XML Schema 1.0, Part 2 (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
-* Data type  Identifier: change length from 2000 to 2048 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
+* Data type  Identifier: change length from 2000 to 2024 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
 * Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name (https://github.com/admin-shell-io/aas-specs/issues/295[#295])
 * Entity/entityType and Constraint AASd-014: entityType now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
 * Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications
 (https://github.com/admin-shell-io/aas-specs/issues/307[#307])
-
+* Added metamodel semantic ID for every class and attribute element (before only grammar). All elements increased in Version to V3.1 I
+(https://github.com/admin-shell-io/aas-specs/issues/366[#366])
 * Terms and Definitions adopted to IEC 63278-1:2023 (before IEC 63278-1 Draft July 2022 was the basis), 
 (https://github.com/admin-shell-io/aas-specs/issues/365[#365])
 also abbreviations partly adopted; changes:
@@ -70,16 +70,14 @@ also abbreviations partly adopted; changes:
 (https://github.com/admin-shell-io/aas-specs/issues/350[#350])
 	** introduce equivalent matching and rename exact matching to value matching
 	** added notes 
-* (Editorial) Adding metamodel element IDs to tables themselves for easier usage (besides grammar defining how to derive them)
-(https://github.com/admin-shell-io/aas-specs/issues/366[#366])
+* transfer of chapters on formats Metadata, Paths and Value-Only from Part 2 API to Part 1 Metamodel (https://github.com/admin-shell-io/aas-specs/issues/325[#325])
+* enhanced documentation or Value-Only serialization (https://github.com/admin-shell-io/aas-specs/issues/371[#371], https://github.com/admin-shell-io/aas-specs/issues/370[#370])
 * Transfer from .docx to asciidoc (.adoc) and maintenance in github
 
 
 Minor Changes:
 
-* explanation of ValueOnly-Normal round-trip issues (https://github.com/admin-shell-io/aas-specs/issues/364[#364])
 * editorial changes
-* improve explanation for recommendation to use external references for semanticId (https://github.com/admin-shell-io/aas-specs/issues/376[#376])
 
 
 === Metamodel Changes V3.1 vs. V3.0
@@ -91,7 +89,7 @@ Minor Changes:
 
 |   | AssetKind a| Add new value "Role" to enumeration AssetKind
 |   | Entity/entityType a| now optional
-|   | Identifier a| data type: change length from 2000 to 2048 characters
+|   | Identifier a| data type: change length from 2000 to 2024 characters
 |   | NameType a| implicit change due to change of Constraint AASd-002
 |   | PathType a| extend data type to support complete URI scheme for files RFC2396
 |   | Referable/idShort a| implicit change because constraint AASd-002 now also allows hyphen
