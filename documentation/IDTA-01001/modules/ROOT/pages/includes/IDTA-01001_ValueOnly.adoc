@@ -190,6 +190,88 @@ Note 3: language-tagged strings (rdf:langString) containing single quotes (‘) 
 Note 4: Roundtrip conversion from "Normal" to "ValueOnly" format may not result in the original payload because "Normal" is using string whereas "ValueOnly" is using the JSON type closest to the xsd datatype (see table [data-types-value-only]).
 ====
 
+==== Example Value-Only serialization for a Submodel
+
+The following example shows the JSON Value-Only serialization for a Submodel with name "Example" and two direct SubmodelElements "ProductClassifications" and "MaxRotationSpeed". "ProductClassifications" is represented by a SubmodelElementList with SubmodelElementCollections as its elements. Each of the SubmodelCollections has two mandatory elementa "ProductClassificationSystem" and "ProductClassId" and one optional element "ProductClassificationVersion". All of these elements have data type "xs:string". "MaxRotationSpeed" is a property with data type "xs:int".
+
+[source,json,linenums]
+----
+{ "ProductClassifications": 
+   [
+    {
+	"ProductClassificationSystem": "ECLASS",
+    "ProductClassId": "27-01-88-77",
+	"ProductClassificationVersion: "9.0"
+    },
+    {
+	"ProductClassificationSystem": "IEC CDD",
+    "ProductClassId": "0112/2///61987#ABA827#003",
+
+    }
+   ],
+  "MaxRotationSpeed": 5000
+}
+----
+
+The JSON Value-Only serialization for the element "ProductClassifications" within the submodel above looks like this:
+
+[source,json,linenums]
+----
+   [
+    {
+	"ProductClassificationSystem": "ECLASS",
+    "ProductClassId": "27-01-88-77",
+	"ProductClassificationVersion: "9.0"
+    },
+    {
+	"ProductClassificationSystem": "IEC CDD",
+    "ProductClassId": "0112/2///61987#ABA827#003",
+
+    }
+   ]
+----
+
+The JSON Value-Only serialization for the  first element within the "ProductClassifications" list above looks like this:
+
+[source,json,linenums]
+----
+{
+	"ProductClassificationSystem": "ECLASS",
+    "ProductClassId": "27-01-88-77",
+	"ProductClassificationVersion: "9.0"
+}
+----
+
+The JSON Value-Only serialization for the  property "MaxRotationSpeed" of the submodel above looks like this:
+[source,json,linenums]
+----
+5000
+----
+
+
+
+
+The Format "Normal" in comparison to this Value-Only serialization of the property "MaxRotationSpeed" would look like this:
+
+[source,json,linenums]
+----
+{
+  "idShort": "MaxRotationSpeed",
+  "semanticId": {
+    "type": "ExternalReference",
+    "keys": [
+      {
+        "type": "GlobalReference",
+        "value": "0173-1#02-BAA120#008"
+      }
+    ]
+  },
+  "modelType": "Property",
+  "valueType": "xs:int",
+  "value": "5000"
+}
+----
+
 ==== Examples Value-Only serialization for all submodel element types 
 
 In the following examples for Value-Only serializations for all submodel element types are given.
