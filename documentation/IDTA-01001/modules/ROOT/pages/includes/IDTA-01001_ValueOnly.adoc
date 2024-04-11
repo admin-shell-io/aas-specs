@@ -11,9 +11,9 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 ////
 
 
-=== Format "Value" (ValueOnly-Serialization) in JSON
+=== Format "Value" (Value-Only Serialization) in JSON
 
-
+==== Overview of Value-Only Serialization Attributes
 In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics. Consequently, there is not always a need to receive the entire model information, which can be requested separately via _Content_ modifier set to _Metadata_, in each request since it is constant most of the time. Instead, applications are most likely only interested in the values of the modelled data. Furthermore, having limited processing power or limited bandwidth, one use case of this format is to transfer data as efficiently as possible. Semantics and data might be split into two separate architecture building blocks. For example, a database would suit the needs for querying semantics, while a device would only provide the data at runtime. Two separate requests make it possible to build up a user interface (UI) and show new upcoming values highly efficiently.
 
 Values are only available for
@@ -27,6 +27,68 @@ Values are only available for
 * Submodel.
 
 Capabilities are excluded from the serialization scope since only data containing elements are in the focus. They are consequently omitted in the serialization.
+
+
+The Value-Only Format does not contain Metadata attributes (see xref:IDTA-01001_Mappings.adoc#format-metadata-metadata-serialization[Metadata Attributes]) but only the value-related data.
+
+[[table-value-data-attributes]]
+.Value-Only Attributes
+[%autowidth, width="100%", cols="48%,52%",options="header",]
+|===
+|*Class Name* |*Fields for Value-Only representationfootnote:[ attribute in parenthesis - like e.g. (value) - means that the attribute name is not displayed, only its Value-Only serialization. 
+For the other attributes the attribute itself will be part of the serialization]*
+2+|*Identifiables*
+|AssetAdministrationShell a|assetInformation, submodels
+|Submodel a| (submodelElements)
+
+|*SubmodelElements* a| 
+
+|SubmodelElementCollection a| (value) 
+
+|SubmodelElementList a| (value) 
+
+if defined: type equal to SubmodelElementList/valueTypeListElement
+
+|Entity |statements, globalAssetId, specificAssetId
+|BasicEventElement a|observed
+|Capability a| -
+|Operation a| -
+
+|RelationshipElement a|first, second
+
+|AnnotatedRelationshipElement a|first, second, annotations
+
+2+|*DataElements*
+|Property a| (value)
+
+type equal to Property/valueType
+
+|MultilanguageProperty a| (value)
+
+|Range a|min, max
+
+type equal to Range/valueType
+
+|ReferenceElement a|(value)
+
+|Blob a|value, contentType
+|File a|value, contentType
+
+2+|*Non-Referables*
+|OperationVariable a| (value)
+
+|===
+
+The following restrictions hold:
+
+* Qualifiers are ignored in Value-Only serialization. This also holds for qualifiers of kind "ValueQualifier"
+* valueId (as used in Property and MultiLanguageProperty) is ignored in Value-Only serialization
+
+====
+There is no Value-Only serialization for an Operation. However, a Value-Only serialization is useful for its arguments when executing the operation (see Value-Only serialization of "OperationVariable")
+====
+
+==== Rules for Value-Only Serialization
 
 The following rules shall be adhered to when serializing a submodel with the format _Value_footnote:[see SerializationModifier in Part 2 of the Specification of the Asset Administration Shell]:
 
