@@ -192,7 +192,7 @@ Note 4: Roundtrip conversion from "Normal" to "ValueOnly" format may not result 
 
 ==== Example Value-Only serialization for a Submodel
 
-The following example shows the JSON Value-Only serialization for a Submodel with name "Example" and two direct SubmodelElements "ProductClassifications" and "MaxRotationSpeed". "ProductClassifications" is represented by a SubmodelElementList with SubmodelElementCollections as its elements. Each of the SubmodelCollections has two mandatory elementa "ProductClassificationSystem" and "ProductClassId" and one optional element "ProductClassificationVersion". All of these elements have data type "xs:string". "MaxRotationSpeed" is a property with data type "xs:int".
+The following example shows the JSON Value-Only serialization for a Submodel with name "Example" and two direct SubmodelElements "ProductClassifications" and "MaxRotationSpeed". "ProductClassifications" is represented by a SubmodelElementList with SubmodelElementCollections as its elements. Each of the SubmodelCollections has two mandatory elements "ProductClassificationSystem" and "ProductClassId" and one optional element "ProductClassificationVersion". All of these elements have data type "xs:string". "MaxRotationSpeed" is a property with data type "xs:int".
 
 [source,json,linenums]
 ----
@@ -200,49 +200,47 @@ The following example shows the JSON Value-Only serialization for a Submodel wit
    [
     {
 	"ProductClassificationSystem": "ECLASS",
-    "ProductClassId": "27-01-88-77",
+	"ProductClassId": "27-01-88-77",
 	"ProductClassificationVersion: "9.0"
     },
     {
 	"ProductClassificationSystem": "IEC CDD",
-    "ProductClassId": "0112/2///61987#ABA827#003",
-
+	"ProductClassId": "0112/2///61987#ABA827#003",
     }
    ],
   "MaxRotationSpeed": 5000
 }
 ----
 
-The JSON Value-Only serialization for the element "ProductClassifications" within the submodel above looks like this:
+The JSON Value-Only serialization for the element "ProductClassifications", a SubmodelElementList, within the submodel above looks like this:
 
 [source,json,linenums]
 ----
    [
     {
 	"ProductClassificationSystem": "ECLASS",
-    "ProductClassId": "27-01-88-77",
+	"ProductClassId": "27-01-88-77",
 	"ProductClassificationVersion: "9.0"
     },
     {
 	"ProductClassificationSystem": "IEC CDD",
-    "ProductClassId": "0112/2///61987#ABA827#003",
-
+	"ProductClassId": "0112/2///61987#ABA827#003",
     }
    ]
 ----
 
-The JSON Value-Only serialization for the  first element within the "ProductClassifications" list above looks like this:
+The JSON Value-Only serialization for the  first element, a SubmodelElementCollection, within the "ProductClassifications" list above looks like this:
 
 [source,json,linenums]
 ----
 {
 	"ProductClassificationSystem": "ECLASS",
-    "ProductClassId": "27-01-88-77",
+	"ProductClassId": "27-01-88-77",
 	"ProductClassificationVersion: "9.0"
 }
 ----
 
-The JSON Value-Only serialization for the  property "MaxRotationSpeed" of the submodel above looks like this:
+The JSON Value-Only serialization for the Property "MaxRotationSpeed" of the submodel above looks like this:
 [source,json,linenums]
 ----
 5000
@@ -284,28 +282,27 @@ For a single _Property_ named "MaxRotationSpeed", the value-Only payload is mini
 ----
 
 
-
-For a _SubmodelElementCollection_ named "ExampleFamily", the Value-Only payload is minimized to the following,
-i.e. the name of the SubmodelElementCollection is not part of the Value-Only serialization:
+For a _SubmodelElementCollection_ named "ProductClassification" or being part of a list "ProductionClassifications", the Value-Only payload is minimized to the following,
+i.e. the name of the SubmodelElementCollection or its index in the list is not part of the Value-Only serialization:
 
 [source,json,linenums]
 ----
 {
-    "NameOfMother": "Martha ExampleFamily",
-    "NameOfFather": "Jonathan ExampleFamily",
-    "NameOfSon": "Clark ExampleFamily"
+	"ProductClassificationSystem": "ECLASS",
+	"ProductClassId": "27-01-88-77",
+	"ProductClassificationVersion: "9.0"
 }
 ----
 
 
-For a _SubmodelElementList_ names "FamilyMembers", the Value-Only payload is minimized to the following (values within a SubmodelElementList do not have idShort values):
+For a _SubmodelElementList_ named "Authors" with string Properties as its value, the Value-Only payload is minimized to the following (values within a SubmodelElementList do not have idShort values)footnote:[The Value-Only serialization of the product classification example can be seen above]:
 
 [source,json,linenums]
 ----
 [
-    "Martha ExampleFamily",
-    "Jonathan ExampleFamily",
-    "Clark ExampleFamily"
+    "Martha",
+    "Jonathan",
+    "Clark"
 ]
 ----
 
