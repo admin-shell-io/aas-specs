@@ -9,7 +9,9 @@ SPDX-License-Identifier: CC-BY-4.0
 ////
 
 
+
 === Format "Value" (Value-Only Serialization) in JSON
+
 
 ==== Overview of Value-Only Serialization Attributes
 In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics. Consequently, there is not always a need to receive the entire model information, which can be requested separately via _Content_ modifier set to _Metadata_, in each request since it is constant most of the time. Instead, applications are most likely only interested in the values of the modelled data. Furthermore, having limited processing power or limited bandwidth, one use case of this format is to transfer data as efficiently as possible. Semantics and data might be split into two separate architecture building blocks. For example, a database would suit the needs for querying semantics, while a device would only provide the data at runtime. Two separate requests make it possible to build up a user interface (UI) and show new upcoming values highly efficiently.
@@ -500,7 +502,9 @@ For a BasicEventElement named “MyBasicEvent”, the Value-Only-payload is mini
 }
 ----
 
-==== JSON-Schema for the ValueOnly-Serialization
+
+=== JSON-Schema for the Value-Only Serialization
+
 
 The following JSON-Schema represents the validation schema for the ValueOnly-Serialization of submodel elements. This holds true for all submodel elements mentioned in the previous clause except for _SubmodelElementCollections_. Since _SubmodelElementCollections_ are treated as objects containing submodel elements of any kind, the integration into the same validation schema would result in a circular reference or ambiguous results ignoring the actual validation of submodel elements other than _SubmodelElementCollections_. Hence, the same validation schema must be applied for each _SubmodelElementCollection_ within a submodel element hierarchy. In this case, it may be necessary to create a specific JSON-Schema for the individual use case. The _SubmodelElementCollection_ is added to the following schema for completeness and clarity. It is, however, not referenced from the _SubmodelElementValue_-oneOf-Enumeration due to the reasons mentioned above. +
 See Annex B for an example that validates against this schema.
