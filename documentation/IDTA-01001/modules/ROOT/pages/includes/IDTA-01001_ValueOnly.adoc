@@ -14,7 +14,7 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 == Format "Value" (ValueOnly-Serialization) in JSON
 
 
-In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics. Consequently, there is not always a need to receive the entire model information, which can be requested separately via _Content_ modifier set to _Metadata_, in each request since it is constant most of the time. Instead, applications are most likely only interested in the values of the modelled data. Furthermore, having limited processing power or limited bandwidth, one use case of this SerializationModifier is to transfer data as efficiently as possible. Semantics and data might be split into two separate architecture building blocks. For example, a database would suit the needs for querying semantics, while a device would only provide the data at runtime. Two separate requests make it possible to build up a user interface (UI) and show new upcoming values highly efficiently.
+In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics. Consequently, there is not always a need to receive the entire model information, which can be requested separately via _Content_ modifier set to _Metadata_, in each request since it is constant most of the time. Instead, applications are most likely only interested in the values of the modelled data. Furthermore, having limited processing power or limited bandwidth, one use case of this format is to transfer data as efficiently as possible. Semantics and data might be split into two separate architecture building blocks. For example, a database would suit the needs for querying semantics, while a device would only provide the data at runtime. Two separate requests make it possible to build up a user interface (UI) and show new upcoming values highly efficiently.
 
 Values are only available for
 
@@ -23,21 +23,23 @@ Values are only available for
 * ReferenceElement,
 * RelationshipElement + AnnotatedRelationshipElement,
 * Entity,
-* BasicEventElement.
+* BasicEventElement,
+* Submodel.
 
-Capabilities are excluded from the SerializationModifier’s scope since only data containing elements are in the focus. They are consequently omitted in the serialization.
+Capabilities are excluded from the serialization scope since only data containing elements are in the focus. They are consequently omitted in the serialization.
 
-The following rules shall be adhered to when serializing a submodel with the SerializationModifier _Value_:
+The following rules shall be adhered to when serializing a submodel with the format _Value_footnote:[see SerializationModifier in Part 2 of the Specification of the Asset Administration Shell]:
 
 * A submodel is serialized as an unnamed JSON object.
 * A submodel element is considered a leaf submodel element if it does not contain other submodel elements. A leaf submodel element follows the rules for the different submodel elements considered in the serialization, as described below. If it is not a leaf element, the serialization rules must be transitively followed until the value is a leaf submodel element.
 * For each submodel element:
+
 ** _Property_ is serialized as $\{Property/idShort}: $\{Property/value} where $\{Property/value} is the JSON serialization of the respective property’s value in accordance with the data type to value mapping (see table after this section).
 ** _MultiLanguageProperty_ is serialized as named JSON object with $\{MultiLanguageProperty/idShort} as the name of the containing JSON property. The JSON object contains an array of JSON objects for each language of the _MultiLanguageProperty_ with the language as name and the corresponding localized string as value of the respective JSON property. The language name is defined as two chars according to ISO 639-1.
 ** _Range_ is serialized as named JSON object with $\{Range/idShort} as the name of the containing JSON property. The JSON object contains two JSON properties. The first is named “min”. The second is named “max”. Their corresponding values are $\{Range/min} and $\{Range/max}.
 ** _File_ and _Blob_ are serialized as named JSON objects with $\{File/idShort} or $\{Blob/idShort}as the name of the containing JSON property. The JSON object contains two JSON properties. The first refers to the content type named $\{File/contentType} resp. $\{Blob/contentType}. The latter refers to the value named “value” $\{File/value} resp. $\{Blob/value}. The resulting ValueOnly object is indistinguishable whether it contains File or Blob attributes. Therefore, the receiver needs to take the type of the target resource into account. Since the receiver knows in advance if a File or a Blob SubmodelElement shall be manipulated, it can parse the transferred ValueOnly object accordingly as a File or Blob object.
 ** _SubmodelElementCollection_ is serialized as named JSON object with $\{SubmodelElementCollection/idShort} as the name of the containing JSON property. The elements contained within the struct are serialized according to their respective type with $\{SubmodelElement/idShort} as the name of the containing JSON property.
-** _SubmodelElementList_ is serialized as a JSON array with the index of the contained SubmodelElement in the list as the position in the JSON array. The elements contained within the list are serialized according to their respective type.
+** _SubmodelElementList_ is serialized as a named JSON array with $\{SubmodelElementList/idShort} as the name of the containing JSON property. The elements in the JSON array are the ValueOnly serializations of the elements contained in the SubmodelElementList while preserving the order, i.e. index n in the JSON array is the ValueOnly serialization of the element at index n of the SubmodelElementList.
 ** _ReferenceElement_ is serialized as $\{ReferenceElement/idShort}: $\{ReferenceElement/value} where $\{ReferenceElement/value} is the serialization of the _Reference_ class.
 ** _RelationshipElement_ is serialized as named JSON object with $\{RelationshipElement/idShort} as the name of the containing JSON property. The JSON object contains two JSON properties. The first is named “first”. The second is named “second”. Their corresponding values are $\{RelationshipElement/first} resp. $\{Relationship/second}. The values are serialized according to the serialization of a _ReferenceElement_ (see above).
 ** _AnnotatedRelationshipElement_ is serialized according to the serialization of a _ReleationshipElement_ (see above). Additionally, a third named JSON object is introduced with “annotations” as the name of the containing JSON property. The value is $\{AnnotatedRelationshipElement/annotations}. The values of the array items are serialized depending on the type of the annotation data element.
@@ -51,6 +53,7 @@ The following rules shall be adhered to when serializing a submodel with the Ser
 
 The serialization of submodel element values is described in the following table. The left column “Data Type” shows the data types which can be used for submodel element values. The data types are defined according to the W3C XML Schema (https://www.w3.org/TR/xmlschema-2/#built-in-datatypes and https://www.w3.org/TR/xmlschema-2/#built-in-derived). “Value Range” further explains the possible range of data values for this data type. The right column comprises related examples of the serialization of submodel element values.
 
+[[data-types-value-only]]
 .Mapping of Data Types in ValueOnly-Serialization
 [%autowidth, width="100%", cols="15%,15%,9%,30%,31%",options="header",]
 |===
@@ -99,19 +102,19 @@ Note: the examples are written in RDF/Turtle syntax, and only "Hello" and "Hallo
 
 |===
 
-The following types defined by the XSD and RDF specifications are explicitly omitted for serialization:
+The following types defined by the XSD and RDF specifications are explicitly omitted for serialization - they are not element of _DataTypeDefXsd_ or _DataTypeDefRdf_:
 
 xs:language, xs:normalizedString, xs:token, xs:NMTOKEN, xs:Name, xs:NCName, xs:QName, xs:ENTITY, xs:ID, xs:IDREF, xs:NOTATION, xs:IDREFS, xs:ENTITIES, xs:NMTOKENS, rdf:HTML and rdf:XMLLiteral.
 
 
 ====
-Note 1: due to the limits in the representation of numbers in JSON, the maximum integer number that can be used without losing precision is 2⁵³-1 (defined as Number.MAX_SAFE_INTEGER). Even if the used data type would allow higher or lower values, they cannot be used if they cannot be represented in JSON. Affected data types are unbounded numeric types xs:decimal, xs:integer, xs:positiveInteger, xs:nonNegativeInteger, xs:negativeInteger, xs:nonPositiveInteger and the bounded type xs:unsignedLong. Other numeric types are not affected. footnote:[cf. https://openmanufacturingplatform.github.io/sds-documentation/bamm-specification/v1.0.0/datatypes.html (with adjustments for +/-INF, NaN, and language-typed literal support)]
+Note 1: due to the limits in the representation of numbers in JSON, the maximum integer number that can be used without losing precision is 2³-1 (defined as Number.MAX_SAFE_INTEGER). Even if the used data type would allow higher or lower values, they cannot be used if they cannot be represented in JSON. Affected data types are unbounded numeric types xs:decimal, xs:integer, xs:positiveInteger, xs:nonNegativeInteger, xs:negativeInteger, xs:nonPositiveInteger and the bounded type xs:unsignedLong. Other numeric types are not affected. footnote:[cf. https://eclipse-esmf.github.io/samm-specification/2.1.0/datatypes.html (with adjustments for +/-INF, NaN, and language-typed literal support)]
 ====
 
 
 
 ====
-Note 2: the ValueOnly-serialization uses JSON native data types, AAS in general uses XML Schema Built-in Datatypes for Simple Data Types and ValueDataType. In case of booleans, JSON accepts only literals true and false, whereas xs:boolean also accepts 1 and 0, respectively. In case of double, JSON number is used in ValueOnly, but JSON number does not support INF/-INF (positive Infinity/negative), which is supported by xs:double. Furthermore, NaN (Not a Number) is also not supported. +
+Note 2: the ValueOnly-serialization uses JSON native data types, AAS in general uses XML Schema Built-in Datatypes for Simple Data Types and ValueDataType. In case of booleans, JSON accepts only literals true and false, whereas xs:boolean also accepts 1 and 0, respectively. In case of double, JSON number is used in ValueOnly, but JSON number does not support INF/-INF (positive Infinity/negative), which is supported by xs:double. Furthermore, NaN (Not a Number) is also not supported. 
 ====
 
 (See https://datatracker.ietf.org/doc/html/rfc8259#section-6 )
@@ -121,6 +124,9 @@ Note 2: the ValueOnly-serialization uses JSON native data types, AAS in general 
 Note 3: language-tagged strings (rdf:langString) containing single quotes (‘) or double quotes (“) are not supported.
 ====
 
+====
+Note 4: Roundtrip conversion from "Normal" to "ValueOnly" format may not result in the original payload because "Normal" is using string whereas "ValueOnly" is using the JSON type closest to the xsd datatype (see table [data-types-value-only]).
+====
 
 *Examples conformant to link:#bib1[[1\]]:*
 
@@ -205,7 +211,7 @@ Note: in accordance with IETF https://tools.ietf.org/html/rfc5646#page-5[RFC 564
 
 [source]
 ----
-^[a-z]\{2,4}(-[A-Z][a-z]\{3})?(-([A-Z]\{2}|[0-9]\{3}))?$
+^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$
 ----
 
 
@@ -417,7 +423,9 @@ For a BasicEventElement named “MyBasicEvent”, the payload is minimized to th
 }
 ----
 
-=== JSON-Schema for the ValueOnly-Serialization
+
+=== JSON-Schema for the Value-Only Serialization
+
 
 The following JSON-Schema represents the validation schema for the ValueOnly-Serialization of submodel elements. This holds true for all submodel elements mentioned in the previous clause except for _SubmodelElementCollections_. Since _SubmodelElementCollections_ are treated as objects containing submodel elements of any kind, the integration into the same validation schema would result in a circular reference or ambiguous results ignoring the actual validation of submodel elements other than _SubmodelElementCollections_. Hence, the same validation schema must be applied for each _SubmodelElementCollection_ within a submodel element hierarchy. In this case, it may be necessary to create a specific JSON-Schema for the individual use case. The _SubmodelElementCollection_ is added to the following schema for completeness and clarity. It is, however, not referenced from the _SubmodelElementValue_-oneOf-Enumeration due to the reasons mentioned above. +
 See Annex B for an example that validates against this schema.

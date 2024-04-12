@@ -110,7 +110,9 @@ Note 3: usage of the template ID is not restricted to submodel instances. The cr
 ====
 
 
+
 |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] |0..1
+
 |===
 
 == Has Data Specification Attributes
@@ -144,7 +146,7 @@ Note: this is an external reference.
 
 For more details on data specifications, please see Clause 6.
 
-== Extensions Attributes
+== Has Extension Attributes
 
 .Metamodel of Has Extensions
 image::image16.png[]
@@ -176,7 +178,9 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasExtensions`
 h|Explanation h|Type h|Card.
 
 .2+e|extension 3+| `\https://admin-shell.io/aas/3/1/HasExtensions/extensions`  
+
 a|An extension of the element. |xref:Spec/IDTA-01001_Metamodel_Common.adoc#Extension[Extension] |0..*
+
 |===
 
 {empty} +
@@ -240,6 +244,7 @@ a| Kind of the element: either template or instance
 Default Value = _Instance_
 
 |xref:Spec/IDTA-01001_Metamodel_Common.adoc#ModellingKind[ModellingKind]|0..1
+
 |===
 
 The kind enumeration is used to denote whether an element is of kind _Template_ or _Instance_. It is used to distinguish between submodels and submodel templates.
@@ -362,7 +367,9 @@ Note: some of the administrative information like the version number might need 
 |xref:Spec/IDTA-01001_Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] |0..1
 
 .2+e|id 3+| `\https://admin-shell.io/aas/3/1/Identifiable/id`  
+
 a|The globally unique identification of the element |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] |1
+
 |===
 
 == Qualifiable Attributes
@@ -453,6 +460,8 @@ Note: it is recommended to use an external reference.
 
 
 |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#Reference[Reference] |0..1
+
+
 |===
 
 It is recommended to add a _semanticId_ for the concept of the _Qualifier_. _Qualifier/type_ is the preferred name of the concept of the qualifier or its short name.
