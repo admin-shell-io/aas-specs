@@ -6,8 +6,6 @@ https://creativecommons.org/licenses/by/4.0/).
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Illustrations:
-Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
 ////
 
 
@@ -170,7 +168,7 @@ xs:language, xs:normalizedString, xs:token, xs:NMTOKEN, xs:Name, xs:NCName, xs:Q
 
 
 ====
-Note 1: due to the limits in the representation of numbers in JSON, the maximum integer number that can be used without losing precision is 2³-1 (defined as Number.MAX_SAFE_INTEGER). Even if the used data type would allow higher or lower values, they cannot be used if they cannot be represented in JSON. Affected data types are unbounded numeric types xs:decimal, xs:integer, xs:positiveInteger, xs:nonNegativeInteger, xs:negativeInteger, xs:nonPositiveInteger and the bounded type xs:unsignedLong. Other numeric types are not affected. footnote:[cf. https://eclipse-esmf.github.io/samm-specification/2.0.0/payloads.html (with adjustments for +/-INF, NaN, and language-typed literal support)]
+Note 1: due to the limits in the representation of numbers in JSON, the maximum integer number that can be used without losing precision is 2^53^-1 (defined as Number.MAX_SAFE_INTEGER). Even if the used data type would allow higher or lower values, they cannot be used if they cannot be represented in JSON. Affected data types are unbounded numeric types xs:decimal, xs:integer, xs:positiveInteger, xs:nonNegativeInteger, xs:negativeInteger, xs:nonPositiveInteger and the bounded type xs:unsignedLong. Other numeric types are not affected. footnote:[cf. https://eclipse-esmf.github.io/samm-specification/2.0.0/payloads.html (with adjustments for +/-INF, NaN, and language-typed literal support)]
 ====
 
 
