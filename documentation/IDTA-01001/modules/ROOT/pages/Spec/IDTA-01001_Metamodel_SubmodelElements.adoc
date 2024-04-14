@@ -234,7 +234,7 @@ a|Timestamp in UTC, when this event was triggered |dateTime |1
 a|Event-specific payload |xref:BlobType[BlobType] |0..1
 |===
 
-For more information on the concept of subject, see Attribute Based Access Control (ABAC) link:#bib49[[49\]]. The assumption is that every subject has a unique identifier.
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:IDTA-01xxx_Bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
 
 == Blob Attributes
 
@@ -286,7 +286,7 @@ image::image33.png[]
 
 
 =
-Note: the _semanticId_ of a capability is typically an ontology, which enables reasoning on capabilities. For information and examples on how to apply the concept of capability and how to map it to one or more skills implementing the capability, please refer to link:#bib27[[27\]]. The mapping is done via a relationship element with the corresponding semantics. A skill is typically a property or an operation. In more complex cases, the mapping can also be a collection or a complete submodel.
+Note: the _semanticId_ of a capability is typically an ontology, which enables reasoning on capabilities. For information and examples on how to apply the concept of capability and how to map it to one or more skills implementing the capability, please refer to xref:IDTA-01xxx_Bibliography.adoc#bib27[[27\]]. The mapping is done via a relationship element with the corresponding semantics. A skill is typically a property or an operation. In more complex cases, the mapping can also be a collection or a complete submodel.
 =
 
 
@@ -544,7 +544,7 @@ a|Describes an argument or result of an operation via a submodel element |xref:S
 
 
 =
-Note 1: operations typically specify the behavior of a component in terms of procedures. Hence, operations enable the specification of services with procedure-based interactions link:#bib23[[23\]].
+Note 1: operations typically specify the behavior of a component in terms of procedures. Hence, operations enable the specification of services with procedure-based interactions xref:IDTA-01xxx_Bibliography.adoc#bib23[[23\]].
 =
 
 
@@ -731,7 +731,7 @@ Note: there is no _idShort_ for submodel elements in lists (see Constraint AASd-
 ====
 
 
-Submodel element lists are also used to create multi-dimensional arrays. A two-dimensional array listlink:#bib3[[3\]]link:#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements. Each of these three _SubmodelElementLists_ would contain 5 single _Property_ elements. The _semanticId_ of the contained properties would be the same for all lists in the first list, i.e. _semanticIdListElement_ would be identical for all three lists contained in the first list. The _semanticId_ of the three contained lists would differ depending on the dimension it represents. In case of complex values in the array, a _SubmodelElementCollection_ would be used as values in the leaf lists.
+Submodel element lists are also used to create multi-dimensional arrays. A two-dimensional array listxref:IDTA-01xxx_Bibliography.adoc#bib3[[3\]]xref:IDTA-01xxx_Bibliography.adoc#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements. Each of these three _SubmodelElementLists_ would contain 5 single _Property_ elements. The _semanticId_ of the contained properties would be the same for all lists in the first list, i.e. _semanticIdListElement_ would be identical for all three lists contained in the first list. The _semanticId_ of the three contained lists would differ depending on the dimension it represents. In case of complex values in the array, a _SubmodelElementCollection_ would be used as values in the leaf lists.
 
 Similarly, a table with three columns can be represented. In this case a _SubmodelElementCollection_ with three _SubmodelElementLists_ would be contained and the _semanticId_ as well as the _semanticIdListElement_ for the three columns would differ.
 

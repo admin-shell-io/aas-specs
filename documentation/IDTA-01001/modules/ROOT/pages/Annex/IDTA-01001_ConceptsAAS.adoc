@@ -21,14 +21,14 @@ Annex A provides general information about sources of information and relevant c
 
 The following documents were used to identify requirements and concepts for the Administration Shell:
 
-* implementation strategy of Plattform Industrie 4.0 link:#bib1[[1\]]link:#bib2[[2\]],
-* aspects of the research roadmap in application scenarios link:#bib7[[7\]],
-* continuation of the application scenarios link:#bib8[[8\]],
-* structure of the Administration Shell link:#bib4[[4\]] link:#bib19[[19\]],
-* examples for the Administration Shell of the Industrie 4.0 Components link:#bib6[[6\]],
-* technical overview "Secure identities" link:#bib9[[9\]],
-* security of the Administration Shell link:#bib15[[15\]],
-* relationships between I4.0 components – composite components and smart production link:#bib13[[13\]].
+* implementation strategy of Plattform Industrie 4.0 xref:IDTA-01xxx_Bibliography.adoc#bib1[[1\]]xref:IDTA-01xxx_Bibliography.adoc#bib2[[2\]],
+* aspects of the research roadmap in application scenarios xref:IDTA-01xxx_Bibliography.adoc#bib7[[7\]],
+* continuation of the application scenarios xref:IDTA-01xxx_Bibliography.adoc#bib8[[8\]],
+* structure of the Administration Shell xref:IDTA-01xxx_Bibliography.adoc#bib4[[4\]] xref:IDTA-01xxx_Bibliography.adoc#bib19[[19\]],
+* examples for the Administration Shell of the Industrie 4.0 Components xref:IDTA-01xxx_Bibliography.adoc#bib6[[6\]],
+* technical overview "Secure identities" xref:IDTA-01xxx_Bibliography.adoc#bib9[[9\]],
+* security of the Administration Shell xref:IDTA-01xxx_Bibliography.adoc#bib15[[15\]],
+* relationships between I4.0 components – composite components and smart production xref:IDTA-01xxx_Bibliography.adoc#bib13[[13\]].
 
 
 ====
@@ -50,20 +50,20 @@ Note 3: the online library of the Industrial Digital Twin Association can be fou
 
 == Basic Concepts for Industry 4.0
 
-Industry 4.0 describes concepts and definitions for the domain of smart manufacturing. For Industry 4.0, the term asset, being any "object which has a value for an organization", is of central importance link:#bib2[[2\]] link:#bib21[[21\]]. Industry 4.0 assets can take almost any form, e.g. a production system, a product, a software installation, intellectual properties, or even human resources.
+Industry 4.0 describes concepts and definitions for the domain of smart manufacturing. For Industry 4.0, the term asset, being any "object which has a value for an organization", is of central importance xref:IDTA-01xxx_Bibliography.adoc#bib2[[2\]] xref:IDTA-01xxx_Bibliography.adoc#bib21[[21\]]. Industry 4.0 assets can take almost any form, e.g. a production system, a product, a software installation, intellectual properties, or even human resources.
 
-According to link:#bib21[[21\]], the "reference architecture model Industry 4.0 (RAMI4.0) provides a structured view of the main elements of an asset using a level model consisting of three axes [...]. Complex interrelationships can thus be broken down into smaller, more manageable sections by combining all three axes at each point in the asset’s life to represent each relevant aspect."
+According to xref:IDTA-01xxx_Bibliography.adoc#bib21[[21\]], the "reference architecture model Industry 4.0 (RAMI4.0) provides a structured view of the main elements of an asset using a level model consisting of three axes [...]. Complex interrelationships can thus be broken down into smaller, more manageable sections by combining all three axes at each point in the asset’s life to represent each relevant aspect."
 
-Assets shall have a logical representation in the "information world", e.g. managed by IT systems. Consequently, an asset needs a precise identification as an entity, shall have a "specific state within its life (at least a type or instance)", shall have communication capabilities, shall be represented by means of information and shall be able to provide technical functionality link:#bib21[[21\]]. This logical representation of an asset is called Administration Shell link:#bib4[[4\]]. The combination of asset and Administration Shell forms the so-called I4.0 component. In international papers link:#bib19[[19\]], the term smart manufacturing replaces the term Industry 4.0.
+Assets shall have a logical representation in the "information world", e.g. managed by IT systems. Consequently, an asset needs a precise identification as an entity, shall have a "specific state within its life (at least a type or instance)", shall have communication capabilities, shall be represented by means of information and shall be able to provide technical functionality xref:IDTA-01xxx_Bibliography.adoc#bib21[[21\]]. This logical representation of an asset is called Administration Shell xref:IDTA-01xxx_Bibliography.adoc#bib4[[4\]]. The combination of asset and Administration Shell forms the so-called I4.0 component. In international papers xref:IDTA-01xxx_Bibliography.adoc#bib19[[19\]], the term smart manufacturing replaces the term Industry 4.0.
 
-As far as the large variety of assets in Industry 4.0 are concerned, the Asset Administration Shell allows these assets to be handled in the same manner within the information world. This reduces complexity and allows for scalability. Additional motivation can be found in link:#bib2[[2\]] link:#bib4[[4\]] link:#bib7[[7\]] link:#bib8[[8\]].
+As far as the large variety of assets in Industry 4.0 are concerned, the Asset Administration Shell allows these assets to be handled in the same manner within the information world. This reduces complexity and allows for scalability. Additional motivation can be found in xref:IDTA-01xxx_Bibliography.adoc#bib2[[2\]] xref:IDTA-01xxx_Bibliography.adoc#bib4[[4\]] xref:IDTA-01xxx_Bibliography.adoc#bib7[[7\]] xref:IDTA-01xxx_Bibliography.adoc#bib8[[8\]].
 
-.Important Concepts of Industry 4.0 attached to the Asset link:#bib2[[2\]] link:#bib21[[21\]]
+.Important Concepts of Industry 4.0 attached to the Asset xref:IDTA-01xxx_Bibliography.adoc#bib2[[2\]] xref:IDTA-01xxx_Bibliography.adoc#bib21[[21\]]
 image::image60.jpeg[]
 
 == The Concept of Properties
 
-According to link:#bib20[[20\]], the "IEC 61360 series provides a framework and an information model for product dictionaries. The concept of product type is represented by 'classes' and the product characteristics are represented by 'properties'".
+According to xref:IDTA-01xxx_Bibliography.adoc#bib20[[20\]], the "IEC 61360 series provides a framework and an information model for product dictionaries. The concept of product type is represented by 'classes' and the product characteristics are represented by 'properties'".
 
 Standardized data elements are an example for such properties. The definitions can be found in a range of repositories, such as IEC CDD (common data dictionary) or ECLASS. The definition of a property (aka standardized data element type, property type) associates a worldwide unique identifier with a definition, which is a set of well-defined attributes. Relevant attributes for the Administration Shell are, amongst others, the preferred name, the symbol, the unit of measure, and a human-readable textual definition of the property.
 
@@ -80,14 +80,14 @@ Note: Industry 4.0 and smart manufacturing in general will require many properti
 
 == The Concept of Submodels
 
-"The Administration Shell is the standardized digital representation of the asset, corner stone of the interoperability between the applications managing the manufacturing systems" link:#bib19[[19\]]. Hence, it should provide a minimal but sufficient description according to the different application scenarios in Industry 4.0 link:#bib7[[7\]] link:#bib8[[8\]]. Many different (international) standards, consortia and manufacturer specifications can already contribute to this description link:#bib19[[19\]].
+"The Administration Shell is the standardized digital representation of the asset, corner stone of the interoperability between the applications managing the manufacturing systems" xref:IDTA-01xxx_Bibliography.adoc#bib19[[19\]]. Hence, it should provide a minimal but sufficient description according to the different application scenarios in Industry 4.0 xref:IDTA-01xxx_Bibliography.adoc#bib7[[7\]] xref:IDTA-01xxx_Bibliography.adoc#bib8[[8\]]. Many different (international) standards, consortia and manufacturer specifications can already contribute to this description xref:IDTA-01xxx_Bibliography.adoc#bib19[[19\]].
 
 As the figure shows, information from many different domains can be associated with a respective asset, and many different properties are required to be represented in Administration Shells of future I4.0 components. The architectural principle "separation of concerns" is supported by submodels.
 
 .Examples of Different Domains Providing Properties for Submodels of the Administration Shell
 image::image62.jpg[]
 
-The Administration Shell is made up of a series of submodels link:#bib4[[4\]]. These represent different aspects of the asset concerned. For example, they may contain a description relating to safety or security link:#bib15[[15\]] but they could also outline various process capabilities such as drilling or installation link:#bib6[[6\]].
+The Administration Shell is made up of a series of submodels xref:IDTA-01xxx_Bibliography.adoc#bib4[[4\]]. These represent different aspects of the asset concerned. For example, they may contain a description relating to safety or security xref:IDTA-01xxx_Bibliography.adoc#bib15[[15\]] but they could also outline various process capabilities such as drilling or installation xref:IDTA-01xxx_Bibliography.adoc#bib6[[6\]].
 
 From an interoperability perspective, the goal is to standardize only a single submodel for each aspect/ technical domain. For example, it will be possible to find a drilling machine by searching for an Administration Shell containing a submodel "Drilling" with appropriate properties. Certain properties can then be assumed to exist for communication between different I4.0 components. In our example, a second submodel "energy efficiency" could make sure the drilling machine is able to cut its electricity consumption when out of operation.
 
@@ -99,7 +99,7 @@ Note: a side benefit of the Administration Shell will be to simplify the update 
 
 == Basic Structure of the Asset Administration Shell
 
-The document on the structure of the Asset Administration Shell link:#bib4[[4\]] link:#bib19[[19\]] presents a rough, logical view of the Asset Administration Shell’s structure. The Asset Administration Shell – shown in blue in the following figure – comprises different sets of information. Both the asset and the Administration Shell are identified by a globally unique identifier. It comprises a number of submodels, which characterize the Asset Administration Shell.
+The document on the structure of the Asset Administration Shell xref:IDTA-01xxx_Bibliography.adoc#bib4[[4\]] xref:IDTA-01xxx_Bibliography.adoc#bib19[[19\]] presents a rough, logical view of the Asset Administration Shell’s structure. The Asset Administration Shell – shown in blue in the following figure – comprises different sets of information. Both the asset and the Administration Shell are identified by a globally unique identifier. It comprises a number of submodels, which characterize the Asset Administration Shell.
 
 .Basic Structure of the Asset Administration Shell
 image::image63.jpeg[]
@@ -110,21 +110,21 @@ Each submodel contains a structured quantity of properties that can refer to dat
 
 The properties of all the submodels therefore result in a constantly readable key information directory of the Administration Shell and hence of the I4.0 component. To enable binding semantics, Administration Shells, assets, submodels, and properties must all be clearly identified. For identification of these element the following types of global identifiers are allowed: IRDIs (used for example in ISO TS 29002-5, ECLASS and IEC CDD) and IRIs (Internationalized Resource Identifier, used for example in ontologies).
 
-It should be possible to filter elements of the Administration Shell or submodels according to different given views (see example C.4 in link:#bib19[[19\]]). This facilitates different perspectives or use cases to access the Administration Shell's information.
+It should be possible to filter elements of the Administration Shell or submodels according to different given views (see example C.4 in xref:IDTA-01xxx_Bibliography.adoc#bib19[[19\]]). This facilitates different perspectives or use cases to access the Administration Shell's information.
 
 == How Are New Identifiers Created?
 
 Following the different identification types from Clause 4.3.4, it can be stated that:
 
 [loweralpha]
-. IRDIs are assumed to already exist due to an external specification and standardization process in the creation of a certain Administration Shell. To bring such IRDI identifiers to life, please refer to Clause 5 of this document link:#bib4[[4\]].
+. IRDIs are assumed to already exist due to an external specification and standardization process in the creation of a certain Administration Shell. To bring such IRDI identifiers to life, please refer to Clause 5 of this document xref:IDTA-01xxx_Bibliography.adoc#bib4[[4\]].
 . URIs and URLs can easily be created by developers when forming a certain Administration Shell. All they need is a valid authenticated URL, for example of the company. They also need to make sure that the domain (e.g. admin-shell.io) appended to the host’s name is reserved in a semantically unique way for these identifiers. This way, each developer can create an arbitrary URI or URL by combining the host name and some chosen path, which only needs to be unique in the developer's organization.
 . Custom identifiers can also be easily formed by developers. They only need to make sure that internal custom identifiers can be clearly distinguished from (a) or (b).
 . Local identifiers can also be created on the fly. They have to be unique within their namespace.
 
 == Best Practice for Creating URI Identifiers
 
-The approach for semantics and interaction for I4.0 components link:#bib18[[18\]] suggests the use of the following structure (see Table 11) for URIsfootnote:[URLs are also URIs], which is slightly modified here. The idea is to always structure URIs following a scheme of different elements. However, this is just a recommendation and by no means mandatory.
+The approach for semantics and interaction for I4.0 components xref:IDTA-01xxx_Bibliography.adoc#bib18[[18\]] suggests the use of the following structure (see Table 11) for URIsfootnote:[URLs are also URIs], which is slightly modified here. The idea is to always structure URIs following a scheme of different elements. However, this is just a recommendation and by no means mandatory.
 
 .Proposed Structure for URIs
 [cols="23%,64%,13%",options="header",]
