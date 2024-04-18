@@ -6,14 +6,14 @@ https://creativecommons.org/licenses/by/4.0/).
 
 SPDX-License-Identifier: CC-BY-4.0
 
-Illustrations:
-Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
 ////
 
 
-== Format "Value" (ValueOnly-Serialization) in JSON
+
+=== Format "Value" (Value-Only Serialization) in JSON
 
 
+==== Overview of Value-Only Serialization Attributes
 In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics. Consequently, there is not always a need to receive the entire model information, which can be requested separately via _Content_ modifier set to _Metadata_, in each request since it is constant most of the time. Instead, applications are most likely only interested in the values of the modelled data. Furthermore, having limited processing power or limited bandwidth, one use case of this format is to transfer data as efficiently as possible. Semantics and data might be split into two separate architecture building blocks. For example, a database would suit the needs for querying semantics, while a device would only provide the data at runtime. Two separate requests make it possible to build up a user interface (UI) and show new upcoming values highly efficiently.
 
 Values are only available for
@@ -27,6 +27,68 @@ Values are only available for
 * Submodel.
 
 Capabilities are excluded from the serialization scope since only data containing elements are in the focus. They are consequently omitted in the serialization.
+
+
+The Value-Only Format does not contain Metadata attributes (see xref:IDTA-01001_Mappings.adoc#format-metadata-metadata-serialization[Metadata Attributes]) but only the value-related data.
+
+[[table-value-data-attributes]]
+.Value-Only Attributes
+[%autowidth, width="100%", cols="48%,52%",options="header",]
+|===
+|*Class Name* |*Fields for Value-Only representationfootnote:[ attribute in parenthesis - like e.g. (value) - means that the attribute name is not displayed, only its Value-Only serialization. 
+For the other attributes the attribute itself will be part of the serialization]*
+2+|*Identifiables*
+|AssetAdministrationShell a|assetInformation, submodels
+|Submodel a| (submodelElements)
+
+|*SubmodelElements* a| 
+
+|SubmodelElementCollection a| (value) 
+
+|SubmodelElementList a| (value) 
+
+if defined: type equal to SubmodelElementList/valueTypeListElement
+
+|Entity |statements, globalAssetId, specificAssetId
+|BasicEventElement a|observed
+|Capability a| -
+|Operation a| -
+
+|RelationshipElement a|first, second
+
+|AnnotatedRelationshipElement a|first, second, annotations
+
+2+|*DataElements*
+|Property a| (value)
+
+type equal to Property/valueType
+
+|MultilanguageProperty a| (value)
+
+|Range a|min, max
+
+type equal to Range/valueType
+
+|ReferenceElement a|(value)
+
+|Blob a|value, contentType
+|File a|value, contentType
+
+2+|*Non-Referables*
+|OperationVariable a| (value)
+
+|===
+
+The following restrictions hold:
+
+* Qualifiers are ignored in Value-Only serialization. This also holds for qualifiers of kind "ValueQualifier"
+* valueId (as used in Property and MultiLanguageProperty) is ignored in Value-Only serialization
+
+====
+There is no Value-Only serialization for an Operation. However, a Value-Only serialization is useful for its arguments when executing the operation (see Value-Only serialization of "OperationVariable")
+====
+
+==== Rules for Value-Only Serialization
 
 The following rules shall be adhered to when serializing a submodel with the format _Value_footnote:[see SerializationModifier in Part 2 of the Specification of the Asset Administration Shell]:
 
@@ -49,12 +111,12 @@ The following rules shall be adhered to when serializing a submodel with the for
 
 * Submodel elements defined in the submodel other than the ones mentioned above are not subject to serialization of that SerializationModifier.
 
-*Data type to value mapping* footnote:[cf. https://openmanufacturingplatform.github.io/sds-documentation/bamm-specification/2.0.0/datatypes.html]
+==== Data type to value mapping
 
 The serialization of submodel element values is described in the following table. The left column “Data Type” shows the data types which can be used for submodel element values. The data types are defined according to the W3C XML Schema (https://www.w3.org/TR/xmlschema-2/#built-in-datatypes and https://www.w3.org/TR/xmlschema-2/#built-in-derived). “Value Range” further explains the possible range of data values for this data type. The right column comprises related examples of the serialization of submodel element values.
 
 [[data-types-value-only]]
-.Mapping of Data Types in ValueOnly-Serialization
+.Mapping of Data Types in ValueOnly-Serializationfootnote:[cf. https://eclipse-esmf.github.io/samm-specification/2.0.0/datatypes.html]
 [%autowidth, width="100%", cols="15%,15%,9%,30%,31%",options="header",]
 |===
 | |*Data Type* |*JSON Type* |*Value Range* |*Sample Values*
@@ -108,7 +170,7 @@ xs:language, xs:normalizedString, xs:token, xs:NMTOKEN, xs:Name, xs:NCName, xs:Q
 
 
 ====
-Note 1: due to the limits in the representation of numbers in JSON, the maximum integer number that can be used without losing precision is 2³-1 (defined as Number.MAX_SAFE_INTEGER). Even if the used data type would allow higher or lower values, they cannot be used if they cannot be represented in JSON. Affected data types are unbounded numeric types xs:decimal, xs:integer, xs:positiveInteger, xs:nonNegativeInteger, xs:negativeInteger, xs:nonPositiveInteger and the bounded type xs:unsignedLong. Other numeric types are not affected. footnote:[cf. https://eclipse-esmf.github.io/samm-specification/2.1.0/datatypes.html (with adjustments for +/-INF, NaN, and language-typed literal support)]
+Note 1: due to the limits in the representation of numbers in JSON, the maximum integer number that can be used without losing precision is 2^53^-1 (defined as Number.MAX_SAFE_INTEGER). Even if the used data type would allow higher or lower values, they cannot be used if they cannot be represented in JSON. Affected data types are unbounded numeric types xs:decimal, xs:integer, xs:positiveInteger, xs:nonNegativeInteger, xs:negativeInteger, xs:nonPositiveInteger and the bounded type xs:unsignedLong. Other numeric types are not affected. footnote:[cf. https://eclipse-esmf.github.io/samm-specification/2.0.0/payloads.html (with adjustments for +/-INF, NaN, and language-typed literal support)]
 ====
 
 
@@ -128,21 +190,78 @@ Note 3: language-tagged strings (rdf:langString) containing single quotes (‘) 
 Note 4: Roundtrip conversion from "Normal" to "ValueOnly" format may not result in the original payload because "Normal" is using string whereas "ValueOnly" is using the JSON type closest to the xsd datatype (see table [data-types-value-only]).
 ====
 
-*Examples conformant to xref:IDTA-01xxx_Bibliography.adoc#bib1[[1\]]:*
 
-Full serialization of single submodel element _Property_:
+==== Example Value-Only serialization for a Submodel
+
+
+The following example shows the JSON Value-Only serialization for a Submodel with name "Example" and two direct SubmodelElements "ProductClassifications" and "MaxRotationSpeed". "ProductClassifications" is represented by a SubmodelElementList with SubmodelElementCollections as its elements. Each of the SubmodelCollections has two mandatory elements "ProductClassificationSystem" and "ProductClassId" and one optional element "ProductClassificationVersion". All of these elements have data type "xs:string". "MaxRotationSpeed" is a property with data type "xs:int".
+
+[source,json,linenums]
+----
+{ "ProductClassifications": 
+   [
+    {
+	"ProductClassificationSystem": "ECLASS",
+	"ProductClassId": "27-01-88-77",
+	"ProductClassificationVersion: "9.0"
+    },
+    {
+	"ProductClassificationSystem": "IEC CDD",
+	"ProductClassId": "0112/2///61987#ABA827#003",
+    }
+   ],
+  "MaxRotationSpeed": 5000
+}
+----
+
+The JSON Value-Only serialization for the element "ProductClassifications", a SubmodelElementList, within the submodel above looks like this:
+
+[source,json,linenums]
+----
+   [
+    {
+	"ProductClassificationSystem": "ECLASS",
+	"ProductClassId": "27-01-88-77",
+	"ProductClassificationVersion: "9.0"
+    },
+    {
+	"ProductClassificationSystem": "IEC CDD",
+	"ProductClassId": "0112/2///61987#ABA827#003",
+    }
+   ]
+----
+
+The JSON Value-Only serialization for the  first element, a SubmodelElementCollection, within the "ProductClassifications" list above looks like this:
+
+[source,json,linenums]
+----
+{
+	"ProductClassificationSystem": "ECLASS",
+	"ProductClassId": "27-01-88-77",
+	"ProductClassificationVersion: "9.0"
+}
+----
+
+The JSON Value-Only serialization for the Property "MaxRotationSpeed" of the submodel above looks like this:
+[source,json,linenums]
+----
+5000
+----
+
+
+
+
+The Format "Normal" in comparison to this Value-Only serialization of the property "MaxRotationSpeed" would look like this:
 
 [source,json,linenums]
 ----
 {
   "idShort": "MaxRotationSpeed",
-  "category": "PARAMETER",
-  "kind": "Instance",
-  "semanticlId": {
-    "type": "ModelReference",
+  "semanticId": {
+    "type": "ExternalReference",
     "keys": [
       {
-        "type": "ConceptDescription",
+        "type": "GlobalReference",
         "value": "0173-1#02-BAA120#008"
       }
     ]
@@ -153,107 +272,74 @@ Full serialization of single submodel element _Property_:
 }
 ----
 
-With the SerializationModifier set to _Value,_ the payload is minimized to the following:
+==== Examples Value-Only serialization for all submodel element types 
+
+In the following examples for Value-Only serializations for all submodel element types are given.
+
+
+For a single _Property_ named "MaxRotationSpeed", the value-Only payload is minimized to the following (assuming its value is 5000):
+[source,json,linenums]
+----
+  5000
+----
+
+
+For a _SubmodelElementCollection_ named "ProductClassification" or being part of a list "ProductionClassifications", the Value-Only payload is minimized to the following,
+i.e. the name of the SubmodelElementCollection or its index in the list is not part of the Value-Only serialization:
 
 [source,json,linenums]
 ----
 {
-  "MaxRotationSpeed": 5000
+	"ProductClassificationSystem": "ECLASS",
+	"ProductClassId": "27-01-88-77",
+	"ProductClassificationVersion: "9.0"
 }
 ----
 
-TODO: Example where precision in value string to ValueOnly to value string is critical.
 
-
-For a _SubmodelElementCollection,_ the struct is serialized as objects denoted by curly brackets:
+For a _SubmodelElementList_ named "Authors" with string Properties as its value, the Value-Only payload is minimized to the following (values within a SubmodelElementList do not have idShort values)footnote:[The Value-Only serialization of the product classification example can be seen above]:
 
 [source,json,linenums]
 ----
-{
-  "NamesOfFamilyMembers": {
-    "NameOfMother": "Martha ExampleFamily",
-    "NameOfFather": "Jonathan ExampleFamily",
-    "NameOfSon": "Clark ExampleFamily"
-  }
-}
+[
+    "Martha",
+    "Jonathan",
+    "Clark"
+]
 ----
 
-For a _SubmodelElementList,_ the struct is serialized as array denoted by square brackets:
 
+
+For a _MultiLanguageProperty_ the Value-Only payload is minimized to the following:
 [source,json,linenums]
 ----
-{
-  "NamesOfFamilyMembers": [
-    "Martha ExampleFamily",
-    "Jonathan ExampleFamily",
-    "Clark ExampleFamily"
-  ]
-}
-----
-
-For a _MultiLanguageProperty_ named “Label”, the payload is minimized to the following:
-
-[source,json,linenums]
-----
-{
-  "Label": [
+[
     {"de": "Das ist ein deutscher Bezeichner"},
     {"en": "That's an English label"}
-  ]
-}
+]
+
 ----
 
 
-====
-Note: in accordance with IETF https://tools.ietf.org/html/rfc5646#page-5[RFC 5646], the language names match the following regular expression:
-====
 
 
-[source]
-----
-^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$
-----
 
-
-For a _Range_ named “TorqueRange”, the payload is minimized to the following:
+For a _Range_ named “TorqueRange”, the Value-Only payload  is minimized to the following:
 
 [source,json,linenums]
 ----
 {
-  "TorqueRange": {
     "min": 3,
     "max": 15
-  }
 }
 ----
 
-For a _ReferenceElement_ named “MaxRotationSpeedReference”, the payload is minimized to the following:
+For a _ReferenceElement_ named “MaxRotationSpeedReference”, the Value-Only payload  is minimized to the following:
+
 
 [source,json,linenums]
 ----
 {
-  "MaxRotationSpeedReference": {
-    "type": "ModelReference",
-    "keys": [
-      {
-        "type": "Submodel",
-        "value": "http://customer.com/demo/aas/1/1/1234859590"
-      },
-      {
-        "type": "Property",
-        "value": "MaxRotationSpeed"
-      }
-    ]
-  }
-}
-----
-
-For the same _ReferenceElement,_ the payload is minimized to the following in case the _Reference_ is of subtype _GlobalReference_:
-
-[source,json,linenums]
-----
-{
-  "MaxRotationSpeedReference": {
     "type": "ExternalReference",
     "keys": [
       {
@@ -261,51 +347,48 @@ For the same _ReferenceElement,_ the payload is minimized to the following in ca
         "value": "0173-1#02-BAA120#008"
       }
     ]
-  }
 }
 ----
 
-For a _File_ named “Document”, the payload is minimized to the following:
+For a _File_ named “Document”, the Value-Only payload is minimized to the following:
 
 [source,json,linenums]
 ----
 {
-  "Document": {
     "contentType": "application/pdf",
     "value": "SafetyInstructions.pdf"
-  }
 }
 ----
 
-For a _Blob_ named “Library”, the payload is minimized to the following if the SerializationModifier _Extent_ is set to *_WithoutBLOBValue_*
+
+For a _Blob_ named “Library”, there are two possibilities for the Value-Only payload. In case the Blob value - that can be very large - 
+shall not be part of the payload the payload is minimized to the followingfootnote:[ 
+for the API a special JSON query parameter, the SerializationModifier _Extent_, is set to *_WithoutBLOBValue_* for this case]
 
 [source,json,linenums]
 ----
 {
-  "Library": {
     "contentType": "application/octet-stream"
-  }
 }
 ----
 
-If the SerializationModifier Extent is set to *_WithBlobValue_*, there is an additional attribute containing the base64-encoded value:
+In the second case the Blob value is part of the payload.footnote:[in this case the JSON query parameter SerializationModifier Extent is set to *_WithBlobValue_*], 
+there is an additional attribute containing the base64-encoded value:
 
 [source,json,linenums]
 ----
 {
-  "Library": {
     "contentType": "application/octet-stream",
     "value": "VGhpcyBpcyBteSBibG9i"
-  }
 }
 ----
 
-For a _RelationshipElement_ named “CurrentFlowsFrom”, the payload is minimized to the following:
+For a _RelationshipElement_ named “CurrentFlowsFrom”, the Value-Only payload is minimized to the following:
+
 
 [source,json,linenums]
 ----
 {
-  "CurrentFlowsFrom": {
     "first": {
       "type": "ModelReference",
       "keys": [
@@ -332,16 +415,16 @@ For a _RelationshipElement_ named “CurrentFlowsFrom”, the payload is minimiz
         }
       ]
     }
-  }
 }
 ----
 
-For an _AnnotatedRelationshipElement_ named “CurrentFlowFrom”, with an annotated _Property_-DataElement “AppliedRule”, the payload is minimized to the following:
+For an _AnnotatedRelationshipElement_ named “CurrentFlowFrom”, with an annotated _Property_-DataElement “AppliedRule”, the Value-Only-payload  is minimized to the following:
+
+
 
 [source,json,linenums]
 ----
 {
-  "CurrentFlowsFrom": {
     "first": {
       "type": "ModelReference",
       "keys": [
@@ -368,21 +451,20 @@ For an _AnnotatedRelationshipElement_ named “CurrentFlowFrom”, with an annot
         }
       ]
     },
-    "annotation": [
+    "annotations": [
       {
         "AppliedRule": "TechnicalCurrentFlowDirection"
       }
     ]
-  }
 }
 ----
 
-For an _Entity_ named “MySubAssetEntity”, the payload is minimized to the following:
+For an _Entity_ named “MySubAssetEntity”, the Value-Only-payload is minimized to the following:
+
 
 [source,json,linenums]
 ----
 {
-  "MySubAssetEntity": {
     "statements": {
       "MaxRotationSpeed": 5000
     },
@@ -396,16 +478,16 @@ For an _Entity_ named “MySubAssetEntity”, the payload is minimized to the fo
         }
       ]
     }
-  }
 }
 ----
 
-For a BasicEventElement named “MyBasicEvent”, the payload is minimized to the following:
+For a BasicEventElement named “MyBasicEvent”, the Value-Only-payload is minimized to the following:
+
+
 
 [source,json,linenums]
 ----
 {
-  "MyBasicEvent": {
     "observed": {
       "type": "ModelReference",
       "keys": [
@@ -415,11 +497,10 @@ For a BasicEventElement named “MyBasicEvent”, the payload is minimized to th
         },
         {
           "type": "Property",
-          "value": "CurrentValue"
+          "value": "MaxRotation"
         }
       ]
     }
-  }
 }
 ----
 
@@ -446,7 +527,7 @@ See Annex B for an example that validates against this schema.
         "second": {
           "$ref": "#/definitions/ReferenceValue"
         },
-        "annotation": {
+        "annotations": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ValueOnly"
@@ -456,7 +537,7 @@ See Annex B for an example that validates against this schema.
       "required": [
         "first",
         "second",
-        "annotation"
+        "annotations"
       ],
       "additionalProperties": false
     },
@@ -581,34 +662,7 @@ See Annex B for an example that validates against this schema.
       "type": "number",
       "additionalProperties": false
     },
-    "OperationRequestValueOnly": {
-      "inoutputArguments": {
-        "$ref": "#/definitions/ValueOnly"
-      },
-      "inputArguments": {
-        "$ref": "#/definitions/ValueOnly"
-      },
-      "timestamp": {
-        "type": "string",
-        "pattern": "^-?(([1-9][0-9][0-9][0-9]+)|(0[0-9][0-9][0-9]))-((0[1-9])|(1[0-2]))-((0[1-9])|([12][0-9])|(3[01]))T(((([01][0-9])|(2[0-3])):[0-5][0-9]:([0-5][0-9])(\\.[0-9]+)?)|24:00:00(\\.0+)?)(Z|\\+00:00|-00:00)$"
-      },
-      "additionalProperties": false
-    },
-    "OperationResultValueOnly": {
-      "executionState": {
-        "type": "string",
-        "enum": ["Initiated", "Running", "Completed", "Canceled", "string",
-                 "Failed", "Timeout"]
-      },
-      "inoutputArguments": {
-        "$ref": "#/definitions/ValueOnly"
-      },
-      "outputArguments": {
-        "$ref": "#/definitions/ValueOnly"
-      },
-      "additionalProperties": false
-    },
-    "PropertyValue": {
+	"PropertyValue": {
       "oneOf": [
         {
           "$ref": "#/definitions/StringValue"
