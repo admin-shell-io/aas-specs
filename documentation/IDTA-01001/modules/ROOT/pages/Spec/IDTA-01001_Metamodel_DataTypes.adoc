@@ -15,7 +15,7 @@ SPDX-License-Identifier: CC-BY-4.0
 The metamodel of the Asset Administration Shell uses some of the predefined simple data types of the  link:https://www.w3.org/XML/Core/[XML Schema Definition] (XSD) 
 as its basic data types footnote:[https://www.w3.org/XML/Core/, former https://www.w3.org/TR/xmlschema-2/#built-in-datatypes]. See Table 7 for an overview of the used types. Their definition is outside the scope of this document.
 
-The meaning and format of xsd types is specified in https://www.w3.org/XML/Schema. The simple type "langString" is specified in the Resource Description Framework (RDF) footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
+The meaning and format of xsd types is specified in XML Schema 1.0 (https://www.w3.org/TR/xmlschema-2). The simple type "langString" is specified in the Resource Description Framework (RDF) footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
 
 See Clause 5.3.12.6 for constraints on types.
 
@@ -273,7 +273,7 @@ The predefined types used to define the type of values of properties and other v
 
 
 ====
-Note 1: RDFfootnote:[See https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes] recommends to not use the following xsd data types. That is why they are excluded from the allowed data types.
+Note 1: RDFfootnote:[See https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes] uses XML Schema Built-in data types from Version 1.1 but recommends to use only a subset of xsd data types. That is why they are excluded from the allowed data types in xref:DataTypeDefXsd[DataTypeDefXsd].
 ====
 
 
@@ -283,7 +283,7 @@ Note 1: RDFfootnote:[See https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes] re
 
 
 ====
-Note 2: the following RDF types are not supported: HTML and XMLLiteral.
+Note 2: aditionally,the following RDF types are not supported in xref:DataTypeDefXsd[DataTypeDefXsd]: HTML and XMLLiteral.
 ====
 
 
@@ -502,9 +502,9 @@ Note: this is written in RDF/Turtle syntax, @en and de are the language tags.
 |===
 |Enumeration: |[[DataTypeDefXsd]]DataTypeDefXsd
 |Explanation: a|
-Enumeration listing all xsd anySimpleTypes
+Enumeration listing selected xsd anySimpleTypes of XML Schema 1.0
 
-For more details see https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes
+For more details see https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes
 
 |Set of: |--
 h|ID: | `\https://admin-shell.io/aas/3/1/DataTypeDefXsd`  
