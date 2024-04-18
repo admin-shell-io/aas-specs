@@ -190,7 +190,9 @@ Note 3: language-tagged strings (rdf:langString) containing single quotes (‘) 
 Note 4: Roundtrip conversion from "Normal" to "ValueOnly" format may not result in the original payload because "Normal" is using string whereas "ValueOnly" is using the JSON type closest to the xsd datatype (see table [data-types-value-only]).
 ====
 
+
 ==== Example Value-Only serialization for a Submodel
+
 
 The following example shows the JSON Value-Only serialization for a Submodel with name "Example" and two direct SubmodelElements "ProductClassifications" and "MaxRotationSpeed". "ProductClassifications" is represented by a SubmodelElementList with SubmodelElementCollections as its elements. Each of the SubmodelCollections has two mandatory elements "ProductClassificationSystem" and "ProductClassId" and one optional element "ProductClassificationVersion". All of these elements have data type "xs:string". "MaxRotationSpeed" is a property with data type "xs:int".
 
