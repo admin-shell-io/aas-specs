@@ -36,7 +36,7 @@ In principle, the version corresponds to the _version_identifier_ according to I
 
 Other attributes of the administrative information like creator refer to ISO 15836-1:2017, the Dublin Core metadata element set.
 
-For more information on the concept of subject, see Attribute Based Access Control (ABAC) link:#bib49[[49\]]. The assumption is that every subject has a unique identifier.
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:IDTA-01xxx_Bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
 
 
 xref:Spec/IDTA-01001_Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] allows the usage of templates (xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasDataSpecification[HasDataSpecification]). Data specifications are defined in separate documents.
@@ -110,7 +110,10 @@ Note 3: usage of the template ID is not restricted to submodel instances. The cr
 ====
 
 
+
+
 |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] |0..1
+
 |===
 
 == Has Data Specification Attributes
@@ -144,7 +147,7 @@ Note: this is an external reference.
 
 For more details on data specifications, please see Clause 6.
 
-== Extensions Attributes
+== Has Extension Attributes
 
 .Metamodel of Has Extensions
 image::image16.png[]
@@ -176,7 +179,10 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasExtensions`
 h|Explanation h|Type h|Card.
 
 .2+e|extension 3+| `\https://admin-shell.io/aas/3/1/HasExtensions/extensions`  
+
+
 a|An extension of the element. |xref:Spec/IDTA-01001_Metamodel_Common.adoc#Extension[Extension] |0..*
+
 |===
 
 {empty} +
@@ -240,6 +246,7 @@ a| Kind of the element: either template or instance
 Default Value = _Instance_
 
 |xref:Spec/IDTA-01001_Metamodel_Common.adoc#ModellingKind[ModellingKind]|0..1
+
 |===
 
 The kind enumeration is used to denote whether an element is of kind _Template_ or _Instance_. It is used to distinguish between submodels and submodel templates.
@@ -362,7 +369,9 @@ Note: some of the administrative information like the version number might need 
 |xref:Spec/IDTA-01001_Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] |0..1
 
 .2+e|id 3+| `\https://admin-shell.io/aas/3/1/Identifiable/id`  
+
 a|The globally unique identification of the element |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] |1
+
 |===
 
 == Qualifiable Attributes
@@ -451,8 +460,8 @@ Reference to the global unique ID of a coded value
 Note: it is recommended to use an external reference.
 ====
 
-
 |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#Reference[Reference] |0..1
+
 |===
 
 It is recommended to add a _semanticId_ for the concept of the _Qualifier_. _Qualifier/type_ is the preferred name of the concept of the qualifier or its short name.
@@ -495,7 +504,7 @@ Example of a _ValueQualifier_: property "temperature" and qualifier "value quali
 Example of a _ConceptQualifier:_ an Asset Administration Shell with two submodels with different IDs but the same semanticId = "Bill of Material". The qualifier could denote the life cycle with qualifier values like "as planned", "as maintained" etc. (see +
 Figure 21).
 
-Example of a _TemplateQualifier:_ a submodel element with qualifier value "mandatory" or "optional". This qualification is needed to build a correct submodel instance. For more information see link:#bib48[[48\]].
+Example of a _TemplateQualifier:_ a submodel element with qualifier value "mandatory" or "optional". This qualification is needed to build a correct submodel instance. For more information see xref:IDTA-01xxx_Bibliography.adoc#bib48[[48\]].
 
 .Example: Qualifier from IEC CDD
 image::image22.png[Example: Qualifier from IEC CDD]

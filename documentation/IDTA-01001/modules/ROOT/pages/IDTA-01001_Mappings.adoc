@@ -24,7 +24,7 @@ IDTA-01001_idShortPath.adoc[leveloffset=-1]
 
 == Technical Data Formats
 
-It is crucial for Industry 4.0 applications to share information between different systems throughout the areas covered by the entire RAMI4.0 model link:#bib1[[1\]] link:#bib2[[2\]]. OPC UA is a frequently used format for information models in the domain of production operations, but there is a need for other formats for further areas and the relationships between them.
+It is crucial for Industry 4.0 applications to share information between different systems throughout the areas covered by the entire RAMI4.0 model xref:IDTA-01xxx_Bibliography.adoc#bib1[[1\]] xref:IDTA-01xxx_Bibliography.adoc#bib2[[2\]]. OPC UA is a frequently used format for information models in the domain of production operations, but there is a need for other formats for further areas and the relationships between them.
 
 This document specifies the Asset Administration Shell in a technology-neutral format, UML. Different data formats are used or recommended to be used in the different life cycle phases of a productfootnote:[The word “data formats” is used as shortcut and includes the use of conceptual advantages such as information models, schemes, transmission protocols, etc.]. Serializations and mappings of the Asset Administration Shell are provided to cover the complete life cycle of each of these formats. Figure 57.
 
@@ -95,6 +95,7 @@ For references see Clause xref:#_referencing_in_asset_administration_shells[].
 .Format "Reference" - Example in JSON
 [source,json,linenums]
 ----
+      {
         "keys": [
           {
             "type": "AssetAdministrationShell",
@@ -114,7 +115,7 @@ eXtensible Markup Language (XMLfootnote:[see: https://www.w3.org/TR/2008/REC-xml
 
 
 ====
-Note 1: the xml schema (.xsd files) is maintained in the repository "aas-specs" of the github project admin-shell-io link:#bib51[[51\]]: aas-specs-3.0\schemas\xml
+Note 1: the xml schema (.xsd files) is maintained in the repository "aas-specs" of the github project admin-shell-io xref:IDTA-01xxx_Bibliography.adoc#bib51[[51\]]: aas-specs-3.0\schemas\xml
 ====
 
 
@@ -134,11 +135,11 @@ Note 3: example files can be found here: aas-specs-3.0\schemas\xml\examples
 
 JSONfootnote:[see: https://tools.ietf.org/html/rfc8259 or https://www.ecma-international.org/publications/standards/Ecma-404.htm] (JavaScript Object Notation) is a further serialization format that serializes the metamodel of an Asset Administration Shell for import and export scenarios.
 
-Additionally, JSON format is used to describe the payload in the http/REST API for active Asset Administration Shells link:#bib37[[37\]].
+Additionally, JSON format is used to describe the payload in the http/REST API for active Asset Administration Shells xref:IDTA-01xxx_Bibliography.adoc#bib37[[37\]].
 
 
 ====
-Note 1: the JSON schema (.json files) is maintained in the repository "aas-specs" of the github project admin-shell-io link:#bib51[[51\]]: aas-specs-3.0\schemas\json
+Note 1: the JSON schema (.json files) is maintained in the repository "aas-specs" of the github project admin-shell-io xref:IDTA-01xxx_Bibliography.adoc#bib51[[51\]]: aas-specs-3.0\schemas\json
 ====
 
 
@@ -156,7 +157,7 @@ Note 3: example files can be found here: aas-specs-3.0\schemas\json\examples
 
 ==   Format "Normal" in RDF
 
-The Resource Description Framework (RDF) link:#bib32[[32\]] is the recommended standard of the W3C to unambiguously model and present semantic data. RDF documents are structured in the form of triples, consisting of subjects, relations, and objects. The resulting model is often interpreted as a graph, with the subject and object elements as the nodes and the relations as the graph edges.
+The Resource Description Framework (RDF) xref:IDTA-01xxx_Bibliography.adoc#bib32[[32\]] is the recommended standard of the W3C to unambiguously model and present semantic data. RDF documents are structured in the form of triples, consisting of subjects, relations, and objects. The resulting model is often interpreted as a graph, with the subject and object elements as the nodes and the relations as the graph edges.
 
 RDF is closely related to web standards, illustrated by the fact that all elements are encoded using (HTTP-)IRIs. As a common practice, the provision of additional information at the referenced location of an RDF entity directly allows the interlinking of entitiesfootnote:[Note: entity as a generic term and entity as a specific submodel element subtype need tobe distinugished.] based on the web. This process – following links in order to discover related information – is called dereferencing a resource and is supported by any browser or web client. Connecting distributed data sources through the web in the described manner is referred to by the term “Linked Data”. Connecting the available resources and capabilities of linked data with the expressiveness of the Asset Administration Shell is one motivation for the RDF serialization.
 
@@ -166,7 +167,7 @@ Combining both features, the RDF mapping of the Asset Administration Shell can p
 
 
 ====
-Note 1: the RDF scheme/OWL files (.ttl files) are maintained in the repository "aas-specs" of the github project admin-shell-io link:#bib51[[51\]]: aas-specs-3.0\schemas\rdf
+Note 1: the RDF scheme/OWL files (.ttl files) are maintained in the repository "aas-specs" of the github project admin-shell-io xref:IDTA-01xxx_Bibliography.adoc#bib51[[51\]]: aas-specs-3.0\schemas\rdf
 ====
 
 
@@ -194,7 +195,7 @@ For the role classes and interface classes that are required for serialization, 
 
 One of the goals is to ensure that the AutomationML model of the Asset Administration Shell can be used as a stand-alone AutomationML model, as well as in combination with existing AutomationML models such as the upcoming AutomationML Component Description. Therefore, the definition of the serialization approach defined in this clause is incorporated with the AutomationML definitions and applies the AutomationML technology definitions available on https://www.automationml.org/o.red.c/dateien.html.
 
-link:#bib28[[28\]] is the AutomationML application recommendation for the Asset Administration Shell (AR AAS).
+xref:IDTA-01xxx_Bibliography.adoc#bib28[[28\]] is the AutomationML application recommendation for the Asset Administration Shell (AR AAS).
 
 
 ====
@@ -204,17 +205,17 @@ Note 1: the mapping of the Asset Administration Shell to AutomationML is carried
 
 
 ====
-Note 2: the resulting application recommendation (AR 004E) "Asset Administration Shell (AAS) Representation" link:#bib28[[28\]] can be found here: https://www.automationml.org/download-archive/, together with .aml files
+Note 2: the resulting application recommendation (AR 004E) "Asset Administration Shell (AAS) Representation" xref:IDTA-01xxx_Bibliography.adoc#bib28[[28\]] can be found here: https://www.automationml.org/download-archive/, together with .aml files
 ====
 
 
 ==  Format "Normal" in OPC UA
 
-OPC UA is suited for the operating phase of Asset Administration Shellsfootnote:[OPC UA is used for several purposes in the context of Industry 4.0. In this document, however, the focus is on Asset Administration Shell representation only.] and especially applicable in case of machine-to-machine communication. The information model link:#bib42[[42\]] is the basis for the definition of so-called OPC UA Information Models, or OPC UA Companion Specifications link:#bib43[[43\]].
+OPC UA is suited for the operating phase of Asset Administration Shellsfootnote:[OPC UA is used for several purposes in the context of Industry 4.0. In this document, however, the focus is on Asset Administration Shell representation only.] and especially applicable in case of machine-to-machine communication. The information model xref:IDTA-01xxx_Bibliography.adoc#bib42[[42\]] is the basis for the definition of so-called OPC UA Information Models, or OPC UA Companion Specifications xref:IDTA-01xxx_Bibliography.adoc#bib43[[43\]].
 
-Note1 : the mapping to the OPC UA are carried out in a joint working groupfootnote:[see: https://opcfoundation.org/collaboration/i4aas/] "I4AAS" between OPC Foundation, ZVEI and VDMA (https://opcfoundation.org/markets-collaboration/I4AAS/ link:#bib30[[30\]].
+Note1 : the mapping to the OPC UA are carried out in a joint working groupfootnote:[see: https://opcfoundation.org/collaboration/i4aas/] "I4AAS" between OPC Foundation, ZVEI and VDMA (https://opcfoundation.org/markets-collaboration/I4AAS/ xref:IDTA-01xxx_Bibliography.adoc#bib30[[30\]].
 
 
 ====
-Note 2: the different versions of the OPC UA Companion Specification for I4AAS can be found here: https://reference.opcfoundation.org/%3cversion%3e/I4AAS/%3cversion%3e/docs/[https://reference.opcfoundation.org/<version>/I4AAS/<version>/docs/], e.g. https://reference.opcfoundation.org/v104/I4AAS/v100/docs/ for release 1.00 link:#bib41[[41\]].
+Note 2: the different versions of the OPC UA Companion Specification for I4AAS can be found here: https://reference.opcfoundation.org/%3cversion%3e/I4AAS/%3cversion%3e/docs/[https://reference.opcfoundation.org/<version>/I4AAS/<version>/docs/], e.g. https://reference.opcfoundation.org/v104/I4AAS/v100/docs/ for release 1.00 xref:IDTA-01xxx_Bibliography.adoc#bib41[[41\]].
 ====
