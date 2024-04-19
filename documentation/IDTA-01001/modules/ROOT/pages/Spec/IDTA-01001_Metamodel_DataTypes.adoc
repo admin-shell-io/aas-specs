@@ -31,15 +31,6 @@ See Clause 5.3.12.6 for constraints on types.
 
 |xsd |https://www.w3.org/TR/xmlschema-2/#boolean[boolean] |true, false |true, false
 
-|xsd |https://www.w3.org/TR/xmlschema-2/#anyURI[anyUri] | "[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396] and its successor(s)." 
-
-It can be absolute or relative, and may have an optional fragment identifier  a| {blank}./Specification.pdf
-
-file:c:/local/Specification.pdf
-
-\http://www.example.org
-
-FTP://unicode.org
 
 |xsd |https://www.w3.org/TR/xmlschema-2/#dateType[dateType] |Date and time with or without time zone |"2000-01-01T14:23:00", +
 "2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to xs:dateTimeStamp in XML Schema 1.1]
@@ -196,13 +187,16 @@ a|_string_ with max 128 and min 1 characters |"ManufacturerPartId"
 .2+e|[[PathType]]PathType 2+| `\https://admin-shell.io/aas/3/1/PathType`
 a|
 
-_anyURI_
+_string_
 
 with max 2048 and min 1 characters
 
+conformant to an URI as per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396]
 
 ====
-"[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396] and its successor(s)." 
+Note: Values with this restriction are also conformant to the xsd datatype https://www.w3.org/TR/xmlschema-2/#anyURI[anyURI]. 
+
+"A wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396] and its successor(s)." 
 
 Source: https://www.w3.org/TR/xmlschema-2/#anyURI[W3C XML Schema Definition Language (XSD) 1.0 Part 2: Datatypes]
 ====
