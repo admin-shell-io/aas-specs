@@ -71,3 +71,37 @@ Note: The semanticId of a SpecificAssetId with the predefined name "gloablAssetI
 {aasd130}
 
 Constraint AASd-130 ensures that encoding and interoperability between different serializations is possible. It corresponds to the restrictions as defined for the XML Schema 1.0footnote:[https://www.w3.org/TR/xml/#charsets].
+
+Therefore, we need to restrict an attribute of data type 'string' to the characters that can be represented in any exchange format and language.
+Otherwise, strings in other formats such as JSON could not be converted to XML.
+
+The string contains only valid Unicode characters in the range of encoded in UTF-16 format
+The character set of XML includes (given as numerical code points and/or ranges in Unicode):
+* 0x09: ASCII horizontal tab,
+* 0x0A: ASCII linefeed (newline),
+* 0x0D: ASCII carriage return.
+* 0x20: ASCII space,
+* 0x20 - 0xD7FF: all the characters above space in the Basic Multilingual Plane, and
+* 0x00010000-0x0010FFFF: all the characters beyond the Basic Multilingual Plane (*e.g.*, emoticons).
+The string can include common characters like tabs, newlines, carriage returns, and spaces.
+It allows a broad range of Unicode characters, including those beyond the Basic Multilingual Plane (BMP) which are represented using surrogate pairs in UTF-16 encoding.
+It ensures that the entire string adheres to the rules of UTF-16 encoding, which is a standard way of representing a wide range of characters from different languages.
+
+This leads to the following regular expression:
+^[\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u00010000-\u0010FFFF]$
+
+Where:
+^: Asserts the start of the string.
+[\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u00010000-\u0010FFFF]: Defines a character class that allows various Unicode characters.
+
+\x09: ASCII horizontal tab.
+\x0A: ASCII linefeed (newline).
+\x0D: ASCII carriage return.
+\x20: ASCII space.
+-: Represents a range.
+\uD7FF: The upper limit of the Basic Multilingual Plane (BMP) in UTF-16.
+\uE000-\uFFFD: Represents the range of characters from the start of the supplementary planes up to the last valid Unicode character (excluding surrogate pairs).
+\u00010000-\u0010FFFF: Represents the range of valid surrogate pairs used for characters beyond the BMP.
+*: Allows for zero or more occurrences of the characters within the character class.
+
+$: Asserts the end of the string.
