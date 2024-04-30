@@ -5,10 +5,8 @@ This work is licensed under a [Creative Commons Attribution 4.0 International Li
 https://creativecommons.org/licenses/by/4.0/). 
 
 SPDX-License-Identifier: CC-BY-4.0
-
-Illustrations:
-Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
 ////
+
 ////
 includes:
 IDTA-01001_GrammarSerializationReference.adoc[leveloffset=-1]
@@ -183,7 +181,7 @@ Note 3: example files can be found here: aas-specs-3.0\schemas\rdf\examples
 ====
 
 
-==   Format "Normal" in AutomationML
+==   Formats in AutomationML
 
 AutomationML (IEC 62714) is especially suited for serializing the import and export scenarios of the metamodel of an Asset Administration Shell in the engineering phase.
 
@@ -209,13 +207,10 @@ Note 2: the resulting application recommendation (AR 004E) "Asset Administration
 ====
 
 
-==  Format "Normal" in OPC UA
+==  Formats in OPC UA
 
-OPC UA is suited for the operating phase of Asset Administration Shellsfootnote:[OPC UA is used for several purposes in the context of Industry 4.0. In this document, however, the focus is on Asset Administration Shell representation only.] and especially applicable in case of machine-to-machine communication. The information model xref:IDTA-01xxx_Bibliography.adoc#bib42[[42\]] is the basis for the definition of so-called OPC UA Information Models, or OPC UA Companion Specifications xref:IDTA-01xxx_Bibliography.adoc#bib43[[43\]].
+OPC UA is suited for the operating phase of Asset Administration Shells and especially applicable in case of machine-to-machine communication. The information model xref:IDTA-01xxx_Bibliography.adoc#bib42[[42\]] is the basis for the definition of so-called OPC UA Information Models, or OPC UA Companion Specifications xref:IDTA-01xxx_Bibliography.adoc#bib43[[43\]].
 
-Note1 : the mapping to the OPC UA are carried out in a joint working groupfootnote:[see: https://opcfoundation.org/collaboration/i4aas/] "I4AAS" between OPC Foundation, ZVEI and VDMA (https://opcfoundation.org/markets-collaboration/I4AAS/ xref:IDTA-01xxx_Bibliography.adoc#bib30[[30\]].
-
-
-====
-Note 2: the different versions of the OPC UA Companion Specification for I4AAS can be found here: https://reference.opcfoundation.org/%3cversion%3e/I4AAS/%3cversion%3e/docs/[https://reference.opcfoundation.org/<version>/I4AAS/<version>/docs/], e.g. https://reference.opcfoundation.org/v104/I4AAS/v100/docs/ for release 1.00 xref:IDTA-01xxx_Bibliography.adoc#bib41[[41\]].
-====
+The joint Working Group of the https://opcfoundation.org/[OPC Foundation] and https://industrialdigitaltwin.org/[IDTA] 
+https://profiles.opcfoundation.org/workinggroup/40[Industry 4.0 Asset Administration Shell - AAS (I4AAS)] (xref:IDTA-01xxx_Bibliography.adoc#bib52[[41\]]) 
+"will develop new companion specifications and / or Submodel Templates related to OPC UA for Asset Administration Shell V3.0 and compatible."
