@@ -23,6 +23,10 @@ Submodel elements include data properties as well as operations, events and othe
 
 All submodel elements including abstract classes like data elements are specified in alphabetical order.
 
+====
+Note: value-related attributes typically are optional to enable definition of Submodel Templates as well, i.e. xref:Spec/IDTA-01001_Metamodel_Core.adoc#Submodel[Submodels]  with value of xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasKind[Submodel/kind] equal to xref:Spec/IDTA-01001_Metamodel_Common.adoc#ModellingKind[Template].
+====
+
 == Annotated Relationship Element Attributes
 
 .Metamodel of Annotated Relationship Elements
@@ -676,10 +680,10 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/RelationshipElement`
 h|Explanation h|Type h|Card.
 
 .2+e|first 3+| `\https://admin-shell.io/aas/3/1/RelationshipElement/first`
-a|Reference to the first element in the relationship taking the role of the subject |xref:Reference[Reference] |1
+a|Reference to the first element in the relationship taking the role of the subject |xref:Reference[Reference] | 0..1
 
 .2+e|second 3+| `\https://admin-shell.io/aas/3/1/RelationshipElement/second`
-a|Reference to the second element in the relationship taking the role of the object |xref:Reference[Reference] |1
+a|Reference to the second element in the relationship taking the role of the object |xref:Reference[Reference] | 0..1
 |===
 
 == Submodel Element Collection Attributes
