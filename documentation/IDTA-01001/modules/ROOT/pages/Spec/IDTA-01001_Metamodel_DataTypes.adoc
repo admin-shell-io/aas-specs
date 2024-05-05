@@ -15,7 +15,7 @@ SPDX-License-Identifier: CC-BY-4.0
 The metamodel of the Asset Administration Shell uses some of the predefined simple data types of the  link:https://www.w3.org/XML/Core/[XML Schema Definition] (XSD) 
 as its basic data types footnote:[https://www.w3.org/XML/Core/, former https://www.w3.org/TR/xmlschema-2/#built-in-datatypes]. See Table 7 for an overview of the used types. Their definition is outside the scope of this document.
 
-The meaning and format of xsd types is specified in https://www.w3.org/XML/Schema. The simple type "langString" is specified in the Resource Description Framework (RDF) footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
+The meaning and format of xsd types is specified in XML Schema 1.0 (https://www.w3.org/TR/xmlschema-2). The simple type "langString" is specified in the Resource Description Framework (RDF) footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
 
 See Clause 5.3.12.6 for constraints on types.
 
@@ -31,15 +31,6 @@ See Clause 5.3.12.6 for constraints on types.
 
 |xsd |https://www.w3.org/TR/xmlschema-2/#boolean[boolean] |true, false |true, false
 
-|xsd |https://www.w3.org/TR/xmlschema-2/#anyURI[anyUri] | "[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396] and its successor(s)." 
-
-It can be absolute or relative, and may have an optional fragment identifier  a| {blank}./Specification.pdf
-
-file:c:/local/Specification.pdf
-
-\http://www.example.org
-
-FTP://unicode.org
 
 |xsd |https://www.w3.org/TR/xmlschema-2/#dateType[dateType] |Date and time with or without time zone |"2000-01-01T14:23:00", +
 "2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to xs:dateTimeStamp in XML Schema 1.1]
@@ -196,13 +187,16 @@ a|_string_ with max 128 and min 1 characters |"ManufacturerPartId"
 .2+e|[[PathType]]PathType 2+| `\https://admin-shell.io/aas/3/1/PathType`
 a|
 
-_anyURI_
+_string_
 
 with max 2048 and min 1 characters
 
+conformant to an URI as per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396]
 
 ====
-"[anyURI supports a] wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396] and its successor(s)." 
+Note: Values with this restriction are also conformant to the xsd datatype https://www.w3.org/TR/xmlschema-2/#anyURI[anyURI]. 
+
+"A wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396] and its successor(s)." 
 
 Source: https://www.w3.org/TR/xmlschema-2/#anyURI[W3C XML Schema Definition Language (XSD) 1.0 Part 2: Datatypes]
 ====
@@ -234,7 +228,7 @@ a|
 
 .2+e|[[QualifierType]]QualifierType 2+| `\https://admin-shell.io/aas/3/0/QualifierType`
 a|_NameType_ a|
-"ExpressionSemantic" (as specified in DIN SPEC 92000:2019-09, see link:#bib16[[16\]])
+"ExpressionSemantic" (as specified in DIN SPEC 92000:2019-09, see xref:IDTA-01xxx_Bibliography.adoc#bib16[[16\]])
 
 "life cycle qual" (as specified in IEC 61360-7 - IEC/SC 3D - Common Data Dictionary (link:https://cdd.iec.ch/cdd/common/iec61360-7.nsf/SearchFrameset?OpenFrameSet[CDD - V2.0015.0004])
 
@@ -273,7 +267,7 @@ The predefined types used to define the type of values of properties and other v
 
 
 ====
-Note 1: RDFfootnote:[See https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes] recommends to not use the following xsd data types. That is why they are excluded from the allowed data types.
+Note 1: RDFfootnote:[See https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes] uses XML Schema Built-in data types from Version 1.1 but recommends to use only a subset of xsd data types. That is why they are excluded from the allowed data types in xref:DataTypeDefXsd[DataTypeDefXsd].
 ====
 
 
@@ -283,7 +277,7 @@ Note 1: RDFfootnote:[See https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes] re
 
 
 ====
-Note 2: the following RDF types are not supported: HTML and XMLLiteral.
+Note 2: additionally, the following RDF types are not supported in xref:DataTypeDefXsd[DataTypeDefXsd]: HTML and XMLLiteral.
 ====
 
 
@@ -502,9 +496,9 @@ Note: this is written in RDF/Turtle syntax, @en and de are the language tags.
 |===
 |Enumeration: |[[DataTypeDefXsd]]DataTypeDefXsd
 |Explanation: a|
-Enumeration listing all xsd anySimpleTypes
+Enumeration listing selected xsd anySimpleTypes of XML Schema 1.0
 
-For more details see https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes
+For more details see https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes
 
 |Set of: |--
 h|ID: | `\https://admin-shell.io/aas/3/1/DataTypeDefXsd`  
