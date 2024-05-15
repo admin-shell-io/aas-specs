@@ -44,7 +44,6 @@ Major Changes:
 
 
 * New value "Role" to enumeration AssetKind (https://github.com/admin-shell-io/aas-specs/issues/294[#294])
-* Change PathType: support complete URI scheme for files RFC2396 conformant to anyURI of XML Schema 1.0, Part 2 (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
 * Data type  Identifier: change length from 2000 to 2048 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
 * Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name (https://github.com/admin-shell-io/aas-specs/issues/295[#295])
 * Entity/entityType and Constraint AASd-014: entityType now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
@@ -101,7 +100,6 @@ Minor Changes:
 | {empty} | xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Entity[Entity/entityType] a| now optional
 | {empty} | xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] a| data type: change length from 2000 to 2024 characters
 | {empty} | xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#NameType[NameType] a| implicit change due to change of Constraint AASd-002
-| {empty} | xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#PathType[PathType] a| extend data type to support complete URI scheme for files RFC2396
 |{empty}  | xref:Spec/IDTA-01001_Metamodel_Common.adoc#Referable[Referable/idShort] a| implicit change because constraint AASd-002 now also allows hyphen
 | {empty} | xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#RelationshipElement[RelationshipElement/first] a| now optional
 | {empty} | xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#RelationshipElement[RelationshipElement/second] a| now optional
@@ -138,6 +136,10 @@ Major Bugfixes:
 
 * CHANGE: DataTypeDefXsd all links now reference correctly to XML Schema 1.0 (xmlschema-2) not to XML Schema V1.1 (xmlschema11-2) (https://github.com/admin-shell-io/aas-specs/issues/312[#312], https://github.com/admin-shell-io/aas-specs/issues/363[#363]), i.e. remove xs:yearMonthDuration + editorial changes (remove redundant entries, sort entries. Additionally, added notes that RDF is using XML Schema 1.1 but  a subset.
 
+* CHANGE: support relative path for SubmodelElement File, 
+PathType: support complete URI scheme for files RFC2396 conformant to anyURI of XML Schema 1.0, Part 2 (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
+
+
 * CHANGE: Constraint AASd-116 globalAssetId + added note that globalAssetId should only be used in discovery functionality but not as value for SpecificAssetId/name (https://github.com/admin-shell-io/aas-specs/issues/390[#390])
 
 * CHANGE: make EmbeddedDataSpecification/dataSpecification mandatory (as implemented in schemas) (https://github.com/admin-shell-io/aas-specs/issues/296[#296])
@@ -153,6 +155,7 @@ Other Bugfixes:
 * (Editorial) HasKind/kind explanatary text: use template, not type (https://github.com/admin-shell-io/aas-specs/issues/313[#313])
 * (Editorial) Qualifier/Kind changed to Qualifier/kind (typo in table, UML and schema correct)
 * (Editorial) BasicEventElement/Direction and BasicEventElement/State changed to BasicEventElement/direction and BasicEventElement/state typo in table, UML and schema correct)
+*  Fix figure for DataTypeDefXsd: ordering was not correct, xs:float moved to its place
 * (Editorial) fix figure "Association" in Annex for UML (https://github.com/admin-shell-io/aas-specs/issues/328[#328]) 
 * (Editorial) change recommendation to use a global reference to use an external reference, same for externalSubjectId: it is an external reference.
 * (Editorial) JSON and XML Schema references to github admin-shell-io reformulated
@@ -172,8 +175,13 @@ Other Bugfixes:
 
 Updated links to XML Schema 1.0 (not 1.1)
 |(x)| EmbeddedDataSpecification/dataSpecification a| (bugfix in Text only) now mandatory
+| {empty} | xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#File[File/value] a| Type was extended, see PathType
 |(x) | xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#MultiLanguageNameType[MultiLanguageNameType] a| (bugfix in Text only) maxLength=128 (as derived and implemented)
+| {empty} | xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#PathType[PathType] a| string instead of Identifier but with same length constraints 
+
+extend data type to support complete URI scheme for files RFC2396
 |(x)  | xref:Spec/IDTA-01001_Metamodel_Common.adoc#Qualifier[Qualifier/Kind] a| (bugfix in Text only) attribute starts with small letter
+| {empty} | xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Resource[Resource/path] a| Type was extended, see PathType
 |===
 
 .New, Changed or Removed Constraints
