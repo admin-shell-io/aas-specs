@@ -515,9 +515,6 @@ See Annex B for an example that validates against this schema.
           "type": "string"
         }
       },
-      "required": [
-        "contentType",
-      ],
       "additionalProperties": false
     },
     "BooleanValue": {
@@ -562,10 +559,6 @@ See Annex B for an example that validates against this schema.
           "maxLength": "200"
         }
       },
-      "required": [
-        "contentType",
-        "value"
-      ],
       "additionalProperties": false
     },
     "Identifier": {
@@ -630,10 +623,6 @@ See Annex B for an example that validates against this schema.
           "type": "number"
         }
       },
-      "required": [
-        "min",
-        "max"
-      ],
       "additionalProperties": false
     },
     "ReferenceElementValue": {
