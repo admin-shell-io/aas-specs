@@ -74,6 +74,11 @@ following:
   validation errors in the shapes. RDF does not contain a concept for abstract classes,
   therefore custom checks using SPARQL queries are supplied.
 
+#### Note: Pattern Deviation from the Specification
+Since most RDFS engines we tested operated on UTF-16 and could not handle UTF-32, we transpiled the pattern from AASd-130, which uses UTF-32 in the specification, into UTF-16. 
+This is a trade-off between correctness and practicality. 
+See [#362](https://github.com/admin-shell-io/aas-specs/issues/362) for the details.
+
 ## Example Overview
 
 RDF is often regarded as a graph model, as it provides the flexibility to interlink

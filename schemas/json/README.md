@@ -123,6 +123,11 @@ the [mapping of XSD to JSON types] into account.
 
 [5.7.12 Primitive and Simple Data Types]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=96
 
+#### Note: Pattern Deviation from the Specification
+Since most JSON schema engines we tested operated on UTF-16 and could not handle UTF-32, we transpiled the pattern from AASd-130, which uses UTF-32 in the specification, into UTF-16. 
+This is a trade-off between correctness and practicality. 
+See [#362](https://github.com/admin-shell-io/aas-specs/issues/362) for the details.
+
 #### Hint: Round-Trip Conversions
 
 Round-trip conversions XML to JSON to XML or RDF to JSON to RDF may not result in the
