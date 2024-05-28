@@ -161,6 +161,7 @@ Other Bugfixes:
 * (Editorial) JSON and XML Schema references to github admin-shell-io reformulated
 * (Editorial) correct Figure 23 Metamodel of an AssetAdministrationShell: arrow removed from association between Submodel and AssetAdministrationShell
 * (Editorial) update deprecated web links
+* (Editorial) correct information in Changes V3.0 vs. V3.0RC02 w.r.t. VersionType and RevisionType
 
 
 === Metamodel Changes V3.0.1 vs. V3.0
@@ -720,9 +721,9 @@ Text how to select a suitable display name removed; now explained in Table 2
 | |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |Substitute for LangStringSet with long multi-language strings, maximum 64 characters
 | |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#NameType[NameType] |New string type with maximum 128 characters
 | |ReferenceTypes/ExternalReference |Enumeration value: before: GlobalReference
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#RevisionType[RevisionType] |New type for _AdministrativeInformation/version_ with length constraints and regular expression
+| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#RevisionType[RevisionType] |New type for _AdministrativeInformation/revision_ with length constraints and regular expression
 | |ShortNameType |New string type with maximum 64 characters
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#VersionType[VersionType] |New type for _AdministrativeInformation/revision_ with length constraints and regular expression
+| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#VersionType[VersionType] |New type for _AdministrativeInformation/version_ with length constraints and regular expression
 |===
 
 .New, Changed or Removed Constraints
