@@ -13,9 +13,9 @@ SPDX-License-Identifier: CC-BY-4.0
 
 == OMG UML General
 
-This annex explains the UML elements used in this specification. For more information, please refer to the comprehensive literature available for UML. The formal specification can be found in xref:IDTA-01xxx_Bibliography.adoc#bib35[[35\]].
+This annex explains the UML elements used in this specification. For more information, please refer to the comprehensive literature available for UML. The formal specification can be found in xref:Bibliography.adoc#bib35[[35\]].
 
-Figure 63 shows a class with name "Class1" and an attribute with name "attr" of type _Class2_. Attributes are owned by the class. Some of these attributes may represents the end of binary associations, see also Figure 70. In this case, the instance of _Class2_ is navigable via the instance of the owning class _Class1_.footnote:[„Navigability notation was often used in the past according to an informal convention, whereby non-navigable ends were assumed to be owned by the Association whereas navigable ends were assumed to be owned by the Classifier at the opposite end. This convention is now deprecated. Aggregation type, navigability, and end ownership are separate concepts, each with their own explicit notation. Association ends owned by classes are always navigable, while those owned by associations may be navigable or not. xref:IDTA-01xxx_Bibliography.adoc#bib35[[35\]]”]
+Figure 63 shows a class with name "Class1" and an attribute with name "attr" of type _Class2_. Attributes are owned by the class. Some of these attributes may represents the end of binary associations, see also Figure 70. In this case, the instance of _Class2_ is navigable via the instance of the owning class _Class1_.footnote:[„Navigability notation was often used in the past according to an informal convention, whereby non-navigable ends were assumed to be owned by the Association whereas navigable ends were assumed to be owned by the Classifier at the opposite end. This convention is now deprecated. Aggregation type, navigability, and end ownership are separate concepts, each with their own explicit notation. Association ends owned by classes are always navigable, while those owned by associations may be navigable or not. xref:Bibliography.adoc#bib35[[35\]]”]
 
 .Class
 image::image64.png[]
@@ -165,7 +165,7 @@ Note: categories are deprecated and should no longer be used.
 
 == Notes to Graphical UML Representation
 
-Specific graphical modelling rules, which are used in this specification but not included in this form, are explained below xref:IDTA-01xxx_Bibliography.adoc#bib35[[35\]].
+Specific graphical modelling rules, which are used in this specification but not included in this form, are explained below xref:Bibliography.adoc#bib35[[35\]].
 
 Figure 81 shows different graphical representations of a composition (composite aggregation). In Variant A, a relationship with a filled aggregation diamond is used. In Variant B, an attribute with the same semantics is defined. And in Variant C, the implicitly assumed default name of the attribute in Variant A is explicitly stated. This document uses notation B.
 
@@ -185,7 +185,7 @@ image::image82.png[]
 
 A specialty in Figure 82 is that the aggregated instances are referables in the sense of the Asset Administration Shell metamodel (i.e. they inherit from the predefined abstract class "Referable"). This is why Variant B is identical to Variant A. This would not be the case for non-referable elements in the metamodel. The structure of a reference to a model element of the Asset Administration Shell is explicitly defined. A model reference consists of an ordered list of keys. The last key in the key chain shall reference an instance of type _Class2_ (i.e. Reference.
 
-Figure 83 show different graphical representations of generalization. Variant A is the classical graphical representation as defined in xref:IDTA-01xxx_Bibliography.adoc#bib35[[35\]]. Variant B is a short form, if _Class1_ is not on the same diagram. The name of the class that _Class3_ is inheriting from is depicted in the upper right corner.
+Figure 83 show different graphical representations of generalization. Variant A is the classical graphical representation as defined in xref:Bibliography.adoc#bib35[[35\]]. Variant B is a short form, if _Class1_ is not on the same diagram. The name of the class that _Class3_ is inheriting from is depicted in the upper right corner.
 
 Variant C not only shows which class Class3 instances are inheriting from, but also what they are inheriting. This is depicted by the class name it is inheriting from, followed by "::" and then the list of all inherited elements – here attribute _class2_. Typically, the inherited elements are not shown.
 

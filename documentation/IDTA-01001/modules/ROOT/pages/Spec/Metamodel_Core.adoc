@@ -8,7 +8,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ////
 
-include::../includes/IDTA-01001_Constraints.adoc[]
+include::../includes/Constraints.adoc[]
 
 == Asset Administration Shell Attributes
 
@@ -24,17 +24,17 @@ The _derivedFrom_ attribute is used to establish a relationship between two Asse
 |===
 h|Class: 3+e|[[AssetAdministrationShell]]AssetAdministrationShell
 h|Explanation: 3+a|An Asset Administration Shell
-h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Common.adoc#Identifiable[Identifiable]; xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasDataSpecification[HasDataSpecification]
+h|Inherits from: 3+|xref:Spec/Metamodel_Common.adoc#Identifiable[Identifiable]; xref:Spec/Metamodel_Common.adoc#HasDataSpecification[HasDataSpecification]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell`  
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
 .2+e|derivedFrom 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/derivedFrom`
-a|The reference to the Asset Administration Shell, which the Asset Administration Shell was derived from |ModelReference<xref:Spec/IDTA-01001_Metamodel_Common.adoc#AssetAdministrationShell[AssetAdministrationShell]> |0..1
+a|The reference to the Asset Administration Shell, which the Asset Administration Shell was derived from |ModelReference<xref:Spec/Metamodel_Common.adoc#AssetAdministrationShell[AssetAdministrationShell]> |0..1
 
 .2+e|assetInformation 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/assetInformation`
-a|Meta information about the asset the Asset Administration Shell is representing |xref:Spec/IDTA-01001_Metamodel_Common.adoc#AssetInformation[AssetInformation] |1
+a|Meta information about the asset the Asset Administration Shell is representing |xref:Spec/Metamodel_Common.adoc#AssetInformation[AssetInformation] |1
 
 .2+e|submodel 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/submodels`
 a|
@@ -184,7 +184,7 @@ A specific asset ID describes a generic supplementary identifying attribute of t
 {aasd133}
 
 
-h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasSemantics[HasSemantics]
+h|Inherits from: 3+|xref:Spec/Metamodel_Common.adoc#HasSemantics[HasSemantics]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId`  
 
 .2+h|Attribute 3+h| ID
@@ -221,7 +221,7 @@ Note 2: semanticIds for the single specificAssetIds do not need to be unique.
 ====
 
 
-For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:IDTA-01xxx_Bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:Bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
 
 == Submodel Attributes
 
@@ -248,7 +248,7 @@ A submodel defines a specific aspect of the asset represented by the Asset Admin
 A submodel is used to structure the digital representation and technical functionality of an Administration Shell into distinguishable parts. Each submodel refers to a well-defined domain or subject matter. Submodels can become standardized and, in turn, submodel templates.
 
 
-h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Common.adoc#Identifiable[Identifiable]; xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasKind[HasKind]; xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasSemantics[HasSemantics]; xref:Spec/IDTA-01001_Metamodel_Common.adoc#Qualifiable[Qualifiable]; xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasDataSpecification[HasDataSpecification]
+h|Inherits from: 3+|xref:Spec/Metamodel_Common.adoc#Identifiable[Identifiable]; xref:Spec/Metamodel_Common.adoc#HasKind[HasKind]; xref:Spec/Metamodel_Common.adoc#HasSemantics[HasSemantics]; xref:Spec/Metamodel_Common.adoc#Qualifiable[Qualifiable]; xref:Spec/Metamodel_Common.adoc#HasDataSpecification[HasDataSpecification]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/Submodel`  
 
 .2+h|Attribute 3+h| ID
@@ -274,7 +274,7 @@ Submodel elements may also have defined data specification templates. A template
 |===
 h|Class: 3+e|[[SubmodelElement]]SubmodelElement \<<abstract>>
 h|Explanation: 3+a|A submodel element is an element suitable for the description and differentiation of assets.
-h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Common.adoc#Referable[Referable]; xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasSemantics[HasSemantics]; xref:Spec/IDTA-01001_Metamodel_Common.adoc#Qualifiable[Qualifiable]; xref:HasDataSpecification[HasDataSpecification]
+h|Inherits from: 3+|xref:Spec/Metamodel_Common.adoc#Referable[Referable]; xref:Spec/Metamodel_Common.adoc#HasSemantics[HasSemantics]; xref:Spec/Metamodel_Common.adoc#Qualifiable[Qualifiable]; xref:HasDataSpecification[HasDataSpecification]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/SubmodelElement`  
 
 .2+h|Attribute 3+h| ID

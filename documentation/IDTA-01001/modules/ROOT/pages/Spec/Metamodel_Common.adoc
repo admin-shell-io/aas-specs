@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 :page-partial:
 
-include::../includes/IDTA-01001_Constraints.adoc[]
+include::../includes/Constraints.adoc[]
 
 [[spec-common]]
 = Common Attributes
@@ -36,10 +36,10 @@ In principle, the version corresponds to the _version_identifier_ according to I
 
 Other attributes of the administrative information like creator refer to ISO 15836-1:2017, the Dublin Core metadata element set.
 
-For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:IDTA-01xxx_Bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:Bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
 
 
-xref:Spec/IDTA-01001_Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] allows the usage of templates (xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasDataSpecification[HasDataSpecification]). Data specifications are defined in separate documents.
+xref:Spec/Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] allows the usage of templates (xref:Spec/Metamodel_Common.adoc#HasDataSpecification[HasDataSpecification]). Data specifications are defined in separate documents.
 
 
 ====
@@ -73,20 +73,20 @@ Administrative metainformation for an element like version information
 
 {aasd005}
 
-h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasDataSpecification[HasDataSpecification]
+h|Inherits from: 3+|xref:Spec/Metamodel_Common.adoc#HasDataSpecification[HasDataSpecification]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation`  
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
 .2+e|version 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/version`  
-|Version of the element |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#VersionType[VersionType] |0..1
+|Version of the element |xref:Spec/Metamodel_DataTypes.adoc#VersionType[VersionType] |0..1
 
 .2+e|revision 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/revision`  
-|Revision of the element |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#RevisionType[RevisionType] |0..1
+|Revision of the element |xref:Spec/Metamodel_DataTypes.adoc#RevisionType[RevisionType] |0..1
 
 .2+e|creator 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/creator`  
-a|The subject ID of the subject responsible for making the element |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#Reference[Reference] |0..1
+a|The subject ID of the subject responsible for making the element |xref:Spec/Metamodel_Referencing.adoc#Reference[Reference] |0..1
 
 .2+e|templateId 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/templateId`  
 a|
@@ -111,7 +111,7 @@ Note 3: usage of the template ID is not restricted to submodel instances. The cr
 
 
 
-|xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] |0..1
+|xref:Spec/Metamodel_DataTypes.adoc#Identifier[Identifier] |0..1
 
 |===
 
@@ -141,7 +141,7 @@ Note: this is an external reference.
 ====
 
 
-|xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#Reference[Reference] |0..* |
+|xref:Spec/Metamodel_Referencing.adoc#Reference[Reference] |0..* |
 |===
 
 For more details on data specifications, please see Clause 6.
@@ -179,7 +179,7 @@ h|Explanation h|Type h|Card.
 
 .2+e|extension 3+| `\https://admin-shell.io/aas/3/1/HasExtensions/extensions`  
 
-a|An extension of the element. |xref:Spec/IDTA-01001_Metamodel_Common.adoc#Extension[Extension] |0..*
+a|An extension of the element. |xref:Spec/Metamodel_Common.adoc#Extension[Extension] |0..*
 
 |===
 
@@ -190,27 +190,27 @@ a|An extension of the element. |xref:Spec/IDTA-01001_Metamodel_Common.adoc#Exten
 |===
 h|Class: 3+e|[[Extension]]Extension
 h|Explanation: 3+|Single extension of an element
-h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasSemantics[HasSemantics]
+h|Inherits from: 3+|xref:Spec/Metamodel_Common.adoc#HasSemantics[HasSemantics]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/Extension`  
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
 .2+e|name 3+| `\https://admin-shell.io/aas/3/1/Extension`  
-a|Name of the extension |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#NameType[NameType] |1
+a|Name of the extension |xref:Spec/Metamodel_DataTypes.adoc#NameType[NameType] |1
 
 .2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Extension/valueType`  
 a|Data type of the value attribute of the extension
 
 Default: xs:string
 
-|xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd]|0..1
+|xref:Spec/Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd]|0..1
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/Extension/value` 
-a|Value of the extension |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |0..1
+a|Value of the extension |xref:Spec/Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |0..1
 
 .2+e|refersTo 3+| `\https://admin-shell.io/aas/3/1/Extension/refersTos` 
-a|Reference to an element the extension refers to |ModelReference<xref:Spec/IDTA-01001_Metamodel_Common.adoc#Referable[Referable]> |0..*
+a|Reference to an element the extension refers to |ModelReference<xref:Spec/Metamodel_Common.adoc#Referable[Referable]> |0..*
 |===
 
 
@@ -243,7 +243,7 @@ a| Kind of the element: either template or instance
 
 Default Value = _Instance_
 
-|xref:Spec/IDTA-01001_Metamodel_Common.adoc#ModellingKind[ModellingKind]|0..1
+|xref:Spec/Metamodel_Common.adoc#ModellingKind[ModellingKind]|0..1
 
 |===
 
@@ -296,14 +296,14 @@ Identifier of the semantic definition of the element called semantic ID or also 
 
 
 ====
-Note: it is recommended to use an external reference, (e.g. referencing a globally resolvable semantic definition). This is even recommended in the case a xref:Spec/IDTA-01001_Metamodel_ConceptDescriptions.adoc#ConceptDescription[ConceptDescription] exists. Otherwise lookup of the corresponding concept description may fail.
+Note: it is recommended to use an external reference, (e.g. referencing a globally resolvable semantic definition). This is even recommended in the case a xref:Spec/Metamodel_ConceptDescriptions.adoc#ConceptDescription[ConceptDescription] exists. Otherwise lookup of the corresponding concept description may fail.
 
 In future releases a constraint may be added that makes it mandatory to use external references.
 
 ====
 
 
-|xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#Reference[Reference] |0..1
+|xref:Spec/Metamodel_Referencing.adoc#Reference[Reference] |0..1
 
 .2+e|supplementalSemanticId 3+| `\https://admin-shell.io/aas/3/1/HasSemantics/supplementalIds` 
 a|
@@ -311,14 +311,14 @@ Identifier of a supplemental semantic definition of the element called supplemen
 
 
 ====
-Note: it is recommended to use an external reference, (e.g. referencing a globally resolvable semantic definition). This is even recommended in the case a xref:Spec/IDTA-01001_Metamodel_ConceptDescriptions.adoc#ConceptDescription[ConceptDescription] exists. Otherwise lookup of the corresponding concept description may fail.
+Note: it is recommended to use an external reference, (e.g. referencing a globally resolvable semantic definition). This is even recommended in the case a xref:Spec/Metamodel_ConceptDescriptions.adoc#ConceptDescription[ConceptDescription] exists. Otherwise lookup of the corresponding concept description may fail.
 
 In future releases a constraint may be added that makes it mandatory to use external references.
 
 ====
 
 
-|xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#Reference[Reference] |0..*
+|xref:Spec/Metamodel_Referencing.adoc#Reference[Reference] |0..*
 |===
 
 == Identifiable Attributes
@@ -348,7 +348,7 @@ Note: see Clause 5.3.12.2 for constraints related to identifiables.
 
 
 
-h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Common.adoc#Referable[Referable]
+h|Inherits from: 3+|xref:Spec/Metamodel_Common.adoc#Referable[Referable]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/Identifiable`  
 
 .2+h|Attribute 3+h| ID
@@ -364,11 +364,11 @@ Note: some of the administrative information like the version number might need 
 ====
 
 
-|xref:Spec/IDTA-01001_Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] |0..1
+|xref:Spec/Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] |0..1
 
 .2+e|id 3+| `\https://admin-shell.io/aas/3/1/Identifiable/id`  
 
-a|The globally unique identification of the element |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] |1
+a|The globally unique identification of the element |xref:Spec/Metamodel_DataTypes.adoc#Identifier[Identifier] |1
 
 |===
 
@@ -398,7 +398,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Qualifiable`
 h|Explanation h|Type h|Card.
 
 .2+e|qualifier 3+| `\https://admin-shell.io/aas/3/1/Qualifiable/qualifiers`  
-a|Additional qualification of a qualifiable element |xref:Spec/IDTA-01001_Metamodel_Common.adoc#Qualifier[Qualifier] |0..*
+a|Additional qualification of a qualifiable element |xref:Spec/Metamodel_Common.adoc#Qualifier[Qualifier] |0..*
 |===
 
 == Qualifier Attributes
@@ -426,7 +426,7 @@ A qualifier is essentially a type-value-pair. Depending on the kind of qualifier
 {aasd020}
 
 
-h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasSemantics[HasSemantics]
+h|Inherits from: 3+|xref:Spec/Metamodel_Common.adoc#HasSemantics[HasSemantics]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/Qualifier`  
 
 .2+h|Attribute 3+h| ID
@@ -438,16 +438,16 @@ The qualifier kind describes the kind of qualifier that is applied to the elemen
 
 Default: ConceptQualifier
 
-|xref:Spec/IDTA-01001_Metamodel_Common.adoc#QualifierKind[QualifierKind] |0..1
+|xref:Spec/Metamodel_Common.adoc#QualifierKind[QualifierKind] |0..1
 
 .2+e|type 3+| `\https://admin-shell.io/aas/3/1/Qualifier/type`  
-a|The qualifier type describes the type of qualifier that is applied to the element. |xref:Spec/IDTA-01001_Metamodel_Common.adoc#QualifierType[QualifierType] |1
+a|The qualifier type describes the type of qualifier that is applied to the element. |xref:Spec/Metamodel_Common.adoc#QualifierType[QualifierType] |1
 
 .2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Qualifier/valueType`  
-a|Data type of the qualifier _value_ |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd] |1
+a|Data type of the qualifier _value_ |xref:Spec/Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd] |1
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/Qualifier/value`  
-a|The qualifier value is the value of the qualifier. |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |0..1
+a|The qualifier value is the value of the qualifier. |xref:Spec/Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |0..1
 
 .2+e|valueId 3+| `\https://admin-shell.io/aas/3/1/Qualifier/valueId`  
 a|
@@ -459,7 +459,7 @@ Note: it is recommended to use an external reference.
 ====
 
 
-|xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#Reference[Reference] |0..1
+|xref:Spec/Metamodel_Referencing.adoc#Reference[Reference] |0..1
 
 
 |===
@@ -504,7 +504,7 @@ Example of a _ValueQualifier_: property "temperature" and qualifier "value quali
 Example of a _ConceptQualifier:_ an Asset Administration Shell with two submodels with different IDs but the same semanticId = "Bill of Material". The qualifier could denote the life cycle with qualifier values like "as planned", "as maintained" etc. (see +
 Figure 21).
 
-Example of a _TemplateQualifier:_ a submodel element with qualifier value "mandatory" or "optional". This qualification is needed to build a correct submodel instance. For more information see xref:IDTA-01xxx_Bibliography.adoc#bib48[[48\]].
+Example of a _TemplateQualifier:_ a submodel element with qualifier value "mandatory" or "optional". This qualification is needed to build a correct submodel instance. For more information see xref:Bibliography.adoc#bib48[[48\]].
 
 .Example: Qualifier from IEC CDD
 image::image22.png[Example: Qualifier from IEC CDD]
@@ -539,7 +539,7 @@ Note 2: see Clause 5.3.12.2 for constraints related to referables.
 {aasd002}
 
 
-h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasExtensions[HasExtensions]
+h|Inherits from: 3+|xref:Spec/Metamodel_Common.adoc#HasExtensions[HasExtensions]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/Referable`  
 
 .2+h|Attribute 3+h| ID
@@ -555,7 +555,7 @@ Note: The category is not identical to the semantic definition (_HasSemantics_) 
 ====
 
 
-|xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#NameType[NameType] |0..1
+|xref:Spec/Metamodel_DataTypes.adoc#NameType[NameType] |0..1
 
 .2+e|idShort 3+| `\https://admin-shell.io/aas/3/1/Referable/idShort` 
 a|
@@ -567,10 +567,10 @@ Note: if the element is a property and the property has a semantic definition (_
 ====
 
 
-|xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#NameType[NameType] |0..1
+|xref:Spec/Metamodel_DataTypes.adoc#NameType[NameType] |0..1
 
 .2+e|displayName 3+| `\https://admin-shell.io/aas/3/1/Referable/displayName` 
-a|Display name; can be provided in several languages |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#MultiLanguageNameType[MultiLanguageNameType] |0..1
+a|Display name; can be provided in several languages |xref:Spec/Metamodel_DataTypes.adoc#MultiLanguageNameType[MultiLanguageNameType] |0..1
 
 .2+e|description 3+| `\https://admin-shell.io/aas/3/1/Referable/description` 
 a|
@@ -582,7 +582,7 @@ If no description is defined, the definition of the concept description that def
 
 Additional information can be provided, e.g. if the element is qualified and which qualifier types can be expected in which context or which additional data specification templates.
 
-|xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
+|xref:Spec/Metamodel_DataTypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
 |===
 
 Predefined categories are described in Table 6.
