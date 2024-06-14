@@ -10,7 +10,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 :page-partial:
 
-include::../includes/IDTA-01001_Constraints.adoc[]
+include::../includes/Constraints.adoc[]
 
 = Environment Attributes
 
@@ -28,18 +28,18 @@ Note: _Environment_ is not an identifiable or referable element. It is introduce
 |===
 h|Class: 3+e|[[Environment]]Environment
 h|Explanation: 3+a|Container for the sets of different identifiables
-h|Inherits from: 3+|xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#Reference[Reference]
+h|Inherits from: 3+|xref:Spec/Metamodel_Referencing.adoc#Reference[Reference]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/Environment`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
 .2+e|assetAdministrationShell 3+| `\https://admin-shell.io/aas/3/1/Environment/assetAdministrationShells`
-a|Asset Administration Shell |xref:Spec/IDTA-01001_Metamodel_Core.adoc#AssetAdministrationShell[AssetAdministrationShell] |0..*
+a|Asset Administration Shell |xref:Spec/Metamodel_Core.adoc#AssetAdministrationShell[AssetAdministrationShell] |0..*
 
 .2+e|submodel 3+| `\https://admin-shell.io/aas/3/1/Environment/submodels`
-a|Submodel |xref:Spec/IDTA-01001_Metamodel_Core.adoc#Submodel[Submodel] |0..*
+a|Submodel |xref:Spec/Metamodel_Core.adoc#Submodel[Submodel] |0..*
 
 .2+e|conceptDescription 3+| `\https://admin-shell.io/aas/3/1/Environment/conceptDescriptions`
-a|Concept description |xref:Spec/IDTA-01001_Metamodel_ConceptDescriptions.adoc#ConceptDescription[ConceptDescription] |0..*
+a|Concept description |xref:Spec/Metamodel_ConceptDescriptions.adoc#ConceptDescription[ConceptDescription] |0..*
 |===
