@@ -139,7 +139,6 @@ Major Bugfixes:
 * CHANGE: support relative path for SubmodelElement File, 
 PathType: support complete URI scheme for files RFC2396 conformant to anyURI of XML Schema 1.0, Part 2 (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
 
-
 * CHANGE: Constraint AASd-116 globalAssetId + added note that globalAssetId should only be used in discovery functionality but not as value for SpecificAssetId/name (https://github.com/admin-shell-io/aas-specs/issues/390[#390])
 
 * CHANGE: make EmbeddedDataSpecification/dataSpecification mandatory (as implemented in schemas) (https://github.com/admin-shell-io/aas-specs/issues/296[#296])
@@ -148,7 +147,11 @@ PathType: support complete URI scheme for files RFC2396 conformant to anyURI of 
 
 * CHANGE (Editorial): updated Change Logs of V3.0 w.r.t. Range: Range was set to experimental in V3.0
 
+
 * CHANGE (Editorial, the schemas implemented it like this) Annex UML Tables: "0..*" or "0..3" etc.  means that the list may be either not available (optional) or the list is not empty. (https://github.com/admin-shell-io/aas-specs/issues/418[#418])
+
+* CHANGE (Editorial, the schemas implemented it like this, table was correct) Update Figure containing Resource: Resource/path has cardinality 1 and Resource/contentType has cardinality 0..1 (https://github.com/admin-shell-io/aas-specs/issues/438[#438]) 
+
 
 Other Bugfixes:
 
