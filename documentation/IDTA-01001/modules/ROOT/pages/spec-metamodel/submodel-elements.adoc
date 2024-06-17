@@ -10,7 +10,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 :page-partial:
 
-include::../includes/Constraints.adoc[]
+include::../includes/constraints.adoc[]
 
 = Overview of Submodel Element Types
 
@@ -24,7 +24,7 @@ Submodel elements include data properties as well as operations, events and othe
 All submodel elements including abstract classes like data elements are specified in alphabetical order.
 
 ====
-Note: value-related attributes typically are optional to enable definition of Submodel Templates as well, i.e. xref:Spec/Metamodel_Core.adoc#Submodel[Submodels]  with value of xref:Spec/Metamodel_Common.adoc#HasKind[Submodel/kind] equal to xref:Spec/Metamodel_Common.adoc#ModellingKind[Template].
+Note: value-related attributes typically are optional to enable definition of Submodel Templates as well, i.e. xref:spec-metamodel/core.adoc#Submodel[Submodels]  with value of xref:spec-metamodel/common.adoc#HasKind[Submodel/kind] equal to xref:spec-metamodel/common.adoc#ModellingKind[Template].
 ====
 
 == Annotated Relationship Element Attributes
@@ -238,7 +238,7 @@ a|Timestamp in UTC, when this event was triggered |dateTime |1
 a|Event-specific payload |xref:BlobType[BlobType] |0..1
 |===
 
-For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:Bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
 
 == Blob Attributes
 
@@ -290,7 +290,7 @@ image::image33.png[]
 
 
 =
-Note: the _semanticId_ of a capability is typically an ontology, which enables reasoning on capabilities. For information and examples on how to apply the concept of capability and how to map it to one or more skills implementing the capability, please refer to xref:Bibliography.adoc#bib27[[27\]]. The mapping is done via a relationship element with the corresponding semantics. A skill is typically a property or an operation. In more complex cases, the mapping can also be a collection or a complete submodel.
+Note: the _semanticId_ of a capability is typically an ontology, which enables reasoning on capabilities. For information and examples on how to apply the concept of capability and how to map it to one or more skills implementing the capability, please refer to xref:bibliography.adoc#bib27[[27\]]. The mapping is done via a relationship element with the corresponding semantics. A skill is typically a property or an operation. In more complex cases, the mapping can also be a collection or a complete submodel.
 =
 
 
@@ -491,7 +491,7 @@ Reference to the global unique ID of a coded value.
 
 
 ====
-Note: it is recommended to use an external reference, compare to xref:Spec/Metamodel_Common.adoc#HasSemantics[HasSemantics/semanticId]
+Note: it is recommended to use an external reference, compare to xref:spec-metamodel/common.adoc#HasSemantics[HasSemantics/semanticId]
 ====
 
 
@@ -548,7 +548,7 @@ a|Describes an argument or result of an operation via a submodel element |xref:S
 
 
 =
-Note 1: operations typically specify the behavior of a component in terms of procedures. Hence, operations enable the specification of services with procedure-based interactions xref:Bibliography.adoc#bib23[[23\]].
+Note 1: operations typically specify the behavior of a component in terms of procedures. Hence, operations enable the specification of services with procedure-based interactions xref:bibliography.adoc#bib23[[23\]].
 =
 
 
@@ -596,7 +596,7 @@ a| Reference to the global unique ID of a coded value
 
 
 ====
-Note: it is recommended to use an external reference, compare to xref:Spec/Metamodel_Common.adoc#HasSemantics[HasSemantics/semanticId]
+Note: it is recommended to use an external reference, compare to xref:spec-metamodel/common.adoc#HasSemantics[HasSemantics/semanticId]
 ====
 
 
@@ -735,7 +735,7 @@ Note: there is no _idShort_ for submodel elements in lists (see Constraint AASd-
 ====
 
 
-Submodel element lists are also used to create multi-dimensional arrays. A two-dimensional array listxref:Bibliography.adoc#bib3[[3\]]xref:Bibliography.adoc#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements. Each of these three _SubmodelElementLists_ would contain 5 single _Property_ elements. The _semanticId_ of the contained properties would be the same for all lists in the first list, i.e. _semanticIdListElement_ would be identical for all three lists contained in the first list. The _semanticId_ of the three contained lists would differ depending on the dimension it represents. In case of complex values in the array, a _SubmodelElementCollection_ would be used as values in the leaf lists.
+Submodel element lists are also used to create multi-dimensional arrays. A two-dimensional array listxref:Bibliography.adoc#bib3[[3\]]xref:bibliography.adoc#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements. Each of these three _SubmodelElementLists_ would contain 5 single _Property_ elements. The _semanticId_ of the contained properties would be the same for all lists in the first list, i.e. _semanticIdListElement_ would be identical for all three lists contained in the first list. The _semanticId_ of the three contained lists would differ depending on the dimension it represents. In case of complex values in the array, a _SubmodelElementCollection_ would be used as values in the leaf lists.
 
 Similarly, a table with three columns can be represented. In this case a _SubmodelElementCollection_ with three _SubmodelElementLists_ would be contained and the _semanticId_ as well as the _semanticIdListElement_ for the three columns would differ.
 
@@ -767,7 +767,7 @@ The numbering starts with Zero (0).
 {aasd109}
 
 
-h|Inherits from: 3+|xref:Spec/Metamodel_Core.adoc#:SubmodelElement[SubmodelElement]
+h|Inherits from: 3+|xref:spec-metamodel/core.adoc#:SubmodelElement[SubmodelElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList`
 
 .2+h|Attribute 3+h| ID
@@ -782,7 +782,7 @@ Default: True
 |boolean |0..1
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/values`
-a|Submodel element contained in the list |xref:Spec/Metamodel_Core.adoc#:SubmodelElement[SubmodelElement] |0..*
+a|Submodel element contained in the list |xref:spec-metamodel/core.adoc#:SubmodelElement[SubmodelElement] |0..*
 
 .2+e|semanticIdListElement 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/semanticIdListElement`
 a|
@@ -794,11 +794,11 @@ Note: it is recommended to use an external reference.
 ====
 
 
-|xref:Spec/Metamodel_Referencing.adoc#:Reference[Reference] |0..1
+|xref:spec-metamodel/referencing.adoc#:Reference[Reference] |0..1
 
 .2+e|typeValueListElement  3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/typeValueListElement/typeValueListElement`
-a|The submodel element type of the submodel elements contained in the list |xref:Spec/Metamodel_Referencing.adoc#:AasSubmodelElements[AasSubmodelElements]|1
+a|The submodel element type of the submodel elements contained in the list |xref:spec-metamodel/referencing.adoc#:AasSubmodelElements[AasSubmodelElements]|1
 
 .2+e|valueTypeListElement 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/valueTypeListElement`
-a|The value type of the submodel element contained in the list |xref:Spec/Metamodel_DataTypes.adoc#:DataTypeDefXsd[DataTypeDefXsd]|0..1
+a|The value type of the submodel element contained in the list |xref:spec-metamodel/datatypes.adoc#:DataTypeDefXsd[DataTypeDefXsd]|0..1
 |===

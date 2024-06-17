@@ -37,7 +37,7 @@ Subclause 4.6 discusses aspects of event handling.
 
 Industry 4.0 utilizes an extended understanding of assets, comprising elements such as factories, production systems, equipment, machines, components, produced products and raw materials, business processes and orders, immaterial assets (such as processes, software, documents, plans, intellectual property, standards), services, human personnel, etc..
 
-The RAMI4.0 model xref:Bibliography.adoc#bib3[[3\]] defines a generalized life cycle concept derived from IEC 62890. The basic idea is to distinguish between possible types and instances for all assets within Industry 4.0. This makes it possible to apply the type/instance distinction for all elements such as material type/material instance, product type/product instance, machine type/ machine instance, etc. Business-related information is handled on the 'business' layer of the RAMI4.0 model. The business layer also covers order details and workflows, again for both type and instance assets.
+The RAMI4.0 model xref:bibliography.adoc#bib3[[3\]] defines a generalized life cycle concept derived from IEC 62890. The basic idea is to distinguish between possible types and instances for all assets within Industry 4.0. This makes it possible to apply the type/instance distinction for all elements such as material type/material instance, product type/product instance, machine type/ machine instance, etc. Business-related information is handled on the 'business' layer of the RAMI4.0 model. The business layer also covers order details and workflows, again for both type and instance assets.
 
 
 ====
@@ -73,13 +73,13 @@ The third class of relationships are feedforward/information exchange with asset
 
 
 ====
-Note: the NIST model xref:Bibliography.adoc#bib49[[49\]] provides an illustration of the second/third class of relationships.
+Note: the NIST model xref:bibliography.adoc#bib49[[49\]] provides an illustration of the second/third class of relationships.
 ====
 
 
 A fourth class of relationships consists between assets of different hierarchy levels. For example, these could be the (dynamic) relationships between manufacturing stations and currently produced products. They could be also the decomposition of production systems in physical, functional, or safety hierarchies. In this class of relationships, automation equipment is seen as a complex, interrelated graph of automation devices and products, performing intelligent production and self-learning/optimization tasks.
 
-Details and examples for composite I4.0 Components can be found in xref:Bibliography.adoc#bib12[[12\]]. A composite I4.0 Component is the combination of a complex asset and its Asset Administration Shell. The hierarchy, typically a Bill of Material (BOM) but also any other relationship between different assets, can be represented in one of its submodels.
+Details and examples for composite I4.0 Components can be found in xref:bibliography.adoc#bib12[[12\]]. A composite I4.0 Component is the combination of a complex asset and its Asset Administration Shell. The hierarchy, typically a Bill of Material (BOM) but also any other relationship between different assets, can be represented in one of its submodels.
 
 
 ====
@@ -201,7 +201,7 @@ image::image5.png[]
 
 ===  Overview
 
-According to xref:Bibliography.adoc#bib4[[4\]], identifiers are needed for the unique identification of many different elements within the domain of smart manufacturing. They are a fundamental element of a formal description of the Administration Shell. Identification is especially required for
+According to xref:bibliography.adoc#bib4[[4\]], identifiers are needed for the unique identification of many different elements within the domain of smart manufacturing. They are a fundamental element of a formal description of the Administration Shell. Identification is especially required for
 
 * Asset Administration Shells,
 * assets,
@@ -215,20 +215,20 @@ Identification will take place for two purposes
 
 === Identifiers for Assets and Administration Shells
 
-In the domain of smart manufacturing, the assets need to be uniquely identified worldwide xref:Bibliography.adoc#bib4[[4\]] xref:Bibliography.adoc#bib20[[20\]] by the means of identifiers (IDs). The Administration Shell also has a unique ID (see Figure 5).
+In the domain of smart manufacturing, the assets need to be uniquely identified worldwide xref:bibliography.adoc#bib4[[4\]] xref:bibliography.adoc#bib20[[20\]] by the means of identifiers (IDs). The Administration Shell also has a unique ID (see Figure 5).
 
 .Unique Identifier for Administration Shell and Asset (Modified Figure from xref:Bibliography.adoc#bib4[[4\]])
 image::image6.jpeg[]
 
-An Administration Shell represents exactly one asset, with a unique asset ID. In a batch-based production, the batches will become the assets and will be described by a respective Administration Shell. If a set of assets shall be described by an Administration Shell, a unique ID for the composite asset needs to be created xref:Bibliography.adoc#bib13[[13\]].
+An Administration Shell represents exactly one asset, with a unique asset ID. In a batch-based production, the batches will become the assets and will be described by a respective Administration Shell. If a set of assets shall be described by an Administration Shell, a unique ID for the composite asset needs to be created xref:bibliography.adoc#bib13[[13\]].
 
-The ID of the asset needs to comply with the restrictions for global identifiers according to xref:Bibliography.adoc#bib4[[4\]]xref:Bibliography.adoc#bib20[[20\]]. If the asset features further identifications like serial numbers and alike, they are not to be confused with the unique global identifiers of the asset itselffootnote:[Such additional asset identifiers are contained in _AssetInformation/specificAssetIds_.].
+The ID of the asset needs to comply with the restrictions for global identifiers according to xref:bibliography.adoc#bib4[[4\]]xref:bibliography.adoc#bib20[[20\]]. If the asset features further identifications like serial numbers and alike, they are not to be confused with the unique global identifiers of the asset itselffootnote:[Such additional asset identifiers are contained in _AssetInformation/specificAssetIds_.].
 
 === What Type of Identifiers Exist?
 
-In xref:Bibliography.adoc#bib4[[4\]]xref:Bibliography.adoc#bib20[[20\]], two standard-conforming global identification types are defined:
+In xref:bibliography.adoc#bib4[[4\]]xref:bibliography.adoc#bib20[[20\]], two standard-conforming global identification types are defined:
 
-* *IRDI* – ISO29002-5, ISO IEC 6523 and ISO IEC 11179-6 xref:Bibliography.adoc#bib20[[20\]] as an identifier scheme for properties and classifications. They are created in a process of consortium-wise specification or international standardization. To this end, users come together and feed their ideas into the consortia or standardization bodies. Properties in ISO, IEC help to safeguard key commercial interests. Repositories like ECLASS and others make it possible to standardize a relatively large number of identifiers in an appropriately short time.
+* *IRDI* – ISO29002-5, ISO IEC 6523 and ISO IEC 11179-6 xref:bibliography.adoc#bib20[[20\]] as an identifier scheme for properties and classifications. They are created in a process of consortium-wise specification or international standardization. To this end, users come together and feed their ideas into the consortia or standardization bodies. Properties in ISO, IEC help to safeguard key commercial interests. Repositories like ECLASS and others make it possible to standardize a relatively large number of identifiers in an appropriately short time.
 * *IRI* – IRI (link:https://tools.ietf.org/html/rfc3987[RFC 3987]) or URI and URL according to link:https://tools.ietf.org/html/rfc3986[RFC 3986] as identification of assets, Administration Shells and other (probably not standardized, but globally unique) properties and classifications.
 
 The following is also permitted:
@@ -243,7 +243,7 @@ Besides the global identifiers, there are also identifiers that are unique only 
 
 Besides absolute URIs there are also relative URIs.
 
-See also DIN SPEC 91406 xref:Bibliography.adoc#bib31[[31\]] for further information on identification.
+See also DIN SPEC 91406 xref:bibliography.adoc#bib31[[31\]] for further information on identification.
 
 ===  Which Identifiers for Which Elements?
 
@@ -359,7 +359,7 @@ IRDI, if the defined qualifier type is standardized and has been assigned an IRD
 
 === Usage of Short ID for Identifiable Elements
 
-The Administration Shell fosters the use of worldwide unique identifiers to a large degree. However, in some cases, this may lead to inefficiencies. Example: a property, which is part of a submodel, which in turn is part of an Administration Shell, each of which is identified by global identifiers xref:Bibliography.adoc#bib4[[4\]].
+The Administration Shell fosters the use of worldwide unique identifiers to a large degree. However, in some cases, this may lead to inefficiencies. Example: a property, which is part of a submodel, which in turn is part of an Administration Shell, each of which is identified by global identifiers xref:bibliography.adoc#bib4[[4\]].
 
 In an application featuring a resource-oriented architecture (ROA), a worldwide unique resource locator (URL) might be composed of a series of segments, which do not need to be globally unique, see Figure 6.
 
@@ -564,7 +564,7 @@ matches
 
 === Can New or Proprietary Submodels be Formed?
 
-It is in the interest of Industry 4.0 for as many submodels as possible, including free and proprietary submodels, to be formed (see xref:Bibliography.adoc#bib4[[4\]], "Free property sets"). A submodel can be formed at any time for a specific Administration Shell of an asset. The provider of the Administration Shell can form in-house identifiers for the type and instance of the submodel in line with Clause 4.3. All I4.0 systems are called on to ignore submodels and properties that are not individually known. Hence, it is always possible to deposit proprietary – e.g. manufacturer-specific or user-specific – information, submodels, or properties in an Administration Shell.
+It is in the interest of Industry 4.0 for as many submodels as possible, including free and proprietary submodels, to be formed (see xref:bibliography.adoc#bib4[[4\]], "Free property sets"). A submodel can be formed at any time for a specific Administration Shell of an asset. The provider of the Administration Shell can form in-house identifiers for the type and instance of the submodel in line with Clause 4.3. All I4.0 systems are called on to ignore submodels and properties that are not individually known. Hence, it is always possible to deposit proprietary – e.g. manufacturer-specific or user-specific – information, submodels, or properties in an Administration Shell.
 
 
 ====
@@ -576,7 +576,7 @@ Note: it is the intention of the Administration Shell to include proprietary inf
 
 A public specification of a submodel template (e.g. via publication by Plattform Industrie 4.0) should be available to instantiate an existing submodel template. In special cases, a submodel can also be instantiated from a non-public submodel template, such as a manufacturer specification.
 
-In November 2020, the first two submodel templates for the Asset Administration Shell were published, one for a nameplate xref:Bibliography.adoc#bib40[[40\]] and one for generic technical data xref:Bibliography.adoc#bib39[[39\]]. Others followed and will follow. Please see xref:Bibliography.adoc#bib45[[45\]] for an overview of registered submodel templates.
+In November 2020, the first two submodel templates for the Asset Administration Shell were published, one for a nameplate xref:bibliography.adoc#bib40[[40\]] and one for generic technical data xref:bibliography.adoc#bib39[[39\]]. Others followed and will follow. Please see xref:bibliography.adoc#bib45[[45\]] for an overview of registered submodel templates.
 
 The identifiers of concept definitions to be used as semantic references are already predefined in each submodel template. An instantiation of such a submodel merely requires the creation of properties with a semantic reference to the property definition and an attached value. The same applies to other subtypes of submodel elements.
 
