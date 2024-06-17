@@ -8,7 +8,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ////
 
-include::./includes/IDTA-01001_Constraints.adoc[]
+include::./includes/Constraints.adoc[]
 
 
 = Metamodel Changes
@@ -97,14 +97,14 @@ Minor Changes:
 |*Nc* |*V3.1 Change w.r.t. V3.0* |*Comment*
 
 
-| {empty} | xref:Spec/IDTA-01001_Metamodel_Core.adoc#AssetKind[AssetKind] a| Add new value "Role" to enumeration AssetKind
-| {empty} | xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Entity[Entity/entityType] a| now optional
-| {empty} | xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] a| data type: change length from 2000 to 2024 characters
-| {empty} | xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#NameType[NameType] a| implicit change due to change of Constraint AASd-002
-| {empty} | xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#PathType[PathType] a| extend data type to support complete URI scheme for files RFC2396
-|{empty}  | xref:Spec/IDTA-01001_Metamodel_Common.adoc#Referable[Referable/idShort] a| implicit change because constraint AASd-002 now also allows hyphen
-| {empty} | xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#RelationshipElement[RelationshipElement/first] a| now optional
-| {empty} | xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#RelationshipElement[RelationshipElement/second] a| now optional
+| {empty} | xref:Spec/Metamodel_Core.adoc#AssetKind[AssetKind] a| Add new value "Role" to enumeration AssetKind
+| {empty} | xref:Spec/Metamodel_SubmodelElements.adoc#Entity[Entity/entityType] a| now optional
+| {empty} | xref:Spec/Metamodel_DataTypes.adoc#Identifier[Identifier] a| data type: change length from 2000 to 2024 characters
+| {empty} | xref:Spec/Metamodel_DataTypes.adoc#NameType[NameType] a| implicit change due to change of Constraint AASd-002
+| {empty} | xref:Spec/Metamodel_DataTypes.adoc#PathType[PathType] a| extend data type to support complete URI scheme for files RFC2396
+|{empty}  | xref:Spec/Metamodel_Common.adoc#Referable[Referable/idShort] a| implicit change because constraint AASd-002 now also allows hyphen
+| {empty} | xref:Spec/Metamodel_SubmodelElements.adoc#RelationshipElement[RelationshipElement/first] a| now optional
+| {empty} | xref:Spec/Metamodel_SubmodelElements.adoc#RelationshipElement[RelationshipElement/second] a| now optional
 
 |===
 
@@ -112,7 +112,7 @@ Minor Changes:
 [cols="5%,41%,51%",options="header",]
 |===
 |{empty} |*New Elements V3.1 vs V3.0* |*Comment*
-|{empty} | xref:Spec/IDTA-01001_Metamodel_Core.adoc#AssetKind[AssetKind/Role] | New value in enumeration
+|{empty} | xref:Spec/Metamodel_Core.adoc#AssetKind[AssetKind/Role] | New value in enumeration
 |===
 
 
@@ -166,14 +166,14 @@ Other Bugfixes:
 [cols="5%,42%,48%",options="header",]
 |===
 |*Nc* |*V3.1 Change w.r.t. V3.0* |*Comment*
-|(x)| xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement/Direction] a| (bugfix in Text only) attribute starts with small letter
-|(x) | xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement/State] a|  (bugfix in Text only) attribute starts with small letter
-|x| xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd] a| BUGFIX: Remove xs:yearMonthDuration from enumeration
+|(x)| xref:Spec/Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement/Direction] a| (bugfix in Text only) attribute starts with small letter
+|(x) | xref:Spec/Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement/State] a|  (bugfix in Text only) attribute starts with small letter
+|x| xref:Spec/Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd] a| BUGFIX: Remove xs:yearMonthDuration from enumeration
 
 Updated links to XML Schema 1.0 (not 1.1)
 |(x)| EmbeddedDataSpecification/dataSpecification a| (bugfix in Text only) now mandatory
-|(x) | xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#MultiLanguageNameType[MultiLanguageNameType] a| (bugfix in Text only) maxLength=128 (as derived and implemented)
-|(x)  | xref:Spec/IDTA-01001_Metamodel_Common.adoc#Qualifier[Qualifier/Kind] a| (bugfix in Text only) attribute starts with small letter
+|(x) | xref:Spec/Metamodel_DataTypes.adoc#MultiLanguageNameType[MultiLanguageNameType] a| (bugfix in Text only) maxLength=128 (as derived and implemented)
+|(x)  | xref:Spec/Metamodel_Common.adoc#Qualifier[Qualifier/Kind] a| (bugfix in Text only) attribute starts with small letter
 |===
 
 .New, Changed or Removed Constraints
@@ -281,17 +281,17 @@ Note: Security is still part of the Asset Administration Shell, but the Asset Ad
 ====
 
 |x |AssetAdministrationShell/view |Removed, Views no longer supported
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Core.adoc#AssetKind[AssetKind/Instance] |Updated description of value "Instance" of enumeration "AssetKind" conformant to IEC 63278-1
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Core.adoc#AssetKind[AssetKind/Type] |Updated description of value "Type" of enumeration "AssetKind" conformant to IEC 63278-1
-|x |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEvent] |Renamed to BasicEventElement and set to \<<Experimental>>
+|{empty} |xref:Spec/Metamodel_Core.adoc#AssetKind[AssetKind/Instance] |Updated description of value "Instance" of enumeration "AssetKind" conformant to IEC 63278-1
+|{empty} |xref:Spec/Metamodel_Core.adoc#AssetKind[AssetKind/Type] |Updated description of value "Type" of enumeration "AssetKind" conformant to IEC 63278-1
+|x |xref:Spec/Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEvent] |Renamed to BasicEventElement and set to \<<Experimental>>
 
-|xxref:IDTA-01xxx_Bibliography.adoc#bib2[[2\]] |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#BlobType[BlobType] |Primitive changed from "group of bytes" to Base64Binary
+|xxref:Bibliography.adoc#bib2[[2\]] |xref:Spec/Metamodel_DataTypes.adoc#BlobType[BlobType] |Primitive changed from "group of bytes" to Base64Binary
 
 |x |ConceptDictionary |Removed
 |x |Constraint |Abstract class removed. Formula now used in Security part only
-|x |xref:IDTA-01001_DataSpecifications.adoc#DataSpecification[DataSpecification] |No longer inherits from Identifiable. However, same attribute names and types
+|x |xref:DataSpecifications.adoc#DataSpecification[DataSpecification] |No longer inherits from Identifiable. However, same attribute names and types
 |x |DataSpecification/description |Type changed from LangStringSet to MultiLanguageTextType, thus adding a length constraint
-| |xref:IDTA-01001_DataSpecifications.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
+| |xref:DataSpecifications.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
 |(x) |DataTypeDef |Removed and split into DataTypeDefXsd and DataTypeDefRdf. Some types excluded and not supported because now XML Schema 1.0 reference +
  +
 Before: just string allowing any xsd simple type as string +
@@ -310,7 +310,7 @@ Formula now used in Security part only
  +
 Substituted by Identifiable/id
 |x |IdentifiableElements |Renamed to AasIdentifiables
-|x |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] a|
+|x |xref:Spec/Metamodel_DataTypes.adoc#Identifier[Identifier] a|
 Type changed
 
 Before struct class with two attributes: id and idType. Now string data type only.
@@ -330,14 +330,14 @@ The elements remain, except for new SubmodelElementList, and renamed submodel el
 |{empty} |LocalKeyType |Enumeration removed because no Key/idType any longer
 |x |MimeType |Type name changed to ContentType
 |x |MultiLanguageProperty/value |Type changed from LangStringSet to MultiLanguageTextType, thus adding a length constraint
-|x |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#PathType[PathType] |Same as Identifier, i.e. length constraint added
+|x |xref:Spec/Metamodel_DataTypes.adoc#PathType[PathType] |Same as Identifier, i.e. length constraint added
 |{empty} |Property/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 |x |Qualifiable/qualifier |Type changed from Constraint to Qualifier
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Common.adoc#Qualifier[Qualifier] |No longer inherits from abstract class "Constraint"
+|{empty} |xref:Spec/Metamodel_Common.adoc#Qualifier[Qualifier] |No longer inherits from abstract class "Constraint"
 |{empty} |Qualifier/valueType |Type changed from DataTypeDef to DataTypeDefXsd
-|x |xref:Spec/IDTA-01001_Metamodel_Common.adoc#QualifierType[QualifierType] |Type changed from string to NameType (i.e. length constraint added)
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Range[Range] | set to \<<Experimental>>
-|{empty} |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Range[Range/valueType] |Type changed from DataTypeDef to DataTypeDefXsd
+|x |xref:Spec/Metamodel_Common.adoc#QualifierType[QualifierType] |Type changed from string to NameType (i.e. length constraint added)
+| |xref:Spec/Metamodel_SubmodelElements.adoc#Range[Range] | set to \<<Experimental>>
+|{empty} |xref:Spec/Metamodel_SubmodelElements.adoc#Range[Range/valueType] |Type changed from DataTypeDef to DataTypeDefXsd
 |x |Referable/category a|
 Type changed from string to NameType (i.e. length constraint added)
 
@@ -369,8 +369,8 @@ Now part of AasSubmodelElements
 |x |ReferenceTypes/GlobalReference |Renamed to ExternalReference
 |{empty} |RelationshipElement/first |Type changes from model reference Referable to Reference (global or model reference)
 |{empty} |RelationshipElement/second |Type changes from model reference Referable to Reference (global or model reference)
-|xxref:IDTA-01xxx_Bibliography.adoc#bib1[[1\]] |SubmodelElement/kind |Removed. SubmodelElement no longer inheritsfrom HasKind
-|{empty} |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
+|xxref:Bibliography.adoc#bib1[[1\]] |SubmodelElement/kind |Removed. SubmodelElement no longer inheritsfrom HasKind
+|{empty} |xref:Spec/Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
 |{empty}x |View |Removed
 |===
 
@@ -378,25 +378,25 @@ Now part of AasSubmodelElements
 [cols="5%,41%,51%",options="header",]
 |===
 | |*New Elements V3.0 vs V2.0.1* |*Comment*
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#AasIdentifiables[AasIdentifiables] |New enumeration used for References, includes abstract Identifiable +
+|{empty} |xref:Spec/Metamodel_Referencing.adoc#AasIdentifiables[AasIdentifiables] |New enumeration used for References, includes abstract Identifiable +
  +
 Before: Identifiables
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#AasSubmodelElements[AasSubmodelElements] |New enumeration used for References +
+|{empty} |xref:Spec/Metamodel_Referencing.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
+|{empty} |xref:Spec/Metamodel_Referencing.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
+|{empty} |xref:Spec/Metamodel_Referencing.adoc#AasSubmodelElements[AasSubmodelElements] |New enumeration used for References +
  +
 Before: ReferableElements
 |{empty} |AdministrativeInformation/creator |New optional attribute
 |{empty} |AdministrativeInformation/templateId |New optional attribute
 |x |AssetAdministrationShell/assetInformation |Substitute for AssetAdministrationShell/asset; no reference any longer, instead aggregation
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Core.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset because not specific to Asset but AAS
+|{empty} |xref:Spec/Metamodel_Core.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset because not specific to Asset but AAS
 |{empty} |AssetInformation/assetKind |Former Asset/assetKind
 |{empty} |AssetInformation/assetType |New optional attribute
 |{empty} |AssetInformation/globalAssetId |Former Asset/identification/id
 |{empty} |AssetInformation/specificAssetId |Former Asset/assetIdentificationModel
 |{empty} |AssetInformation/thumbnail |Optional Attribute of new class AssetInformation that was not available in Asset class before
 |{empty} |AssetKind/NotApplicable |New enumeration value
-|{empty} |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement] |Former BasicEvent +
+|{empty} |xref:Spec/Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement] |Former BasicEvent +
  +
 New \<<Experimental>> submodel element for events
 |{empty} |BasicEventElement/direction |Was part of non-normative part before
@@ -409,23 +409,23 @@ Type changed from dateTime to duration
 Type changed from dateTime to duration
 | |BasicEventElement/observed |Former name: BasicEvent/observed
 | |BasicEventElement/state |Was part of non-normative part before
-|{empty} |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#ContentType[ContentType] |Former name: MimeType +
+|{empty} |xref:Spec/Metamodel_DataTypes.adoc#ContentType[ContentType] |Former name: MimeType +
 Maximum length defined: 100 characters
-|{empty} |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + added prefix rdf: to every value in enumeration
-|{empty} |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd] |Enumeration that corresponds to anySimpleTypes of XML Schema 1.0 +
+|{empty} |xref:Spec/Metamodel_DataTypes.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + added prefix rdf: to every value in enumeration
+|{empty} |xref:Spec/Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd] |Enumeration that corresponds to anySimpleTypes of XML Schema 1.0 +
  +
 + added prefix xs: to every value in enumeration
 |{empty} |dateTimeStamp |New data type for metamodel as used in EventPayload
 | |DataSpecification/administration |Was inherited before by Identifiable
 | |DataSpecification/id |Was inherited before by Identifiable
 | |DataSpecification/description |Was inherited before by Identifiable
-|{empty} |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Direction[Direction] |New Enumeration for BasicEventElement
+|{empty} |xref:Spec/Metamodel_SubmodelElements.adoc#Direction[Direction] |New Enumeration for BasicEventElement
 | |Entity/globalAssetId |Former Entity/asset was split into globalAssetId and specificAssetId
 |{empty} |Entity/specificAssetId |Former Entity/asset was split into globalAssetId and specificAssetId
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Environment.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions.
-|{empty} |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#EventElement[EventElement] |Former name: Event +
+|{empty} |xref:Spec/Metamodel_Environment.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions.
+|{empty} |xref:Spec/Metamodel_SubmodelElements.adoc#EventElement[EventElement] |Former name: Event +
 Set to \<<Experimental>>
-|{empty} |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#EventPayload[EventPayload] |New experimental class for event payload +
+|{empty} |xref:Spec/Metamodel_SubmodelElements.adoc#EventPayload[EventPayload] |New experimental class for event payload +
 Was part of non-normative part before
 |{empty} |EventPayload/observableSemanticId |Was part of non-normative part before
 |{empty} |EventPayload/payload |Was part of non-normative part before +
@@ -438,44 +438,44 @@ Type changed from ModelReference(Referable) to ModelReference(EventElement)
 Type changed from dateTimeStamp to dateTime because restriction to types of XML Schema 1.0 that does not contain dateTimeStamp. dateTimeStamp is a derived type of dateTime in XML Schema 1.1
 |{empty} |EventPayload/topic |Was part of non-normative part before +
 Type changed from string to MessageTopicType (i.e. length constraint added, maximum 255 characters)
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Common.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
+|{empty} |xref:Spec/Metamodel_Common.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
 | |Extension/name |{empty}
 | |Extension/refersTo |{empty}
 | |Extension/valueType |{empty}
 | |Extension/valueType |{empty}
 |{empty} |File/contentType |Fromer File/mimeType
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
+|{empty} |xref:Spec/Metamodel_Referencing.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
+|{empty} |xref:Spec/Metamodel_Referencing.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
 |{empty} |GenericGloballyIdentifiers |New enumeration used for References
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
+|{empty} |xref:Spec/Metamodel_Referencing.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
+|{empty} |xref:Spec/Metamodel_Common.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
 |{empty} |HasSemantics/supplementalSemanticId |New attribute
 |{empty} |Identifiable/id |Substitute for Identifiable/identification
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#KeyTypes[KeyTypes] |Before: KeyElements +
+|{empty} |xref:Spec/Metamodel_Referencing.adoc#KeyTypes[KeyTypes] |Before: KeyElements +
  +
 New submodel element SubmodelElementList added, renamed submodel elements Event and BasicEvent to EventElement and BasicEventElement
-|{empty} |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#LabelType[LabelType] |New string type with maximum 64 characters
-|{empty} |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
-| |xref:Spec/IDTA-01001_Metamodel_Core.adoc#ModellingKind[ModellingKind] |Renamed enumeration, before: ModelingKind
-|{empty} |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#MultiLanguageNameType[MultiLanguageNameType] |Substitute for LangStringSet with short multi-language strings, maximum 64 characters
-|{empty} |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |Substitute for LangStringSet with long multi-language strings, maximum 64 characters
-|{empty} |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#NameType[NameType] |New string type with maximum 128 characters
+|{empty} |xref:Spec/Metamodel_DataTypes.adoc#LabelType[LabelType] |New string type with maximum 64 characters
+|{empty} |xref:Spec/Metamodel_SubmodelElements.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
+| |xref:Spec/Metamodel_Core.adoc#ModellingKind[ModellingKind] |Renamed enumeration, before: ModelingKind
+|{empty} |xref:Spec/Metamodel_DataTypes.adoc#MultiLanguageNameType[MultiLanguageNameType] |Substitute for LangStringSet with short multi-language strings, maximum 64 characters
+|{empty} |xref:Spec/Metamodel_DataTypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |Substitute for LangStringSet with long multi-language strings, maximum 64 characters
+|{empty} |xref:Spec/Metamodel_DataTypes.adoc#NameType[NameType] |New string type with maximum 128 characters
 |{empty} |Qualifier/kind |New experimental attribute for Qualifier
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Common.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
+|{empty} |xref:Spec/Metamodel_Common.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
 |{empty} |Referable/displayName |New optional attribute for all referables
 |{empty} |Reference/referredSemanticId |New optional attribute for Reference
 | |Reference/type |New mandatory attribute for Reference
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#ReferenceTypes[ReferenceTypes] |New enumeration for Reference/type
+|{empty} |xref:Spec/Metamodel_Referencing.adoc#ReferenceTypes[ReferenceTypes] |New enumeration for Reference/type
 |{empty} |ReferenceTypes/ExternalReference |Enumeration value, was named GlobalReference before
-|{empty} |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Resource[Resource] |new type for AssetInformation/defaultThumbnail
+|{empty} |xref:Spec/Metamodel_DataTypes.adoc#Resource[Resource] |new type for AssetInformation/defaultThumbnail
 |{empty} |ShortNameType |New string type with maximum 64 characters
-|{empty} |xref:Spec/IDTA-01001_Metamodel_Core.adoc#SpecificAssetId[SpecificAssetId] |New type for AssetInformation/specificAssetId
+|{empty} |xref:Spec/Metamodel_Core.adoc#SpecificAssetId[SpecificAssetId] |New type for AssetInformation/specificAssetId
 |{empty} |SpecificAssetId/externalSubjectId |See Attribute Based Access Control (ABAC) for subject concept
 |{empty} |SpecificAssetId/name |New type for AssetInformation/specificAssetId
 |{empty} |SpecificAssetId/value |New type for AssetInformation/specificAssetId
-|{empty} |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#StateOfEvent[StateOfEvent] |New experimental enumeration for BasicEventElement
+|{empty} |xref:Spec/Metamodel_SubmodelElements.adoc#StateOfEvent[StateOfEvent] |New experimental enumeration for BasicEventElement
 |{empty} |SubmodelElementElements |Enumeration for submodel elements (split of ReferableElements)
-|{empty} |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and collections
+|{empty} |xref:Spec/Metamodel_SubmodelElements.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and collections
 |{empty} |SubmodelElementList/orderRelevant |Similar to SubmodelElementCollection/ordered
 |{empty} |SubmodelElementList/semanticIdListElement |Attribute of new class SubmodelElementList
 |{empty} |SubmodelElementList/typeValueListElement |Attribute of new class SubmodelElementList
@@ -638,17 +638,17 @@ Smaller changes:
 [cols="5%,32%,61%",options="header",]
 |===
 |*nc* |*V3.0 Change w.r.t. V3.0RC02* |*Comment*
-| |xref:Spec/IDTA-01001_Metamodel_Core.adoc#AdministrativeInformation[AdministrativeInformation] a|Stereotype \<<dataType>> removed
+| |xref:Spec/Metamodel_Core.adoc#AdministrativeInformation[AdministrativeInformation] a|Stereotype \<<dataType>> removed
 | |AssetInformation/externalSubjectId a|Not mandatory any longer; now optional
 |x |AssetInformation/globalAssetId a|Type changed from Reference to Identifier
 | |AssetKind/Type a|Updated description of value "Type" of enumeration "AssetKind" conformant to IEC 63278-1
 | |AssetKind/Instance a|Updated description of value "Instance" of enumeration "AssetKind" - conformant to IEC 63278-1
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement] a|Set to \<<Experimental>>
+| |xref:Spec/Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement] a|Set to \<<Experimental>>
 |x |BasicEventElement/messageTopic a|Type changed from string to MessageTopicType (i.e. length constraint added, maximum 255 characters)
 |x |BasicEventElement/minInterval a|Type changed from dateTime to duration
 |x |BasicEventElement/maxInterval a|Type changed from dateTime to duration
-|(x)footnote:[Derived Schemata used Base64Binary and not hexBinary, therefore this change is considered to be backward compatible for most applications.] a|xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#BlobType[BlobType] |Primitive changed from "group of bytes" to Base64Binary
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#ContentType[ContentType] a|Maximum length defined: 100 characters
+|(x)footnote:[Derived Schemata used Base64Binary and not hexBinary, therefore this change is considered to be backward compatible for most applications.] a|xref:Spec/Metamodel_DataTypes.adoc#BlobType[BlobType] |Primitive changed from "group of bytes" to Base64Binary
+| |xref:Spec/Metamodel_DataTypes.adoc#ContentType[ContentType] a|Maximum length defined: 100 characters
 | |decimalBuildInTypes a|Removed
 | |durationBuildInTypes a|Removed
 |x |DataSpecification/description a|Type changed from LangStringSet to MultiLanguageTextType; length constraint added
@@ -656,24 +656,24 @@ Smaller changes:
 |x |DateTypeDefXsd/dateTimeStamp a|Removed since not part of XML Schema 1.0
 |x |DataTypeDefXsd/dayTimeDuration a|Removed since not part of XML Schema 1.0
 |x |DataTypeDefXsd/yearMonthDuration a|Removed since not part of XML Schema 1.0
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Direction[Direction] a|Set to \<<Experimental>>
+| |xref:Spec/Metamodel_SubmodelElements.adoc#Direction[Direction] a|Set to \<<Experimental>>
 |x |Entity/globalAssetId a|Type changed from Reference to Identifier
 |x |Extension/name a|Type changed from string to NameType; length constraint added
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#EventElement[EventElement] a|Set to \<<Experimental>>
+| |xref:Spec/Metamodel_SubmodelElements.adoc#EventElement[EventElement] a|Set to \<<Experimental>>
 | |EventElement/duration a|Type changed from dateTimeStamp to dateTime
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#EventPayload[EventPayload] a|Set to \<<Experimental>>
+| |xref:Spec/Metamodel_SubmodelElements.adoc#EventPayload[EventPayload] a|Set to \<<Experimental>>
 | |EventPayload/payload a|Type changed from string to BlobType
 | |EventPayload/source a|Type changed from ModelReference(Referable) to ModelReference(EventElement)
 | |EventPayload/timestamp a|Type changed from dateTimeStamp to dateTime because restriction to types of XML Schema 1.0 that does not contain dateTimeStamp. dateTimeStamp is a derived type of dateTime in XML Schema 1.1
 | |EventPayload/topic a|Type changed from string to MessageTopicType (i.e. length constraint added, maximum 255 characters)
 |x |HasKind/kind a|Type changed from ModelingKind to ModellingKind
-|x |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] a|Maximum length defined: 2,000 characters
+|x |xref:Spec/Metamodel_DataTypes.adoc#Identifier[Identifier] a|Maximum length defined: 2,000 characters
 |x |Key/value |Type changed from string to Identifier; length constraint added
 |x |MultiLanguageProperty/value a|Type changed from LangStringSet to MultiLanguageTextType; length constraint added
-|x |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#PathType[PathType] a|Same as Identifier; length constraint added
+|x |xref:Spec/Metamodel_DataTypes.adoc#PathType[PathType] a|Same as Identifier; length constraint added
 | |PrimitiveTypes |Removed
 | |Qualifier/kind a|Set to \<<Experimental>>
-|x |xref:Spec/IDTA-01001_Metamodel_Common.adoc#QualifierType[QualifierType] a|Type changed from string to NameType; length constraint added
+|x |xref:Spec/Metamodel_Common.adoc#QualifierType[QualifierType] a|Type changed from string to NameType; length constraint added
 | |rdfBuildInTypes a|Removed
 | | Range	a| Set to \<<Experimental>>
 |x |Referable/category a|
@@ -690,8 +690,8 @@ Text how to select a suitable display name removed; now explained in Table 2
 |x |Referable/description a|Type changed from string to MultiLanguageTextType; length constraint added
 |x |Referable/idShort a|Type changed from string to NameType; length constraint added
 |x |ReferenceTypes/GlobalReference a|Renamed to ExternalReference
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Resource[Resource] a|Stereotype \<<DataType>> removed.
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#StateOfEvent[StateOfEvent] |Set to \<<Experimental>>
+| |xref:Spec/Metamodel_DataTypes.adoc#Resource[Resource] a|Stereotype \<<DataType>> removed.
+| |xref:Spec/Metamodel_SubmodelElements.adoc#StateOfEvent[StateOfEvent] |Set to \<<Experimental>>
 |x |SpecificAssetId/name a|Type changed from string to LabelType (a string with length constraint)
 |x |SpecificAssetId/value a|Type changed from string to Identifier (because of length constraint)
 |xfootnote:[Since _HasKind/kind_ had the default _Instance,_ this change has no impact if the attribute was omitted for submodel instances.] a|SubmodelElement/kind |Removed. SubmodelElement does not inherit from HasKind any longer
@@ -705,16 +705,16 @@ Text how to select a suitable display name removed; now explained in Table 2
 | |AdministrativeInformation/templateId |New optional attribute
 | |AssetInformation/assetType |New optional attribute
 | |AssetKind/NotApplicable |New enumeration value
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#LabelType[LabelType] |New string type with maximum 64 characters
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
-| |xref:Spec/IDTA-01001_Metamodel_Common.adoc#ModellingKind[ModellingKind] |Renamed enumeration, before: ModelingKind
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#MultiLanguageNameType[MultiLanguageNameType] |Substitute for LangStringSet with short multi-language strings, maximum 64 characters
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |Substitute for LangStringSet with long multi-language strings, maximum 64 characters
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#NameType[NameType] |New string type with maximum 128 characters
+| |xref:Spec/Metamodel_DataTypes.adoc#LabelType[LabelType] |New string type with maximum 64 characters
+| |xref:Spec/Metamodel_SubmodelElements.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
+| |xref:Spec/Metamodel_Common.adoc#ModellingKind[ModellingKind] |Renamed enumeration, before: ModelingKind
+| |xref:Spec/Metamodel_DataTypes.adoc#MultiLanguageNameType[MultiLanguageNameType] |Substitute for LangStringSet with short multi-language strings, maximum 64 characters
+| |xref:Spec/Metamodel_DataTypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |Substitute for LangStringSet with long multi-language strings, maximum 64 characters
+| |xref:Spec/Metamodel_DataTypes.adoc#NameType[NameType] |New string type with maximum 128 characters
 | |ReferenceTypes/ExternalReference |Enumeration value: before: GlobalReference
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#RevisionType[RevisionType] |New type for _AdministrativeInformation/version_ with length constraints and regular expression
+| |xref:Spec/Metamodel_DataTypes.adoc#RevisionType[RevisionType] |New type for _AdministrativeInformation/version_ with length constraints and regular expression
 | |ShortNameType |New string type with maximum 64 characters
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#VersionType[VersionType] |New type for _AdministrativeInformation/revision_ with length constraints and regular expression
+| |xref:Spec/Metamodel_DataTypes.adoc#VersionType[VersionType] |New type for _AdministrativeInformation/revision_ with length constraints and regular expression
 |===
 
 .New, Changed or Removed Constraints
@@ -845,9 +845,9 @@ Note: ReferableElements was substituted by AasSubmodelElements and Aas Identifia
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V2.0.1* |*Comment*
 
-| |xref:Spec/IDTA-01001_Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] |Bugfix: Stereotype "DataType" added
+| |xref:Spec/Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] |Bugfix: Stereotype "DataType" added
 
-| |AnnotatedRelationship/annotation |Bugfix: Type changed from ModelReference<xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#DataElement[DataElement]> to DataElement
+| |AnnotatedRelationship/annotation |Bugfix: Type changed from ModelReference<xref:Spec/Metamodel_SubmodelElements.adoc#DataElement[DataElement]> to DataElement
 | |anySimpleTypeDef |Type removed, was no longer used in any class definition, was mentioned in text only
 |x |Asset |Removed, asset referenced via AssetInformation/globalAssetId only
 |x |AssetAdministrationShell/asset |Removed, substituted by AssetAdministrationShell/assetInformation (no reference any longer, instead now aggregation)
@@ -887,7 +887,7 @@ Removed
 Substituted by Identifiable/id
 
 |x |IdentifiableElements |Renamed to AasIdentifiables
-|x |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] a|
+|x |xref:Spec/Metamodel_DataTypes.adoc#Identifier[Identifier] a|
 Type changed
 
 Before struct class with two attributes: id and idType; now string data type only
@@ -909,7 +909,7 @@ Note: the elements remain, except for new SubmodelElementList and renamed submod
 |x |MimeType |Type name changed to ContentType
 | |Property/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 |x |Qualifiable/qualifier |Type changed from Constraint to Qualifier
-| |xref:Spec/IDTA-01001_Metamodel_Common.adoc#Qualifier[Qualifier] |No longer inherits from abstract class "Constraint"
+| |xref:Spec/Metamodel_Common.adoc#Qualifier[Qualifier] |No longer inherits from abstract class "Constraint"
 | |Qualifier/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 | |Range/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 | |Referable/idShort |Now optional, was mandatory
@@ -937,7 +937,7 @@ Now part of AasSubmodelElements
 
 | |RelationshipElement/first |Type changes from model reference Referable to Reference (global or model reference)
 | |RelationshipElement/second |Type changes from model reference Referable to Reference (global or model reference)
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
+| |xref:Spec/Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
 |{empty}x |View |Removed
 |===
 
@@ -956,16 +956,16 @@ New enumeration used for References, includes abstract Identifiable
 Before: Identifiables
 
 
-| |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
+| |xref:Spec/Metamodel_Referencing.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
 
-| |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
+| |xref:Spec/Metamodel_Referencing.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
 |x |AssetAdministrationShell/assetInformation |substitute for AssetAdministrationShell/asset; no reference any longer, instead now aggregation
-| |xref:Spec/IDTA-01001_Metamodel_Core.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset, because not specific to Asset but to AAS
+| |xref:Spec/Metamodel_Core.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset, because not specific to Asset but to AAS
 | |AssetInformation/assetKind |Former Asset/assetKind
 | |AssetInformation/globalAssetId |Former Asset/identification/id
 | |AssetInformation/specificAssetId |Former Asset/assetIdentificationModel
 | |AssetInformation/thumbnail |Optional Attribute of new class AssetInformation that was not available in Asset class before
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement] a|
+| |xref:Spec/Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement] a|
 Former name: BasicEvent
 
 Was part of non-normative part before
@@ -982,19 +982,19 @@ Was part of non-normative part before
 | |BasicEventElement/maxInterval |Was part of non-normative part before
 | |BasicEventElement/observed |Was part of non-normative part before
 | |BasicEventElement/state |Was part of non-normative part before
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#ContentType[ContentType] |Former name: MimeType
+| |xref:Spec/Metamodel_DataTypes.adoc#ContentType[ContentType] |Former name: MimeType
 | |dateTimeStamp |New data type for metamodel as used in EventPayload
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + prefix rdf: added to every value in enumeration
+| |xref:Spec/Metamodel_DataTypes.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + prefix rdf: added to every value in enumeration
 | |DataTypeDefXsd a|
 Enumeration consisting of enumerations
 
 decimalBuildInTypes, durationBuildInTypes, PrimitiveTypes that correspond to anySimpleTypes of xsd. + added prefix xs: to every value in enumeration
 
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Direction[Direction] |New enumeration for BasicEventElement
-| |xref:Spec/IDTA-01001_Metamodel_Environment.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#EventElement[EventElement] |Former name: Event
+| |xref:Spec/Metamodel_SubmodelElements.adoc#Direction[Direction] |New enumeration for BasicEventElement
+| |xref:Spec/Metamodel_Environment.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions
+| |xref:Spec/Metamodel_SubmodelElements.adoc#EventElement[EventElement] |Former name: Event
 
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#EventPayload[EventPayload] |New class for event payload
+| |xref:Spec/Metamodel_SubmodelElements.adoc#EventPayload[EventPayload] |New class for event payload
 
 | |EventPayload/observableSemanticId |Was part of non-normative part before
 | |EventPayload/payload |Was part of non-normative part before
@@ -1002,12 +1002,12 @@ decimalBuildInTypes, durationBuildInTypes, PrimitiveTypes that correspond to any
 | |EventPayload/sourceSemanticId |Was part of non-normative part before
 | |EventPayload/subjectId |Was part of non-normative part before
 | |EventPayload/timestamp |Was part of non-normative part before
-| |xref:Spec/IDTA-01001_Metamodel_Common.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
-| |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
-| |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
+| |xref:Spec/Metamodel_Common.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
+| |xref:Spec/Metamodel_Referencing.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
+| |xref:Spec/Metamodel_Referencing.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
 | |GenericGloballyIdentifiers |New enumeration used for References
-| |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
-| |xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
+| |xref:Spec/Metamodel_Referencing.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
+| |xref:Spec/Metamodel_Common.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
 | |HasSemantics/supplementalSemanticId |New attribute
 | |Identifiable/id |Substitute for Identifiable/identification
 | |IdentifierKeyValuePair |New class for AssetInformation/specificAssetId
@@ -1017,15 +1017,15 @@ Before: KeyElements
 New submodel element SubmodelElementList added, submodel elements Event and BasicEvent to EventElement and BasicEventElement renamed
 
 | |Qualifier/kind |New attribute for Qualifier
-| |xref:Spec/IDTA-01001_Metamodel_Common.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
+| |xref:Spec/Metamodel_Common.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
 |{empty} |PrimitiveTypes |Enumeration for DataTypeDefXsd
 | |Referable/checksum |New optional attribute for all referables
 | |Referable/displayName |New optional attribute for all referables
 | |Reference/referredSemanticId |New optional attribute for Reference
 |x |Reference/type |New mandatory attribute for Reference
-| |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#ReferenceTypes[ReferenceTypes] |New enumeration for Reference/type
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#StateOfEvent[StateOfEvent] |New enumeration for BasicEventElement
-| |xref:Spec/IDTA-01001_Metamodel_Core.adoc#SpecificAssetId[SpecificAssetId] |New type for AssetInformation/specificAssetId
+| |xref:Spec/Metamodel_Referencing.adoc#ReferenceTypes[ReferenceTypes] |New enumeration for Reference/type
+| |xref:Spec/Metamodel_SubmodelElements.adoc#StateOfEvent[StateOfEvent] |New enumeration for BasicEventElement
+| |xref:Spec/Metamodel_Core.adoc#SpecificAssetId[SpecificAssetId] |New type for AssetInformation/specificAssetId
 | |SpecificAssetId/name |New type for AssetInformation/specificAssetId
 | |SpecificAssetId/value |New type for AssetInformation/specificAssetId
 | |SpecificAssetId/externalSubjectId a|
@@ -1034,7 +1034,7 @@ New type for AssetInformation/specificAssetId
 See Attribute Based Access Control (ABAC) for subject concept
 
 | |SubmodelElementElements |Enumeration for submodel elements (split of ReferableElements)
-|{empty} |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and structs
+|{empty} |xref:Spec/Metamodel_SubmodelElements.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and structs
 | |SubmodelElementList/orderRelevant |Similar to SubmodelElementCollection/ordered
 | |SubmodelElementList/value |Similar to SubmodelElementCollection/value but ordered and with all elements having the same semanticId
 | |SubmodelElementList/semanticIdListElement |Attribute of new class SubmodelElementList
@@ -1126,7 +1126,7 @@ Constraint AASD-120: idShort of submodel elements within a SubmodelElementList s
 [cols="5%,46%,43%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V2.0.1* |*Comment*
-| |xref:IDTA-01001_DataSpecifications.adoc#DataSpecification[DataSpecification] a|
+| |xref:DataSpecifications.adoc#DataSpecification[DataSpecification] a|
 Stereotype \<<Template>> added + does not inherit from Identifiable any longer because Data Specification are handled in a different way
 
 Some attributes are added to DataSpecification as new attributes like id, administration and description.(see separate entries)
@@ -1136,7 +1136,7 @@ Some attributes are added to DataSpecification as new attributes like id, admini
 | |DataSpecification/idShort |Removed, was inherited before by Identifiable
 |x |DataSpecificationIEC61360/value |Type changed from ValueDataType to string
 | |DataSpecificationIEC61360/valueId |Removed, the valueId is identical to the ID of the concept description
-| |xref:IDTA-01001_DataSpecifications.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
+| |xref:DataSpecifications.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
 |x |DataTypeIEC61360 |Some new values were added: BLOB, FILE, HTML, IRDI. URL renamed to IRI. +
  +
 See separate entries for individual changes.
@@ -1282,8 +1282,8 @@ Bugfixes:
 [cols="5%,45%,51%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V3.0RC01* |*Comment*
-| |xref:Spec/IDTA-01001_Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] |Bugfix: Stereotype "DataType" added
-| |AnnotatedRelationship/annotation |Type changed from ModelReference<xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#DataElement[DataElement]> to DataElement
+| |xref:Spec/Metamodel_Common.adoc#AdministrativeInformation[AdministrativeInformation] |Bugfix: Stereotype "DataType" added
+| |AnnotatedRelationship/annotation |Type changed from ModelReference<xref:Spec/Metamodel_SubmodelElements.adoc#DataElement[DataElement]> to DataElement
 |x |Asset |Removed, asset referenced via globalAssetId only
 |x |AssetAdministrationShell/security a|
 Removed
@@ -1311,7 +1311,7 @@ Bugfix:
 Type change from reference of Reference to Reference (from Reference* to Reference)
 
 |x |Event |Renamed to EventElement
-|x |Extension/refersTo |Type changed from Reference to ModelReference<xref:Spec/IDTA-01001_Metamodel_Common.adoc#Referable[Referable]>
+|x |Extension/refersTo |Type changed from Reference to ModelReference<xref:Spec/Metamodel_Common.adoc#Referable[Referable]>
 |x |File/mimeType |Renamed to contentType + Type name changed from MimeType to ContentType
 |x |Formula |Now abstract class now used in Security part only
 |x |Formula/dependsOn |Removed since formula language not yet defined
@@ -1321,7 +1321,7 @@ Removed
 Substituted by Identifiable/id
 
 |(x) |IdentifiableElements |Renamed to AasIdentifiables
-|x |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#Identifier[Identifier] a|
+|x |xref:Spec/Metamodel_DataTypes.adoc#Identifier[Identifier] a|
 Type changed
 
 Before struct class with two attributes: id and idType; now string data type only
@@ -1343,7 +1343,7 @@ Note: the elements remain, except for new SubmodelElementList and renamed submod
 |x |MimeType |Type name changed to ContentType
 | |Property/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 |x |Qualifiable/qualifier |Type changed from Constraint to Qualifier
-| |xref:Spec/IDTA-01001_Metamodel_Common.adoc#Qualifier[Qualifier] |Does not inherit from abstract class "Constraint" any longer
+| |xref:Spec/Metamodel_Common.adoc#Qualifier[Qualifier] |Does not inherit from abstract class "Constraint" any longer
 | |Qualifier/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 | |Range/valueType |Type changed from DataTypeDef to DataTypeDefXsd
 | |Referable/idShort |Now optional, was mandatory
@@ -1370,7 +1370,7 @@ Now part of AasSubmodelElements
 
 | |RelationshipElement/first |Type changes from model reference Referable to Reference (global or model reference)
 | |RelationshipElement/second |Type changes from model reference Referable to Reference (global or model reference)
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd + Prefix xs: added to every value in list
+| |xref:Spec/Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd + Prefix xs: added to every value in list
 |x |ValueList/valueReferencePairType |Bugfix: renamed to ValueList/valueReferencePairs
 |{empty}x |View |removed
 |===
@@ -1389,9 +1389,9 @@ New enumeration used for References, includes abstract Identifiable
 
 Before: Identifiables
 
-| |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
-| |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement] |Former name: BasicEvent
+| |xref:Spec/Metamodel_Referencing.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
+| |xref:Spec/Metamodel_Referencing.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
+| |xref:Spec/Metamodel_SubmodelElements.adoc#BasicEventElement[BasicEventElement] |Former name: BasicEvent
 | |BasicEventElement/direction |
 | |BasicEventElement/lastUpdate |
 | |BasicEventElement/messageBroker |
@@ -1400,16 +1400,16 @@ Before: Identifiables
 | |BasicEventElement/maxInterval |
 | |BasicEventElement/observed |Former name: BasicEvent/observed
 | |BasicEventElement/state |
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#ContentType[ContentType] |Former name: MimeType
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + prefix rdf: added to every value in enumeration
-| |xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd] |Enumeration consisting of enumerations decimalBuildInTypes, durationBuildInTypes, PrimitiveTypes that correspond to anySimpleTypes of xsd. + prefix xs: added to every value in enumeration
+| |xref:Spec/Metamodel_DataTypes.adoc#ContentType[ContentType] |Former name: MimeType
+| |xref:Spec/Metamodel_DataTypes.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + prefix rdf: added to every value in enumeration
+| |xref:Spec/Metamodel_DataTypes.adoc#DataTypeDefXsd[DataTypeDefXsd] |Enumeration consisting of enumerations decimalBuildInTypes, durationBuildInTypes, PrimitiveTypes that correspond to anySimpleTypes of xsd. + prefix xs: added to every value in enumeration
 | |dateTimeStamp |New data type for metamodel as used in EventPayload
 |{empty} |decimalBuildInTypes |Enumeration for DataTypeDef
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Direction[Direction] |New enumeration for BasicEventElement
+| |xref:Spec/Metamodel_SubmodelElements.adoc#Direction[Direction] |New enumeration for BasicEventElement
 |{empty} |durationBuildInTypes |Enumeration for DataTypeDef
-| |xref:Spec/IDTA-01001_Metamodel_Environment.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#EventElement[EventElement] |Former name: Event
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#EventPayload[EventPayload] |New class for event payload
+| |xref:Spec/Metamodel_Environment.adoc#Environment[Environment] |New class for entry point for Asset Administration Shells, submodels and concept descriptions
+| |xref:Spec/Metamodel_SubmodelElements.adoc#EventElement[EventElement] |Former name: Event
+| |xref:Spec/Metamodel_SubmodelElements.adoc#EventPayload[EventPayload] |New class for event payload
 | |EventPayload/observableReference |
 | |EventPayload/observableSemanticId |
 | |EventPayload/payload |
@@ -1419,10 +1419,10 @@ Before: Identifiables
 | |EventPayload/timestamp |
 | |EventPayload/topic |
 | |File/contentType |Former name: mimeType
-| |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
-| |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
+| |xref:Spec/Metamodel_Referencing.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
+| |xref:Spec/Metamodel_Referencing.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
 | |GenericGloballyIdentifiers |New enumeration used for References
-| |xref:Spec/IDTA-01001_Metamodel_Referencing.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
+| |xref:Spec/Metamodel_Referencing.adoc#GloballyIdentifiables[GloballyIdentifiables] |New enumeration used for References
 | |HasSemantics/supplementalSemanticId |New attribute
 | |Identifiable/id |Substitute for Identifiable/identification
 | |KeyTypes a|
@@ -1435,15 +1435,15 @@ New submodel element SubmodelElementList added, renamed submodel elements Event 
 | |Reference/referredSemanticId |New optional attribute of Reference
 |{empty} |PrimitiveTypes |Enumeration for DataTypeDefXsd
 | |Qualifier/kind |New attribute for Qualifier
-| |xref:Spec/IDTA-01001_Metamodel_Common.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
+| |xref:Spec/Metamodel_Common.adoc#QualifierKind[QualifierKind] |New enumeration for Qualifier/kind
 | |Referable/checksum |
-| |xref:Spec/IDTA-01001_Metamodel_Core.adoc#SpecificAssetId[SpecificAssetId] |Before: IdentifierKeyValuePair, was renamed
+| |xref:Spec/Metamodel_Core.adoc#SpecificAssetId[SpecificAssetId] |Before: IdentifierKeyValuePair, was renamed
 | |SpecificAssetId/name |Before: IdentifierKeyValuePair/key, was renamed
 | |SpecificAssetId/value |Before: IdentifierKeyValuePair/value
 | |SpecificAssetId/externalSubjectId |Before: IdentifierKeyValuePair/externalSubjectId
-| |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#StateOfEvent[StateOfEvent] |New enumeration for BasicEventElement
+| |xref:Spec/Metamodel_SubmodelElements.adoc#StateOfEvent[StateOfEvent] |New enumeration for BasicEventElement
 | |SubmodelElementElements |Enumeration for submodel elements (split of ReferableElements into SubmodelElementElements and IdentifiableElements)
-|{empty} |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and structs
+|{empty} |xref:Spec/Metamodel_SubmodelElements.adoc#SubmodelElementList[SubmodelElementList] |Before SubmodelElementCollection was used for lists and structs
 | |SubmodelElementList/orderRelevant |Similar to SubmodelElementCollection/ordered
 | |SubmodelElementList/value |Similar to SubmodelElementCollection/value but ordered and with all elements having the same semanticId
 | |SubmodelElementList/semanticIdListElement |Attribute for new class SubmodelElementList
@@ -1655,7 +1655,7 @@ Constraint AASD-120: idShort of submodel elements within a SubmodelElementList s
 [cols="5%,46%,43%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V3.0RC01* |*Comment*
-| |xref:IDTA-01001_DataSpecifications.adoc#DataSpecification[DataSpecification] a|
+| |xref:DataSpecifications.adoc#DataSpecification[DataSpecification] a|
 Stereotype \<<Template>> added + does not inherit from Identifiable any longer because Data Specification are handled differently
 
 Some attributes are added to DataSpecification as new attributes like id, administration and description
@@ -1666,7 +1666,7 @@ Some attributes are added to DataSpecification as new attributes like id, admini
 | |DataSpecificationIEC61360/unitId |Type changes from Reference to GlobalReference
 |x |DataSpecificationIEC61360/value |Type changed from ValueDataType to string
 | |DataSpecificationIEC61360/valueId |Removed, the valueId is identical to the ID of the concept description
-| |xref:IDTA-01001_DataSpecifications.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
+| |xref:DataSpecifications.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
 |x |DataTypeIEC61360 a|
 Some new values were added: BLOB, FILE, HTML, IRDI; URL renamed to IRI
 
@@ -1802,12 +1802,12 @@ Major changes:
 |===
 |*nc* |*V3.0RC01 vs. V2.0.1* |*Comment*
 |x |AssetAdministrationShell/assetInformation |Substitute for AssetAdministrationShell/asset (no reference any longer, instead aggregation)
-| |xref:Spec/IDTA-01001_Metamodel_Core.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset because not specific to Asset but AAS
+| |xref:Spec/Metamodel_Core.adoc#AssetInformation[AssetInformation] |with attributes/functionality from former class Asset because not specific to Asset but AAS
 | |AssetInformation/thumbnail |Optional Attribute of new class AssetInformation that was not available in Asset class before
 |x |Entity/globalAssetId |Substitute for Entity/asset (together with Entity/specificAssetId)
 |x |Entity/specificAssetId |Substitute for Entity/asset (together with Entity/globalAssetId)
-| |xref:Spec/IDTA-01001_Metamodel_Common.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
-| |xref:Spec/IDTA-01001_Metamodel_Common.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
+| |xref:Spec/Metamodel_Common.adoc#Extension[Extension] |New class, part of new abstract class HasExtensions
+| |xref:Spec/Metamodel_Common.adoc#HasExtensions[HasExtensions] |New abstract class, inherited by Referable
 | |IdentifierKeyValuePair |New class for AssetInformation/specificAssetId
 | |Referable/displayName |New optional attribute for all referables
 |===
@@ -1926,7 +1926,7 @@ Major changes:
 | |DataTypeIEC61360/INTEGER_MEASURE |Bugfix, was missing
 | |DataTypeIEC61360/INTEGER_CURRENCY |Bugfix, was missing
 | |hasDataSpecification |Bugfix, is abstract class – was mixed up with DataSpecification class that is not abstract
-| |xref:IDTA-01001_DataSpecifications.adoc#DataSpecification[DataSpecification] |Bugfix, is not abstract
+| |xref:DataSpecifications.adoc#DataSpecification[DataSpecification] |Bugfix, is not abstract
 | |AnnotatedRelationshipElement/annotation |Bugfix, Annotation ist not a reference to Data Elements
 |===
 
@@ -1985,14 +1985,14 @@ Cardinality changed from mandatory to optional
 
 |x |DataSpecificationIEC61360/code |Attribute code removed
 | |DataSpecificationIEC61360/definition |Cardinality changed from mandatory to optional
-| |xref:IDTA-01001_DataSpecifications.adoc#HasDataSpecification[HasDataSpecification] |Was abstract before
+| |xref:DataSpecifications.adoc#HasDataSpecification[HasDataSpecification] |Was abstract before
 | |HasDataSpecification/hasDataSpecification |Renamed to HasDataSpecification/dataSpecification
 |x |HasKind/kind |Now of type "ModellingKind" instead of "Kind". Values changed: Type now Template; Instance remains
 |x |File/value |File name not without but with extension
 |x |Identifiable/description |Type changed from langString to LangStringSet
 |x |IdentifierType/URI |URI renamed to IRI
 | |Kind |Type Kind removed and substituted by types AssetKind and ModellingKind
-|x |xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#OperationVariable[OperationVariable] |No longer inherits from SubmodelElement
+|x |xref:Spec/Metamodel_SubmodelElements.adoc#OperationVariable[OperationVariable] |No longer inherits from SubmodelElement
 | |Property/value |Type changed from anySimpleTypeDef to ValueDataType
 |x |Qualifier/qualifierType |Renamed to Qualifier/type
 |x |Qualifier/qualifierValue a|
@@ -2009,35 +2009,35 @@ Type changed from AnySimpleTypeDef to ValueDataType
 [cols="43%,57%",options="header",]
 |===
 |*V2.0* |*Comment*
-|xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#AnnotatedRelationshipElement[AnnotatedRelationshipElement] |New submodel element, inheriting from RelationshipElement
+|xref:Spec/Metamodel_SubmodelElements.adoc#AnnotatedRelationshipElement[AnnotatedRelationshipElement] |New submodel element, inheriting from RelationshipElement
 |Asset/billOfMaterial |New attribute
-|xref:Spec/IDTA-01001_Metamodel_Core.adoc#AssetKind[AssetKind] |New enumeration type
+|xref:Spec/Metamodel_Core.adoc#AssetKind[AssetKind] |New enumeration type
 |BasicEvent |New submodel element, inherits from Event
-|xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Capability[Capability] |New submodel element
+|xref:Spec/Metamodel_SubmodelElements.adoc#Capability[Capability] |New submodel element
 |DataSpecificationIEC61360/valueList |For value lists (string)
 |DataSpecificationIEC61360/value |For coded and explicit values
 |DataSpecificationIEC61360/valueId |For coded values
 |DataSpecificationIEC61360/levelType |For Ranges
 |DataSpecificationPhysicalUnit |New data specification template
 |DataTypeIEC61360 |New enumeration type
-|xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Entity[Entity] |New submodel Element
-|xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#EntityType[EntityType] |New enumeration type
+|xref:Spec/Metamodel_SubmodelElements.adoc#Entity[Entity] |New submodel Element
+|xref:Spec/Metamodel_SubmodelElements.adoc#EntityType[EntityType] |New enumeration type
 |IdentifierType |Is a subset of KeyType Enumeration
 |KeyElements/FragmentReference |New value FragmentReference as part of KeyElements Enumeration
 |LocalKeyType |Is a subset of KeyType Enumeration
 |LocalKeyType/FragmentId |New value for KeyType Enumeration (via subset LocalKeyType)
-|xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#LangStringSet[LangStringSet] |New type, used for example in MultiLanguageProperty
+|xref:Spec/Metamodel_DataTypes.adoc#LangStringSet[LangStringSet] |New type, used for example in MultiLanguageProperty
 |LevelType |New enumeration type
-|xref:Spec/IDTA-01001_Metamodel_Core.adoc#ModellingKind[ModellingKind] |New enumeration type
-|xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#MultiLanguageProperty[MultiLanguageProperty] |New submodel element
+|xref:Spec/Metamodel_Core.adoc#ModellingKind[ModellingKind] |New enumeration type
+|xref:Spec/Metamodel_SubmodelElements.adoc#MultiLanguageProperty[MultiLanguageProperty] |New submodel element
 |Qualifier/valueType |New attribute to be consistent with valueType of Property etc.
-|xref:Spec/IDTA-01001_Metamodel_SubmodelElements.adoc#Range[Range] |New submodel element
+|xref:Spec/Metamodel_SubmodelElements.adoc#Range[Range] |New submodel element
 |ReferableElements/BasicEvent |New enumeration value
 |ReferableElements/Capability |New enumeration value
 |ReferableElements/Event |New enumeration value
 |ReferableElements/MultiLanguageProperty |New enumeration value
 |ReferableElements/Range |New enumeration value
-|xref:Spec/IDTA-01001_Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |New type, used for example for Property value
+|xref:Spec/Metamodel_DataTypes.adoc#ValueDataType[ValueDataType] |New type, used for example for Property value
 |ValueList |New class
 |ValueReferencePairType |New class
 |===
