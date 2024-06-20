@@ -1,0 +1,170 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+
+[appendix]
+= Templates for UML Tables
+
+== General
+
+The templates used for element specification are explained in this annex. For details for the semantics see Legend for UML Modelling.
+
+For capitalization of titles, rules according to https://capitalizemytitle.com/ are used.
+
+== Template for Classes
+
+
+[.table-with-appendix-table]
+.Class
+:table-caption: Template
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|<Class Name> ["\<<abstract>>"] ["\<<Experimental>>"] ["\<<Deprecated>>"] ["\<<Template>>"]
+h|Explanation: 3+a|<Explanatory text>
+h|Inherits from: 3+|{<Class Name> ";" }+ \| "-"
+h|ID: 3+| `<metamodel element ID>`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|_<attribute or association name>_ ["\<<ordered>>"] ["\<<Experimental>>"] ["\<<Deprecated>>"] 3+| `<metamodel element ID>`
+    a|<Explanatory text> |<Type> |<Card>
+|===
+
+
+
+_ID_ is the metamodel ID of the class or attribute, conformant to the grammar defined in Clause
+xref:#_serialization_of_values_of_type_reference[]. A  metamodel ID for a class attribute is concatenated by _<ID of metamodel element ID of class>/<relative metamodel element ID>_.
+
+The following stereotypes can be used:
+
+* \<<abstract>>: Class cannot be instantiated but serves as superclass for inheriting classes
+* \<<Experimental>>: Class is experimental, i.e. usage is only recommended for experimental purposes because non backward compatible changes may occur in future versions
+* \<<Deprecated>>: Class is deprecated, i.e. it is recommended to not use the element any longer; it will be removed in a next major version of the model
+* \<<Template>>: Class is a template only, i.e. class is not instantiated but used for additional specification purposes (for details see parts 3 of document series)
+
+The following kinds of _Types_ are distinguished:
+
+
+** _<Class>:_ Type is an object type (class); it is realized as composite aggregation (composition), and does not exist independent of its parent
+** _ModelReference<\{Referable}>:_ Type is a Reference with _Reference/type=ModelReference_ and is called model reference; the \{Referable} is to be substituted by any referable element (including _Referable_ itself for the most generic case) – the element that is referred to is denoted in the __Key/type__=<\{Referable}> for the last _Key_ in the model reference; for the graphical representation see Legend for UML Modelling, Figure 82; for more information on referencing see Clause 5.3.9.
+** _<Primitive>: Type_ Type is no object type (class) but a data type; it is just a value, see Clause 5.3.11.
+** _<Enumeration>:_ Type is an enumeration
+
+_Card._ is the cardinality (or multiplicity) defining the lower and upper bound of the number of instances of the member element. "\*" denotes an arbitrary infinite number of elements of the corresponding Type. "0..1" means optional. "0..*" or "0..3" etc.  means that the list may be either not available (optional) or the list is not empty. 
+
+
+
+====
+Note 1: attributes having a default value are always considered to be optional; there is always a value for the attribute because the default value is used for initialization in this case.
+====
+
+
+
+====
+Note 2: attributes or attribute elements with data type “string” or “langString” are considered to consist of at least one character.
+====
+
+
+
+====
+Note 3: optional lists, i.e. attributes with cardinality > 1 and minimum 0, are considered to consist of at least one element.
+====
+
+
+[.underline]#Examples for valid and invalid model references#
+
+If class type equal to "ModelReference<Submodel>", the following reference would be a valid reference (using the text serialization as defined in Clause xref:#_serialization_of_values_of_type_reference[]):
+
+[listing]
+....
+(Submodel)\https://example.com/aas/1/1/1234859590
+....
+
+This would be an invalid reference for "ModelReference<Submodel>" because it references a submodel element "Property":
+[listing]
+....
+(Submodel)https://example.com/aas/1/1/1234859590, (Property)temperature
+....
+If class type equal to "ModelReference<Referable>", the following references would be valid references (using the text serialization as defined in Clause 7.2.3) because "Property" and "File" are Referables and "Submodel" itself is also Referable since all Identifiables are referable:
+
+[listing]
+....
+(Submodel)\https://example.com/aas/1/1/1234859590
+
+(Submodel)\https://example.com/aas/1/1/1234859590, (Property)temperature
+
+(Submodel)\https://example.com/aas/1/1/1234859590, (File)myDocument
+....
+This would be an invalid reference for "ModelReference<Referable>" because FragmentReference is no Referable:
+[listing]
+....
+(Submodel)\https://example.com/aas/1/1/1234859590, (File)myDocument (FragmentReference)Hints
+....
+
+
+== Template for Enumerations
+
+
+[.table-with-appendix-table]
+.Enumeration
+:table-caption: Template
+[cols="30%h,70%"]
+|===
+h|Enumeration: |<Enumeration Name> ["\<<Experimental>>"] ["\<<Deprecated>>"]
+h|Explanation: |<Explanatory text>
+h|Set of: |{<Enumeration> ";" }+ \| "-"
+h|ID: | `<metamodel element ID>`
+
+h|Literal h|Explanation
+
+.2+e|enumValue1>["\<<Experimental>>"] ["\<<Deprecated>>"] | `<metamodel value ID>`
+a|
+<Explanatory text>
+
+
+
+.2+e|<enumValue2> ["\<<Experimental>>"] ["\<<Deprecated>>"] | `<metamodel value ID>`
+a|
+<Explanatory text>
+
+
+|===
+
+"*Set of:*" lists enumerations that are contained in the enumeration. It is only relevant for validation, making sure that all elements relevant for the enumeration are considered.
+
+"*Literal*" lists values of enumeration. All values that are element of one of the enumeration listed in "*Set of:*" are listed explicitly as well.
+
+Enumeration values use Camel Case notation and start with a small letter. However, there might be exceptions in case of very well-known enumeration values.
+
+
+== Template for Primitives
+
+.Primitives
+:table-caption: Template
+[cols="13%,30%,57%"]
+|===
+
+.2+h|Primitive 2+h| ID 
+    h|Definition h|Value Examples
+
+.2+e|<Name of Primitive> 2+| `<metamodel ID of Primitive>` 
+a|
+<Explanatory text>
+
+
+
+a|
+<Value examples>
+|===
+
+

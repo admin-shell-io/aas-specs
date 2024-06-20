@@ -187,8 +187,7 @@ a|_string_ with max 128 and min 1 characters |"ManufacturerPartId"
 .2+e|[[PathType]]PathType 2+| `\https://admin-shell.io/aas/3/1/PathType`
 a|
 
-_string_
-
+_string_ 
 with max 2048 and min 1 characters
 
 conformant to an URI as per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396]
@@ -217,7 +216,7 @@ a|
 _string_ with max 4 and min 1 characters
 following the following regular expression:
 
-^([0-9]\|[1-9][0-9]*)$
+`^([0-9]\|[1-9][0-9]*)$`
 
 a|
 "0"
@@ -228,7 +227,7 @@ a|
 
 .2+e|[[QualifierType]]QualifierType 2+| `\https://admin-shell.io/aas/3/0/QualifierType`
 a|_NameType_ a|
-"ExpressionSemantic" (as specified in DIN SPEC 92000:2019-09, see xref:Bibliography.adoc#bib16[[16\]])
+"ExpressionSemantic" (as specified in DIN SPEC 92000:2019-09, see xref:bibliography.adoc#bib16[[16\]])
 
 "life cycle qual" (as specified in IEC 61360-7 - IEC/SC 3D - Common Data Dictionary (link:https://cdd.iec.ch/cdd/common/iec61360-7.nsf/SearchFrameset?OpenFrameSet[CDD - V2.0015.0004])
 
@@ -238,7 +237,7 @@ _string_ with max 4 and min 1 characters
 
 following the following regular expression:
 
-^([0-9]\|[1-9][0-9]*)$
+`^([0-9]\|[1-9][0-9]*)$`
 
 a|
 "1"
