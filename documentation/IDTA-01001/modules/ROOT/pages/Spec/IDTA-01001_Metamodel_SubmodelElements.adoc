@@ -280,7 +280,7 @@ Valid values are content types like "application/json", "application/xls", "imag
 
 The allowed values are defined as in RFC2046.
 
-|xref:ContentType[ContentType] |1
+|xref:ContentType[ContentType] |0..1
 |===
 
 == Capability Attributes
@@ -456,7 +456,7 @@ The path can be absolute or relative.
 |xref:PathType[PathType] |0..1
 
 .2+e|contentType 3+| `\https://admin-shell.io/aas/3/1/File/contentType`  
-a|Content type of the content of the file |xref:ContentType[ContentType] |1
+a|Content type of the content of the file |xref:ContentType[ContentType] |0..1
 |===
 
 == Multi Language Property Attributes
