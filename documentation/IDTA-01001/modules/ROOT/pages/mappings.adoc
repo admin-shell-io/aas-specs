@@ -25,28 +25,17 @@ idShortPath.adoc
 
 == Technical Data Formats
 
-It is crucial for Industry 4.0 applications to share information between different systems throughout the areas covered by the entire RAMI4.0 model xref:bibliography.adoc#bib1[[1\]] xref:bibliography.adoc#bib2[[2\]]. OPC UA is a frequently used format for information models in the domain of production operations, but there is a need for other formats for further areas and the relationships between them.
+This document specifies the Asset Administration Shell in a technology-neutral format, UML. Different data formats are used or recommended to be used in the different life cycle phases of a productfootnote:[The word “data formats” is used as shortcut and includes the use of conceptual advantages such as information models, schemes, transmission protocols, etc.].
 
-This document specifies the Asset Administration Shell in a technology-neutral format, UML. Different data formats are used or recommended to be used in the different life cycle phases of a productfootnote:[The word “data formats” is used as shortcut and includes the use of conceptual advantages such as information models, schemes, transmission protocols, etc.]. Serializations and mappings of the Asset Administration Shell are provided to cover the complete life cycle of each of these formats. Figure 57.
+The Asset Administration Shell supports three widely used formats:
 
-Table 10 explains the main purpose of each of the formats: OPC UA information modelsfootnote:[OPC UA Information Models should not be mixed up with the Client/Server or Pub/Sub Protocol of OPC UA. This would belong to the communication but not to the Asset Administration Shell representation layer.], AutomationML, XML, JSON, and RDF. The different purposes are visualized in Figure 57.
-
-.Distinction of Different Data Formats for the Asset Administration Shell
-[cols="21%,79%",options="header",]
-|===
-|Data format |Purpose / motivation
-|XML, JSON |Serialization of information for the technical communication between phases
-|RDF |Mapping of information to enable full use of the advantages of semantic technologies
-|AutomationML |Sharing of type and instance information about assets, particularly during engineering; transfer of this information into the operational phase (cf. OPC UA and the corresponding mapping)
-|OPC UA Information models |Access to all information of the administration data and sharing of live data within production operations; access for higher-level factory systems to this information
-|===
-
-.Graphic View on Exchange Data Formats for the Asset Administration Shellfootnote:[Only data formats considered in this document so far are mentioned in the figure.]
-image::image58.jpeg[]
+* XML
+* JSON
+* RDF
 
 
 ====
-Note: the mapping specifications and schemata themselves are not part of the specification any longer but maintained open source. This eases usage of the specification and the different formats in open-source code projects.
+Note: the mapping specifications and schemata for XML, JSON and RDF are part of https://github.com/admin-shell-io/aas-specs.
 ====
 
 
@@ -186,37 +175,3 @@ Note 2: the mapping rules of how to derive the RDF schema from the technology-ne
 Note 3: example files can be found n the repository "aas-specs"  of the github project admin-shell-io [xref:Bibliography.adoc#bib51[[51\] in folder `schemas\rdf\examples`
 ====
 
-
-==   Formats in AutomationML
-
-AutomationML (IEC 62714) is especially suited for serializing the import and export scenarios of the metamodel of an Asset Administration Shell in the engineering phase.
-
-In general, the serialization approach is to map each object of the Asset Administration Shell metamodel to an AutomationML Role Class or to an AutomationML Role Class accompanied by an AutomationML Interface Class. This role class and (if applied) interface class also define the required attributes in AutomationML.
-
-Asset Administration Shells themselves shall be modelled as AutomationML System Unit Classes or as Internal Elements within an Instance Hierarchy depending of the kind information of type and instance.
-
-For the role classes and interface classes that are required for serialization, an AutomationML Role Class Library resp. an Interface Class Library are defined and provided to the public.
-
-One of the goals is to ensure that the AutomationML model of the Asset Administration Shell can be used as a stand-alone AutomationML model, as well as in combination with existing AutomationML models such as the upcoming AutomationML Component Description. Therefore, the definition of the serialization approach defined in this clause is incorporated with the AutomationML definitions and applies the AutomationML technology definitions available on https://www.automationml.org/o.red.c/dateien.html.
-
-xref:Bibliography.adoc#bib28[[28\]] is the AutomationML application recommendation for the Asset Administration Shell (AR AAS).
-
-
-====
-Note 1: the mapping of the Asset Administration Shell to AutomationML is carried out in a joint working group between AutomationML e.V. and Plattform Industrie 4.0.
-====
-
-
-
-====
-Note 2: the resulting application recommendation (AR 004E) "Asset Administration Shell (AAS) Representation" xref:bibliography.adoc#bib28[[28\]] can be found here: https://www.automationml.org/download-archive/, together with .aml files
-====
-
-
-==  Formats in OPC UA
-
-OPC UA is suited for the operating phase of Asset Administration Shells and especially applicable in case of machine-to-machine communication. The information model xref:bibliography.adoc#bib42[[42\]] is the basis for the definition of so-called OPC UA Information Models, or OPC UA Companion Specifications xref:bibliography.adoc#bib43[[43\]].
-
-The joint Working Group of the https://opcfoundation.org/[OPC Foundation] and https://industrialdigitaltwin.org/[IDTA] 
-https://profiles.opcfoundation.org/workinggroup/40[Industry 4.0 Asset Administration Shell - AAS (I4AAS)] (xref:bibliography.adoc#bib52[[41\]])
-"will develop new companion specifications and / or Submodel Templates related to OPC UA for Asset Administration Shell V3.0 and compatible."
