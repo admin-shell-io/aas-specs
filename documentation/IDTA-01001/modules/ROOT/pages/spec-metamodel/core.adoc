@@ -1,0 +1,282 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+////
+
+include::../includes/constraints.adoc[]
+
+== Asset Administration Shell Attributes
+
+.Metamodel of an AssetAdministrationShell
+image::image24.png[]
+
+An Administration Shell is uniquely identifiable since it inherits from _Identifiable_.
+
+The _derivedFrom_ attribute is used to establish a relationship between two Asset Administration Shells that are derived from each other. For more detailed information on the _derivedFrom_ concept, see Clause 4.2.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[AssetAdministrationShell]]AssetAdministrationShell
+h|Explanation: 3+a|An Asset Administration Shell
+h|Inherits from: 3+|xref:spec-metamodel/common.adoc#Identifiable[Identifiable]; xref:spec-metamodel/common.adoc#HasDataSpecification[HasDataSpecification]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|derivedFrom 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/derivedFrom`
+a|The reference to the Asset Administration Shell, which the Asset Administration Shell was derived from |ModelReference<xref:spec-metamodel/common.adoc#AssetAdministrationShell[AssetAdministrationShell]> |0..1
+
+.2+e|assetInformation 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/assetInformation`
+a|Meta information about the asset the Asset Administration Shell is representing |xref:spec-metamodel/common.adoc#AssetInformation[AssetInformation] |1
+
+.2+e|submodel 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/submodels`
+a|
+Reference to a submodel of the Asset Administration Shell
+
+A submodel is a description of an aspect of the asset the Asset Administration Shell is representing.
+
+The asset of an Asset Administration Shell is typically described by one or more submodels.
+
+Temporarily, no submodel might be assigned to the Asset Administration Shell.
+
+|ModelReference<xref:Submodel[Submodel]> |0..*
+|===
+
+== Asset Information Attributes
+
+.Metamodel of Asset Information
+image::image25.png[]
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[AssetInformation]]AssetInformation
+h|Explanation: 3+a|
+In _AssetInformation,_ identifying meta data of the asset that is represented by an Asset Administration Shell is defined.
+
+The asset may either represent a type asset or an instance asset.
+
+The asset has a globally unique identifier, plus – if needed – additional domain-specific (proprietary) identifiers. However, to support the corner case of very first phase of life cycle where a stabilized/constant global asset identifier does not already exist, the corresponding attribute "globalAssetId" is optional.
+
+{aasd131}
+
+
+====
+Note: see Clause 5.3.12.5 for constraints related to asset information.
+====
+
+
+
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/AssetInformation`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|assetKind 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetKind`  
+a|Denotes whether the _Asset_ is of kind "Type", Instance", "Role" or non of these types is applicable |xref:AssetKind[AssetKind]|1
+
+.2+e|globalAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`  
+a|
+Identifier of the asset the Asset Administration Shell is representing
+
+This attribute is required as soon as the Asset Administration Shell is exchanged via partners in the life cycle of the asset. In a first phase of the life cycle, the asset might not yet have a global asset ID but already an internal identifier. The internal identifier would be modelled via "specificAssetId".
+
+|xref:Identifier[Identifier] |0..1
+
+.2+e|specificAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/specificAssetIds`  
+a|Additional domain-specific, typically proprietary identifier for the asset like serial number, manufacturer part ID, customer part IDs, etc |xref:SpecificAssetId[SpecificAssetId] |0..*
+
+.2+e|assetType 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetType`  
+a|
+In case _AssetInformation/assetKind_ is applicable the _AssetInformation/assetType_ is the asset ID of the type asset of the asset under consideration as identified by _AssetInformation/globalAssetId_.
+
+
+====
+Note: in case _AssetInformation/assetKind_ is "Instance" then the AssetInformation/assetType denotes which "Type" the asset is of. But it is also possible to have an _AssetInformation/assetType_ of an asset of kind "Type".
+====
+
+
+|xref:Identifier[Identifier] |0..1
+
+.2+e|defaultThumbnail 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/defaultThumbnail`  
+a|Thumbnail of the asset represented by the Asset Administration Shell; used as default. |xref:Resource[Resource] |0..1
+|===
+
+
+====
+Note: besides this asset information, there still might be an identification submodel with further information. Specific asset IDs mainly serve the purpose of supporting discovery of Asset Administration Shells for an asset.
+====
+
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%""]
+|===
+h|Class: 3+e|[[Resource]]Resource
+h|Explanation: 3+a|Resource represents an address to a file (a locator). The value is a URI that can represent an absolute or relative path.
+h|Inherits from: 3+|--
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Resource`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|path 3+| `\https://admin-shell.io/aas/3/1/Resource/path`  
+a|
+Path and name of the resource (with file extension)
+
+The path can be absolute or relative.
+
+|xref:PathType[PathType] |1
+
+.2+e|contentType 3+| `\https://admin-shell.io/aas/3/1/Resource/contentType`  
+a|
+Content type of the content of the file
+
+The content type states which file extensions the file can have.
+
+|xref:ContentType[ContentType] |0..1
+|===
+
+{empty} +
+
+[.table-with-appendix-table]
+[cols="30%h,70%"]
+|===
+|Enumeration: e|[[AssetKind]]AssetKind
+h|Explanation: a|Enumeration for denoting whether an asset is a type asset or 
+an instance asset or is a role or whether this kind of classification is not applicable
+h|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/1/AssetKind`  
+
+.2+h|Literal h| ID
+   h|Explanation
+   
+.2+e|Type | `\https://admin-shell.io/aas/3/0/AssetKind/Type` 
+a|Type asset
+
+.2+e|Instance | `\https://admin-shell.io/aas/3/0/AssetKind/Instance` 
+a|Instance asset
+
+.2+e|Role | `\https://admin-shell.io/aas/3/1/AssetKind/Role` 
+a|Role asset
+
+.2+e|NotApplicable | `\https://admin-shell.io/aas/3/0/AssetKind/NotApplicable` 
+a|Neither a type asset nor an instance asset nor a role asset
+
+|===
+
+For more information on types and instances, see Clause 4.2.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[SpecificAssetId]]SpecificAssetId
+h|Explanation: 3+a|
+A specific asset ID describes a generic supplementary identifying attribute of the asset. The specific asset ID is not necessarily globally unique.
+
+{aasd133}
+
+
+h|Inherits from: 3+|xref:spec-metamodel/common.adoc#HasSemantics[HasSemantics]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|name 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId/name`  
+a|Name of the asset identifier |xref:LabelType[LabelType] |1
+
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId/value`  
+a|The value of the specific asset identifier with the corresponding name |xref:Identifier[Identifier] |1
+
+.2+e|externalSubjectId 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId/externalSubjectId`  
+a|
+The unique ID of the (external) subject the specific asset ID _value_ belongs to or has meaning to
+
+
+====
+Note: this is an external reference.
+====
+
+
+|xref:Reference[Reference] |0..1
+|===
+
+
+====
+Note 1: names for specificAssetIds do not need to be unique.
+====
+
+
+
+====
+Note 2: semanticIds for the single specificAssetIds do not need to be unique.
+====
+
+
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
+
+== Submodel Attributes
+
+.Metamodel of Submodel
+image::image26.png[]
+
+Adding a _semanticId_ for a submodel is recommended (see Table 2).
+
+If the submodel is of _kind=Template_ (modelling kind as inherited by _HasKind_), the submodel elements within the submodel are presenting submodel element templates. If the submodel is of _kind=Instance_, its submodel elements represent submodel element instances.
+
+
+====
+Note: validators shall handle a submodel like _SubmodelElementCollection/submodelElements_ and not like a _SubmodelElementList/value_. The difference is that a submodel is identifiable and a predefined unit of information within the Asset Administration Shell.
+====
+
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[Submodel]]Submodel
+h|Explanation: 3+a|
+A submodel defines a specific aspect of the asset represented by the Asset Administration Shell.
+
+A submodel is used to structure the digital representation and technical functionality of an Administration Shell into distinguishable parts. Each submodel refers to a well-defined domain or subject matter. Submodels can become standardized and, in turn, submodel templates.
+
+
+h|Inherits from: 3+|xref:spec-metamodel/common.adoc#Identifiable[Identifiable]; xref:spec-metamodel/common.adoc#HasKind[HasKind]; xref:spec-metamodel/common.adoc#HasSemantics[HasSemantics]; xref:spec-metamodel/common.adoc#Qualifiable[Qualifiable]; xref:spec-metamodel/common.adoc#HasDataSpecification[HasDataSpecification]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Submodel`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+
+.2+e|submodelElement 3+| `\https://admin-shell.io/aas/3/1/Submodel/submodelElements` 
+a|A submodel consists of zero or more submodel elements. |xref:SubmodelElement[SubmodelElement] |0..*
+|===
+
+== Submodel Element Attributes
+
+.Metamodel of Submodel Element
+image::image27.png[]
+
+Submodel elements are qualifiable elements, i.e. one or more qualifiers may be defined for each of them.
+
+It is recommended to add a _semanticId_ to a _SubmodelElement._
+
+Submodel elements may also have defined data specification templates. A template might be defined to mirror some of the attributes like _preferredName_ and _unit_ of a property concept definition if there is no corresponding concept description available. Otherwise, there is only the property definition referenced by _semanticId_ available for the property; the attributes must be looked up online in a different way and are not available offline.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[SubmodelElement]]SubmodelElement \<<abstract>>
+h|Explanation: 3+a|A submodel element is an element suitable for the description and differentiation of assets.
+h|Inherits from: 3+|xref:spec-metamodel/common.adoc#Referable[Referable]; xref:spec-metamodel/common.adoc#HasSemantics[HasSemantics]; xref:spec-metamodel/common.adoc#Qualifiable[Qualifiable]; xref:HasDataSpecification[HasDataSpecification]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/SubmodelElement`  
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+|===
