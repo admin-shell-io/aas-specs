@@ -10,7 +10,9 @@ Illustrations:
 Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
 ////
 
-
+////
+includes events.adoc
+////
 
 :page-partial:
 
@@ -21,15 +23,15 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 
 Before specifying the information metamodel of the Asset Administration Shell, some general topics relevant for the Asset Administration Shell are explained.
 
-Subclause 4.2 describes some general aspects of handling type and instance assets.
+Subclause xref:general.adoc#_types_and_instances[Types and Instances] describes some general aspects of handling type and instance assets.
 
-Subclause 4.3 explains the very important aspects of identification in the context of the Asset Administration Shell.
+Subclause xref:general.adoc##_identification_of_elements[Identification of Elements] explains the very important aspects of identification in the context of the Asset Administration Shell.
 
-Subclause 4.4 provides matching strategies for semantic identifiers and references.
+Subclause xref:general.adoc#_matching_strategies[Matching Strategies] provides matching strategies for semantic identifiers and references.
 
-Subclause 4.5 explains the difference between submodel instances and templates.
+Subclause xref:general.adoc#_submodel_instances_and_templates[Submodel Instances and Templates] explains the difference between submodel instances and templates.
 
-Subclause 4.6 discusses aspects of event handling.
+Subclause xref:general.adoc#_events[Events] discusses aspects of event handling.
 
 == Types and Instances
 
@@ -41,17 +43,18 @@ The RAMI4.0 model xref:bibliography.adoc#bib3[[3\]] defines a generalized life c
 
 
 ====
-Note: to distinguish asset 'type' and asset 'instance', the term 'asset kind' is used in this document. The three different relationship classes between assets, especially type assets and instance assets, explained below show why the distinction is so important. The attribute "derivedFrom" in the metamodel is used to explicitly state a relationship between assets that are being derived from one another. Other relationships are not explicitly supported by the metamodel of the Asset Administration Shell, but they can be modelled via the "RelationshipElement" submodel element type.
+Note: to distinguish asset 'type' and asset 'instance', the term 'asset kind' is used in this document. The three different relationship classes between assets, especially type assets and instance assets, explained below show why the distinction is so important. The attribute "derivedFrom" in the metamodel is used to explicitly state a relationship between assets that are being derived from one another. Other relationships are not explicitly supported by the metamodel of the Asset Administration Shell, but they can be modelled via the "RelationshipElement" xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes[RelationshipElement] submodel element type.
 ====
 
 
-Table 1 gives an overview of the different life cycle phases and the role of type assets and instance assets as well as their relationship in these phases.
+Table <<table-life-cycle-phases-and-roles-of-type-and-instance-assets>> gives an overview of the different life cycle phases and the role of type assets and instance assets as well as their relationship in these phases.
 
 This important relationship should be maintained throughout the life of the instance assets. It makes it possible to forward updates from the type assets to the instance assets, either automatically or on demand.
 
 
 
 .Life Cycle Phases and Roles of Type and Instance Assets
+[[table-life-cycle-phases-and-roles-of-type-and-instance-assets]]
 [cols="20%,22%,58%", options=header]
 |===
 |*Asset Kind* |*Life Cycle Phase* |*Description*
@@ -83,7 +86,7 @@ Details and examples for composite I4.0 Components can be found in xref:bibliogr
 
 
 ====
-Note: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element "RelationshipElement", see above), it also explicitly supports the representation of another asset (via the submodel element "Entity"). The term "Entity" is chosen as superordinate concept in this context and refers to either an asset or another item that is not an asset but may be part of a more complex item or asset.
+Note: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element xref:spec-metamodel/submodel-elements.adoc#_relationship_element_attributes[RelationshipElement], see above), it also explicitly supports the representation of another asset (via the submodel element "Entity"). The term "Entity" is chosen as superordinate concept in this context and refers to either an asset or another item that is not an asset but may be part of a more complex item or asset.
 ====
 
 
@@ -98,7 +101,7 @@ image::image4.png[]
 
 
 ====
-Note 1: the example is simplified for ease of understanding and only roughly complies with the metamodel as specified in Clause 5. The ID handling is simplified as well: the names of the classes correspond to the unique global identifier of the Asset Administration Shells.
+Note 1: the example is simplified for ease of understanding and only roughly complies with the metamodel as specified in Clause xref:spec-metamodel/nav-spec.adoc[Specification]. The ID handling is simplified as well: the names of the classes correspond to the unique global identifier of the Asset Administration Shells.
 ====
 
 
@@ -215,9 +218,10 @@ Identification will take place for two purposes
 
 === Identifiers for Assets and Administration Shells
 
-In the domain of smart manufacturing, the assets need to be uniquely identified worldwide xref:bibliography.adoc#bib4[[4\]] xref:bibliography.adoc#bib20[[20\]] by the means of identifiers (IDs). The Administration Shell also has a unique ID (see Figure 5).
+In the domain of smart manufacturing, the assets need to be uniquely identified worldwide xref:bibliography.adoc#bib4[[4\]] xref:bibliography.adoc#bib20[[20\]] by the means of identifiers (IDs). The Administration Shell also has a unique ID (see Figure <<image-unique-identifier-for-aas-and-asset>>).
 
 .Unique Identifier for Administration Shell and Asset (Modified Figure from xref:Bibliography.adoc#bib4[[4\]])
+[[image-unique-identifier-for-aas-and-asset]]
 image::image6.jpeg[]
 
 An Administration Shell represents exactly one asset, with a unique asset ID. In a batch-based production, the batches will become the assets and will be described by a respective Administration Shell. If a set of assets shall be described by an Administration Shell, a unique ID for the composite asset needs to be created xref:bibliography.adoc#bib13[[13\]].
@@ -247,11 +251,12 @@ See also DIN SPEC 91406 xref:bibliography.adoc#bib31[[31\]] for further informat
 
 ===  Which Identifiers for Which Elements?
 
-Not every identifier is applicable for every element of the UML model representing the Asset Administration Shell. Table 2 therefore gives an overview on the different constraints and recommendations on the various entities, which implement "Identifiable" or "HasSemantics". Attributes relate to the metamodel in Clause 5.1 and Clause 5.3.
+Not every identifier is applicable for every element of the UML model representing the Asset Administration Shell. Table <<table-elements-with-allowed-identifying-values>> therefore gives an overview on the different constraints and recommendations on the various entities, which implement xref:spec-metamodel/common.adoc#_identifiable_attributes[Identifiable] or xref:spec-metamodel/common.adoc#_has_semantics_attributes[HasSemantics]. 
 
-See Annex A for more information on how to create new identifiers and best practices for creating URI identifiers.
+See Annex xref:annex/concepts-aas.adoc#_how_are_new_identifiers_created[How Are New Identifiers Created?] for more information on how to create new identifiers and best practices for creating URI identifiers.
 
 .Elements with Allowed Identifying Values
+[[table-elements-with-allowed-identifying-values]]
 [cols="21%,17%,22%,40%",options="header",]
 |===
 |*Elements with identifying values* |*Attribute* |*Allowed identifiers (recommended or typical)* |*Remarks*
@@ -361,14 +366,15 @@ IRDI, if the defined qualifier type is standardized and has been assigned an IRD
 
 The Administration Shell fosters the use of worldwide unique identifiers to a large degree. However, in some cases, this may lead to inefficiencies. Example: a property, which is part of a submodel, which in turn is part of an Administration Shell, each of which is identified by global identifiers xref:bibliography.adoc#bib4[[4\]].
 
-In an application featuring a resource-oriented architecture (ROA), a worldwide unique resource locator (URL) might be composed of a series of segments, which do not need to be globally unique, see Figure 6.
+In an application featuring a resource-oriented architecture (ROA), a worldwide unique resource locator (URL) might be composed of a series of segments, which do not need to be globally unique, see Figure <<image-motiviation-of-exemplary-identifies-and-idshort>>.
 
 .Motivation of Exemplary Identifiers and idShort
+[[image-motiviation-of-exemplary-identifies-and-idshort]]
 image::image7.jpeg[]
 
-To allow such efficient addressing by the chaining of elements by an API of an Administration Shell, _idShort_ is provided for a set of classes of the metamodel. It inherits from the abstract class _Referable_, in order to refer to such dependent elements (see 5.1).
+To allow such efficient addressing by the chaining of elements by an API of an Administration Shell, _idShort_ is provided for a set of classes of the metamodel. It inherits from the abstract class xref:spec-metamodel/common.adoc#referable-attributes[Referable], in order to refer to such dependent elements.
 
-Before accessing concrete data provided via a submodel, an application typically checks if the submodel provides the required data, i.e. the semantics of the submodel is checked for suitability. A so-called _semanticId_ should be defined for this submodel as well as the submodel element. This semantic ID helps to easily find the semantic definition of the submodel (see Clause 5.3.2).
+Before accessing concrete data provided via a submodel, an application typically checks if the submodel provides the required data, i.e. the semantics of the submodel is checked for suitability. A so-called _semanticId_ should be defined for this submodel as well as the submodel element. This semantic ID helps to easily find the semantic definition of the submodel (see Clause xref:spec-metamodel/common.adoc#has-semantics-attributes[HasSemantics]).
 
 == Matching Strategies
 
@@ -582,110 +588,4 @@ The identifiers of concept definitions to be used as semantic references are alr
 
 The only thing that cannot be defined in the template itself is the unique ID of the submodel instance itself (it is not identical to the ID of the submodel template), as well as the property values, etc. Templates also define cardinalities, for example whether an element is optional or not. Submodel element lists typically contain more than one element: the template contains an exemplary element template; the other elements can be created by copy/paste from this template.
 
-== Events
-
-=== Overview
-
-Events are a very versatile mechanism of the Asset Administration Shell. The following subclauses describe some use cases for events. They summarize different types of events to depict requirements, introduce a _SubmodelElement_ “_Event_" to enable declaration of events of an Asset Administration Shell. Further, the general format of event messages is specified.
-
-
-====
-Note: the concept of event is still in the experimental phase. Please be aware that backward compatibility cannot be ensured for future versions of the metamodel.
-====
-
-
-===  Brief Use Cases for Events Used in Asset Administration Shells
-
-* Event use cases are briefly outlined in the following (see also ):
-
-image::image8.jpeg[]
-
-* An integrator has purchased a device. Later in time, the supplier of the device provides a new firmware. The integrator wants to detect the offer of a new firmware and wants to update the firmware after evaluating its suitability ("forward events"). A dependent Asset Administration Shell ("D4") detects events from a parent or type Asset Administration Shell ("D1"), which is described by the _derivedFrom_ relation. An illustration of the use case is given in Figure 7.
-* An integrator/operator operates a motor purchased from a supplier. During operation, condition monitoring incidents occur. Both parties agree on a business model providing availability. The supplier wants to monitor device statuses which are located further in the value chain ("reverse events"). An illustration of the use case is given in Figure 7.
-
-.Forward and Reverse Events
-image::image8.jpeg[]
-
-* An operator is operating a certain I4.0 component over time. Changes that occasionally occur to these I4.0 components from different systems shall be tracked for documentation and auditing purposes. This can be achieved by recording events over time. An illustration of the use case is given in Figure 8.
-
-.Tracking of Changes via Events
-image::image9.jpeg[]
-
-* An operator is operating different I4.0 components, which are deployed to manufacturer clouds. The operator wants to integrate data from these components, according to DIN SPEC 92222. For this purpose, information needs to be forwarded to the operator cloud ("value push"). An illustration of the use case is given in Figure 9.
-
-.Value Push Events Across Clouds
-image::image10.jpeg[]
-
-===  Input and Output Directions of Events
-
-We can distinguish between incoming and outgoing events. See Table 3 for more information on the event directions.
-
-.Directions of Events
-[cols="32%,68%",options="header",]
-|===
-|*Direction* |*Description*
-|Out |The event is monitoring the _Referable_ it is attached to. An outer message infrastructure, e.g. by OPC UA, MQTT or AMQP, will transport these events to other Asset Administration Shells, further outer systems and users.
-|In |The software entity, which implements the respective _Referable_, can handle incoming events. These incoming events will be delivered by an outer message infrastructure, e.g. OPC UA, MQTT or AMQP, to the software entity of the _Referable_.
-|===
-
-=== Types of Events
-
-The uses cases described in Clause 4.6.2 need different types of events. Each event type is identified by a _semanticId_ and features a specialized payload.
-
-Table 4 gives an overview of types of events. The possible directions of an event are described in Clause 4.6.3.
-
-.Types of Events
-[cols="26%,12%,62%",options="header",]
-|===
-|*Group* |*Direction* |*Motivation / Conditions*
-|Structural changes of the Asset Administration Shell |Out a|
-* CRUDfootnote:[Create, Retrieve, Update, Delete] of Submodels, Assets, SubmodelElements, etc.
-
-| |In a|
-* Detect updates on parent/type/_derivedFrom_ Asset Administration Shell
-
-|Updates of properties and dependent attribute |Out a|
-* update of values of SubmodelElements
-* time-stamped updates and time series updates
-* explicit triggering of an update event
-
-|Operation element of Asset Administration Shell |Out a|
-* monitoring of (long-lasting) execution of _OperationElement_ and updating events during execution
-
-|Monitoring, conditional, calculated events |Out a|
-* e.g. when voiding some limits (e.g. stated by Qualifiers with expression semantics)
-
-|Infrastructure events |Out a|
-* Booting, shutdown, out of memory, etc. of software entity of respective Referable (Asset Administration Shell, Submodel)
-
-|Repository events |In/ Out a|
-* Change of semantics of IRDIs (associated concept definition)
-
-|Security events |Out a|
-* logging events
-* access violations, unfitting roles and rights, denial of service, etc.
-
-|Alarms and events |Out a|
-* alarms and events management analog to distributed control systems (DCS)
-
-|===
-
-*Custom Event Types*
-
-Custom event types can be defined by using a proprietary, but worldwide unique, semanticId for this event type. Such customized events can be sent or received by the software entity of the respective referable, based on arbitrary conditions, triggers, or behavior. While the general format of the event messages needs to comply with this specification, the payload might be completely customized.
-
-*Event Scopes*
-
-Events can be stated with an _observableReference_ to the _Referables_ of Asset Administration Shell, __Submodel__s, and _SubmodelElements._ These _Referables_ define the scope of the events, which are to be received or sent. +
-Table 5 describes the different scopes of an event.
-
-.Event Scopes
-[cols="32%,68%",options="header",]
-|===
-|*Event attached to ...* |*Scope*
-|xref:AssetAdministrationShell[AssetAdministrationShell] |This event monitors/represents all logical elements of an Administration Shell, such as _AssetAdministrationShell, AssetInformation, Submodels_.
-|xref:Submodel[Submodel] |This event monitors/represents all logical elements of the respective _Submodel_ and all logical dependents.
-|xref:SubmodelElementList[SubmodelElementList] and xref:SubmodelElementCollection[SubmodelElementCollection] and xref:Entity[Entity] |This event monitors/represents all logical elements of the respective _SubmodelElementCollection, SubmodelElementList or Entity_ and all logical dependents (value or statement resp.).
-|xref:SubmodelElement[SubmodelElement] (others) |This event monitors/represents a single atomic _SubmodelElement_, e.g. a data element which might include the contents of a _Blob_ or _File_.
-|===
-
+include::./includes/events.adoc[]

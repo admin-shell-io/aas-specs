@@ -245,7 +245,7 @@ For more information on the concept of subject, see Attribute Based Access Contr
 .Metamodel of Blobs
 image::image32.png[]
 
-For information on content type, see Clause 5.3.7.9 on submodel element "File".
+For information on content type, see Clause xref:spec-metamodel/submodel-elements.adoc#file-attributes[File Attributes].
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -402,9 +402,9 @@ The asset of an I4.0 Component is a self-managed entity per definition.
 
 |===
 
-== Event Attributes
+== Event Element Attributes
 
-.Metamodel of Events
+.Metamodel of Event Elements
 image::image36.png[]
 
 [.table-with-appendix-table]
@@ -659,7 +659,7 @@ h|Explanation h|Type h|Card.
 a|External reference to an external object or entity or a logical reference to another element within the same or another Asset Administration Shell (i.e. a model reference to a _Referable_) |xref:Reference[Reference] |0..1
 |===
 
-For more information on references, see Clause 5.3.9.
+For more information on references, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
 
 == Relationship Element Attributes
 
@@ -699,7 +699,7 @@ Note: the different elements of a submodel element collection do not have to hav
 ====
 
 
-Example: a single document has a predefined set of properties like title, version, author, etc. They logically belong to a document. So a single document is represented by a _SubmodelElementCollection_. An asset usually has many different documents available like operating instructions, safety instructions, etc. The set of all documents is represented by a _SubmodelElementList_ (see Clause _5.3.7.17)_. In this case, we have a _SubmodelElementList_ of __SubmodelElementCollection__s.
+Example: a single document has a predefined set of properties like title, version, author, etc. They logically belong to a document. So a single document is represented by a _SubmodelElementCollection_. An asset usually has many different documents available like operating instructions, safety instructions, etc. The set of all documents is represented by a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes[SubmodelElementList]. In this case, we have a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes[SubmodelElementList] of xref:spec-metamodel/submodel-elements.adoc#submodel-element-collection-attributes[SubmodelElementCollection]s.
 
 
 ====
@@ -739,7 +739,7 @@ Submodel element lists are also used to create multi-dimensional arrays. A two-d
 
 Similarly, a table with three columns can be represented. In this case a _SubmodelElementCollection_ with three _SubmodelElementLists_ would be contained and the _semanticId_ as well as the _semanticIdListElement_ for the three columns would differ.
 
-Matching strategies for semantic IDs are explained in Clause 4.4.1.
+Matching strategies for semantic IDs are explained in Clause xref:general.adoc#matching-strategies-for-semantic-identifiers[Matching Strategies for Semantic Identifiers].
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]

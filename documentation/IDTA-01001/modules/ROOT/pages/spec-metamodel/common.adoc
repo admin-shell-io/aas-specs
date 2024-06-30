@@ -144,7 +144,7 @@ Note: this is an external reference.
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..* |
 |===
 
-For more details on data specifications, please see Clause 6.
+For more details on data specifications, please see Clause xref:data-specifications.adoc[Data Specification Templates].
 
 == Has Extension Attributes
 
@@ -160,7 +160,7 @@ Element that can be extended by proprietary extensions
 
 
 ====
-Note 1: see Clause 5.3.12.4 for constraints related to extensions.
+Note 1: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-extensions[Constraints for Extensions] for constraints related to extensions.
 ====
 
 
@@ -272,7 +272,7 @@ a|concrete, clearly identifiable element instance. Its creation and validation m
 .Metamodel of Semantic References (HasSemantics)
 image::image18.png[]
 
-For matching algorithm, see Clause 4.4.1.
+For matching algorithm, see Clause xref:general.adoc#matching-strategies-for-semantic-identifiers[Matching Strategies for Semantic Identifiers].
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -330,9 +330,9 @@ An identifiable element is a referable with a globally unique identifier (_Ident
 
 Non-identifiable referable elements can be referenced. However, this requires the context of the element. A referable that is not identifiable and not child within a SubmodelElementList has a short identifier (_idShort_) that is unique just in its context, its name space.
 
-Information about identification can be found in Clause 4.3. See Clause 4.3.4 for constraints and recommendations on when to use which type of identifier.
+Information about identification can be found in Clause xref:general.adoc#identification-of-elements[Identification of Elements]. See Clause xref:general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?] for constraints and recommendations on when to use which type of identifier.
 
-See Clause 4.3.4 for information about which identifier types are supported.
+See Clause xref:general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?] for information about which identifier types are supported.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -386,7 +386,7 @@ A qualifiable element may be further qualified by one or more qualifiers.
 
 
 ====
-Note: see Clause 5.3.12.3 for constraints related to qualifiables.
+Note: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-qualifiers[Constraints for Qualifiers] for constraints related to qualifiables.
 ====
 
 
@@ -517,11 +517,11 @@ image::image23.png[]
 
 The metamodel differentiates between elements that are identifiable, referable, or none of both. The latter means they are neither inheriting from _Referable_ nor from _Identifiable_, which applies e.g. to __Qualifier__s.
 
-Referable elements can be referenced via the _idShort_ (with exception of elements within a SubmodelElementList). For details on referencing, see Clause 5.3.9.
+Referable elements can be referenced via the _idShort_ (with exception of elements within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes [SubmodelElementList]). For details on referencing, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
 
 Not every element of the metamodel is referable. There are elements that are just attributes of a referable.
 
-The __idShort__ shall be unique in its name space for non-identifiable referables (exception: referables within a SubmodelElementList) (see Constraint AASd-022). A name space is defined as follows in this context: the parent element(s), which an element is part of and that is either referable or identifiable, is the name space of the element. Examples: a submodel is the name space for the properties directly contained in it; the name space of a submodel element contained in a submodel element collection is the submodel element collection.
+The __idShort__ shall be unique in its name space for non-identifiable referables (exception: referables within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes [SubmodelElementList]) (see Constraint AASd-022). A name space is defined as follows in this context: the parent element(s), which an element is part of and that is either referable or identifiable, is the name space of the element. Examples: a submodel is the name space for the properties directly contained in it; the name space of a submodel element contained in a submodel element collection is the submodel element collection.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%""]
@@ -532,7 +532,7 @@ Note1 : an element that is referable by its idShort. This ID is not globally uni
 
 
 ====
-Note 2: see Clause 5.3.12.2 for constraints related to referables.
+Note 2: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-referables-and-identifiables[Constraints for Referables and Identifiables] for constraints related to referables.
 ====
 
 
