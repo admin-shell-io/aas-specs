@@ -104,23 +104,24 @@ The document on the structure of the Asset Administration Shell xref:bibliograph
 .Basic Structure of the Asset Administration Shell
 image::image63.jpeg[]
 
-Properties, data, and functions will contain information that not every partner within a value-added network or even within an organizational unit should be able to access; its integrity and availability should be guaranteed. Therefore, the structure of the Administration Shell shall be able to handle aspects such as access protection, visibility, identity, and rights management, confidentiality, and integrity. Information security needs to be respected and has to be aligned with an overall security concept. Security implementation must go together with the implementation of other components of an overall system.
+Properties, data, and functions will contain information that not every partner within a value-added network or even within an organizational unit should be able to access; its integrity and availability should be guaranteed.Therefore, the structure of the Administration Shell shall be able to handle aspects such as access protection, visibility, identity, and rights management, confidentiality, and integrity.Information security needs to be respected and has to be aligned with an overall security concept.Security implementation must go together with the implementation of other components of an overall system.
 
-Each submodel contains a structured quantity of properties that can refer to data and functions. A standardized format based on IEC 61360-1/ ISO 13584-42 is envisaged for the properties. Property value definition shall follow the same principles as ISO 29002-10 and IEC 62832-2. Data and functions may be available in various complementary formats.
+Each submodel contains a structured quantity of properties that can refer to data and functions.A standardized format based on IEC 61360-1/ ISO 13584-42 is envisaged for the properties.Property value definition shall follow the same principles as ISO 29002-10 and IEC 62832-2. Data and functions may be available in various complementary formats.
 
-The properties of all the submodels therefore result in a constantly readable key information directory of the Administration Shell and hence of the I4.0 component. To enable binding semantics, Administration Shells, assets, submodels, and properties must all be clearly identified. For identification of these element the following types of global identifiers are allowed: IRDIs (used for example in ISO TS 29002-5, ECLASS and IEC CDD) and IRIs (Internationalized Resource Identifier, used for example in ontologies).
+The properties of all the submodels therefore result in a constantly readable key information directory of the Administration Shell and hence of the I4.0 component.To enable binding semantics, Administration Shells, assets, submodels, and properties must all be clearly identified.For identification of these element the following types of global identifiers are allowed: IRDIs (used for example in ISO TS 29002-5, ECLASS and IEC CDD) and IRIs (Internationalized Resource Identifier, used for example in ontologies).
 
-It should be possible to filter elements of the Administration Shell or submodels according to different given views (see example C.4 in xref:bibliography.adoc#bib19[[19\]]). This facilitates different perspectives or use cases to access the Administration Shell's information.
+It should be possible to filter elements of the Administration Shell or submodels according to different given views (see example C.4 in xref:bibliography.adoc#bib19[[19\]]).This facilitates different perspectives or use cases to access the Administration Shell's information.
 
+[#how_are_new_identifiers_created]
 == How Are New Identifiers Created?
 
 Following the different identification types from Clause 4.3.4, it can be stated that:
 
 [loweralpha]
-. IRDIs are assumed to already exist due to an external specification and standardization process in the creation of a certain Administration Shell. To bring such IRDI identifiers to life, please refer to Clause 5 of this document xref:bibliography.adoc#bib4[[4\]].
-. URIs and URLs can easily be created by developers when forming a certain Administration Shell. All they need is a valid authenticated URL, for example of the company. They also need to make sure that the domain (e.g. admin-shell.io) appended to the host’s name is reserved in a semantically unique way for these identifiers. This way, each developer can create an arbitrary URI or URL by combining the host name and some chosen path, which only needs to be unique in the developer's organization.
-. Custom identifiers can also be easily formed by developers. They only need to make sure that internal custom identifiers can be clearly distinguished from (a) or (b).
-. Local identifiers can also be created on the fly. They have to be unique within their namespace.
+. IRDIs are assumed to already exist due to an external specification and standardization process in the creation of a certain Administration Shell.To bring such IRDI identifiers to life, please refer to Clause 5 of this document xref:bibliography.adoc#bib4[[4\]].
+. URIs and URLs can easily be created by developers when forming a certain Administration Shell.All they need is a valid authenticated URL, for example of the company.They also need to make sure that the domain (e.g. admin-shell.io) appended to the host’s name is reserved in a semantically unique way for these identifiers.This way, each developer can create an arbitrary URI or URL by combining the host name and some chosen path, which only needs to be unique in the developer's organization.
+. Custom identifiers can also be easily formed by developers.They only need to make sure that internal custom identifiers can be clearly distinguished from (a) or (b).
+. Local identifiers can also be created on the fly.They have to be unique within their namespace.
 
 == Best Practice for Creating URI Identifiers
 

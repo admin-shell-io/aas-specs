@@ -23,16 +23,17 @@ includes events.adoc
 
 Before specifying the information metamodel of the Asset Administration Shell, some general topics relevant for the Asset Administration Shell are explained.
 
-Subclause xref:general.adoc#_types_and_instances[Types and Instances] describes some general aspects of handling type and instance assets.
+Subclause xref:general.adoc#types_and_instances[Types and Instances] describes some general aspects of handling type and instance assets.
 
-Subclause xref:general.adoc##_identification_of_elements[Identification of Elements] explains the very important aspects of identification in the context of the Asset Administration Shell.
+Subclause xref:general.adoc#identification_of_elements[Identification of Elements] explains the very important aspects of identification in the context of the Asset Administration Shell.
 
-Subclause xref:general.adoc#_matching_strategies[Matching Strategies] provides matching strategies for semantic identifiers and references.
+Subclause xref:general.adoc#matching_strategies[Matching Strategies] provides matching strategies for semantic identifiers and references.
 
-Subclause xref:general.adoc#_submodel_instances_and_templates[Submodel Instances and Templates] explains the difference between submodel instances and templates.
+Subclause xref:general.adoc#submodel_instances_and_templates[Submodel Instances and Templates] explains the difference between submodel instances and templates.
 
-Subclause xref:general.adoc#_events[Events] discusses aspects of event handling.
+Subclause xref:general.adoc#events[Events] discusses aspects of event handling.
 
+[#types_and_instances]
 == Types and Instances
 
 === Life Cycle with Type Assets and Instance Assets
@@ -86,7 +87,7 @@ Details and examples for composite I4.0 Components can be found in xref:bibliogr
 
 
 ====
-Note: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element xref:spec-metamodel/submodel-elements.adoc#_relationship_element_attributes[RelationshipElement], see above), it also explicitly supports the representation of another asset (via the submodel element "Entity"). The term "Entity" is chosen as superordinate concept in this context and refers to either an asset or another item that is not an asset but may be part of a more complex item or asset.
+Note: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element xref:spec-metamodel/submodel-elements.adoc#relationship_element_attrs[RelationshipElement], see above), it also explicitly supports the representation of another asset (via the submodel element "Entity"). The term "Entity" is chosen as superordinate concept in this context and refers to either an asset or another item that is not an asset but may be part of a more complex item or asset.
 ====
 
 
@@ -200,6 +201,7 @@ Note 4: it is not mandatory to define an Asset Administration Shell type before 
 .Example: Asset Administration Shell, Asset Administration Shell Types and Instances
 image::image5.png[]
 
+[#identification_of_elements]
 == Identification of Elements
 
 ===  Overview
@@ -251,9 +253,9 @@ See also DIN SPEC 91406 xref:bibliography.adoc#bib31[[31\]] for further informat
 
 ===  Which Identifiers for Which Elements?
 
-Not every identifier is applicable for every element of the UML model representing the Asset Administration Shell. Table <<table-elements-with-allowed-identifying-values>> therefore gives an overview on the different constraints and recommendations on the various entities, which implement xref:spec-metamodel/common.adoc#_identifiable_attributes[Identifiable] or xref:spec-metamodel/common.adoc#_has_semantics_attributes[HasSemantics]. 
+Not every identifier is applicable for every element of the UML model representing the Asset Administration Shell. Table <<table-elements-with-allowed-identifying-values>> therefore gives an overview on the different constraints and recommendations on the various entities, which implement xref:spec-metamodel/common.adoc#identifiable_attrs[Identifiable] or xref:spec-metamodel/common.adoc#has_semantics_attrs[HasSemantics].
 
-See Annex xref:annex/concepts-aas.adoc#_how_are_new_identifiers_created[How Are New Identifiers Created?] for more information on how to create new identifiers and best practices for creating URI identifiers.
+See Annex xref:annex/concepts-aas.adoc#how_are_new_identifiers_created[How Are New Identifiers Created?] for more information on how to create new identifiers and best practices for creating URI identifiers.
 
 .Elements with Allowed Identifying Values
 [[table-elements-with-allowed-identifying-values]]
@@ -376,6 +378,7 @@ To allow such efficient addressing by the chaining of elements by an API of an A
 
 Before accessing concrete data provided via a submodel, an application typically checks if the submodel provides the required data, i.e. the semantics of the submodel is checked for suitability. A so-called _semanticId_ should be defined for this submodel as well as the submodel element. This semantic ID helps to easily find the semantic definition of the submodel (see Clause xref:spec-metamodel/common.adoc#has-semantics-attributes[HasSemantics]).
 
+[#matching_strategies]
 == Matching Strategies
 
 === Matching Strategies for Semantic Identifiers
@@ -566,6 +569,7 @@ matches
 ....
 (GlobalReference)https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, (FragmentReference)Bibliography
 ....
+[#submodel_instances_and_templates]
 == Submodel Instances and Templates
 
 === Can New or Proprietary Submodels be Formed?
