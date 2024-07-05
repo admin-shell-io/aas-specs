@@ -192,7 +192,7 @@ Updated links to XML Schema 1.0 (not 1.1)
 
 extend data type to support complete URI scheme for files RFC2396
 |(x)  | xref:spec-metamodel/common.adoc#Qualifier[Qualifier/Kind] a| (bugfix in Text only) attribute starts with small letter
-| {empty} | xref:spec-metamodel/submodel-elements.adoc#Resource[Resource/path] a| Type was extended, see PathType
+| {empty} | xref:spec-metamodel/core.adoc#Resource[Resource/path] a| Type was extended, see PathType
 |===
 
 .New, Changed or Removed Constraints
@@ -354,7 +354,7 @@ The elements remain, except for new SubmodelElementList, and renamed submodel el
 |x |Qualifiable/qualifier |Type changed from Constraint to Qualifier
 |{empty} |xref:spec-metamodel/common.adoc#Qualifier[Qualifier] |No longer inherits from abstract class "Constraint"
 |{empty} |Qualifier/valueType |Type changed from DataTypeDef to DataTypeDefXsd
-|x |xref:spec-metamodel/common.adoc#QualifierType[QualifierType] |Type changed from string to NameType (i.e. length constraint added)
+|x |xref:spec-metamodel/datatypes.adoc#QualifierType[QualifierType] |Type changed from string to NameType (i.e. length constraint added)
 | |xref:spec-metamodel/submodel-elements.adoc#Range[Range] | set to \<<Experimental>>
 |{empty} |xref:spec-metamodel/submodel-elements.adoc#Range[Range/valueType] |Type changed from DataTypeDef to DataTypeDefXsd
 |x |Referable/category a|
@@ -474,8 +474,8 @@ Type changed from string to MessageTopicType (i.e. length constraint added, maxi
  +
 New submodel element SubmodelElementList added, renamed submodel elements Event and BasicEvent to EventElement and BasicEventElement
 |{empty} |xref:spec-metamodel/datatypes.adoc#LabelType[LabelType] |New string type with maximum 64 characters
-|{empty} |xref:spec-metamodel/submodel-elements.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
-| |xref:spec-metamodel/core.adoc#ModellingKind[ModellingKind] |Renamed enumeration, before: ModelingKind
+|{empty} |xref:spec-metamodel/datatypes.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
+| |xref:spec-metamodel/common.adoc#ModellingKind[ModellingKind] |Renamed enumeration, before: ModelingKind
 |{empty} |xref:spec-metamodel/datatypes.adoc#MultiLanguageNameType[MultiLanguageNameType] |Substitute for LangStringSet with short multi-language strings, maximum 64 characters
 |{empty} |xref:spec-metamodel/datatypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |Substitute for LangStringSet with long multi-language strings, maximum 64 characters
 |{empty} |xref:spec-metamodel/datatypes.adoc#NameType[NameType] |New string type with maximum 128 characters
@@ -486,7 +486,7 @@ New submodel element SubmodelElementList added, renamed submodel elements Event 
 | |Reference/type |New mandatory attribute for Reference
 |{empty} |xref:spec-metamodel/referencing.adoc#ReferenceTypes[ReferenceTypes] |New enumeration for Reference/type
 |{empty} |ReferenceTypes/ExternalReference |Enumeration value, was named GlobalReference before
-|{empty} |xref:spec-metamodel/datatypes.adoc#Resource[Resource] |new type for AssetInformation/defaultThumbnail
+|{empty} |xref:spec-metamodel/core.adoc#Resource[Resource] |new type for AssetInformation/defaultThumbnail
 |{empty} |ShortNameType |New string type with maximum 64 characters
 |{empty} |xref:spec-metamodel/core.adoc#SpecificAssetId[SpecificAssetId] |New type for AssetInformation/specificAssetId
 |{empty} |SpecificAssetId/externalSubjectId |See Attribute Based Access Control (ABAC) for subject concept
@@ -657,7 +657,7 @@ Smaller changes:
 [cols="5%,32%,61%",options="header",]
 |===
 |*nc* |*V3.0 Change w.r.t. V3.0RC02* |*Comment*
-| |xref:spec-metamodel/core.adoc#AdministrativeInformation[AdministrativeInformation] a|Stereotype \<<dataType>> removed
+| |xref:spec-metamodel/common.adoc#AdministrativeInformation[AdministrativeInformation] a|Stereotype \<<dataType>> removed
 | |AssetInformation/externalSubjectId a|Not mandatory any longer; now optional
 |x |AssetInformation/globalAssetId a|Type changed from Reference to Identifier
 | |AssetKind/Type a|Updated description of value "Type" of enumeration "AssetKind" conformant to IEC 63278-1
@@ -692,7 +692,7 @@ Smaller changes:
 |x |xref:spec-metamodel/datatypes.adoc#PathType[PathType] a|Same as Identifier; length constraint added
 | |PrimitiveTypes |Removed
 | |Qualifier/kind a|Set to \<<Experimental>>
-|x |xref:spec-metamodel/common.adoc#QualifierType[QualifierType] a|Type changed from string to NameType; length constraint added
+|x |xref:spec-metamodel/datatypes.adoc#QualifierType[QualifierType] a|Type changed from string to NameType; length constraint added
 | |rdfBuildInTypes a|Removed
 | | Range	a| Set to \<<Experimental>>
 |x |Referable/category a|
@@ -709,7 +709,7 @@ Text how to select a suitable display name removed; now explained in Table 2
 |x |Referable/description a|Type changed from string to MultiLanguageTextType; length constraint added
 |x |Referable/idShort a|Type changed from string to NameType; length constraint added
 |x |ReferenceTypes/GlobalReference a|Renamed to ExternalReference
-| |xref:spec-metamodel/datatypes.adoc#Resource[Resource] a|Stereotype \<<DataType>> removed.
+| |xref:spec-metamodel/core.adoc#Resource[Resource] a|Stereotype \<<DataType>> removed.
 | |xref:spec-metamodel/submodel-elements.adoc#StateOfEvent[StateOfEvent] |Set to \<<Experimental>>
 |x |SpecificAssetId/name a|Type changed from string to LabelType (a string with length constraint)
 |x |SpecificAssetId/value a|Type changed from string to Identifier (because of length constraint)
@@ -725,7 +725,7 @@ Text how to select a suitable display name removed; now explained in Table 2
 | |AssetInformation/assetType |New optional attribute
 | |AssetKind/NotApplicable |New enumeration value
 | |xref:spec-metamodel/datatypes.adoc#LabelType[LabelType] |New string type with maximum 64 characters
-| |xref:spec-metamodel/submodel-elements.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
+| |xref:spec-metamodel/datatypes.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
 | |xref:spec-metamodel/common.adoc#ModellingKind[ModellingKind] |Renamed enumeration, before: ModelingKind
 | |xref:spec-metamodel/datatypes.adoc#MultiLanguageNameType[MultiLanguageNameType] |Substitute for LangStringSet with short multi-language strings, maximum 64 characters
 | |xref:spec-metamodel/datatypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |Substitute for LangStringSet with long multi-language strings, maximum 64 characters
@@ -2004,7 +2004,7 @@ Cardinality changed from mandatory to optional
 
 |x |DataSpecificationIEC61360/code |Attribute code removed
 | |DataSpecificationIEC61360/definition |Cardinality changed from mandatory to optional
-| |xref:data-specifications.adoc#HasDataSpecification[HasDataSpecification] |Was abstract before
+| |xref:spec-metamodel/common.adoc#HasDataSpecification[HasDataSpecification] |Was abstract before
 | |HasDataSpecification/hasDataSpecification |Renamed to HasDataSpecification/dataSpecification
 |x |HasKind/kind |Now of type "ModellingKind" instead of "Kind". Values changed: Type now Template; Instance remains
 |x |File/value |File name not without but with extension
@@ -2047,7 +2047,7 @@ Type changed from AnySimpleTypeDef to ValueDataType
 |LocalKeyType/FragmentId |New value for KeyType Enumeration (via subset LocalKeyType)
 |xref:spec-metamodel/datatypes.adoc#LangStringSet[LangStringSet] |New type, used for example in MultiLanguageProperty
 |LevelType |New enumeration type
-|xref:spec-metamodel/core.adoc#ModellingKind[ModellingKind] |New enumeration type
+|xref:spec-metamodel/common.adoc#ModellingKind[ModellingKind] |New enumeration type
 |xref:spec-metamodel/submodel-elements.adoc#MultiLanguageProperty[MultiLanguageProperty] |New submodel element
 |Qualifier/valueType |New attribute to be consistent with valueType of Property etc.
 |xref:spec-metamodel/submodel-elements.adoc#Range[Range] |New submodel element

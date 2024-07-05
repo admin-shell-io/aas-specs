@@ -267,13 +267,13 @@ a|specification of the common features of a structured element in sufficient det
 a|concrete, clearly identifiable element instance. Its creation and validation may be guided by a corresponding element template
 |===
 
-[#has_semantics_attrs]
+[#has-semantics-attributes]
 == Has Semantics Attributes
 
 .Metamodel of Semantic References (HasSemantics)
 image::image18.png[]
 
-For matching algorithm, see Clause xref:general.adoc#matching-strategies-for-semantic-identifiers[Matching Strategies for Semantic Identifiers].
+For matching algorithm, see Clause xref:general.adoc#_matching_strategies_for_semantic_identifiers[Matching Strategies for Semantic Identifiers].
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -322,7 +322,7 @@ In future releases a constraint may be added that makes it mandatory to use exte
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..*
 |===
 
-[#identifiable_attrs]
+[#identifiable-attributes]
 == Identifiable Attributes
 
 .Metamodel of Identifiables
@@ -332,9 +332,9 @@ An identifiable element is a referable with a globally unique identifier (_Ident
 
 Non-identifiable referable elements can be referenced.However, this requires the context of the element.A referable that is not identifiable and not child within a SubmodelElementList has a short identifier (_idShort_) that is unique just in its context, its name space.
 
-Information about identification can be found in Clause xref:general.adoc#identification-of-elements[Identification of Elements].See Clause xref:general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?] for constraints and recommendations on when to use which type of identifier.
+Information about identification can be found in Clause xref:general.adoc#identification-of-elements[Identification of Elements].See Clause xref:general.adoc#_which_identifiers_for_which_elements[Which Identifiers for Which Elements?] for constraints and recommendations on when to use which type of identifier.
 
-See Clause xref:general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?] for information about which identifier types are supported.
+See Clause xref:general.adoc#_which_identifiers_for_which_elements[Which Identifiers for Which Elements?] for information about which identifier types are supported.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -388,7 +388,7 @@ A qualifiable element may be further qualified by one or more qualifiers.
 
 
 ====
-Note: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-qualifiers[Constraints for Qualifiers] for constraints related to qualifiables.
+Note: see Clause xref:spec-metamodel/constraints.adoc#_constraints_for_qualifiers[Constraints for Qualifiers] for constraints related to qualifiables.
 ====
 
 
@@ -443,7 +443,7 @@ Default: ConceptQualifier
 |xref:spec-metamodel/common.adoc#QualifierKind[QualifierKind] |0..1
 
 .2+e|type 3+| `\https://admin-shell.io/aas/3/1/Qualifier/type`  
-a|The qualifier type describes the type of qualifier that is applied to the element. |xref:spec-metamodel/common.adoc#QualifierType[QualifierType] |1
+a|The qualifier type describes the type of qualifier that is applied to the element. |xref:spec-metamodel/datatypes.adoc#QualifierType[QualifierType] |1
 
 .2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Qualifier/valueType`  
 a|Data type of the qualifier _value_ |xref:spec-metamodel/datatypes.adoc#DataTypeDefXsd[DataTypeDefXsd] |1
@@ -519,7 +519,7 @@ image::image23.png[]
 
 The metamodel differentiates between elements that are identifiable, referable, or none of both. The latter means they are neither inheriting from _Referable_ nor from _Identifiable_, which applies e.g. to __Qualifier__s.
 
-Referable elements can be referenced via the _idShort_ (with exception of elements within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes [SubmodelElementList]). For details on referencing, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
+Referable elements can be referenced via the _idShort_ (with exception of elements within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes[SubmodelElementList]). For details on referencing, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
 
 Not every element of the metamodel is referable. There are elements that are just attributes of a referable.
 
@@ -534,7 +534,7 @@ Note1 : an element that is referable by its idShort. This ID is not globally uni
 
 
 ====
-Note 2: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-referables-and-identifiables[Constraints for Referables and Identifiables] for constraints related to referables.
+Note 2: see Clause xref:spec-metamodel/constraints.adoc#_constraints_for_referables_and_identifiables[Constraints for Referables and Identifiables] for constraints related to referables.
 ====
 
 

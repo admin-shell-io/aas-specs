@@ -10,6 +10,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 include::../includes/constraints.adoc[]
 
+[#aas_attributes]
 == Asset Administration Shell Attributes
 
 .Metamodel of an AssetAdministrationShell
@@ -17,7 +18,7 @@ image::image24.png[]
 
 An Administration Shell is uniquely identifiable since it inherits from _Identifiable_.
 
-The _derivedFrom_ attribute is used to establish a relationship between two Asset Administration Shells that are derived from each other. For more detailed information on the _derivedFrom_ concept, see Clause xref:general.adoc#types-and-instances[Types and Instances].
+The _derivedFrom_ attribute is used to establish a relationship between two Asset Administration Shells that are derived from each other.For more detailed information on the _derivedFrom_ concept, see Clause xref:general.adoc#types-and-instances[Types and Instances].
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -25,16 +26,16 @@ The _derivedFrom_ attribute is used to establish a relationship between two Asse
 h|Class: 3+e|[[AssetAdministrationShell]]AssetAdministrationShell
 h|Explanation: 3+a|An Asset Administration Shell
 h|Inherits from: 3+|xref:spec-metamodel/common.adoc#Identifiable[Identifiable]; xref:spec-metamodel/common.adoc#HasDataSpecification[HasDataSpecification]
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell`  
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
 .2+e|derivedFrom 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/derivedFrom`
-a|The reference to the Asset Administration Shell, which the Asset Administration Shell was derived from |ModelReference<xref:spec-metamodel/common.adoc#AssetAdministrationShell[AssetAdministrationShell]> |0..1
+a|The reference to the Asset Administration Shell, which the Asset Administration Shell was derived from |ModelReference<xref:spec-metamodel/core.adoc#aas_attributes[AssetAdministrationShell]> |0..1
 
 .2+e|assetInformation 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/assetInformation`
-a|Meta information about the asset the Asset Administration Shell is representing |xref:spec-metamodel/common.adoc#AssetInformation[AssetInformation] |1
+a|Meta information about the asset the Asset Administration Shell is representing |xref:spec-metamodel/core.adoc#AssetInformation[AssetInformation] |1
 
 .2+e|submodel 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/submodels`
 a|
@@ -89,7 +90,7 @@ Identifier of the asset the Asset Administration Shell is representing
 
 This attribute is required as soon as the Asset Administration Shell is exchanged via partners in the life cycle of the asset. In a first phase of the life cycle, the asset might not yet have a global asset ID but already an internal identifier. The internal identifier would be modelled via "specificAssetId".
 
-|xref:Identifier[Identifier] |0..1
+|xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |0..1
 
 .2+e|specificAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/specificAssetIds`  
 a|Additional domain-specific, typically proprietary identifier for the asset like serial number, manufacturer part ID, customer part IDs, etc |xref:SpecificAssetId[SpecificAssetId] |0..*
@@ -104,7 +105,7 @@ Note: in case _AssetInformation/assetKind_ is "Instance" then the AssetInformati
 ====
 
 
-|xref:Identifier[Identifier] |0..1
+|xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |0..1
 
 .2+e|defaultThumbnail 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/defaultThumbnail`  
 a|Thumbnail of the asset represented by the Asset Administration Shell; used as default. |xref:Resource[Resource] |0..1
@@ -133,7 +134,7 @@ Path and name of the resource (with file extension)
 
 The path can be absolute or relative.
 
-|xref:PathType[PathType] |1
+|xref:spec-metamodel/datatypes.adoc#PathType[PathType] |1
 
 .2+e|contentType 3+| `\https://admin-shell.io/aas/3/1/Resource/contentType`  
 a|
@@ -141,7 +142,7 @@ Content type of the content of the file
 
 The content type states which file extensions the file can have.
 
-|xref:ContentType[ContentType] |0..1
+|xref:spec-metamodel/datatypes.adoc#ContentType[ContentType] |0..1
 |===
 
 {empty} +
@@ -191,10 +192,10 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId`
 h|Explanation h|Type h|Card.
 
 .2+e|name 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId/name`  
-a|Name of the asset identifier |xref:LabelType[LabelType] |1
+a|Name of the asset identifier |xref:spec-metamodel/datatypes.adoc#LabelType[LabelType] |1
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId/value`  
-a|The value of the specific asset identifier with the corresponding name |xref:Identifier[Identifier] |1
+a|The value of the specific asset identifier with the corresponding name |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |1
 
 .2+e|externalSubjectId 3+| `\https://admin-shell.io/aas/3/1/SpecificAssetId/externalSubjectId`  
 a|
@@ -206,7 +207,7 @@ Note: this is an external reference.
 ====
 
 
-|xref:Reference[Reference] |0..1
+|xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 |===
 
 
@@ -274,7 +275,7 @@ Submodel elements may also have defined data specification templates. A template
 |===
 h|Class: 3+e|[[SubmodelElement]]SubmodelElement \<<abstract>>
 h|Explanation: 3+a|A submodel element is an element suitable for the description and differentiation of assets.
-h|Inherits from: 3+|xref:spec-metamodel/common.adoc#Referable[Referable]; xref:spec-metamodel/common.adoc#HasSemantics[HasSemantics]; xref:spec-metamodel/common.adoc#Qualifiable[Qualifiable]; xref:HasDataSpecification[HasDataSpecification]
+h|Inherits from: 3+|xref:spec-metamodel/common.adoc#Referable[Referable]; xref:spec-metamodel/common.adoc#HasSemantics[HasSemantics]; xref:spec-metamodel/common.adoc#Qualifiable[Qualifiable]; xref:spec-metamodel/common.adoc#HasDataSpecification[HasDataSpecification]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/SubmodelElement`  
 
 .2+h|Attribute 3+h| ID
