@@ -50,6 +50,7 @@ Temporarily, no submodel might be assigned to the Asset Administration Shell.
 |ModelReference<xref:Submodel[Submodel]> |0..*
 |===
 
+[#asset-information-attributes]
 == Asset Information Attributes
 
 .Metamodel of Asset Information
@@ -76,15 +77,15 @@ Note: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-asset-rela
 
 
 h|Inherits from: 3+|--
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/AssetInformation`  
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/AssetInformation`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|assetKind 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetKind`  
+.2+e|assetKind 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetKind`
 a|Denotes whether the _Asset_ is of kind "Type", Instance", "Role" or non of these types is applicable |xref:AssetKind[AssetKind]|1
 
-.2+e|globalAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`  
+.2+e|globalAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`
 a|
 Identifier of the asset the Asset Administration Shell is representing
 
@@ -92,10 +93,10 @@ This attribute is required as soon as the Asset Administration Shell is exchange
 
 |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |0..1
 
-.2+e|specificAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/specificAssetIds`  
+.2+e|specificAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/specificAssetIds`
 a|Additional domain-specific, typically proprietary identifier for the asset like serial number, manufacturer part ID, customer part IDs, etc |xref:SpecificAssetId[SpecificAssetId] |0..*
 
-.2+e|assetType 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetType`  
+.2+e|assetType 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetType`
 a|
 In case _AssetInformation/assetKind_ is applicable the _AssetInformation/assetType_ is the asset ID of the type asset of the asset under consideration as identified by _AssetInformation/globalAssetId_.
 
@@ -107,7 +108,7 @@ Note: in case _AssetInformation/assetKind_ is "Instance" then the AssetInformati
 
 |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |0..1
 
-.2+e|defaultThumbnail 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/defaultThumbnail`  
+.2+e|defaultThumbnail 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/defaultThumbnail`
 a|Thumbnail of the asset represented by the Asset Administration Shell; used as default. |xref:Resource[Resource] |0..1
 |===
 
@@ -222,8 +223,9 @@ Note 2: semanticIds for the single specificAssetIds do not need to be unique.
 ====
 
 
-For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:bibliography.adoc#bib49[[49\]].The assumption is that every subject has a unique identifier.
 
+[#submodel-attributes]
 == Submodel Attributes
 
 .Metamodel of Submodel
@@ -231,11 +233,11 @@ image::image26.png[]
 
 Adding a _semanticId_ for a submodel is recommended (see Table 2).
 
-If the submodel is of _kind=Template_ (modelling kind as inherited by _HasKind_), the submodel elements within the submodel are presenting submodel element templates. If the submodel is of _kind=Instance_, its submodel elements represent submodel element instances.
+If the submodel is of _kind=Template_ (modelling kind as inherited by _HasKind_), the submodel elements within the submodel are presenting submodel element templates.If the submodel is of _kind=Instance_, its submodel elements represent submodel element instances.
 
 
 ====
-Note: validators shall handle a submodel like _SubmodelElementCollection/submodelElements_ and not like a _SubmodelElementList/value_. The difference is that a submodel is identifiable and a predefined unit of information within the Asset Administration Shell.
+Note: validators shall handle a submodel like _SubmodelElementCollection/submodelElements_ and not like a _SubmodelElementList/value_.The difference is that a submodel is identifiable and a predefined unit of information within the Asset Administration Shell.
 ====
 
 
@@ -250,15 +252,16 @@ A submodel is used to structure the digital representation and technical functio
 
 
 h|Inherits from: 3+|xref:spec-metamodel/common.adoc#Identifiable[Identifiable]; xref:spec-metamodel/common.adoc#HasKind[HasKind]; xref:spec-metamodel/common.adoc#HasSemantics[HasSemantics]; xref:spec-metamodel/common.adoc#Qualifiable[Qualifiable]; xref:spec-metamodel/common.adoc#HasDataSpecification[HasDataSpecification]
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/Submodel`  
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Submodel`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|submodelElement 3+| `\https://admin-shell.io/aas/3/1/Submodel/submodelElements` 
+.2+e|submodelElement 3+| `\https://admin-shell.io/aas/3/1/Submodel/submodelElements`
 a|A submodel consists of zero or more submodel elements. |xref:SubmodelElement[SubmodelElement] |0..*
 |===
 
+[#submodel-element-attributes]
 == Submodel Element Attributes
 
 .Metamodel of Submodel Element
@@ -268,7 +271,7 @@ Submodel elements are qualifiable elements, i.e. one or more qualifiers may be d
 
 It is recommended to add a _semanticId_ to a _SubmodelElement._
 
-Submodel elements may also have defined data specification templates. A template might be defined to mirror some of the attributes like _preferredName_ and _unit_ of a property concept definition if there is no corresponding concept description available. Otherwise, there is only the property definition referenced by _semanticId_ available for the property; the attributes must be looked up online in a different way and are not available offline.
+Submodel elements may also have defined data specification templates.A template might be defined to mirror some of the attributes like _preferredName_ and _unit_ of a property concept definition if there is no corresponding concept description available.Otherwise, there is only the property definition referenced by _semanticId_ available for the property; the attributes must be looked up online in a different way and are not available offline.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]

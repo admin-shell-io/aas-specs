@@ -43,15 +43,16 @@ image::image8.jpeg[]
 [[image-tracking-of-changes-via-events]]
 image::image9.jpeg[]
 
-* An operator is operating different I4.0 components, which are deployed to manufacturer clouds. The operator wants to integrate data from these components, according to DIN SPEC 92222. For this purpose, information needs to be forwarded to the operator cloud ("value push"). An illustration of the use case is given in Figure <<image-value-push-events-across-clouds>>.
+* An operator is operating different I4.0 components, which are deployed to manufacturer clouds.The operator wants to integrate data from these components, according to DIN SPEC 92222. For this purpose, information needs to be forwarded to the operator cloud ("value push").An illustration of the use case is given in Figure <<image-value-push-events-across-clouds>>.
 
 .Value Push Events Across Clouds
 [[image-value-push-events-across-clouds]]
 image::image10.jpeg[]
 
+[#input-and-output-directions-of-events]
 ===  Input and Output Directions of Events
 
-We can distinguish between incoming and outgoing events. See Table <<table-directions-of-events>> for more information on the event directions.
+We can distinguish between incoming and outgoing events.See Table <<table-directions-of-events>> for more information on the event directions.
 
 .Directions of Events
 [[table-directions-of-events]]
@@ -66,7 +67,7 @@ We can distinguish between incoming and outgoing events. See Table <<table-direc
 
 The uses cases described in Clause xref:../general.adoc#brief-use-cases-for-events-used-in-asset-administration-shells[Brief Use Cases for Events Used in Asset Administration Shells] need different types of events. Each event type is identified by a _semanticId_ and features a specialized payload.
 
-Table <<table-types-of-events>> gives an overview of types of events. The possible directions of an event are described in Clause xref:../general.adoc#_input_and_output_directions_of_events[Input and Output Directions of Events].
+Table <<table-types-of-events>> gives an overview of types of events. The possible directions of an event are described in Clause xref:../general.adoc#input-and-output-directions-of-events[Input and Output Directions of Events].
 
 .Types of Events
 [[table-types-of-events]]

@@ -246,7 +246,7 @@ For more information on the concept of subject, see Attribute Based Access Contr
 .Metamodel of Blobs
 image::image32.png[]
 
-For information on content type, see Clause xref:spec-metamodel/submodel-elements.adoc#_file_attributes[File Attributes].
+For information on content type, see Clause xref:spec-metamodel/submodel-elements.adoc#file-attributes[File Attributes].
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -301,12 +301,13 @@ Note: the _semanticId_ of a capability is typically an ontology, which enables r
 h|Class: 3+e|[[Capability]]Capability
 h|Explanation: 3+a|A capability is the implementation-independent description of the potential of an asset to achieve a certain effect in the physical or virtual world.
 h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/Capability`  
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Capability`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 |===
 
+[#data-element-and-overview-of-data-element-types]
 == Data Element and Overview of Data Element Types
 
 .Metamodel of Data Elements
@@ -316,7 +317,7 @@ A data element is a submodel element that is not further composed of other submo
 
 A data element is a submodel element that has a value or a predefined number of values like range data elements.
 
-The type of value differs for different subtypes of data elements. Data elements include properties, file handling, and reference elements, see Figure 33.
+The type of value differs for different subtypes of data elements.Data elements include properties, file handling, and reference elements, see Figure 33.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -415,24 +416,25 @@ image::image36.png[]
 h|Class: 3+e|[[EventElement]]EventElement \<<abstract>> \<<Experimental>>
 h|Explanation: 3+a|An event element
 h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/EventElement`  
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/EventElement`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 |===
 
+[#file-attributes]
 == File Attributes
 
 .Metamodel of File Submodel Element
 image::image37.png[]
 
-A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted via the Internet. 
+A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted via the Internet.
 The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications.
 
 
 ====
-Note: for information on handling supplementary external files in exchanging Asset Administration Shells in AASX package format see also 
-Part 5 of the series link:https://industrialdigitaltwin.org/en/content-hub/aasspecifications["Specification of the Asset Administration Shell"]. 
+Note: for information on handling supplementary external files in exchanging Asset Administration Shells in AASX package format see also
+Part 5 of the series link:https://industrialdigitaltwin.org/en/content-hub/aasspecifications["Specification of the Asset Administration Shell"].
 An absolute path is used in case the file exists independently of the Asset Administration Shell.
 A relative path, relative to the package root, should be used if the file is part of a serialized package of the Asset Administration Shell.
 ====
@@ -562,10 +564,11 @@ Note 2: OperationVariable is introduced as separate class to enable future exten
 
 
 =
-Note 3: even if the submodel element as the value of an input and an output variable have the same idShort, this does not mean that they are identical or mapped to the same variable since OperationVariables are no referables. The same applies to two input variables or an input variable and an inoutputVariable a.s.o.
+Note 3: even if the submodel element as the value of an input and an output variable have the same idShort, this does not mean that they are identical or mapped to the same variable since OperationVariables are no referables.The same applies to two input variables or an input variable and an inoutputVariable a.s.o.
 =
 
 
+[#property-attributes]
 == Property Attributes
 
 .Metamodel of Properties
@@ -744,7 +747,7 @@ Submodel element lists are also used to create multi-dimensional arrays. A two-d
 
 Similarly, a table with three columns can be represented. In this case a _SubmodelElementCollection_ with three _SubmodelElementLists_ would be contained and the _semanticId_ as well as the _semanticIdListElement_ for the three columns would differ.
 
-Matching strategies for semantic IDs are explained in Clause xref:general.adoc#_matching_strategies_for_semantic_identifiers[Matching Strategies for Semantic Identifiers].
+Matching strategies for semantic IDs are explained in Clause xref:general.adoc#matching-strategies-for-semantic-identifiers[Matching Strategies for Semantic Identifiers].
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]

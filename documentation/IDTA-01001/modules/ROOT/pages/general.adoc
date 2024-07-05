@@ -241,19 +241,20 @@ The following is also permitted:
 
 * *Custom* – internal custom identifiers such as UUIDs/GUIDs (link:https://en.wikipedia.org/wiki/Universally_unique_identifier[universally unique identifiers]/globally unique identifiers), which a manufacturer can use for all sorts of in-house purposes within the Administration Shell.
 
-This means that the IRIs/URIs/URLs and internal custom identifiers can represent and communicate manufacturer-specific information and functions in the Administration Shell and the 4.0 infrastructure just as well as standardized information and functions. One infrastructure can serve both purposes.
+This means that the IRIs/URIs/URLs and internal custom identifiers can represent and communicate manufacturer-specific information and functions in the Administration Shell and the 4.0 infrastructure just as well as standardized information and functions.One infrastructure can serve both purposes.
 
-CLSID are URIs for GUIDs. They start with a customer specific schema. Hence, Custom should really only be used if the customer-specific identifier is no IRDI nor IRI.
+CLSID are URIs for GUIDs.They start with a customer specific schema.Hence, Custom should really only be used if the customer-specific identifier is no IRDI nor IRI.
 
-Besides the global identifiers, there are also identifiers that are unique only within a defined namespace, typically its parent element. These identifiers are also called local identifiers. For example, properties within a submodel have local identifiers.
+Besides the global identifiers, there are also identifiers that are unique only within a defined namespace, typically its parent element.These identifiers are also called local identifiers.For example, properties within a submodel have local identifiers.
 
 Besides absolute URIs there are also relative URIs.
 
 See also DIN SPEC 91406 xref:bibliography.adoc#bib31[[31\]] for further information on identification.
 
+[#which-identifiers-for-which-elements]
 ===  Which Identifiers for Which Elements?
 
-Not every identifier is applicable for every element of the UML model representing the Asset Administration Shell. Table <<table-elements-with-allowed-identifying-values>> therefore gives an overview on the different constraints and recommendations on the various entities, which implement xref:spec-metamodel/common.adoc#identifiable-attributes[Identifiable] or xref:spec-metamodel/common.adoc#has-semantics-attributes[HasSemantics].
+Not every identifier is applicable for every element of the UML model representing the Asset Administration Shell.Table <<table-elements-with-allowed-identifying-values>> therefore gives an overview on the different constraints and recommendations on the various entities, which implement xref:spec-metamodel/common.adoc#identifiable-attributes[Identifiable] or xref:spec-metamodel/common.adoc#has-semantics-attributes[HasSemantics].
 
 See Annex xref:annex/concepts-aas.adoc#how-are-new-identifiers-created[How Are New Identifiers Created?] for more information on how to create new identifiers and best practices for creating URI identifiers.
 
@@ -374,16 +375,17 @@ In an application featuring a resource-oriented architecture (ROA), a worldwide 
 [[image-motiviation-of-exemplary-identifies-and-idshort]]
 image::image7.jpeg[]
 
-To allow such efficient addressing by the chaining of elements by an API of an Administration Shell, _idShort_ is provided for a set of classes of the metamodel. It inherits from the abstract class xref:spec-metamodel/common.adoc#_referable_attributes[Referable], in order to refer to such dependent elements.
+To allow such efficient addressing by the chaining of elements by an API of an Administration Shell, _idShort_ is provided for a set of classes of the metamodel. It inherits from the abstract class xref:spec-metamodel/common.adoc#referable-attributes[Referable], in order to refer to such dependent elements.
 
 Before accessing concrete data provided via a submodel, an application typically checks if the submodel provides the required data, i.e. the semantics of the submodel is checked for suitability. A so-called _semanticId_ should be defined for this submodel as well as the submodel element. This semantic ID helps to easily find the semantic definition of the submodel (see Clause xref:spec-metamodel/common.adoc#has-semantics-attributes[HasSemantics]).
 
 [#matching-strategies]
 == Matching Strategies
 
+[#matching-strategies-for-semantic-identifiers]
 === Matching Strategies for Semantic Identifiers
 
-When comparing two elements, different use cases should be considered in order to define how these two elements are semantically related. This clause gives first hints on the aspects to consider when dealing with matching semantic identifiers. For example, semantic references including context information as represented in IRDI-Path in ECLASS are not yet considered. Sometimes a concept description is derived from another concept description or is identical to or at least compatible with another concept description. The metamodel foresees an attribute "isCaseOf" for such semantic IDs. However, these are not considered in the matching strategies described in this clause.
+When comparing two elements, different use cases should be considered in order to define how these two elements are semantically related.This clause gives first hints on the aspects to consider when dealing with matching semantic identifiers.For example, semantic references including context information as represented in IRDI-Path in ECLASS are not yet considered.Sometimes a concept description is derived from another concept description or is identical to or at least compatible with another concept description.The metamodel foresees an attribute "isCaseOf" for such semantic IDs.However, these are not considered in the matching strategies described in this clause.
 
 *Exact Matching (identical semanticIds) – DEFAULT*
 
@@ -415,16 +417,17 @@ Note: this example does not represent an existing semantic mapping; it is only a
 ** With intelligent matching, domain knowledge available in machine-readable form may be taken into account, such as an "is-a"-relationship between two concept definitions.
 ** Example: a Hammer drill (0173-1#01-ADS698#010) and a percussion drill (0173-1#01-ADS700#010) are drills for mineral material (0173-1#01-ADN177#005) and are compatible with a request or constraints asking for drills for mineral material.
 
+[#matching-algorithm-for-references]
 === Matching Algorithm for References
 
-Clause 4.4.1 has discussed matching strategies for semantic identifiers. This clause explains matching strategies based on the reference concept (see Clause 5.3.10) in more detail and covers other kinds of identifying elements.
+Clause 4.4.1 has discussed matching strategies for semantic identifiers.This clause explains matching strategies based on the reference concept (see Clause 5.3.10) in more detail and covers other kinds of identifying elements.
 
 For example, the string serialization of references as defined in Clause 7.2.3 is used for easier understanding.
 
 ====
-Note: Matching in this context means supporting a discovery query against an existing model. 
+Note: Matching in this context means supporting a discovery query against an existing model.
 
-A typical query would be to find some element with a specific semantic ID. In this case the data consumer only knows the external ID whereas the provider may have created a duplicate of the concept definition as ConceptDescription and a model reference could be used
+A typical query would be to find some element with a specific semantic ID.In this case the data consumer only knows the external ID whereas the provider may have created a duplicate of the concept definition as ConceptDescription and a model reference could be used
 
 Matching does not mean to define equivalence classes that allow to overwrite constraints as defined in the specification for valid instances of the metamodel.
 ====
