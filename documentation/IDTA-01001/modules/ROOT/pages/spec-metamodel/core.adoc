@@ -18,7 +18,7 @@ image::image24.png[]
 
 An Administration Shell is uniquely identifiable since it inherits from _Identifiable_.
 
-The _derivedFrom_ attribute is used to establish a relationship between two Asset Administration Shells that are derived from each other.For more detailed information on the _derivedFrom_ concept, see Clause xref:general.adoc#types-and-instances[Types and Instances].
+The _derivedFrom_ attribute is used to establish a relationship between two Asset Administration Shells that are derived from each other. For more detailed information on the _derivedFrom_ concept, see Clause xref:general.adoc#types-and-instances[Types and Instances].
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -223,7 +223,7 @@ Note 2: semanticIds for the single specificAssetIds do not need to be unique.
 ====
 
 
-For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:bibliography.adoc#bib49[[49\]].The assumption is that every subject has a unique identifier.
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
 
 [#submodel-attributes]
 == Submodel Attributes
@@ -233,11 +233,11 @@ image::image26.png[]
 
 Adding a _semanticId_ for a submodel is recommended (see Table 2).
 
-If the submodel is of _kind=Template_ (modelling kind as inherited by _HasKind_), the submodel elements within the submodel are presenting submodel element templates.If the submodel is of _kind=Instance_, its submodel elements represent submodel element instances.
+If the submodel is of _kind=Template_ (modelling kind as inherited by _HasKind_), the submodel elements within the submodel are presenting submodel element templates. If the submodel is of _kind=Instance_, its submodel elements represent submodel element instances.
 
 
 ====
-Note: validators shall handle a submodel like _SubmodelElementCollection/submodelElements_ and not like a _SubmodelElementList/value_.The difference is that a submodel is identifiable and a predefined unit of information within the Asset Administration Shell.
+Note: validators shall handle a submodel like _SubmodelElementCollection/submodelElements_ and not like a _SubmodelElementList/value_. The difference is that a submodel is identifiable and a predefined unit of information within the Asset Administration Shell.
 ====
 
 
@@ -271,7 +271,7 @@ Submodel elements are qualifiable elements, i.e. one or more qualifiers may be d
 
 It is recommended to add a _semanticId_ to a _SubmodelElement._
 
-Submodel elements may also have defined data specification templates.A template might be defined to mirror some of the attributes like _preferredName_ and _unit_ of a property concept definition if there is no corresponding concept description available.Otherwise, there is only the property definition referenced by _semanticId_ available for the property; the attributes must be looked up online in a different way and are not available offline.
+Submodel elements may also have defined data specification templates. A template might be defined to mirror some of the attributes like _preferredName_ and _unit_ of a property concept definition if there is no corresponding concept description available. Otherwise, there is only the property definition referenced by _semanticId_ available for the property; the attributes must be looked up online in a different way and are not available offline.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]

@@ -33,7 +33,7 @@ Note: value-related attributes typically are optional to enable definition of Su
 .Metamodel of Annotated Relationship Elements
 image::image29.png[]
 
-An annotated relationship is a relationship similar to a ternary association in UML.The semantics of the relationship is defined via the _semanticId_ of the _RelationshipElement_.If this semantic definition requires additional information not contained in the _first_ or _second_ object referenced via the relationship, this information needs to be stored as annotation.
+An annotated relationship is a relationship similar to a ternary association in UML. The semantics of the relationship is defined via the _semanticId_ of the _RelationshipElement_. If this semantic definition requires additional information not contained in the _first_ or _second_ object referenced via the relationship, this information needs to be stored as annotation.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -317,7 +317,7 @@ A data element is a submodel element that is not further composed of other submo
 
 A data element is a submodel element that has a value or a predefined number of values like range data elements.
 
-The type of value differs for different subtypes of data elements.Data elements include properties, file handling, and reference elements, see Figure 33.
+The type of value differs for different subtypes of data elements. Data elements include properties, file handling, and reference elements, see Figure 33.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -433,8 +433,7 @@ The Internet Assigned Numbers Authority (IANA) is the official authority for the
 
 
 ====
-Note: for information on handling supplementary external files in exchanging Asset Administration Shells in AASX package format see also
-Part 5 of the series link:https://industrialdigitaltwin.org/en/content-hub/aasspecifications["Specification of the Asset Administration Shell"].
+Note: for information on handling supplementary external files in exchanging Asset Administration Shells in AASX package format see also Part 5 of the series link:https://industrialdigitaltwin.org/en/content-hub/aasspecifications["Specification of the Asset Administration Shell"].
 An absolute path is used in case the file exists independently of the Asset Administration Shell.
 A relative path, relative to the package root, should be used if the file is part of a serialized package of the Asset Administration Shell.
 ====
@@ -564,7 +563,7 @@ Note 2: OperationVariable is introduced as separate class to enable future exten
 
 
 =
-Note 3: even if the submodel element as the value of an input and an output variable have the same idShort, this does not mean that they are identical or mapped to the same variable since OperationVariables are no referables.The same applies to two input variables or an input variable and an inoutputVariable a.s.o.
+Note 3: even if the submodel element as the value of an input and an output variable have the same idShort, this does not mean that they are identical or mapped to the same variable since OperationVariables are no referables. The same applies to two input variables or an input variable and an inoutputVariable a.s.o.
 =
 
 
@@ -669,7 +668,7 @@ For more information on references, see Clause xref:spec-metamodel/referencing.a
 [#relationship-element-attributes]
 == Relationship Element Attributes
 
-The semantics of the relationship is defined via the _semanticId_ of the _RelationshipElement_.If this semantic definition requires additional information not contained in the _first_ or _second_ object referenced via the relationship, the submodel element type xref:spec-metamodel/submodel-elements.adoc#annotated-relationship-element-attributes[AnnotatedRelationshipElement] shall be used instead.
+The semantics of the relationship is defined via the _semanticId_ of the _RelationshipElement_. If this semantic definition requires additional information not contained in the _first_ or _second_ object referenced via the relationship, the submodel element type xref:spec-metamodel/submodel-elements.adoc#annotated-relationship-element-attributes[AnnotatedRelationshipElement] shall be used instead.
 
 .Metamodel of Relationship Elements
 image::image43.png[]
@@ -698,11 +697,11 @@ a|Reference to the second element in the relationship taking the role of the obj
 .Metamodel of Submodel Element Collections
 image::image44.png[]
 
-Submodel Element Collections are used for complex elements with a typically fixed set of properties with unique names.This set of properties is typically predefined by the semantic definition (referenced via _semanticId_) of the submodel element collection.Each property within the collection itself should have clearly defined semantics.
+Submodel Element Collections are used for complex elements with a typically fixed set of properties with unique names. This set of properties is typically predefined by the semantic definition (referenced via _semanticId_) of the submodel element collection. Each property within the collection itself should have clearly defined semantics.
 
 
 ====
-Note: the different elements of a submodel element collection do not have to have different __semanticId__s.However, in these cases the usage of a _SubmodelElementList_ should be considered.
+Note: the different elements of a submodel element collection do not have to have different __semanticId__s. However, in these cases the usage of a _SubmodelElementList_ should be considered.
 ====
 
 

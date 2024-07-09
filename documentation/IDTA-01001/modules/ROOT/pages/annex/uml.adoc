@@ -14,14 +14,14 @@ SPDX-License-Identifier: CC-BY-4.0
 [#omg-uml-general]
 == OMG UML General
 
-This annex explains the UML elements used in this specification.For more information, please refer to the comprehensive literature available for UML.The formal specification can be found in xref:bibliography.adoc#bib35[[35\]].
+This annex explains the UML elements used in this specification. For more information, please refer to the comprehensive literature available for UML. The formal specification can be found in xref:bibliography.adoc#bib35[[35\]].
 
-Figure 63 shows a class with name "Class1" and an attribute with name "attr" of type _Class2_.Attributes are owned by the class.Some of these attributes may represents the end of binary associations, see also Figure 70. In this case, the instance of _Class2_ is navigable via the instance of the owning class _Class1_.footnote:[„Navigability notation was often used in the past according to an informal convention, whereby non-navigable ends were assumed to be owned by the Association whereas navigable ends were assumed to be owned by the Classifier at the opposite end. This convention is now deprecated. Aggregation type, navigability, and end ownership are separate concepts, each with their own explicit notation. Association ends owned by classes are always navigable, while those owned by associations may be navigable or not. xref:Bibliography.adoc#bib35[[35\]]”]
+Figure 63 shows a class with name "Class1" and an attribute with name "attr" of type _Class2_. Attributes are owned by the class. Some of these attributes may represents the end of binary associations, see also Figure 70. In this case, the instance of _Class2_ is navigable via the instance of the owning class _Class1_.footnote:[„Navigability notation was often used in the past according to an informal convention, whereby non-navigable ends were assumed to be owned by the Association whereas navigable ends were assumed to be owned by the Classifier at the opposite end. This convention is now deprecated. Aggregation type, navigability, and end ownership are separate concepts, each with their own explicit notation. Association ends owned by classes are always navigable, while those owned by associations may be navigable or not. xref:Bibliography.adoc#bib35[[35\]]”]
 
 .Class
 image::image64.png[]
 
-Figure 64 shows that _Class4_ inherits all member elements from _Class3_.Or in other word, _Class3_ is a generalization of _Class4, Class4_ is a specialization of _Class3_.This means that each instance of _Class4_ is also an instance of _Class3_.An instance of _Class4_ has the attributes _attr1_ and _attr2,_ whereas instances of _Class3_ only have the attribute _attr1_.
+Figure 64 shows that _Class4_ inherits all member elements from _Class3_. Or in other word, _Class3_ is a generalization of _Class4, Class4_ is a specialization of _Class3_. This means that each instance of _Class4_ is also an instance of _Class3_. An instance of _Class4_ has the attributes _attr1_ and _attr2,_ whereas instances of _Class3_ only have the attribute _attr1_.
 
 .Inheritance/Generalization
 image::image65.png[]
