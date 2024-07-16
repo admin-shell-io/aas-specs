@@ -23,16 +23,17 @@ includes events.adoc
 
 Before specifying the information metamodel of the Asset Administration Shell, some general topics relevant for the Asset Administration Shell are explained.
 
-Subclause xref:general.adoc#_types_and_instances[Types and Instances] describes some general aspects of handling type and instance assets.
+Subclause xref:general.adoc#types-and-instances[Types and Instances] describes some general aspects of handling type and instance assets.
 
-Subclause xref:general.adoc##_identification_of_elements[Identification of Elements] explains the very important aspects of identification in the context of the Asset Administration Shell.
+Subclause xref:general.adoc#identification-of-elements[Identification of Elements] explains the very important aspects of identification in the context of the Asset Administration Shell.
 
-Subclause xref:general.adoc#_matching_strategies[Matching Strategies] provides matching strategies for semantic identifiers and references.
+Subclause xref:general.adoc#matching-strategies[Matching Strategies] provides matching strategies for semantic identifiers and references.
 
-Subclause xref:general.adoc#_submodel_instances_and_templates[Submodel Instances and Templates] explains the difference between submodel instances and templates.
+Subclause xref:general.adoc#submodel-instances-and-templates[Submodel Instances and Templates] explains the difference between submodel instances and templates.
 
-Subclause xref:general.adoc#_events[Events] discusses aspects of event handling.
+Subclause xref:general.adoc#events[Events] discusses aspects of event handling.
 
+[#types-and-instances]
 == Types and Instances
 
 === Life Cycle with Type Assets and Instance Assets
@@ -86,7 +87,7 @@ Details and examples for composite I4.0 Components can be found in xref:bibliogr
 
 
 ====
-Note: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element xref:spec-metamodel/submodel-elements.adoc#_relationship_element_attributes[RelationshipElement], see above), it also explicitly supports the representation of another asset (via the submodel element "Entity"). The term "Entity" is chosen as superordinate concept in this context and refers to either an asset or another item that is not an asset but may be part of a more complex item or asset.
+Note: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes[RelationshipElement], see above), it also explicitly supports the representation of another asset (via the submodel element "Entity"). The term "Entity" is chosen as superordinate concept in this context and refers to either an asset or another item that is not an asset but may be part of a more complex item or asset.
 ====
 
 
@@ -200,6 +201,7 @@ Note 4: it is not mandatory to define an Asset Administration Shell type before 
 .Example: Asset Administration Shell, Asset Administration Shell Types and Instances
 image::image5.png[]
 
+[#identification-of-elements]
 == Identification of Elements
 
 ===  Overview
@@ -249,25 +251,26 @@ Besides absolute URIs there are also relative URIs.
 
 See also DIN SPEC 91406 xref:bibliography.adoc#bib31[[31\]] for further information on identification.
 
+[#which-identifiers-for-which-elements]
 ===  Which Identifiers for Which Elements?
 
-Not every identifier is applicable for every element of the UML model representing the Asset Administration Shell. Table <<table-elements-with-allowed-identifying-values>> therefore gives an overview on the different constraints and recommendations on the various entities, which implement xref:spec-metamodel/common.adoc#_identifiable_attributes[Identifiable] or xref:spec-metamodel/common.adoc#_has_semantics_attributes[HasSemantics]. 
+Not every identifier is applicable for every element of the UML model representing the Asset Administration Shell. Table <<table-elements-with-allowed-identifying-values>> therefore gives an overview on the different constraints and recommendations on the various entities, which implement xref:spec-metamodel/common.adoc#identifiable-attributes[Identifiable] or xref:spec-metamodel/common.adoc#has-semantics-attributes[HasSemantics].
 
-See Annex xref:annex/concepts-aas.adoc#_how_are_new_identifiers_created[How Are New Identifiers Created?] for more information on how to create new identifiers and best practices for creating URI identifiers.
+See Annex xref:annex/concepts-aas.adoc#how-are-new-identifiers-created[How Are New Identifiers Created?] for more information on how to create new identifiers and best practices for creating URI identifiers.
 
 .Elements with Allowed Identifying Values
 [[table-elements-with-allowed-identifying-values]]
 [cols="21%,17%,22%,40%",options="header",]
 |===
 |*Elements with identifying values* |*Attribute* |*Allowed identifiers (recommended or typical)* |*Remarks*
-|xref:AssetAdministrationShell[AssetAdministrationShell] |id |IRI (URL) a|
+|xref:spec-metamodel/core.adoc#AssetAdministrationShell[AssetAdministrationShell] |id |IRI (URL) a|
 mandatory
 
 Typically, URLs will be used.
 
 | |idShort |string |optionalfootnote:[Note: in version V1.0 of this specification, idShort was optional for identifiables. This changed in V2.0: idShort was set to mandatory for all referables. With V3.0, idShort was again made optional.]
 | |displayName |multi language string |optional
-|xref:AssetInformation[AssetInformation] |globalAssetId |IRI a|
+|xref:spec-metamodel/core.adoc#AssetInformation[AssetInformation] |globalAssetId |IRI a|
 recommended
 
 As soon as the Asset Administration Shell is "released" for production or operation, a globalAssetId should be assigned.
@@ -281,7 +284,7 @@ An asset typically may be represented by several different identification proper
 
 They are used for lookup of Asset Administration Shells in cases the globalAssetId is not available. However, they do not need to be globally unique.
 
-|xref:Submodel[Submodel] with kind = Template |id |IRDI, IRI (URI) a|
+|xref:spec-metamodel/core.adoc#Submodel[Submodel] with kind = Template |id |IRDI, IRI (URI) a|
 mandatory
 
 IRDI, if the defined submodel is standardized and has been assigned an IRDI.
@@ -302,7 +305,7 @@ recommended
 The semantic ID might refer to an external semantic model defining the semantics of the submodel.
 
 | |supplementalSemanticId |IRDI, IRI (URI) |optional
-|xref:Submodel[Submodel] with kind = Instance |id |IRI (URI), Custom |mandatory
+|xref:spec-metamodel/core.adoc#Submodel[Submodel] with kind = Instance |id |IRI (URI), Custom |mandatory
 | |idShort |string a|
 recommended
 
@@ -315,7 +318,7 @@ recommended
 Typically, the semanticId is an external reference to an external standard defining the semantics of the submodel.
 
 | |supplementalSemanticId |IRDI, IRI (URI) |optional
-|xref:SubmodelElement[SubmodelElement] |idShort |string a|
+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |idShort |string a|
 mandatory
 
 Typically, the English short name of the concept definition that is referenced via semanticId.
@@ -337,7 +340,7 @@ recommended
 link to a _ConceptDescription_ or the concept definition in an external repository via a global ID
 
 | |supplementalSemanticId |IRDI, IRI (URI) |optional
-|xref:ConceptDescription[ConceptDescription] |id |IRDI, IRI, Custom a|
+|xref:spec-metamodel/concept-description.adoc#ConceptDescription[ConceptDescription] |id |IRDI, IRI, Custom a|
 mandatory
 
 _ConceptDescription_ needs to have a global ID. If the concept description is a copy from an external dictionary like ECLASS or IEC CDD, it may use the same global ID as it is used in the external dictionary.
@@ -353,7 +356,7 @@ optional
 
 links to the concept definition in an external repository, which the concept description is a copy from, or that it corresponds to
 
-|xref:Qualifier[Qualifier] |semanticId |IRDI, IRI (URI), Custom a|
+|xref:spec-metamodel/common.adoc#Qualifier[Qualifier] |semanticId |IRDI, IRI (URI), Custom a|
 recommended
 
 Links to the qualifier type definition in an external repository
@@ -376,8 +379,10 @@ To allow such efficient addressing by the chaining of elements by an API of an A
 
 Before accessing concrete data provided via a submodel, an application typically checks if the submodel provides the required data, i.e. the semantics of the submodel is checked for suitability. A so-called _semanticId_ should be defined for this submodel as well as the submodel element. This semantic ID helps to easily find the semantic definition of the submodel (see Clause xref:spec-metamodel/common.adoc#has-semantics-attributes[HasSemantics]).
 
+[#matching-strategies]
 == Matching Strategies
 
+[#matching-strategies-for-semantic-identifiers]
 === Matching Strategies for Semantic Identifiers
 
 When comparing two elements, different use cases should be considered in order to define how these two elements are semantically related. This clause gives first hints on the aspects to consider when dealing with matching semantic identifiers. For example, semantic references including context information as represented in IRDI-Path in ECLASS are not yet considered. Sometimes a concept description is derived from another concept description or is identical to or at least compatible with another concept description. The metamodel foresees an attribute "isCaseOf" for such semantic IDs. However, these are not considered in the matching strategies described in this clause.
@@ -412,6 +417,7 @@ Note: this example does not represent an existing semantic mapping; it is only a
 ** With intelligent matching, domain knowledge available in machine-readable form may be taken into account, such as an "is-a"-relationship between two concept definitions.
 ** Example: a Hammer drill (0173-1#01-ADS698#010) and a percussion drill (0173-1#01-ADS700#010) are drills for mineral material (0173-1#01-ADN177#005) and are compatible with a request or constraints asking for drills for mineral material.
 
+[#matching-algorithm-for-references]
 === Matching Algorithm for References
 
 Clause 4.4.1 has discussed matching strategies for semantic identifiers. This clause explains matching strategies based on the reference concept (see Clause 5.3.10) in more detail and covers other kinds of identifying elements.
@@ -419,7 +425,7 @@ Clause 4.4.1 has discussed matching strategies for semantic identifiers. This cl
 For example, the string serialization of references as defined in Clause 7.2.3 is used for easier understanding.
 
 ====
-Note: Matching in this context means supporting a discovery query against an existing model. 
+Note: Matching in this context means supporting a discovery query against an existing model.
 
 A typical query would be to find some element with a specific semantic ID. In this case the data consumer only knows the external ID whereas the provider may have created a duplicate of the concept definition as ConceptDescription and a model reference could be used
 
@@ -566,6 +572,7 @@ matches
 ....
 (GlobalReference)https://example.com/aas/1/1/1234859590, (FragmentReference)Specification, (FragmentReference)Bibliography
 ....
+[#submodel-instances-and-templates]
 == Submodel Instances and Templates
 
 === Can New or Proprietary Submodels be Formed?

@@ -12,6 +12,7 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 
 
 
+[#events]
 == Events
 
 === Overview
@@ -48,6 +49,7 @@ image::image9.jpeg[]
 [[image-value-push-events-across-clouds]]
 image::image10.jpeg[]
 
+[#input-and-output-directions-of-events]
 ===  Input and Output Directions of Events
 
 We can distinguish between incoming and outgoing events. See Table <<table-directions-of-events>> for more information on the event directions.
@@ -65,7 +67,7 @@ We can distinguish between incoming and outgoing events. See Table <<table-direc
 
 The uses cases described in Clause xref:../general.adoc#brief-use-cases-for-events-used-in-asset-administration-shells[Brief Use Cases for Events Used in Asset Administration Shells] need different types of events. Each event type is identified by a _semanticId_ and features a specialized payload.
 
-Table <<table-types-of-events>> gives an overview of types of events. The possible directions of an event are described in Clause xref:../general.adoc#_input_and_output_directions_of_events[Input and Output Directions of Events].
+Table <<table-types-of-events>> gives an overview of types of events. The possible directions of an event are described in Clause xref:../general.adoc#input-and-output-directions-of-events[Input and Output Directions of Events].
 
 .Types of Events
 [[table-types-of-events]]
@@ -118,9 +120,9 @@ Table <<table-event-scopes>> describes the different scopes of an event.
 [cols="32%,68%",options="header",]
 |===
 |*Event attached to ...* |*Scope*
-|xref:AssetAdministrationShell[AssetAdministrationShell] |This event monitors/represents all logical elements of an Administration Shell, such as _AssetAdministrationShell, AssetInformation, Submodels_.
-|xref:Submodel[Submodel] |This event monitors/represents all logical elements of the respective _Submodel_ and all logical dependents.
-|xref:SubmodelElementList[SubmodelElementList] and xref:SubmodelElementCollection[SubmodelElementCollection] and xref:Entity[Entity] |This event monitors/represents all logical elements of the respective _SubmodelElementCollection, SubmodelElementList or Entity_ and all logical dependents (value or statement resp.).
-|xref:SubmodelElement[SubmodelElement] (others) |This event monitors/represents a single atomic _SubmodelElement_, e.g. a data element which might include the contents of a _Blob_ or _File_.
+|xref:spec-metamodel/core.adoc#AssetAdministrationShell[AssetAdministrationShell] |This event monitors/represents all logical elements of an Administration Shell, such as _AssetAdministrationShell, AssetInformation, Submodels_.
+|xref:spec-metamodel/core.adoc#Submodel[Submodel] |This event monitors/represents all logical elements of the respective _Submodel_ and all logical dependents.
+|xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList] and xref:spec-metamodel/submodel-elements.adoc#SubmodelElementCollection[SubmodelElementCollection] and xref:spec-metamodel/submodel-elements.adoc#Entity[Entity] |This event monitors/represents all logical elements of the respective _SubmodelElementCollection, SubmodelElementList or Entity_ and all logical dependents (value or statement resp.).
+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] (others) |This event monitors/represents a single atomic _SubmodelElement_, e.g. a data element which might include the contents of a _Blob_ or _File_.
 |===
 

@@ -27,6 +27,7 @@ All submodel elements including abstract classes like data elements are specifie
 Note: value-related attributes typically are optional to enable definition of Submodel Templates as well, i.e. xref:spec-metamodel/core.adoc#Submodel[Submodels]  with value of xref:spec-metamodel/common.adoc#HasKind[Submodel/kind] equal to xref:spec-metamodel/common.adoc#ModellingKind[Template].
 ====
 
+[#annotated-relationship-element-attributes]
 == Annotated Relationship Element Attributes
 
 .Metamodel of Annotated Relationship Elements
@@ -40,12 +41,12 @@ An annotated relationship is a relationship similar to a ternary association in 
 h|Class: 3+e|[[AnnotatedRelationshipElement]]AnnotatedRelationshipElement
 h|Explanation: 3+a|An annotated relationship element is a relationship element that can be annotated with additional data elements.
 h|Inherits from: 3+|xref:RelationshipElement[RelationshipElement]
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement`  
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|annotation 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement/annotations`  
+.2+e|annotation 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement/annotations`
 a|A data element that represents an annotation that holds for the relationship between the two elements |xref:DataElement[DataElement] |0..*
 |===
 
@@ -66,7 +67,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement`
 h|Explanation h|Type h|Card.
 
 .2+e|observed 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement`  
-a|Reference to a referable, e.g. a data element or a submodel that is being observed |ModelReference<xref:Referable[Referable]> |1
+a|Reference to a referable, e.g. a data element or a submodel that is being observed |ModelReference<xref:spec-metamodel/common.adoc#Referable[Referable]> |1
 
 .2+e|direction 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/direction` 
 a|
@@ -85,7 +86,7 @@ Can be { on, off }
 |xref:StateOfEvent[StateOfEvent]|1
 
 .2+e|messageTopic 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/messageTopic`  
-a|Information for the outer message infrastructure to schedule the event for the respective communication channel. |xref:MessageTopicType[MessageTopicType] |0..1
+a|Information for the outer message infrastructure to schedule the event for the respective communication channel. |xref:spec-metamodel/datatypes.adoc#MessageTopicType[MessageTopicType] |0..1
 
 .2+e|messageBroker 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/messageBroker`  
 a|
@@ -97,7 +98,7 @@ Note: this proprietary specification could be standardized by using respective s
 =
 
 
-|ModelReference<xref:Referable[Referable]> |0..1
+|ModelReference<xref:spec-metamodel/common.adoc#Referable[Referable]> |0..1
 
 .2+e|lastUpdate 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/lastUpdate`  
 a|Timestamp in UTC, when the last event was received (input direction) or sent (output direction) |dateTime |0..1
@@ -199,10 +200,10 @@ Note: it is recommended to use an external reference.
 =
 
 
-|xref:Reference[Reference] |0..1
+|xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 
 .2+e|observableReference 3+| `\https://admin-shell.io/aas/3/1/EventPayload/observableReference` 
-a|Reference to the referable, which defines the scope of the event. |ModelReference<xref:Referable[Referable]> |1
+a|Reference to the referable, which defines the scope of the event. |ModelReference<xref:spec-metamodel/common.adoc#Referable[Referable]> |1
 
 .2+e|observableSemanticId 3+| `\https://admin-shell.io/aas/3/1/EventPayload/observableSemanticId` 
 a|
@@ -214,10 +215,10 @@ Note: it is recommended to use an external reference.
 =
 
 
-|xref:Reference[Reference] |0..1
+|xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 
 .2+e|topic 3+| `\https://admin-shell.io/aas/3/1/EventPayload/topic` 
-a|Information for the outer message infrastructure to schedule the event for the respective communication channel |xref:MessageTopicType[MessageTopicType] |0..1
+a|Information for the outer message infrastructure to schedule the event for the respective communication channel |xref:spec-metamodel/datatypes.adoc#MessageTopicType[MessageTopicType] |0..1
 
 .2+e|subjectId 3+| `\https://admin-shell.io/aas/3/1/EventPayload/subjectId` 
 a|
@@ -229,13 +230,13 @@ Note: this is an external reference.
 =
 
 
-|xref:Reference[Reference] |0..1
+|xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 
 .2+e|timestamp 3+| `\https://admin-shell.io/aas/3/1/EventPayload/timestamp` 
 a|Timestamp in UTC, when this event was triggered |dateTime |1
 
 .2+e|payload 3+| `\https://admin-shell.io/aas/3/1/EventPayload/payload` 
-a|Event-specific payload |xref:BlobType[BlobType] |0..1
+a|Event-specific payload |xref:spec-metamodel/datatypes.adoc#BlobType[BlobType] |0..1
 |===
 
 For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
@@ -268,7 +269,7 @@ Note: in contrast to the file property, the file content is stored directly as v
 =
 
 
-|xref:BlobType[BlobType] |0..1
+|xref:spec-metamodel/datatypes.adoc#BlobType[BlobType] |0..1
 
 .2+e|contentType  3+| `\https://admin-shell.io/aas/3/1/Blob/contentType`  
 a|
@@ -280,7 +281,7 @@ Valid values are content types like "application/json", "application/xls", "imag
 
 The allowed values are defined as in RFC2046.
 
-|xref:ContentType[ContentType] |0..1
+|xref:spec-metamodel/datatypes.adoc#ContentType[ContentType] |0..1
 |===
 
 == Capability Attributes
@@ -299,13 +300,14 @@ Note: the _semanticId_ of a capability is typically an ontology, which enables r
 |===
 h|Class: 3+e|[[Capability]]Capability
 h|Explanation: 3+a|A capability is the implementation-independent description of the potential of an asset to achieve a certain effect in the physical or virtual world.
-h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/Capability`  
+h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Capability`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 |===
 
+[#data-element-and-overview-of-data-element-types]
 == Data Element and Overview of Data Element Types
 
 .Metamodel of Data Elements
@@ -335,7 +337,7 @@ Note: categories are deprecated and should no longer be used.
 
 
 
-h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/DataElement`  
 
 .2+h|Attribute 3+h| ID
@@ -359,23 +361,23 @@ An entity is a submodel element that is used to model entities.
 {aasd014}
 
 
-h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/Entity`  
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
 .2+e|statement 3+| `\https://admin-shell.io/aas/3/1/Entity/statements`  
-a|Describes statements applicable to the entity by a set of submodel elements, typically with a qualified value |xref:SubmodelElement[SubmodelElement] |0..*
+a|Describes statements applicable to the entity by a set of submodel elements, typically with a qualified value |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |0..*
 
 .2+e|entityType 3+| `\https://admin-shell.io/aas/3/1/Entity/entityType`  
 a|Describes whether the entity is a co-managed entity or a self-managed entity |xref:EntityType[EntityType]|0..1
 
 .2+e|globalAssetId 3+| `\https://admin-shell.io/aas/3/1/Entity/globalAssetId`  
-a|Global identifier of the asset the entity is representing |xref:Identifier[Identifier] |0..1
+a|Global identifier of the asset the entity is representing |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |0..1
 
 .2+e|specificAssetId 3+| `\https://admin-shell.io/aas/3/1/Entity/specificAssetIds`  
-a|Reference to a specific asset ID representing a supplementary identifier of the asset represented by the Asset Administration Shell |xref:SpecificAssetId[SpecificAssetId] |0..*
+a|Reference to a specific asset ID representing a supplementary identifier of the asset represented by the Asset Administration Shell |xref:spec-metamodel/core.adoc#SpecificAssetId[SpecificAssetId] |0..*
 |===
 
 {empty} +
@@ -402,6 +404,7 @@ The asset of an I4.0 Component is a self-managed entity per definition.
 
 |===
 
+[#event-element-attributes]
 == Event Element Attributes
 
 .Metamodel of Event Elements
@@ -412,25 +415,25 @@ image::image36.png[]
 |===
 h|Class: 3+e|[[EventElement]]EventElement \<<abstract>> \<<Experimental>>
 h|Explanation: 3+a|An event element
-h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/EventElement`  
+h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/EventElement`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 |===
 
+[#file-attributes]
 == File Attributes
 
 .Metamodel of File Submodel Element
 image::image37.png[]
 
-A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted via the Internet. 
+A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted via the Internet.
 The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications.
 
 
 ====
-Note: for information on handling supplementary external files in exchanging Asset Administration Shells in AASX package format see also 
-Part 5 of the series link:https://industrialdigitaltwin.org/en/content-hub/aasspecifications["Specification of the Asset Administration Shell"]. 
+Note: for information on handling supplementary external files in exchanging Asset Administration Shells in AASX package format see also Part 5 of the series link:https://industrialdigitaltwin.org/en/content-hub/aasspecifications["Specification of the Asset Administration Shell"].
 An absolute path is used in case the file exists independently of the Asset Administration Shell.
 A relative path, relative to the package root, should be used if the file is part of a serialized package of the Asset Administration Shell.
 ====
@@ -453,10 +456,10 @@ Path and name of the file (with file extension)
 
 The path can be absolute or relative.
 
-|xref:PathType[PathType] |0..1
+|xref:spec-metamodel/datatypes.adoc#PathType[PathType] |0..1
 
 .2+e|contentType 3+| `\https://admin-shell.io/aas/3/1/File/contentType`  
-a|Content type of the content of the file |xref:ContentType[ContentType] |0..1
+a|Content type of the content of the file |xref:spec-metamodel/datatypes.adoc#ContentType[ContentType] |0..1
 |===
 
 == Multi Language Property Attributes
@@ -483,7 +486,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/MultiLanguageProperty`
 h|Explanation h|Type h|Card.
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/MultiLanguageProperty/value`  
-a|The value of the property instance |xref:MultiLanguageTextType[MultiLanguageTextType] |0..1
+a|The value of the property instance |xref:spec-metamodel/datatypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
 
 .2+e|valueId 3+| `\https://admin-shell.io/aas/3/1/MultiLanguageProperty/valueId`  
 a|
@@ -495,7 +498,7 @@ Note: it is recommended to use an external reference, compare to xref:spec-metam
 ====
 
 
-|xref:Reference[Reference] |0..1
+|xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 |===
 
 == Operation Attributes
@@ -513,7 +516,7 @@ An operation is a submodel element with input and output variables.
 {aasd134}
 
 
-h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/Operation`  
 
 .2+h|Attribute 3+h| ID
@@ -543,7 +546,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/OperationVariable`
 h|Explanation h|Type h|Card.
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/OperationVariable/value`
-a|Describes an argument or result of an operation via a submodel element |xref:SubmodelElement[SubmodelElement] |1
+a|Describes an argument or result of an operation via a submodel element |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |1
 |===
 
 
@@ -564,6 +567,7 @@ Note 3: even if the submodel element as the value of an input and an output vari
 =
 
 
+[#property-attributes]
 == Property Attributes
 
 .Metamodel of Properties
@@ -586,10 +590,10 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Property`
 h|Explanation h|Type h|Card.
 
 .2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Property/valueType`
-a|Data type of the value attribute |xref:DataTypeDefXsd[DataTypeDefXsd] |1
+a|Data type of the value attribute |xref:spec-metamodel/datatypes.adoc#DataTypeDefXsd[DataTypeDefXsd] |1
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/Property/value`
-a|The value of the property instance |xref:ValueDataType[ValueDataType] |0..1
+a|The value of the property instance |xref:spec-metamodel/datatypes.adoc#ValueDataType[ValueDataType] |0..1
 
 .2+e|valueId 3+| `\https://admin-shell.io/aas/3/1/Property/valueId`
 a| Reference to the global unique ID of a coded value
@@ -600,7 +604,7 @@ Note: it is recommended to use an external reference, compare to xref:spec-metam
 ====
 
 
-|xref:Reference[Reference] |0..1
+|xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 |===
 
 == Range Attributes
@@ -620,7 +624,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Range`
 h|Explanation h|Type h|Card.
 
 .2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Range/valueType`  
-a|Data type of the min und max attributes |xref:DataTypeDefXsd[DataTypeDefXsd] |1
+a|Data type of the min und max attributes |xref:spec-metamodel/datatypes.adoc#DataTypeDefXsd[DataTypeDefXsd] |1
 
 .2+e|min 3+| `\https://admin-shell.io/aas/3/1/Range/min`  
 a|
@@ -628,7 +632,7 @@ The minimum value of the range
 
 If the min value is missing, the value is assumed to be negative infinite.
 
-|xref:ValueDataType[ValueDataType] |0..1
+|xref:spec-metamodel/datatypes.adoc#ValueDataType[ValueDataType] |0..1
 
 .2+e|max 3+| `\https://admin-shell.io/aas/3/1/Range/max`  
 a|
@@ -636,7 +640,7 @@ The maximum value of the range
 
 If the max value is missing, the value is assumed to be positive infinite.
 
-|xref:ValueDataType[ValueDataType] |0..1
+|xref:spec-metamodel/datatypes.adoc#ValueDataType[ValueDataType] |0..1
 |===
 
 == Reference Element Attributes
@@ -656,14 +660,15 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/ReferenceElement`
 h|Explanation h|Type h|Card.
 
 .2+e|value  3+| `\https://admin-shell.io/aas/3/1/ReferenceElement/value`
-a|External reference to an external object or entity or a logical reference to another element within the same or another Asset Administration Shell (i.e. a model reference to a _Referable_) |xref:Reference[Reference] |0..1
+a|External reference to an external object or entity or a logical reference to another element within the same or another Asset Administration Shell (i.e. a model reference to a _Referable_) |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 |===
 
 For more information on references, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
 
+[#relationship-element-attributes]
 == Relationship Element Attributes
 
-The semantics of the relationship is defined via the _semanticId_ of the _RelationshipElement_. If this semantic definition requires additional information not contained in the _first_ or _second_ object referenced via the relationship, the submodel element type xref:AnnotatedRelationsshipElement[AnnotatedRelationshipElement] shall be used instead.
+The semantics of the relationship is defined via the _semanticId_ of the _RelationshipElement_. If this semantic definition requires additional information not contained in the _first_ or _second_ object referenced via the relationship, the submodel element type xref:spec-metamodel/submodel-elements.adoc#annotated-relationship-element-attributes[AnnotatedRelationshipElement] shall be used instead.
 
 .Metamodel of Relationship Elements
 image::image43.png[]
@@ -673,19 +678,20 @@ image::image43.png[]
 |===
 h|Class: 3+e|[[RelationshipElement]]RelationshipElement
 h|Explanation: 3+a|A relationship element is used to define a relationship between two elements being either referable (model reference) or external (external reference).
-h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/RelationshipElement`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
 .2+e|first 3+| `\https://admin-shell.io/aas/3/1/RelationshipElement/first`
-a|Reference to the first element in the relationship taking the role of the subject |xref:Reference[Reference] | 0..1
+a|Reference to the first element in the relationship taking the role of the subject |xref:spec-metamodel/referencing.adoc#Reference[Reference] | 0..1
 
 .2+e|second 3+| `\https://admin-shell.io/aas/3/1/RelationshipElement/second`
-a|Reference to the second element in the relationship taking the role of the object |xref:Reference[Reference] | 0..1
+a|Reference to the second element in the relationship taking the role of the object |xref:spec-metamodel/referencing.adoc#Reference[Reference] | 0..1
 |===
 
+[#submodel-element-collection-attributes]
 == Submodel Element Collection Attributes
 
 .Metamodel of Submodel Element Collections
@@ -712,16 +718,17 @@ Note: the elements within a submodel element collection are not ordered. Every e
 |===
 h|Class: 3+e|[[SubmodelElementCollection]]SubmodelElementCollection
 h|Explanation: 3+a|A submodel element collection is a kind of struct, i.e. a logical encapsulation of multiple named values.
-h|Inherits from: 3+|xref:SubmodelElement[SubmodelElement]
+h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementCollection`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementCollection/values`
-|Submodel element contained in the collection |xref:SubmodelElement[SubmodelElement] |0..*
+|Submodel element contained in the collection |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |0..*
 |===
 
+[#submodel-element-list-attributes]
 == Submodel Element List Attributes
 
 .Metamodel of Submodel Element Lists
@@ -767,7 +774,7 @@ The numbering starts with Zero (0).
 {aasd109}
 
 
-h|Inherits from: 3+|xref:spec-metamodel/core.adoc#:SubmodelElement[SubmodelElement]
+h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList`
 
 .2+h|Attribute 3+h| ID
@@ -782,7 +789,7 @@ Default: True
 |boolean |0..1
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/values`
-a|Submodel element contained in the list |xref:spec-metamodel/core.adoc#:SubmodelElement[SubmodelElement] |0..*
+a|Submodel element contained in the list |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |0..*
 
 .2+e|semanticIdListElement 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/semanticIdListElement`
 a|
@@ -794,11 +801,11 @@ Note: it is recommended to use an external reference.
 ====
 
 
-|xref:spec-metamodel/referencing.adoc#:Reference[Reference] |0..1
+|xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 
 .2+e|typeValueListElement  3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/typeValueListElement/typeValueListElement`
-a|The submodel element type of the submodel elements contained in the list |xref:spec-metamodel/referencing.adoc#:AasSubmodelElements[AasSubmodelElements]|1
+a|The submodel element type of the submodel elements contained in the list |xref:spec-metamodel/referencing.adoc#AasSubmodelElements[AasSubmodelElements]|1
 
 .2+e|valueTypeListElement 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/valueTypeListElement`
-a|The value type of the submodel element contained in the list |xref:spec-metamodel/datatypes.adoc#:DataTypeDefXsd[DataTypeDefXsd]|0..1
+a|The value type of the submodel element contained in the list |xref:spec-metamodel/datatypes.adoc#DataTypeDefXsd[DataTypeDefXsd]|0..1
 |===
