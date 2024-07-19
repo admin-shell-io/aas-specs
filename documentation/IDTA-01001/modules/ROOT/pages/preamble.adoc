@@ -2,12 +2,14 @@
 Copyright (c) 2023 Industrial Digital Twin Association
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](
-https://creativecommons.org/licenses/by/4.0/). 
+https://creativecommons.org/licenses/by/4.0/).
 
 SPDX-License-Identifier: CC-BY-4.0
 
 Illustrations:
-Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+Plattform Industrie 4.0; Anna Salari, Publik.
+Agentur für Kommunikation GmbH, designed by Publik.
+Agentur für Kommunikation GmbH
 ////
 
 [[part1-preamble]]
@@ -17,14 +19,22 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 
 The aim of this document is to define the structure of the Administration Shell to enable the meaningful exchange of information about assets and I4.0 components between partners in a value creation network.
 
-This part of the document focuses on how such information needs to be processed and structured. In order to define these specifications, the document formally stipulates some structural principles of the Administration Shell. This part does not describe technical interfaces of the Administration Shell or other systems to exchange information, protocols, or interaction patterns.
+This part of the document focuses on how such information needs to be processed and structured.
+In order to define these specifications, the document formally stipulates some structural principles of the Administration Shell.
+This part does not describe technical interfaces of the Administration Shell or other systems to exchange information, protocols, or interaction patterns.
 
 This document focuses on:
 
 * a metamodel for specifying information of an Asset Administration Shell and its submodels,
 * an introduction to the need of mappings to suitable technologies used in different life cycle phases of a product, providing mappings for XML, JSON, and RDF.
 
-This document presumes some familiarity with the concept of the Asset Administration Shell. Some of the concepts are described in Annex A for convenience sake. The concepts are being standardized as IEC standard IEC 63278 series xref:bibliography.adoc#bib44[[44\]]. The main stakeholders addressed in this document are architects and software developers aiming to implement a digital twin using the Asset Administration Shell in an interoperable way. Additionally, the content can also be used as input for discussions with international standardization organizations and further initiatives. Please consult the continuously updated reading guide xref:bibliography.adoc#bib38[[38\]] for an overview of documents on the Asset Administration Shell. The reading guide gives advice on which documents should be read depending on the role of the reader.
+This document presumes some familiarity with the concept of the Asset Administration Shell.
+Some of the concepts are described in Annex A for convenience’s sake.
+The concepts are being standardized as IEC standard IEC 63278 series xref:bibliography.adoc#bib44[[44\]].
+The main stakeholders addressed in this document are architects and software developers aiming to implement a digital twin using the Asset Administration Shell in an interoperable way.
+Additionally, the content can also be used as input for discussions with international standardization organizations and further initiatives.
+Please consult the continuously updated reading guide xref:bibliography.adoc#bib38[[38\]] for an overview of documents on the Asset Administration Shell.
+The reading guide gives advice on which documents should be read depending on the role of the reader.
 
 ==  Structure of the Document
 
@@ -38,11 +48,14 @@ Clause xref:general.adoc[General] summarizes relevant, existing content from the
 
 Clause xref:grammar-semantic-ids-metamodel.adoc[Semantic Identifiers for Metamodel and Data Specifications]
 
-Clause xref:spec-metamodel/nav-spec.adoc[Specification] is the main normative part of the document. It stipulates structural principles of the Administration Shell in a formal manner to ensure an exchange of information using Asset Administration Shells. A UML diagram has been defined for this purpose.
+Clause xref:spec-metamodel/nav-spec.adoc[Specification] is the main normative part of the document.
+It stipulates structural principles of the Administration Shell in a formal manner to ensure an exchange of information using Asset Administration Shells.
+A UML diagram has been defined for this purpose.
 
 Clause xref:data-specifications.adoc[Data Specification Templates] explains how to define predefined data specifications, including those for defining concept descriptions.
 
-Clause xref:mappings.adoc[Mappings] provides information on the exchange of information compliant to this specification in existing data formats like XML, JSON, or RDF. For this purpose additional formats are defined as well as needed text serializations of complex types. 
+Clause xref:mappings.adoc[Mappings] provides information on the exchange of information compliant to this specification in existing data formats like XML, JSON, or RDF.
+For this purpose additional formats are defined as well as needed text serializations of complex types.
 
 Clause xref:summary-and-outlook.adoc[Summary and Outlook] summarizes the content and gives an outlook on future work.
 
@@ -52,27 +65,28 @@ Annex xref:annex/requirements.adoc[Requirements]  collects the requirements from
 
 Annex xref:annex/valueonly-serialization-example.adoc[ValueOnly-Serialization Example] and example of a Value-Only serialization as explained in Clause xref:mappings.adoc#value-only-serialization-in-json[Mappings] is given.
 
-Annex ref:annex/backus-naur-form.adoc[Concepts of the Asset Administration Shell] defines the grammar language used in the specification. Annex ref:annex/uml.adoc[Legend for UML Modelling] contains information about UML, while Annex xef:annex/uml-templatex.adoc provides the tables used to specify UML classes etc. as used in this specification.
+Annex ref:annex/backus-naur-form.adoc[Concepts of the Asset Administration Shell] defines the grammar language used in the specification.
+Annex ref:annex/uml.adoc[Legend for UML Modelling] contains information about UML, while Annex xef:annex/uml-templatex.adoc provides the tables used to specify UML classes etc. as used in this specification.
 xref:annex/handling-constraints.adoc[Handling Constraints] explains the numbering of constraints used in the specification.
 
-
-Annex xref:annex/usage-metamodel.adoc[How to Use the Metamodel] provides some hints for modelers, and
+Annex xref:annex/usage-metamodel.adoc[How to Use the Metamodel] provides some hints for modelers.
 Annex xref:annex/metamodel-with-inheritance.adoc[Metamodel UML with Inherited Attributes] shows selected metamodel diagrams including all inherited attributes for developers.
 
-The xref:changelog.adoc[Change Log] describes metamodel changes compared to previous versions. 
+The xref:changelog.adoc[Change Log] describes metamodel changes compared to previous versions.
 
 Finally, a xref:bibliography.adoc[Bibliography] is given.
-
-
 
 == Working Principles
 
 The work is based on the following principle: keep it simple but do not simplify if it affects interoperability.
 
-To create a detailed specification of the Administration Shell according to the scope of Part 1 result papers published by Plattform Industrie 4.0, the trilateral cooperation between France, Italy, and Germany, as well as international standardization results were analyzed and taken as source of requirements for the specification process. As many ideas as possible from the discussion papers were considered. See Annex xref:annex/concepts-aas.adoc[Concepts of the Administration Shell] for more information.
+To create a detailed specification of the Administration Shell according to the scope of Part 1 result papers published by Plattform Industrie 4.0, the trilateral cooperation between France, Italy, and Germany, as well as international standardization results were analyzed and taken as source of requirements for the specification process.
+As many ideas as possible from the discussion papers were considered.
+See Annex xref:annex/concepts-aas.adoc[Concepts of the Administration Shell] for more information.
 
 The partners represented in the Plattform Industrie 4.0 and the Industrial Digital Twin Association (IDTA) and associations such as ZVEI, VDMA, VDI/ VDE and Bitkom, ensure that there is broad sectoral coverage of process, hybrid, and factory automation and in terms of integrating information technology (IT) and operational technology (OT).
 
-Design alternatives were intensively discussed within the working group. An extensive feedback process of this document series is additionally performed within the working groups of Plattform Industrie 4.0 and IDTA.
+Design alternatives were intensively discussed within the working group.
+An extensive feedback process of this document series is additionally performed within the working groups of Plattform Industrie 4.0 and IDTA.
 
 Guiding principle for the specification was to provide detailed information, which can be easily implemented also by small and medium-sized enterprises.

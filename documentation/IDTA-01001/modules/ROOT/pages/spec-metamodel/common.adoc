@@ -18,47 +18,50 @@ include::../includes/constraints.adoc[]
 
 == General
 
-This clause specifies the abstract classes that represent commonly used attributes and terminology, together with the classes and data types exclusively used in these classes. They are represented in alphabetical order.
+This clause specifies the abstract classes that represent commonly used attributes and terminology, together with the classes and data types exclusively used in these classes.
+They are represented in alphabetical order.
 
 == Administrative Information Attributes
 
 .Metamodel of Administrative Information
 image::image14.png[]
 
-Every identifiable may contain administrative information. Administrative information includes, for example,
+Every identifiable may contain administrative information.
+Administrative information includes, for example,
 
 * information about the version of the element,
 * information about who created or who made the last change to the element,
 * information about the languages available in case the element contains text; the master or default language may also be defined for translating purposes,
 * information about the submodel template that guides the creation of the submodel
 
-In principle, the version corresponds to the _version_identifier_ according to IEC 62832. However, it is not used for concept identifiers only (IEC TS 62832-1), but for all identifiable elements. Together, version and revision correspond to the version number according to IEC 62832.
+In principle, the version corresponds to the _version_identifier_ according to IEC 62832.
+However, it is not used for concept identifiers only (IEC TS 62832-1), but for all identifiable elements.
+Together, version and revision correspond to the version number according to IEC 62832.
 
 Other attributes of the administrative information like creator refer to ISO 15836-1:2017, the Dublin Core metadata element set.
 
-For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:bibliography.adoc#bib49[[49\]]. The assumption is that every subject has a unique identifier.
+For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:bibliography.adoc#bib49[[49\]].
+The assumption is that every subject has a unique identifier.
 
-
-xref:spec-metamodel/common.adoc#AdministrativeInformation[AdministrativeInformation] allows the usage of templates (xref:spec-metamodel/common.adoc#HasDataSpecification[HasDataSpecification]). Data specifications are defined in separate documents.
-
+xref:spec-metamodel/common.adoc#AdministrativeInformation[AdministrativeInformation] allows the usage of templates (xref:spec-metamodel/common.adoc#HasDataSpecification[HasDataSpecification]).
+Data specifications are defined in separate documents.
 
 ====
-Note 1: two submodels with the same semanticId but different administrative information shall have different IDs (_Submodel/id_), since they denote that the submodel is not backward compatible or has some other major administrative changes. The _idShort_ typically does not change. The same applies to other identifiables (_Identifiable/id_). Otherwise, the ID of a submodel would not be sufficient to identify the data or service provided by the submodel.
+Note 1: two submodels with the same semanticId but different administrative information shall have different IDs (_Submodel/id_), since they denote that the submodel is not backward compatible or has some other major administrative changes.
+The _idShort_ typically does not change.
+The same applies to other identifiables (_Identifiable/id_).
+Otherwise, the ID of a submodel would not be sufficient to identify the data or service provided by the submodel.
 ====
-
-
 
 ====
 Note 2: since submodels with different versions shall have different identifiers, it is possible that an Asset Administration Shell has two submodels with the same _semanticId_ but different versions, i.e. different administrative metainformation.
 ====
 
-
-
 ====
-Note 3: some of the administrative information like the version number might need to be part of the identification. This is similar to the handling of identifiers for concept descriptions using IRDIs. In ECLASS, the IRDI 0173-1#02-AO677#002 contains the version information #002.
+Note 3: some of the administrative information like the version number might need to be part of the identification.
+This is similar to the handling of identifiers for concept descriptions using IRDIs.
+In ECLASS, the IRDI 0173-1#02-AO677#002 contains the version information #002.
 ====
-
-
 
 ====
 Note 4: the process of versioning or adding other administrative information to elements is done by external version or configuration management software and not by the Asset Administration Shell itself.
@@ -100,13 +103,15 @@ Note 1: in case of a submodel, the template ID is the identifier of the submodel
 
 
 ====
-Note 2: the submodel template ID is not relevant for validation. Here, the _Submodel/semanticId_ shall be used.
+Note 2: the submodel template ID is not relevant for validation.
+Here, the _Submodel/semanticId_ shall be used.
 ====
 
 
 
 ====
-Note 3: usage of the template ID is not restricted to submodel instances. The creation of submodel templates can also be guided by another submodel template.
+Note 3: usage of the template ID is not restricted to submodel instances.
+The creation of submodel templates can also be guided by another submodel template.
 ====
 
 
@@ -125,7 +130,10 @@ image::image15.png[]
 [cols="25%,40%,25%,10%"]
 |===
 h|Class: 3+e|[[HasDataSpecification]]HasDataSpecification \<<abstract>>
-h|Explanation: 3+a|Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. The data specifications used are explicitly specified with their global ID.
+h|Explanation:
+3+a|Element that can be extended by using data specification templates.
+A data specification template defines a named set of additional attributes an element may or shall have.
+The data specifications used are explicitly specified with their global ID.
 h|Inherits from: 3+|--
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasDataSpecification`
 
@@ -173,12 +181,12 @@ Note 2: extensions are proprietary, i.e. they do not support global interoperabi
 
 
 h|Inherits from: 3+|--
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasExtensions`  
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasExtensions`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|extension 3+| `\https://admin-shell.io/aas/3/1/HasExtensions/extensions`  
+.2+e|extension 3+| `\https://admin-shell.io/aas/3/1/HasExtensions/extensions`
 
 a|An extension of the element. |xref:spec-metamodel/common.adoc#Extension[Extension] |0..*
 
@@ -192,29 +200,27 @@ a|An extension of the element. |xref:spec-metamodel/common.adoc#Extension[Extens
 h|Class: 3+e|[[Extension]]Extension
 h|Explanation: 3+|Single extension of an element
 h|Inherits from: 3+|xref:spec-metamodel/common.adoc#HasSemantics[HasSemantics]
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/Extension`  
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Extension`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|name 3+| `\https://admin-shell.io/aas/3/1/Extension`  
+.2+e|name 3+| `\https://admin-shell.io/aas/3/1/Extension`
 a|Name of the extension |xref:spec-metamodel/datatypes.adoc#NameType[NameType] |1
 
-.2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Extension/valueType`  
+.2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Extension/valueType`
 a|Data type of the value attribute of the extension
 
 Default: xs:string
 
 |xref:spec-metamodel/datatypes.adoc#DataTypeDefXsd[DataTypeDefXsd]|0..1
 
-.2+e|value 3+| `\https://admin-shell.io/aas/3/1/Extension/value` 
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/Extension/value`
 a|Value of the extension |xref:spec-metamodel/datatypes.adoc#ValueDataType[ValueDataType] |0..1
 
-.2+e|refersTo 3+| `\https://admin-shell.io/aas/3/1/Extension/refersTos` 
+.2+e|refersTo 3+| `\https://admin-shell.io/aas/3/1/Extension/refersTos`
 a|Reference to an element the extension refers to |ModelReference<xref:spec-metamodel/common.adoc#Referable[Referable]> |0..*
 |===
-
-
 
 == Has Kind Attributes
 
@@ -232,7 +238,7 @@ Default for an element is that it is representing an instance.
 
 
 h|Inherits from: 3+|--
-h|ID: 3+| `\https://admin-shell.io/aas/3/0/HasKind`  
+h|ID: 3+| `\https://admin-shell.io/aas/3/0/HasKind`
 
 
 .2+h|Attribute 3+h| ID
@@ -248,7 +254,8 @@ Default Value = _Instance_
 
 |===
 
-The kind enumeration is used to denote whether an element is of kind _Template_ or _Instance_. It is used to distinguish between submodels and submodel templates.
+The kind enumeration is used to denote whether an element is of kind _Template_ or _Instance_.
+It is used to distinguish between submodels and submodel templates.
 
 [.table-with-appendix-table]
 [cols="30%h,70%"]
@@ -265,7 +272,8 @@ h|Explanation
 a|specification of the common features of a structured element in sufficient detail that such a instance can be instantiated using it
 
 .2+e|Instance | `\https://admin-shell.io/aas/3/0/ModellingKind/Instance`
-a|concrete, clearly identifiable element instance. Its creation and validation may be guided by a corresponding element template
+a|concrete, clearly identifiable element instance.
+Its creation and validation may be guided by a corresponding element template
 |===
 
 [#has-semantics-attributes]
@@ -298,7 +306,9 @@ Identifier of the semantic definition of the element called semantic ID or also 
 
 
 ====
-Note: it is recommended to use an external reference, (e.g. referencing a globally resolvable semantic definition). This is even recommended in the case a xref:spec-metamodel/concept-description.adoc#ConceptDescription[ConceptDescription] exists. Otherwise lookup of the corresponding concept description may fail.
+Note: it is recommended to use an external reference, (e.g. referencing a globally resolvable semantic definition).
+This is even recommended in the case a xref:spec-metamodel/concept-description.adoc#ConceptDescription[ConceptDescription] exists.
+Otherwise, lookup of the corresponding concept description may fail.
 
 In future releases a constraint may be added that makes it mandatory to use external references.
 
@@ -313,7 +323,9 @@ Identifier of a supplemental semantic definition of the element called supplemen
 
 
 ====
-Note: it is recommended to use an external reference, (e.g. referencing a globally resolvable semantic definition). This is even recommended in the case a xref:spec-metamodel/concept-description.adoc#ConceptDescription[ConceptDescription] exists. Otherwise lookup of the corresponding concept description may fail.
+Note: it is recommended to use an external reference, (e.g. referencing a globally resolvable semantic definition).
+This is even recommended in the case a xref:spec-metamodel/concept-description.adoc#ConceptDescription[ConceptDescription] exists.
+Otherwise, lookup of the corresponding concept description may fail.
 
 In future releases a constraint may be added that makes it mandatory to use external references.
 
@@ -329,11 +341,16 @@ In future releases a constraint may be added that makes it mandatory to use exte
 .Metamodel of Identifiables
 image::image19.png[]
 
-An identifiable element is a referable with a globally unique identifier (_Identifier_). Only the global ID (_Identifiable/id_) shall be used to reference an identifiable, because the _idShort_ is not unique for an identifiable. Identifiables may have administrative information like version, etc.
+An identifiable element is a referable with a globally unique identifier (_Identifier_).
+Only the global ID (_Identifiable/id_) shall be used to reference an identifiable, because the _idShort_ is not unique for an identifiable.
+Identifiables may have administrative information like version, etc.
 
-Non-identifiable referable elements can be referenced. However, this requires the context of the element. A referable that is not identifiable and not child within a SubmodelElementList has a short identifier (_idShort_) that is unique just in its context, its name space.
+Non-identifiable referable elements can be referenced.
+However, this requires the context of the element.
+A referable that is not identifiable and not child within a SubmodelElementList has a short identifier (_idShort_) that is unique just in its context, its name space.
 
-Information about identification can be found in Clause xref:general.adoc#identification-of-elements[Identification of Elements]. See Clause xref:general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?] for constraints and recommendations on when to use which type of identifier.
+Information about identification can be found in Clause xref:general.adoc#identification-of-elements[Identification of Elements].
+See Clause xref:general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?] for constraints and recommendations on when to use which type of identifier.
 
 See Clause xref:general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?] for information about which identifier types are supported.
 
@@ -413,14 +430,17 @@ image::image21.png[]
 
 Qualifiers may be defined for qualifiable elements.
 
-There are standardized qualifiers defined in IEC CDD, IEC61360-4 – IEC/SC 3D. A level qualifier defining the level type minimal, maximal, typical, and nominal value is specified in IEC 62569-1. In DIN SPEC 92000, qualifier types like e.g. expression semantics and expression logic are defined.
+There are standardized qualifiers defined in IEC CDD, IEC61360-4 – IEC/SC 3D.
+A level qualifier defining the level type minimal, maximal, typical, and nominal value is specified in IEC 62569-1.
+In DIN SPEC 92000, qualifier types like e.g. expression semantics and expression logic are defined.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
 |===
 h|Class: 3+e|[[Qualifier]]Qualifier
 h|Explanation: 3+a|
-A qualifier is essentially a type-value-pair. Depending on the kind of qualifier, it makes additional statements
+A qualifier is essentially a type-value-pair.
+Depending on the kind of qualifier, it makes additional statements
 
 * w.r.t. the value of the qualified element,
 * w.r.t the concept, i.e. semantic definition of the qualified element,
@@ -477,27 +497,28 @@ It is recommended to add a _semanticId_ for the concept of the _Qualifier_. _Qua
 |Enumeration: e|[[QualifierKind]]QualifierKind
 h|Explanation: a|Enumeration for kinds of qualifiers
 |Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/0/QualifierKind`  
+h|ID: | `\https://admin-shell.io/aas/3/0/QualifierKind`
 
 .2+h|Literal h| ID
-   h|Explanation
-   
-.2+e|ValueQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/ValueQualifier` 
+h|Explanation
+
+.2+e|ValueQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/ValueQualifier`
 a|
 Qualifies the value of the element; the corresponding qualifier value can change over time.
 
 Value qualifiers are only applicable to elements with __kind__="_Instance"._
 
-.2+e|ConceptQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/ConceptQualifier` 
+.2+e|ConceptQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/ConceptQualifier`
 a|Qualifies the semantic definition (_HasSemantics/semanticId_) the element is referring to; the corresponding qualifier value is static.
 
-.2+e|TemplateQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/TemplateQualifier` 
+.2+e|TemplateQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/TemplateQualifier`
 a|
 Qualifies the elements within a specific submodel on concept level; the corresponding qualifier value is static.
 
 
 ====
-Note: template qualifiers are only applicable to elements with kind="Template". See constraint AASd-129.
+Note: template qualifiers are only applicable to elements with kind="Template".
+See constraint AASd-129.
 ====
 
 
@@ -506,10 +527,13 @@ Note: template qualifiers are only applicable to elements with kind="Template". 
 ====
 Example of a _ValueQualifier_: property "temperature" and qualifier "value quality" with different qualifier values like "measured", "substitute value".
 
-Example of a _ConceptQualifier:_ an Asset Administration Shell with two submodels with different IDs but the same semanticId = "Bill of Material". The qualifier could denote the life cycle with qualifier values like "as planned", "as maintained" etc. (see +
+Example of a _ConceptQualifier:_ an Asset Administration Shell with two submodels with different IDs but the same semanticId = "Bill of Material".
+The qualifier could denote the life cycle with qualifier values like "as planned", "as maintained" etc. (see +
 Figure 21).
 
-Example of a _TemplateQualifier:_ a submodel element with qualifier value "mandatory" or "optional". This qualification is needed to build a correct submodel instance. For more information see xref:bibliography.adoc#bib48[[48\]].
+Example of a _TemplateQualifier:_ a submodel element with qualifier value "mandatory" or "optional".
+This qualification is needed to build a correct submodel instance.
+For more information see xref:bibliography.adoc#bib48[[48\]].
 
 .Example: Qualifier from IEC CDD
 image::image22.png[Example: Qualifier from IEC CDD]
@@ -521,20 +545,27 @@ image::image22.png[Example: Qualifier from IEC CDD]
 .Metamodel of Referables
 image::image23.png[]
 
-The metamodel differentiates between elements that are identifiable, referable, or none of both. The latter means they are neither inheriting from _Referable_ nor from _Identifiable_, which applies e.g. to __Qualifier__s.
+The metamodel differentiates between elements that are identifiable, referable, or none of both.
+The latter means they are neither inheriting from _Referable_ nor from _Identifiable_, which applies e.g. to __Qualifier__s.
 
-Referable elements can be referenced via the _idShort_ (with exception of elements within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes [SubmodelElementList]). For details on referencing, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
+Referable elements can be referenced via the _idShort_ (with exception of elements within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes [SubmodelElementList]).
+For details on referencing, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
 
-Not every element of the metamodel is referable. There are elements that are just attributes of a referable.
+Not every element of the metamodel is referable.
+There are elements that are just attributes of a referable.
 
-The __idShort__ shall be unique in its name space for non-identifiable referables (exception: referables within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes [SubmodelElementList]) (see Constraint AASd-022). A name space is defined as follows in this context: the parent element(s), which an element is part of and that is either referable or identifiable, is the name space of the element. Examples: a submodel is the name space for the properties directly contained in it; the name space of a submodel element contained in a submodel element collection is the submodel element collection.
+The __idShort__ shall be unique in its name space for non-identifiable referables (exception: referables within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes [SubmodelElementList]) (see Constraint AASd-022).
+A name space is defined as follows in this context: the parent element(s), which an element is part of and that is either referable or identifiable, is the name space of the element.
+Examples: a submodel is the name space for the properties directly contained in it; the name space of a submodel element contained in a submodel element collection is the submodel element collection.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%""]
 |===
 h|Class: 3+e|[[Referable]]Referable \<<abstract>>
 h|Explanation: 3+a|
-Note1 : an element that is referable by its idShort. This ID is not globally unique. This ID is unique within the name space of the element.
+Note1 : an element that is referable by its idShort.
+This ID is not globally unique.
+This ID is unique within the name space of the element.
 
 
 ====
@@ -546,26 +577,29 @@ Note 2: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-referabl
 
 
 h|Inherits from: 3+|xref:spec-metamodel/common.adoc#HasExtensions[HasExtensions]
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/Referable`  
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/Referable`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|category \<<Deprecated>> 3+| `\https://admin-shell.io/aas/3/1/Referable/category` 
+.2+e|category \<<Deprecated>> 3+| `\https://admin-shell.io/aas/3/1/Referable/category`
 a|
-The category is a value that gives further meta information w.r.t. the class of the element. It affects the expected existence of attributes and the applicability of constraints.
+The category is a value that gives further meta information w.r.t. the class of the element.
+It affects the expected existence of attributes and the applicability of constraints.
 
 
 ====
-Note: The category is not identical to the semantic definition (_HasSemantics_) of an element. The category could e.g. denote that the element is a measurement value, whereas the semantic definition of the element would denote that it is the measured temperature.
+Note: The category is not identical to the semantic definition (_HasSemantics_) of an element.
+The category could e.g. denote that the element is a measurement value, whereas the semantic definition of the element would denote that it is the measured temperature.
 ====
 
 
 |xref:spec-metamodel/datatypes.adoc#NameType[NameType] |0..1
 
-.2+e|idShort 3+| `\https://admin-shell.io/aas/3/1/Referable/idShort` 
+.2+e|idShort 3+| `\https://admin-shell.io/aas/3/1/Referable/idShort`
 a|
-In case of identifiables, this attribute is a short name of the element. In case of a referable, this ID is an identifying string of the element within its name space.
+In case of identifiables, this attribute is a short name of the element.
+In case of a referable, this ID is an identifying string of the element within its name space.
 
 
 ====
@@ -575,10 +609,10 @@ Note: if the element is a property and the property has a semantic definition (_
 
 |xref:spec-metamodel/datatypes.adoc#NameType[NameType] |0..1
 
-.2+e|displayName 3+| `\https://admin-shell.io/aas/3/1/Referable/displayName` 
+.2+e|displayName 3+| `\https://admin-shell.io/aas/3/1/Referable/displayName`
 a|Display name; can be provided in several languages |xref:spec-metamodel/datatypes.adoc#MultiLanguageNameType[MultiLanguageNameType] |0..1
 
-.2+e|description 3+| `\https://admin-shell.io/aas/3/1/Referable/description` 
+.2+e|description 3+| `\https://admin-shell.io/aas/3/1/Referable/description`
 a|
 Description or comments on the element
 
@@ -593,11 +627,9 @@ Additional information can be provided, e.g. if the element is qualified and whi
 
 Predefined categories are described in Table 6.
 
-
 ====
 Note: categories are deprecated and should no longer be used.
 ====
-
 
 .Categoriesfootnote:[Note: categories of referables are deprecated.] for Elements with Value
 [cols="18%,28%,54%",options="header",]

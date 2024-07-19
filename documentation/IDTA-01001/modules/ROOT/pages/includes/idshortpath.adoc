@@ -7,14 +7,17 @@ https://creativecommons.org/licenses/by/4.0/).
 SPDX-License-Identifier: CC-BY-4.0
 
 Illustrations:
-Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+Plattform Industrie 4.0; Anna Salari, Publik.
+Agentur für Kommunikation GmbH, designed by Publik.
+Agentur für Kommunikation GmbH
 ////
 
 === Format "Path" (IdShortPath Serialization) in JSON
 
-To get only the idShort paths of a submodel element hierarchy, the serialization format is specified in terms of an idShortPath notation to be returned in an JSON array. 
-The notation differs depending on whether a SubmodelElementCollection or a SubmodelElementList is present. In the first case, the submodel element's idShort 
-is separated by "." (dot) from top level down to child level. In the second case, square brackets with an index "[<Index>]" are appended after the idShort of the containing SubmodelElementList.
+To get only the idShort paths of a submodel element hierarchy, the serialization format is specified in terms of an idShortPath notation to be returned in an JSON array.
+The notation differs depending on whether a SubmodelElementCollection or a SubmodelElementList is present.
+In the first case, the submodel element's idShort is separated by "." (dot) from top level down to child level.
+In the second case, square brackets with an index "[<Index>]" are appended after the idShort of the containing SubmodelElementList.
 In any case, the first item of any idShortPath is the idShort of the requested element.
 
 [.underline]#Grammar:#

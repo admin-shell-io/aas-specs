@@ -12,10 +12,12 @@ SPDX-License-Identifier: CC-BY-4.0
 
 == Predefined Simple Data Types
 
-The metamodel of the Asset Administration Shell uses some of the predefined simple data types of the  link:https://www.w3.org/XML/Core/[XML Schema Definition] (XSD) 
-as its basic data types footnote:[https://www.w3.org/XML/Core/, former https://www.w3.org/TR/xmlschema-2/#built-in-datatypes]. See Table 7 for an overview of the used types. Their definition is outside the scope of this document.
+The metamodel of the Asset Administration Shell uses some of the predefined simple data types of the  link:https://www.w3.org/XML/Core/[XML Schema Definition] (XSD) as its basic data types footnote:[https://www.w3.org/XML/Core/, former https://www.w3.org/TR/xmlschema-2/#built-in-datatypes].
+See Table 7 for an overview of the used types.
+Their definition is outside the scope of this document.
 
-The meaning and format of xsd types is specified in XML Schema 1.0 (https://www.w3.org/TR/xmlschema-2). The simple type "langString" is specified in the Resource Description Framework (RDF) footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
+The meaning and format of xsd types is specified in XML Schema 1.0 (https://www.w3.org/TR/xmlschema-2).
+The simple type "langString" is specified in the Resource Description Framework (RDF) footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
 
 See Clause xref:spec-metamodel/constraints.adoc#constraints-for-types[Constraints for Types] for constraints on types.
 
@@ -52,24 +54,21 @@ Note: this is written in RDF/Turtle syntax, only "Hello" and "Hallo" are the act
 
 == Primitive Data Types
 
-Table 8 lists the Primitives used in the metamodel. Primitive data types start with a capital letter.
-
+Table 8 lists the Primitives used in the metamodel.
+Primitive data types start with a capital letter.
 
 ====
 Note: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-types[Constraints for Types] for constraints on types.
 ====
 
-
-
-
 .Primitive Data Types Used in Metamodel
 [cols="13%,30%,57%"]
 |===
 
-.2+h|Primitive 2+h| ID 
-    h|Definition h|Value Examples
+.2+h|Primitive 2+h| ID
+h|Definition h|Value Examples
 
-.2+e|[[BlobType]]BlobType 2+| `\https://admin-shell.io/aas/3/0/BlobType` 
+.2+e|[[BlobType]]BlobType 2+| `\https://admin-shell.io/aas/3/0/BlobType`
 a|
 _base64binary_
 
@@ -92,7 +91,9 @@ Note: any content type as in RFC2046.
 ====
 
 
-A media type (also MIME type and content type) […] is a two-part identifier for file formats and format contents transmitted on the Internet. The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications. Media types were originally defined in Request for Comments 2045 in November 1996 as a part of MIME specification, for denoting type of email message content and attachments.footnote:[Wikipedia.org, date: 2018-04-09]
+A media type (also MIME type and content type) […] is a two-part identifier for file formats and format contents transmitted on the Internet.
+The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications.
+Media types were originally defined in Request for Comments 2045 in November 1996 as a part of MIME specification, for denoting type of email message content and attachments.footnote:[Wikipedia.org, date: 2018-04-09]
 
 a|
 application/pdf
@@ -187,15 +188,15 @@ a|_string_ with max 128 and min 1 characters |"ManufacturerPartId"
 .2+e|[[PathType]]PathType 2+| `\https://admin-shell.io/aas/3/1/PathType`
 a|
 
-_string_ 
+_string_
 with max 2048 and min 1 characters
 
 conformant to an URI as per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396]
 
 ====
-Note: Values with this restriction are also conformant to the xsd datatype https://www.w3.org/TR/xmlschema-2/#anyURI[anyURI]. 
+Note: Values with this restriction are also conformant to the xsd datatype https://www.w3.org/TR/xmlschema-2/#anyURI[anyURI].
 
-"A wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396] and its successor(s)." 
+"A wide range of internationalized resource identifiers can be specified when an anyURI is called for, and still be understood as URIs per https://www.w3.org/TR/xmlschema-2/#RFC2396[RFC 2396] and its successor(s)."
 
 Source: https://www.w3.org/TR/xmlschema-2/#anyURI[W3C XML Schema Definition Language (XSD) 1.0 Part 2: Datatypes]
 ====
@@ -260,25 +261,25 @@ True
 
 == Enumeration for Submodel Element Value Types
 
-Enumerations are primitive data types. Most of the enumerations are defined in the context of their class. This clause defines enumerations for submodel element value typesfootnote:[E.g. Property/valueType].
+Enumerations are primitive data types.
+Most of the enumerations are defined in the context of their class.
+This clause defines enumerations for submodel element value typesfootnote:[E.g. Property/valueType].
 
-The predefined types used to define the type of values of properties and other values use the names and the semantics of XML Schema Definition (XSD)footnote:[see https://www.w3.org/XML/Schema, https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes]. Additionally, the type "langString" with the semantics as defined in the Resource Description Framework (RDF)footnote:[see: https://www.w3.org/TR/rdf11-concepts/] is used. "langString" is a string value tagged with a language code.
-
+The predefined types used to define the type of values of properties and other values use the names and the semantics of XML Schema Definition (XSD)footnote:[see https://www.w3.org/XML/Schema, https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes].
+Additionally, the type "langString" with the semantics as defined in the Resource Description Framework (RDF)footnote:[see: https://www.w3.org/TR/rdf11-concepts/] is used. "langString" is a string value tagged with a language code.
 
 ====
-Note 1: RDFfootnote:[See https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes] uses XML Schema Built-in data types from Version 1.1 but recommends to use only a subset of xsd data types. That is why they are excluded from the allowed data types in xref:DataTypeDefXsd[DataTypeDefXsd].
+Note 1: RDFfootnote:[See https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes] uses XML Schema Built-in data types from Version 1.1 but recommends to use only a subset of xsd data types.
+That is why they are excluded from the allowed data types in xref:DataTypeDefXsd[DataTypeDefXsd].
 ====
-
 
 * XSD BuildIn List types are not supported (ENTITIES, IDREFS and NMTOKENS).
 * XSD string BuildIn types are not supported (normalizedString, token, language, NCName, ENTITY, ID, IDREF).
 * The following XSD primitive types are not supported: NOTATION, QName.
 
-
 ====
 Note 2: additionally, the following RDF types are not supported in xref:DataTypeDefXsd[DataTypeDefXsd]: HTML and XMLLiteral.
 ====
-
 
 .DefTypeDefRdf Enumeration
 image::image53.png[]
@@ -290,9 +291,13 @@ image::image54.png[]
 
 Table 9 depicts example values and the value range of the different data type"
 
-shows the data types which can be used for submodel element values. The data types are defined according to the W3C XML Schema (https://www.w3.org/TR/xmlschema-2/#built-in-datatypes and https://www.w3.org/TR/xmlschema-2/#built-in-derived). "Value Range" further explains the possible range of data values for this data type. The right column shows related examples for values of the corresponding data type.
+shows the data types which can be used for submodel element values.
+The data types are defined according to the W3C XML Schema (https://www.w3.org/TR/xmlschema-2/#built-in-datatypes and https://www.w3.org/TR/xmlschema-2/#built-in-derived).
+"Value Range" further explains the possible range of data values for this data type.
+The right column shows related examples for values of the corresponding data type.
 
-.Data Types with Examplesfootnote:[See list of RDF-compatible XSD types with short description https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes. Examples from https://openmanufacturingplatform.github.io/sds-bamm-aspect-meta-model/bamm-specification/v1.0.0/datatypes.html]
+.Data Types with Examples footnote:[See list of RDF-compatible XSD types with short description https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes. Examples from https://openmanufacturingplatform.github.io/sds-bamm-aspect-meta-model/bamm-specification/v1.0.0/datatypes.html]
+
 [cols="15%,22%,24%,39%",options="header",]
 |===
 | |Data Type |Value Range |Sample Values
@@ -500,7 +505,7 @@ Enumeration listing selected xsd anySimpleTypes of XML Schema 1.0
 For more details see https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes
 
 |Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/1/DataTypeDefXsd`  
+h|ID: | `\https://admin-shell.io/aas/3/1/DataTypeDefXsd`
 
 h|Literal h|Explanation
 e|xs:anyURI |see: https://www.w3.org/TR/xmlschema-2/#anyURI
@@ -536,20 +541,21 @@ e|xs:unsignedShort |see: https://www.w3.org/TR/xmlschema-2/#unsignedShort
 e|xs:yearMonthDuration |see: https://www.w3.org/TR/xmlschema-2/#yearMonthDuration
 |===
 
-
 [.table-with-appendix-table]
 [cols="30%h,70%"]
 |===
 h|Enumeration: |[[DataTypeDefRdf]]DataTypeDefRdf
 h|Explanation: |Enumeration listing all RDF types
 |Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/0/DataTypeDefRdf`  
+h|ID: | `\https://admin-shell.io/aas/3/0/DataTypeDefRdf`
 
 h|Literal h|Explanation
 e|rdf:langString |String with a language tag
 |===
 
-RDF requires IETF BCP 47footnote:[see https://tools.ietf.org/rfc/bcp/bcp47.txt] language tags. Simple two-letter language tags for locales like "de" conformant to ISO 639-1 are allowed, as well as language tags plus extension like "de-DE" for country code, dialect, etc. like in "en-US" for English (United States) or "en-GB" for English (United Kingdom). IETF language tags are referencing ISO 639, ISO 3166 and ISO 15924.
+RDF requires IETF BCP 47footnote:[see https://tools.ietf.org/rfc/bcp/bcp47.txt] language tags.
+Simple two-letter language tags for locales like "de" conformant to ISO 639-1 are allowed, as well as language tags plus extension like "de-DE" for country code, dialect, etc. like in "en-US" for English (United States) or "en-GB" for English (United Kingdom).
+IETF language tags are referencing ISO 639, ISO 3166 and ISO 15924.
 
 .Built-In Types of XML Schema Definition 1.0 (XSD)footnote:[Source: https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes]
 image::image55.png[]
