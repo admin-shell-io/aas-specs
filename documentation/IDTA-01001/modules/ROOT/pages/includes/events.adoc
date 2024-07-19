@@ -29,21 +29,21 @@ Note: the concept of event is still in the experimental phase. Please be aware t
 
 Event use cases are briefly outlined in the following:
 
-* An integrator has purchased a device. Later in time, the supplier of the device provides a new firmware. The integrator wants to detect the offer of a new firmware and wants to update the firmware after evaluating its suitability ("forward events"). A dependent Asset Administration Shell ("D4") detects events from a parent or type Asset Administration Shell ("D1"), which is described by the _derivedFrom_ relation. An illustration of the use case is given in Figure <<image-forward-and-revers-events>>.
+* An integrator has purchased a device. Later in time, the supplier of the device provides a new firmware. The integrator wants to detect the offer of a new firmware and wants to update the firmware after evaluating its suitability ("forward events"). A dependent Asset Administration Shell ("D4") detects events from a parent or type Asset Administration Shell ("D1"), which is described by the _derivedFrom_ relation. An illustration of the use case is given in  <<image-forward-and-revers-events>>.
 
-* An integrator/operator operates a motor purchased from a supplier. During operation, condition monitoring incidents occur. Both parties agree on a business model providing availability. The supplier wants to monitor device statuses which are located further in the value chain ("reverse events"). An illustration of the use case is given in Figure <<image-forward-and-revers-events>>.
+* An integrator/operator operates a motor purchased from a supplier. During operation, condition monitoring incidents occur. Both parties agree on a business model providing availability. The supplier wants to monitor device statuses which are located further in the value chain ("reverse events"). An illustration of the use case is given in  <<image-forward-and-revers-events>>.
 
 .Forward and Reverse Events
 [[image-forward-and-revers-events]]
 image::image8.jpeg[]
 
-* An operator is operating a certain I4.0 component over time. Changes that occasionally occur to these I4.0 components from different systems shall be tracked for documentation and auditing purposes. This can be achieved by recording events over time. An illustration of the use case is given in Figure <<image-tracking-of-changes-via-events>>.
+* An operator is operating a certain I4.0 component over time. Changes that occasionally occur to these I4.0 components from different systems shall be tracked for documentation and auditing purposes. This can be achieved by recording events over time. An illustration of the use case is given in  <<image-tracking-of-changes-via-events>>.
 
 .Tracking of Changes via Events
 [[image-tracking-of-changes-via-events]]
 image::image9.jpeg[]
 
-* An operator is operating different I4.0 components, which are deployed to manufacturer clouds. The operator wants to integrate data from these components, according to DIN SPEC 92222. For this purpose, information needs to be forwarded to the operator cloud ("value push"). An illustration of the use case is given in Figure <<image-value-push-events-across-clouds>>.
+* An operator is operating different I4.0 components, which are deployed to manufacturer clouds. The operator wants to integrate data from these components, according to DIN SPEC 92222. For this purpose, information needs to be forwarded to the operator cloud ("value push"). An illustration of the use case is given in  <<image-value-push-events-across-clouds>>.
 
 .Value Push Events Across Clouds
 [[image-value-push-events-across-clouds]]
