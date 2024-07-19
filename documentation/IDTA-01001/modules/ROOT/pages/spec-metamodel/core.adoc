@@ -36,13 +36,13 @@ h|Explanation h|Type h|Card.
 a|The reference to the Asset Administration Shell, which the Asset Administration Shell was derived from |ModelReference<xref:spec-metamodel/core.adoc#aas_attributes[AssetAdministrationShell]> |0..1
 
 .2+e|assetInformation 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/assetInformation`
-a|Meta information about the asset the Asset Administration Shell is representing |xref:spec-metamodel/core.adoc#AssetInformation[AssetInformation] |1
+a|Meta information about the asset, the Asset Administration Shell is representing |xref:spec-metamodel/core.adoc#AssetInformation[AssetInformation] |1
 
 .2+e|submodel 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/submodels`
 a|
 Reference to a submodel of the Asset Administration Shell
 
-A submodel is a description of an aspect of the asset the Asset Administration Shell is representing.
+A submodel is a description of an aspect of the asset, the Asset Administration Shell is representing.
 
 The asset of an Asset Administration Shell is typically described by one or more submodels.
 
@@ -62,7 +62,7 @@ image::image25.png[]
 |===
 h|Class: 3+e|[[AssetInformation]]AssetInformation
 h|Explanation: 3+a|
-In _AssetInformation,_ identifying meta data of the asset that is represented by an Asset Administration Shell is defined.
+In _AssetInformation,_ identifying metadata of the asset that is represented by an Asset Administration Shell is defined.
 
 The asset may either represent a type asset or an instance asset.
 
@@ -85,11 +85,11 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/AssetInformation`
 h|Explanation h|Type h|Card.
 
 .2+e|assetKind 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetKind`
-a|Denotes whether the _Asset_ is of kind "Type", Instance", "Role" or non of these types is applicable |xref:AssetKind[AssetKind]|1
+a|Denotes whether the _Asset_ is of kind "Type", Instance", "Role" or none of these types is applicable |xref:AssetKind[AssetKind]|1
 
 .2+e|globalAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`
 a|
-Identifier of the asset the Asset Administration Shell is representing
+Identifier of the asset, the Asset Administration Shell is representing
 
 This attribute is required as soon as the Asset Administration Shell is exchanged via partners in the life cycle of the asset.
 In a first phase of the life cycle, the asset might not yet have a global asset ID but already an internal identifier.

@@ -28,7 +28,7 @@ Note: the UML modelling uses so-called abstract classes for denoting reused conc
 ====
 
 In case of an Asset Administration Shell of an instance asset, a reference to the Asset Administration Shell representing the corresponding type asset or another instance asset it was derived from may be added (xref:spec-metamodel/core.adoc#aas_attributes[AssetAdministrationShell/derivedFrom]).
-The same holds true for the Asset Administration Shell of an type asset.
+The same holds true for the Asset Administration Shell of a type asset.
 Types can also be derived from other types.
 
 .Overview Metamodel of the Asset Administration Shell
@@ -55,7 +55,7 @@ Every data element is a submodel element (not visible in the figure but implicit
 For details on properties, see Clause xref:spec-metamodel/submodel-elements.adoc#property-attributes[Property Attributes].
 
 Every submodel element needs a semantic definition (_semanticId_ in xref:spec-metamodel/common.adoc#has-semantics-attributes[HasSemantics]) to have a well-defined meaning.
-The submodel element might either refer directly to a corresponding semantic definition provided by an external reference (e.g. to an ECLASS or IEC CDD property definition) or it may indirectly reference a concept description (xref:spec-metamodel/concept-description.adoc[ConceptDescription]).
+The submodel element might either refer directly to a corresponding semantic definition provided by an external reference (e.g. to an ECLASS or IEC CDD property definition), or it may indirectly reference a concept description (xref:spec-metamodel/concept-description.adoc[ConceptDescription]).
 See Clause xref:general.adoc#matching-strategies[Matching Strategies] for matching strategies.
 
 A concept description may be derived from another property definition of an external standard or another concept description (xref:spec-metamodel/concept-description.adoc[ConceptDescription/isCaseOf]). _isCaseOf_ is a more formal definition of _sourceOfDefinition_, which is just text.

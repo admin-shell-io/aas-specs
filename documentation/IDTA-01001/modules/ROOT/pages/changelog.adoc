@@ -31,7 +31,7 @@ Three tables are introduced to explain the changes:
 . new elements in metamodel w.r.t previous version,
 . new, changed, or removed constraints w.r.t previous version.
 
-If there are no changes the corresponding tables are obmitted.
+If there are no changes the corresponding tables are omitted.
 
 ====
 Note: before V3.0, the security metamodel and the predefined data specifications were also part of this document.
@@ -150,13 +150,13 @@ Other Bugfixes:
 
 * (Editorial) Fix Figure Logical Model for Keys of References (add value Referable to AASReferables, remove Referable from AasReferableNonIdentifiables (enumeration table were correct) (used in Constraints only).
 * (Editorial) MultiLanguageNameType inconsistent description, maxLength=128 (schemata were correct) (https://github.com/admin-shell-io/aas-specs/issues/313[#313])
-* (Editorial) HasKind/kind explanatary text: use template, not type (https://github.com/admin-shell-io/aas-specs/issues/313[#313])
+* (Editorial) HasKind/kind explanatory text: use template, not type (https://github.com/admin-shell-io/aas-specs/issues/313[#313])
 * (Editorial) Qualifier/Kind changed to Qualifier/kind (typo in table, UML and schema correct)
 * (Editorial) BasicEventElement/Direction and BasicEventElement/State changed to BasicEventElement/direction and BasicEventElement/state typo in table, UML and schema correct)
 * Fix figure for DataTypeDefXsd: ordering was not correct, xs:float moved to its place
 * (Editorial) fix figure "Association" in Annex for UML (https://github.com/admin-shell-io/aas-specs/issues/328[#328])
 * (Editorial) change recommendation to use a global reference to use an external reference, same for externalSubjectId: it is an external reference.
-* (Editorial) JSON and XML Schema references to github admin-shell-io reformulated
+* (Editorial) JSON and XML Schema references to GitHub admin-shell-io reformulated
 * (Editorial) correct Figure 23 Metamodel of an AssetAdministrationShell: arrow removed from association between Submodel and AssetAdministrationShell
 * (Editorial) update deprecated web links
 * (Editorial) correct information in Changes V3.0 vs. V3.0RC02 w.r.t. VersionType and RevisionType
@@ -226,7 +226,7 @@ Grammar for text serialization updated.
 * CHANGED: Revised concept on handling of Asset and assetIdentificationModel (assetInformation), Asset removed, no Asset/billOfMaterial any longer.
 Specific asset IDs added.
 * CHANGED: Attributes with type "string" were substituted by string types with length restrictions + some more constraints on string handling.
-LangSringSet handling updated.
+LangStringSet handling updated.
 * REMOVED: ConceptDictionaries removed, no longer supported
 * REMOVED: Views removed, no longer supported
 * NEW: Events now experimental parts of normative part (including renaming and smaller changes)
@@ -266,7 +266,7 @@ Bugfixes:
 
 * Corrected Japanese example for xd:string
 * HasDataSpecification/embeddedDataSpecs 0..* not 0..1
-* Qualifer is and never was abstract (Constraint was), table was correct, UML corrected
+* Qualifier is and never was abstract (Constraint was), table was correct, UML corrected
 * Correct AASd-051: VIEW no longer supported
 * Type of SubmodelElementList/typeValueListElement corrected to AasSubmodelElements (before SubmodelElementElements
 
@@ -392,7 +392,7 @@ Now part of AasSubmodelElements
 |x |ReferenceTypes/GlobalReference |Renamed to ExternalReference
 |{empty} |RelationshipElement/first |Type changes from model reference Referable to Reference (global or model reference)
 |{empty} |RelationshipElement/second |Type changes from model reference Referable to Reference (global or model reference)
-|xxref:Bibliography.adoc#bib1[[1\]] |SubmodelElement/kind |Removed. SubmodelElement no longer inheritsfrom HasKind
+|xxref:Bibliography.adoc#bib1[[1\]] |SubmodelElement/kind |Removed. SubmodelElement no longer inherits from HasKind
 |{empty} |xref:spec-metamodel/datatypes.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
 |{empty}x |View |Removed
 |===
@@ -466,7 +466,7 @@ Type changed from string to MessageTopicType (i.e. length constraint added, maxi
 | |Extension/refersTo |{empty}
 | |Extension/valueType |{empty}
 | |Extension/valueType |{empty}
-|{empty} |File/contentType |Fromer File/mimeType
+|{empty} |File/contentType |Former File/mimeType
 |{empty} |xref:spec-metamodel/referencing.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
 |{empty} |xref:spec-metamodel/referencing.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
 |{empty} |GenericGloballyIdentifiers |New enumeration used for References
@@ -1075,7 +1075,7 @@ Constraint AASd-001: In case of a referable element not being an identifiable el
 
 For namespace part see AASd-022
 
-|footnote:[Every model valid for V3.0RC02 is still valid in V3.0RC01, however there might be implementations that need to be changed if they assumed that the user can type case-insensitive names and get all elements that match the name in an case-insensitive way.] |AASd-003 |Update a|
+|footnote:[Every model valid for V3.0RC02 is still valid in V3.0RC01, however there might be implementations that need to be changed if they assumed that the user can type case-insensitive names and get all elements that match the name in a case-insensitive way.] |AASd-003 |Update a|
 idShort is case-sensitive and not case-insensitive
 
 Constraint AASd-003: _idShort_ of _Referables_ shall be matched case-sensitive.
@@ -1140,8 +1140,8 @@ Constraint AASD-120: idShort of submodel elements within a SubmodelElementList s
 | |AASd-124 |New |Constraint AASd-124: For global references, i.e. References with Reference/type = GlobalReference, the last key of Reference/keys shall be either one of GenericGloballyIdentifiables or one of GenericFragmentKeys.
 | |AASd-125 |New |Constraint AASd-125: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys the type of the keys following the first key of Reference/keys shall be one of FragmentKeys.
 | |AASd-126 |New |Constraint AASd-126: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys the type of the last Key in the reference key chain may be one of GenericFragmentKeys or no key at all shall have a value out of GenericFragmentKey.
-| |AASd-127 |New |Constraint AASd-127: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys a key with type FragmentReference shall be preceeded by a key with type File or Blob. All other AAS fragments, i.e. type values out of AasSubmodelElements, do not support fragments.
-| |AA-128 |New |Constraint AASd-128: For model references, i.e. References with Reference/type = ModelReference, the Key/value of a Key preceeded by a Key with Key/type=SubmodelElementList is an integer number denoting the position in the array of the submodel element list.
+| |AASd-127 |New |Constraint AASd-127: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys a key with type FragmentReference shall be preceded by a key with type File or Blob. All other AAS fragments, i.e. type values out of AasSubmodelElements, do not support fragments.
+| |AA-128 |New |Constraint AASd-128: For model references, i.e. References with Reference/type = ModelReference, the Key/value of a Key preceded by a Key with Key/type=SubmodelElementList is an integer number denoting the position in the array of the submodel element list.
 |===
 
 === Metamodel Changes V3.0RC02 vs. V2.0.1 – Data Specification IEC61360
@@ -1175,7 +1175,7 @@ See separate entries for individual changes.
 |*nc* |*V3.0RC02 vs. V2.0.1* |*Comment*
 | |DataSpecification/administration |Was inherited before by Identifiable
 | |DataSpecification/id |Was inherited before by Identifiable
-| |DataSpecification/desciption |Was inherited before by Identifiable
+| |DataSpecification/description |Was inherited before by Identifiable
 |{empty} |DataTypeIEC61360/BLOB |New value
 |{empty} |DataTypeIEC61360/FILE |New value
 |{empty} |DataTypeIEC61360/HTML |New value
@@ -1213,7 +1213,7 @@ Changes:
 [cols="5%,46%,43%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V2.0.1* |*Comment*
-|x |AccessControlPolicyPoints/policyAdministrationoint |Type changed from PolicyAdministrationPoint to AccessControl
+|x |AccessControlPolicyPoints/policyAdministrationPoint |Type changed from PolicyAdministrationPoint to AccessControl
 |x |AccessControlPolicyPoints/policyDecisionPoint |Removed
 |x |AccessControlPolicyPoints/policyEnforcementPoint |Removed
 |x |AccessControlPolicyPoints/policyInformationPoint |Removed
@@ -1322,7 +1322,7 @@ Note: Security is still part of the Asset Administration Shell, but the Asset Ad
 ====
 
 
-|{empty} |AssetAdministrationShell/view |Removed, views not longer supported
+|{empty} |AssetAdministrationShell/view |Removed, views no longer supported
 |x |AssetInformation/billOfMaterial |Removed
 |x |AssetInformation/defaultThumbnail |Type changed from File to Resource
 |x |AssetInformation/specificAssetId |Type changed from IdentifierKeyValuePair to SpecificAssetId
@@ -1483,7 +1483,7 @@ New submodel element SubmodelElementList added, renamed submodel elements Event 
 [cols="5%,12%,15%,65%",options="header",]
 |===
 |*Nc* |*V3.0RC02 vs. V3.0RC01* |*New, Update, Removed, Reformulated* |*Comment*
-|footnote:[Every model valid for V3.0RC02 is still valid in V3.0RC01, however there might be implementations that need to be changed if they assumed that the user can type case-insensitive names and get all elements that match the name in an case-insensitive way.] |AASd-003 |Update a|
+|footnote:[Every model valid for V3.0RC02 is still valid in V3.0RC01, however there might be implementations that need to be changed if they assumed that the user can type case-insensitive names and get all elements that match the name in a case-insensitive way.] |AASd-003 |Update a|
 idShort is case-sensitive and not case-insensitive
 
 Constraint AASd-003: _idShort_ of _Referables_ shall be matched case-sensitive.
@@ -1534,7 +1534,7 @@ Constraint AASd-055: If the semanticId of a RelationshipElement or an AnnotatedR
 | |AASd-056 |Removed a|
 removed, still recommended; would be renamed to AASc if still needed
 
-Constraint AASd-056: If the semanticId of a Entity submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: ENTITY. The ConceptDescription describes the elements assigned to the entity via Entity/statement.
+Constraint AASd-056: If the semanticId of an Entity submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: ENTITY. The ConceptDescription describes the elements assigned to the entity via Entity/statement.
 
 | |AASd-057 |Removed a|
 removed, still recommended; would be renamed to AASc if still needed
@@ -1556,12 +1556,12 @@ Constraint AASd-059: If the semanticId of a SubmodelElementCollection references
 | |AASd-060 |Removed a|
 removed, still recommended; would be renamed to AASc if still needed
 
-Constraint AASd-060: If the semanticId of a Operation submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: FUNCTION.
+Constraint AASd-060: If the semanticId of an Operation submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: FUNCTION.
 
 | |AASd-061 |Removed a|
 removed, still recommended; would be renamed to AASc if still needed
 
-Constraint AASd-061: If the semanticId of a Event submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: EVENT.
+Constraint AASd-061: If the semanticId of an Event submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: EVENT.
 
 | |AASd-062 |Removed a|
 removed, still recommended; would be renamed to AASc if still needed
@@ -1647,7 +1647,7 @@ Constraint AASd-093: If the semanticId of a SubmodelElementCollection with Submo
 
 | |AASd-107 |New |Constraint AASd-107: If a first level child element in a SubmodelElementList has a semanticId it shall be identical to SubmodelElementList/semanticIdListElement.
 | |AASd-108 |New |Constraint AASd-108: All first level child elements in a SubmodelElementList shall have the same submodel element type as specified in SubmodelElementList/typeValueListElement.
-| |AASd-109 |New |Constraint AASd-109: If SubmodelElementList/typeValueListElement equal to Property or Range SubmodelElementList/valueTypeListElement shall be set and all first level child elements in the SubmodelElementList shall have the the value type as specified in SubmodelElementList/valueTypeListElement.
+| |AASd-109 |New |Constraint AASd-109: If SubmodelElementList/typeValueListElement equal to Property or Range SubmodelElementList/valueTypeListElement shall be set and all first level child elements in the SubmodelElementList shall have the value type as specified in SubmodelElementList/valueTypeListElement.
 | |AASd-114 |New |Constraint AASd-114: If two first level child elements in a SubmodelElementList have a semanticId then they shall be identical.
 | |AASd-115 |New |Constraint AASd-115: If a first level child element in a SubmodelElementList does not specify a semanticId then the value is assumed to be identical to SubmodelElementList/semanticIdListElement.
 | |AASd-116 |New |Constraint AASd-116: "globalAssetId" (case-insensitive) is a reserved key. If used as value for SpecificAssetId/name IdentifierKeyValuePair/value shall be identical to AssetInformation/globalAssetId.
@@ -1673,8 +1673,8 @@ Constraint AASD-120: idShort of submodel elements within a SubmodelElementList s
 | |AASd-124 |New |Constraint AASd-124: For global references, i.e. References with Reference/type = GlobalReference, the last key of Reference/keys shall be either one of GenericGloballyIdentifiables or one of GenericFragmentKeys.
 | |AASd-125 |New |Constraint AASd-125: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys the type of the keys following the first key of Reference/keys shall be one of FragmentKeys.
 | |AASd-126 |New |Constraint AASd-126: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys the type of the last Key in the reference key chain may be one of GenericFragmentKeys or no key at all shall have a value out of GenericFragmentKey.
-| |AASd-127 |New |Constraint AASd-127: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys a key with type FragmentReference shall be preceeded by a key with type File or Blob. All other AAS fragments, i.e. type values out of AasSubmodelElements, do not support fragments.
-| |AAS-128 |New |Constraint AASd-128: For model references, i.e. References with Reference/type = ModelReference, the Key/value of a Key preceeded by a Key with Key/type=SubmodelElementList is an integer number denoting the position in the array of the submodel element list.
+| |AASd-127 |New |Constraint AASd-127: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys a key with type FragmentReference shall be preceded by a key with type File or Blob. All other AAS fragments, i.e. type values out of AasSubmodelElements, do not support fragments.
+| |AAS-128 |New |Constraint AASd-128: For model references, i.e. References with Reference/type = ModelReference, the Key/value of a Key preceded by a Key with Key/type=SubmodelElementList is an integer number denoting the position in the array of the submodel element list.
 |===
 
 === Metamodel Changes V3.0RC02 vs. V3.0RC01 – Data Specification IEC61360
@@ -1712,7 +1712,7 @@ See separate entries for individual changes
 |x |ValueReferencePair/valueId |Type changed from Reference to GlobalReference
 | |DataSpecification/administration |Was inherited before by Identifiable
 | |DataSpecification/id |Was inherited before by Identifiable
-| |DataSpecification/desciption |Was inherited before by Identifiable
+| |DataSpecification/description |Was inherited before by Identifiable
 |{empty} |DataTypeIEC61360/BLOB |New value
 |{empty} |DataTypeIEC61360/FILE |New value
 |{empty} |DataTypeIEC61360/HTML |New value
@@ -1750,7 +1750,7 @@ Changes:
 [cols="5%,46%,43%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V3.0RC01* |*Comment*
-|x |AccessControlPolicyPoints/policyAdministrationoint |Type changed from PolicyAdministrationPoint to AccessControl
+|x |AccessControlPolicyPoints/policyAdministrationPoint |Type changed from PolicyAdministrationPoint to AccessControl
 |x |AccessControlPolicyPoints/policyDecisionPoint |Removed
 |x |AccessControlPolicyPoints/policyEnforcementPoint |Removed
 |x |AccessControlPolicyPoints/policyInformationPoint |Removed
@@ -1883,12 +1883,12 @@ Constraint AASd-022: idShort of non-identifiable referables shall be unique in i
 |(x) |AASd-053 |New |Constraint AASd-053: If the semanticId of a Range submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: PROPERTY.
 |(x) |AASd-054 |New |Constraint AASd-054: If the semanticId of a ReferenceElement submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: REFERENCE.
 |(x) |AASd-055 |New |Constraint AASd-055: If the semanticId of a RelationshipElement or an AnnotatedRelationshipElement submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: RELATIONSHIP.
-|(x) |AASd-056 |New |Constraint AASd-056: If the semanticId of a Entity submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: ENTITY. The ConceptDescription describes the elements assigned to the entity via Entity/statement.
+|(x) |AASd-056 |New |Constraint AASd-056: If the semanticId of an Entity submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: ENTITY. The ConceptDescription describes the elements assigned to the entity via Entity/statement.
 |(x) |AASd-057 |New |Constraint AASd-057: The semanticId of a File or Blob submodel element shall only reference a ConceptDescription with the category DOCUMENT.
 |(x) |AASd-058 |New |Constraint AASd-058: The semanticId of a Capability submodel element shall only reference a ConceptDescription with the category CAPABILITY.
 |(x) |AASd-059 |New |Constraint AASd-059: The semanticId of a SubmodelElementCollection submodel element shall only reference a ConceptDescription with the category COLLECTION or ENTITY.
-|(x) |AASd-060 |New |Constraint AASd-060: If the semanticId of a Operation submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: FUNCTION.
-|(x) |AASd-061 |New |Constraint AASd-061: If the semanticId of a Event submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: EVENT.
+|(x) |AASd-060 |New |Constraint AASd-060: If the semanticId of an Operation submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: FUNCTION.
+|(x) |AASd-061 |New |Constraint AASd-061: If the semanticId of an Event submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: EVENT.
 |(x) |AASd-062 |New |Constraint AASd-062: If the _semanticId_ of a _Property_ references a _ConceptDescription_ then the _ConceptDescription/category_ shall be one of following values: APPLICATION_CLASS.
 |(x) |AASd-063 |New |Constraint AASd-063: If the semanticId of a Qualifier references a ConceptDescription then the ConceptDescription/category shall be one of following values: QUALIFIER.
 |(x) |AASd-064 |New |Constraint AASd-064: If the _semanticId_ of a _View_ references a _ConceptDescription_ then the category of the _ConceptDescription_ shall be _VIEW_[.underline]#.#

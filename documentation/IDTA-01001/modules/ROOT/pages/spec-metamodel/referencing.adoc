@@ -64,7 +64,7 @@ Denotes whether reference is an external reference or a model reference
 
 .2+e|referredSemanticId 3+| `\https://admin-shell.io/aas/3/1/Reference/referredSemanticId`
 a|
-Expected semantic ID of the referenced model element (_Reference/type=ModelReference_); there typically is no semantic ID for for the referenced object of external references _(Reference/type=ExternalReference)_.
+Expected semantic ID of the referenced model element (_Reference/type=ModelReference_); there typically is no semantic ID for the referenced object of external references _(Reference/type=ExternalReference)_.
 
 
 ====
@@ -147,7 +147,7 @@ The name of the model element is explicitly listed.
 |xref:KeyTypes[KeyTypes]|1
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/Key`
-a|The key value, for example an IRDI or an URI |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |1
+a|The key value, for example an IRDI or a URI |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |1
 |===
 
 An example for using a _FragmentId_ as type of a key is a reference to an element within a file that is part of an Asset Administration Shell aasx package.
@@ -886,7 +886,7 @@ https://example.com/specification.html
 
 [example]
 ....
-(GlobalReferencehttps://example.com/specification.html, (FragmentReference)Hints
+(GlobalReference)https://example.com/specification.html, (FragmentReference)Hints
 ....
 
 ====
@@ -910,7 +910,7 @@ This is an external reference but no model reference.
 (Property)0173-1#02-BAA120#008
 ....
 
-This reference does not start with the ID of an Identiable.
+This reference does not start with the ID of an Identifiable.
 Additionally, the value is not valid idShort for a Property submodel element.
 
 [example]

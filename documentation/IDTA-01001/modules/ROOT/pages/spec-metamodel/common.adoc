@@ -269,7 +269,7 @@ h|ID: | `\https://admin-shell.io/aas/3/0/ModellingKind`
 h|Explanation
 
 .2+e|Template | `\https://admin-shell.io/aas/3/0/ModellingKind/Template`
-a|specification of the common features of a structured element in sufficient detail that such a instance can be instantiated using it
+a|specification of the common features of a structured element in sufficient detail that such an instance can be instantiated using it
 
 .2+e|Instance | `\https://admin-shell.io/aas/3/0/ModellingKind/Instance`
 a|concrete, clearly identifiable element instance.
@@ -548,7 +548,7 @@ image::image23.png[]
 The metamodel differentiates between elements that are identifiable, referable, or none of both.
 The latter means they are neither inheriting from _Referable_ nor from _Identifiable_, which applies e.g. to __Qualifier__s.
 
-Referable elements can be referenced via the _idShort_ (with exception of elements within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes [SubmodelElementList]).
+Referable elements can be referenced via the _idShort_ (with the exception of elements within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes [SubmodelElementList]).
 For details on referencing, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
 
 Not every element of the metamodel is referable.
