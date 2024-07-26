@@ -3,15 +3,11 @@
 [[semantic-ids-for-metamodel]]
 =  Semantic Identifiers for Metamodel and Data Specifications
 
-
-
 Rules for creating identifiers are defined to enable the unique identification of concepts as used and defined in the metamodel of the Asset Administration Shell.
 
 == Grammar Semantic Metamodel Identifiers
 
 The following grammar is used to create valid identifiers:
-
-
 
 [listing]
 ....
@@ -30,7 +26,8 @@ The following grammar is used to create valid identifiers:
 <Character> ::= characters conformant to regular expression [a..zA..Z-]
 ....
 
-For AAS a predefined namespace qualifier is defined. For data specifications this is defined within the corresponding specifications for single data specifications.
+For AAS a predefined namespace qualifier is defined.
+For data specifications this is defined within the corresponding specifications for single data specifications.
 
 [listing]
 ....
@@ -42,7 +39,8 @@ For AAS a predefined namespace qualifier is defined. For data specifications thi
 ....
 
 ====
-Note: The Data Specification ID should include versioning information. Data Specifications defined by the IDTA typically start with the <AAS namespace> as well. 
+Note: The Data Specification ID should include versioning information.
+Data Specifications defined by the IDTA typically start with the <AAS namespace> as well.
 Additionally, a sub-namespace is defined following the rules of the  https://github.com/admin-shell-io/id?tab=readme-ov-file#identifier-scheme-and-description[Identification Scheme of the Asset Administration Shell].
 ====
 
@@ -99,7 +97,8 @@ AAS:ContentType
 AAS:KeyTypes
 ....
 
-Attributes of classes are separated by "/". Inherited attributes can also be referenced in this way, if the concrete referable is important in the context.
+Attributes of classes are separated by "/".
+Inherited attributes can also be referenced in this way, if the concrete referable is important in the context.
 
 Basic Pattern:
 
@@ -128,6 +127,7 @@ This also applies to attributes of attributes, if the cardinality of the attribu
 ....
 
 [.underline]#Valid examples:#
+
 [example]
 ....
 
@@ -135,12 +135,14 @@ AAS:Identifiable/administration/version
 ....
 
 This also applies to values of enumerations:
+
 [listing]
 ....
 <AAS Class Name>[\{ "/" <AAS Attribute Name>}*][ "/" <AAS Enumeration Value>]
 ....
 
 [.underline]#Valid examples:#
+
 [example]
 ....
 
@@ -151,13 +153,12 @@ AAS:AasSubmodelElements/Submodel
 
 In case of an attribute with a cardinality greater than 1, no further attributes or enumeration values can be added.
 
-
 ====
 Note: although the attribute name in UML is always singular, the attribute name is annotated by the plural "s" if the cardinality is > 1.
 ====
 
-
 [.underline]#Valid examples#:
+
 [example]
 ....
 
@@ -177,18 +178,27 @@ AAS:AssetAdministrationShell/submodels/administration/version
 AAS:Submodel/Property/idShort
 ....
 
-These semantic identifiers are used as values for the _RefSemantic_ attribute in AutomationML Mapping of the Asset Administration Shell. They are also used in OPC UA to describe the semantics of the metamodel via the OPC UA _HasDictionaryEntry_ reference type.
+These semantic identifiers are used as values for the _RefSemantic_ attribute in AutomationML Mapping of the Asset Administration Shell.
+They are also used in OPC UA to describe the semantics of the metamodel via the OPC UA _HasDictionaryEntry_ reference type.
 
-Additional identifiers might be needed for specific serializations and mappings, e.g. for a set of Asset Administration Shells or a set of available concept descriptions. Here, the Asset Administration Shell metamodel and specification does not give any recommendations.
+Additional identifiers might be needed for specific serializations and mappings, e.g. for a set of Asset Administration Shells or a set of available concept descriptions.
+Here, the Asset Administration Shell metamodel and specification does not give any recommendations.
 
-Data specification handling is special. Data specification templates do not belong to Part 1 of the Asset Administration Shell. However, serializations only support the predefined data specification templates as stipulated in this specification series, Part 3. Their corresponding name space qualifiers are defined individually.
+Data specification handling is special.
+Data specification templates do not belong to Part 1 of the Asset Administration Shell.
+However, serializations only support the predefined data specification templates as stipulated in this specification series, Part 3.
+Their corresponding name space qualifiers are defined individually.
 
 [.underline]#Examples:#
 
-In xml and JSON, data specifications are embedded into the schema itself using the attribute "embeddedDataSpecification". Here, no concept identifier shall be used. For example,
+In xml and JSON, data specifications are embedded into the schema itself using the attribute "embeddedDataSpecification".
+Here, no concept identifier shall be used.
+For example,
+
 [example]
 ....
 AAS:ConceptDescription/embeddedDataSpecifications
 ....
 
-is not a valid concept identifier. _AAS:DataSpecificationContent_ is a valid concept identifier.
+is not a valid concept identifier.
+_AAS:DataSpecificationContent_ is a valid concept identifier.

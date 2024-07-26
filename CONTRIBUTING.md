@@ -18,12 +18,12 @@ If you are a member of the development team, [create a feature branch] directly 
 
 [create a feature branch]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
 
-Otherwise, if you are a non-member contributor, fork the repository and create the feature branch in your forked repository. See [this Github tutorial] for more guidance. 
+Otherwise, if you are a non-member contributor, fork the repository and create the feature branch in your forked repository. See [this GitHub tutorial] for more guidance. 
 
-[this Github tutorial]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
+[this GitHub tutorial]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
 
 **Branch Prefix**.
-Please prefix the branch with your Github user name (*e.g.,* `mristin/Add-some-feature`).
+Please prefix the branch with your GitHub user name (*e.g.,* `mristin/Add-some-feature`).
 
 ## Recommendation for Commit Messages
 
@@ -39,7 +39,7 @@ The commit messages follow the guidelines from https://chris.beams.io/posts/git-
 ## Create Pull Request
 After all changes have been committed to your feature branch, a [pull request] (PR) has to be created.
 Every PR should be linked to an issue for tracking.
-See [this Github tutorial] for more guidance. 
+See [this GitHub tutorial] for more guidance. 
 
 [pull request]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
 
@@ -47,7 +47,7 @@ See [this Github tutorial] for more guidance.
 
 ## Pre-Merge Checks
 **Continuous Integration.**
-Github will run the continuous integration (CI) automatically through Github actions to verify that the submitted changes are valid.
+GitHub will run the continuous integration (CI) automatically through GitHub actions to verify that the submitted changes are valid.
 Every pull request automatically runs the continuous integration with every update.
 
 The continuous integration must be **successfully completed** with `All checks have passed` before proceeding with the approval process.

@@ -13,15 +13,18 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 
 === Format "Metadata" (Metadata-Serialization)
 
+Metadata objects are defined for scenarios where a client only wants to access the metadata of an object, but not the value.
+Metadata objects are used to reduce the payload response to a minimum and to avoid the recursive traversing through the data model when not needed.
+In many cases, a client is not interested in each child element or value of a resource, but only in the resource itself.
 
-Metadata objects are defined for scenarios where a client only wants to access the metadata of an object, but not the value. Metadata objects are used to reduce the payload response to a minimum and to avoid the recursive traversing through the data model when not needed. In many cases, a client is not interested in each child element or value of a resource, but only in the resource itself.
-
-A metadata object does not contain any additional fields in relation to its full object representation, only some fields are left off. The left off fields are fields which could be requested by an own API call and may consist of a recursive or potentially large substructure. The serialization of a metadata object is the same as for the original full object, but without the left off fields.
+A metadata object does not contain any additional fields in relation to its full object representation, only some fields are left off.
+The left off fields are fields which could be requested by an own API call and may consist of a recursive or potentially large substructure.
+The serialization of a metadata object is the same as for the original full object, but without the left off fields.
 
 For elements in the metamodel that are not listed in the table no "Metadata"-serialization is available.
 
 .Metadata Attributes
-[%autowidth, width="100%", cols="48%,52%",options="header",]
+[%autowidth,width="100%",cols="48%,52%",options="header",]
 |===
 |*Class Name* |*Fields not available in metadata representation*
 2+|*Identifiables*
@@ -45,11 +48,9 @@ For elements in the metamodel that are not listed in the table no "Metadata"-ser
 |File |value, contentType
 |===
 
-
 *Example*
 
 The example shows a JSON serialization of an AssetAdministrationShell object in its full representation and how it looks like in a metadata representation.
-
 
 ====
 Note: for editorial reasons, some fields which are the same for both representations are omitted.
@@ -82,7 +83,7 @@ a|
   "description": [...],
   "id": {...},
   ...
-  "derivedFrom": {...},
+  "derivedFrom": {...}
 }
 ----
 |===

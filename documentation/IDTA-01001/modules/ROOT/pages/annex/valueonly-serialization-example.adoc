@@ -14,7 +14,9 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 = ValueOnly-Serialization Example 
 
 The following example shows the ValueOnly-Serialization for an entire Submodel that validates against the JSON-schema specified in Clause 11.4.3. +
-As mentioned in Clause 11.4.3, __SubmodelElementCollection__s cannot be validated within the same schema due to circularity reasons; instead they have their own specific validation schema. An exemplary _SubmodelElementCollection_ is added to the following JSON for completeness. It is, however, not validatable against the schema in Clause 11.4.3 due to the reasons mentioned above.
+As mentioned in Clause 11.4.3, __SubmodelElementCollection__s cannot be validated within the same schema due to circularity reasons; instead they have their own specific validation schema.
+An exemplary _SubmodelElementCollection_ is added to the following JSON for completeness.
+It is, however, not validatable against the schema in Clause 11.4.3 due to the reasons mentioned above.
 
 [source,json,linenums]
 ----

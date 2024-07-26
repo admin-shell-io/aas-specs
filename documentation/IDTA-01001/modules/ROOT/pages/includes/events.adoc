@@ -2,7 +2,7 @@
 Copyright (c) 2023 Industrial Digital Twin Association
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](
-https://creativecommons.org/licenses/by/4.0/). 
+https://creativecommons.org/licenses/by/4.0/).
 
 SPDX-License-Identifier: CC-BY-4.0
 
@@ -17,33 +17,49 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 
 === Overview
 
-Events are a very versatile mechanism of the Asset Administration Shell. The following subclauses describe some use cases for events. They summarize different types of events to depict requirements, introduce a _SubmodelElement_ xref:spec-metamodel/submodel-elements.adoc#event-element-attributes[EventElement] to enable declaration of events of an Asset Administration Shell. Further, the general format of event messages is specified.
-
+Events are a very versatile mechanism of the Asset Administration Shell.
+The following subclauses describe some use cases for events.
+They summarize different types of events to depict requirements, introduce a _SubmodelElement_ xref:spec-metamodel/submodel-elements.adoc#event-element-attributes[EventElement] to enable declaration of events of an Asset Administration Shell.
+Further, the general format of event messages is specified.
 
 ====
-Note: the concept of event is still in the experimental phase. Please be aware that backward compatibility cannot be ensured for future versions of the metamodel.
+Note: the concept of event is still in the experimental phase.
+Please be aware that backward compatibility cannot be ensured for future versions of the metamodel.
 ====
-
 
 ===  Brief Use Cases for Events Used in Asset Administration Shells
 
 Event use cases are briefly outlined in the following:
 
-* An integrator has purchased a device. Later in time, the supplier of the device provides a new firmware. The integrator wants to detect the offer of a new firmware and wants to update the firmware after evaluating its suitability ("forward events"). A dependent Asset Administration Shell ("D4") detects events from a parent or type Asset Administration Shell ("D1"), which is described by the _derivedFrom_ relation. An illustration of the use case is given in  <<image-forward-and-revers-events>>.
+* An integrator has purchased a device.
+Later in time, the supplier of the device provides a new firmware.
+The integrator wants to detect the offer of a new firmware and wants to update the firmware after evaluating its suitability ("forward events").
+A dependent Asset Administration Shell ("D4") detects events from a parent or type Asset Administration Shell ("D1"), which is described by the _derivedFrom_ relation.
+An illustration of the use case is given in  <<image-forward-and-revers-events>>.
 
-* An integrator/operator operates a motor purchased from a supplier. During operation, condition monitoring incidents occur. Both parties agree on a business model providing availability. The supplier wants to monitor device statuses which are located further in the value chain ("reverse events"). An illustration of the use case is given in  <<image-forward-and-revers-events>>.
+* An integrator/operator operates a motor purchased from a supplier.
+During operation, condition monitoring incidents occur.
+Both parties agree on a business model providing availability.
+The supplier wants to monitor device statuses which are located further in the value chain ("reverse events").
+An illustration of the use case is given in <<image-forward-and-revers-events>>.
 
 .Forward and Reverse Events
 [[image-forward-and-revers-events]]
 image::image8.jpeg[]
 
-* An operator is operating a certain I4.0 component over time. Changes that occasionally occur to these I4.0 components from different systems shall be tracked for documentation and auditing purposes. This can be achieved by recording events over time. An illustration of the use case is given in  <<image-tracking-of-changes-via-events>>.
+* An operator is operating a certain I4.0 component over time.
+Changes that occasionally occur to these I4.0 components from different systems shall be tracked for documentation and auditing purposes.
+This can be achieved by recording events over time.
+An illustration of the use case is given in <<image-tracking-of-changes-via-events>>.
 
 .Tracking of Changes via Events
 [[image-tracking-of-changes-via-events]]
 image::image9.jpeg[]
 
-* An operator is operating different I4.0 components, which are deployed to manufacturer clouds. The operator wants to integrate data from these components, according to DIN SPEC 92222. For this purpose, information needs to be forwarded to the operator cloud ("value push"). An illustration of the use case is given in  <<image-value-push-events-across-clouds>>.
+* An operator is operating different I4.0 components, which are deployed to manufacturer clouds.
+The operator wants to integrate data from these components, according to DIN SPEC 92222.
+For this purpose, information needs to be forwarded to the operator cloud ("value push").
+An illustration of the use case is given in <<image-value-push-events-across-clouds>>.
 
 .Value Push Events Across Clouds
 [[image-value-push-events-across-clouds]]
@@ -52,22 +68,30 @@ image::image10.jpeg[]
 [#input-and-output-directions-of-events]
 ===  Input and Output Directions of Events
 
-We can distinguish between incoming and outgoing events. See Table <<table-directions-of-events>> for more information on the event directions.
+We can distinguish between incoming and outgoing events.
+See Table <<table-directions-of-events>> for more information on the event directions.
 
 .Directions of Events
 [[table-directions-of-events]]
 [cols="32%,68%",options="header",]
 |===
 |*Direction* |*Description*
-|Out |The event is monitoring the _Referable_ it is attached to. An outer message infrastructure, e.g. by OPC UA, MQTT or AMQP, will transport these events to other Asset Administration Shells, further outer systems and users.
-|In |The software entity, which implements the respective _Referable_, can handle incoming events. These incoming events will be delivered by an outer message infrastructure, e.g. OPC UA, MQTT or AMQP, to the software entity of the _Referable_.
+|Out
+|The event is monitoring the _Referable_ it is attached to.
+An outer message infrastructure, e.g. by OPC UA, MQTT or AMQP, will transport these events to other Asset Administration Shells, further outer systems and users.
+
+|In
+|The software entity, which implements the respective _Referable_, can handle incoming events.
+These incoming events will be delivered by an outer message infrastructure, e.g. OPC UA, MQTT or AMQP, to the software entity of the _Referable_.
 |===
 
 === Types of Events
 
-The uses cases described in Clause xref:../general.adoc#brief-use-cases-for-events-used-in-asset-administration-shells[Brief Use Cases for Events Used in Asset Administration Shells] need different types of events. Each event type is identified by a _semanticId_ and features a specialized payload.
+The uses cases described in Clause xref:../general.adoc#brief-use-cases-for-events-used-in-asset-administration-shells[Brief Use Cases for Events Used in Asset Administration Shells] need different types of events.
+Each event type is identified by a _semanticId_ and features a specialized payload.
 
-Table <<table-types-of-events>> gives an overview of types of events. The possible directions of an event are described in Clause xref:../general.adoc#input-and-output-directions-of-events[Input and Output Directions of Events].
+Table <<table-types-of-events>> gives an overview of types of events.
+The possible directions of an event are described in Clause xref:../general.adoc#input-and-output-directions-of-events[Input and Output Directions of Events].
 
 .Types of Events
 [[table-types-of-events]]
@@ -108,7 +132,9 @@ Table <<table-types-of-events>> gives an overview of types of events. The possib
 
 *Custom Event Types*
 
-Custom event types can be defined by using a proprietary, but worldwide unique, semanticId for this event type. Such customized events can be sent or received by the software entity of the respective referable, based on arbitrary conditions, triggers, or behavior. While the general format of the event messages needs to comply with this specification, the payload might be completely customized.
+Custom event types can be defined by using a proprietary, but worldwide unique, semanticId for this event type.
+Such customized events can be sent or received by the software entity of the respective referable, based on arbitrary conditions, triggers, or behavior.
+While the general format of the event messages needs to comply with this specification, the payload might be completely customized.
 
 *Event Scopes*
 

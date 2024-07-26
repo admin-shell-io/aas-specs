@@ -2,7 +2,7 @@
 Copyright (c) 2023 Industrial Digital Twin Association
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](
-https://creativecommons.org/licenses/by/4.0/). 
+https://creativecommons.org/licenses/by/4.0/).
 
 SPDX-License-Identifier: CC-BY-4.0
 
@@ -13,14 +13,15 @@ include::./includes/constraints.adoc[]
 
 = Metamodel Changes
 
-
 == General
 
-This annex lists the changes from version to version of the metamodel, together with major changes in the overall document. Non-backward compatible changes (nc) are marked as such.
+This annex lists the changes from version to version of the metamodel, together with major changes in the overall document.
+Non-backward compatible changes (nc) are marked as such.
 
 nc="x" means non-backward compatible; if no value is added in the table, then the change is backward compatible.
 
-nc="(x)" means that the change made was implicitly contained or stated in the document before and is now being formalized. Therefore, the change is considered to be backward compatible.
+nc="(x)" means that the change made was implicitly contained or stated in the document before and is now being formalized.
+Therefore, the change is considered to be backward compatible.
 
 Before splitting the document, changes to the data specification templates and the security of the metamodel were listed in separate tables.
 
@@ -30,60 +31,51 @@ Three tables are introduced to explain the changes:
 . new elements in metamodel w.r.t previous version,
 . new, changed, or removed constraints w.r.t previous version.
 
-If there are no changes the corresponding tables are obmitted.
-
+If there are no changes the corresponding tables are omitted.
 
 ====
-Note: before V3.0, the security metamodel and the predefined data specifications were also part of this document. 
+Note: before V3.0, the security metamodel and the predefined data specifications were also part of this document.
 ====
-
 
 == Changes V3.1 vs. V3.0.1
 
 Major Changes:
 
-
 * New value "Role" to enumeration AssetKind (https://github.com/admin-shell-io/aas-specs/issues/294[#294])
-* Data type  Identifier: change length from 2000 to 2048 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
+* Data type Identifier: change length from 2000 to 2048 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
 * Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name (https://github.com/admin-shell-io/aas-specs/issues/295[#295])
 * Entity/entityType and Constraint AASd-014: entityType now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
 * Change RelationshipElement: attributes "first" and "second" now optional (conformant to "min" and "max" of "Range")(https://github.com/admin-shell-io/aas-specs/issues/412[#412]), AnnotatedRelationshipElement inherits from RelationshipElement and is thus also affected.
 * Change File and Blob: attribute "contentType" now optional (https://github.com/admin-shell-io/aas-specs/issues/412[#412]),
-* Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications
-(https://github.com/admin-shell-io/aas-specs/issues/307[#307])
-* Terms and Definitions adopted to IEC 63278-1:2023 (before IEC 63278-1 Draft July 2022 was the basis), 
-(https://github.com/admin-shell-io/aas-specs/issues/365[#365])
-also abbreviations partly adopted; changes:
-	** changed: asset
-	** changed: digital representation (example only)
-	** removed: ontology
-	** changed: service
-	** removed: smart manufacturing
-	** changed: Submodel
-	** changed: Submodel template
-	** changed: Submodel template element
-	** removed: technical functionality
-* Update clause on matching algorithm for references
-(https://github.com/admin-shell-io/aas-specs/issues/350[#350])
-	** introduce equivalent matching and rename exact matching to value matching
-	** added notes 
+* Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications (https://github.com/admin-shell-io/aas-specs/issues/307[#307])
+* Terms and Definitions adopted to IEC 63278-1:2023 (before IEC 63278-1 Draft July 2022 was the basis), (https://github.com/admin-shell-io/aas-specs/issues/365[#365]) also abbreviations partly adopted; changes:
+** changed: asset
+** changed: digital representation (example only)
+** removed: ontology
+** changed: service
+** removed: smart manufacturing
+** changed: Submodel
+** changed: Submodel template
+** changed: Submodel template element
+** removed: technical functionality
+* Update clause on matching algorithm for references (https://github.com/admin-shell-io/aas-specs/issues/350[#350])
+** introduce equivalent matching and rename exact matching to value matching
+** added notes
 * (Editorial) Adding metamodel element IDs to tables themselves for easier usage (besides grammar defining how to derive them) (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
-*  Update all metamodel element IDs to V3.1
-*  Transfer of chapters on formats Metadata, Paths and Value-Only from Part 2 API to Part 1 Metamodel (https://github.com/admin-shell-io/aas-specs/issues/325[#325])
-*  Enhanced documentation or Value-Only serialization (https://github.com/admin-shell-io/aas-specs/issues/371[#371], https://github.com/admin-shell-io/aas-specs/issues/370[#370])
+* Update all metamodel element IDs to V3.1
+* Transfer of chapters on formats Metadata, Paths and Value-Only from Part 2 API to Part 1 Metamodel (https://github.com/admin-shell-io/aas-specs/issues/325[#325])
+* Enhanced documentation or Value-Only serialization (https://github.com/admin-shell-io/aas-specs/issues/371[#371], https://github.com/admin-shell-io/aas-specs/issues/370[#370])
 * (Editorial) Update Chapter on Value-Only Serialization
-	** add table similar to metadata table: which attributes are displayed in Value-Only serialization
-	** update examples to provide Value-Only serialization for every submodel element (not in the context of a Submodel as before)
-	** add chapter for Submodel Example (with properties from SMT Technical Data, not Families any longer)
-	** update Schema for JSON-Value Serialization
-(https://github.com/admin-shell-io/aas-specs/issues/366[#366])
+** add table similar to metadata table: which attributes are displayed in Value-Only serialization
+** update examples to provide Value-Only serialization for every submodel element (not in the context of a Submodel as before)
+** add chapter for Submodel Example (with properties from SMT Technical Data, not Families any longer)
+** update Schema for JSON-Value Serialization (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
 * Transfer from .docx to asciidoc (.adoc) and maintenance in github
-
 
 Minor Changes:
 
 * explanation of ValueOnly-Normal round-trip issues (https://github.com/admin-shell-io/aas-specs/issues/364[#364])
-* improve explanation for recommendation to use external references for semanticId (https://github.com/admin-shell-io/aas-specs/issues/376[#376]) and related attributes like valueId and isCaseOf (https://github.com/admin-shell-io/aas-specs/issues/396[#396]) 
+* improve explanation for recommendation to use external references for semanticId (https://github.com/admin-shell-io/aas-specs/issues/376[#376]) and related attributes like valueId and isCaseOf (https://github.com/admin-shell-io/aas-specs/issues/396[#396])
 * update information on OPC UA mapping (https://github.com/admin-shell-io/aas-specs/issues/373[#373])
 * update information on AutomationML mapping (https://github.com/admin-shell-io/aas-specs/issues/397[#397])
 * update bibliography (newer versions, link update, removal of entries not referenced)
@@ -117,7 +109,6 @@ Minor Changes:
 |{empty} | xref:spec-metamodel/core.adoc#AssetKind[AssetKind/Role] | New value in enumeration
 |===
 
-
 .New, Changed or Removed Constraints
 [cols="5%,10%,15%,69%",options="header",]
 |===
@@ -133,15 +124,14 @@ Change since Entity/entityType is now optional
 Constraint AASd-014: Either the attribute globalAssetId or specificAssetId of an Entity must be set if Entity/entityType is set to "SelfManagedEntity".
 |===
 
-
 == Changes V3.0.1 vs. V3.0
 
 Major Bugfixes:
 
-* CHANGE: DataTypeDefXsd all links now reference correctly to XML Schema 1.0 (xmlschema-2) not to XML Schema V1.1 (xmlschema11-2) (https://github.com/admin-shell-io/aas-specs/issues/312[#312], https://github.com/admin-shell-io/aas-specs/issues/363[#363]), i.e. remove xs:yearMonthDuration + editorial changes (remove redundant entries, sort entries. Additionally, added notes that RDF is using XML Schema 1.1 but  a subset.
+* CHANGE: DataTypeDefXsd all links now reference correctly to XML Schema 1.0 (xmlschema-2) not to XML Schema V1.1 (xmlschema11-2) (https://github.com/admin-shell-io/aas-specs/issues/312[#312], https://github.com/admin-shell-io/aas-specs/issues/363[#363]), i.e. remove xs:yearMonthDuration + editorial changes (remove redundant entries, sort entries.
+Additionally, added notes that RDF is using XML Schema 1.1 but a subset.
 
-* CHANGE: support relative path for SubmodelElement File,
-PathType: support complete URI scheme for files RFC2396 conformant to anyURI of XML Schema 1.0, Part 2 (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
+* CHANGE: support relative path for SubmodelElement File, PathType: support complete URI scheme for files RFC2396 conformant to anyURI of XML Schema 1.0, Part 2 (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
 
 * CHANGE: Constraint AASd-116 globalAssetId + added note that globalAssetId should only be used in discovery functionality but not as value for SpecificAssetId/name (https://github.com/admin-shell-io/aas-specs/issues/390[#390])
 
@@ -152,22 +142,21 @@ PathType: support complete URI scheme for files RFC2396 conformant to anyURI of 
 * CHANGE (Editorial): updated Change Logs of V3.0 w.r.t. Range: Range was set to experimental in V3.0
 
 
-* CHANGE (Editorial, the schemas implemented it like this) Annex UML Tables: "0..*" or "0..3" etc.  means that the list may be either not available (optional) or the list is not empty. (https://github.com/admin-shell-io/aas-specs/issues/418[#418])
+* CHANGE (Editorial, the schemas implemented it like this) Annex UML Tables: "0..*" or "0..3" etc. means that the list may be either not available (optional) or the list is not empty. (https://github.com/admin-shell-io/aas-specs/issues/418[#418])
 
 * CHANGE (Editorial, the schemas implemented it like this, table was correct) Update Figure containing Resource: Resource/path has cardinality 1 and Resource/contentType has cardinality 0..1 (https://github.com/admin-shell-io/aas-specs/issues/438[#438])
 
-
 Other Bugfixes:
 
-* (Editorial) Fix Figure Logical Model for Keys of References (add value Referable to AASReferables, remove Referable from AasReferableNonIdentifiables (enumeration table were correct) (used in Constraints only). 
+* (Editorial) Fix Figure Logical Model for Keys of References (add value Referable to AASReferables, remove Referable from AasReferableNonIdentifiables (enumeration table were correct) (used in Constraints only).
 * (Editorial) MultiLanguageNameType inconsistent description, maxLength=128 (schemata were correct) (https://github.com/admin-shell-io/aas-specs/issues/313[#313])
-* (Editorial) HasKind/kind explanatary text: use template, not type (https://github.com/admin-shell-io/aas-specs/issues/313[#313])
+* (Editorial) HasKind/kind explanatory text: use template, not type (https://github.com/admin-shell-io/aas-specs/issues/313[#313])
 * (Editorial) Qualifier/Kind changed to Qualifier/kind (typo in table, UML and schema correct)
 * (Editorial) BasicEventElement/Direction and BasicEventElement/State changed to BasicEventElement/direction and BasicEventElement/state typo in table, UML and schema correct)
-*  Fix figure for DataTypeDefXsd: ordering was not correct, xs:float moved to its place
+* Fix figure for DataTypeDefXsd: ordering was not correct, xs:float moved to its place
 * (Editorial) fix figure "Association" in Annex for UML (https://github.com/admin-shell-io/aas-specs/issues/328[#328])
 * (Editorial) change recommendation to use a global reference to use an external reference, same for externalSubjectId: it is an external reference.
-* (Editorial) JSON and XML Schema references to github admin-shell-io reformulated
+* (Editorial) JSON and XML Schema references to GitHub admin-shell-io reformulated
 * (Editorial) correct Figure 23 Metamodel of an AssetAdministrationShell: arrow removed from association between Submodel and AssetAdministrationShell
 * (Editorial) update deprecated web links
 * (Editorial) correct information in Changes V3.0 vs. V3.0RC02 w.r.t. VersionType and RevisionType
@@ -201,7 +190,8 @@ extend data type to support complete URI scheme for files RFC2396
 |*Nc* |*V3.0 vs. V2.0.1* |*New, Update, Removed, Reformulated* |*Comment*
 
 | x |AASd-116  |Update  a|
-Constraint AASd-116: "globalAssetId" (case-insensitive) is a reserved key. If used as value for SpecificAssetId/name, SpecificAssetId/value shall be identical to AssetInformation/globalAssetId.
+Constraint AASd-116: "globalAssetId" (case-insensitive) is a reserved key.
+If used as value for SpecificAssetId/name, SpecificAssetId/value shall be identical to AssetInformation/globalAssetId.
 
 to
 
@@ -222,29 +212,40 @@ Major Changes:
 
 * Document split into several documents: Part 1 on metamodel of the AAS (this document), Part 5 on the aasx package exchange format, Part 3 series on the predefined data specifications, and Part 4 (security)
 * CHANGED: Split of SubmodelElementCollection into SubmodelElementList (with orderRelevant) and SubmodelElementCollection
-* CHANGED: Reference type and referredSemanticId added to Reference; Local and Parent attributes removed from Reference. Logical enumeration concept updated. Some renaming and some new enumerations. Constraint added for references. Grammar for text serialization updated.
+* CHANGED: Reference type and referredSemanticId added to Reference;
+Local and Parent attributes removed from Reference.
+Logical enumeration concept updated.
+Some renaming and some new enumerations.
+Constraint added for references.
+Grammar for text serialization updated.
 * CHANGED: idType from Identifier removed, ID now string
 * CHANGED: idShort of Referable now optional + Constraints added with respect to ID and idShort, includes that idShort of Submodels etc. no longer need to be unique in the context of an AssetAdministrationShell
 * CHANGED: semanticId no longer mandatory but recommended for SubmodelElement. semanticId now recommended not only for submodel instance but also for submodel template
 * NEW: supplemental Semantic IDs
 * CHANGED: SubmodelElements do no longer inherit from HasKind, only Submodel has distinction between submodel template or submodel instance (including update of tAAS-#18 and -#19)
-* CHANGED: Revised concept on handling of Asset and assetIdentificationModel (assetInformation), Asset removed, no Asset/billOfMaterial any longer. Specific asset IDs added.
-* CHANGED: Attributes with type "string" were substituted by string types with length restrictions + some more constraints on string handling. LangSringSet handling updated.
+* CHANGED: Revised concept on handling of Asset and assetIdentificationModel (assetInformation), Asset removed, no Asset/billOfMaterial any longer.
+Specific asset IDs added.
+* CHANGED: Attributes with type "string" were substituted by string types with length restrictions + some more constraints on string handling.
+LangStringSet handling updated.
 * REMOVED: ConceptDictionaries removed, no longer supported
 * REMOVED: Views removed, no longer supported
 * NEW: Events now experimental parts of normative part (including renaming and smaller changes)
 * NEW: Besides type assets and instance assets, assets for which this kind of classification is not applicable are also supported (conformant to IEC 63278-1)
 * REMOVED: Security attribute removed from Asset Administration Shell, Access Control remains part of the specification
 * ENHANCED: DataTypeIEC61360 extended with values for IRI, IRDI, BLOB, FILE + corresponding new constraints added
-* CHANGED: Handling of attributes with xsd-related types like DataTypeDef. New types introduced.
+* CHANGED: Handling of attributes with xsd-related types like DataTypeDef.
+New types introduced.
 * NEW: hasExtensions introduced
-* CHANGED: In some mappings or serializations, the type "Reference" is converted into a single string. In this case, it is now required (and not only recommended) to use the defined string serialization.
+* CHANGED: In some mappings or serializations, the type "Reference" is converted into a single string.
+In this case, it is now required (and not only recommended) to use the defined string serialization.
 * CHANGED: Extracted and not part of this specification any longer; mapping rules for different serializations + Schemata + Example in different serializations
 * CHANGED: Referable/category set to \<<Deprecated>>
 * CHANGED: Range set to \<<Experimental>>
 * NEW: Besides \<<Deprecated>>, new stereotype \<<Experimental>> introduced
 * NEW: Qualifier/kind introduced (ValueQualifier, TemplateQualifier, ConceptQualifier)
-* CHANGED: Terms and Definitions updated to be conformant to IEC 63278-1 DRAFT, July 2022 (note: this document contains more terms and definitions than IEC 63278-1 and vice versa: not all terms and definitions from IEC 63278-1 are included). Definition of view removed. Definition of service added from Part 2.
+* CHANGED: Terms and Definitions updated to be conformant to IEC 63278-1 DRAFT, July 2022 (note: this document contains more terms and definitions than IEC 63278-1 and vice versa: not all terms and definitions from IEC 63278-1 are included).
+Definition of view removed.
+Definition of service added from Part 2.
 * CHANGED: Description of ModellingKind
 * Parent attribute in Referables removed
 * NEW: Two new terms introduced: coded value and explicit value
@@ -252,7 +253,8 @@ Major Changes:
 * CHANGED: Blob type changed from byte[0..*] to base64Binary
 * NEW: Appendix for Backus-Naur form (BNF) + update of all grammars using BNF and variants so that they are using consistent grammar language
 * NEW: Clause on embedded data specifications
-* EDITORIAL: Text updated, no kind column any longer in class tables, instead notation of ModelReference<\{Referable}>. New table for Primitives/Data Types
+* EDITORIAL: Text updated, no kind column any longer in class tables, instead notation of ModelReference<\{Referable}>.
+New table for Primitives/Data Types
 * EDITORIAL: New clause "Introduction"
 * EDITORIAL: New clause "Matching strategies for semantic identifiers"
 * EDITORIAL (REMOVED): Clause on Tooling and Open Source removed
@@ -264,7 +266,7 @@ Bugfixes:
 
 * Corrected Japanese example for xd:string
 * HasDataSpecification/embeddedDataSpecs 0..* not 0..1
-* Qualifer is and never was abstract (Constraint was), table was correct, UML corrected
+* Qualifier is and never was abstract (Constraint was), table was correct, UML corrected
 * Correct AASd-051: VIEW no longer supported
 * Type of SubmodelElementList/typeValueListElement corrected to AasSubmodelElements (before SubmodelElementElements
 
@@ -311,10 +313,11 @@ Note: Security is still part of the Asset Administration Shell, but the Asset Ad
 |x |xref:data-specifications.adoc#DataSpecification[DataSpecification] |No longer inherits from Identifiable. However, same attribute names and types
 |x |DataSpecification/description |Type changed from LangStringSet to MultiLanguageTextType, thus adding a length constraint
 | |xref:data-specifications.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
-|(x) |DataTypeDef |Removed and split into DataTypeDefXsd and DataTypeDefRdf. Some types excluded and not supported because now XML Schema 1.0 reference +
- +
+|(x) |DataTypeDef |Removed and split into DataTypeDefXsd and DataTypeDefRdf.
+Some types excluded and not supported because now XML Schema 1.0 reference +
++
 Before: just string allowing any xsd simple type as string +
- +
++
 + added prefix xs: or rdf:, resp., to every value in enumeration
 |x |Entity/asset |Removed, substituted by Entity/globalAssetId and Entity/specificAssetId
 |x |Event |Renamed to EventElement
@@ -326,13 +329,14 @@ Formula now used in Security part only
 
 |x |HasKind/kind |Type changed from ModelingKind to ModellingKind
 |x |Identifiable/identification |Removed +
- +
++
 Substituted by Identifiable/id
 |x |IdentifiableElements |Renamed to AasIdentifiables
 |x |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] a|
 Type changed
 
-Before struct class with two attributes: id and idType. Now string data type only.
+Before struct class with two attributes: id and idType.
+Now string data type only.
 
 Maximum length defined: 2,000 characters
 
@@ -388,7 +392,7 @@ Now part of AasSubmodelElements
 |x |ReferenceTypes/GlobalReference |Renamed to ExternalReference
 |{empty} |RelationshipElement/first |Type changes from model reference Referable to Reference (global or model reference)
 |{empty} |RelationshipElement/second |Type changes from model reference Referable to Reference (global or model reference)
-|xxref:Bibliography.adoc#bib1[[1\]] |SubmodelElement/kind |Removed. SubmodelElement no longer inheritsfrom HasKind
+|xxref:Bibliography.adoc#bib1[[1\]] |SubmodelElement/kind |Removed. SubmodelElement no longer inherits from HasKind
 |{empty} |xref:spec-metamodel/datatypes.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
 |{empty}x |View |Removed
 |===
@@ -398,12 +402,12 @@ Now part of AasSubmodelElements
 |===
 | |*New Elements V3.0 vs V2.0.1* |*Comment*
 |{empty} |xref:spec-metamodel/referencing.adoc#AasIdentifiables[AasIdentifiables] |New enumeration used for References, includes abstract Identifiable +
- +
++
 Before: Identifiables
 |{empty} |xref:spec-metamodel/referencing.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables] |New enumeration used for References
 |{empty} |xref:spec-metamodel/referencing.adoc#AasReferables[AasReferables] |New enumeration used for References, includes abstract Referable
 |{empty} |xref:spec-metamodel/referencing.adoc#AasSubmodelElements[AasSubmodelElements] |New enumeration used for References +
- +
++
 Before: ReferableElements
 |{empty} |AdministrativeInformation/creator |New optional attribute
 |{empty} |AdministrativeInformation/templateId |New optional attribute
@@ -416,7 +420,7 @@ Before: ReferableElements
 |{empty} |AssetInformation/thumbnail |Optional Attribute of new class AssetInformation that was not available in Asset class before
 |{empty} |AssetKind/NotApplicable |New enumeration value
 |{empty} |xref:spec-metamodel/submodel-elements.adoc#BasicEventElement[BasicEventElement] |Former BasicEvent +
- +
++
 New \<<Experimental>> submodel element for events
 |{empty} |BasicEventElement/direction |Was part of non-normative part before
 |{empty} |BasicEventElement/lastUpdate |Was part of non-normative part before
@@ -432,7 +436,7 @@ Type changed from dateTime to duration
 Maximum length defined: 100 characters
 |{empty} |xref:spec-metamodel/datatypes.adoc#DataTypeDefRdf[DataTypeDefRdf] |Enumeration for types of Rdf + added prefix rdf: to every value in enumeration
 |{empty} |xref:spec-metamodel/datatypes.adoc#DataTypeDefXsd[DataTypeDefXsd] |Enumeration that corresponds to anySimpleTypes of XML Schema 1.0 +
- +
++
 + added prefix xs: to every value in enumeration
 |{empty} |dateTimeStamp |New data type for metamodel as used in EventPayload
 | |DataSpecification/administration |Was inherited before by Identifiable
@@ -462,7 +466,7 @@ Type changed from string to MessageTopicType (i.e. length constraint added, maxi
 | |Extension/refersTo |{empty}
 | |Extension/valueType |{empty}
 | |Extension/valueType |{empty}
-|{empty} |File/contentType |Fromer File/mimeType
+|{empty} |File/contentType |Former File/mimeType
 |{empty} |xref:spec-metamodel/referencing.adoc#FragmentKeys[FragmentKeys] |New enumeration used for References
 |{empty} |xref:spec-metamodel/referencing.adoc#GenericFragmentKeys[GenericFragmentKeys] |New enumeration used for References
 |{empty} |GenericGloballyIdentifiers |New enumeration used for References
@@ -471,7 +475,7 @@ Type changed from string to MessageTopicType (i.e. length constraint added, maxi
 |{empty} |HasSemantics/supplementalSemanticId |New attribute
 |{empty} |Identifiable/id |Substitute for Identifiable/identification
 |{empty} |xref:spec-metamodel/referencing.adoc#KeyTypes[KeyTypes] |Before: KeyElements +
- +
++
 New submodel element SubmodelElementList added, renamed submodel elements Event and BasicEvent to EventElement and BasicEventElement
 |{empty} |xref:spec-metamodel/datatypes.adoc#LabelType[LabelType] |New string type with maximum 64 characters
 |{empty} |xref:spec-metamodel/datatypes.adoc#MessageTopicType[MessageTopicType] |New string type with maximum 255 characters
@@ -609,12 +613,15 @@ Major changes:
 * CHANGED: Type of globalAsset is now Identifier and not Reference (AssetInformation and Entity)
 * CHANGED: Updated text for submodel element collections
 * EDITORIAL: Examples for matching references
-* CHANGED: Terms and definitions updated to be conformant to IEC 63278-1 DRAFT, July 2022 (note: this document contains more terms and definitions than IEC 63278-1 and vice versa; not all terms and definitions from IEC 63278-1 are included). Definition of view removed. Definition of service added from Part 2.
+* CHANGED: Terms and definitions updated to be conformant to IEC 63278-1 DRAFT, July 2022 (note: this document contains more terms and definitions than IEC 63278-1 and vice versa; not all terms and definitions from IEC 63278-1 are included).
+Definition of view removed.
+Definition of service added from Part 2.
 * CHANGED: Description of ModellingKind
 * NEW: Appendix for Backus-Naur form (BNF), including update of all grammars using BNF and variants for consistent grammar language usage
 * ENHANCED: Extended grammar (referredSemanticId) for text serialization of <Reference>
 * CHANGED: Grammar on how to define semantic identifiers for metamodel elements of this specification: <Character> definition in <Namespace> (before "an unreserved character permitted by DIN SPEC 91406", now regular expression [a..zA..Z-])
-* CHANGED: In some mappings or serializations, the type "Reference" is converted into a single string. In this case, it is now required (instead of just recommended) to use the defined string serialization.
+* CHANGED: In some mappings or serializations, the type "Reference" is converted into a single string.
+In this case, it is now required (instead of just recommended) to use the defined string serialization.
 * CHANGED: Type of BlobType changed from "group of bytes" to "base64Binary"
 * NEW: Two new terms introduced: coded value and explicit value
 * REMOVED: Referable/checksum
@@ -630,16 +637,7 @@ Major changes:
 * NEW: Besides type assets and instance assets now also assets for which this kind of classification is not applicable are supported (conformant to IEC 63278-1)
 
 Bugfixes:
-* Corrected Japanese example for xd:string
-* UML figure for HasExtensions did not show inheritance (table for Extension was correct)
-* HasDataSpecification/embeddedDataSpecs 0..* not 0..1
-* Qualifier is and never was abstract (Constraint was), table was correct, UML corrected
-* Correct AASd-051: VIEW no longer supported
-* Type of SubmodelElementList/typeValueListElement corrected to AasSubmodelElements (before SubmodelElementElements)
-* Correct text serialization of <Reference>
-* Added missing table for enumeration ReferenceTypes
-* AASd-117 it is not the SubmodelElementList having no idShort but its childs
-* KeyTypes Table: set of AasReferables added
+* Corrected Japanese example for xd:string * UML figure for HasExtensions did not show inheritance (table for Extension was correct) * HasDataSpecification/embeddedDataSpecs 0..* not 0..1 * Qualifier is and never was abstract (Constraint was), table was correct, UML corrected * Correct AASd-051: VIEW no longer supported * Type of SubmodelElementList/typeValueListElement corrected to AasSubmodelElements (before SubmodelElementElements) * Correct text serialization of <Reference> * Added missing table for enumeration ReferenceTypes * AASd-117 it is not the SubmodelElementList having no idShort but its childs * KeyTypes Table: set of AasReferables added
 
 Smaller changes:
 
@@ -694,7 +692,7 @@ Smaller changes:
 | |Qualifier/kind a|Set to \<<Experimental>>
 |x |xref:spec-metamodel/datatypes.adoc#QualifierType[QualifierType] a|Type changed from string to NameType; length constraint added
 | |rdfBuildInTypes a|Removed
-| | Range	a| Set to \<<Experimental>>
+| | Range a| Set to \<<Experimental>>
 |x |Referable/category a|
 Type changed from string to NameType; length constraint added
 
@@ -815,30 +813,36 @@ Constraint AASd-051: A _ConceptDescription_ shall have one of the following cate
 
 === Metamodel Changes V3.0RC02 vs. V2.0.1 w/o Security Part
 
-
 ====
-Note: if you already implemented the changes made in V3.0RC01, please refer to the corresponding clause in the this annex. This annex is for readers familiar with V2.0.x only.
+Note: if you already implemented the changes made in V3.0RC01, please refer to the corresponding clause in the this annex.
+This annex is for readers familiar with V2.0.x only.
 ====
-
 
 Major changes:
 
 * CHANGED: Split of SubmodelElementCollection into SubmodelElementList (with orderRelevant) and SubmodelElementCollection
-* CHANGED: Reference type and referredSemanticId added to Reference; Local and Parent attributes removed from Reference; logical enumeration concept updated. Some renaming and some new enumerations. Constraint for References.
+* CHANGED: Reference type and referredSemanticId added to Reference;
+Local and Parent attributes removed from Reference;
+logical enumeration concept updated.
+Some renaming and some new enumerations.
+Constraint for References.
 * CHANGED: Reference/type now as optional part of string serialization of reference
 * CHANGED: idType from identifier removed, ID now string
 * CHANGED: idShort of Referable now optional + Constraints added with respect to ID and idShort, includes that idShort of Submodels etc. no longer need to be unique in the context of an Asset Administration Shell
 * CHANGED: semanticId no longer mandatory for SubmodelElement
-* CHANGED: Revised concept on handling of Asset and assetIdentificationModel (assetInformation), Asset removed, no more Asset/billOfMaterial. any longer. Specific asset IDs added.
+* CHANGED: Revised concept on handling of Asset and assetIdentificationModel (assetInformation), Asset removed, no more Asset/billOfMaterial. any longer.
+Specific asset IDs added.
 * REMOVED: ConceptDictionaries removed, because no longer supported
 * REMOVED: Views removed, because no longer supported
 * NEW: Event and BasicEvent updated and renamed to EventElement and BasicEventElement
 * NEW: Checksum introduced for Referables
 * REMOVED: security attribute removed from Asset Administration Shell; access control remains part of the specification
 * ENHANCED: DataTypeIEC61360 extended with values for IRI, IRDI, BLOB, FILE + corresponding new constraints added
-* ENHANCED: Removed and split into DataTypeDefXsd and DataTypeDefRdf. Some types are excluded and not supported
+* ENHANCED: Removed and split into DataTypeDefXsd and DataTypeDefRdf.
+Some types are excluded and not supported
 * CHANGED: Mapping rules for different serializations + schemata + example in different serializations extracted and no longer part of this specification
-* EDITORIAL: Text updated, no kind column any longer in class tables, instead notation of ModelReference<\{Referable}>. New table for Primitives/Data Types
+* EDITORIAL: Text updated, no kind column any longer in class tables, instead notation of ModelReference<\{Referable}>.
+New table for Primitives/Data Types
 * EDITORIAL: New clause "Introduction"
 * EDITORIAL: New clause "Matching strategies for semantic identifiers"
 * NEW: Constraints implicitly contained in text were formalized and numbered (normative)
@@ -852,7 +856,8 @@ Bugfixes:
 * bugfix specification of ValueList and ValueReferencePairType, no data types, normal classes
 * bugfix table specifications w.r.t. kind of attribute (from aggr to attr – column kind was removed, see above)
 * bugfix data type specification LangStringSet (no diagram and table any longer)
-* bugfix enumeration ReferableElements, no ConceptDictionary any longer + new elements like new submodel elements SubmodelElementList added. 
+* bugfix enumeration ReferableElements, no ConceptDictionary any longer + new elements like new submodel elements SubmodelElementList added.
+
 ====
 Note: ReferableElements was substituted by AasSubmodelElements and Aas Identifiables.
 ====
@@ -1070,7 +1075,7 @@ Constraint AASd-001: In case of a referable element not being an identifiable el
 
 For namespace part see AASd-022
 
-|footnote:[Every model valid for V3.0RC02 is still valid in V3.0RC01, however there might be implementations that need to be changed if they assumed that the user can type case-insensitive names and get all elements that match the name in an case-insensitive way.] |AASd-003 |Update a|
+|footnote:[Every model valid for V3.0RC02 is still valid in V3.0RC01, however there might be implementations that need to be changed if they assumed that the user can type case-insensitive names and get all elements that match the name in a case-insensitive way.] |AASd-003 |Update a|
 idShort is case-sensitive and not case-insensitive
 
 Constraint AASd-003: _idShort_ of _Referables_ shall be matched case-sensitive.
@@ -1135,8 +1140,8 @@ Constraint AASD-120: idShort of submodel elements within a SubmodelElementList s
 | |AASd-124 |New |Constraint AASd-124: For global references, i.e. References with Reference/type = GlobalReference, the last key of Reference/keys shall be either one of GenericGloballyIdentifiables or one of GenericFragmentKeys.
 | |AASd-125 |New |Constraint AASd-125: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys the type of the keys following the first key of Reference/keys shall be one of FragmentKeys.
 | |AASd-126 |New |Constraint AASd-126: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys the type of the last Key in the reference key chain may be one of GenericFragmentKeys or no key at all shall have a value out of GenericFragmentKey.
-| |AASd-127 |New |Constraint AASd-127: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys a key with type FragmentReference shall be preceeded by a key with type File or Blob. All other AAS fragments, i.e. type values out of AasSubmodelElements, do not support fragments.
-| |AA-128 |New |Constraint AASd-128: For model references, i.e. References with Reference/type = ModelReference, the Key/value of a Key preceeded by a Key with Key/type=SubmodelElementList is an integer number denoting the position in the array of the submodel element list.
+| |AASd-127 |New |Constraint AASd-127: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys a key with type FragmentReference shall be preceded by a key with type File or Blob. All other AAS fragments, i.e. type values out of AasSubmodelElements, do not support fragments.
+| |AA-128 |New |Constraint AASd-128: For model references, i.e. References with Reference/type = ModelReference, the Key/value of a Key preceded by a Key with Key/type=SubmodelElementList is an integer number denoting the position in the array of the submodel element list.
 |===
 
 === Metamodel Changes V3.0RC02 vs. V2.0.1 – Data Specification IEC61360
@@ -1157,7 +1162,7 @@ Some attributes are added to DataSpecification as new attributes like id, admini
 | |DataSpecificationIEC61360/valueId |Removed, the valueId is identical to the ID of the concept description
 | |xref:data-specifications.adoc#DataSpecificationContent[DataSpecificationContent] |Stereotype \<<Template>> added
 |x |DataTypeIEC61360 |Some new values were added: BLOB, FILE, HTML, IRDI. URL renamed to IRI. +
- +
++
 See separate entries for individual changes.
 |x |DataTypeIEC61360/URL |Renamed to IRI
 |{empty} |ValueList/valueReferencePairs |Bugfix, was ValueList/valueReferencePairTypes before
@@ -1170,7 +1175,7 @@ See separate entries for individual changes.
 |*nc* |*V3.0RC02 vs. V2.0.1* |*Comment*
 | |DataSpecification/administration |Was inherited before by Identifiable
 | |DataSpecification/id |Was inherited before by Identifiable
-| |DataSpecification/desciption |Was inherited before by Identifiable
+| |DataSpecification/description |Was inherited before by Identifiable
 |{empty} |DataTypeIEC61360/BLOB |New value
 |{empty} |DataTypeIEC61360/FILE |New value
 |{empty} |DataTypeIEC61360/HTML |New value
@@ -1208,7 +1213,7 @@ Changes:
 [cols="5%,46%,43%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V2.0.1* |*Comment*
-|x |AccessControlPolicyPoints/policyAdministrationoint |Type changed from PolicyAdministrationPoint to AccessControl
+|x |AccessControlPolicyPoints/policyAdministrationPoint |Type changed from PolicyAdministrationPoint to AccessControl
 |x |AccessControlPolicyPoints/policyDecisionPoint |Removed
 |x |AccessControlPolicyPoints/policyEnforcementPoint |Removed
 |x |AccessControlPolicyPoints/policyInformationPoint |Removed
@@ -1266,7 +1271,10 @@ Constraint AASs-011: the property referenced in Permission/permission shall be p
 Major changes:
 
 * CHANGED: Split of SubmodelElementCollection into SubmodelElementList (with orderRelevant) and SubmodelElementCollection
-* CHANGED: Reference type and referredSemanticId added to Reference; Local and Parent attributes removed from Reference. Logical enumeration concept updated. Some renaming; constraints added for references
+* CHANGED: Reference type and referredSemanticId added to Reference;
+Local and Parent attributes removed from Reference.
+Logical enumeration concept updated.
+Some renaming; constraints added for references
 * CHANGED: Reference/type now as optional part of string serialization of reference
 * CHANGED: idType from identifier removed, ID now string.
 * CHANGED: idShort of Referable now optional + Constraints added with respect to id and idShort
@@ -1279,7 +1287,8 @@ Major changes:
 * ENHANCED: DataTypeIEC61360 extended with values for IRI, IRDI, BLOB, FILE + corresponding new constraints added
 * ENHANCED: Removed and split into DataTypeDefXsd and DataTypeDefRdf; some types are excluded and not supported
 * CHANGED: Mapping rules for different serializations + schemata + example in different serializations extracted and no longer part of this specification
-* EDITORIAL: Text updated, no kind column any longer in class tables, instead notation of ModelReference<\{Referable}>. New table for Primitives/Data Types
+* EDITORIAL: Text updated, no kind column any longer in class tables, instead notation of ModelReference<\{Referable}>.
+New table for Primitives/Data Types
 * EDITORIAL: New clause "Introduction"
 * EDITORIAL: New clause "Matching strategies for semantic identifiers"
 * NEW: Environment
@@ -1313,7 +1322,7 @@ Note: Security is still part of the Asset Administration Shell, but the Asset Ad
 ====
 
 
-|{empty} |AssetAdministrationShell/view |Removed, views not longer supported
+|{empty} |AssetAdministrationShell/view |Removed, views no longer supported
 |x |AssetInformation/billOfMaterial |Removed
 |x |AssetInformation/defaultThumbnail |Type changed from File to Resource
 |x |AssetInformation/specificAssetId |Type changed from IdentifierKeyValuePair to SpecificAssetId
@@ -1474,7 +1483,7 @@ New submodel element SubmodelElementList added, renamed submodel elements Event 
 [cols="5%,12%,15%,65%",options="header",]
 |===
 |*Nc* |*V3.0RC02 vs. V3.0RC01* |*New, Update, Removed, Reformulated* |*Comment*
-|footnote:[Every model valid for V3.0RC02 is still valid in V3.0RC01, however there might be implementations that need to be changed if they assumed that the user can type case-insensitive names and get all elements that match the name in an case-insensitive way.] |AASd-003 |Update a|
+|footnote:[Every model valid for V3.0RC02 is still valid in V3.0RC01, however there might be implementations that need to be changed if they assumed that the user can type case-insensitive names and get all elements that match the name in a case-insensitive way.] |AASd-003 |Update a|
 idShort is case-sensitive and not case-insensitive
 
 Constraint AASd-003: _idShort_ of _Referables_ shall be matched case-sensitive.
@@ -1525,7 +1534,7 @@ Constraint AASd-055: If the semanticId of a RelationshipElement or an AnnotatedR
 | |AASd-056 |Removed a|
 removed, still recommended; would be renamed to AASc if still needed
 
-Constraint AASd-056: If the semanticId of a Entity submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: ENTITY. The ConceptDescription describes the elements assigned to the entity via Entity/statement.
+Constraint AASd-056: If the semanticId of an Entity submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: ENTITY. The ConceptDescription describes the elements assigned to the entity via Entity/statement.
 
 | |AASd-057 |Removed a|
 removed, still recommended; would be renamed to AASc if still needed
@@ -1547,12 +1556,12 @@ Constraint AASd-059: If the semanticId of a SubmodelElementCollection references
 | |AASd-060 |Removed a|
 removed, still recommended; would be renamed to AASc if still needed
 
-Constraint AASd-060: If the semanticId of a Operation submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: FUNCTION.
+Constraint AASd-060: If the semanticId of an Operation submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: FUNCTION.
 
 | |AASd-061 |Removed a|
 removed, still recommended; would be renamed to AASc if still needed
 
-Constraint AASd-061: If the semanticId of a Event submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: EVENT.
+Constraint AASd-061: If the semanticId of an Event submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: EVENT.
 
 | |AASd-062 |Removed a|
 removed, still recommended; would be renamed to AASc if still needed
@@ -1638,7 +1647,7 @@ Constraint AASd-093: If the semanticId of a SubmodelElementCollection with Submo
 
 | |AASd-107 |New |Constraint AASd-107: If a first level child element in a SubmodelElementList has a semanticId it shall be identical to SubmodelElementList/semanticIdListElement.
 | |AASd-108 |New |Constraint AASd-108: All first level child elements in a SubmodelElementList shall have the same submodel element type as specified in SubmodelElementList/typeValueListElement.
-| |AASd-109 |New |Constraint AASd-109: If SubmodelElementList/typeValueListElement equal to Property or Range SubmodelElementList/valueTypeListElement shall be set and all first level child elements in the SubmodelElementList shall have the the value type as specified in SubmodelElementList/valueTypeListElement.
+| |AASd-109 |New |Constraint AASd-109: If SubmodelElementList/typeValueListElement equal to Property or Range SubmodelElementList/valueTypeListElement shall be set and all first level child elements in the SubmodelElementList shall have the value type as specified in SubmodelElementList/valueTypeListElement.
 | |AASd-114 |New |Constraint AASd-114: If two first level child elements in a SubmodelElementList have a semanticId then they shall be identical.
 | |AASd-115 |New |Constraint AASd-115: If a first level child element in a SubmodelElementList does not specify a semanticId then the value is assumed to be identical to SubmodelElementList/semanticIdListElement.
 | |AASd-116 |New |Constraint AASd-116: "globalAssetId" (case-insensitive) is a reserved key. If used as value for SpecificAssetId/name IdentifierKeyValuePair/value shall be identical to AssetInformation/globalAssetId.
@@ -1664,8 +1673,8 @@ Constraint AASD-120: idShort of submodel elements within a SubmodelElementList s
 | |AASd-124 |New |Constraint AASd-124: For global references, i.e. References with Reference/type = GlobalReference, the last key of Reference/keys shall be either one of GenericGloballyIdentifiables or one of GenericFragmentKeys.
 | |AASd-125 |New |Constraint AASd-125: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys the type of the keys following the first key of Reference/keys shall be one of FragmentKeys.
 | |AASd-126 |New |Constraint AASd-126: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys the type of the last Key in the reference key chain may be one of GenericFragmentKeys or no key at all shall have a value out of GenericFragmentKey.
-| |AASd-127 |New |Constraint AASd-127: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys a key with type FragmentReference shall be preceeded by a key with type File or Blob. All other AAS fragments, i.e. type values out of AasSubmodelElements, do not support fragments.
-| |AAS-128 |New |Constraint AASd-128: For model references, i.e. References with Reference/type = ModelReference, the Key/value of a Key preceeded by a Key with Key/type=SubmodelElementList is an integer number denoting the position in the array of the submodel element list.
+| |AASd-127 |New |Constraint AASd-127: For model references, i.e. References with Reference/type = ModelReference, with more than one key in Reference/keys a key with type FragmentReference shall be preceded by a key with type File or Blob. All other AAS fragments, i.e. type values out of AasSubmodelElements, do not support fragments.
+| |AAS-128 |New |Constraint AASd-128: For model references, i.e. References with Reference/type = ModelReference, the Key/value of a Key preceded by a Key with Key/type=SubmodelElementList is an integer number denoting the position in the array of the submodel element list.
 |===
 
 === Metamodel Changes V3.0RC02 vs. V3.0RC01 – Data Specification IEC61360
@@ -1703,7 +1712,7 @@ See separate entries for individual changes
 |x |ValueReferencePair/valueId |Type changed from Reference to GlobalReference
 | |DataSpecification/administration |Was inherited before by Identifiable
 | |DataSpecification/id |Was inherited before by Identifiable
-| |DataSpecification/desciption |Was inherited before by Identifiable
+| |DataSpecification/description |Was inherited before by Identifiable
 |{empty} |DataTypeIEC61360/BLOB |New value
 |{empty} |DataTypeIEC61360/FILE |New value
 |{empty} |DataTypeIEC61360/HTML |New value
@@ -1741,7 +1750,7 @@ Changes:
 [cols="5%,46%,43%",options="header",]
 |===
 |*nc* |*V3.0RC02 Change w.r.t. V3.0RC01* |*Comment*
-|x |AccessControlPolicyPoints/policyAdministrationoint |Type changed from PolicyAdministrationPoint to AccessControl
+|x |AccessControlPolicyPoints/policyAdministrationPoint |Type changed from PolicyAdministrationPoint to AccessControl
 |x |AccessControlPolicyPoints/policyDecisionPoint |Removed
 |x |AccessControlPolicyPoints/policyEnforcementPoint |Removed
 |x |AccessControlPolicyPoints/policyInformationPoint |Removed
@@ -1874,12 +1883,12 @@ Constraint AASd-022: idShort of non-identifiable referables shall be unique in i
 |(x) |AASd-053 |New |Constraint AASd-053: If the semanticId of a Range submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: PROPERTY.
 |(x) |AASd-054 |New |Constraint AASd-054: If the semanticId of a ReferenceElement submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: REFERENCE.
 |(x) |AASd-055 |New |Constraint AASd-055: If the semanticId of a RelationshipElement or an AnnotatedRelationshipElement submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: RELATIONSHIP.
-|(x) |AASd-056 |New |Constraint AASd-056: If the semanticId of a Entity submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: ENTITY. The ConceptDescription describes the elements assigned to the entity via Entity/statement.
+|(x) |AASd-056 |New |Constraint AASd-056: If the semanticId of an Entity submodel element references a ConceptDescription then the ConceptDescription/category shall be one of following values: ENTITY. The ConceptDescription describes the elements assigned to the entity via Entity/statement.
 |(x) |AASd-057 |New |Constraint AASd-057: The semanticId of a File or Blob submodel element shall only reference a ConceptDescription with the category DOCUMENT.
 |(x) |AASd-058 |New |Constraint AASd-058: The semanticId of a Capability submodel element shall only reference a ConceptDescription with the category CAPABILITY.
 |(x) |AASd-059 |New |Constraint AASd-059: The semanticId of a SubmodelElementCollection submodel element shall only reference a ConceptDescription with the category COLLECTION or ENTITY.
-|(x) |AASd-060 |New |Constraint AASd-060: If the semanticId of a Operation submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: FUNCTION.
-|(x) |AASd-061 |New |Constraint AASd-061: If the semanticId of a Event submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: EVENT.
+|(x) |AASd-060 |New |Constraint AASd-060: If the semanticId of an Operation submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: FUNCTION.
+|(x) |AASd-061 |New |Constraint AASd-061: If the semanticId of an Event submodel element references a ConceptDescription then the category of the ConceptDescription shall be one of the following values: EVENT.
 |(x) |AASd-062 |New |Constraint AASd-062: If the _semanticId_ of a _Property_ references a _ConceptDescription_ then the _ConceptDescription/category_ shall be one of following values: APPLICATION_CLASS.
 |(x) |AASd-063 |New |Constraint AASd-063: If the semanticId of a Qualifier references a ConceptDescription then the ConceptDescription/category shall be one of following values: QUALIFIER.
 |(x) |AASd-064 |New |Constraint AASd-064: If the _semanticId_ of a _View_ references a _ConceptDescription_ then the category of the _ConceptDescription_ shall be _VIEW_[.underline]#.#

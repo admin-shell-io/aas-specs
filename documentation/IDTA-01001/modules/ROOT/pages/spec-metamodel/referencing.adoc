@@ -17,15 +17,16 @@ include::../includes/constraints.adoc[]
 
 == Overview
 
-To date, two kinds of references are distinguished: references to external objects or entities (external reference) and references to model elements of the same or another Asset Administration Shell (model reference). Model references are also used for metamodel inherent relationships like submodels of an Asset Administration Shell (notation see Annex A).
+To date, two kinds of references are distinguished: references to external objects or entities (external reference) and references to model elements of the same or another Asset Administration Shell (model reference).
+Model references are also used for metamodel inherent relationships like submodels of an Asset Administration Shell (notation see Annex A).
 
-An external reference is a unique identifier. The identifier can be a concatenation of different identifiers, representing e.g. an IRDI path.
-
+An external reference is a unique identifier.
+The identifier can be a concatenation of different identifiers, representing e.g. an IRDI path.
 
 ====
-Note: references should not be mixed up with locators. Even URLs can be used as identifiers and do not necessarily describe a resource that can be accessed.
+Note: references should not be mixed up with locators.
+Even URLs can be used as identifiers and do not necessarily describe a resource that can be accessed.
 ====
-
 
 ==  Reference Attributes
 
@@ -41,7 +42,8 @@ h|Class: 3+e|[[Reference]]Reference
 h|Explanation: 3+a|
 Reference to either a model element of the same or another Asset Administration Shell or to an external entity
 
-A model reference is an ordered list of keys, each key referencing an element. The complete list of keys may, for example, be concatenated to a path that gives unique access to an element.
+A model reference is an ordered list of keys, each key referencing an element.
+The complete list of keys may, for example, be concatenated to a path that gives unique access to an element.
 
 An external reference is a reference to an external entity.
 
@@ -62,11 +64,12 @@ Denotes whether reference is an external reference or a model reference
 
 .2+e|referredSemanticId 3+| `\https://admin-shell.io/aas/3/1/Reference/referredSemanticId`
 a|
-Expected semantic ID of the referenced model element (_Reference/type=ModelReference_); there typically is no semantic ID for for the referenced object of external references _(Reference/type=ExternalReference)_.
+Expected semantic ID of the referenced model element (_Reference/type=ModelReference_); there typically is no semantic ID for the referenced object of external references _(Reference/type=ExternalReference)_.
 
 
 ====
-Note 1: if Reference/referredSemanticId is defined, the semanticId of the model element referenced should have a matching semantic ID. If this is not the case, a validator should raise a warning.
+Note 1: if Reference/referredSemanticId is defined, the semanticId of the model element referenced should have a matching semantic ID.
+If this is not the case, a validator should raise a warning.
 ====
 
 
@@ -90,11 +93,11 @@ a|Unique reference in its name space |xref:Key[Key] |1..*
 |Enumeration: e|[[ReferenceTypes]]ReferenceTypes
 h|Explanation: |Enumeration for denoting whether an element is an external or model reference
 |Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/1/ReferenceTypes`  
+h|ID: | `\https://admin-shell.io/aas/3/1/ReferenceTypes`
 
 .2+h|Literal h| ID
-   h|Explanation
-   
+h|Explanation
+
 .2+e|ExternalReference | `\https://admin-shell.io/aas/3/1/ReferenceTypes/ExternalReference`
 a|External reference
 
@@ -109,7 +112,8 @@ image::image49.png[]
 
 Keys are used to define references (_Reference_).
 
-<<model-for-refs-keys>> presents a logical model of key types. These logical enumerations are used to formulate constraints.
+<<model-for-refs-keys>> presents a logical model of key types.
+These logical enumerations are used to formulate constraints.
 
 [#model-for-refs-keys]
 .Logical Model for Keys of References (non-normative)
@@ -137,12 +141,13 @@ If _Key/type = GlobalReference,_ the key represents a reference to a source that
 
 If _Key/type = FragmentReference,_ the key represents a bookmark or a similar local identifier within its parent element as specified by the key that precedes this key.
 
-In all other cases, the key references a model element of the same or another Asset Administration Shell. The name of the model element is explicitly listed.
+In all other cases, the key references a model element of the same or another Asset Administration Shell.
+The name of the model element is explicitly listed.
 
 |xref:KeyTypes[KeyTypes]|1
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/Key`
-a|The key value, for example an IRDI or an URI |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |1
+a|The key value, for example an IRDI or a URI |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |1
 |===
 
 An example for using a _FragmentId_ as type of a key is a reference to an element within a file that is part of an Asset Administration Shell aasx package.
@@ -156,10 +161,10 @@ image::image52.png[]
 |Enumeration: e|[[KeyTypes]]KeyTypes
 h|Explanation: a|Enumeration of different key value types within a key
 |Set of: |xref:FragmentKeys[FragmentKeys]; xref:AasReferables[AasReferables], xref:spec-metamodel/datatypes.adoc#GloballyIdentifiables[GloballyIdentifiables]
-h|ID: | `\https://admin-shell.io/aas/3/1/KeyTypes`  
+h|ID: | `\https://admin-shell.io/aas/3/1/KeyTypes`
 
 .2+h|Literal h| ID
-   h|Explanation
+h|Explanation
 
 
 .2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/1/KeyTypes/AnnotatedRelationshipElement`
@@ -282,11 +287,11 @@ Note: not used as type but in constraints.
 
 
 h|Set of: |xref:AasReferableNonIdentifiables[AASReferableNonIdentifiables], xref:GenericFragmentKeys[GenericFragmentKeys]
-h|ID: | `\https://admin-shell.io/aas/3/1/FragmentKeys`  
+h|ID: | `\https://admin-shell.io/aas/3/1/FragmentKeys`
 
 
 .2+h|Literal h| ID
-   h|Explanation
+h|Explanation
 
 
 .2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/1/FragmentKeys/AnnotatedRelationshipElement`
@@ -386,10 +391,10 @@ Note: not used as type but in constraints.
 
 
 h|Set of: |xref:AasSubmodelElements[AasSubmodelElements]
-h|ID: | `\https://admin-shell.io/aas/3/1/AasReferableNonIdentifiables`  
+h|ID: | `\https://admin-shell.io/aas/3/1/AasReferableNonIdentifiables`
 
 .2+h|Literal h| ID
-   h|Explanation
+h|Explanation
 
 
 .2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/1/AasReferableNonIdentifiables/AnnotatedRelationshipElement`
@@ -475,13 +480,13 @@ a|List of submodel elements
 [.table-with-appendix-table]
 [cols="30%h,70%"]
 |===
-h|Enumeration: e|[[AasSubmodelElements]]AasSubmodelElements 
+h|Enumeration: e|[[AasSubmodelElements]]AasSubmodelElements
 h|Explanation: a|Enumeration of submodel element types including abstract submodel element types
-h|Set of: |-- 
-h|ID: | `\https://admin-shell.io/aas/3/1/AasSubmodelElements`  
+h|Set of: |--
+h|ID: | `\https://admin-shell.io/aas/3/1/AasSubmodelElements`
 
 .2+h|Literal h| ID
-   h|Explanation
+h|Explanation
 
 
 .2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/AnnotatedRelationshipElement`
@@ -579,10 +584,10 @@ Note: not used as type but in constraints.
 
 
 h|Set of: |xref:AasReferableNonIdentifiables[AASReferableNonIdentifiables], xref:AasIdentifiables[AasIdentifiables]
-h|ID: | `\https://admin-shell.io/aas/3/1/AasReferables`  
+h|ID: | `\https://admin-shell.io/aas/3/1/AasReferables`
 
 .2+h|Literal h| ID
-   h|Explanation
+h|Explanation
 
 
 .2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/1/AasReferableNonIdentifiables/AnnotatedRelationshipElement`
@@ -690,11 +695,11 @@ Note: not used as type but in constraints.
 
 
 |Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/1/GenericFragmentKeys`  
+h|ID: | `\https://admin-shell.io/aas/3/1/GenericFragmentKeys`
 
 .2+h|Literal h| ID
-   h|Explanation
-   
+h|Explanation
+
 .2+e|FragmentReference | `\https://admin-shell.io/aas/3/1/GenericFragmentKeys/FragmentReference`
 a|Bookmark or a similar local identifier of a subordinate part of a primary resource
 
@@ -716,18 +721,18 @@ Note: not used as type but in constraints.
 
 
 h|Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/1/AasIdentifiables`  
+h|ID: | `\https://admin-shell.io/aas/3/1/AasIdentifiables`
 
 .2+h|Literal h| ID
-   h|Explanation
-   
-.2+e|AssetAdministrationShell | `\https://admin-shell.io/aas/3/1/AasIdentifiables/AssetAdministrationShell` 
+h|Explanation
+
+.2+e|AssetAdministrationShell | `\https://admin-shell.io/aas/3/1/AasIdentifiables/AssetAdministrationShell`
 a|Asset Administration Shell
 
-.2+e|ConceptDescription | `\https://admin-shell.io/aas/3/1/AasIdentifiables/ConceptDescription` 
+.2+e|ConceptDescription | `\https://admin-shell.io/aas/3/1/AasIdentifiables/ConceptDescription`
 a|Concept description
 
-.2+e|Identifiable | `\https://admin-shell.io/aas/3/1/AasIdentifiables/Identifiable` 
+.2+e|Identifiable | `\https://admin-shell.io/aas/3/1/AasIdentifiables/Identifiable`
 a|
 Identifiable
 
@@ -737,7 +742,7 @@ Note: Identifiables are abstract, i.e. if a key uses "Identifiable", the referen
 ====
 
 
-.2+e|Submodel | `\https://admin-shell.io/aas/3/1/AasIdentifiables/Submodel` 
+.2+e|Submodel | `\https://admin-shell.io/aas/3/1/AasIdentifiables/Submodel`
 a|Submodel
 
 |===
@@ -750,12 +755,12 @@ a|Submodel
 h|Enumeration: e|[[GenericGloballyIdentifiables]]GenericGloballyIdentifiables
 h|Explanation: a|Enumeration of different key value types within a key
 h|Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/1/GenericGloballyIdentifiables`  
+h|ID: | `\https://admin-shell.io/aas/3/1/GenericGloballyIdentifiables`
 
 .2+h|Literal h| ID
-   h|Explanation
-   
-.2+e|GlobalReference | `\https://admin-shell.io/aas/3/1/GenericGloballyIdentifiables/GlobalReference` 
+h|Explanation
+
+.2+e|GlobalReference | `\https://admin-shell.io/aas/3/1/GenericGloballyIdentifiables/GlobalReference`
 a|Global reference
 
 |===
@@ -772,23 +777,17 @@ a|Global reference
 
 {aasd125}
 
-
 ====
 Note: constraint AASd-125 ensures that the shortest path is used.
 ====
-
 
 {aasd126}
 
 {aasd127}
 
-
 ====
-Note: which kind of fragments are supported depends on the content type and the specification of allowed fragment
-identifiers for the corresponding resource referenced.
+Note: which kind of fragments are supported depends on the content type and the specification of allowed fragment identifiers for the corresponding resource referenced.
 ====
-
-
 
 {aasd128}
 
@@ -805,6 +804,7 @@ The notation follows the grammar as defined in Clause xref:mappings.adoc#referen
 ....
 
 [.underline]#Examples for valid external references:#
+
 [example]
 ....
 (GlobalReference)https://example.com/ressource
@@ -815,20 +815,23 @@ The notation follows the grammar as defined in Clause xref:mappings.adoc#referen
 ....
 
 ====
-Note: 
+Note:
+
 [example]
 ....
 (GlobalReference)https://example.com/specification.html (FragmentReference)Hints
 ....
+
 represents the path with fragment identifier
+
 [example]
 ....
 https://example.com/specification.html#Hints
 ....
 ====
 
-
 [.underline]#Examples for valid model references:#
+
 [example]
 ....
 (AssetAdministrationShell)https://example.com/aas/1/0/12348
@@ -845,20 +848,24 @@ https://example.com/specification.html#Hints
 ....
 
 ====
-Note: 
+Note:
+
 [example]
 ....
 (SubmodelElementCollection)0, (MultiLanguageProperty)Title
 ....
-may be identical to 
+
+may be identical to
 
 [example]
 ....
 (SubmodelElementCollection)Manual, (MultiLanguageProperty)Title
 ....
-semantically and content-wise. 
-The difference is that more than one document is allowed in the first submodel and thus a submodel element list is defined: 
-elements in a list are numbered. However, it is also possible to define a display name in this case. 
+
+semantically and content-wise.
+The difference is that more than one document is allowed in the first submodel and thus a submodel element list is defined:
+elements in a list are numbered.
+However, it is also possible to define a display name in this case.
 The display name of the SubmodelElementCollection should be the same in both bases, e.g. "Users Manual".
 ====
 
@@ -869,14 +876,17 @@ The display name of the SubmodelElementCollection should be the same in both bas
 
 ====
 Note: assuming the file has the value using the absolute path
+
 [example]
 ....
 https://example.com/specification.html 
 ....
+
 (and not a relative path), the first reference points to the same information as the global reference
+
 [example]
 ....
-(GlobalReferencehttps://example.com/specification.html, (FragmentReference)Hints
+(GlobalReference)https://example.com/specification.html, (FragmentReference)Hints
 ....
 
 ====
@@ -886,18 +896,22 @@ https://example.com/specification.html
 (Submodel)https://example.com/aas/1/1/1234859590, (Blob)Specification, (FragmentReference)Hints
 ....
 
-
 [.underline]#Examples for invalid model references:#
+
 [example]
 ....
 (GlobalReference)https://example.com/aas/1/1/1234859590
 ....
+
 This is an external reference but no model reference.
+
 [example]
 ....
 (Property)0173-1#02-BAA120#008
 ....
-This reference does not start with the ID of an Identiable. Additionally, the value is not valid idShort for a Property submodel element.
+
+This reference does not start with the ID of an Identifiable.
+Additionally, the value is not valid idShort for a Property submodel element.
 
 [example]
 ....
@@ -905,8 +919,10 @@ This reference does not start with the ID of an Identiable. Additionally, the va
 ....
 
 This model reference is invalid because fragment references so far are only defined for _File_ and _Blob_ submodel elements (see Constraint AASd-127).
+
 [example]
 ....
 (AssetAdministrationShell)https://example.com/aas/1/0/12348, (Submodel)https://example.com/aas/1/1/1234859590, (Property)Temperature
 ....
+
 This is not a valid model reference because _AssetAdministrationShell_ and _Submodel_ are both global identifiables.
