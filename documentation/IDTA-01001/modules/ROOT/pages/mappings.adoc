@@ -2,7 +2,7 @@
 Copyright (c) 2023 Industrial Digital Twin Association
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](
-https://creativecommons.org/licenses/by/4.0/). 
+https://creativecommons.org/licenses/by/4.0/).
 
 SPDX-License-Identifier: CC-BY-4.0
 
@@ -25,7 +25,8 @@ idShortPath.adoc
 
 == Technical Data Formats
 
-This document specifies the Asset Administration Shell in a technology-neutral format, UML. Different data formats are used or recommended to be used in the different life cycle phases of a productfootnote:[The word “data formats” is used as shortcut and includes the use of conceptual advantages such as information models, schemes, transmission protocols, etc.].
+This document specifies the Asset Administration Shell in a technology-neutral format, UML.
+Different data formats are used or recommended to be used in the different life cycle phases of a productfootnote:[The word “data formats” is used as shortcut and includes the use of conceptual advantages such as information models, schemes, transmission protocols, etc.].
 
 The Asset Administration Shell supports three widely used formats:
 
@@ -33,39 +34,39 @@ The Asset Administration Shell supports three widely used formats:
 * JSON
 * RDF
 
-
 ====
 Note: the mapping specifications and schemata for XML, JSON and RDF are part of https://github.com/admin-shell-io/aas-specs.
 ====
 
-
-==  Content Format Types
+== Content Format Types
 
 For different use case scenarios different formats are suitable to fulfill the needs.
 Besides technical formats like JSON and XML also different content formats are available.
 
-
 .Format Types
-[%autowidth, width="100%", cols="29%,71%",options="header",]
+[%autowidth,width="100%",cols="29%,71%",options="header",]
 |===
 |*Format* |*Explanation*
-|Normal a|The standard serialization of the model element or child elements is applied.
+|Normal
+|The standard serialization of the model element or child elements is applied.
 
-|Metadata a|Only metadata of an element or child elements is returned; the value is not.
+|Metadata
+|Only metadata of an element or child elements is returned; the value is not.
 
-|Value a|Only the raw value of the model element or child elements is returned; it is commonly referred to as _ValueOnly_-serialization.
+|Value
+|Only the raw value of the model element or child elements is returned; it is commonly referred to as _ValueOnly_-serialization.
 
-|Reference |Only applicable to Referables. Only the reference to the found element is returned; potential child elements are ignored.
+|Reference
+|Only applicable to Referables.
+Only the reference to the found element is returned; potential child elements are ignored.
 
-|Path a|Returns the idShort of the requested element and a list of _idShort_ paths to child elements if the requested element is a Submodel, a SubmodelElementCollection, a SubmodelElementList, a AnnotatedRelationshipElement, or an Entity.
+|Path
+|Returns the idShort of the requested element and a list of _idShort_ paths to child elements if the requested element is a Submodel, a SubmodelElementCollection, a SubmodelElementList, a AnnotatedRelationshipElement, or an Entity.
 |===
 
-
-==   Encoding
+== Encoding
 
 Blobs require the following encoding: base64 string.
-
-
 
 include::./includes/grammar-serialization-reference.adoc[leveloffset=-1]
 
@@ -77,11 +78,12 @@ include::./includes/valueonly.adoc[leveloffset=-1]
 
 include::./includes/idshortpath.adoc[leveloffset=-1]
 
-==  Format "Reference"
+== Format "Reference"
 
 In some use cases only the (model) reference to the object is needed in the first place.
 
-References are possible for Referables, only. Potential child elements are ignored.
+References are possible for Referables, only.
+Potential child elements are ignored.
 
 For references see Clause xref:spec-metamodel/referencing.adoc#referencing-in-aas[Referencing in Asset Administration Shells].
 
@@ -102,27 +104,23 @@ For references see Clause xref:spec-metamodel/referencing.adoc#referencing-in-aa
 
 ==  Format "Normal" in  XML
 
-The metamodel of an Asset Administration Shell needs to be serialized for import and export scenarios. XML is a possible serialization format.
+The metamodel of an Asset Administration Shell needs to be serialized for import and export scenarios.
+XML is a possible serialization format.
 
-eXtensible Markup Language (XMLfootnote:[see: https://www.w3.org/TR/2008/REC-xml-20081126/]) is very well suited to derive information from an IT system, e.g. to process it manually and then feed it into another IT system. XML provides the possibilities of scheme definitions, which can be used to syntactically validate the represented information in each step.
-
-
-====
-Note 1: the xml schema (.xsd files) is maintained in the repository "aas-specs" of the github project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder `schemas\xml`
-====
-
-
+eXtensible Markup Language (XMLfootnote:[see: https://www.w3.org/TR/2008/REC-xml-20081126/]) is very well suited to derive information from an IT system, e.g. to process it manually and then feed it into another IT system.
+XML provides the possibilities of scheme definitions, which can be used to syntactically validate the represented information in each step.
 
 ====
-Note 2: the mapping rules of how to derive the xml schema from the technology-neutral metamodel as defined in this specification can be found in the repository "aas-specs" of the github project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder `schemas\xml\Readme.md#xml-mappingrules`
+Note 1: the xml schema (.xsd files) is maintained in the repository "aas-specs" of the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder `schemas\xml`
 ====
 
-
-
 ====
-Note 3: example files can be found in the repository “aas-specs” in the github project admin-shell-io xref:bibliography.adoc#bib51[[51\]]  in folder : `schemas\xml\examples`
+Note 2: the mapping rules of how to derive the xml schema from the technology-neutral metamodel as defined in this specification can be found in the repository "aas-specs" of the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder `schemas\xml\Readme.md#xml-mappingrules`
 ====
 
+====
+Note 3: example files can be found in the repository “aas-specs” in the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]]  in folder : `schemas\xml\examples`
+====
 
 ==   Format "Normal" in JSON
 
@@ -130,48 +128,54 @@ JSONfootnote:[see: https://tools.ietf.org/html/rfc8259 or https://www.ecma-inter
 
 Additionally, JSON format is used to describe the payload in the http/REST API for active Asset Administration Shells xref:bibliography.adoc#bib37[[37\]].
 
+====
+Note 1: the JSON schema (.json files) is maintained in the repository "aas-specs" of the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder `schemas\json`
+====
 
 ====
-Note 1: the JSON schema (.json files) is maintained in the repository "aas-specs" of the github project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder `schemas\json`
-====
-
-
-
-====
-Note 2: the mapping rules of how to derive the JSON schema from the technology-neutral metamodel as defined in this specification can be found in the repository "aas-specs" of the github project admin-shell-io xref:bibliography.adoc#bib51[[51\] in `schemas\json\Readme.md#json-mappingrules`
+Note 2: the mapping rules of how to derive the JSON schema from the technology-neutral metamodel as defined in this specification can be found in the repository "aas-specs" of the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in `schemas\json\Readme.md#json-mappingrules`
 ====
 
 
 
 ====
-Note 3: example files can be found in the repository "aas-specs"  in the github project admin-shell-io [xref:Bibliography.adoc#bib51[[51\]  in folder `schemas\json\examples`
+Note 3: example files can be found in the repository "aas-specs" in the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder `schemas\json\examples`
 ====
 
 
-==   Format "Normal" in RDF
+== Format "Normal" in RDF
 
-The Resource Description Framework (RDF) xref:Bibliography.adoc#bib32[[32\]] is the recommended standard of the W3C to unambiguously model and present semantic data. RDF documents are structured in the form of triples, consisting of subjects, relations, and objects. The resulting model is often interpreted as a graph, with the subject and object elements as the nodes and the relations as the graph edges.
+The Resource Description Framework (RDF) xref:bibliography.adoc#bib32[[32\]] is the recommended standard of the W3C to unambiguously model and present semantic data.
+RDF documents are structured in the form of triples, consisting of subjects, relations, and objects.
+The resulting model is often interpreted as a graph, with the subject and object elements as the nodes and the relations as the graph edges.
 
-RDF is closely related to web standards, illustrated by the fact that all elements are encoded using (HTTP-)IRIs. As a common practice, the provision of additional information at the referenced location of an RDF entity directly allows the interlinking of entitiesfootnote:[Note: entity as a generic term and entity as a specific submodel element subtype need tobe distinugished.] based on the web. This process – following links in order to discover related information – is called dereferencing a resource and is supported by any browser or web client. Connecting distributed data sources through the web in the described manner is referred to by the term “Linked Data”. Connecting the available resources and capabilities of linked data with the expressiveness of the Asset Administration Shell is one motivation for the RDF serialization.
+RDF is closely related to web standards, illustrated by the fact that all elements are encoded using (HTTP-)IRIs.
+As a common practice, the provision of additional information at the referenced location of an RDF entity directly allows the interlinking of entitiesfootnote:[Note: entity as a generic term and entity as a specific submodel element subtype need to be distinguished.] based on the web.
+This process – following links in order to discover related information – is called dereferencing a resource and is supported by any browser or web client.
+Connecting distributed data sources through the web in the described manner is referred to by the term “Linked Data”.
+Connecting the available resources and capabilities of linked data with the expressiveness of the Asset Administration Shell is one motivation for the RDF serialization.
 
-In addition, RDF is the basis of a wide range of logical inference and reasoning techniques. Vocabularies like RDF Schema (RDFS) and the Web Ontology Language (OWL) combine the graph-based syntax of RDF with formal definitions and axioms. This allows automated reasoners to understand the relation between entities to some extent and draw conclusions.
+In addition, RDF is the basis of a wide range of logical inference and reasoning techniques.
+Vocabularies like RDF Schema (RDFS) and the Web Ontology Language (OWL) combine the graph-based syntax of RDF with formal definitions and axioms.
+This allows automated reasoners to understand the relation between entities to some extent and draw conclusions.
 
-Combining both features, the RDF mapping of the Asset Administration Shell can provide the basis for complex queries and requests. SPARQL, the standard query language for the Semantic Web, can combine reasoning features with the integration of external data sources. In order to benefit of these abilities, the Asset Administration Shell requires a clear scheme of its RDF representation.
-
-
-====
-Note 1: the RDF scheme/OWL files (.ttl files) are maintained in the repository "aas-specs" of the github project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder `schemas\rdf`
-====
-
-
-
-====
-Note 2: the mapping rules of how to derive the RDF schema from the technology-neutral metamodel as defined in this specification can be found in the repository "aas-specs"  of the github project admin-shell-io [xref:bibliography.adoc#bib51[[51\] in `schemas\rdf\Readme.md#rdf-mappingrules`
-====
-
+Combining both features, the RDF mapping of the Asset Administration Shell can provide the basis for complex queries and requests.
+SPARQL, the standard query language for the Semantic Web, can combine reasoning features with the integration of external data sources.
+In order to benefit of these abilities, the Asset Administration Shell requires a clear scheme of its RDF representation.
 
 
 ====
-Note 3: example files can be found n the repository "aas-specs"  of the github project admin-shell-io [xref:Bibliography.adoc#bib51[[51\] in folder `schemas\rdf\examples`
+Note 1: the RDF scheme/OWL files (.ttl files) are maintained in the repository "aas-specs" of the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder `schemas\rdf`
 ====
 
+
+
+====
+Note 2: the mapping rules of how to derive the RDF schema from the technology-neutral metamodel as defined in this specification can be found in the repository "aas-specs" of the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in `schemas\rdf\Readme.md#rdf-mappingrules`
+====
+
+
+
+====
+Note 3: example files can be found n the repository "aas-specs" of the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder `schemas\rdf\examples`
+====
