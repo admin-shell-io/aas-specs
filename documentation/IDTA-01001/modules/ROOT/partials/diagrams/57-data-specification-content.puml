@@ -1,0 +1,17 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+hide methods
+
+object DataSpecification <<Template>> {
+  +description: MultiLanguageTextType[0..1]
+  +administration: AdministrativeInformation[0..1]
+  +id: Identifier
+  +dataSpecificationContent: DataSpecificationContent
+}
+
+abstract class DataSpecificationContent <<abstract,Template>> {
+}
+
+DataSpecification ..> DataSpecificationContent
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+abstract class Referable<HasExtensions> <<abstract>> {
+  +category: NameType[0..1]
+  +idShort: IdShortType[0..1]
+  +displayName: MultiLanguageNameType[0..1]
+  +description: MultiLanguageTextType[0..1]
+}
+abstract class Identifiable <<abstract>> {
+  +administration: AdministrativeInformation[0..1]
+  +id: Identifier
+}
+class AdministrativeInformation<HasDataSpecification> {
+  +version: VersionType[0..1]
+  +revision: RevisionType[0..1]
+  +creator: Reference[0..1]
+  +templateId: Identifier[0..1]
+}
+Identifiable .> AdministrativeInformation
+Referable <|-- Identifiable
+@enduml

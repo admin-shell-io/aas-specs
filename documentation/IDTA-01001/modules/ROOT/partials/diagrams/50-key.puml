@@ -1,0 +1,72 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class Key {
+  +type: KeyTypes
+  +value: Identifier
+}
+
+enum KeyTypes <<enumeration>> {
+}
+
+enum FragmentKeys <<enumeration>> {
+}
+
+enum GenericFragmentKeys <<enumeration>> {
+  FragmentReference
+}
+
+enum AasReferables <<enumeration>> {
+  Referable
+}
+
+enum AasReferablesNonIdentifiables <<enumeration>> {
+}
+
+enum AasSubmodelElements <<enumeration>> {
+  AnnotatedRelationshipElement
+  BasicEventElement
+  Blob
+  Capability
+  DataElement
+  Entity
+  EventElement
+  File
+  MultiLanguageProperty
+  Operation
+  Property
+  Range
+  ReferenceElement
+  RelationshipElement
+  SubmodelElement
+  SubmodelElementList
+  SubmodelElementCollection
+}
+
+enum GloballyIdentifiables <<enumeration>> {
+}
+
+enum GenericGloballyIdentifiables <<enumeration>> {
+  GlobalReference
+}
+
+enum AasIdentifiables <<enumeration>> {
+  AssetAdministrationShell
+  ConceptDescription
+  Identifiable
+  Submodel
+}
+
+Key ..> KeyTypes
+KeyTypes --|> FragmentKeys
+KeyTypes --|> AasReferables
+KeyTypes --|> GloballyIdentifiables
+FragmentKeys --|> GenericFragmentKeys
+FragmentKeys --|> AasReferablesNonIdentifiables
+AasReferables --|> AasReferablesNonIdentifiables
+AasReferables --|> AasIdentifiables
+AasReferablesNonIdentifiables --|> AasSubmodelElements
+GloballyIdentifiables --|> AasIdentifiables
+GloballyIdentifiables --|> GenericGloballyIdentifiables
+@enduml

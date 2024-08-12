@@ -1,0 +1,57 @@
+@startuml
+
+object "<<AAS Metamodel>> \n **AAS**" as AAS_Metamodel {
+  assetKind
+  globalAssetId
+  derivedFrom: Reference [0..1]
+  description: LangStringSet [0..1]
+}
+
+object "<<AAS Type>> \n __**http://TemperatureSensor.com**__" as TemperatureSensor {
+  assetKind = Type
+  globalAssetId
+  valueRange
+  productClass = Component
+  manufacturer
+  description
+}
+
+object "<<AAS>> \n __**http://TemperatureSensorInstance.com**__" as TemperatureSensorInstance {
+  assetKind = Instance
+  globalAssetId
+  measuredTemperature
+}
+
+object "<<AAS>> \n __**http://T0215551AA.com:AAS**__" as AAS0 {
+  manufacturer = ExampleManufacturer
+  globalAssetId = 0215551AA
+  assetKind = Type
+  valueRange = -40 °C / 140 °C
+  productClass = Component
+  description (EN) = precise and fast temperature measurement
+}
+
+object "<<AAS>> \n __**http://T1.com:AAS**__" as AAS1 {
+  assetKind = Instance
+  globalAssetId = 0215551AAA_T1
+  measuredTemperature = 60
+}
+
+object "<<AAS>> \n __**http://T2.com:AAS**__" as AAS2 {
+  assetKind = Instance
+  globalAssetId = 0215551AAA_T2
+  measuredTemperature = 100
+}
+
+
+AAS_Metamodel <.. TemperatureSensor : conformant to
+AAS_Metamodel <.. AAS0 : conformant to
+AAS_Metamodel <.. TemperatureSensorInstance : conformant to
+TemperatureSensor <.. AAS0  : conformant to
+TemperatureSensor <-- TemperatureSensorInstance : derivedFrom:ref
+AAS0 <-- AAS1 : derivedFrom:ref
+AAS0 <-- AAS2 : derivedFrom:ref
+TemperatureSensorInstance <.. AAS1  : conformant to
+TemperatureSensorInstance <.. AAS2  : conformant to
+
+@enduml

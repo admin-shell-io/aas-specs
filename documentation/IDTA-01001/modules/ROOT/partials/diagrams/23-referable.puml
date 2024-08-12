@@ -1,0 +1,13 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+abstract class Referable<HasExtensions> <<abstract>> {
+  +idShort: IdShortType[0..1]
+  +displayName: MultiLanguageNameType[0..1]
+  +description: MultiLanguageTextType[0..1]
+
+  <<Deprecated>>
+  +category: NameType[0..1]
+}
+@enduml

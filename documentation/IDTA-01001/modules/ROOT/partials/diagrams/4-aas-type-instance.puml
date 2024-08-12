@@ -1,0 +1,27 @@
+@startuml
+
+object "<<AAS>> \n __**http://T0215551AA.com:AAS**__" as AAS0 {
+  manufacturer = ExampleManufacturer
+  globalAssetId = 0215551AA
+  assetKind = Type
+  valueRange = -40 °C / 140 °C
+  productClass = Component
+  description (EN) = precise and fast temperature measurement
+}
+
+object "<<AAS>> \n **__http://T1.com:AAS**__" as AA1 {
+  assetKind = Instance
+  globalAssetId = 0215551AAA_T1
+  measuredTemperature = 60
+}
+
+object "<<AAS>> \n __**http://T2.com:AAS**__" as AAS2 {
+  assetKind = Instance
+  globalAssetId = 0215551AAA_T2
+  measuredTemperature = 100
+}
+
+AAS0 <-- AA1 : derivedFrom:ref
+AAS0 <-- AAS2 : derivedFrom:ref
+
+@enduml

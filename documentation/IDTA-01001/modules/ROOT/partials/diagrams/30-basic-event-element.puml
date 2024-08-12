@@ -1,0 +1,25 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class BasicEventElement<EventElement> <<Experimental>> {
+  +observed: Reference
+  +direction: Direction
+  +state: StateOfEvent
+  +messageTopic: MessageTopicType[0..1]
+  +messageBroker: Reference[0..1]
+  +lastUpdate: DateTime[0..1]
+  +minInterval: Duration[0..1]
+  +maxInterval: Duration[0..1]
+}
+enum Direction <<enumeration>> {
+  input
+  output
+}
+enum StateOfEvent <<enumeration>> {
+  on
+  off
+}
+BasicEventElement ..> Direction
+BasicEventElement ..> StateOfEvent
+@enduml

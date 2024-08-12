@@ -1,0 +1,9 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class Blob<DataElement> {
+  +value: BlobType[0..1]
+  +contentType: ContentType[0..1]
+}
+@enduml

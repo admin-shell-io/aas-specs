@@ -1,0 +1,131 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class AssetAdministrationShell<Identifiable\nHasDataSpecification> {
+  +derivedFrom: Reference[0..1]
+  +assetInformation: AssetInformation
+  +submodel: Reference[0..*]
+  +administration: AdministrativeInformation[0..1]
+  +id: Identifier
+  +idShort: IdShortType[0..1]
+  +displayName: MultiLanguageNameType[0..1]
+  +description: MultiLanguageTextType[0..1]
+  +extension: Extension[0..*]
+  +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
+
+  <<Deprecated>>
+  +category: NameType[0..1]
+}
+class AssetInformation {
+  +assetKind: AssetKind
+  +globalAssetId: Identifier[0..1]
+  +specificAssetId: SpecificAssetId[0..*]
+  +assetType: Identifier[0..1]
+  +defaultThumbnail: Resource[0..1]
+}
+class AdministrativeInformation<HasDataSpecification> {
+  +version: VersionType[0..1]
+  +revision: RevisionType[0..1]
+  +creator: Reference[0..1]
+  +templateId: Identifier[0..1]
+  +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
+}
+enum AssetKind <<enumeration>> {
+  Type
+  Instance
+  Role
+  NotApplicable
+}
+class SpecificAssetId<HasSemantics> {
+  +name: LabelType
+  +value: Identifier
+  +externalSubjectId: Reference[0..1]
+  +semanticId: Reference[0..1]
+  +supplementalSemanticId: Reference[0..*]
+}
+class Submodel<Identifiable\nHasKind\nHasSemantics\nQualifiable\nHasDataSpecification> {
+  +submodelElement: SubmodelElement[0..*]
+  +administration: AdministrativeInformation[0..1]
+  +id: Identifier
+  +idShort: IdShortType[0..1]
+  +displayName: MultiLanguageNameType[0..1]
+  +description: MultiLanguageTextType[0..1]
+  +extension: Extension[0..*]
+  +kind: ModellingKind[0..1]
+  +semanticId: Reference[0..1]
+  +supplementalSemanticId: Reference[0..*]
+  +qualifier: Qualifier[0..*]
+  +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
+
+  <<Deprecated>>
+  +category: NameType[0..1]
+}
+abstract class SubmodelElement<Referable\nHasSemantics\nQualifiable\nHasDataSpecification> <<abstract>> {
+  +idShort: IdShortType[0..1]
+  +displayName: MultiLanguageNameType[0..1]
+  +description: MultiLanguageTextType[0..1]
+  +extension: Extension[0..*]
+  +semanticId: Reference[0..1]
+  +supplementalSemanticId: Reference[0..*]
+  +qualifier: Qualifier[0..*]
+  +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
+
+  <<Deprecated>>
+  +category: NameType[0..1]
+}
+class Qualifier<HasSemantics> {
+  +type: QualifierType
+  +valueType: DataTypeDefXsd
+  +value: ValueDataType[0..1]
+  +valueId: Reference[0..1]
+  +semanticId: Reference[0..1]
+  +supplementalSemanticId: Reference[0..*]
+
+  <<Experimental>>
+  +kind: QualifierKind[0..1]
+}
+class Property<DataElement> {
+  +valueType: DataTypeDefXsd
+  +value: ValueDataType[0..1]
+  +valueId: Reference[0..1]
+  +idShort: IdShortType[0..1]
+  +displayName: MultiLanguageNameType[0..1]
+  +description: MultiLanguageTextType[0..1]
+  +extension: Extension[0..*]
+  +semanticId: Reference[0..1]
+  +supplementalSemanticId: Reference[0..*]
+  +qualifier: Qualifier[0..*]
+  +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
+
+  <<Deprecated>>
+  +category: NameType[0..1]
+}
+
+note left of Property
+  Exemplary Submodel Element
+  "Property",
+  other submodel element subtypes
+  include operations, collections, files
+  etc.
+end note
+
+package "External Concept Definitions"  {
+    hide members
+    object "<<external>>\nProperty Definition\nIEC 61360" as PropertyDefinition{
+    }
+}
+
+AssetAdministrationShell ..> AssetInformation
+AssetAdministrationShell ..> AdministrativeInformation
+AssetAdministrationShell -->"0..*" Submodel : submodel:ref
+AssetAdministrationShell -->"0..1" AssetAdministrationShell : derivedFrom:ref
+AssetInformation ..> AssetKind
+AssetInformation ..> SpecificAssetId
+Submodel ..> AdministrativeInformation
+Submodel ..> SubmodelElement
+Submodel ..> Qualifier
+SubmodelElement .> Qualifier
+SubmodelElement <|-- Property
+SubmodelElement ..> PropertyDefinition : <<external global reference>>
+@enduml

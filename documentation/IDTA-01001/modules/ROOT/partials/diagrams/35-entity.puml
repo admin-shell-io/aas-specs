@@ -1,0 +1,16 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class Entity<SubmodelElement> {
+  +statement: SubmodelElement[0..*]
+  +entityType: EntityType[0..1]
+  +globalAssetId: Identifier[0..1]
+  +specificAssetId: SpecificAssetId[0..*]
+}
+enum EntityType <<enumeration>> {
+  CoManagedEntity
+  SelfManagedEntity
+}
+Entity .> EntityType
+@enduml

@@ -1,0 +1,73 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+hide methods
+
+class AssetAdministrationShell<Identifiable\nHasDataSpecification> {
+  +derivedFrom: Reference[0..1]
+  +assetInformation: AssetInformation
+  +submodel: Reference[0..*]
+}
+class AssetInformation {
+  +assetKind: AssetKind
+  +globalAssetId: Identifier[0..1]
+  +specificAssetId: SpecificAssetId[0..*]
+  +assetType: Identifier[0..1]
+  +defaultThumbnail: Resource[0..1]
+}
+enum AssetKind <<enumeration>> {
+  Type
+  Instance
+  Role
+  NotApplicable
+}
+class SpecificAssetId<HasSemantics> {
+  +name: LabelType
+  +value: Identifier
+  +externalSubjectId: Reference[0..1]
+}
+class Submodel<Identifiable\nHasKind\nHasSemantics\nQualifiable\nHasDataSpecification> {
+  +submodelElement: SubmodelElement[0..*]
+}
+class Qualifier<HasSemantics> {
+  +type: QualifierType
+  +valueType: DataTypeDefXsd
+  +value: ValueDataType[0..1]
+  +valueId: Reference[0..1]
+
+  <<Experimental>>
+  +kind: QualifierKind[0..1]
+}
+abstract class SubmodelElement<Referable\nHasSemantics\nQualifiable\nHasDataSpecification> <<abstract>> {
+}
+class Property<DataElement> {
+  +valueType: DataTypeDefXsd
+  +value: ValueDataType[0..1]
+  +valueId: Reference[0..1]
+}
+
+note left of Property
+  Exemplary Submodel Element
+  "Property",
+  other submodel element subtypes
+  include operations, collections, files
+  etc.
+end note
+
+package "External Concept Definitions"  {
+    hide members
+    object "<<external>>\nProperty Definition\nIEC 61360" as PropertyDefinition{
+    }
+}
+
+AssetAdministrationShell ..> AssetInformation
+AssetAdministrationShell -->"0..*" Submodel : submodel:ref
+AssetAdministrationShell -->"0..1" AssetAdministrationShell : derivedFrom:ref
+AssetInformation ..> AssetKind
+AssetInformation ..> SpecificAssetId
+Submodel ..> SubmodelElement
+Submodel ..> Qualifier
+SubmodelElement .> Qualifier
+SubmodelElement <|-- Property
+SubmodelElement ..> PropertyDefinition : <<external global reference>>
+@enduml

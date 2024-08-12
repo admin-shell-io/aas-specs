@@ -1,0 +1,9 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+abstract class HasSemantics <<abstract>> {
+  +semanticId: Reference[0..1]
+  +supplementalSemanticId: Reference[0..*]
+}
+@enduml

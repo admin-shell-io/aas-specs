@@ -1,0 +1,30 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class AssetInformation {
+  +assetKind: AssetKind
+  +globalAssetId: Identifier[0..1]
+  +specificAssetId: SpecificAssetId[0..*]
+  +assetType: Identifier[0..1]
+  +defaultThumbnail: Resource[0..1]
+}
+class SpecificAssetId<HasSemantics> {
+  +name: LabelType
+  +value: Identifier
+  +externalSubjectId: Reference[0..1]
+}
+class Resource {
+  +path: PathType
+  +contentType: ContentType[0..1]
+}
+enum AssetKind <<enumeration>> {
+  Type
+  Instance
+  Role
+  NotApplicable
+}
+AssetInformation .> AssetKind
+AssetInformation ..> SpecificAssetId
+AssetInformation ..> Resource
+@enduml

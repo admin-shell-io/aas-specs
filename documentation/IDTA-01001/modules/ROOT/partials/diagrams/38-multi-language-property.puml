@@ -1,0 +1,9 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class MultiLanguageProperty<DataElement> {
+  +value: MultiLanguageTextType[0..1]
+  +valueId: Reference[0..1]
+}
+@enduml

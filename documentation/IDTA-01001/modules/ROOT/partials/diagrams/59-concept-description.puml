@@ -1,0 +1,47 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+hide methods
+
+note "Global reference to id\nof DataSpecification" as Note
+
+package "Data Specification Templates - Part 1" as templates  {
+    abstract class HasDataSpecification <<abstract>> {
+      +dataSpecification: Reference[0..*]
+    }
+
+    object DataSpecification <<Template>> {
+      +description: MultiLanguageTextType[0..1]
+      +administration: AdministrativeInformation[0..1]
+      +id: Identifier
+      +dataSpecificationContent: DataSpecificationContent
+    }
+
+    abstract class DataSpecificationContent <<abstract,Template>> {
+    }
+    HasDataSpecification ..> DataSpecification: <<external global reference>>
+    DataSpecification ..> DataSpecificationContent
+}
+
+class ConceptDescription<Identifiable> {
+  +isCaseOf: Reference[0..*]
+}
+
+package "Data Specification Handling - Serialization" as handling {
+    abstract class HasDataSpecification <<abstract>> {
+      +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
+    }
+    class EmbeddedDataSpecification {
+      +dataSpecification: Reference
+      +dataSpecificationContent: DataSpecificationContent
+    }
+    abstract class DataSpecificationContent <<abstract>> {
+    }
+    EmbeddedDataSpecification .> DataSpecificationContent
+    HasDataSpecification ..> EmbeddedDataSpecification
+    ConceptDescription --|> HasDataSpecification
+}
+
+Note..templates.DataSpecification
+Note..handling.EmbeddedDataSpecification
+@enduml

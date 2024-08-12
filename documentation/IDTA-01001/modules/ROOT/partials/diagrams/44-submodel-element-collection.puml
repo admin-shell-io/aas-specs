@@ -1,0 +1,12 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class SubmodelElementCollection {
+  +value: SubmodelElement[0..*]
+}
+abstract class SubmodelElement<Referable\nHasSemantics\nQualifiable\nHasDataSpecification> <<abstract>> {
+}
+SubmodelElement <|-- SubmodelElementCollection
+SubmodelElementCollection ..> SubmodelElement
+@enduml

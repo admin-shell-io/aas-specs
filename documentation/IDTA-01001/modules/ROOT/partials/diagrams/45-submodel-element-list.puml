@@ -1,0 +1,16 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class SubmodelElementList {
+  +orderRelevant: bool[0..1] = True
+  +semanticIdListElement: Reference[0..1]
+  +typeValueListElement: AasSubmodelElements
+  +valueTypeListElement: DataTypeDefXsd[0..1]
+  +value: SubmodelElement[0..*]
+}
+abstract class SubmodelElement<Referable\nHasSemantics\nQualifiable\nHasDataSpecification> <<abstract>> {
+}
+SubmodelElement <|-- SubmodelElementList
+SubmodelElementList ..> SubmodelElement
+@enduml

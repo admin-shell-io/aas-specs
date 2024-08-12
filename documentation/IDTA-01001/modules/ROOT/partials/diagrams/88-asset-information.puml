@@ -1,0 +1,51 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class AssetInformation {
+  +assetKind: AssetKind
+  +globalAssetId: Identifier[0..1]
+  +specificAssetId: SpecificAssetId[0..*]
+  +assetType: Identifier[0..1]
+  +defaultThumbnail: Resource[0..1]
+}
+class SpecificAssetId<HasSemantics> {
+  +name: LabelType
+  +value: Identifier
+  +externalSubjectId: Reference[0..1]
+}
+class Entity {
+  +statement: SubmodelElement[0..*]
+  +entityType: EntityType[0..1]
+  +globalAssetId: Identifier[0..1]
+  +specificAssetId: SpecificAssetId[0..*]
+}
+enum EntityType <<enumeration>> {
+  CoManagedEntity
+  SelfManagedEntity
+}
+class AssetAdministrationShell<Identifiable\nHasDataSpecification> {
+  +derivedFrom: Reference[0..1]
+  +assetInformation: AssetInformation
+  +submodel: Reference[0..*]
+}
+class Submodel<Identifiable\nHasKind\nHasSemantics\nQualifiable\nHasDataSpecification> {
+  +submodelElement: SubmodelElement[0..*]
+}
+abstract class SubmodelElement<Referable\nHasSemantics\nQualifiable\nHasDataSpecification> <<abstract>> {
+}
+class RelationshipElement {
+  +first: Reference[0..1]
+  +second: Reference[0..1]
+}
+AssetAdministrationShell ..> AssetInformation
+AssetAdministrationShell -->"0..*" Submodel : submodel:ref
+AssetAdministrationShell -->"0..1" AssetAdministrationShell : derivedFrom:ref
+AssetInformation ..> SpecificAssetId
+Entity ..> SubmodelElement
+Entity ..> EntityType
+Entity ..> SpecificAssetId
+Submodel ..> SubmodelElement
+SubmodelElement <|-- Entity
+SubmodelElement <|-- RelationshipElement
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class AssetAdministrationShell<Identifiable\nHasDataSpecification> {
+  +derivedFrom: Reference[0..1]
+  +assetInformation: AssetInformation
+  +submodel: Reference[0..*]
+}
+class AssetInformation {
+  +assetKind: AssetKind
+  +globalAssetId: Identifier[0..1]
+  +specificAssetId: SpecificAssetId[0..*]
+  +assetType: Identifier[0..1]
+  +defaultThumbnail: Resource[0..1]
+}
+class Submodel<Identifiable\nHasKind\nHasSemantics\nQualifiable\nHasDataSpecification> {
+  +submodelElement: SubmodelElement[0..*]
+}
+AssetAdministrationShell ..> AssetInformation
+AssetAdministrationShell -->"0..*" Submodel : submodel:ref
+AssetAdministrationShell -->"0..1" AssetAdministrationShell : derivedFrom:ref
+@enduml

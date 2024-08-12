@@ -1,0 +1,8 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+abstract class HasDataSpecification <<abstract>> {
+  +dataSpecification: Reference[0..*]
+}
+@enduml

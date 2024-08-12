@@ -1,0 +1,15 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class EventPayload <<Experimental>> {
+  +source: Reference
+  +sourceSemanticId: Reference[0..1]
+  +observableReference: Reference
+  +observableSemanticId: Reference[0..1]
+  +topic: MessageTopicType[0..1]
+  +subjectId: Reference[0..1]
+  +timeStamp: DateTime
+  +payload: BlobType[0..1]
+}
+@enduml

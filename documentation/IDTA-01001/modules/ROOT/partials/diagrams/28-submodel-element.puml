@@ -1,0 +1,101 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+abstract class SubmodelElement<Referable\nHasSemantics\nQualifiable\nHasDataSpecification> <<abstract>> {
+}
+class RelationshipElement {
+  +first: Reference[0..1]
+  +second: Reference[0..1]
+}
+class AnnotatedRelationshipElement {
+  +annotation: DataElement[0..*]
+}
+abstract class DataElement <<abstract>> {
+}
+class Property {
+  +valueType: DataTypeDefXsd
+  +value: ValueDataType[0..1]
+  +valueId: Reference[0..1]
+}
+class MultiLanguageProperty {
+  +value: MultiLanguageTextType[0..1]
+  +valueId: Reference[0..1]
+}
+class Range <<Experimental>> {
+  +valueType: DataTypeDefXsd
+  +min: ValueDataType[0..1]
+  +max: ValueDataType[0..1]
+}
+class Blob {
+  +value: BlobType[0..1]
+  +contentType: ContentType[0..1]
+}
+class File {
+  +value: PathType[0..1]
+  +contentType: ContentType[0..1]
+}
+class ReferenceElement {
+  +value: Reference[0..1]
+}
+class Capability {
+}
+class SubmodelElementList {
+  +orderRelevant: bool[0..1]
+  +semanticIdListElement: Reference[0..1]
+  +typeValueListElement: AasSubmodelElements
+  +valueTypeListElement: DataTypeDefXsd[0..1]
+  +value: SubmodelElement[0..*]
+}
+class SubmodelElementCollection {
+  +value: SubmodelElement[0..*]
+}
+class Entity {
+  +statement: SubmodelElement[0..*]
+  +entityType: EntityType[0..1]
+  +globalAssetId: Identifier[0..1]
+  +specificAssetId: SpecificAssetId[0..*]
+}
+abstract class EventElement <<abstract,Experimental>> {
+}
+class BasicEventElement <<Experimental>> {
+  +observed: Reference
+  +direction: Direction
+  +state: StateOfEvent
+  +messageTopic: MessageTopicType[0..1]
+  +messageBroker: Reference[0..1]
+  +lastUpdate: DateTime[0..1]
+  +minInterval: Duration[0..1]
+  +maxInterval: Duration[0..1]
+}
+class Operation {
+  +inputVariable: OperationVariable[0..*]
+  +outputVariable: OperationVariable[0..*]
+  +inoutputVariable: OperationVariable[0..*]
+}
+class OperationVariable {
+  +value: SubmodelElement
+}
+AnnotatedRelationshipElement .> DataElement
+DataElement <|--- Blob
+DataElement <|-- File
+DataElement <|--- MultiLanguageProperty
+DataElement <|-- Property
+DataElement <|-- Range
+DataElement <|-- ReferenceElement
+Entity ..> SubmodelElement
+EventElement <|-- BasicEventElement
+Operation ..> OperationVariable
+OperationVariable ..> SubmodelElement
+RelationshipElement <|-- AnnotatedRelationshipElement
+SubmodelElement <|-- Capability
+SubmodelElement <|-- DataElement
+SubmodelElement <|--- Entity
+SubmodelElement <|--- EventElement
+SubmodelElement <|-- Operation
+SubmodelElement <|--- RelationshipElement
+SubmodelElement <|-- SubmodelElementCollection
+SubmodelElement <|--- SubmodelElementList
+SubmodelElementCollection ..> SubmodelElement
+SubmodelElementList ..> SubmodelElement
+@enduml

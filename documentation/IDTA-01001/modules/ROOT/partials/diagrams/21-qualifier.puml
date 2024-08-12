@@ -1,0 +1,20 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class Qualifier<HasSemantics> {
+  +type: QualifierType
+  +valueType: DataTypeDefXsd
+  +value: ValueDataType[0..1]
+  +valueId: Reference[0..1]
+
+  <<Experimental>>
+  +kind: QualifierKind[0..1]
+}
+enum QualifierKind <<enumeration>> {
+  ValueQualifier
+  ConceptQualifier
+  TemplateQualifier
+}
+Qualifier .> QualifierKind
+@enduml

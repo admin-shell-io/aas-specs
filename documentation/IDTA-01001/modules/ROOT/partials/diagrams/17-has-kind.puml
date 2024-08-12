@@ -1,0 +1,13 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+abstract class HasKind <<abstract>> {
+  +kind: ModellingKind[0..1]
+}
+enum ModellingKind <<enumeration>> {
+  Template
+  Instance
+}
+HasKind .> ModellingKind
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+
+class AdministrativeInformation<HasDataSpecification> {
+  +version: VersionType[0..1]
+  +revision: RevisionType[0..1]
+  +creator: Reference[0..1]
+  +templateId: Identifier[0..1]
+}
+@enduml
