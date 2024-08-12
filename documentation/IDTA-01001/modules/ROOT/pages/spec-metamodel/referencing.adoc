@@ -31,7 +31,11 @@ Even URLs can be used as identifiers and do not necessarily describe a resource 
 ==  Reference Attributes
 
 .Metamodel of Reference
-image::image48.png[]
+[plantuml, 48-reference, svg]
+....
+include::partial$diagrams/48-reference.puml[]
+....
+
 
 See Clause xref:general.adoc#matching-algorithm-for-references[Matching Algorithm for References] for reference matching.
 
@@ -108,7 +112,11 @@ a|Model reference
 == Key Attributes
 
 .Metamodel of Keys
-image::image49.png[]
+[plantuml, 49-key, svg]
+....
+include::partial$diagrams/49-key.puml[]
+....
+
 
 Keys are used to define references (_Reference_).
 
@@ -117,10 +125,18 @@ These logical enumerations are used to formulate constraints.
 
 [#model-for-refs-keys]
 .Logical Model for Keys of References (non-normative)
-image::image50.png[]
+[plantuml, 50-key, svg]
+....
+include::partial$diagrams/50-key.puml[]
+....
+
 
 .Metamodel of KeyTypes Enumeration
-image::image51.png[]
+[plantuml, 51-key-types, svg]
+....
+include::partial$diagrams/51-key-types.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -153,7 +169,11 @@ a|The key value, for example an IRDI or a URI |xref:spec-metamodel/datatypes.ado
 An example for using a _FragmentId_ as type of a key is a reference to an element within a file that is part of an Asset Administration Shell aasx package.
 
 .Metamodel of AasSubmodelElements Enumeration
-image::image52.png[]
+[plantuml, 52-aas-submodel-elements, svg]
+....
+include::partial$diagrams/52-aas-submodel-elements.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="30%h,70%"]
