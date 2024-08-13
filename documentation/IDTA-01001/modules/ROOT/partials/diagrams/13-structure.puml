@@ -1,7 +1,7 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-object "Details of the Asset Administration Shell - Part 1a V3.0RC03 (normative)" as Part1 {
+package Details_of_the_Asset_Administration_Shell_Part_1a [
   + Common
   + Core
   + Referencing
@@ -9,9 +9,9 @@ object "Details of the Asset Administration Shell - Part 1a V3.0RC03 (normative)
   + Types
   + Concept Descriptions
   + Data Specifications (Templates)
-}
+]
 
-object Common {
+package Common [
   + AdministrativeInformation
   + Extension
   + h0_HasExtensions
@@ -22,56 +22,56 @@ object Common {
   + h5_Qualifiable
   + h6_HasDataSpecification
   + Common Entities
-}
-object CommonEntities {
+]
+package CommonEntities [
   + Qualifier
-}
+]
 
-object Core {
+package Core [
   + AssetAdministrationShell
   + AssetInformation
   + SpecificAssetId
   + Submodel
   + SubmodelElement
   + Submodel Elements
-}
-object Referencing {
+]
+package Referencing [
   + Key
   + Reference
   + KeyTypes
   + ReferenceTypes
   + Referencing - Enumerations
-}
-object Environment {
+]
+package Environment [
   + Environment
-}
-object "Concept Descriptions" as ConceptDescriptions {
+]
+package ConceptDescriptions [
   + ConceptDescription
-}
-object Types {
+]
+package Types [
   + Common Metamodel Types
   + Basic and Primitive Types
-}
+]
 
 
-object "Common Metamodel Types" as CommonMetamodelTypes {
+package CommonMetamodelTypes [
   + Simple Types
   + Extended Types
-}
+]
 
-object "SimpleTypes" as SimpleTypes {
+package SimpleTypes [
   + Base64Binary
   + duration
   + boolean
   + dateTime
   + string
-}
+]
 
-object "Extended Types" as ExtendedTypes {
+package ExtendedTypes [
   + langString
-}
+]
 
-object "Basic and Primitive Types" as BasicAndPrimitiveTypes {
+package BasicAndPrimitiveTypes [
   + MessageTopicType
   + ContentType
   + KeyType
@@ -92,24 +92,24 @@ object "Basic and Primitive Types" as BasicAndPrimitiveTypes {
   + DataTypeDefXsd Enumeration
   + DataTypeDefRdf Enumeration
   + Enumerations
-}
+]
 
-object "DataTypeDefRdf Enumeration" as DataTypeDefRdfEnumeration {
+package DataTypeDefRdfEnumeration [
   + DataTypeDefRdf
-}
+]
 
-object "DataTypeDefXsd Enumeration" as DataTypeDefXsdEnumeration {
+package DataTypeDefXsdEnumeration [
   + DataTypeDefXsd
-}
+]
 
-object Enumerations {
+package Enumerations [
   + AssetKind
   + EntityType
   + ModellingKind
   + QualifierKind
-}
+]
 
-object "Submodel Elements" as SubmodelElements {
+package SubmodelElements [
   + AnnotatedRelationshipElement
   + BasicEventElement
   + Blob
@@ -127,16 +127,16 @@ object "Submodel Elements" as SubmodelElements {
   + SubmodelElementCollection
   + SubmodelElementList
   + Submodel Element Entities
-}
+]
 
-object "Submodel Element Entities" as SubmodelElementEntities {
+package SubmodelElementEntities [
   + EventPayload
   + OperationVariable
   + Direction
   + StateOfEvent
-}
+]
 
-object "Referencing - Enumerations" as ReferencingEnumerations {
+package ReferencingEnumerations [
   + KeyTypes
   + AasIdentifiables
   + AasReferableNonIdentifiables
@@ -146,22 +146,22 @@ object "Referencing - Enumerations" as ReferencingEnumerations {
   + GenericFragmentKeys
   + GenericGloballyIdentifiables
   + GloballyIdentifiables
-}
+]
 
 ' Relationships
-Part1 ..> Common : <import>
+Details_of_the_Asset_Administration_Shell_Part_1a ..> Common : <import>
 Common ..> CommonEntities : <import>
 
-Part1 ..> Core : <import>
+Details_of_the_Asset_Administration_Shell_Part_1a ..> Core : <import>
 Core ..> SubmodelElements : <import>
 SubmodelElements ..> SubmodelElementEntities : <import>
 
-Part1 ..> Referencing : <import>
+Details_of_the_Asset_Administration_Shell_Part_1a ..> Referencing : <import>
 Referencing ..> ReferencingEnumerations : <import>
 
-Part1 ..> Environment : <import>
+Details_of_the_Asset_Administration_Shell_Part_1a ..> Environment : <import>
 
-Part1 ..> Types : <import>
+Details_of_the_Asset_Administration_Shell_Part_1a ..> Types : <import>
 Types ..> CommonMetamodelTypes : <import>
 CommonMetamodelTypes ..> SimpleTypes: <import>
 CommonMetamodelTypes ..> ExtendedTypes: <import>
@@ -170,6 +170,6 @@ BasicAndPrimitiveTypes ..> DataTypeDefRdfEnumeration : <import>
 BasicAndPrimitiveTypes ..> DataTypeDefXsdEnumeration : <import>
 BasicAndPrimitiveTypes ..> Enumerations : <import>
 
-Part1 ..> ConceptDescriptions : <import>
+Details_of_the_Asset_Administration_Shell_Part_1a ..> ConceptDescriptions : <import>
 
 @enduml
