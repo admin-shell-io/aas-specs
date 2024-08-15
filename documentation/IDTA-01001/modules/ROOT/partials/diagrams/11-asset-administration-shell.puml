@@ -1,7 +1,7 @@
 @startuml
-skinparam classAttributeIconSize 0
+!theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
+
 skinparam packageStyle rectangle
-hide methods
 
 class AssetAdministrationShell<Identifiable\nHasDataSpecification> {
   +derivedFrom: Reference[0..1]
