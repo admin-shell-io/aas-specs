@@ -124,7 +124,26 @@ the [mapping of XSD to JSON types] into account.
 [5.7.12 Primitive and Simple Data Types]: https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf#page=96
 
 #### Note: Pattern Deviation from the Specification
-Since most JSON schema engines we tested operated on UTF-16 and could not handle UTF-32, we transpiled the pattern from AASd-130, which uses UTF-32 in the specification, into UTF-16. 
+The patterns given in the specification are written as Unicode character points.
+The Unicode character points, which are numbers, can be arbitrarily long.
+The Unicode merely regulates how to associate a character point, *i.e.*, a number, with every possibly imaginable character in the world.
+There is no prescription how these numbers should be encoded.
+The UTF-8 encoding is usually used to encode Unicode character points in files, while many programming languages use UTF-16 and UTF-32 encodings, respectively, to represent strings of Unicode characters in memory.
+
+UTF-32 uses 4 bytes to represents characters.
+Since Unicode currently does not define more than 2³² characters, which can all fit into 4 bytes, UTF-32 can represent all Unicode characters as-are directly as numbers.
+On the other hand, UTF-16 uses 2 bytes to represent characters, so Unicode character points above 2¹⁶ need to be encoded by two consecutive UTF-16 characters.
+Pattern matching operating on UTF-16 needs to take these two consecutive characters into account when character points above 2¹⁶ are to be matched.
+
+There is no unified encoding for JSON Schema engines, so we have to decide which encoding to use.
+Most JSON schema engines we tested relied on the programming language they were implemented in for pattern matching, so we assume UTF-16 as the character encoding for Unicode characters.
+Notably, C# and Java use UTF-16.
+
+The patterns in the schema need consequently to take into account characters encoded as UTF-16.
+To that end, we transpiled the pattern from AASd-130 to match UTF-16-encoded characters.
+Hence, the pattern is much longer than in the specification, as Unicode character points above 2¹⁶ need to be matched with two characters in the pattern instead of one.
+
+See [#362](https://github.com/admin-shell-io/aas-specs/issues/362) for the details.
 This is a trade-off between correctness and practicality. 
 See [#362](https://github.com/admin-shell-io/aas-specs/issues/362) for the details.
 
