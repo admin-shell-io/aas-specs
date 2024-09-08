@@ -1,20 +1,10 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
 
+!include classes/reference.puml
+!include classes/key.puml
+!include classes/enum-reference-types.puml
 
-class Reference {
-  +type: ReferenceTypes
-  +referredSemanticId: Reference[0..1]
-  +key: Key[1..*]
-}
-class Key {
-  +type: KeyTypes
-  +value: Identifier
-}
-enum ReferenceTypes <<enumeration>> {
-  ExternalReference
-  ModelReference
-}
 Reference ..> ReferenceTypes
 Reference ..> Reference
 Reference ..> Key

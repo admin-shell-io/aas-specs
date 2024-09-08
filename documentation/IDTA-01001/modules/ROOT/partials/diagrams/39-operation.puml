@@ -1,14 +1,8 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
 
+!include classes/operation.puml
+!include classes/operation-variable.puml
 
-class Operation<SubmodelElement> {
-  +inputVariable: OperationVariable[0..*]
-  +outputVariable: OperationVariable[0..*]
-  +inoutputVariable: OperationVariable[0..*]
-}
-class OperationVariable {
-  +value: SubmodelElement
-}
 Operation .> OperationVariable
 @enduml

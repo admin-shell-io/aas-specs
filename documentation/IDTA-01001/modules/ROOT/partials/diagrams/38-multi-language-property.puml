@@ -1,9 +1,5 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
 
-
-class MultiLanguageProperty<DataElement> {
-  +value: MultiLanguageTextType[0..1]
-  +valueId: Reference[0..1]
-}
+!include classes/multi-language-property.puml
 @enduml

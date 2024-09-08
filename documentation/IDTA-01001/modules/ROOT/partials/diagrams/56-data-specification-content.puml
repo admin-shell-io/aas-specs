@@ -3,38 +3,15 @@
 
 skinparam packageStyle rectangle
 
-
 package "Data Specification Templates - Part 1"  {
-    object DataSpecification <<Template>> {
-      +description: MultiLanguageTextType[0..1]
-      +administration: AdministrativeInformation[0..1]
-      +id: Identifier
-      +dataSpecificationContent: DataSpecificationContent
-    }
-
-    abstract class DataSpecificationContent <<abstract,Template>> {
-    }
+    !include classes/data-specification-template.puml
+    !include classes/data-specification-content.puml
 }
 
-object DataSpecificationIec61360 <<Template>> {
-  +preferredName: PreferredNameTypeIec61360
-  +shortName: ShortNameTypeIec61360[0..1]
-  +unit: string[0..1]
-  +unitId: Reference[0..1]
-  +sourceOfDefinition: string[0..1]
-  +symbol: string[0..1]
-  +dataType: DataTypeIec61360[0..1]
-  +definition: DefinitionTypeIec61360[0..1]
-  +valueFormat: ValueFormatTypeIec61360[0..1]
-  +valueList: ValueList[0..1]
-  +value: ValueTypeIec61360[0..1]
-  +levelType: LevelType[0..1]
-}
+!include classes/data-specification-iec61360.puml
 
 package "Concept Descriptions - Part 1"  {
-    class ConceptDescription<Identifiable\nHasDataSpecification> {
-      +isCaseOf: Reference[0..*]
-    }
+    !include classes/concept-description.puml
 }
 
 DataSpecificationContent <|- DataSpecificationIec61360

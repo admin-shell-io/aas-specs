@@ -1,9 +1,5 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
 
-
-class File<DataElement> {
-  +value: PathType[0..1]
-  +contentType: ContentType[0..1]
-}
+!include classes/file.puml
 @enduml

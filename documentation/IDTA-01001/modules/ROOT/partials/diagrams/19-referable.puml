@@ -1,23 +1,8 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
-
-
-abstract class Referable<HasExtensions> <<abstract>> {
-  +category: NameType[0..1]
-  +idShort: IdShortType[0..1]
-  +displayName: MultiLanguageNameType[0..1]
-  +description: MultiLanguageTextType[0..1]
-}
-abstract class Identifiable <<abstract>> {
-  +administration: AdministrativeInformation[0..1]
-  +id: Identifier
-}
-class AdministrativeInformation<HasDataSpecification> {
-  +version: VersionType[0..1]
-  +revision: RevisionType[0..1]
-  +creator: Reference[0..1]
-  +templateId: Identifier[0..1]
-}
+!include classes/referable.puml
+!include classes/identifiable.puml
+!include classes/administrative-information.puml
 Identifiable .> AdministrativeInformation
 Referable <|-- Identifiable
 @enduml

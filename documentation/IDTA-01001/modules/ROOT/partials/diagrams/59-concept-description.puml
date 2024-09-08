@@ -6,26 +6,16 @@ skinparam packageStyle rectangle
 note "Global reference to id\nof DataSpecification" as Note
 
 package "Data Specification Templates - Part 1" as templates  {
-    abstract class HasDataSpecification <<abstract>> {
-      +dataSpecification: Reference[0..*]
-    }
+    !include classes/has-data-specification.puml
+    !include classes/data-specification-template.puml
+    !include classes/data-specification-content.puml
 
-    object DataSpecification <<Template>> {
-      +description: MultiLanguageTextType[0..1]
-      +administration: AdministrativeInformation[0..1]
-      +id: Identifier
-      +dataSpecificationContent: DataSpecificationContent
-    }
-
-    abstract class DataSpecificationContent <<abstract,Template>> {
-    }
     HasDataSpecification ..> DataSpecification: <<external global reference>>
     DataSpecification ..> DataSpecificationContent
 }
 
-class ConceptDescription<Identifiable> {
-  +isCaseOf: Reference[0..*]
-}
+!include classes/concept-description.puml
+
 
 package "Data Specification Handling - Serialization" as handling {
     abstract class HasDataSpecification <<abstract>> {

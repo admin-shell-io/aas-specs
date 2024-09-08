@@ -1,0 +1,6 @@
+@startuml
+abstract class Identifiable <<abstract>> {
+  +administration: AdministrativeInformation[0..1]
+  +id: Identifier
+}
+@enduml

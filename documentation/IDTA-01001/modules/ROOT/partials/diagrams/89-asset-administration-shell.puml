@@ -1,11 +1,8 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
 
-
-class AssetAdministrationShell<Identifiable\nHasDataSpecification> {
-  +derivedFrom: Reference[0..1]
-  +assetInformation: AssetInformation
-  +submodel: Reference[0..*]
+!include classes/asset-administration-shell.puml
+class AssetAdministrationShell {
   +administration: AdministrativeInformation[0..1]
   +id: Identifier
   +idShort: IdShortType[0..1]
@@ -13,39 +10,26 @@ class AssetAdministrationShell<Identifiable\nHasDataSpecification> {
   +description: MultiLanguageTextType[0..1]
   +extension: Extension[0..*]
   +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
+  +category: NameType[0..1] <<Deprecated>>
+}
 
-  <<Deprecated>>
-  +category: NameType[0..1]
-}
-class AssetInformation {
-  +assetKind: AssetKind
-  +globalAssetId: Identifier[0..1]
-  +specificAssetId: SpecificAssetId[0..*]
-  +assetType: Identifier[0..1]
-  +defaultThumbnail: Resource[0..1]
-}
-class AdministrativeInformation<HasDataSpecification> {
-  +version: VersionType[0..1]
-  +revision: RevisionType[0..1]
-  +creator: Reference[0..1]
-  +templateId: Identifier[0..1]
+!include classes/asset-information.puml
+
+!include classes/administrative-information.puml
+class AdministrativeInformation {
   +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
 }
-enum AssetKind <<enumeration>> {
-  Type
-  Instance
-  Role
-  NotApplicable
-}
-class SpecificAssetId<HasSemantics> {
-  +name: LabelType
-  +value: Identifier
-  +externalSubjectId: Reference[0..1]
+
+!include classes/enum-asset-kind.puml
+
+!include classes/specific-asset-id.puml
+class SpecificAssetId {
   +semanticId: Reference[0..1]
   +supplementalSemanticId: Reference[0..*]
 }
-class Submodel<Identifiable\nHasKind\nHasSemantics\nQualifiable\nHasDataSpecification> {
-  +submodelElement: SubmodelElement[0..*]
+
+!include classes/submodel.puml
+class Submodel{
   +administration: AdministrativeInformation[0..1]
   +id: Identifier
   +idShort: IdShortType[0..1]
@@ -57,11 +41,11 @@ class Submodel<Identifiable\nHasKind\nHasSemantics\nQualifiable\nHasDataSpecific
   +supplementalSemanticId: Reference[0..*]
   +qualifier: Qualifier[0..*]
   +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
-
-  <<Deprecated>>
-  +category: NameType[0..1]
+  +category: NameType[0..1] <<Deprecated>>
 }
-abstract class SubmodelElement<Referable\nHasSemantics\nQualifiable\nHasDataSpecification> <<abstract>> {
+
+!include classes/submodel-element.puml
+abstract class SubmodelElement {
   +idShort: IdShortType[0..1]
   +displayName: MultiLanguageNameType[0..1]
   +description: MultiLanguageTextType[0..1]
@@ -70,25 +54,17 @@ abstract class SubmodelElement<Referable\nHasSemantics\nQualifiable\nHasDataSpec
   +supplementalSemanticId: Reference[0..*]
   +qualifier: Qualifier[0..*]
   +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
-
-  <<Deprecated>>
-  +category: NameType[0..1]
+  +category: NameType[0..1] <<Deprecated>>
 }
-class Qualifier<HasSemantics> {
-  +type: QualifierType
-  +valueType: DataTypeDefXsd
-  +value: ValueDataType[0..1]
-  +valueId: Reference[0..1]
+
+!include classes/qualifier.puml
+class Qualifier{
   +semanticId: Reference[0..1]
   +supplementalSemanticId: Reference[0..*]
-
-  <<Experimental>>
-  +kind: QualifierKind[0..1]
 }
-class Property<DataElement> {
-  +valueType: DataTypeDefXsd
-  +value: ValueDataType[0..1]
-  +valueId: Reference[0..1]
+
+!include classes/property.puml
+class Property {
   +idShort: IdShortType[0..1]
   +displayName: MultiLanguageNameType[0..1]
   +description: MultiLanguageTextType[0..1]
@@ -97,9 +73,7 @@ class Property<DataElement> {
   +supplementalSemanticId: Reference[0..*]
   +qualifier: Qualifier[0..*]
   +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
-
-  <<Deprecated>>
-  +category: NameType[0..1]
+  +category: NameType[0..1] <<Deprecated>>
 }
 
 note left of Property

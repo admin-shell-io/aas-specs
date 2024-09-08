@@ -1,10 +1,5 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
 
-
-class Range<DataElement> <<Experimental>> {
-  +valueType: DataTypeDefXsd
-  +min: ValueDataType[0..1]
-  +max: ValueDataType[0..1]
-}
+!include classes/range.puml
 @enduml

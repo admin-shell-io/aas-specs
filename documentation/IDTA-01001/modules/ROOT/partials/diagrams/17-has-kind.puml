@@ -1,13 +1,6 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
-
-
-abstract class HasKind <<abstract>> {
-  +kind: ModellingKind[0..1]
-}
-enum ModellingKind <<enumeration>> {
-  Template
-  Instance
-}
+!include classes/has-kind.puml
+!include classes/enum-modelling-kind.puml
 HasKind .> ModellingKind
 @enduml

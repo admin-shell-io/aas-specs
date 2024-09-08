@@ -1,50 +1,14 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
 
-skinparam packageStyle rectangle
-
-class AssetAdministrationShell<Identifiable\nHasDataSpecification> {
-  +derivedFrom: Reference[0..1]
-  +assetInformation: AssetInformation
-  +submodel: Reference[0..*]
-}
-class AssetInformation {
-  +assetKind: AssetKind
-  +globalAssetId: Identifier[0..1]
-  +specificAssetId: SpecificAssetId[0..*]
-  +assetType: Identifier[0..1]
-  +defaultThumbnail: Resource[0..1]
-}
-enum AssetKind <<enumeration>> {
-  Type
-  Instance
-  Role
-  NotApplicable
-}
-class SpecificAssetId<HasSemantics> {
-  +name: LabelType
-  +value: Identifier
-  +externalSubjectId: Reference[0..1]
-}
-class Submodel<Identifiable\nHasKind\nHasSemantics\nQualifiable\nHasDataSpecification> {
-  +submodelElement: SubmodelElement[0..*]
-}
-class Qualifier<HasSemantics> {
-  +type: QualifierType
-  +valueType: DataTypeDefXsd
-  +value: ValueDataType[0..1]
-  +valueId: Reference[0..1]
-
-  <<Experimental>>
-  +kind: QualifierKind[0..1]
-}
-abstract class SubmodelElement<Referable\nHasSemantics\nQualifiable\nHasDataSpecification> <<abstract>> {
-}
-class Property<DataElement> {
-  +valueType: DataTypeDefXsd
-  +value: ValueDataType[0..1]
-  +valueId: Reference[0..1]
-}
+!include classes/asset-administration-shell.puml
+!include classes/asset-information.puml
+!include classes/enum-asset-kind.puml
+!include classes/specific-asset-id.puml
+!include classes/submodel.puml
+!include classes/qualifier.puml
+!include classes/submodel-element.puml
+!include classes/property.puml
 
 note left of Property
   Exemplary Submodel Element
@@ -54,6 +18,7 @@ note left of Property
   etc.
 end note
 
+skinparam packageStyle rectangle
 package "External Concept Definitions"  {
     hide members
     object "<<external>>\nProperty Definition\nIEC 61360" as PropertyDefinition{

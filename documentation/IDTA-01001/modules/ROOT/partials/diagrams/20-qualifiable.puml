@@ -1,18 +1,6 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
-
-
-abstract class Qualifiable <<abstract>> {
-  +qualifier: Qualifier[0..*]
-}
-class Qualifier<HasSemantics> {
-  +type: QualifierType
-  +valueType: DataTypeDefXsd
-  +value: ValueDataType[0..1]
-  +valueId: Reference[0..1]
-
-  <<Experimental>>
-  +kind: QualifierKind[0..1]
-}
+!include classes/qualifiable.puml
+!include classes/qualifier.puml
 Qualifiable .> Qualifier
 @enduml

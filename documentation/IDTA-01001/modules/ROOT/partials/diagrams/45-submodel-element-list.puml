@@ -1,16 +1,9 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
 
+!include classes/submodel-element-list.puml
+!include classes/submodel-element.puml
 
-class SubmodelElementList {
-  +orderRelevant: bool[0..1] = True
-  +semanticIdListElement: Reference[0..1]
-  +typeValueListElement: AasSubmodelElements
-  +valueTypeListElement: DataTypeDefXsd[0..1]
-  +value: SubmodelElement[0..*]
-}
-abstract class SubmodelElement<Referable\nHasSemantics\nQualifiable\nHasDataSpecification> <<abstract>> {
-}
 SubmodelElement <|-- SubmodelElementList
 SubmodelElementList ..> SubmodelElement
 @enduml
