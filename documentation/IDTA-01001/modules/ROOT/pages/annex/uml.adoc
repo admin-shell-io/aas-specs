@@ -29,7 +29,11 @@ Association ends owned by classes are always navigable, while those owned by ass
 xref:Bibliography.adoc#bib35[[35\]]]
 
 .Class
-image::image64.png[]
+[plantuml, 64-class, svg]
+....
+include::partial$diagrams/uml-basics/64-class.puml[]
+....
+
 
 Figure 64 shows that _Class4_ inherits all member elements from _Class3_.
 Or in other word, _Class3_ is a generalization of _Class4, Class4_ is a specialization of _Class3_.
@@ -37,7 +41,11 @@ This means that each instance of _Class4_ is also an instance of _Class3_.
 An instance of _Class4_ has the attributes _attr1_ and _attr2,_ whereas instances of _Class3_ only have the attribute _attr1_.
 
 .Inheritance/Generalization
-image::image65.png[]
+[plantuml, 65-inheritance, svg]
+....
+include::partial$diagrams/uml-basics/65-inheritance.puml[]
+....
+
 
 Figure 65 defines the required and allowed multiplicity/cardinality within an association between instances of _Class1_ and _Class2_.
 In this example, an instance of _Class2_ is always related to exactly one instance of _Class1_.
@@ -56,7 +64,11 @@ The star character (*) is used to denote an unlimited upper bound.
 The default is 1 for lower-bound and upper-bound.
 
 .Multiplicity
-image::image66.png[]
+[plantuml, 66-multiplicity, svg]
+....
+include::partial$diagrams/uml-basics/66-multiplicity.puml[]
+....
+
 
 A multiplicity element represents a collection of values.
 The default is a set, i.e. it is not ordered and the elements within the collection are unique and contain no duplicates.
@@ -64,13 +76,20 @@ Figure 66 shows an ordered collection: the instances of _Class2_ related to an i
 The stereotype \<<ordered>> is used to denote that the relationship is ordered.
 
 .Ordered Multiplicity
-image::image67.png[]
+[plantuml, 67-ordered-multiplicity, svg]
+....
+include::partial$diagrams/uml-basics/67-ordered-multiplicity.puml[]
+....
+
 
 Figure 67 shows that the member ends of an association can be named as well, i.e. an instance of _Class1_ can be in relationship "relation" to an instance of _Class2_.
 Vice versa, the instance of _Class2_ is in relationship "reverseRelation" to the instance of _Class1_.
 
 .Association
-image::image67-2.png[]
+[plantuml, 67-2-association, svg]
+....
+include::partial$diagrams/uml-basics/67-2-association.puml[]
+....
 
 Figure 68 shows a composition, also called a composite aggregation.
 A composition is a binary association, grouping a set of instances.
@@ -81,7 +100,11 @@ There is no instance of _Class2_ without a relationship to an instance of _Class
 Figure 69 shows the composition using an association relationship with a filled diamond as composition adornment.
 
 .Composition (Composite Aggregation)
-image::image68.png[]
+[plantuml, 68-composition, svg]
+....
+include::partial$diagrams/uml-basics/68-composition.puml[]
+....
+
 
 Figure 69 shows an aggregation.
 An aggregation is a binary association.
@@ -89,26 +112,42 @@ In contrast to a composition, an instance of _Class2_ can be shared by several i
 Figure 69 shows the shared aggregation using an association relationship with a hallow diamond as aggregation adornment.
 
 .Aggregation
-image::image69.png[]
+[plantuml, 69-aggregation, svg]
+....
+include::partial$diagrams/uml-basics/69-aggregation.puml[]
+....
+
 
 Figure 70 illustrates that the attribute notation can be used for an association end owned by a class.
 In this example, the attribute name is "attr" and the elements of this attribute are typed with _Class2._ The multiplicity, here "0..*", is added in square brackets.
 If the aggregation is ordered, it is added in curly brackets like in this example.
 
 .Navigable Attribute Notation for Associations
-image::image70.png[]
+[plantuml, 70-navigable-attribute-notation-for-associations, svg]
+....
+include::partial$diagrams/uml-basics/70-navigable-attribute-notation-for-associations.puml[]
+....
+
 
 Figure 71 shows a class with three attributes with primitive types and default values.
 When a property with a default value is instantiated in the absence of a specific setting for the property, the default value is evaluated to provide the initial values of the property.
 
 .Default Value
-image::image71.png[]
+[plantuml, 71-default-value, svg]
+....
+include::partial$diagrams/uml-basics/71-default-value.puml[]
+....
+
 
 Figure 72 shows that there is a dependency relationship between _Class1_ and _Class2_.
 In this case, the dependency means that _Class1_ depends on _Class2_ because the type of attribute _attr_ depends on the specification of class _Class2._ A dependency is depicted as dashed arrow between two model elements.
 
 .Dependency
-image::image72.png[]
+[plantuml, 72-dependency, svg]
+....
+include::partial$diagrams/uml-basics/72-dependency.puml[]
+....
+
 
 Figure 73 shows an abstract class.
 It uses the stereotype \<<abstract>>.
@@ -116,20 +155,32 @@ There are no instances of abstract classes.
 They are typically used for specific member elements that are inherited by non-abstract classes.
 
 .Abstract Class
-image::image73.png[]
+[plantuml, 73-abstract-class, svg]
+....
+include::partial$diagrams/uml-basics/73-abstract-class.puml[]
+....
+
 
 Figure 74 shows a package named "Package2".
 A package is a namespace for its members.
 In this example, the member belonging to _Package2_ is class _Class2_.
 
 .Package
-image::image74.png[]
+[plantuml, 74-package, svg]
+....
+include::partial$diagrams/uml-basics/74-package.puml[]
+....
+
 
 Figure 75 shows that all elements in _Package2_ are imported into the namespace defined by _Package1_.
 This is a special dependency relationship between the two packages with stereotype \<<import>>.
 
 .Imported Package
-image::image75.png[]
+[plantuml, 75-imported-package, svg]
+....
+include::partial$diagrams/uml-basics/75-imported-package.puml[]
+....
+
 
 Figure 76 shows an enumeration with the name "Enumeration1".
 An enumeration is a data type with its values enumerated as literals.
@@ -138,7 +189,11 @@ It is a class with stereotype \<<enumeration>>.
 The literals owned by the enumeration are ordered.
 
 .Enumerationfootnote:[In Enterprise Architect, the single enumeration values also have a stereotype \<<enum>> each.]
-image::image76.png[]
+[plantuml, 76-enumeration, svg]
+....
+include::partial$diagrams/uml-basics/76-enumeration.puml[]
+....
+
 
 ////
 Figure 77 shows a primitive data type with the name "int".
@@ -152,12 +207,20 @@ image::image78.png[]
 Figure 78 shows how a note can be attached to an element, in this example to class "Class1".
 
 .Note
-image::image79.png[]
+[plantuml, 79-note, svg]
+....
+include::partial$diagrams/uml-basics/79-note.puml[]
+....
+
 
 Figure 79 shows how a constraint is attached to an element, in this example to class "Class1".
 
 .Constraint
-image::image80.png[]
+[plantuml, 80-constraint, svg]
+....
+include::partial$diagrams/uml-basics/80-constraint.puml[]
+....
+
 
 == UML Naming Rules
 
@@ -240,7 +303,11 @@ If there is no name for the end member of the association given, it is assumed t
 _Class2_ instance only exists if the parent object of type _Class1_ exists.
 
 .Graphical Representations of Composite Aggregation/Composition
-image::image81.png[]
+[plantuml, 81-composite-aggregation-composition, svg]
+....
+include::partial$diagrams/uml-basics/81-composite-aggregation-composition.puml[]
+....
+
 
 Figure 82 shows different representations of a shared aggregation: a _Class2_ instance can exist independently of a _Class1_ instance; it only references the instances of _Class2_.
 Now an attribute with the same semantics is defined In Variant B.
@@ -250,7 +317,11 @@ It is assumed that only the end member of the aggregation association is navigab
 Otherwise, variant B would not be identical to Variant A.
 
 .Graphical Representation of Shared Aggregation
-image::image82.png[]
+[plantuml, 82-shared-aggregation, svg]
+....
+include::partial$diagrams/uml-basics/82-shared-aggregation.puml[]
+....
+
 
 A specialty in Figure 82 is that the aggregated instances are referables in the sense of the Asset Administration Shell metamodel (i.e. they inherit from the predefined abstract class "Referable").
 This is why Variant B is identical to Variant A.
@@ -269,7 +340,11 @@ This is depicted by the class name it is inheriting from, followed by "::" and t
 Typically, the inherited elements are not shown.
 
 .Graphical Representation of Generalization/Inheritance
-image::image83.png[]
+[plantuml, 83-generalization-inheritance, svg]
+....
+include::partial$diagrams/uml-basics/83-generalization-inheritance.puml[]
+....
+
 
 Figure 84 depicts different graphical notations for enumerations in combination with inheritance.
 On the left side "Enumeration1" additionally contains the literals as defined by "Enumeration2".
@@ -280,7 +355,11 @@ This can be seen on the right side of Figure 84 that defines the same enumeratio
 ====
 
 .Graphical Representation for Enumeration with Inheritance
-image::image84.png[]
+[plantuml, 84-enumeration-with-inheritance, svg]
+....
+include::partial$diagrams/uml-basics/84-enumeration-with-inheritance.puml[]
+....
+
 
 ====
 Note 2: in this specification all elements of an enumeration are ordered alphabetically.
@@ -289,15 +368,26 @@ Note 2: in this specification all elements of an enumeration are ordered alphabe
 Figure 85 shows an experimental class, marked by the stereotype "Experimental".
 
 .Graphical Representation for Experimental Classes
-image::image85.png[]
+[plantuml, 85-experimental-classes, svg]
+....
+include::partial$diagrams/uml-basics/85-experimental-classes.puml[]
+....
+
 
 Figure 86 depicts a deprecated class, which is marked by the stereotype "Deprecated".
 
 .Graphical Representation for Deprecated Elements
-image::image86.png[]
+[plantuml, 86-deprecated-elements, svg]
+....
+include::partial$diagrams/uml-basics/86-deprecated-elements.puml[]
+....
+
 
 Figure 87 shows a class representing a template.
 It is marked by the stereotype "Template".
 
 .Graphical Representation of a Template Class
-image::image87.png[]
+[plantuml, 87-template-class, svg]
+....
+include::partial$diagrams/uml-basics/87-template-class.puml[]
+....
