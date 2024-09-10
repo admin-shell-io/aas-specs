@@ -96,6 +96,24 @@ Vice versa, the instance of _Class2_ is in relationship "reverseRelation" to the
 include::partial$diagrams/uml-basics/67-2-association.puml[]
 ....
 
+
+<<image-67-3-labeled-association>> depicts two classes connected by a unidirectional association from __Class1__ to __Class2__.
+In this association, only the endpoint is navigable, meaning it is possible to navigate from an instance of __Class1__ to an instance of __Class2__, but not the other way around.
+An instance of __Class1__ can be in a 'relation' with an instance of __Class2__, and the association is labeled 'Reference'.
+
+.Association
+[[image-67-3-labeled-association]]
+[plantuml, 67-3-labeled-association, svg]
+....
+include::partial$diagrams/uml-basics/67-3-labeled-association.puml[]
+....
+
+A specialty in <<image-67-3-labeled-association>>  is that the label 'Reference' indicates the relationship between __Class1__ and __Class2__ is of a __Reference__ type.
+This means that an instance of Class1 holds a reference to an instance of __Class2__.
+Furthermore, the instance of __Class2__ is considered 'referable' according to the Asset Administration Shell metamodel, implying that it inherits from the predefined abstract class 'Referable' in the AAS framework.
+The structure of a reference to a model element of the Asset Administration Shell is explicitly defined.
+
+
 <<image-68-composition>> shows a composition, also called a composite aggregation.
 A composition is a binary association, grouping a set of instances.
 The individuals in the set are typed as specified by _Class2_.
@@ -326,12 +344,7 @@ include::partial$diagrams/uml-basics/81-composite-aggregation-composition.puml[]
 ....
 
 
-<<image-82-shared-aggregation>> shows different representations of a shared aggregation: a _Class2_ instance can exist independently of a _Class1_ instance; it only references the instances of _Class2_.
-Now an attribute with the same semantics is defined In Variant B.
-The reference is denoted by a star added after the type of the attribute.
-
-It is assumed that only the end member of the aggregation association is navigable per default, i.e. it is possible to navigate from an instance of _Class1_ to the owned instance of _Class2_ but not vice versa.
-Otherwise, variant B would not be identical to Variant A.
+<<image-82-shared-aggregation>> shows a representation of a shared aggregation: a _Class2_ instance can exist independently of a _Class1_ instance. It is assumed that only the end member of the aggregation association is navigable per default, i.e. it is possible to navigate from an instance of _Class1_ to the owned instance of _Class2_ but not vice versa.
 
 .Graphical Representation of Shared Aggregation
 [[image-82-shared-aggregation]]
@@ -339,14 +352,6 @@ Otherwise, variant B would not be identical to Variant A.
 ....
 include::partial$diagrams/uml-basics/82-shared-aggregation.puml[]
 ....
-
-
-A specialty in <<image-82-shared-aggregation>> is that the aggregated instances are referables in the sense of the Asset Administration Shell metamodel (i.e. they inherit from the predefined abstract class "Referable").
-This is why Variant B is identical to Variant A.
-This would not be the case for non-referable elements in the metamodel.
-The structure of a reference to a model element of the Asset Administration Shell is explicitly defined.
-A model reference consists of an ordered list of keys.
-The last key in the key chain shall reference an instance of type _Class2_ (i.e. Reference.
 
 <<image-83-generalization-inheritance>> show different graphical representations of generalization.
 Variant A is the classical graphical representation as defined in xref:bibliography.adoc#bib35[[35\]].
