@@ -5,7 +5,7 @@
 !include classes/referable.puml
 !include classes/extension.puml
 
-Extension -> Referable: refersTo:ref
+Extension -> "+refersTo" Referable:Reference
 HasExtensions ..> Extension
 HasExtensions <|-- Referable
 @enduml

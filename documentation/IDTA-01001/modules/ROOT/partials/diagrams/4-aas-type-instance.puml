@@ -23,7 +23,7 @@ object "<<AAS>> \n __**http://T2.com:AAS**__" as AAS2 {
   measuredTemperature = 100
 }
 
-AAS0 <-- AA1 : derivedFrom:ref
-AAS0 <-- AAS2 : derivedFrom:ref
+AAS0 "+derivedFrom" <--- AA1 :Reference
+AAS0 "+derivedFrom" <--- AAS2 :Reference
 
 @enduml

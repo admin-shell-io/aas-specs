@@ -50,9 +50,9 @@ AAS_Metamodel <.. TemperatureSensor : conformant to
 AAS_Metamodel <.. AAS0 : conformant to
 AAS_Metamodel <.. TemperatureSensorInstance : conformant to
 TemperatureSensor <.. AAS0  : conformant to
-TemperatureSensor <-- TemperatureSensorInstance : derivedFrom:ref
-AAS0 <-- AAS1 : derivedFrom:ref
-AAS0 <-- AAS2 : derivedFrom:ref
+TemperatureSensor "+derivedFrom" <-- TemperatureSensorInstance :Reference
+AAS0 "+derivedFrom" <-- AAS1 :Reference
+AAS0 "+derivedFrom" <-- AAS2 :Reference
 TemperatureSensorInstance <.. AAS1  : conformant to
 TemperatureSensorInstance <.. AAS2  : conformant to
 

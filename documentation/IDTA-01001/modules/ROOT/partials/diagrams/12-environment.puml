@@ -6,8 +6,8 @@
 !include classes/submodel.puml
 !include classes/concept-description.puml
 
-AssetAdministrationShell -->"0..*" Submodel : submodel:ref
-AssetAdministrationShell -->"0..1" AssetAdministrationShell : derivedFrom:ref
+AssetAdministrationShell --->"submodel\n0..*" Submodel : Reference
+AssetAdministrationShell -->"derivedFrom\n0..1" AssetAdministrationShell : Reference
 Environment ..> AssetAdministrationShell
 Environment ..> Submodel
 Environment ..> ConceptDescription
