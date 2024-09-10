@@ -1,7 +1,7 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
 
-!include classes/asset-administration-shell.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/asset-administration-shell.puml
 class AssetAdministrationShell {
   .. ::Identifiable ..
   +administration: AdministrativeInformation[0..1]
@@ -17,24 +17,24 @@ class AssetAdministrationShell {
   +dataSpecification: Reference[0..*]
 }
 
-!include classes/asset-information.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/asset-information.puml
 
-!include classes/administrative-information.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/administrative-information.puml
 class AdministrativeInformation {
   .. ::HasDataSpecification ..
   +dataSpecification: Reference[0..*]
 }
 
-!include classes/enum-asset-kind.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/enum-asset-kind.puml
 
-!include classes/specific-asset-id.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/specific-asset-id.puml
 class SpecificAssetId {
   .. ::HasSemantics ..
   +semanticId: Reference[0..1]
   +supplementalSemanticId: Reference[0..*]
 }
 
-!include classes/submodel.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/submodel.puml
 class Submodel{
   .. ::Identifiable ..
   +administration: AdministrativeInformation[0..1]
@@ -57,7 +57,7 @@ class Submodel{
   +dataSpecification: Reference[0..*]
 }
 
-!include classes/submodel-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/submodel-element.puml
 abstract class SubmodelElement {
   .. ::Referable ..
   +idShort: IdShortType[0..1]
@@ -75,14 +75,14 @@ abstract class SubmodelElement {
   +dataSpecification: Reference[0..*]
 }
 
-!include classes/qualifier.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/qualifier.puml
 class Qualifier{
   .. ::HasSemantics ..
   +semanticId: Reference[0..1]
   +supplementalSemanticId: Reference[0..*]
 }
 
-!include classes/property.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/property.puml
 class Property {
   .. ::Referable ..
   +idShort: IdShortType[0..1]

@@ -1,24 +1,24 @@
 @startuml
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
 
-!include classes/submodel-element.puml
-!include classes/relationship-element.puml
-!include classes/annotated-relationship-element.puml
-!include classes/data-element.puml
-!include classes/property.puml
-!include classes/multi-language-property.puml
-!include classes/range.puml
-!include classes/blob.puml
-!include classes/file.puml
-!include classes/reference-element.puml
-!include classes/capability.puml
-!include classes/submodel-element-list.puml
-!include classes/submodel-element-collection.puml
-!include classes/entity.puml
-!include classes/event-element.puml
-!include classes/basic-event-element.puml
-!include classes/operation.puml
-!include classes/operation-variable.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/submodel-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/relationship-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/annotated-relationship-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/data-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/property.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/multi-language-property.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/range.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/blob.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/file.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/reference-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/capability.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/submodel-element-list.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/submodel-element-collection.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/entity.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/event-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/basic-event-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/operation.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/operation-variable.puml
 
 AnnotatedRelationshipElement .> DataElement
 DataElement <|--- Blob
