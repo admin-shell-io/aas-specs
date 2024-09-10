@@ -3,77 +3,101 @@
 
 !include classes/asset-administration-shell.puml
 class AssetAdministrationShell {
+  .. ::Identifiable ..
   +administration: AdministrativeInformation[0..1]
   +id: Identifier
+  .. ::Referable ..
   +idShort: IdShortType[0..1]
   +displayName: MultiLanguageNameType[0..1]
   +description: MultiLanguageTextType[0..1]
-  +extension: Extension[0..*]
-  +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
   +category: NameType[0..1] <<Deprecated>>
+  .. ::HasExtensions ..
+  +extension: Extension[0..*]
+  .. ::HasDataSpecification ..
+  +dataSpecification: Reference[0..*]
 }
 
 !include classes/asset-information.puml
 
 !include classes/administrative-information.puml
 class AdministrativeInformation {
-  +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
+  .. ::HasDataSpecification ..
+  +dataSpecification: Reference[0..*]
 }
 
 !include classes/enum-asset-kind.puml
 
 !include classes/specific-asset-id.puml
 class SpecificAssetId {
+  .. ::HasSemantics ..
   +semanticId: Reference[0..1]
   +supplementalSemanticId: Reference[0..*]
 }
 
 !include classes/submodel.puml
 class Submodel{
+  .. ::Identifiable ..
   +administration: AdministrativeInformation[0..1]
   +id: Identifier
+  .. ::Referable ..
   +idShort: IdShortType[0..1]
   +displayName: MultiLanguageNameType[0..1]
   +description: MultiLanguageTextType[0..1]
+  +category: NameType[0..1] <<Deprecated>>
+  .. ::HasExtensions ..
   +extension: Extension[0..*]
+    .. ::HasKind ..
   +kind: ModellingKind[0..1]
+  .. ::HasSemantics ..
   +semanticId: Reference[0..1]
   +supplementalSemanticId: Reference[0..*]
+  .. ::Qualifiable ..
   +qualifier: Qualifier[0..*]
-  +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
-  +category: NameType[0..1] <<Deprecated>>
+  .. ::HasDataSpecification ..
+  +dataSpecification: Reference[0..*]
 }
 
 !include classes/submodel-element.puml
 abstract class SubmodelElement {
+  .. ::Referable ..
   +idShort: IdShortType[0..1]
   +displayName: MultiLanguageNameType[0..1]
   +description: MultiLanguageTextType[0..1]
+  +category: NameType[0..1] <<Deprecated>>
+  .. ::HasExtensions ..
   +extension: Extension[0..*]
+  .. ::HasSemantics ..
   +semanticId: Reference[0..1]
   +supplementalSemanticId: Reference[0..*]
+  .. ::Qualifiable ..
   +qualifier: Qualifier[0..*]
-  +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
-  +category: NameType[0..1] <<Deprecated>>
+  .. ::HasDataSpecification ..
+  +dataSpecification: Reference[0..*]
 }
 
 !include classes/qualifier.puml
 class Qualifier{
+  .. ::HasSemantics ..
   +semanticId: Reference[0..1]
   +supplementalSemanticId: Reference[0..*]
 }
 
 !include classes/property.puml
 class Property {
+  .. ::Referable ..
   +idShort: IdShortType[0..1]
   +displayName: MultiLanguageNameType[0..1]
   +description: MultiLanguageTextType[0..1]
+  +category: NameType[0..1] <<Deprecated>>
+  .. ::HasExtensions ..
   +extension: Extension[0..*]
+  .. ::HasSemantics ..
   +semanticId: Reference[0..1]
   +supplementalSemanticId: Reference[0..*]
+  .. ::Qualifiable ..
   +qualifier: Qualifier[0..*]
-  +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
-  +category: NameType[0..1] <<Deprecated>>
+  .. ::HasDataSpecification ..
+  +dataSpecification: Reference[0..*]
 }
 
 note left of Property
