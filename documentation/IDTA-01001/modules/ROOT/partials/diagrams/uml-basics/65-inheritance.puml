@@ -1,0 +1,14 @@
+@startuml
+!theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
+
+
+class Class3 {
+  +attr1: Class1
+}
+
+class Class4 {
+  +attr2: Class2
+}
+
+Class3 <|-- Class4
+@enduml

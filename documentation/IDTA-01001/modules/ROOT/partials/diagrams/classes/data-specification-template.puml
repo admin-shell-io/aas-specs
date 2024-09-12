@@ -1,0 +1,8 @@
+@startuml
+object DataSpecification <<Template>> {
+  +description: MultiLanguageTextType[0..1]
+  +administration: AdministrativeInformation[0..1]
+  +id: Identifier
+  +dataSpecificationContent: DataSpecificationContent
+}
+@enduml

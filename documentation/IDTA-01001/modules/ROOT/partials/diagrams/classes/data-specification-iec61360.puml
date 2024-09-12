@@ -1,0 +1,16 @@
+@startuml
+object DataSpecificationIec61360 <<Template>> {
+  +preferredName: PreferredNameTypeIec61360
+  +shortName: ShortNameTypeIec61360[0..1]
+  +unit: string[0..1]
+  +unitId: Reference[0..1]
+  +sourceOfDefinition: string[0..1]
+  +symbol: string[0..1]
+  +dataType: DataTypeIec61360[0..1]
+  +definition: DefinitionTypeIec61360[0..1]
+  +valueFormat: ValueFormatTypeIec61360[0..1]
+  +valueList: ValueList[0..1]
+  +value: ValueTypeIec61360[0..1]
+  +levelType: LevelType[0..1]
+}
+@enduml

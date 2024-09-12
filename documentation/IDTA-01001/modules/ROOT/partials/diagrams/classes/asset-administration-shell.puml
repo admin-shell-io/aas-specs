@@ -1,0 +1,7 @@
+@startuml
+class AssetAdministrationShell<Identifiable\nHasDataSpecification> {
+  +derivedFrom: Reference[0..1]
+  +assetInformation: AssetInformation
+  +submodel: Reference[0..*]
+}
+@enduml

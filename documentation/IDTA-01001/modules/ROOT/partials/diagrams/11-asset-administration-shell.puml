@@ -1,0 +1,38 @@
+@startuml
+!theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
+
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/administrative-information.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/asset-information.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/enum-asset-kind.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/specific-asset-id.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/submodel.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/qualifier.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/submodel-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/property.puml
+
+note left of Property
+  Exemplary Submodel Element
+  "Property",
+  other submodel element subtypes
+  include operations, collections, files
+  etc.
+end note
+
+skinparam packageStyle rectangle
+package "External Concept Definitions"  {
+    hide members
+    object "<<external>>\nProperty Definition\nIEC 61360" as PropertyDefinition{
+    }
+}
+
+AssetAdministrationShell ..> AssetInformation
+AssetAdministrationShell -->"submodel 0..*" Submodel :Reference
+AssetAdministrationShell -->"derivedFrom\n0..1" AssetAdministrationShell :Reference
+AssetInformation ..> AssetKind
+AssetInformation ..> SpecificAssetId
+Submodel ..> SubmodelElement
+Submodel ..> Qualifier
+SubmodelElement .> Qualifier
+SubmodelElement <|-- Property
+SubmodelElement ..> PropertyDefinition : <<external global reference>>
+@enduml

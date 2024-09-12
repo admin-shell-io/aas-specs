@@ -1,0 +1,7 @@
+@startuml
+class Property<DataElement> {
+  +valueType: DataTypeDefXsd
+  +value: ValueDataType[0..1]
+  +valueId: Reference[0..1]
+}
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+!theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
+
+skinparam packageStyle rectangle
+
+
+package "A)" as A {
+    enum Enumeration1 <<enumeration>> {
+      a
+    }
+    enum Enumeration2 <<enumeration>> {
+      b
+    }
+    Enumeration1 --|> Enumeration2
+}
+
+package "B)" as B {
+    enum Enumeration1 <<enumeration>> {
+      a
+      b
+    }
+}
+
+note as Note
+    Identical
+end note
+
+A .. Note
+Note . B
+
+@enduml

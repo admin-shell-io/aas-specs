@@ -17,7 +17,7 @@ include::../includes/constraints.adoc[]
 
 This clause gives an overview of the main classes of the Asset Administration Shell (AAS) metamodel.
 
- <<image-overview-metamodel-of-the-asset-administration-shell>> shows the main classes to describe a single Asset Administration Shell.
+<<image-overview-metamodel-of-the-asset-administration-shell>> shows the main classes to describe a single Asset Administration Shell.
 
 An Asset Administration Shell represents exactly one asset (xref:spec-metamodel/core.adoc#aas_attributes[AssetAdministrationShell/assetInformation]).
 Type assets and instance assets are distinguished by the attribute xref:spec-metamodel/core.adoc#asset-information-attributes[AssetInformation/assetKind].
@@ -33,7 +33,11 @@ Types can also be derived from other types.
 
 .Overview Metamodel of the Asset Administration Shell
 [[image-overview-metamodel-of-the-asset-administration-shell]]
-image::image11.png[]
+[plantuml, 11-asset-administration-shell, svg]
+....
+include::partial$diagrams/11-asset-administration-shell.puml[]
+....
+
 
 An asset may typically be represented by several different identification properties like the serial number, the manufacturer part ID or the different customer part IDs, its RFID code, etc.
 Such external identifiers are defined as specific asset IDs (xref:spec-metamodel/core.adoc#asset-information-attributes[AssetInformation/specificAssetId]), each characterized by a user-defined name, a value, and the user domain (tenant, subject in Attribute Based Access Control).
@@ -97,14 +101,18 @@ The order is important for some serializations (e.g. for XML).
 
 .Metamodel Package Overview
 [[image-metamodel-package-overview]]
-image::image13.png[]
+[plantuml, 13-structure, svg]
+....
+include::partial$diagrams/13-structure.puml[]
+....
 
- <<image-metamodel-of-environment>> shows the so-called environment.
+
+<<image-metamodel-of-environment>> shows the so-called environment.
 The environment’s purpose is to list all Asset Administration Shells, all submodels, and all concept descriptions – in other word, all identifiables within an ecosystem.
 
 .Metamodel of Environment
 [[image-metamodel-of-environment]]
-image::image12.png[]
-
-
-
+[plantuml, 12-environment, svg]
+....
+include::partial$diagrams/12-environment.puml[]
+....

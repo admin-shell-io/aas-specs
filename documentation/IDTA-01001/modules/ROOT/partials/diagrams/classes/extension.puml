@@ -1,0 +1,8 @@
+@startuml
+class Extension<HasSemantics> {
+  +name: NameType
+  +valueType: DataTypeDefXsd[0..1]
+  +value: ValueDataType[0..1]
+  +refersTo: Reference[0..*]
+}
+@enduml

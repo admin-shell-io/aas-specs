@@ -14,7 +14,11 @@ include::../includes/constraints.adoc[]
 == Asset Administration Shell Attributes
 
 .Metamodel of an AssetAdministrationShell
-image::image24.png[]
+[plantuml, 24-asset-administration-shell, svg]
+....
+include::partial$diagrams/24-asset-administration-shell.puml[]
+....
+
 
 An Administration Shell is uniquely identifiable since it inherits from _Identifiable_.
 
@@ -55,7 +59,11 @@ Temporarily, no submodel might be assigned to the Asset Administration Shell.
 == Asset Information Attributes
 
 .Metamodel of Asset Information
-image::image25.png[]
+[plantuml, 25-asset-information, svg]
+....
+include::partial$diagrams/25-asset-information.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -233,7 +241,11 @@ The assumption is that every subject has a unique identifier.
 == Submodel Attributes
 
 .Metamodel of Submodel
-image::image26.png[]
+[plantuml, 26-submodel, svg]
+....
+include::partial$diagrams/26-submodel.puml[]
+....
+
 
 Adding a _semanticId_ for a submodel is recommended (see Table 2).
 
@@ -271,7 +283,11 @@ a|A submodel consists of zero or more submodel elements. |xref:SubmodelElement[S
 == Submodel Element Attributes
 
 .Metamodel of Submodel Element
-image::image27.png[]
+[plantuml, 27-submodel-element, svg]
+....
+include::partial$diagrams/27-submodel-element.puml[]
+....
+
 
 Submodel elements are qualifiable elements, i.e. one or more qualifiers may be defined for each of them.
 

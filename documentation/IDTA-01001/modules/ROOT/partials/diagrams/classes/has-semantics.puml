@@ -1,0 +1,6 @@
+@startuml
+abstract class HasSemantics <<abstract>> {
+  +semanticId: Reference[0..1]
+  +supplementalSemanticId: Reference[0..*]
+}
+@enduml

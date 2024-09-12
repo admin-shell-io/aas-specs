@@ -24,7 +24,11 @@ They are represented in alphabetical order.
 == Administrative Information Attributes
 
 .Metamodel of Administrative Information
-image::image14.png[]
+[plantuml, 14-administrative-information, svg]
+....
+include::partial$diagrams/14-administrative-information.puml[]
+....
+
 
 Every identifiable may contain administrative information.
 Administrative information includes, for example,
@@ -124,7 +128,11 @@ The creation of submodel templates can also be guided by another submodel templa
 == Has Data Specification Attributes
 
 .Metamodel of HasDataSpecification
-image::image15.png[]
+[plantuml, 15-has-data-specification, svg]
+....
+include::partial$diagrams/15-has-data-specification.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -158,7 +166,11 @@ For more details on data specifications, please see Clause xref:data-specificati
 == Has Extension Attributes
 
 .Metamodel of Has Extensions
-image::image16.png[]
+[plantuml, 16-has-extensions, svg]
+....
+include::partial$diagrams/16-has-extensions.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -225,7 +237,11 @@ a|Reference to an element the extension refers to |ModelReference<xref:spec-meta
 == Has Kind Attributes
 
 .Metamodel of HasKind
-image::image17.png[]
+[plantuml, 17-has-kind, svg]
+....
+include::partial$diagrams/17-has-kind.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -280,7 +296,11 @@ Its creation and validation may be guided by a corresponding element template
 == Has Semantics Attributes
 
 .Metamodel of Semantic References (HasSemantics)
-image::image18.png[]
+[plantuml, 18-has-semantics, svg]
+....
+include::partial$diagrams/18-has-semantics.puml[]
+....
+
 
 For matching algorithm, see Clause xref:general.adoc#matching-strategies-for-semantic-identifiers[Matching Strategies for Semantic Identifiers].
 
@@ -339,7 +359,11 @@ In future releases a constraint may be added that makes it mandatory to use exte
 == Identifiable Attributes
 
 .Metamodel of Identifiables
-image::image19.png[]
+[plantuml, 19-referable, svg]
+....
+include::partial$diagrams/19-referable.puml[]
+....
+
 
 An identifiable element is a referable with a globally unique identifier (_Identifier_).
 Only the global ID (_Identifiable/id_) shall be used to reference an identifiable, because the _idShort_ is not unique for an identifiable.
@@ -396,7 +420,11 @@ a|The globally unique identification of the element |xref:spec-metamodel/datatyp
 == Qualifiable Attributes
 
 .Metamodel of Qualifiables
-image::image20.png[]
+[plantuml, 20-qualifiable, svg]
+....
+include::partial$diagrams/20-qualifiable.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -426,7 +454,11 @@ a|Additional qualification of a qualifiable element |xref:spec-metamodel/common.
 == Qualifier Attributes
 
 .Metamodel of Qualifiers
-image::image21.png[]
+[plantuml, 21-qualifier, svg]
+....
+include::partial$diagrams/21-qualifier.puml[]
+....
+
 
 Qualifiers may be defined for qualifiable elements.
 
@@ -543,7 +575,11 @@ image::image22.png[Example: Qualifier from IEC CDD]
 == Referable Attributes
 
 .Metamodel of Referables
-image::image23.png[]
+[plantuml, 23-referable, svg]
+....
+include::partial$diagrams/23-referable.puml[]
+....
+
 
 The metamodel differentiates between elements that are identifiable, referable, or none of both.
 The latter means they are neither inheriting from _Referable_ nor from _Identifiable_, which applies e.g. to __Qualifier__s.
