@@ -12,7 +12,7 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 
 === Format "Path" (idShortPath Serialization) in JSON
 
-To get only the idShort paths of a submodel element hierarchy, the serialization format is specified in terms of an idShortPath notation to be returned in an JSON array.
+To get only the idShortPaths of a submodel element hierarchy, the serialization format is specified in terms of an idShortPath notation to be returned in an JSON array.
 The notation differs depending on whether a SubmodelElementCollection or a SubmodelElementList is present.
 In the first case, the submodel element's idShort is separated by "." (dot) from top level down to child level.
 In the second case, square brackets with an index "[<Index>]" are appended after the idShort of the containing SubmodelElementList.
@@ -32,7 +32,7 @@ In any case, the first item of any idShortPath is the idShort of the requested e
 <NonZeroDigit>  ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 ....
 
-In the following example, where a request for idShort paths targets a  _MySubmodelElementCollection_ with SerializationModifier level = deep, the list of idShort paths is returned as follows:
+In the following example, where a request for idShortPaths targets a  _MySubmodelElementCollection_ with SerializationModifier level = deep, the list of idShortPaths is returned as follows:
 
 ====
 EXAMPLE Submodel
