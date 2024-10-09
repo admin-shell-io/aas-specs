@@ -71,7 +71,8 @@ Major Changes:
 ** add chapter for Submodel Example (with properties from SMT Technical Data, not Families any longer)
 ** update Schema for JSON-Value Serialization (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
 * update explanatory text and notes in the context of AdministrativeInformation (https://github.com/admin-shell-io/aas-specs/issues/331[#331])
-* Transfer from .docx to asciidoc (.adoc) and maintenance in github
+* Transfer from .docx to asciidoc (.adoc) and maintenance in GitHub
+* Transfer of all UML figures to PlantUML (.puml) and maintenance in GitHub
 
 Minor Changes:
 
@@ -80,7 +81,7 @@ Minor Changes:
 * update information on OPC UA mapping (https://github.com/admin-shell-io/aas-specs/issues/373[#373])
 * update information on AutomationML mapping (https://github.com/admin-shell-io/aas-specs/issues/397[#397])
 * update bibliography (newer versions, link update, removal of entries not referenced)
-* consistent usage of idShortPaht and IRDI-Path (https://github.com/admin-shell-io/aas-specs/issues/385)
+* consistent usage of idShortPath and IRDI-Path (https://github.com/admin-shell-io/aas-specs/issues/385)
 * editorial changes
 
 
@@ -308,7 +309,7 @@ Note: Security is still part of the Asset Administration Shell, but the Asset Ad
 |{empty} |xref:spec-metamodel/core.adoc#AssetKind[AssetKind/Type] |Updated description of value "Type" of enumeration "AssetKind" conformant to IEC 63278-1
 |x |xref:spec-metamodel/submodel-elements.adoc#BasicEventElement[BasicEvent] |Renamed to BasicEventElement and set to \<<Experimental>>
 
-|xxref:Bibliography.adoc#bib2[[2\]] |xref:spec-metamodel/datatypes.adoc#BlobType[BlobType] |Primitive changed from "group of bytes" to Base64Binary
+|xxref:bibliography.adoc#bib2[[2\]] |xref:spec-metamodel/datatypes.adoc#BlobType[BlobType] |Primitive changed from "group of bytes" to Base64Binary
 
 |x |ConceptDictionary |Removed
 |x |Constraint |Abstract class removed. Formula now used in Security part only
@@ -394,7 +395,7 @@ Now part of AasSubmodelElements
 |x |ReferenceTypes/GlobalReference |Renamed to ExternalReference
 |{empty} |RelationshipElement/first |Type changes from model reference Referable to Reference (global or model reference)
 |{empty} |RelationshipElement/second |Type changes from model reference Referable to Reference (global or model reference)
-|xxref:Bibliography.adoc#bib1[[1\]] |SubmodelElement/kind |Removed. SubmodelElement no longer inherits from HasKind
+|xxref:bibliography.adoc#bib1[[1\]] |SubmodelElement/kind |Removed. SubmodelElement no longer inherits from HasKind
 |{empty} |xref:spec-metamodel/datatypes.adoc#ValueDataType[ValueDataType] |Before as specified via DataTypeDef, now any xsd atomic type as specified via DataTypeDefXsd
 |{empty}x |View |Removed
 |===
@@ -816,7 +817,7 @@ Constraint AASd-051: A _ConceptDescription_ shall have one of the following cate
 === Metamodel Changes V3.0RC02 vs. V2.0.1 w/o Security Part
 
 ====
-Note: if you already implemented the changes made in V3.0RC01, please refer to the corresponding clause in the this annex.
+Note: if you already implemented the changes made in V3.0RC01, please refer to the corresponding clause in the annex.
 This annex is for readers familiar with V2.0.x only.
 ====
 
@@ -1112,7 +1113,7 @@ Constraint AASd-090: For data elements category (inherited by Referable) shall b
 | |AASd-100 |New |Constraint AASd-100: An attribute with data type "string" is not allowed to be empty.
 | |AASd-107 |New |Constraint AASd-107: If a first level child element in a SubmodelElementList has a semanticId it shall be identical to SubmodelElementList/semanticIdListElement.
 | |AASd-108 |New |Constraint AASd-108: All first level child elements in a SubmodelElementList shall have the same submodel element type as specified in SubmodelElementList/typeValueListElement.
-| |AASd-109 |New |Constraint AASd-109: If SubmodelElementList/typeValueListElement equal to Property or Range SubmodelElementList/valueTypeListElement shall be set and all first level child elements in the SubmodelElementList shall have the the value type as specified in SubmodelElementList/valueTypeListElement.
+| |AASd-109 |New |Constraint AASd-109: If SubmodelElementList/typeValueListElement equal to Property or Range SubmodelElementList/valueTypeListElement shall be set and all first level child elements in the SubmodelElementList shall have the value type as specified in SubmodelElementList/valueTypeListElement.
 | |AASd-114 |New |Constraint AASd-114: If two first level child elements in a SubmodelElementList have a semanticId then they shall be identical.
 | |AASd-115 |New |Constraint AASd-115: If a first level child element in a SubmodelElementList does not specify a semanticId then the value is assumed to be identical to SubmodelElementList/semanticIdListElement.
 | |AASd-116 |New |Constraint AASd-116: "globalAssetId" (case-insensitive) is a reserved key. If used as value for SpecificAssetId/name IdentifierKeyValuePair/value shall be identical to AssetInformation/globalAssetId.
@@ -1155,7 +1156,7 @@ Constraint AASD-120: idShort of submodel elements within a SubmodelElementList s
 | |xref:data-specifications.adoc#DataSpecification[DataSpecification] a|
 Stereotype \<<Template>> added + does not inherit from Identifiable any longer because Data Specification are handled in a different way
 
-Some attributes are added to DataSpecification as new attributes like id, administration and description.(see separate entries)
+Some attributes are added to DataSpecification as new attributes like id, administration and description (see separate entries).
 
 | |DataSpecification/category |Removed, was inherited before by Identifiable
 | |DataSpecification/displayName |Removed, was inherited before by Identifiable
