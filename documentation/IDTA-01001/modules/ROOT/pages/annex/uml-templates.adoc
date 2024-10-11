@@ -21,6 +21,7 @@ For details for the semantics see Legend for UML Modelling.
 
 For capitalization of titles, rules according to https://capitalizemytitle.com/ are used.
 
+[[template-for-classes]]
 == Template for Classes
 
 [.table-with-appendix-table]
@@ -53,9 +54,9 @@ The following stereotypes can be used:
 The following kinds of _Types_ are distinguished:
 
 ** _<Class>:_ Type is an object type (class); it is realized as composite aggregation (composition), and does not exist independent of its parent
-** _ModelReference<\{Referable}>:_ Type is a Reference with _Reference/type=ModelReference_ and is called model reference; the \{Referable} is to be substituted by any referable element (including _Referable_ itself for the most generic case) – the element that is referred to is denoted in the __Key/type__=<\{Referable}> for the last _Key_ in the model reference; for the graphical representation see Legend for UML Modelling, Figure 82; for more information on referencing see Clause 5.3.9.
-** _<Primitive>: Type_ Type is no object type (class) but a data type; it is just a value, see Clause 5.3.11.
-** _<Enumeration>:_ Type is an enumeration
+** _ModelReference<\{Referable}>:_ Type is a Reference with _Reference/type=ModelReference_ and is called model reference; the \{Referable} is to be substituted by any referable element (including _Referable_ itself for the most generic case) – the element that is referred to is denoted in the __Key/type__=<\{Referable}> for the last _Key_ in the model reference; for the graphical representation see Annex xref:annex/uml.adoc[Legend for UML Modelling] , Figure xref:annex/uml.adoc#image-82-shared-aggregation[]; for more information on referencing see Clause xref:spec-metamodel/referencing.adoc[Referencing].
+** _<Primitive>: Type_ Type is no object type (class) but a data type; it is just a value, see Clause  xref:spec-metamodel/datatypes.adoc#primitive-data-types[Primitive Data Types].
+** _<Enumeration>:_ Type is an enumeration, see <<template-for-enumerations>>
 
 _Card._ is the cardinality (or multiplicity) defining the lower and upper bound of the number of instances of the member element. "\*" denotes an arbitrary infinite number of elements of the corresponding Type. "0..1" means optional. "0..*" or "0..3" etc. means that the list may be either not available (optional) or the list is not empty.
 
@@ -73,11 +74,12 @@ Note 3: optional lists, i.e. attributes with cardinality > 1 and minimum 0, are 
 
 [.underline]#Examples for valid and invalid model references#
 
-If class type equal to "ModelReference<Submodel>", the following reference would be a valid reference (using the text serialization as defined in Clause xref:mappings.adoc#reference-serialization[]):
+If class type equal to "ModelReference<Submodel>", the following reference would be a valid reference (using the text serialization as defined in Clause xref:mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"
+]):
 
 [listing]
 ....
-(Submodel)\https://example.com/aas/1/1/1234859590
+(Submodel)https://example.com/aas/1/1/1234859590
 ....
 
 This would be an invalid reference for "ModelReference<Submodel>" because it references a submodel element "Property":
@@ -91,20 +93,21 @@ If class type equal to "ModelReference<Referable>", the following references wou
 
 [listing]
 ....
-(Submodel)\https://example.com/aas/1/1/1234859590
+(Submodel)https://example.com/aas/1/1/1234859590
 
-(Submodel)\https://example.com/aas/1/1/1234859590, (Property)temperature
+(Submodel)https://example.com/aas/1/1/1234859590, (Property)temperature
 
-(Submodel)\https://example.com/aas/1/1/1234859590, (File)myDocument
+(Submodel)https://example.com/aas/1/1/1234859590, (File)myDocument
 ....
 
 This would be an invalid reference for "ModelReference<Referable>" because FragmentReference is no Referable:
 
 [listing]
 ....
-(Submodel)\https://example.com/aas/1/1/1234859590, (File)myDocument (FragmentReference)Hints
+(Submodel)https://example.com/aas/1/1/1234859590, (File)myDocument (FragmentReference)Hints
 ....
 
+[[template-for-enumerations]]
 == Template for Enumerations
 
 [.table-with-appendix-table]

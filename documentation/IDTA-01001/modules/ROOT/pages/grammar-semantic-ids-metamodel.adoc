@@ -70,7 +70,7 @@ AAS:AssetAdministrationShell/administration/version
 AAS:AssetInformation/assetKind/Instance
 ....
 
-The application of the pattern is explained as follows:
+The application of the pattern is explained in the following.
 
 The concept identifier of a Class follows the pattern
 
@@ -123,7 +123,7 @@ This also applies to attributes of attributes, if the cardinality of the attribu
 
 [listing]
 ....
-<AAS Class Name> "/" <AAS Attribute Name> [\{ "/" <AAS Attribute Name>}* ]
+<AAS Class Name> "/" <AAS Attribute Name> [{ "/" <AAS Attribute Name>}* ]
 ....
 
 [.underline]#Valid examples:#
@@ -138,7 +138,7 @@ This also applies to values of enumerations:
 
 [listing]
 ....
-<AAS Class Name>[\{ "/" <AAS Attribute Name>}*][ "/" <AAS Enumeration Value>]
+<AAS Class Name>[{ "/" <AAS Attribute Name>}*][ "/" <AAS Enumeration Value>]
 ....
 
 [.underline]#Valid examples:#
@@ -162,7 +162,7 @@ Note: although the attribute name in UML is always singular, the attribute name 
 [example]
 ....
 
-AAS:Operation/InputVariables
+AAS:Operation/inputVariables
 
 AAS:AssetAdministrationShell/submodels
 
