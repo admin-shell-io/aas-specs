@@ -66,7 +66,7 @@ This reduces complexity and allows for scalability.
 Additional motivation can be found in xref:bibliography.adoc#bib2[[2\]] xref:bibliography.adoc#bib4[[4\]] xref:bibliography.adoc#bib7[[7\]] xref:bibliography.adoc#bib8[[8\]].
 
 .Important Concepts of Industry 4.0 attached to the Asset xref:bibliography.adoc#bib2[[2\]] xref:bibliography.adoc#bib21[[21\]]
-image::image60.jpeg[]
+image::60-concepts-of-i40-attached-to-asset.jpeg[]
 
 == The Concept of Properties
 
@@ -79,7 +79,7 @@ The definition of a property (aka standardized data element type, property type)
 Relevant attributes for the Administration Shell are, amongst others, the preferred name, the symbol, the unit of measure, and a human-readable textual definition of the property.
 
 .Exemplary Definition of a Property the IEC CDD
-image::image61.png[]
+image::61-example-property-in-iec-cdd.png[]
 
 The instantiation of such a definition (just 'property', property instance) typically associates a value to the property.
 This mechanism makes it possible to convey semantically well-defined information to the Administration Shell.
@@ -99,7 +99,7 @@ As the figure shows, information from many different domains can be associated w
 The architectural principle "separation of concerns" is supported by submodels.
 
 .Examples of Different Domains Providing Properties for Submodels of the Administration Shell
-image::image62.jpg[]
+image::62-domains-providing-props-for-submodels.jpg[]
 
 The Administration Shell is made up of a series of submodels xref:bibliography.adoc#bib4[[4\]].
 These represent different aspects of the asset concerned.
@@ -122,7 +122,7 @@ Both the asset and the Administration Shell are identified by a globally unique 
 It comprises a number of submodels, which characterize the Asset Administration Shell.
 
 .Basic Structure of the Asset Administration Shell
-image::image63.jpeg[]
+image::63-basic-structure-of-aas.jpeg[]
 
 Properties, data, and functions will contain information that not every partner within a value-added network or even within an organizational unit should be able to access; its integrity and availability should be guaranteed.
 Therefore, the structure of the Administration Shell shall be able to handle aspects such as access protection, visibility, identity, and rights management, confidentiality, and integrity.
