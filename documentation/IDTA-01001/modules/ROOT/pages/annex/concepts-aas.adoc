@@ -160,7 +160,7 @@ They have to be unique within their namespace.
 
 == Best Practice for Creating URI Identifiers
 
-The approach for semantics and interaction for I4.0 components xref:bibliography.adoc#bib18[[18\]] suggests the use of the following structure (see Table <<table-proposed-structure-for-uris>>) for URIsfootnote:[URLs are also URIs], which is slightly modified here.
+The approach for semantics and interaction for I4.0 components xref:bibliography.adoc#bib18[[18\]] suggests the use of the following structure (see <<table-proposed-structure-for-uris>>) for URIsfootnote:[URLs are also URIs], which is slightly modified here.
 The idea is to always structure URIs following a scheme of different elements.
 However, this is just a recommendation and by no means mandatory.
 
@@ -203,9 +203,10 @@ In the table, syntax component "A" refers to authority of RFC 3986 (URI) and nam
 
 Using this scheme, valid URNs and URLs can be both created as URIs.
 The latter are preferred for Administration Shells, as functionality (such as REST services) can be bound to the identifiers.
-Examples of such identifiers are given in Table 12.
+Examples of such identifiers are given in <<table-urn-and-url-based-ids-of-aas>>.
 
 .Example URN and URL-based Identifiers of the Asset Administration Shell
+[[table-urn-and-url-based-ids-of-aas]]
 [cols="27%,73%",options="header",]
 |===
 |*Identifier* |*Examples*
@@ -239,5 +240,5 @@ urn:PROFIBUS:PROFIBUS-PA:V3-02:Parameter:1:1:MaxTemp#0002
 |===
 
 ====
-Note: the last row of Table 12 is only used for completion; the metamodel does not foresee own unique identifiers for property/parameter/status instances.
+Note: the last row of <<table-urn-and-url-based-ids-of-aas>> is only used for completion; the metamodel does not foresee own unique identifiers for property/parameter/status instances.
 ====
