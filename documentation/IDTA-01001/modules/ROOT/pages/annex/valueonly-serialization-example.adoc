@@ -13,10 +13,10 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 [[valueonly-serialization-example]]
 = ValueOnly-Serialization Example 
 
-The following example shows the ValueOnly-Serialization for an entire Submodel that validates against the JSON-schema specified in Clause xref:mappings.adoc#json-schema-for-the-valueonly-serialization[JSON-Schema for the Value-Only Serializatio]. 
-As mentioned in Clause xref:mappings.adoc#json-schema-for-the-valueonly-serialization[JSON-Schema for the Value-Only Serializatio], __SubmodelElementCollection__s cannot be validated within the same schema due to circularity reasons; instead they have their own specific validation schema.
+The following example shows the ValueOnly-Serialization for an entire Submodel that validates against the JSON-schema specified in Clause xref:mappings.adoc#json-schema-for-the-valueonly-serialization[JSON-Schema for the Value-Only Serialization].
+As mentioned in Clause xref:mappings.adoc#json-schema-for-the-valueonly-serialization[JSON-Schema for the Value-Only Serialization], __SubmodelElementCollection__s cannot be validated within the same schema due to circularity reasons; instead they have their own specific validation schema.
 An exemplary _SubmodelElementCollection_ is added to the following JSON for completeness.
-It is, however, not validatable against the schema in Clause xref:mappings.adoc#json-schema-for-the-valueonly-serialization[JSON-Schema for the Value-Only Serializatio] due to the reasons mentioned above.
+It is, however, not validatable against the schema in Clause xref:mappings.adoc#json-schema-for-the-valueonly-serialization[JSON-Schema for the Value-Only Serialization] due to the reasons mentioned above.
 
 [source,json,linenums]
 ----
