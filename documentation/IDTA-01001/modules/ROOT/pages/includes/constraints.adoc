@@ -9,26 +9,26 @@ SPDX-License-Identifier: CC-BY-4.0
 
 // Constraints
 :aasd002: pass:q[[underline]#Constraint AASd-002:# \
-xref:spec-metamodel/core.adoc#Referable[idShort] of __Referable__s shall only feature letters, digits, hyphen ("-") and underscore ("\_"); starting mandatory with a letter, and not ending with a hyphen, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9]+$.]
+xref:ROOT:spec-metamodel/common.adoc#Referable[idShort] of __Referable__s shall only feature letters, digits, hyphen ("-") and underscore ("\_"); starting mandatory with a letter, and not ending with a hyphen, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9]+$.]
 :aasd005: pass:q[[underline]#Constraint AASd-005:# \
-If xref:core.adoc#AdministrativeInformation[AdministrativeInformation/version] is not specified, xref:core.adoc#AdministrativeInformation[AdministrativeInformation/revision] shall also be unspecified. \
+If xref:ROOT:spec-metamodel/common.adoc#AdministrativeInformation[AdministrativeInformation/version] is not specified, xref:ROOT:spec-metamodel/common.adoc#AdministrativeInformation[AdministrativeInformation/revision] shall also be unspecified. \
 This means that a revision requires a version. \
 If there is no version, there is no revision. \
 Revision is optional.]
 :aasd006: pass:q[[underline]#Constraint AASd-006:# \
-If both, the _value_ and the _valueId_ of a _Qualifier_ are present, the value needs to be identical to the value of the referenced coded value in xref:common.adoc#Qualifier[_Qualifier/valueId].]
+If both, the _value_ and the _valueId_ of a _Qualifier_ are present, the value needs to be identical to the value of the referenced coded value in xref:ROOT:spec-metamodel/common.adoc#Qualifier[_Qualifier/valueId].]
 :aasd007: pass:q[[underline]#Constraint AASd-007:# \
-If both the xref:submodel-elements.adoc#Property[Property/value] and the xref:submodel-elements.adoc#Property[Property/valueId] are present, the value of xref:submodel-elements.adoc#Property[Property/value] needs to be identical to the value of the referenced coded value in xref:submodel-elements.adoc#Property[Property/valueId].]
+If both the xref:ROOT:spec-metamodel/submodel-elements.adoc#Property[Property/value] and the xref:ROOT:spec-metamodel/submodel-elements.adoc#Property[Property/valueId] are present, the value of xref:ROOT:spec-metamodel/submodel-elements.adoc#Property[Property/value] needs to be identical to the value of the referenced coded value in xref:ROOT:spec-metamodel/submodel-elements.adoc#Property[Property/valueId].]
 :aasd012: pass:q[[underline]#Constraint AASd-012:# \
-if both the xref:submodel-elements.adoc#MultiLanguageProperty[MultiLanguageProperty/value] and the xref:submodel-elements.adoc#MultiLanguageProperty[MultiLanguageProperty/valueId] are present, the meaning must be the same for each string in a specific language, as specified in xref:submodel-elements.adoc#MultiLanguageProperty[MultiLanguageProperty/valueId].]
+if both the xref:ROOT:spec-metamodel/submodel-elements.adoc#MultiLanguageProperty[MultiLanguageProperty/value] and the xref:ROOT:spec-metamodel/submodel-elements.adoc#MultiLanguageProperty[MultiLanguageProperty/valueId] are present, the meaning must be the same for each string in a specific language, as specified in xref:ROOT:spec-metamodel/submodel-elements.adoc#MultiLanguageProperty[MultiLanguageProperty/valueId].]
 :aasd014: pass:q[[underline]#Constraint AASd-014:# \
-Either the attribute xref:core.adoc#AssetInformation[globalAssetId] or xref:core.adoc#AssetInformation[specificAssetId] of an _Entity_ must be set if xref:submodel-elements.adoc#Entity[Entity/entityType] is set to "xref:submodel-elements.adoc#EntityType[SelfManagedEntity]".]
+Either the attribute xref:ROOT:spec-metamodel/core.adoc#AssetInformation[globalAssetId] or xref:ROOT:spec-metamodel/core.adoc#AssetInformation[specificAssetId] of an _Entity_ must be set if xref:ROOT:spec-metamodel/submodel-elements.adoc#Entity[Entity/entityType] is set to "xref:ROOT:spec-metamodel/submodel-elements.adoc#EntityType[SelfManagedEntity]".]
 :aasd020: pass:q[[underline]#Constraint AASd-020:# \
-The value of xref:common.adoc#Qualifier[Qualifier/value] shall be consistent with the data type as defined in xref:common.adoc#Qualifier[Qualifier/valueType].]
+The value of xref:ROOT:spec-metamodel/common.adoc#Qualifier[Qualifier/value] shall be consistent with the data type as defined in xref:ROOT:spec-metamodel/common.adoc#Qualifier[Qualifier/valueType].]
 :aasd021: pass:q[[underline]#Constraint AASd-021:# \
-Every qualifiable can only have one qualifier with the same xref:common.adoc#Qualifier[Qualifier/valueType].]
+Every qualifiable can only have one qualifier with the same xref:ROOT:spec-metamodel/common.adoc#Qualifier[Qualifier/valueType].]
 :aasd022: pass:q[[underline]#Constraint AASd-022:# \
-xref:core.adoc#Referable[idShort] of non-identifiable referables within the same name space shall be unique (case-sensitive).]
+xref:ROOT:spec-metamodel/core.adoc#Referable[idShort] of non-identifiable referables within the same name space shall be unique (case-sensitive).]
 :aasd077: pass:q[[underline]#Constraint AASd-077:# \
 The name of an extension (_Extension/name_) within _HasExtensions_ needs to be unique.]
 :aasd080: pass:q[[underline]#Constraint AASd-080:# \
@@ -51,38 +51,38 @@ If a first level child element in a _SubmodelElementList_ does not specify a _se
 :aasd116: pass:q[[underline]#Constraint AASd-116:# \
 "globalAssetId" (case-insensitive) is a reserved key for SpecificAssetId/name with the semantics as defined in `\https://admin-shell.io/aas/3/0/AssetInformation/globalAssetId`.]
 :aasd117: pass:q[[underline]#Constraint AASd-117:# \
-xref:core.adoc#Referable[idShort] of non-identifiable __Referable__s not being a direct child of a _SubmodelElementList_ shall be specified.]
+xref:ROOT:spec-metamodel/core.adoc#Referable[idShort] of non-identifiable __Referable__s not being a direct child of a _SubmodelElementList_ shall be specified.]
 :aasd118: pass:q[[underline]#Constraint AASd-118:# \
 If a supplemental semantic ID (_HasSemantics/supplementalSemanticId_) is defined, there shall also be a main semantic ID (_HasSemantics/semanticId_).]
 :aasd119: pass:q[[underline]#Constraint AASd-119:# \
-If any xref:common.adoc#Qualifier[Qualifier/kind]value of a _Qualifiable/qualifier_ is equal to xref:common.adoc#QualifierKind[TemplateQualifier] and the qualified element inherits from "_hasKind"_, the qualified element shall be of kind _Template_ (_HasKind/kind = "Template"_).]
+If any xref:ROOT:spec-metamodel/common.adoc#Qualifier[Qualifier/kind]value of a _Qualifiable/qualifier_ is equal to xref:ROOT:spec-metamodel/common.adoc#QualifierKind[TemplateQualifier] and the qualified element inherits from "_hasKind"_, the qualified element shall be of kind _Template_ (_HasKind/kind = "Template"_).]
 :aasd120: pass:q[[underline]#Constraint AASd-120:# \
-xref:core.adoc#Referable[idShort] of submodel elements being a direct child of a _SubmodelElementList_ shall not be specified.]
+xref:ROOT:spec-metamodel/core.adoc#Referable[idShort] of submodel elements being a direct child of a _SubmodelElementList_ shall not be specified.]
 :aasd121: pass:q[[underline]#Constraint AASd-121:# \
-For xref:references.adoc#Reference[Reference]s, the value of xref:references.adoc#Key[Key/type] of the first _key_ of _Reference/keys_ shall be one of xref:references.adoc#GloballyIdentifiables[GloballyIdentifiables].]
+For xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference]s, the value of xref:ROOT:spec-metamodel/referencing.adoc#Key[Key/type] of the first _key_ of _Reference/keys_ shall be one of xref:ROOT:spec-metamodel/referencing.adoc#GloballyIdentifiables[GloballyIdentifiables].]
 :aasd122: pass:q[[underline]#Constraint AASd-122:# \
-For external references, i.e. __Reference__s with _Reference/type = xref:references.adoc#ReferenceTypes[ExternalReference], the value of _Key/type_ of the first key of _Reference/keys_ shall be one of xref:references.adoc#GenericGloballyIdentifiables[GenericGloballyIdentifiables].]
+For external references, i.e. __Reference__s with _Reference/type = xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ExternalReference], the value of _Key/type_ of the first key of _Reference/keys_ shall be one of xref:ROOT:spec-metamodel/referencing.adoc#GenericGloballyIdentifiables[GenericGloballyIdentifiables].]
 :aasd123: pass:q[[underline]#Constraint AASd-123:# \
-For model references, i.e. __Reference__s with _Reference/type = xref:references.adoc#ReferenceTypes[ModelReference], the value of _Key/type_ of the first _key_ of _Reference/keys_ shall be one of xref:references.adoc#AasIdentifiables[AasIdentifiables].]
+For model references, i.e. __Reference__s with _Reference/type = xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ModelReference], the value of _Key/type_ of the first _key_ of _Reference/keys_ shall be one of xref:ROOT:spec-metamodel/referencing.adoc#AasIdentifiables[AasIdentifiables].]
 :aasd124: pass:q[[underline]#Constraint AASd-124:# \
-For external references, i.e. xref:references.adoc#Reference[Reference]s with _Reference/type = xref:references.adoc#ReferenceTypes[ExternalReference], the last _key_ of _Reference/keys_ shall be either one of _GenericGloballyIdentifiables_ or one of xref:references.adoc#GenericFragmentKeys[GenericFragmentKeys].]
+For external references, i.e. xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference]s with _Reference/type = xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ExternalReference], the last _key_ of _Reference/keys_ shall be either one of _GenericGloballyIdentifiables_ or one of xref:ROOT:spec-metamodel/referencing.adoc#GenericFragmentKeys[GenericFragmentKeys].]
 :aasd125: pass:q[[underline]#Constraint AASd-125:# \
-For model references, i.e. xref:references.adoc#Reference[Reference]s with xref:references.adoc#Reference[Reference/type] = _xref:references.adoc#ReferenceTypes[ModelReference] with more than one key in _Reference/keys,_ the value of _Key/type_ of each of the keys following the first key of _Reference/keys_ shall be one of xref:references.adoc#FragmentKeys[FragmentKeys].]
+For model references, i.e. xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference]s with xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference/type] = _xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ModelReference] with more than one key in _Reference/keys,_ the value of _Key/type_ of each of the keys following the first key of _Reference/keys_ shall be one of xref:ROOT:spec-metamodel/referencing.adoc#FragmentKeys[FragmentKeys].]
 :aasd126: pass:q[[underline]#Constraint AASd-126:# \
-For model references, i.e. xref:references.adoc#Reference[Reference]s with _Reference/type = xref:references.adoc#ReferenceTypes[ModelReference] with more than one key in _Reference/keys,_ the value of _Key/type_ of the last _Key_ in the reference key chain may be one of xref:references.adoc#GenericFragmentKeys[GenericFragmentKeys] or no key at all shall have a value out of xref:references.adoc#GenericFragmentKeys[GenericFragmentKeys].]
-:aasd127: pass:q[[underline]#Constraint AASd-127:# 
-For model references, i.e. xref:references.adoc#Reference[Reference]s with _Reference/type = xref:references.adoc#ReferenceTypes[ModelReference] with more than one key in _Reference/keys,_ a key with _Key/type_ _FragmentReference_ shall be preceded by a key with _Key/type_ _File_ or _Blob_. \
-All other Asset Administration Shell fragments, i.e. _Key/type_ values out of xref:references.adoc#AasSubmodelElements[AasSubmodelElements] , do not support fragments.]
+For model references, i.e. xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference]s with _Reference/type = xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ModelReference] with more than one key in _Reference/keys,_ the value of _Key/type_ of the last _Key_ in the reference key chain may be one of xref:ROOT:spec-metamodel/referencing.adoc#GenericFragmentKeys[GenericFragmentKeys] or no key at all shall have a value out of xref:ROOT:spec-metamodel/referencing.adoc#GenericFragmentKeys[GenericFragmentKeys].]
+:aasd127: pass:q[[underline]#Constraint AASd-127:# \
+For model references, i.e. xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference]s with _Reference/type = xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ModelReference] with more than one key in _Reference/keys,_ a key with _Key/type_ _FragmentReference_ shall be preceded by a key with _Key/type_ _File_ or _Blob_. \
+All other Asset Administration Shell fragments, i.e. _Key/type_ values out of xref:ROOT:spec-metamodel/referencing.adoc#AasSubmodelElements[AasSubmodelElements] , do not support fragments.]
 :aasd128: pass:q[[underline]#Constraint AASd-128:# \
-For model references, i.e. xref:references.adoc#Reference[Reference]s with _Reference/type = xref:references.adoc#ReferenceTypes[ModelReference], the _Key/value_ of a _Key_ preceded by a _Key_ with _Key/type=SubmodelElementList_ is an integer number denoting the position in the array of the submodel element list.]
+For model references, i.e. xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference]s with _Reference/type = xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ModelReference], the _Key/value_ of a _Key_ preceded by a _Key_ with _Key/type=SubmodelElementList_ is an integer number denoting the position in the array of the submodel element list.]
 :aasd129: pass:q[[underline]#Constraint AASd-129:# \
-If any xref:common.adoc#Qualifier[Qualifier/kind]value of a xref:submodel-elements.adoc#SubmodelElement[SubmodelElement/qualifier] (attribute _qualifier_ inherited via xref:common.adoc#Qualifiable[Qualifiable]) is equal to xref:common.adoc#QualifierKind[TemplateQualifier], the submodel element shall be part of a submodel template, i.e. a _Submodel_ with xref:core.adoc#Submodel[Submodel/kind] (attribute _kind_ inherited via xref:common.adoc#HasKind[HasKind]) value equal to xref:common.adoc#ModellingKind[Template].]
+If any xref:ROOT:spec-metamodel/common.adoc#Qualifier[Qualifier/kind]value of a xref:ROOT:spec-metamodel/submodel-elements.adoc#SubmodelElement[SubmodelElement/qualifier] (attribute _qualifier_ inherited via xref:ROOT:spec-metamodel/common.adoc#Qualifiable[Qualifiable]) is equal to xref:ROOT:spec-metamodel/common.adoc#QualifierKind[TemplateQualifier], the submodel element shall be part of a submodel template, i.e. a _Submodel_ with xref:ROOT:spec-metamodel/core.adoc#Submodel[Submodel/kind] (attribute _kind_ inherited via xref:ROOT:spec-metamodel/common.adoc#HasKind[HasKind]) value equal to xref:ROOT:spec-metamodel/common.adoc#ModellingKind[Template].]
 :aasd130: pass:q[[underline]#Constraint AASd-130:# \
 An attribute with data type "string" shall be restricted to the characters as defined in XML Schema 1.0, i.e. the string shall consist of these characters only: ^[\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u00010000-\u0010FFFF]*$.]
 :aasd131: pass:q[[underline]#Constraint AASd-131:# \
-The _globalAssetId_ or at least one xref:core.adoc#AssetInformation[specificAssetId] shall be defined for xref:core.adoc#AssetInformation[AssetInformation].]
+The _globalAssetId_ or at least one xref:ROOT:spec-metamodel/core.adoc#AssetInformation[specificAssetId] shall be defined for xref:ROOT:spec-metamodel/core.adoc#AssetInformation[AssetInformation].]
 :aasd133: pass:q[[underline]#Constraint AASd-133:# \
-xref:core.adoc#SpecificAssetId[SpecificAssetId/externalSubjectId] shall be a global reference, i.e. xref:references.adoc#Reference[Reference/type]  = xref:references.adoc#ReferenceTypes[ExternalReference].]
+xref:ROOT:spec-metamodel/core.adoc#SpecificAssetId[SpecificAssetId/externalSubjectId] shall be a global reference, i.e. xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference/type]  = xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ExternalReference].]
 :aasd134: pass:q[[underline]#Constraint AASd-134:# \
-For an xref:submodel-elements.adoc#Operation[Operation],_ the xref:core.adoc#Referable[idShort] of all xref:submodel-elements.adoc#Operation[inputVariable/value], xref:submodel-elements.adoc#Operation[outputVariable/value], and xref:submodel-elements.adoc#Operation[inoutputVariable/value] shall be unique.]
+For an xref:ROOT:spec-metamodel/submodel-elements.adoc#Operation[Operation],_ the xref:ROOT:spec-metamodel/core.adoc#Referable[idShort] of all xref:ROOT:spec-metamodel/submodel-elements.adoc#Operation[inputVariable/value], xref:ROOT:spec-metamodel/submodel-elements.adoc#Operation[outputVariable/value], and xref:ROOT:spec-metamodel/submodel-elements.adoc#Operation[inoutputVariable/value] shall be unique.]
 
