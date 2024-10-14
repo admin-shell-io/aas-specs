@@ -15,13 +15,14 @@ include::../includes/constraints.adoc[]
 = Overview of Submodel Element Types
 
 .Metamodel Overview for Submodel Element Subtypes
+[[image-28-submodel-element-subtypes]]
 [plantuml, 28-submodel-element, svg]
 ....
 include::partial$diagrams/28-submodel-element.puml[]
 ....
 
 
-Submodel elements include data properties as well as operations, events and other elements needed to describe a model for an asset (see Figure 27).
+Submodel elements include data properties as well as operations, events and other elements needed to describe a model for an asset (see <<image-28-submodel-element-subtypes>>).
 
 == General
 
@@ -341,6 +342,7 @@ h|Explanation h|Type h|Card.
 == Data Element and Overview of Data Element Types
 
 .Metamodel of Data Elements
+[[image-34-data-element]]
 [plantuml, 34-data-element, svg]
 ....
 include::partial$diagrams/34-data-element.puml[]
@@ -352,7 +354,7 @@ A data element is a submodel element that is not further composed of other submo
 A data element is a submodel element that has a value or a predefined number of values like range data elements.
 
 The type of value differs for different subtypes of data elements.
-Data elements include properties, file handling, and reference elements, see Figure 33.
+Data elements include properties, file handling, and reference elements, see <<image-34-data-element>>.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
