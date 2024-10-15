@@ -17,16 +17,13 @@ MetaDataObjects.adoc
 ValueOnly.adoc
 idShortPath.adoc
 ////
-
-:page-partial:
-
 [[part1-mappings]]
 = Mappings (normative)
 
 == Technical Data Formats
 
 This document specifies the Asset Administration Shell in a technology-neutral format, UML.
-Different data formats are used or recommended to be used in the different life cycle phases of a productfootnote:[The word “data formats” is used as shortcut and includes the use of conceptual advantages such as information models, schemes, transmission protocols, etc.].
+Different data formats are used or recommended to be used in the different life cycle phases of a productfootnote:[The word "data formats" is used as shortcut and includes the use of conceptual advantages such as information models, schemes, transmission protocols, etc.].
 
 The Asset Administration Shell supports three widely used formats:
 
@@ -119,7 +116,7 @@ Note 2: the mapping rules of how to derive the xml schema from the technology-ne
 ====
 
 ====
-Note 3: example files can be found in the repository “aas-specs” in the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]]  in folder : `schemas\xml\examples`
+Note 3: example files can be found in the repository "aas-specs" in the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]]  in folder : `schemas\xml\examples`
 ====
 
 ==   Format "Normal" in JSON
@@ -152,7 +149,7 @@ The resulting model is often interpreted as a graph, with the subject and object
 RDF is closely related to web standards, illustrated by the fact that all elements are encoded using (HTTP-)IRIs.
 As a common practice, the provision of additional information at the referenced location of an RDF entity directly allows the interlinking of entitiesfootnote:[Note: entity as a generic term and entity as a specific submodel element subtype need to be distinguished.] based on the web.
 This process – following links in order to discover related information – is called dereferencing a resource and is supported by any browser or web client.
-Connecting distributed data sources through the web in the described manner is referred to by the term “Linked Data”.
+Connecting distributed data sources through the web in the described manner is referred to by the term "Linked Data".
 Connecting the available resources and capabilities of linked data with the expressiveness of the Asset Administration Shell is one motivation for the RDF serialization.
 
 In addition, RDF is the basis of a wide range of logical inference and reasoning techniques.

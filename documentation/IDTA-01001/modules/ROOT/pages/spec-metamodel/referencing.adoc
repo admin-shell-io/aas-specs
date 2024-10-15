@@ -7,18 +7,14 @@ https://creativecommons.org/licenses/by/4.0/).
 SPDX-License-Identifier: CC-BY-4.0
 
 ////
-
-:page-partial:
-
-include::../includes/constraints.adoc[]
-
 [#referencing-in-aas]
 = Referencing in Asset Administration Shells
+include::../includes/constraints.adoc[]
 
 == Overview
 
 To date, two kinds of references are distinguished: references to external objects or entities (external reference) and references to model elements of the same or another Asset Administration Shell (model reference).
-Model references are also used for metamodel inherent relationships like submodels of an Asset Administration Shell (notation see Annex A).
+Model references are also used for metamodel inherent relationships like submodels of an Asset Administration Shell (notation see Annex xref:ROOT:annex/concepts-aas.adoc[]).
 
 An external reference is a unique identifier.
 The identifier can be a concatenation of different identifiers, representing e.g. an IRDI-Path.
@@ -180,7 +176,7 @@ include::partial$diagrams/52-aas-submodel-elements.puml[]
 |===
 |Enumeration: e|[[KeyTypes]]KeyTypes
 h|Explanation: a|Enumeration of different key value types within a key
-|Set of: |xref:FragmentKeys[FragmentKeys]; xref:AasReferables[AasReferables], xref:spec-metamodel/datatypes.adoc#GloballyIdentifiables[GloballyIdentifiables]
+|Set of: |xref:FragmentKeys[FragmentKeys], xref:AasReferables[AasReferables], xref:spec-metamodel/datatypes.adoc#GloballyIdentifiables[GloballyIdentifiables]
 h|ID: | `\https://admin-shell.io/aas/3/1/KeyTypes`
 
 .2+h|Literal h| ID
