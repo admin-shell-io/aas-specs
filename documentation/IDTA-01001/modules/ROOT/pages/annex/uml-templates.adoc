@@ -41,7 +41,7 @@ h|Explanation h|Type h|Card.
 a|<Explanatory text> |<Type> |<Card>
 |===
 
-_ID_ is the metamodel ID of the class or attribute, conformant to the grammar defined in Clause xref:mappings.adoc#reference-serialization[].
+_ID_ is the metamodel ID of the class or attribute, conformant to the grammar defined in Clause xref:mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"].
 A metamodel ID for a class attribute is concatenated by _<ID of metamodel element ID of class>/<relative metamodel element ID>_.
 
 The following stereotypes can be used:
@@ -54,7 +54,7 @@ The following stereotypes can be used:
 The following kinds of _Types_ are distinguished:
 
 ** _<Class>:_ Type is an object type (class); it is realized as composite aggregation (composition), and does not exist independent of its parent
-** _ModelReference<\{Referable}>:_ Type is a Reference with _Reference/type=ModelReference_ and is called model reference; the \{Referable} is to be substituted by any referable element (including _Referable_ itself for the most generic case) – the element that is referred to is denoted in the __Key/type__=<\{Referable}> for the last _Key_ in the model reference; for the graphical representation see Annex xref:annex/uml.adoc[Legend for UML Modelling] , Figure xref:annex/uml.adoc#image-82-shared-aggregation[]; for more information on referencing see Clause xref:spec-metamodel/referencing.adoc[Referencing].
+** _ModelReference<\{Referable}>:_ Type is a Reference with _Reference/type=ModelReference_ and is called model reference; the \{Referable} is to be substituted by any referable element (including _Referable_ itself for the most generic case) – the element that is referred to is denoted in the __Key/type__=<\{Referable}> for the last _Key_ in the model reference; for the graphical representation see Annex xref:annex/uml.adoc[] , Figure xref:annex/uml.adoc#image-82-shared-aggregation[Graphical Representation of Shared Aggregation]; for more information on referencing see Clause xref:spec-metamodel/referencing.adoc[].
 ** _<Primitive>: Type_ Type is no object type (class) but a data type; it is just a value, see Clause  xref:spec-metamodel/datatypes.adoc#primitive-data-types[Primitive Data Types].
 ** _<Enumeration>:_ Type is an enumeration, see <<template-for-enumerations>>
 
@@ -65,7 +65,7 @@ Note 1: attributes having a default value are always considered to be optional; 
 ====
 
 ====
-Note 2: attributes or attribute elements with data type “string” or “langString” are considered to consist of at least one character.
+Note 2: attributes or attribute elements with data type "string" or "langString" are considered to consist of at least one character.
 ====
 
 ====

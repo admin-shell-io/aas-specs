@@ -13,9 +13,6 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 ////
 includes events.adoc
 ////
-
-:page-partial:
-
 [[part1-general]]
 = General
 
@@ -123,6 +120,7 @@ The attribute "assetKind" indicates whether the Asset Administration Shell (deno
 Additionally, attributes are added to show that the attributes of type asset and instance assets typically differ from each other.
 
 .Example: Asset Administration Shells for Type and Instance Assets
+[[image-4-aas-type-instance]]
 [plantuml, image-4-aas-type-instance, svg]
 ....
 include::partial$diagrams/4-aas-type-instance.puml[]
@@ -130,7 +128,7 @@ include::partial$diagrams/4-aas-type-instance.puml[]
 
 
 ====
-Note 1: the example is simplified for ease of understanding and only roughly complies with the metamodel as specified in Clause xref:spec-metamodel/nav-spec.adoc[Specification].
+Note 1: the example is simplified for ease of understanding and only roughly complies with the metamodel as specified in Clause xref:spec-metamodel/nav-spec.adoc[].
 The ID handling is simplified as well: the names of the classes correspond to the unique global identifier of the Asset Administration Shells.
 ====
 
@@ -229,6 +227,7 @@ An Asset Administration Shell instance that does not realize an Asset Administra
 ====
 
 .Example: Asset Administration Shell, Asset Administration Shell Types and Instances
+[[image-5-aas-types-and-instances]]
 [plantuml, image-5-aas-types-and-instances, svg]
 ....
 include::partial$diagrams/5-aas-types-and-instances.puml[]
@@ -257,11 +256,11 @@ Identification will take place for two purposes
 === Identifiers for Assets and Administration Shells
 
 In the domain of smart manufacturing, the assets need to be uniquely identified worldwide xref:bibliography.adoc#bib4[[4\]] xref:bibliography.adoc#bib20[[20\]] by the means of identifiers (IDs).
-The Administration Shell also has a unique ID (see Figure <<image-unique-identifier-for-aas-and-asset>>).
+The Administration Shell also has a unique ID (see <<image-unique-identifier-for-aas-and-asset>>).
 
 .Unique Identifier for Administration Shell and Asset (Modified Figure from xref:bibliography.adoc#bib4[[4\]])
 [[image-unique-identifier-for-aas-and-asset]]
-image::image6.jpeg[]
+image::6-unique-identifier-for-aas-and-asset.jpeg[]
 
 An Administration Shell represents exactly one asset, with a unique asset ID.
 In a batch-based production, the batches will become the assets and will be described by a respective Administration Shell.
@@ -424,11 +423,11 @@ The Administration Shell fosters the use of worldwide unique identifiers to a la
 However, in some cases, this may lead to inefficiencies.
 Example: a property, which is part of a submodel, which in turn is part of an Administration Shell, each of which is identified by global identifiers xref:bibliography.adoc#bib4[[4\]].
 
-In an application featuring a resource-oriented architecture (ROA), a worldwide unique resource locator (URL) might be composed of a series of segments, which do not need to be globally unique, see Figure <<image-motiviation-of-exemplary-identifies-and-idshort>>.
+In an application featuring a resource-oriented architecture (ROA), a worldwide unique resource locator (URL) might be composed of a series of segments, which do not need to be globally unique, see <<image-motiviation-of-exemplary-identifiers-and-idshort>>.
 
 .Motivation of Exemplary Identifiers and idShort
-[[image-motiviation-of-exemplary-identifies-and-idshort]]
-image::image7.jpeg[]
+[[image-motiviation-of-exemplary-identifiers-and-idshort]]
+image::7-motiviation-of-exemplary-ids.jpeg[]
 
 To allow such efficient addressing by the chaining of elements by an API of an Administration Shell, _idShort_ is provided for a set of classes of the metamodel.
 It inherits from the abstract class xref:spec-metamodel/common.adoc#referable-attributes[Referable], in order to refer to such dependent elements.

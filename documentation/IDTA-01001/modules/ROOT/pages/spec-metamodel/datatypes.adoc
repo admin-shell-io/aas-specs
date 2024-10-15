@@ -13,7 +13,7 @@ SPDX-License-Identifier: CC-BY-4.0
 == Predefined Simple Data Types
 
 The metamodel of the Asset Administration Shell uses some of the predefined simple data types of the  link:https://www.w3.org/XML/Core/[XML Schema Definition] (XSD) as its basic data types footnote:[https://www.w3.org/XML/Core/, former https://www.w3.org/TR/xmlschema-2/#built-in-datatypes].
-See Table 7 for an overview of the used types.
+See <<table-simple-data-types>> for an overview of the used types.
 Their definition is outside the scope of this document.
 
 The meaning and format of xsd types is specified in XML Schema 1.0 (https://www.w3.org/TR/xmlschema-2).
@@ -22,6 +22,7 @@ The simple type "langString" is specified in the Resource Description Framework 
 See Clause xref:spec-metamodel/constraints.adoc#constraints-for-types[Constraints for Types] for constraints on types.
 
 .Simple Data Types Used in Metamodel
+[[table-simple-data-types]]
 [cols="10%,19%,38%,33%",options="header",]
 |===
 |Source |Basic Data Type |Value Range |Sample Values
@@ -56,7 +57,7 @@ Note: this is written in RDF/Turtle syntax, only "Hello" and "Hallo" are the act
 [[primitive-data-types]]
 == Primitive Data Types
 
-Table 8 lists the Primitives used in the metamodel.
+<<table-primitive-data-types>> lists the Primitives used in the metamodel.
 Primitive data types start with a capital letter.
 
 ====
@@ -64,6 +65,7 @@ Note: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-types[Cons
 ====
 
 .Primitive Data Types Used in Metamodel
+[[table-primitive-data-types]]
 [cols="13%,30%,57%"]
 |===
 
@@ -289,7 +291,7 @@ Note 2: additionally, the following RDF types are not supported in xref:DataType
 include::partial$diagrams/53-data-type-def-rdf.puml[]
 ....
 
-The enumeration is derived from Figure 54.
+The enumeration is derived from <<image-55-xml-built-in-types>>.
 
 .Data TypeDefXsd Enumeration
 [plantuml, 54-data-type-def-xsd, svg]
@@ -298,15 +300,15 @@ include::partial$diagrams/54-data-type-def-xsd.puml[]
 ....
 
 
-Table 9 depicts example values and the value range of the different data type"
+<<table-data-types-with-examples>> depicts example values and the value range of the different data types.
 
-shows the data types which can be used for submodel element values.
+The left column "Data Type" shows the data types which can be used for submodel element values.
 The data types are defined according to the W3C XML Schema (https://www.w3.org/TR/xmlschema-2/#built-in-datatypes and https://www.w3.org/TR/xmlschema-2/#built-in-derived).
 "Value Range" further explains the possible range of data values for this data type.
 The right column shows related examples for values of the corresponding data type.
 
 .Data Types with Examples footnote:[See list of RDF-compatible XSD types with short description https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes. Examples from https://openmanufacturingplatform.github.io/sds-bamm-aspect-meta-model/bamm-specification/v1.0.0/datatypes.html]
-
+[[table-data-types-with-examples]]
 [cols="15%,22%,24%,39%",options="header",]
 |===
 | |Data Type |Value Range |Sample Values
@@ -567,4 +569,5 @@ Simple two-letter language tags for locales like "de" conformant to ISO 639-1 ar
 IETF language tags are referencing ISO 639, ISO 3166 and ISO 15924.
 
 .Built-In Types of XML Schema Definition 1.0 (XSD)footnote:[Source: https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes]
-image::image55.png[]
+[[image-55-xml-built-in-types]]
+image::55-xml-built-in-types.png[]

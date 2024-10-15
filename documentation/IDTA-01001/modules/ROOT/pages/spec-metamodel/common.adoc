@@ -7,14 +7,9 @@ https://creativecommons.org/licenses/by/4.0/).
 SPDX-License-Identifier: CC-BY-4.0
 
 ////
-
-
-:page-partial:
-
-include::../includes/constraints.adoc[]
-
 [[spec-common]]
 = Common Attributes
+include::../includes/constraints.adoc[]
 
 == General
 
@@ -168,7 +163,7 @@ Note: this is an external reference.
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..* |
 |===
 
-For more details on data specifications, please see Clause xref:data-specifications.adoc[Data Specification Templates].
+For more details on data specifications, please see Clause xref:data-specifications.adoc[].
 
 == Has Extension Attributes
 
@@ -394,7 +389,7 @@ An element that has a globally unique identifier
 
 
 ====
-Note: see Clause 5.3.12.2 for constraints related to identifiables.
+Note: xref:spec-metamodel/constraints.adoc#constraints-for-referables-and-identifiables[see for constraints related to identifiables].
 ====
 
 
@@ -567,15 +562,15 @@ See constraint AASd-129.
 Example of a _ValueQualifier_: property "temperature" and qualifier "value quality" with different qualifier values like "measured", "substitute value".
 
 Example of a _ConceptQualifier:_ an Asset Administration Shell with two submodels with different IDs but the same semanticId = "Bill of Material".
-The qualifier could denote the life cycle with qualifier values like "as planned", "as maintained" etc. (see +
-Figure 21).
+The qualifier could denote the life cycle with qualifier values like "as planned", "as maintained" etc. (see <<image-22-qualifier>>).
 
 Example of a _TemplateQualifier:_ a submodel element with qualifier value "mandatory" or "optional".
 This qualification is needed to build a correct submodel instance.
 For more information see xref:bibliography.adoc#bib48[[48\]].
 
 .Example: Qualifier from IEC CDD
-image::image22.png[Example: Qualifier from IEC CDD]
+[[image-22-qualifier]]
+image::22-qualifier-from-iec-cdd.png[]
 ====
 
 [#referable-attributes]
@@ -592,7 +587,7 @@ The metamodel differentiates between elements that are identifiable, referable, 
 The latter means they are neither inheriting from _Referable_ nor from _Identifiable_, which applies e.g. to __Qualifier__s.
 
 Referable elements can be referenced via the _idShort_ (except for elements within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes [SubmodelElementList]).
-For details on referencing, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
+For details on referencing, see Clause xref:spec-metamodel/referencing.adoc[].
 
 Not every element of the metamodel is referable.
 There are elements that are just attributes of a referable.
@@ -668,13 +663,14 @@ Additional information can be provided, e.g. if the element is qualified and whi
 |xref:spec-metamodel/datatypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
 |===
 
-Predefined categories are described in Table 6.
+Predefined categories are described in <<table-categories>>.
 
 ====
 Note: categories are deprecated and should no longer be used.
 ====
 
 .Categoriesfootnote:[Note: categories of referables are deprecated.] for Elements with Value
+[[table-categories]]
 [cols="18%,28%,54%",options="header",]
 |===
 |Category: |Applicable to, Examples: |Explanation:
