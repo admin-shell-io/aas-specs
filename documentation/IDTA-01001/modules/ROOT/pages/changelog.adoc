@@ -123,6 +123,12 @@ Constraint AASd-002: _idShort_ of __Referable__s shall only feature letters, dig
 Change since Entity/entityType is now optional
 
 Constraint AASd-014: Either the attribute globalAssetId or specificAssetId of an Entity must be set if Entity/entityType is set to "SelfManagedEntity".
+
+|{empty}  | AASd-016 | Update a|
+Update version of globalAssetId
+
+Constraint AASd-116:
+"globalAssetId" (case-insensitive) is a reserved key for SpecificAssetId/name with the semantics as defined in `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`.
 |===
 
 == Changes V3.0.1 vs. V3.0
