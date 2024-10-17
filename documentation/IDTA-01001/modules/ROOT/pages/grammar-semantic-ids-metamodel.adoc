@@ -191,12 +191,17 @@ Their corresponding name space qualifiers are defined individually.
 
 In xml and JSON, data specifications are embedded into the schema itself using the attribute "embeddedDataSpecification".
 Here, no concept identifier shall be used.
-For example,
+
+_[.underline]#Invalid example:#_
 
 [example]
 ....
 AAS:ConceptDescription/embeddedDataSpecifications
 ....
 
-is not a valid concept identifier.
-_AAS:DataSpecificationContent_ is a valid concept identifier.
+[.underline]#Valid example#:
+
+[example]
+....
+AAS:DataSpecificationContent 
+....
