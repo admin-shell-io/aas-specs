@@ -13,7 +13,7 @@ include::../includes/constraints.adoc[]
 
 == Overview
 
-To date, two kinds of references are distinguished: references to external objects or entities (external reference) and references to model elements of the same or another Asset Administration Shell (model reference).
+Two kinds of references are distinguished: references to external objects or entities (external reference) and references to model elements of the same or another Asset Administration Shell (model reference).
 Model references are also used for metamodel inherent relationships like submodels of an Asset Administration Shell (notation see Annex xref:ROOT:annex/concepts-aas.adoc[]).
 
 An external reference is a unique identifier.
@@ -159,7 +159,7 @@ The name of the model element is explicitly listed.
 |xref:KeyTypes[KeyTypes]|1
 
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/Key`
-a|The key value, for example an IRDI or a URI |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |1
+a|The key value, for example an IRDI or a URI or the xref:spec-metamodel/common.adoc#Referable[idShort] or any other fragment value |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |1
 |===
 
 An example for using a _FragmentId_ as type of a key is a reference to an element within a file that is part of an Asset Administration Shell aasx package.
@@ -927,7 +927,7 @@ This is an external reference but no model reference.
 ....
 
 This reference does not start with the ID of an Identifiable.
-Additionally, the value is not valid idShort for a Property submodel element.
+Additionally, the value is not valid xref:spec-metamodel/common.adoc#Referable[idShort] for a Property submodel element.
 
 [example]
 ....

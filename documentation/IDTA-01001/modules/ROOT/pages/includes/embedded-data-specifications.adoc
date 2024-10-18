@@ -7,8 +7,7 @@ Consequently, some serializations or mappings support exactly the data descripti
 In the case of restricted use of data specifications, we speak of "embedded data specifications".
 <<image-59-embedded-data-specifications>> explains the realization: instead of a set of external global references to externally defined data specifications, a set of pairs consisting of an external global reference to a data specification and the data specification content itself are directly "embedded".
 Here, the data specification content belongs to the schema, while the data specification including its content are not part of the schema in the general concept.
-This is similar to the concept of _semanticIds_: either it is an external global reference to an external concept dictionary, or it is a reference to a concept description within the schema.
-However, there is only one reference allowed for _semanticId_, whereas a set of data specification references is permitted for data specifications.
+
 
 .Realization of Embedded Data Specifications
 [[image-59-embedded-data-specifications]]
