@@ -26,12 +26,12 @@ Two separate requests make it possible to build up a user interface (UI) and sho
 Values are only available for
 
 * All subtypes of abstract type xref:spec-metamodel/submodel-elements.adoc#DataElement[DataElement],
-* xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList]  and xref:spec-metamodel/submodel-elements.adoc#SubmodelElementCollection[SubmodelElementCollection] SubmodelElementCollection resp. for their included xref:spec-metamodel/submodel-elements.adoc#SubmodelElement[SubmodelElement]s,
+* xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList]  and xref:spec-metamodel/submodel-elements.adoc#SubmodelElementCollection[SubmodelElementCollection] SubmodelElementCollection resp. for their included xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]s,
 * xref:spec-metamodel/submodel-elements.adoc#ReferenceElement[ReferenceElement],
 * xref:spec-metamodel/submodel-elements.adoc#RelationshipElement[RelationshipElement] + xref:spec-metamodel/submodel-elements.adoc#AnnotatedRelationshipElement[AnnotatedRelationshipElement],
 * xref:spec-metamodel/submodel-elements.adoc#Entity[Entity],
 * xref:spec-metamodel/submodel-elements.adoc#BasicEventElement[BasicEventElement],
-* xref:spec-metamodel/submodel-elements.adoc#Submodel[Submodel].
+* xref:spec-metamodel/core.adoc#Submodel[Submodel].
 
 Capabilities are excluded from the serialization scope since only data containing elements are in the focus.
 They are consequently omitted in the serialization.
@@ -88,7 +88,7 @@ The second is named "globalAssetId" and the third "specificAssetIds".
 Either a "globalAssetId" value or a "specificAssetIds" value shall exist.
 The other attributes are optional.
 "globalAssetId" corresponds to a _Reference_ (see above).
-"SpecificAssetIds" is an array of objects serializing xref:spec-metamodel/common.adoc#SpecificAssetId[SpecificAssetId].
+"SpecificAssetIds" is an array of objects serializing xref:spec-metamodel/core.adoc#SpecificAssetId[SpecificAssetId].
 A single _SpecificAssetId_ in the array corresponds to the serialization of the _SpecificAssetId_ class in format "Normal".
 The forth property is named "entityType" and contains a string representation of $\{Entity/entityType}.
 _Statements_ and the _entityType_ are optional.
