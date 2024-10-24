@@ -9,6 +9,20 @@
         rdf:type aas:AdministrativeInformation ;
         <https://admin-shell.io/aas/3/0/HasDataSpecification/embeddedDataSpecifications> [
             rdf:type aas:EmbeddedDataSpecification ;
+            <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecificationContent> [
+                rdf:type aas:DataSpecificationIec61360 ;
+                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
+                    rdf:type aas:LangStringPreferredNameTypeIec61360 ;
+                    <https://admin-shell.io/aas/3/0/AbstractLangString/language> "sr-Latn"^^xs:string ;
+                    <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_7282cc23"^^xs:string ;
+                ] ;
+                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
+                    rdf:type aas:LangStringPreferredNameTypeIec61360 ;
+                    <https://admin-shell.io/aas/3/0/AbstractLangString/language> "en-GB"^^xs:string ;
+                    <https://admin-shell.io/aas/3/0/AbstractLangString/text> "Something random in English 0843a1d1"^^xs:string ;
+                ] ;
+                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/value> "something_bebf64f0"^^xs:string ;
+            ] ;
             <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecification> [
                 rdf:type aas:Reference ;
                 <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ExternalReference> ;
@@ -17,20 +31,6 @@
                     <https://admin-shell.io/aas/3/0/Key/type> <https://admin-shell.io/aas/3/0/KeyTypes/GlobalReference> ;
                     <https://admin-shell.io/aas/3/0/Key/value> "urn:something14:18179b7a"^^xs:string ;
                 ] ;
-            ] ;
-            <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecificationContent> [
-                rdf:type aas:DataSpecificationIec61360 ;
-                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
-                    rdf:type aas:LangStringPreferredNameTypeIec61360 ;
-                    <https://admin-shell.io/aas/3/0/AbstractLangString/language> "x-Sw4u3ZDO-nJLabnE"^^xs:string ;
-                    <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_7282cc23"^^xs:string ;
-                ] ;
-                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
-                    rdf:type aas:LangStringPreferredNameTypeIec61360 ;
-                    <https://admin-shell.io/aas/3/0/AbstractLangString/language> "en-UK"^^xs:string ;
-                    <https://admin-shell.io/aas/3/0/AbstractLangString/text> "Something random in English 0843a1d1"^^xs:string ;
-                ] ;
-                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/value> "something_bebf64f0"^^xs:string ;
             ] ;
         ] ;
         <https://admin-shell.io/aas/3/0/AdministrativeInformation/version> "1"^^xs:string ;
