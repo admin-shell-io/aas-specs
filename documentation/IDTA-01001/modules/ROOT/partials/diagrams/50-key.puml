@@ -17,7 +17,7 @@ enum AasReferables <<enumeration>> {
   Referable
 }
 
-enum AasReferablesNonIdentifiables <<enumeration>>
+enum AasReferableNonIdentifiables <<enumeration>>
 
 enum GloballyIdentifiables <<enumeration>>
 
@@ -30,10 +30,10 @@ KeyTypes --|> FragmentKeys
 KeyTypes --|> AasReferables
 KeyTypes --|> GloballyIdentifiables
 FragmentKeys --|> GenericFragmentKeys
-FragmentKeys --|> AasReferablesNonIdentifiables
-AasReferables --|> AasReferablesNonIdentifiables
+FragmentKeys --|> AasReferableNonIdentifiables
+AasReferables --|> AasReferableNonIdentifiables
 AasReferables --|> AasIdentifiables
-AasReferablesNonIdentifiables --|> AasSubmodelElements
+AasReferableNonIdentifiables --|> AasSubmodelElements
 GloballyIdentifiables --|> AasIdentifiables
 GloballyIdentifiables --|> GenericGloballyIdentifiables
 @enduml
