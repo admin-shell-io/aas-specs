@@ -415,15 +415,15 @@ aas:EmbeddedDataSpecificationShape a sh:NodeShape ;
     sh:targetClass aas:EmbeddedDataSpecification ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecificationContent> ;
-        sh:class aas:DataSpecificationContent ;
+        sh:path <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecification> ;
+        sh:class aas:Reference ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         a sh:PropertyShape ;
-        sh:path <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecification> ;
-        sh:class aas:Reference ;
+        sh:path <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecificationContent> ;
+        sh:class aas:DataSpecificationContent ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
