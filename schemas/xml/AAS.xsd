@@ -277,6 +277,7 @@
   </xs:group>
   <xs:group name="embeddedDataSpecification">
     <xs:sequence>
+      <xs:element name="dataSpecification" type="reference_t"/>
       <xs:element name="dataSpecificationContent">
         <xs:complexType>
           <xs:sequence>
@@ -284,7 +285,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="dataSpecification" type="reference_t"/>
     </xs:sequence>
   </xs:group>
   <xs:group name="entity">
