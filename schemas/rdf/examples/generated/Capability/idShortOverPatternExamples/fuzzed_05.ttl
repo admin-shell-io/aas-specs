@@ -49,6 +49,15 @@
         ] ;
         <https://admin-shell.io/aas/3/0/HasDataSpecification/embeddedDataSpecifications> [
             rdf:type aas:EmbeddedDataSpecification ;
+            <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecification> [
+                rdf:type aas:Reference ;
+                <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ModelReference> ;
+                <https://admin-shell.io/aas/3/0/Reference/keys> [
+                    rdf:type aas:Key ;
+                    <https://admin-shell.io/aas/3/0/Key/type> <https://admin-shell.io/aas/3/0/KeyTypes/Submodel> ;
+                    <https://admin-shell.io/aas/3/0/Key/value> "urn:another-company15:2bd0986b"^^xs:string ;
+                ] ;
+            ] ;
             <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecificationContent> [
                 rdf:type aas:DataSpecificationIec61360 ;
                 <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
@@ -62,15 +71,6 @@
                     <https://admin-shell.io/aas/3/0/AbstractLangString/text> "Something random in English c8512bdf"^^xs:string ;
                 ] ;
                 <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/value> "something_4e9c19b7"^^xs:string ;
-            ] ;
-            <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecification> [
-                rdf:type aas:Reference ;
-                <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ModelReference> ;
-                <https://admin-shell.io/aas/3/0/Reference/keys> [
-                    rdf:type aas:Key ;
-                    <https://admin-shell.io/aas/3/0/Key/type> <https://admin-shell.io/aas/3/0/KeyTypes/Submodel> ;
-                    <https://admin-shell.io/aas/3/0/Key/value> "urn:another-company15:2bd0986b"^^xs:string ;
-                ] ;
             ] ;
         ] ;
     ] ;
