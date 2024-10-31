@@ -20,7 +20,7 @@ Do you want to contribute? Great! But before you do it, please follow the define
 [Github Issues](https://github.com/admin-shell-io/aas-specs-api/issues) are the preferred way to inform the community about bugs, shortcomings, feature requests and so on.  
 
 
-**Use a template**. Several issue templates are available to better structure the process. Depending on your issue, submit a review finding, a bug report, or a request for a new feature. Only if none of these fits, [open a new blank issue](https://github.com/admin-shell-io/aas-specs-api/issues/new). Due to legal reasons, click also the checkmark stating that you have already signed the [DCO] (see [Section Prerequisites](#prerequisites)).  
+**Use a template**. Several issue templates are available to better structure the process. Depending on your issue, submit a review finding, a bug report, or a request for a new feature. Only if none of these fits, [open a new blank issue](https://github.com/admin-shell-io/aas-specs/issues/new). Due to legal reasons, click also the checkmark stating that you have already signed the [DCO] (see [Section Prerequisites](#prerequisites)).  
 A maintainer will then assign additional labels, milestones, and individual other contributers if possible.
 
 
