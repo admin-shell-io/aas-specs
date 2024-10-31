@@ -451,8 +451,14 @@ However, these are not considered in the matching strategies described in this c
 
 *Exact Matching (identical semanticIds) – DEFAULT*
 
-* With exact matching, two semantic IDs need to be string-identical.
-** Example: Property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#002 have exactly equal semantics.
+* With exact matching, two semantic IDs need to represent two exact matching references (see xref:general.adoc#matching-algorithm-for-references[Matching Algorithm for References]).
+** Example: Property with idShort "ManufacturerName" + semanticId  value 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId value 0173-1#02-AAO677#002 have exactly equal semantics if the key types in both semanticIds are identical as well plus the other attributes of a Reference like _referredSemanticId_. So if the first key type of property "ManufacturerName" is "ExternalReference" and the first key type of the semanticId of property  "Herstellername" is "ModelReference" then the two semanticIds are no exact match. Or if the first reference contains a referredSemanticId value and the second does not the two semantic IDs are not exact matches.
+
+*Value Matching*
+
+* With value matching, the key values of the two semantic IDs being compared need to be string-identical, i.e. the two references need to value match (see xref:general.adoc#matching-algorithm-for-references[Matching Algorithm for References]).
+** Example: Property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#002 have value equal semantics.
+
 
 *Intelligent Matching (compatible semanticIds)*
 
@@ -496,6 +502,9 @@ Note: this example does not represent an existing semantic mapping; it is only a
 ** With intelligent matching, domain knowledge available in machine-readable form may be taken into account, such as an "is-a"-relationship between two concept definitions.
 ** Example: a Hammer drill (0173-1#01-ADS698#010) and a percussion drill (0173-1#01-ADS700#010) are drills for mineral material (0173-1#01-ADN177#005) and are compatible with a request or constraints asking for drills for mineral material.
 
+
+
+
 [#matching-algorithm-for-references]
 === Matching Algorithm for References
 
@@ -513,7 +522,7 @@ In this case the data consumer only knows the external ID whereas the provider m
 Matching does not mean to define equivalence classes that allow to overwrite constraints as defined in the specification for valid instances of the metamodel.
 ====
 
-**Equivalence matching of two references**
+**Exact matching of two references**
 
 * Two References are identical if all attributes values are identical.
 
@@ -524,12 +533,14 @@ Matching does not mean to define equivalence classes that allow to overwrite con
 (GlobalReference)0173-1#01-ADS698#010, (GlobalReference)0173-1#01-ADS700#010
 ....
 
-matches
+is not exact match for
 
 [listing]
 ....
 (GlobalReference 0173-1#01-ADS698#010, (FragmentReference)0173-1#01-ADS700#010
 ....
+
+but a value match.
 
 **Value matching of two references**
 
