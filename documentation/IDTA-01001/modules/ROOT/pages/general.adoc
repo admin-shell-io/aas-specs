@@ -485,6 +485,24 @@ ECLASS and IEC CDD both use IRDIs, however, the limiters are different.
 matches 0173-1#02-AAC895#008
 ** Example: 0173-1#02-AAC895#008 matches 0173/1///02#AAC895#008 
 
+* Consider supplemental semantic IDs (any)
+
+** With intelligent matching two sets of semantic IDs may be compared: Input is a set of semantic IDs, not distinguishing between semanticId and supplementalSemanticId. SupplementalSemanticIds are not ordered, so index information is not relevant. The input matches to an element for which either its semanticId is in the Input set of semantic IDs or one of its supplemental IDs matches to ones of the semantic IDs in the Input set.
+** In addition exact or value matching of semantic IDs can be distinguished (see before)
+** Example: Input Set = { 0173/1///02#AAC895#008} matches for a property with semanticId = \https://api.eclass-cdp.com/0173-1-02-AAC895-008 and supplementalSemanticId = 0173/1///02#AAC895#008.
+** Example: Input Set = { 0173-1#02-AAC895#00, \https://api.eclass-cdp.com/0173-1-02-AAC895-008, 0173/1///02#AAC895#008 } would match for a property with semanticId = \https://api.eclass-cdp.com/0173-1-02-AAC895-008 and no supplemental semantic IDs.
+
+* Consider supplemental semantic IDs (all)
+
+** With intelligent matching two sets of semantic IDs may be compared: Input is a set of semantic IDs, not distinguishing between semanticId and supplementalSemanticId. SupplementalSemanticIds are not ordered, so index information is not relevant. The input matches to an element for which all the semantic IDS of the input set are available, either as semantic ID or as supplementalSemanticId. 
+** In addition exact or value matching of semantic IDs can be distinguished (see before) 
+** Example: Input Set = { 0173/1///02#AAC895#008} matches for a property with semanticId = \https://api.eclass-cdp.com/0173-1-02-AAC895-008 and supplementalSemanticId = 0173/1///02#AAC895#008.
+** Example: Input Set = { 0173-1#02-AAC895#00, \https://api.eclass-cdp.com/0173-1-02-AAC895-008, 0173/1///02#AAC895#008 } does not match for a property with semanticId = \https://api.eclass-cdp.com/0173-1-02-AAC895-008 and no supplemental semantic IDs.
+
+* Consider supplemental semantic IDs and isCaseOf
+
+** The two intelligent matching strategies "Consider supplemental semantic IDs (any)" and "Consider supplemental semantic IDs (all)" may be extended to also include the isCaseOf information of a ConceptDescription referenced via one of the semantic IDs (semanticId or supplementalSemanticId) of an element.
+** Example: Input Set = { 0173/1///02#AAC895#008} matches for a property with semanticId = [ModelRef](ConceptDescription) \https://admin-shell.io.example if the isCaseOf value of the referenced concept description with id =  \https://admin-shell.io.example is equal to 0173/1///02#AAC895#008.
 
 
 * Consider Semantic Mappings
