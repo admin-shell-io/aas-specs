@@ -104,6 +104,6 @@ Bugfixes might be collected together first and then be merged through one indivd
 **Congratulation.**
 You successfully contributed to the aas-spec-api repository.
 
-If you are a member of the workstream team, please delete the feature branch you directly created within the aas-specs-api repository.
+If you are a member of the workstream team, please delete the feature branch you directly created within the aas-specs repository.
 
 Otherwise, if you are not part of the team and you forked the repository, feel free to delete your fork.
