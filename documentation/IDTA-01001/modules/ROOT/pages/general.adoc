@@ -456,6 +456,8 @@ However, these are not considered in the matching strategies described in this c
 
 *Intelligent Matching (compatible semanticIds)*
 
+Diffent kinds of intelligent matchind may be considered to be implemented. Some are explained in the following.
+
 * Ignore Versioning
 ** With intelligent matching, different versions of a concept definition may be matched.
 For example, if semantic versioning is used to version the concept description, then upward or backward compatible versions can be matched.
@@ -466,6 +468,18 @@ Note: to compare two semantic IDs, knowledge about versioning needs to be availa
 In the example above, two IRDIs from ECLASS are compared.
 ECLASS rules ensure that the semantics is always backward compatible for new versions; a new IRDI would be created for breaking changes.
 ====
+
+
+* Consider different syntax of identifiers
+
+** With intelligent matching, different syntax of the same identifier may be matched.
+For example ECLASS allows to specify an identifier of a concept definition as IRDI or as URL.
+ECLASS and IEC CDD both use IRDIs, however, the limiters are different.
+** Example: \https://api.eclass-cdp.com/0173-1-02-AAC895-008
+matches 0173-1#02-AAC895#008
+** Example: 0173-1#02-AAC895#008 matches 0173/1///02#AAC895#008 
+
+
 
 * Consider Semantic Mappings
 ** Existing semantic mapping information can be considered for intelligent matching.
