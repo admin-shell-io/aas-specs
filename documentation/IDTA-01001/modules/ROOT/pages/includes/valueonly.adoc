@@ -48,7 +48,7 @@ If it is not a leaf element, the serialization rules must be transitively follow
 * For each submodel element within the submodel, the submodel collection or submodel list:
 
 
-** xref:spec-metamodel/submodel-elements.adoc#Property[Property]  is serialized as $\{Property/idShort}: $\{Property/value} where $\{Property/value} is the JSON serialization of the respective property’s value in accordance with the data type to value mapping (see table after this section).
+** xref:spec-metamodel/submodel-elements.adoc#Property[Property]  is serialized as ${Property/idShort}: ${Property/value} where ${Property/value} is the JSON serialization of the respective property’s value in accordance with the data type to value mapping (see table after this section).
 ** xref:spec-metamodel/submodel-elements.adoc#MultiLanguageProperty[MultiLanguageProperty]  is serialized as named JSON object with $\{MultiLanguageProperty/idShort} as the name of the containing JSON property.
 The JSON object contains an array of JSON objects for each language of the _MultiLanguageProperty_ with the language as name and the corresponding localized string as value of the respective JSON property.
 The language name is defined as two chars according to ISO 639-1.
