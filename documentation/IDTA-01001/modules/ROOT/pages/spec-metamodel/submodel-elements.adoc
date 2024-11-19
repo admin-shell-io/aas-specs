@@ -7,17 +7,18 @@ https://creativecommons.org/licenses/by/4.0/).
 SPDX-License-Identifier: CC-BY-4.0
 
 ////
-
-:page-partial:
-
+= Overview of Submodel Element Types
 include::../includes/constraints.adoc[]
 
-= Overview of Submodel Element Types
-
 .Metamodel Overview for Submodel Element Subtypes
-image::image28.png[]
+[[image-28-submodel-element-subtypes]]
+[plantuml, 28-submodel-element, svg]
+....
+include::partial$diagrams/28-submodel-element.puml[]
+....
 
-Submodel elements include data properties as well as operations, events and other elements needed to describe a model for an asset (see Figure 27).
+
+Submodel elements include data properties as well as operations, events and other elements needed to describe a model for an asset (see <<image-28-submodel-element-subtypes>>).
 
 == General
 
@@ -31,7 +32,11 @@ Note: value-related attributes typically are optional to enable definition of Su
 == Annotated Relationship Element Attributes
 
 .Metamodel of Annotated Relationship Elements
-image::image29.png[]
+[plantuml, 29-relationship-element, svg]
+....
+include::partial$diagrams/29-relationship-element.puml[]
+....
+
 
 An annotated relationship is a relationship similar to a ternary association in UML.
 The semantics of the relationship is defined via the _semanticId_ of the _RelationshipElement_.
@@ -55,7 +60,11 @@ a|A data element that represents an annotation that holds for the relationship b
 == Basic Event Element Attributes
 
 .Metamodel of Basic Event Element
-image::image30.png[]
+[plantuml, 30-basic-event-element, svg]
+....
+include::partial$diagrams/30-basic-event-element.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -176,7 +185,11 @@ Note: the payload is not part of the information model as exchanged via the AASX
 ====
 
 .Metamodel of Event Payload
-image::image31.png[]
+[plantuml, 31-event-payload, svg]
+....
+include::partial$diagrams/31-event-payload.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -247,7 +260,11 @@ The assumption is that every subject has a unique identifier.
 == Blob Attributes
 
 .Metamodel of Blobs
-image::image32.png[]
+[plantuml, 32-blob, svg]
+....
+include::partial$diagrams/32-blob.puml[]
+....
+
 
 For information on content type, see Clause xref:spec-metamodel/submodel-elements.adoc#file-attributes[File Attributes].
 
@@ -290,7 +307,11 @@ The allowed values are defined as in RFC2046.
 == Capability Attributes
 
 .Metamodel of Capabilities
-image::image33.png[]
+[plantuml, 33-capability, svg]
+....
+include::partial$diagrams/33-capability.puml[]
+....
+
 
 ====
 Note: the _semanticId_ of a capability is typically an ontology, which enables reasoning on capabilities.
@@ -317,14 +338,19 @@ h|Explanation h|Type h|Card.
 == Data Element and Overview of Data Element Types
 
 .Metamodel of Data Elements
-image::image34.png[]
+[[image-34-data-element]]
+[plantuml, 34-data-element, svg]
+....
+include::partial$diagrams/34-data-element.puml[]
+....
+
 
 A data element is a submodel element that is not further composed of other submodel elements.
 
 A data element is a submodel element that has a value or a predefined number of values like range data elements.
 
 The type of value differs for different subtypes of data elements.
-Data elements include properties, file handling, and reference elements, see Figure 33.
+Data elements include properties, file handling, and reference elements, see <<image-34-data-element>>.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -355,7 +381,11 @@ h|Explanation h|Type h|Card.
 == Entity Attributes
 
 .Metamodel of Entities
-image::image35.png[]
+[plantuml, 35-entity, svg]
+....
+include::partial$diagrams/35-entity.puml[]
+....
+
 
 The entity submodel element is designed to be used in submodels defining the relationship between the parts of the composite asset it is composed of (e.g. bill of material).
 These parts are called entities.
@@ -412,7 +442,7 @@ Co-managed entities need to be part of a self-managed entity.
 a|
 Self-managed entities have their own Asset Administration Shell but can be part of another composite self-managed entity.
 
-The asset of an I4.0 Component is a self-managed entity per definition.
+The asset represented by an Asset Administration Shell is a self-managed entity per definition.
 
 |===
 
@@ -420,7 +450,11 @@ The asset of an I4.0 Component is a self-managed entity per definition.
 == Event Element Attributes
 
 .Metamodel of Event Elements
-image::image36.png[]
+[plantuml, 36-event-element, svg]
+....
+include::partial$diagrams/36-event-element.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -438,7 +472,11 @@ h|Explanation h|Type h|Card.
 == File Attributes
 
 .Metamodel of File Submodel Element
-image::image37.png[]
+[plantuml, 37-file, svg]
+....
+include::partial$diagrams/37-file.puml[]
+....
+
 
 A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted via the Internet.
 The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications.
@@ -477,7 +515,11 @@ a|Content type of the content of the file |xref:spec-metamodel/datatypes.adoc#Co
 == Multi Language Property Attributes
 
 .Metamodel of Multi Language Properties
-image::image38.png[]
+[plantuml, 38-multi-language-property, svg]
+....
+include::partial$diagrams/38-multi-language-property.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -514,7 +556,11 @@ Note: it is recommended to use an external reference, compare to xref:spec-metam
 == Operation Attributes
 
 .Metamodel of Operations
-image::image39.png[]
+[plantuml, 39-operation, svg]
+....
+include::partial$diagrams/39-operation.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -577,7 +623,11 @@ The same applies to two input variables or an input variable and an inoutputVari
 == Property Attributes
 
 .Metamodel of Properties
-image::image40.png[]
+[plantuml, 40-property, svg]
+....
+include::partial$diagrams/40-property.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -616,7 +666,11 @@ Note: it is recommended to use an external reference, compare to xref:spec-metam
 == Range Attributes
 
 .Metamodel of Ranges
-image::image41.png[]
+[plantuml, 41-range, svg]
+....
+include::partial$diagrams/41-range.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -652,7 +706,11 @@ If the max value is missing, the value is assumed to be positive infinite.
 == Reference Element Attributes
 
 .Metamodel of Reference Elements
-image::image42.png[]
+[plantuml, 42-reference-element, svg]
+....
+include::partial$diagrams/42-reference-element.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -669,7 +727,7 @@ h|Explanation h|Type h|Card.
 a|External reference to an external object or entity or a logical reference to another element within the same or another Asset Administration Shell (i.e. a model reference to a _Referable_) |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 |===
 
-For more information on references, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
+For more information on references, see Clause xref:spec-metamodel/referencing.adoc[].
 
 [#relationship-element-attributes]
 == Relationship Element Attributes
@@ -678,7 +736,11 @@ The semantics of the relationship is defined via the _semanticId_ of the _Relati
 If this semantic definition requires additional information not contained in the _first_ or _second_ object referenced via the relationship, the submodel element type xref:spec-metamodel/submodel-elements.adoc#annotated-relationship-element-attributes[AnnotatedRelationshipElement] shall be used instead.
 
 .Metamodel of Relationship Elements
-image::image43.png[]
+[plantuml, 43-relationship-element, svg]
+....
+include::partial$diagrams/43-relationship-element.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -702,7 +764,11 @@ a|Reference to the second element in the relationship taking the role of the obj
 == Submodel Element Collection Attributes
 
 .Metamodel of Submodel Element Collections
-image::image44.png[]
+[plantuml, 44-submodel-element-collection, svg]
+....
+include::partial$diagrams/44-submodel-element-collection.puml[]
+....
+
 
 Submodel Element Collections are used for complex elements with a typically fixed set of properties with unique names.
 This set of properties is typically predefined by the semantic definition (referenced via _semanticId_) of the submodel element collection.
@@ -745,7 +811,11 @@ h|Explanation h|Type h|Card.
 == Submodel Element List Attributes
 
 .Metamodel of Submodel Element Lists
-image::image45.png[]
+[plantuml, 45-submodel-element-list, svg]
+....
+include::partial$diagrams/45-submodel-element-list.puml[]
+....
+
 
 Submodel element lists are used for sets (i.e. unordered collections without duplicates), ordered lists (i.e. ordered collections that may contain duplicates), bags (i.e. unordered collections that may contain duplicates), and ordered sets (i.e. ordered collections without duplicates).
 
@@ -754,7 +824,7 @@ Note: there is no _idShort_ for submodel elements in lists (see Constraint AASd-
 ====
 
 Submodel element lists are also used to create multidimensional arrays.
-A two-dimensional array listxref:Bibliography.adoc#bib3[[3\]]xref:bibliography.adoc#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements.
+A two-dimensional array listxref:bibliography.adoc#bib3[[3\]]xref:bibliography.adoc#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements.
 Each of these three _SubmodelElementLists_ would contain 5 single _Property_ elements.
 The _semanticId_ of the contained properties would be the same for all lists in the first list, i.e. _semanticIdListElement_ would be identical for all three lists contained in the first list.
 The _semanticId_ of the three contained lists would differ depending on the dimension it represents.

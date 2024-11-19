@@ -1,0 +1,177 @@
+@startuml
+!theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
+
+left to right direction
+
+package Details_of_the_Asset_Administration_Shell_Part_1 [
+  <&folder> + Common
+  <&folder> + Core
+  <&folder> + Referencing
+  <&folder> + Environment
+  <&folder> + Types
+  <&folder> + ConceptDescriptions
+  <&folder> + Data Specifications (Templates)
+]
+
+package Common [
+  + AdministrativeInformation
+  + Extension
+  + HasExtensions
+  + Referable
+  + Identifiable
+  + HasKind
+  + HasSemantics
+  + Qualifiable
+  + HasDataSpecification
+  <&folder> + CommonEntities
+]
+package CommonEntities [
+  + Qualifier
+]
+
+package Core [
+  + AssetAdministrationShell
+  + AssetInformation
+  + SpecificAssetId
+  + Submodel
+  + SubmodelElement
+  <&folder> + SubmodelElements
+]
+package Referencing [
+  + Key
+  + Reference
+  + KeyTypes
+  + ReferenceTypes
+  <&folder> + ReferencingEnumerations
+]
+package Environment [
+  + Environment
+]
+package ConceptDescriptions [
+  + ConceptDescription
+]
+package Types [
+  <&folder> + CommonMetamodelTypes
+  <&folder> + BasicAndPrimitiveTypes
+]
+
+
+package CommonMetamodelTypes [
+  <&folder> + SimpleTypes
+  <&folder> + ExtendedTypes
+]
+
+package SimpleTypes [
+  + Base64Binary
+  + duration
+  + boolean
+  + dateTime
+  + string
+]
+
+package ExtendedTypes [
+  + langString
+]
+
+package BasicAndPrimitiveTypes [
+  + MessageTopicType
+  + ContentType
+  + KeyType
+  + RangeType
+  + Resource
+  + LabelType
+  + MultiLanguageNameType
+  + MultiLanguageTextType
+  + NameType
+  + RevisionType
+  + VersionType
+  + BlobType
+  + Identifier
+  + LangStringSet
+  + PathType
+  + QualifierType
+  + ValueDataType
+  <&folder> + DataTypeDefXsdEnumeration
+  <&folder> + DataTypeDefRdfEnumeration
+  <&folder> + Enumerations
+]
+
+package DataTypeDefRdfEnumeration [
+  + DataTypeDefRdf
+]
+
+package DataTypeDefXsdEnumeration [
+  + DataTypeDefXsd
+]
+
+package Enumerations [
+  + AssetKind
+  + EntityType
+  + ModellingKind
+  + QualifierKind
+]
+
+package SubmodelElements [
+  + AnnotatedRelationshipElement
+  + BasicEventElement
+  + Blob
+  + Capability
+  + DataElement
+  + Entity
+  + EventElement
+  + File
+  + MultiLanguageProperty
+  + Operation
+  + Property
+  + Range
+  + ReferenceElement
+  + RelationshipElement
+  + SubmodelElementCollection
+  + SubmodelElementList
+  <&folder> + SubmodelElementEntities
+]
+
+package SubmodelElementEntities [
+  + EventPayload
+  + OperationVariable
+  + Direction
+  + StateOfEvent
+]
+
+package ReferencingEnumerations [
+  + KeyTypes
+  + AasIdentifiables
+  + AasReferableNonIdentifiables
+  + AasReferables
+  + AasSubmodelElements
+  + FragmentKeys
+  + GenericFragmentKeys
+  + GenericGloballyIdentifiables
+  + GloballyIdentifiables
+]
+
+' Relationships
+Details_of_the_Asset_Administration_Shell_Part_1 ..> Common : <import>
+Common ..> CommonEntities : <import>
+
+Details_of_the_Asset_Administration_Shell_Part_1 ..> Core : <import>
+Core ..> SubmodelElements : <import>
+SubmodelElements ..> SubmodelElementEntities : <import>
+
+Details_of_the_Asset_Administration_Shell_Part_1 ..> Referencing : <import>
+Referencing ..> ReferencingEnumerations : <import>
+
+Details_of_the_Asset_Administration_Shell_Part_1 ..> Environment : <import>
+
+Details_of_the_Asset_Administration_Shell_Part_1 ..> Types : <import>
+Types ..> CommonMetamodelTypes : <import>
+CommonMetamodelTypes ..> SimpleTypes: <import>
+CommonMetamodelTypes ..> ExtendedTypes: <import>
+Types ..> BasicAndPrimitiveTypes : <import>
+BasicAndPrimitiveTypes ..> DataTypeDefRdfEnumeration : <import>
+BasicAndPrimitiveTypes ..> DataTypeDefXsdEnumeration : <import>
+BasicAndPrimitiveTypes ..> Enumerations : <import>
+
+Details_of_the_Asset_Administration_Shell_Part_1 ..> ConceptDescriptions : <import>
+
+@enduml
