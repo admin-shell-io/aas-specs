@@ -8,7 +8,9 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ////
 
-
+////
+value-only_json-schema.adoc
+////
 
 [#value-only-serialization-in-json]
 === Format "Value" (Value-Only Serialization) in JSON
@@ -45,8 +47,9 @@ A leaf submodel element follows the rules for the different submodel elements co
 If it is not a leaf element, the serialization rules must be transitively followed until the value is a leaf submodel element.
 * For each submodel element within the submodel, the submodel collection or submodel list:
 
-** xref:spec-metamodel/submodel-elements.adoc#Property[Property]  is serialized as $\{Property/idShort}: $\{Property/value} where $\{Property/value} is the JSON serialization of the respective property’s value in accordance with the data type to value mapping (see table after this section).
-** xref:spec-metamodel/submodel-elements.adoc#MultiLanguageProperty[MultiLanguageProperty]  is serialized as named JSON object with $\{MultiLanguageProperty/idShort} as the name of the containing JSON property.
+
+** xref:spec-metamodel/submodel-elements.adoc#Property[Property]  is serialized as ${Property/idShort}: ${Property/value} where ${Property/value} is the JSON serialization of the respective property’s value in accordance with the data type to value mapping (see table after this section).
+** xref:spec-metamodel/submodel-elements.adoc#MultiLanguageProperty[MultiLanguageProperty]  is serialized as named JSON object with ${MultiLanguageProperty/idShort} as the name of the containing JSON property.
 The JSON object contains an array of JSON objects for each language of the _MultiLanguageProperty_ with the language as name and the corresponding localized string as value of the respective JSON property.
 The language name is defined as two chars according to ISO 639-1.
 ** xref:spec-metamodel/submodel-elements.adoc#Range[Range]  is serialized as named JSON object with $\{Range/idShort} as the name of the containing JSON property.
@@ -96,24 +99,18 @@ _Statements_ and the _entityType_ are optional.
 The JSON object contains one JSON property named "observed" with the corresponding value of $\{BasicEventElement/observed} as the standard serialization of the _Reference_ class.
 
 
+
 The following rules shall be adhered to when serializing a single submodel element with the format "Value":
 
-** _Property_ is serialized as $\{Property/value} where $\{Property/value} is serialized as described above.
-** _MultiLanguageProperty_ is serialized as JSON object.
-The JSON object is serialized as described above.
-** _Range_ is serialized as JSON object.
-The JSON object is serialized as described above.
-** _File_ and _Blob_ are serialized as JSON objects.
-The JSON object is serialized as described above.
-** _ReferenceElement_ is serialized as $\{ReferenceElement/value} where $\{ReferenceElement/value} is serialized as described above.
-** _RelationshipElement_ is serialized as JSON object.
-The JSON object is serialized as described above.
-** _AnnotatedRelationshipElement_ is serialized as JSON object.
-The JSON object is serialized as described above.
-** _Entity_ is serialized as JSON object.
-The JSON object is serialized as described above.
-** _BasicEventElement_ is serialized as JSON object.
-The JSON object is serialized as described above.
+** _Property_ is serialized as ${Property/value} where ${Property/value} is serialized as described above.
+** _MultiLanguageProperty_ is serialized as JSON object. The JSON object is serialized as described above.
+** _Range_ is serialized as JSON object. The JSON object is serialized as described above.
+** _File_ and _Blob_ are serialized as JSON objects. The JSON object is serialized as described above.
+** _ReferenceElement_ is serialized as ${ReferenceElement/value} where ${ReferenceElement/value} is is serialized as described above.
+** _RelationshipElement_ is serialized as JSON object. The JSON object is serialized as described above.
+** _AnnotatedRelationshipElement_ is serialized as JSON object. The JSON object is serialized as described above.
+** _Entity_ is serialized as JSON object. The JSON object is serialized as described above.
+** _BasicEventElement_ is serialized as JSON object. The JSON object is serialized as described above.
 
 
 Submodel elements defined in the submodel other than the ones mentioned above are not subject to the Value-Only serialization.
@@ -502,274 +499,6 @@ For a BasicEventElement named "MyBasicEvent", the Value-Only-payload is minimize
 }
 ----
 
-[[json-schema-for-the-valueonly-serialization]]
-=== JSON-Schema for the Value-Only Serialization
 
-The following JSON-Schema represents the validation schema for the ValueOnly-Serialization of submodel elements.
-This holds true for all submodel elements mentioned in the previous clause except for xref:spec-metamodel/submodel-elements.adoc#submodel-element-collection-attributes[SubmodelElementCollection.
-Since xref:spec-metamodel/submodel-elements.adoc#submodel-element-collection-attributes[SubmodelElementCollection]s are treated as objects containing submodel elements of any kind, the integration into the same validation schema would result in a circular reference or ambiguous results ignoring the actual validation of submodel elements other than _SubmodelElementCollections_.
-Hence, the same validation schema must be applied for each _SubmodelElementCollection_ within a submodel element hierarchy.
-In this case, it may be necessary to create a specific JSON-Schema for the individual use case.
-The _SubmodelElementCollection_ is added to the following schema for completeness and clarity.
-It is, however, not referenced from the _SubmodelElementValue_-oneOf-Enumeration due to the reasons mentioned above. +
-See Annex xref:annex/valueonly-serialization-example.adoc[] for an example that validates against this schema.
+include::../includes/value-only_json-schema.adoc[leveloffset=0]
 
-[source,json,linenums]
-----
-{
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "title": "ValueOnly-Serialization-Schema",
-  "$id": "https://admin-shell.io/schema/valueonly/json/V3.0",
-  "definitions": {
-    "AnnotatedRelationshipElementValue": {
-      "type": "object",
-      "properties": {
-        "first": {
-          "$ref": "#/definitions/ReferenceValue"
-        },
-        "second": {
-          "$ref": "#/definitions/ReferenceValue"
-        },
-        "annotations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ValueOnly"
-          }
-        }
-      },
-      "additionalProperties": false
-    },
-    "BasicEventElementValue": {
-      "type": "object",
-      "properties": {
-        "observed": {
-          "$ref": "#/definitions/ReferenceValue"
-        }
-      },
-      "required": [
-        "observed"
-      ],
-      "additionalProperties": false
-    },
-    "BlobValue": {
-      "type": "object",
-      "properties": {
-        "contentType": {
-          "type": "string",
-          "minLength": "1",
-          "maxLength": "100"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "BooleanValue": {
-      "type": "boolean",
-      "additionalProperties": false
-    },
-    "EntityValue": {
-      "type": "object",
-      "properties": {
-        "statements": {
-          "$ref": "#/definitions/ValueOnly"
-        },
-        "entityType": {
-          "enum": [
-            "SelfManagedEntity",
-            "CoManagedEntity"
-          ]
-        },
-        "globalAssetId": {
-          "type": "string"
-        },
-        "specificAssetIds": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SpecificAssetIdValue"
-          }
-        }
-      },
-      "additionalProperties": false
-    },
-    "FileValue": {
-      "type": "object",
-      "properties": {
-        "contentType": {
-          "type": "string",
-          "minLength": "1",
-          "maxLength": "100"
-        },
-        "value": {
-          "type": "string",
-          "minLength": "1",
-          "maxLength": "200"
-        }
-      },
-      "additionalProperties": false
-    },
-    "Identifier": {
-      "type": "string"
-    },
-    "Key": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "additionalProperties": false
-    },
-    "LangString": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "MultiLanguagePropertyValue": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/LangString"
-      },
-      "additionalProperties": false
-    },
-    "NumberValue": {
-      "type": "number",
-      "additionalProperties": false
-    },
-	"PropertyValue": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/StringValue"
-        },
-        {
-          "$ref": "#/definitions/NumberValue"
-        },
-        {
-          "$ref": "#/definitions/BooleanValue"
-        }
-      ]
-    },
-    "RangeValue": {
-      "type": "object",
-      "properties": {
-        "min": {
-          "type": "number"
-        },
-        "max": {
-          "type": "number"
-        }
-      },
-      "additionalProperties": false
-    },
-    "ReferenceElementValue": {
-      "$ref": "#/definitions/ReferenceValue"
-    },
-    "ReferenceValue": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": ["ModelReference", "ExternalReference"]
-        },
-        "keys": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Key"
-          }
-        }
-      },
-      "additionalProperties": false
-    },
-    "RelationshipElementValue": {
-      "type": "object",
-      "properties": {
-        "first": {
-          "$ref": "#/definitions/ReferenceValue"
-        },
-        "second": {
-          "$ref": "#/definitions/ReferenceValue"
-        }
-      },
-      "additionalProperties": false
-    },
-    "SpecificAssetIdValue": {
-      "type": "object",
-      "patternProperties": {
-        "(.*?)": {
-          "type": "string"
-        }
-      }
-    },
-    "StringValue": {
-      "type": "string",
-      "additionalProperties": false
-    },
-    "SubmodelElementCollectionValue": {
-      "$ref": "#/definitions/ValueOnly"
-    },
-    "SubmodelElementListValue": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/SubmodelElementValue"
-      }
-    },
-    "SubmodelElementValue": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/BasicEventElementValue"
-        },
-        {
-          "$ref": "#/definitions/RangeValue"
-        },
-        {
-          "$ref": "#/definitions/MultiLanguagePropertyValue"
-        },
-        {
-          "$ref": "#/definitions/FileBlobValue"
-        },
-        {
-          "$ref": "#/definitions/ReferenceElementValue"
-        },
-        {
-          "$ref": "#/definitions/RelationshipElementValue"
-        },
-        {
-          "$ref": "#/definitions/AnnotatedRelationshipElementValue"
-        },
-        {
-          "$ref": "#/definitions/EntityValue"
-        },
-        {
-          "$ref": "#/definitions/PropertyValue"
-        },
-        {
-          "$ref": "#/definitions/SubmodelElementListValue"
-        }
-      ]
-    },
-    "ValueOnly": {
-      "propertyNames": {
-        "pattern": "^[A-Za-z_][A-Za-z0-9_-]*$"
-      },
-      "patternProperties": {
-        "^[A-Za-z_][A-Za-z0-9_-]*$": {
-          "$ref": "#/definitions/SubmodelElementValue"
-        }
-      },
-      "additionalProperties": false
-    }
-  }
-}
-----
