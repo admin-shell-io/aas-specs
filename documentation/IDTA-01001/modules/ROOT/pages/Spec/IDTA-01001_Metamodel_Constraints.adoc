@@ -92,7 +92,7 @@ This leads to the following regular expression:
 
 Where:
 ^: Asserts the start of the string.
-[\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u00010000-\u0010FFFF]: Defines a character class that allows various Unicode characters.
+[\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u00010000-\u0010FFFF]: Defines a character class that allows various Unicode characters, with the following elements:
 
 \x09: ASCII horizontal tab.
 \x0A: ASCII linefeed (newline).
