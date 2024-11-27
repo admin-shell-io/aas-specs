@@ -93,5 +93,10 @@ If you want to contribute, see [CONTRIBUTING.md](CONTRIBUTING.md).
 ## License
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](
-https://creativecommons.org/licenses/by/4.0/). The implementation is based on the specifications of the "Details of the Asset Administration Shell" published on https://www.plattform-i40.de and https://industrialdigitaltwin.org/en/ 
-which is licensed under Creative Commons CC-BY-4.0.
+https://creativecommons.org/licenses/by/4.0/). 
+
+The implementation is based on the specifications of the Asset Administration Shell, series [IDTA-0100x](https://industrialdigitaltwin.org/en/content-hub/aasspecifications) of the [IDTA](https://industrialdigitaltwin.org/en/).
+
+In previous release the specifications were named "Details of the Asset Administration Shell" and published on https://www.plattform-i40.de and https://industrialdigitaltwin.org/en/.
+
+The specifications themselves are also published under  a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). 
