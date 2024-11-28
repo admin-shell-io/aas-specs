@@ -128,7 +128,7 @@ include::partial$diagrams/4-aas-type-instance.puml[]
 
 
 ====
-Note 1: the example is simplified for ease of understanding and only roughly complies with the metamodel as specified in Clause xref:spec-metamodel/nav-spec.adoc[].
+Note 1: the example is simplified for ease of understanding and only roughly complies with the metamodel as specified in Clause xref:spec-metamodel/index.adoc[].
 The ID handling is simplified as well: the names of the classes correspond to the unique global identifier of the Asset Administration Shells.
 ====
 
@@ -203,7 +203,7 @@ However, if there is no standard, the semantics of "id", "globalAssetId" or "kin
 It is also not clear, which of the attributes are mandatory and which are specific for the asset (type or instance), as illustrated in <<image-5-aas-types-and-instances>>.
 
 This is the purpose of this document: the definition of a metamodel that defines which attributes are mandatory and which are optional for all Asset Administration Shells.
-The Plattform Industrie 4.0 metamodel for Asset Administration Shells is defined in Clause xref:spec-metamodel/nav-spec.adoc#part1-specification[Specification].
+The Plattform Industrie 4.0 metamodel for Asset Administration Shells is defined in Clause xref:spec-metamodel/index.adoc#part1-specification[Specification].
 
 ====
 Note 1: the metamodel of the Asset Administration Shell is suitable for type assets or instance assets.
@@ -485,10 +485,10 @@ Note: this example does not represent an existing semantic mapping; it is only a
 [#matching-algorithm-for-references]
 === Matching Algorithm for References
 
-Clause 4.4.1 has discussed matching strategies for semantic identifiers.
+Clause <<matching-strategies-for-semantic-identifiers>> has discussed matching strategies for semantic identifiers.
 This clause explains matching strategies based on the reference concept (see Clause xref:spec-metamodel/referencing.adoc#referencing-in-aas[Referencing]) in more detail and covers other kinds of identifying elements.
 
-For example, the string serialization of references as defined in Clause xref:mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"] is used for easier understanding.
+For example, the string serialization of references as defined in Clause xref:mappings/mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"] is used for easier understanding.
 
 ====
 Note: Matching in this context means supporting a discovery query against an existing model.

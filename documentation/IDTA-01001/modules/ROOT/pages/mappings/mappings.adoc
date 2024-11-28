@@ -65,15 +65,17 @@ Only the reference to the found element is returned; potential child elements ar
 
 Blobs require the following encoding: base64 string.
 
-include::./includes/grammar-serialization-reference.adoc[leveloffset=-1]
+include::encondings/grammar-serialization-reference.adoc[]
 
-include::./includes/embedded-data-specifications.adoc[leveloffset=-1]
+include::encondings/embedded-data-specifications.adoc[]
 
-include::./includes/metadata-objects.adoc[leveloffset=-1]
+include::encondings/metadata-objects.adoc[]
 
-include::./includes/valueonly.adoc[leveloffset=-1]
+include::encondings/valueonly.adoc[]
 
-include::./includes/idshortpath.adoc[leveloffset=-1]
+include::encondings/valueonly-json-schema.adoc[]
+
+include::encondings/idshortpath.adoc[]
 
 == Format "Reference"
 
@@ -99,7 +101,7 @@ For references see Clause xref:spec-metamodel/referencing.adoc#referencing-in-aa
 
 ----
 
-==  Format "Normal" in  XML
+== Format "Normal" in  XML
 
 The metamodel of an Asset Administration Shell needs to be serialized for import and export scenarios.
 XML is a possible serialization format.
@@ -119,7 +121,7 @@ Note 2: the mapping rules of how to derive the xml schema from the technology-ne
 Note 3: example files can be found in the repository "aas-specs" in the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]]  in folder : `schemas\xml\examples`
 ====
 
-==   Format "Normal" in JSON
+== Format "Normal" in JSON
 
 JSONfootnote:[see: https://tools.ietf.org/html/rfc8259 or https://www.ecma-international.org/publications/standards/Ecma-404.htm] (JavaScript Object Notation) is a further serialization format that serializes the metamodel of an Asset Administration Shell for import and export scenarios.
 
@@ -138,7 +140,6 @@ Note 2: the mapping rules of how to derive the JSON schema from the technology-n
 ====
 Note 3: example files can be found in the repository "aas-specs" in the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder `schemas\json\examples`
 ====
-
 
 == Format "Normal" in RDF
 
