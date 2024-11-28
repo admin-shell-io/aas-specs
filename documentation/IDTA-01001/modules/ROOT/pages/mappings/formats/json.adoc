@@ -1,0 +1,173 @@
+== JSON
+include::../links.adoc[]
+
+https://www.json.org[JavaScript Object Notation (JSON)]
+is a popular serialization format.
+Beside XML and RDF, it is an ''official'' serialization format for models of Asset Administration Shells (AAS).
+Since JSON is a very versatile format, there are many ways how we could map an AAS model to it.
+In this document, we explore our particular design of the serialization schema based on
+https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8[JSON schema 2019-09]
+, and explain in detail the rules how we mapped the AAS metamodel to it.
+
+=== Top-Level Structure
+
+The root of our serialization is a JSON object representing the instance of
+xref:spec-metamodel/environment.adoc[Environment].
+This environment contains three aggregations, corresponding to all
+xref:spec-metamodel/common.adoc#identifiable-attributes[identifiable] classes:
+
+* xref:spec-metamodel/core.adoc#aas_attributes[AssetAdministrationShell]’s,
+* xref:spec-metamodel/core.adoc#submodel-attributes[Submodel]’s, and
+* xref:spec-metamodel/concept-description.adoc#cd-attributes[ConceptDescription]’s.
+
+The JSON properties of the environment correspond to these three aggregations.
+
+To simplify exploration of the JSON data, identifiable instances are only available at the level of the environment, and nowhere else.
+
+=== Mapping Rules
+
+==== Classes to JSON definitions
+
+For each class of the AAS metamodel, we provide a
+https://json-schema.org/understanding-json-schema/structuring.html#defs[definition] in the JSON schema.
+The instances of the classes, abstract and concrete alike, are modeled as
+https://json-schema.org/understanding-json-schema/reference/object.html[JSON objects].
+
+==== UML properties to JSON properties
+
+The class properties of the metamodel (attributes and aggregations) correspond directly to
+https://json-schema.org/understanding-json-schema/reference/object.html#properties[JSON properties].
+
+Optional attributes, _i.e._, the attributes with the cardinality `0..1`, are modeled as
+https://json-schema.org/understanding-json-schema/reference/object.html#required-properties[non-required properties].
+
+Aggregations, _i.e._, the properties with the cardinality `0..*`, `1..*` _etc._, are modeled as
+https://json-schema.org/understanding-json-schema/reference/array.html[JSON
+arrays].
+
+We explicitly forbid empty JSON arrays to avoid confusion about properties which have cardinality `0..*`.
+Namely, an empty array is semantically equal to an omitted attribute (according to the metamodel).
+Thus, the JSON property representing an aggregation attribute must be omitted if the aggregation is empty.
+
+In UML, it is the convention to name associations and aggregations in singular form.
+The cardinality is to be taken into account to decide on whether there are none, a single or several elements in the corresponding association or aggregation.
+In JSON, it is best practice to use plural form for array in class properties.
+The singular name is used for its discriminator (see section on discriminators).
+Typically, the plural name is derived by just adding an "s" to the name.
+For example, `submodelElements` instead of `submodelElement` in case of
+xref:spec-metamodel/core.adoc#submodel-attributes[Submodel] class.
+
+If plural form made no sense for a property, we kept it as-is (_e.g._, `isCaseOf`).
+The full list of exceptions is available {aas-core-meta-plural-exceptions}[as code in aas-core-meta].
+
+==== Primitive attribute values
+
+The UML specification uses XSD types.
+For the mapping of XSD to JSON types please refer to Section
+xref:mappings/mappings.adoc#value-only-serialization-in-json[Format "Value" (Value-Only Serialization) in JSON].
+
+There are the following exceptions:
+
+xref:spec-metamodel/submodel-elements.adoc#property-attributes[Property]/`value`
+and
+xref:spec-metamodel/submodel-elements.adoc#range-attributes[Range]/`min`
+and
+xref:spec-metamodel/submodel-elements.adoc#range-attributes[Range]/`max`
+are mapped to a JSON string.
+The type it needs to be converted to by the data consumer is declared in
+xref:spec-metamodel/submodel-elements.adoc#property-attributes[Property]/`valueType`
+or
+xref:spec-metamodel/submodel-elements.adoc#range-attributes[Range]/`valueType`, resp.
+
+Primitive type
+xref:spec-metamodel/datatypes.adoc#table-primitive-data-types[BlobType]
+(group of `byte`s) is mapped to a JSON string with base64 encoding.
+
+Note: in xref:mappings/mappings.adoc#value-only-serialization-in-json[valueOnly Format] value has the JSON type as declared in xref:spec-metamodel/submodel-elements.adoc#property-attributes[Property]/`valueType`
+taking the xref:mappings/mappings.adoc#value-only-serialization-in-json[mapping of XSD to JSON types] into account.
+
+===== Hint: Round-Trip Conversions
+
+Round-trip conversions XML to JSON to XML or RDF to JSON to RDF may not result in the original file.
+
+The result of a model saved as XML is different to the model saved as JSON.
+For example, if the user typed in `1` for a boolean UML attribute (e.g. for `SubmodelElementList` /`orderRelevant`) in the editor, saved the model as JSON and opened it again, she would suddenly see `true`
+instead of `1` (since the JSON library would silently convert `1` to a
+https://json-schema.org/understanding-json-schema/reference/boolean.html[JSON boolean] `true`).
+
+==== Inheritance
+
+The inheritance relationships between the classes are modeled using
+https://json-schema.org/understanding-json-schema/reference/combining.html#allof[allOf composition].
+While JSON schema knows no inheritance, we enforce through `allOf` that all the properties of the parent are defined in the descendants.
+
+==== Discriminator
+
+Many attributes in the metamodel refer to an abstract class.
+When we de-serialize such attributes, we need to know the concrete class at runtime, since otherwise the de-serialization algorithm would not know how to interpret the properties of the object.
+
+For example, consider the attribute
+xref:spec-metamodel/core.adoc#submodel-attributes[Submodel]
+which contains instances of
+xref:spec-metamodel/core.adoc#submodel-element-attributes[SubmodelElement].
+When the de-serializer encounters the property `submodelElements` as an array and starts de-serializing its items, how can it know which constructor to call to parse the item?
+This necessary nugget of information is commonly called ``discriminator'' (_e.g._, see
+https://swagger.io/docs/specification/data-models/inheritance-and-polymorphism/[OpenAPI 3 specification on polymorphism]).
+
+We define the discriminator for our serialization as an additional property, `modelType` , which do not correspond to any attribute in the metamodel.
+Every class which has one or more descendants will have the discriminator `modelType` in its definition.
+
+When a deserializer needs to de-serialize an instance of an abstract class, it can do so by dispatching the de-serialization to the appropriate de-serialization method based on `modelType`.
+
+==== Enumerations
+
+The enumerations of the metamodel are directly mapped to
+https://json-schema.org/understanding-json-schema/reference/generic.html#enumerated-values[enumerated values in JSON schema].
+Each enumeration is defined separately, and we do not in-line enumerations for readability.
+
+Enumerations which are not directly used in the schema are omitted.
+For example, subsets of
+xref:spec-metamodel/referencing.adoc[KeyTypes]
+are omitted since only
+xref:spec-metamodel/referencing.adoc[KeyTypes]
+is used to define value of an attribute.
+
+==== Embedded Data Specifications
+
+The metamodel defines data specifications in abstract (see Section
+xref:data-specifications.adoc#data-specification-templates[Data Specification Templates]).
+However, the metamodel omits data specifications in an
+xref:spec-metamodel/environment.adoc[Environment], and data specifications are intentionally non-identifiable.
+
+For practical applications, we need to access them _somehow_.
+Therefore, the metamodel mandates to embed them in serializations (see Section
+xref:mappings/mappings.adoc#embedded-data-specifications[Embedded Data Specifications]).
+
+We consequently embed the data specifications by adding
+`embeddedDataSpecifications` property to the definition corresponding to
+xref:spec-metamodel/common.adoc#has-data-specification-attributes[HasDataSpecification], and deliberately omit the attribute
+xref:spec-metamodel/common.adoc#has-data-specification-attributes[HasDataSpecification]/`dataSpecification`
+in the schema.
+
+=== Examples
+
+Examples of the JSON serializations can be found in the {git-repo}[GitHub Repository] in the
+{json-examples}[/schemas/json/examples] folder.
+
+=== Background
+
+==== From Manual Transcription …
+
+The serialization to and from JSON changed over the course of different versions of the metamodel.
+Originally, the schema had been manually designed, where a group of authors combed "the book" and manually transcribed it to JSON schema.
+This was obviously error-prone as it often caused mismatches between other serializations (_e.g._, XML and RDF), contained inconsistencies _etc._
+
+==== … to Automatic Generation
+
+We eventually moved over to generate the serialization schemas based on a single-point-of-truth.
+The current source is {aas-core-meta}[aas-core-meta], a domain-specific Python representation of the metamodel.
+The schemas are generated using {aas-core-codegen}[aas-core-codegen], a translating tool which transpiles aas-core-meta into different schemas and other targets such as SDKs.
+
+While this approach reduced the rate of errors significantly, it also imposed certain limits on our schema design.
+For example, the classes and enumerations are now programmatically mapped to JSON definitions, allowing for no exceptions.
+Where we could in-line some of them for better readability, we are now forced to stick with the programmatic definitions.
