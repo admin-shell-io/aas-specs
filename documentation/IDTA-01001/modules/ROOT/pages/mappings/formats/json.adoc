@@ -1,13 +1,22 @@
-== JSON
+== Format "Normal" in JSON
 include::../links.adoc[]
 
-https://www.json.org[JavaScript Object Notation (JSON)]
-is a popular serialization format.
-Beside XML and RDF, it is an ''official'' serialization format for models of Asset Administration Shells (AAS).
+JSONfootnote:[see: https://tools.ietf.org/html/rfc8259 or https://www.ecma-international.org/publications/standards/Ecma-404.htm] (JavaScript Object Notation) is a further serialization format that serializes the metamodel of an Asset Administration Shell for import and export scenarios.
+
+Additionally, JSON format is used to describe the payload in the http/REST API for active Asset Administration Shells xref:bibliography.adoc#bib37[[37\]].
+
 Since JSON is a very versatile format, there are many ways how we could map an AAS model to it.
-In this document, we explore our particular design of the serialization schema based on
+Below we explore our particular design of the serialization schema based on
 https://json-schema.org/specification-links.html#2019-09-formerly-known-as-draft-8[JSON schema 2019-09]
 , and explain in detail the rules how we mapped the AAS metamodel to it.
+
+====
+Note 1: the JSON schema (.json files) is maintained in the repository "aas-specs" of the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder {json-folder}[schemas\json]
+====
+
+====
+Note 2: example files can be found in the repository "aas-specs" in the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder {json-examples}[schemas\json\examples]
+====
 
 === Top-Level Structure
 

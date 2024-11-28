@@ -1,11 +1,23 @@
-== XML
+== Format "Normal" in  XML
 include::../links.adoc[]
 
-Extensible Markup Language (https://www.w3.org/TR/2008/REC-xml-20081126/[XML]) is a popular serialization format for data exchange and storage.
+The metamodel of an Asset Administration Shell needs to be serialized for import and export scenarios.
+XML is a possible serialization format.
+
+eXtensible Markup Language (XMLfootnote:[see: https://www.w3.org/TR/2008/REC-xml-20081126/]) is very well suited to derive information from an IT system, e.g. to process it manually and then feed it into another IT system.
+XML provides the possibilities of scheme definitions, which can be used to syntactically validate the represented information in each step.
 
 While there are many possibilities to represent a model of an Asset Administration Shell in XML, we provide our "official" XML schema definition (https://www.w3.org/TR/xmlschema-0/[XSD]) to foment interoperability between different tools and systems.
 
 Below we explain in more detail how our schema is constructed, point the user to the examples and finally give some background information on our particular schema design.
+
+====
+Note 1: the xml schema (.xsd files) is maintained in the repository "aas-specs" of the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]] in folder {xml-folder}[schemas\xml]
+====
+
+====
+Note 2: example files can be found in the repository "aas-specs" in the GitHub project admin-shell-io xref:bibliography.adoc#bib51[[51\]]  in folder : {xml-examples}[schemas\xml\examples]
+====
 
 === Top-Level Structure
 
