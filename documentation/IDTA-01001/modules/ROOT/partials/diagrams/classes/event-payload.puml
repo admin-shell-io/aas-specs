@@ -6,7 +6,7 @@ class EventPayload <<Experimental>> {
   +observableSemanticId: Reference[0..1]
   +topic: MessageTopicType[0..1]
   +subjectId: Reference[0..1]
-  +timeStamp: DateTime
+  +timeStamp: dateTime
   +payload: BlobType[0..1]
 }
 @enduml

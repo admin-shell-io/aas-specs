@@ -83,16 +83,18 @@ Data specification templates are selected at design time.
 The UML packages reflect the structure of Clause xref:spec-metamodel/designators.adoc[].
 The elements of package "Core" are specified as first class citizens in Clause xref:spec-metamodel/core.adoc[Core Classes], except for their imported packages: the elements of package "SubmodelElements" are specified in Clause xref:spec-metamodel/submodel-elements.adoc[].
 Elements of package "Common" are specified in Clause xref:spec-metamodel/common.adoc[].
-The elements of package "Reference" are specified in Clause xref:spec-metamodel/referencing.adoc[].
+The elements of package "Referencing" are specified in Clause xref:spec-metamodel/referencing.adoc[].
 Elements from package "Types" are specified in Clause xref:spec-metamodel/datatypes.adoc[].
+Elements from package "Envirnonment" are specified in Clause xref:spec-metamodel/environment.adoc[].
+Elements from package "ConceptDescriptions" are specified in Clause xref:spec-metamodel/concept-descriptions.adoc[].
 The only package that is not listed is "Data Specifications (Templates)" because data specifications are handled differently.
-Data specification templates are explained in Clause ref:data-specifications.adoc[].
+Data specification templates are explained in Clause xref:data-specifications.adoc[].
 
 .Metamodel Package Overview
 [[image-metamodel-package-overview]]
-[plantuml, 13-structure, svg]
+[plantuml, overview-package-structure, svg]
 ....
-include::partial$diagrams/13-structure.puml[]
+include::partial$diagrams/overview-package-structure.puml[]
 ....
 
 
