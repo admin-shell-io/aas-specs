@@ -452,7 +452,11 @@ Sometimes a concept description is derived from another concept description or i
 *Exact Matching (identical semanticIds) – DEFAULT*
 
 * With exact matching, two semantic IDs need to represent two exact matching references (see xref:general.adoc#matching-algorithm-for-references[Matching Algorithm for References]).
-** Example: Property with idShort "ManufacturerName" + semanticId  value 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId value 0173-1#02-AAO677#002 have exactly equal semantics if the key types in both semanticIds are identical as well plus the other attributes of a Reference like _referredSemanticId_. So if the first key type of property "ManufacturerName" is "ExternalReference" and the first key type of the semanticId of property  "Herstellername" is "ModelReference" then the two semanticIds are no exact match. Or if the first reference contains a referredSemanticId value and the second does not the two semantic IDs are not exact matches.
+** Example: Property with idShort "ManufacturerName" + semanticId  value 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId value 0173-1#02-AAO677#002 have exactly equal semantics if the key types in both semanticIds are identical plus the other attributes of a Reference like _type_ and _referredSemanticId_ as well. So if the first key type of property "ManufacturerName" is "ExternalReference" and the first key type of the semanticId of property  "Herstellername" is "ModelReference" then the two semanticIds are no exact match. Or if the first reference contains a referredSemanticId value and the second does not the two semantic IDs are not exact matches.
+
+====
+Note: Typically, a semanticId does not have a _referredSemanticId_
+====
 
 *Value Matching*
 
