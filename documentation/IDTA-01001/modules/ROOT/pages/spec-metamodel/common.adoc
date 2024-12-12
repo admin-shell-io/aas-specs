@@ -327,14 +327,6 @@ a|
 Identifier of the semantic definition of the element called semantic ID or also main semantic ID of the element
 
 
-====
-Note: it is recommended to use an external reference, (e.g. referencing a globally resolvable semantic definition).
-This is even recommended in the case a xref:spec-metamodel/concept-description.adoc#ConceptDescription[ConceptDescription] exists.
-Otherwise, lookup of the corresponding concept description may fail.
-
-In future releases a constraint may be added that makes it mandatory to use external references.
-
-====
 
 
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
@@ -344,14 +336,7 @@ a|
 Identifier of a supplemental semantic definition of the element called supplemental semantic ID of the element
 
 
-====
-Note: it is recommended to use an external reference, (e.g. referencing a globally resolvable semantic definition).
-This is even recommended in the case a xref:spec-metamodel/concept-description.adoc#ConceptDescription[ConceptDescription] exists.
-Otherwise, lookup of the corresponding concept description may fail.
 
-In future releases a constraint may be added that makes it mandatory to use external references.
-
-====
 
 
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..*
@@ -513,9 +498,7 @@ a|
 Reference to the global unique ID of a coded value
 
 
-====
-Note: it is recommended to use an external reference.
-====
+
 
 
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
