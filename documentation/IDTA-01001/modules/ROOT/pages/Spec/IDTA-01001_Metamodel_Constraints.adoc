@@ -85,7 +85,7 @@ The character set of XML includes (given as numerical code points and/or ranges 
 * 0x00010000-0x0010FFFF: all the characters beyond the Basic Multilingual Plane (*e.g.*, emoticons).
 
 This leads to the following regular expression:
-^[\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u00010000-\u0010FFFF]$
+^[\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u00010000-\u0010FFFF]*$
 
 Where:
 ^: Asserts the start of the string.
