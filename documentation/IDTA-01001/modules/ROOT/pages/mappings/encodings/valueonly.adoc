@@ -47,6 +47,7 @@ A leaf submodel element follows the rules for the different submodel elements co
 If it is not a leaf element, the serialization rules must be transitively followed until the value is a leaf submodel element.
 * xref:spec-metamodel/referencing.adoc#Reference[Reference] is serialized in format "Normal".
 * xref:spec-metamodel/core.adoc#SpecificAssetId[SpecificAssetId] is serialized in format "Normal".
+* xref:spec-metamodel/submodel-elements.adoc#SubmodelElement[SubmodelElement]s without a value are not serialized.
 
 * For each submodel element within the submodel, the submodel collection or submodel list:
 
@@ -185,7 +186,7 @@ Note: the examples are written in RDF/Turtle syntax, and only "Hello" and "Hallo
 
 |===
 
-The following types defined by the XSD and RDF specifications are explicitly omitted for serialization - they are not element of _DataTypeDefXsd_ or _DataTypeDefRdf_:
+The following types defined by the XSD and RDF specifications are explicitly omitted for serialization - they are not element of xref:spec-metamodel/datatypes.adoc#DataTypeDefXsd[DataTypeDefXsd] or xref:spec-metamodel/datatypes.adoc#DataTypeDefRdf[DataTypeDefRdf]:
 xs:language, xs:normalizedString, xs:token, xs:NMTOKEN, xs:Name, xs:NCName, xs:QName, xs:ENTITY, xs:ID, xs:IDREF, xs:NOTATION, xs:IDREFS, xs:ENTITIES, xs:NMTOKENS, rdf:HTML and rdf:XMLLiteral.
 
 ====
@@ -293,6 +294,41 @@ The Format "Normal" in comparison to this Value-Only serialization of the proper
   "value": "5000"
 }
 ----
+
+==== Example Value-Only serialization for a SubmodelElementCollection with non-serialized elements
+
+The following SubmodelElementCollection in simplified notation
+
+[source,json,linenums]
+----
+{
+myCollection:
+{
+  "prop1": string,
+  "capability1": Capability,
+  "operation1": Operation,
+  "list": SubmodelElementList(typeofElements:Operation)
+}
+}
+----
+
+is serialized to
+
+[source,json,linenums]
+----
+ "prop1": "value of prop1"
+}
+----
+
+in Format "Value".
+
+Since Capability and Operation are not part of Value-Only serialization they are omitted. 
+Also a List containing elements that are omitted is omitted. This is even the case if the SubmodelElementList is mandatory.
+
+====
+Note: Similar handling is required in case there are access rules disallowing access to specific submodel elements:
+The protected elements shall not be serialized.
+====
 
 ==== Examples Value-Only serialization for all submodel element types 
 
