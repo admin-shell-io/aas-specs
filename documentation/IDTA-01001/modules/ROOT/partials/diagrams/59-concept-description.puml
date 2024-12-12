@@ -1,0 +1,37 @@
+@startuml
+!theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
+
+skinparam packageStyle rectangle
+
+note "Global reference to id\nof DataSpecification" as Note
+
+package "Data Specification Templates - Part 1" as templates  {
+    !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/has-data-specification.puml
+    !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/data-specification-template.puml
+    !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/data-specification-content.puml
+
+    HasDataSpecification ..> DataSpecification: <<external global reference>>
+    DataSpecification ..> DataSpecificationContent
+}
+
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/concept-description.puml
+
+
+package "Data Specification Handling - Serialization" as handling {
+    abstract class HasDataSpecification <<abstract>> {
+      +embeddedDataSpecification: EmbeddedDataSpecification[0..*]
+    }
+    class EmbeddedDataSpecification {
+      +dataSpecification: Reference
+      +dataSpecificationContent: DataSpecificationContent
+    }
+    abstract class DataSpecificationContent <<abstract>> {
+    }
+    EmbeddedDataSpecification .> DataSpecificationContent
+    HasDataSpecification ..> EmbeddedDataSpecification
+    ConceptDescription --|> HasDataSpecification
+}
+
+Note..templates.DataSpecification
+Note..handling.EmbeddedDataSpecification
+@enduml

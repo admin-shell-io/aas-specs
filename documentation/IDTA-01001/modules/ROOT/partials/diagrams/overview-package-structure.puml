@@ -1,0 +1,189 @@
+@startuml
+!theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
+
+left to right direction
+
+package AAS_Metamodel [
+  <&folder> + Common
+  <&folder> + Core
+  <&folder> + Referencing
+  <&folder> + Environment
+  <&folder> + Types
+  <&folder> + ConceptDescriptions
+  <&folder> + Data Specifications (Templates)
+]
+
+package Common [
+  + AdministrativeInformation
+  + HasDataSpecification
+  + HasExtensions
+  + HasKind
+  + HasSemantics
+  + Identifiable
+  + Qualifiable
+  + Referable
+  <&folder> + CommonEntities
+]
+package CommonEntities [
+  + Extension
+  + Qualifier
+]
+
+package Core [
+  + AssetAdministrationShell
+  + AssetInformation
+  + Submodel
+  + SubmodelElement
+  <&folder> + SubmodelElements
+  <&folder> + CoreEntities
+]
+package CoreEntities [
+  + AssetKind
+  + ModellingKind
+  + QualifierKind
+  + SpecificAssetId
+]
+
+package SubmodelElements [
+  + AnnotatedRelationshipElement
+  + BasicEventElement
+  + Blob
+  + Capability
+  + DataElement
+  + Entity
+  + EventElement
+  + File
+  + MultiLanguageProperty
+  + Operation
+  + Property
+  + Range
+  + ReferenceElement
+  + RelationshipElement
+  + SubmodelElementCollection
+  + SubmodelElementList
+  <&folder> + SubmodelElementEntities
+]
+
+package SubmodelElementEntities [
+  + EntityType
+  + EventPayload
+  + OperationVariable
+  + Direction
+  + StateOfEvent
+]
+
+package ConceptDescriptions [
+  + ConceptDescription
+]
+
+package Environment [
+  + Environment
+]
+
+package Referencing [
+  + Key
+  + Reference
+
+  <&folder> + ReferencingEnumerations
+  <&folder> + ReferencingLogicalEnumerations
+]
+
+
+package Types [
+  <&folder> + CommonMetamodelTypes
+  <&folder> + BasicAndPrimitiveTypes
+]
+
+
+package CommonMetamodelTypes [
+  <&folder> + SimpleTypes
+  <&folder> + ExtendedTypes
+]
+
+package SimpleTypes [
+  + base64Binary
+  + boolean
+  + dateTime
+  + duration
+  + string
+]
+
+package ExtendedTypes [
+  + langString
+]
+
+package BasicAndPrimitiveTypes [
+  + BlobType
+  + ContentType
+  + Identifier
+  + KeyType
+  + LabelType
+  + LangStringSet
+  + MessageTopicType
+  + MultiLanguageNameType
+  + MultiLanguageTextType
+  + NameType
+  + PathType
+  + QualifierType
+  + RangeType
+  + Resource
+  + RevisionType
+  + ValueDataType
+  + VersionType
+  <&folder> + DataTypeDefXsdEnumeration
+  <&folder> + DataTypeDefRdfEnumeration
+  <&folder> + Enumerations
+]
+
+package DataTypeDefRdfEnumeration [
+  + DataTypeDefRdf
+]
+
+package DataTypeDefXsdEnumeration [
+  + DataTypeDefXsd
+]
+
+
+package ReferencingEnumerations [
+  + KeyTypes
+  + ReferenceTypes
+]
+
+package ReferencingLogicalEnumerations [
+  + AasIdentifiables
+  + AasReferableNonIdentifiables
+  + AasReferables
+  + AasSubmodelElements
+  + FragmentKeys
+  + GenericFragmentKeys
+  + GenericGloballyIdentifiables
+  + GloballyIdentifiables
+]
+
+' Relationships
+AAS_Metamodel ..> Common : <import>
+Common ..> CommonEntities : <import>
+
+AAS_Metamodel ..> Core : <import>
+Core ..> CoreEntities : <import>
+
+AAS_Metamodel ..> SubmodelElements : <import>
+SubmodelElements ..> SubmodelElementEntities : <import>
+
+AAS_Metamodel ..> Referencing : <import>
+Referencing ..> ReferencingEnumerations : <import>
+Referencing ..> ReferencingLogicalEnumerations : <import>
+
+AAS_Metamodel ..> Environment : <import>
+
+AAS_Metamodel ..> Types : <import>
+Types ..> CommonMetamodelTypes : <import>
+CommonMetamodelTypes ..> SimpleTypes: <import>
+CommonMetamodelTypes ..> ExtendedTypes: <import>
+Types ..> BasicAndPrimitiveTypes : <import>
+BasicAndPrimitiveTypes ..> DataTypeDefRdfEnumeration : <import>
+BasicAndPrimitiveTypes ..> DataTypeDefXsdEnumeration : <import>
+
+AAS_Metamodel ..> ConceptDescriptions : <import>
+
+@enduml

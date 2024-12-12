@@ -1,0 +1,71 @@
+[#reference-serialization]
+=== Text Serialization of Values of Type "Reference"
+
+==== Grammar for Text Serialization Type "Reference"
+
+Some mappings or serializations convert the type "Reference" into a single string.
+In this case, the following serialization is required:
+
+[.underline]#Grammar:#
+
+[listing]
+....
+<Reference> ::= ["[" <ReferenceType> [ "- " <referredSemanticId> " -" ] "]" ] <Key> {(", " <Key> }*
+
+<ReferenceType> ::= "ExternalRef" | "ModelRef"     value of AAS:Reference/type
+
+<SemanticId> ::= ["[" <ReferenceType> "]"] <Key> {(", " <Key> }*     value of AAS:Reference/referredSemanticId
+
+<Key> ::= "(" <KeyType> ")" <KeyValue>
+
+<KeyType> ::= value of AAS:Key/type
+
+<KeyValue> ::= value of AAS:Key/value
+....
+
+====
+Note 1: an IRI may also contain special symbols like "(", "," and "[".
+A blank is added before the new key or value to distinguish beginning and end of a new key.
+====
+
+====
+Note 2: _ReferenceType_ is optional.
+It is clear from the first key in the key chain whether the reference is a global or a model reference.
+The examples in this document therefore do not use this prefix.
+====
+
+==== Examples for Text Serialization Type "Reference"
+
+[.underline]#Valid Examples:#
+
+[.underline]#External References#:
+
+[example]
+....
+(GlobalReference)0173-1#02-BAA120#008
+
+
+[ExternalRef](GlobalReference)0173-1#02-BAA120#008
+
+
+(GlobalReference)https://example.com/specification.html (FragmentReference)Hints
+
+....
+
+[.underline]#Model References:#
+
+[example]
+....
+
+(ConceptDescription)0173-1#02-BAA120#008
+
+
+[ModelRef](ConceptDescription)0173-1#02-BAA120#008
+
+
+(Submodel)https://example.com/aas/1/1/1234859590, (Property)Temperature
+
+
+(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementList)Documents, (SubmodelElementCollection)0, (MultiLanguageProperty)Title
+....
+

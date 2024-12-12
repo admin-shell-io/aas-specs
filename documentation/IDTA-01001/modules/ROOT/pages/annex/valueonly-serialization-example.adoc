@@ -1,0 +1,174 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Illustrations:
+Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
+////
+
+
+[[value-only-serialization-example]]
+= ValueOnly-Serialization Example 
+
+The following example shows the ValueOnly-Serialization for an entire Submodel that validates against the JSON-schema
+specified in Clause
+xref:mappings/mappings.adoc#json-schema-value-only[JSON-Schema for the Value-Only Serialization]
+As mentioned in Clause xref:mappings/mappings.adoc#json-schema-value-only[JSON-Schema for the Value-Only Serialization],
+ __SubmodelElementCollection__s cannot be validated within the same schema due to circularity reasons;
+instead they have their own specific validation schema.
+An exemplary _SubmodelElementCollection_ is added to the following JSON for completeness.
+It is, however, not validatable against the schema
+in Clause xref:mappings/mappings.adoc#json-schema-value-only[JSON-Schema for the Value-Only Serialization]
+due to the reasons mentioned above.
+
+
+[source,json,linenums]
+----
+{
+  "MyPropertyIdShortNumber": 5000,
+  "MyPropertyIdShortString": "MyTestStringValue",
+  "MyPropertyIdShortBoolean": true,
+  "MyMultiLanguageProperty": [
+    {
+      "de": "Das ist ein deutscher Bezeichner"
+    },
+    {
+      "en": "That's an English label"
+    }
+  ],
+  "MyRange": {
+    "min": 3,
+    "max": 15
+  },
+  "MyFile": {
+    "contentType": "application/pdf",
+    "value": "SafetyInstructions.pdf"
+  },
+  "MyBlob": {
+    "contentType": "application/octet-stream",
+    "value": "VGhpcyBpcyBteSBibG9i"
+  },
+  "MyEntity": {
+    "statements": {
+      "MaxRotationSpeed": 5000
+    },
+    "entityType": "SelfManagedEntity",
+    "globalAssetId": "http://customer.com/demo/asset/1/1/MySubAsset"
+  },
+  "MyReference": {
+    "type": "ModelReference",
+    "keys": [
+      {
+        "type": "Submodel",
+        "value": "http://customer.com/demo/aas/1/1/1234859590"
+      },
+      {
+        "type": "Property",
+        "value": "MaxRotationSpeed"
+      }
+    ]
+  },
+  "MyBasicEvent": {
+    "observed": {
+      "type": "ModelReference",
+      "keys": [
+        {
+          "type": "Submodel",
+          "value": "http://customer.com/demo/aas/1/1/1234859590"
+        },
+        {
+          "type": "Property",
+          "value": "CurrentValue"
+        }
+      ]
+    }
+  },
+  "MyRelationship": {
+    "first": {
+      "type": "ModelReference",
+      "keys": [
+        {
+          "type": "Submodel",
+          "value": "http://customer.com/demo/aas/1/1/1234859590"
+        },
+        {
+          "type": "Property",
+          "value": "PlusPole"
+        }
+      ]
+    },
+    "second": {
+      "type": "ModelReference",
+      "keys": [
+        {
+          "type": "Submodel",
+          "value": "http://customer.com/demo/aas/1/0/1234859123490"
+        },
+        {
+          "type": "Property",
+          "value": "MinusPole"
+        }
+      ]
+    }
+  },
+  "MyAnnotatedRelationship": {
+    "first": {
+      "type": "ModelReference",
+      "keys": [
+        {
+          "type": "Submodel",
+          "value": "http://customer.com/demo/aas/1/1/1234859590"
+        },
+        {
+          "type": "Property",
+          "value": "PlusPole"
+        }
+      ]
+    },
+    "second": {
+      "type": "ModelReference",
+      "keys": [
+        {
+          "type": "Submodel",
+          "value": "http://customer.com/demo/aas/1/0/1234859123490"
+        },
+        {
+          "type": "Property",
+          "value": "MinusPole"
+        }
+      ]
+    },
+    "annotations": [
+      {
+        "AppliedRule": "TechnicalCurrentFlowDirection"
+      }
+    ]
+  },
+  "MySubmodelElementIntegerPropertyList": [
+    1,
+    2,
+    30,
+    50
+  ],
+  "MySubmodelElementFileList": [
+    {
+      "contentType": "application/pdf",
+      "value": "MyFirstFile.pdf"
+    },
+    {
+      "contentType": "application/pdf",
+      "value": "MySecondFile.pdf"
+    }
+  ],
+  "MySubmodelElementCollection":
+  {
+    "myStringElement": "That’s a string",
+    "myIntegerElement": 5,
+    "myBooleanElement": true
+  }
+}
+----
