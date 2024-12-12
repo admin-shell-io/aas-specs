@@ -65,8 +65,8 @@ As far as the large variety of assets in Industry 4.0 are concerned, the Asset A
 This reduces complexity and allows for scalability.
 Additional motivation can be found in xref:bibliography.adoc#bib2[[2\]] xref:bibliography.adoc#bib4[[4\]] xref:bibliography.adoc#bib7[[7\]] xref:bibliography.adoc#bib8[[8\]].
 
-.Important Concepts of Industry 4.0 attached to the Asset xref:Bibliography.adoc#bib2[[2\]] xref:Bibliography.adoc#bib21[[21\]]
-image::image60.jpeg[]
+.Important Concepts of Industry 4.0 attached to the Asset xref:bibliography.adoc#bib2[[2\]] xref:bibliography.adoc#bib21[[21\]]
+image::60-concepts-of-i40-attached-to-asset.jpeg[]
 
 == The Concept of Properties
 
@@ -79,7 +79,7 @@ The definition of a property (aka standardized data element type, property type)
 Relevant attributes for the Administration Shell are, amongst others, the preferred name, the symbol, the unit of measure, and a human-readable textual definition of the property.
 
 .Exemplary Definition of a Property the IEC CDD
-image::image61.png[]
+image::61-example-property-in-iec-cdd.png[]
 
 The instantiation of such a definition (just 'property', property instance) typically associates a value to the property.
 This mechanism makes it possible to convey semantically well-defined information to the Administration Shell.
@@ -99,7 +99,7 @@ As the figure shows, information from many different domains can be associated w
 The architectural principle "separation of concerns" is supported by submodels.
 
 .Examples of Different Domains Providing Properties for Submodels of the Administration Shell
-image::image62.jpg[]
+image::62-domains-providing-props-for-submodels.jpg[]
 
 The Administration Shell is made up of a series of submodels xref:bibliography.adoc#bib4[[4\]].
 These represent different aspects of the asset concerned.
@@ -122,7 +122,7 @@ Both the asset and the Administration Shell are identified by a globally unique 
 It comprises a number of submodels, which characterize the Asset Administration Shell.
 
 .Basic Structure of the Asset Administration Shell
-image::image63.jpeg[]
+image::63-basic-structure-of-aas.jpeg[]
 
 Properties, data, and functions will contain information that not every partner within a value-added network or even within an organizational unit should be able to access; its integrity and availability should be guaranteed.
 Therefore, the structure of the Administration Shell shall be able to handle aspects such as access protection, visibility, identity, and rights management, confidentiality, and integrity.
@@ -160,11 +160,12 @@ They have to be unique within their namespace.
 
 == Best Practice for Creating URI Identifiers
 
-The approach for semantics and interaction for I4.0 components xref:bibliography.adoc#bib18[[18\]] suggests the use of the following structure (see Table 11) for URIsfootnote:[URLs are also URIs], which is slightly modified here.
+The approach for semantics and interaction for I4.0 components xref:bibliography.adoc#bib18[[18\]] suggests the use of the following structure (see <<table-proposed-structure-for-uris>>) for URIsfootnote:[URLs are also URIs], which is slightly modified here.
 The idea is to always structure URIs following a scheme of different elements.
 However, this is just a recommendation and by no means mandatory.
 
 .Proposed Structure for URIs
+[[table-proposed-structure-for-uris]]
 [cols="23%,64%,13%",options="header",]
 |===
 |*Element* |*Description* |*Syntax component*
@@ -202,9 +203,10 @@ In the table, syntax component "A" refers to authority of RFC 3986 (URI) and nam
 
 Using this scheme, valid URNs and URLs can be both created as URIs.
 The latter are preferred for Administration Shells, as functionality (such as REST services) can be bound to the identifiers.
-Examples of such identifiers are given in Table 12.
+Examples of such identifiers are given in <<table-urn-and-url-based-ids-of-aas>>.
 
 .Example URN and URL-based Identifiers of the Asset Administration Shell
+[[table-urn-and-url-based-ids-of-aas]]
 [cols="27%,73%",options="header",]
 |===
 |*Identifier* |*Examples*
@@ -238,5 +240,5 @@ urn:PROFIBUS:PROFIBUS-PA:V3-02:Parameter:1:1:MaxTemp#0002
 |===
 
 ====
-Note: the last row of Table 12 is only used for completion; the metamodel does not foresee own unique identifiers for property/parameter/status instances.
+Note: the last row of <<table-urn-and-url-based-ids-of-aas>> is only used for completion; the metamodel does not foresee own unique identifiers for property/parameter/status instances.
 ====

@@ -7,24 +7,24 @@ https://creativecommons.org/licenses/by/4.0/).
 SPDX-License-Identifier: CC-BY-4.0
 
 ////
-
-
-:page-partial:
-
-include::../includes/constraints.adoc[]
-
 [[spec-common]]
 = Common Attributes
+include::../includes/constraints.adoc[]
 
 == General
 
 This clause specifies the abstract classes that represent commonly used attributes and terminology, together with the classes and data types exclusively used in these classes.
 They are represented in alphabetical order.
 
+[[administrative-information-attributes]]
 == Administrative Information Attributes
 
 .Metamodel of Administrative Information
-image::image14.png[]
+[plantuml, 14-administrative-information, svg]
+....
+include::partial$diagrams/14-administrative-information.puml[]
+....
+
 
 Every identifiable may contain administrative information.
 Administrative information includes, for example,
@@ -46,26 +46,32 @@ The assumption is that every subject has a unique identifier.
 xref:spec-metamodel/common.adoc#AdministrativeInformation[AdministrativeInformation] allows the usage of templates (xref:spec-metamodel/common.adoc#HasDataSpecification[HasDataSpecification]).
 Data specifications are defined in separate documents.
 
+If an AAS contains two different Submodels with the same semanticId 
+(xref:spec-metamodel/common.adoc#semanticId[Submodel/semanticId])  these two submodels shall have different IDs (xref:spec-metamodel/common.adoc#Identifiable[Submodel/id]) and differ in either their a) version (xref:spec-metamodel/common.adoc#version[Submodel/administration/version]) (xref:spec-metamodel/common.adoc#revision[revision] is ignored) or b) their creator (xref:spec-metamodel/common.adoc#creator[Submodel/administration/creator]). With a) both submodels shall have version information. With b) both submodels shall have a creator.
+
 ====
-Note 1: two submodels with the same semanticId but different administrative information shall have different IDs (_Submodel/id_), since they denote that the submodel is not backward compatible or has some other major administrative changes.
-The _idShort_ typically does not change.
-The same applies to other identifiables (_Identifiable/id_).
-Otherwise, the ID of a submodel would not be sufficient to identify the data or service provided by the submodel.
+Note 1: typically, some of the administrative information like the version number might be part of the identification (xref:spec-metamodel/common.adoc#Identifiable[Submodel/id]). 
+This is similar to the handling of identifiers for concept descriptions using IRDIs. In ECLASS, the IRDI 0173-1#02-AO677#002 contains the version information 002.
 ====
 
 ====
-Note 2: since submodels with different versions shall have different identifiers, it is possible that an Asset Administration Shell has two submodels with the same _semanticId_ but different versions, i.e. different administrative metainformation.
+Note 2: since submodels with different versions shall have different identifiers, 
+it is possible that an Asset Administration Shell has two submodels with the same 
+semanticId but different versions.
+====
+
+
+If an AAS contains two different Submodels guided by the same Submodel Template (SMT), i.e. have the same templateId value (Submodel/administration/templateId), then the two submodels shall have different IDs (xref:spec-metamodel/common.adoc#Identifiable[Submodel/id]). 
+In this case both Submodels shall have a templateId assigned to them (xref:spec-metamodel/common.adoc#templateId[Submodel/administration/templateId]).
+
+====
+Note 3: In some cases there is neither a semanticId (xref:spec-metamodel/common.adoc#semanticId[Submodel/semanticId]) nor a template ID (xref:spec-metamodel/common.adoc#templateId[Submodel/administration/templateId]) defined for the Submodel. In this case there is no way for the data consumer to formally see whether two Submodels are providing the same semantic information.
 ====
 
 ====
-Note 3: some of the administrative information like the version number might need to be part of the identification.
-This is similar to the handling of identifiers for concept descriptions using IRDIs.
-In ECLASS, the IRDI 0173-1#02-AO677#002 contains the version information #002.
+Note 4: If a template ID of one of the standardized Submodel Templates of the IDTA is used to guide the creation of a Submodel then there is also a semantic ID defined for the Submodel.
 ====
 
-====
-Note 4: the process of versioning or adding other administrative information to elements is done by external version or configuration management software and not by the Asset Administration Shell itself.
-====
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -82,16 +88,16 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|version 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/version`
+.2+e|[[version]]version 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/version`
 |Version of the element |xref:spec-metamodel/datatypes.adoc#VersionType[VersionType] |0..1
 
-.2+e|revision 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/revision`
+.2+e|[[revision]]revision 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/revision`
 |Revision of the element |xref:spec-metamodel/datatypes.adoc#RevisionType[RevisionType] |0..1
 
-.2+e|creator 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/creator`
+.2+e|[[creator]]creator 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/creator`
 a|The subject ID of the subject responsible for making the element |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 
-.2+e|templateId 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/templateId`
+.2+e|[[templateId]]templateId 3+| `\https://admin-shell.io/aas/3/1/AdministrativeInformation/templateId`
 a|
 Identifier of the template that guided the creation of the element
 
@@ -124,7 +130,11 @@ The creation of submodel templates can also be guided by another submodel templa
 == Has Data Specification Attributes
 
 .Metamodel of HasDataSpecification
-image::image15.png[]
+[plantuml, 15-has-data-specification, svg]
+....
+include::partial$diagrams/15-has-data-specification.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -153,12 +163,16 @@ Note: this is an external reference.
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..* |
 |===
 
-For more details on data specifications, please see Clause xref:data-specifications.adoc[Data Specification Templates].
+For more details on data specifications, please see Clause xref:data-specifications.adoc[].
 
-== Has Extension Attributes
+== Has Extensions Attributes
 
 .Metamodel of Has Extensions
-image::image16.png[]
+[plantuml, 16-has-extensions, svg]
+....
+include::partial$diagrams/16-has-extensions.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -186,7 +200,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasExtensions`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|extension 3+| `\https://admin-shell.io/aas/3/1/HasExtensions/extensions`
+.2+e|[[extension]]extension 3+| `\https://admin-shell.io/aas/3/1/HasExtensions/extensions`
 
 a|An extension of the element. |xref:spec-metamodel/common.adoc#Extension[Extension] |0..*
 
@@ -208,7 +222,7 @@ h|Explanation h|Type h|Card.
 .2+e|name 3+| `\https://admin-shell.io/aas/3/1/Extension`
 a|Name of the extension |xref:spec-metamodel/datatypes.adoc#NameType[NameType] |1
 
-.2+e|valueType 3+| `\https://admin-shell.io/aas/3/1/Extension/valueType`
+.2+e|[[Extension_valueType]]valueType 3+| `\https://admin-shell.io/aas/3/1/Extension/valueType`
 a|Data type of the value attribute of the extension
 
 Default: xs:string
@@ -225,7 +239,11 @@ a|Reference to an element the extension refers to |ModelReference<xref:spec-meta
 == Has Kind Attributes
 
 .Metamodel of HasKind
-image::image17.png[]
+[plantuml, 17-has-kind, svg]
+....
+include::partial$diagrams/17-has-kind.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -245,7 +263,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/0/HasKind`
 h|Explanation h|Type h|Card.
 
 
-.2+e|kind 3+| `\https://admin-shell.io/aas/3/0/HasKind/kind`
+.2+e|[[Aas_kind]]kind 3+| `\https://admin-shell.io/aas/3/0/HasKind/kind`
 a| Kind of the element: either template or instance
 
 Default Value = _Instance_
@@ -268,10 +286,10 @@ h|ID: | `\https://admin-shell.io/aas/3/0/ModellingKind`
 .2+h|Literal h| ID
 h|Explanation
 
-.2+e|Template | `\https://admin-shell.io/aas/3/0/ModellingKind/Template`
+.2+e|[[SubmodelTemplate]]Template | `\https://admin-shell.io/aas/3/0/ModellingKind/Template`
 a|specification of the common features of a structured element in sufficient detail that such an instance can be instantiated using it
 
-.2+e|Instance | `\https://admin-shell.io/aas/3/0/ModellingKind/Instance`
+.2+e|[[SubmodelInstance]]Instance | `\https://admin-shell.io/aas/3/0/ModellingKind/Instance`
 a|concrete, clearly identifiable element instance.
 Its creation and validation may be guided by a corresponding element template
 |===
@@ -280,7 +298,11 @@ Its creation and validation may be guided by a corresponding element template
 == Has Semantics Attributes
 
 .Metamodel of Semantic References (HasSemantics)
-image::image18.png[]
+[plantuml, 18-has-semantics, svg]
+....
+include::partial$diagrams/18-has-semantics.puml[]
+....
+
 
 For matching algorithm, see Clause xref:general.adoc#matching-strategies-for-semantic-identifiers[Matching Strategies for Semantic Identifiers].
 
@@ -300,7 +322,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasSemantics`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|semanticId 3+| `\https://admin-shell.io/aas/3/1/HasSemantics/semanticId`
+.2+e|[[semanticId]]semanticId 3+| `\https://admin-shell.io/aas/3/1/HasSemantics/semanticId`
 a|
 Identifier of the semantic definition of the element called semantic ID or also main semantic ID of the element
 
@@ -339,7 +361,11 @@ In future releases a constraint may be added that makes it mandatory to use exte
 == Identifiable Attributes
 
 .Metamodel of Identifiables
-image::image19.png[]
+[plantuml, 19-referable, svg]
+....
+include::partial$diagrams/19-referable.puml[]
+....
+
 
 An identifiable element is a referable with a globally unique identifier (_Identifier_).
 Only the global ID (_Identifiable/id_) shall be used to reference an identifiable, because the _idShort_ is not unique for an identifiable.
@@ -363,7 +389,7 @@ An element that has a globally unique identifier
 
 
 ====
-Note: see Clause 5.3.12.2 for constraints related to identifiables.
+Note: xref:spec-metamodel/constraints.adoc#constraints-for-referables-and-identifiables[see for constraints related to identifiables].
 ====
 
 
@@ -396,7 +422,11 @@ a|The globally unique identification of the element |xref:spec-metamodel/datatyp
 == Qualifiable Attributes
 
 .Metamodel of Qualifiables
-image::image20.png[]
+[plantuml, 20-qualifiable, svg]
+....
+include::partial$diagrams/20-qualifiable.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -418,7 +448,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Qualifiable`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|qualifier 3+| `\https://admin-shell.io/aas/3/1/Qualifiable/qualifiers`
+.2+e|[[qualifier]]qualifier 3+| `\https://admin-shell.io/aas/3/1/Qualifiable/qualifiers`
 a|Additional qualification of a qualifiable element |xref:spec-metamodel/common.adoc#Qualifier[Qualifier] |0..*
 |===
 
@@ -426,7 +456,11 @@ a|Additional qualification of a qualifiable element |xref:spec-metamodel/common.
 == Qualifier Attributes
 
 .Metamodel of Qualifiers
-image::image21.png[]
+[plantuml, 21-qualifier, svg]
+....
+include::partial$diagrams/21-qualifier.puml[]
+....
+
 
 Qualifiers may be defined for qualifiable elements.
 
@@ -474,7 +508,7 @@ a|Data type of the qualifier _value_ |xref:spec-metamodel/datatypes.adoc#DataTyp
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/Qualifier/value`
 a|The qualifier value is the value of the qualifier. |xref:spec-metamodel/datatypes.adoc#ValueDataType[ValueDataType] |0..1
 
-.2+e|valueId 3+| `\https://admin-shell.io/aas/3/1/Qualifier/valueId`
+.2+e|[[valueId]]valueId 3+| `\https://admin-shell.io/aas/3/1/Qualifier/valueId`
 a|
 Reference to the global unique ID of a coded value
 
@@ -528,28 +562,32 @@ See constraint AASd-129.
 Example of a _ValueQualifier_: property "temperature" and qualifier "value quality" with different qualifier values like "measured", "substitute value".
 
 Example of a _ConceptQualifier:_ an Asset Administration Shell with two submodels with different IDs but the same semanticId = "Bill of Material".
-The qualifier could denote the life cycle with qualifier values like "as planned", "as maintained" etc. (see +
-Figure 21).
+The qualifier could denote the life cycle with qualifier values like "as planned", "as maintained" etc. (see <<image-22-qualifier>>).
 
 Example of a _TemplateQualifier:_ a submodel element with qualifier value "mandatory" or "optional".
 This qualification is needed to build a correct submodel instance.
 For more information see xref:bibliography.adoc#bib48[[48\]].
 
 .Example: Qualifier from IEC CDD
-image::image22.png[Example: Qualifier from IEC CDD]
+[[image-22-qualifier]]
+image::22-qualifier-from-iec-cdd.png[]
 ====
 
 [#referable-attributes]
 == Referable Attributes
 
 .Metamodel of Referables
-image::image23.png[]
+[plantuml, 23-referable, svg]
+....
+include::partial$diagrams/23-referable.puml[]
+....
+
 
 The metamodel differentiates between elements that are identifiable, referable, or none of both.
 The latter means they are neither inheriting from _Referable_ nor from _Identifiable_, which applies e.g. to __Qualifier__s.
 
-Referable elements can be referenced via the _idShort_ (with the exception of elements within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes [SubmodelElementList]).
-For details on referencing, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
+Referable elements can be referenced via the _idShort_ (except for elements within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes[SubmodelElementList]).
+For details on referencing, see Clause xref:spec-metamodel/referencing.adoc[].
 
 Not every element of the metamodel is referable.
 There are elements that are just attributes of a referable.
@@ -596,7 +634,7 @@ The category could e.g. denote that the element is a measurement value, whereas 
 
 |xref:spec-metamodel/datatypes.adoc#NameType[NameType] |0..1
 
-.2+e|idShort 3+| `\https://admin-shell.io/aas/3/1/Referable/idShort`
+.2+e|[[idShort]]idShort 3+| `\https://admin-shell.io/aas/3/1/Referable/idShort`
 a|
 In case of identifiables, this attribute is a short name of the element.
 In case of a referable, this ID is an identifying string of the element within its name space.
@@ -609,10 +647,10 @@ Note: if the element is a property and the property has a semantic definition (_
 
 |xref:spec-metamodel/datatypes.adoc#NameType[NameType] |0..1
 
-.2+e|displayName 3+| `\https://admin-shell.io/aas/3/1/Referable/displayName`
+.2+e|[[displayName]]displayName 3+| `\https://admin-shell.io/aas/3/1/Referable/displayName`
 a|Display name; can be provided in several languages |xref:spec-metamodel/datatypes.adoc#MultiLanguageNameType[MultiLanguageNameType] |0..1
 
-.2+e|description 3+| `\https://admin-shell.io/aas/3/1/Referable/description`
+.2+e|[[description]]description 3+| `\https://admin-shell.io/aas/3/1/Referable/description`
 a|
 Description or comments on the element
 
@@ -625,13 +663,14 @@ Additional information can be provided, e.g. if the element is qualified and whi
 |xref:spec-metamodel/datatypes.adoc#MultiLanguageTextType[MultiLanguageTextType] |0..1
 |===
 
-Predefined categories are described in Table 6.
+Predefined categories are described in <<table-categories>>.
 
 ====
 Note: categories are deprecated and should no longer be used.
 ====
 
 .Categoriesfootnote:[Note: categories of referables are deprecated.] for Elements with Value
+[[table-categories]]
 [cols="18%,28%,54%",options="header",]
 |===
 |Category: |Applicable to, Examples: |Explanation:

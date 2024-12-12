@@ -7,17 +7,18 @@ https://creativecommons.org/licenses/by/4.0/).
 SPDX-License-Identifier: CC-BY-4.0
 
 ////
-
-:page-partial:
-
+= Overview of Submodel Element Types
 include::../includes/constraints.adoc[]
 
-= Overview of Submodel Element Types
-
 .Metamodel Overview for Submodel Element Subtypes
-image::image28.png[]
+[[image-28-submodel-element-subtypes]]
+[plantuml, 28-submodel-element, svg]
+....
+include::partial$diagrams/28-submodel-element.puml[]
+....
 
-Submodel elements include data properties as well as operations, events and other elements needed to describe a model for an asset (see Figure 27).
+
+Submodel elements include data properties as well as operations, events and other elements needed to describe a model for an asset (see <<image-28-submodel-element-subtypes>>).
 
 == General
 
@@ -31,7 +32,11 @@ Note: value-related attributes typically are optional to enable definition of Su
 == Annotated Relationship Element Attributes
 
 .Metamodel of Annotated Relationship Elements
-image::image29.png[]
+[plantuml, 29-relationship-element, svg]
+....
+include::partial$diagrams/29-relationship-element.puml[]
+....
+
 
 An annotated relationship is a relationship similar to a ternary association in UML.
 The semantics of the relationship is defined via the _semanticId_ of the _RelationshipElement_.
@@ -48,14 +53,19 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|annotation 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement/annotations`
+.2+e|[[AnnotatedRelationshipElement-annotations]] annotation 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement/annotations`
 a|A data element that represents an annotation that holds for the relationship between the two elements |xref:DataElement[DataElement] |0..*
 |===
 
+[[basic-event-element-attributes]]
 == Basic Event Element Attributes
 
 .Metamodel of Basic Event Element
-image::image30.png[]
+[plantuml, 30-basic-event-element, svg]
+....
+include::partial$diagrams/30-basic-event-element.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -68,10 +78,10 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|observed 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement`
+.2+e|[[BasicEventElement-observed]]observed 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement`
 a|Reference to a referable, e.g. a data element or a submodel that is being observed |ModelReference<xref:spec-metamodel/common.adoc#Referable[Referable]> |1
 
-.2+e|direction 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/direction`
+.2+e|[[BasicEventElement-direction]]direction 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/direction`
 a|
 Direction of event
 
@@ -79,7 +89,7 @@ Can be \{ input, output }
 
 |xref:Direction[Direction]|1
 
-.2+e|state 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/state`
+.2+e|[[BasicEventElement-state]]state 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/state`
 a|
 State of event
 
@@ -87,10 +97,10 @@ Can be { on, off }
 
 |xref:StateOfEvent[StateOfEvent]|1
 
-.2+e|messageTopic 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/messageTopic`
+.2+e|[[BasicEventElement-messageTopic]]messageTopic 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/messageTopic`
 a|Information for the outer message infrastructure to schedule the event for the respective communication channel. |xref:spec-metamodel/datatypes.adoc#MessageTopicType[MessageTopicType] |0..1
 
-.2+e|messageBroker 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/messageBroker`
+.2+e|[[BasicEventElement-messageBroker]]messageBroker 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/messageBroker`
 a|
 Information about which outer message infrastructure shall handle messages for the _EventElement_; refers to a _Submodel,_ _SubmodelElementList_, _SubmodelElementCollection_ or _Entity_, which contains __DataElement__s describing the proprietary specification for the message broker
 
@@ -102,10 +112,10 @@ Note: this proprietary specification could be standardized by using respective s
 
 |ModelReference<xref:spec-metamodel/common.adoc#Referable[Referable]> |0..1
 
-.2+e|lastUpdate 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/lastUpdate`
+.2+e|[[BasicEventElement-lastUpdate]]lastUpdate 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/lastUpdate`
 a|Timestamp in UTC, when the last event was received (input direction) or sent (output direction) |dateTime |0..1
 
-.2+e|minInterval 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/minInterval`
+.2+e|[[BasicEventElement-minInterval]]minInterval 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/minInterval`
 a|
 For input direction reports on the maximum frequency, the software entity behind the respective referable can handle input events.
 
@@ -115,7 +125,7 @@ Might be not specified, i.e. if there is no minimum interval.
 
 |duration |0..1
 
-.2+e|maxInterval 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/maxInterval`
+.2+e|[[BasicEventElement-maxInterval]]maxInterval 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/maxInterval`
 a|
 Not applicable for input direction
 
@@ -139,10 +149,10 @@ h|ID: | `\https://admin-shell.io/aas/3/0/Direction`
 .2+h|Literal h| ID
 h|Explanation
 
-.2+e|input | `\https://admin-shell.io/aas/3/0/Direction/input`
+.2+e|[[Direction-input]]input | `\https://admin-shell.io/aas/3/0/Direction/input`
 a|Input direction
 
-.2+e|output | `\https://admin-shell.io/aas/3/0/Direction/output`
+.2+e|[[Direction-output]]output | `\https://admin-shell.io/aas/3/0/Direction/output`
 a|Output direction
 |===
 
@@ -159,10 +169,10 @@ h|ID: | `\https://admin-shell.io/aas/3/0/StateOfEvent`
 .2+h|Literal h| ID
 h|Explanation
 
-.2+e|on | `\https://admin-shell.io/aas/3/0/StateOfEvent/on`
+.2+e|[[StateOfEvent-on]]on | `\https://admin-shell.io/aas/3/0/StateOfEvent/on`
 a|Event is on
 
-.2+e|off | `\https://admin-shell.io/aas/3/0/StateOfEvent/off`
+.2+e|[[StateOfEvent-off]]off | `\https://admin-shell.io/aas/3/0/StateOfEvent/off`
 a|Event is off
 |===
 
@@ -176,7 +186,11 @@ Note: the payload is not part of the information model as exchanged via the AASX
 ====
 
 .Metamodel of Event Payload
-image::image31.png[]
+[plantuml, 31-event-payload, svg]
+....
+include::partial$diagrams/31-event-payload.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -189,10 +203,10 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/EventPayload`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|source 3+| `\https://admin-shell.io/aas/3/1/EventPayload/source`
+.2+e|[[EventPayload-source]]source 3+| `\https://admin-shell.io/aas/3/1/EventPayload/source`
 a|Reference to the source event element |ModelReference<xref:EventElement[EventElement]> |1
 
-.2+e|sourceSemanticId 3+| `\https://admin-shell.io/aas/3/1/EventPayload/sourceSemanticId`
+.2+e|[[EventPayload-sourceSemanticId]]sourceSemanticId 3+| `\https://admin-shell.io/aas/3/1/EventPayload/sourceSemanticId`
 a|
 semanticId of the source event element, if available
 
@@ -204,10 +218,10 @@ Note: it is recommended to use an external reference.
 
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 
-.2+e|observableReference 3+| `\https://admin-shell.io/aas/3/1/EventPayload/observableReference`
+.2+e|[[EventPayload-observableReference]]observableReference 3+| `\https://admin-shell.io/aas/3/1/EventPayload/observableReference`
 a|Reference to the referable, which defines the scope of the event. |ModelReference<xref:spec-metamodel/common.adoc#Referable[Referable]> |1
 
-.2+e|observableSemanticId 3+| `\https://admin-shell.io/aas/3/1/EventPayload/observableSemanticId`
+.2+e|[[EventPayload-sourceSemanticId]]observableSemanticId 3+| `\https://admin-shell.io/aas/3/1/EventPayload/observableSemanticId`
 a|
 semanticId of the referable, which defines the scope of the event, if available.
 
@@ -219,10 +233,10 @@ Note: it is recommended to use an external reference.
 
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 
-.2+e|topic 3+| `\https://admin-shell.io/aas/3/1/EventPayload/topic`
+.2+e|[[EventPayload-topic]]topic 3+| `\https://admin-shell.io/aas/3/1/EventPayload/topic`
 a|Information for the outer message infrastructure to schedule the event for the respective communication channel |xref:spec-metamodel/datatypes.adoc#MessageTopicType[MessageTopicType] |0..1
 
-.2+e|subjectId 3+| `\https://admin-shell.io/aas/3/1/EventPayload/subjectId`
+.2+e|[[EventPayload-subjectId]]subjectId 3+| `\https://admin-shell.io/aas/3/1/EventPayload/subjectId`
 a|
 Subject, who/which initiated the creation
 
@@ -234,10 +248,10 @@ Note: this is an external reference.
 
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 
-.2+e|timestamp 3+| `\https://admin-shell.io/aas/3/1/EventPayload/timestamp`
+.2+e|[[EventPayload-timestamp]]timestamp 3+| `\https://admin-shell.io/aas/3/1/EventPayload/timestamp`
 a|Timestamp in UTC, when this event was triggered |dateTime |1
 
-.2+e|payload 3+| `\https://admin-shell.io/aas/3/1/EventPayload/payload`
+.2+e|[[EventPayload-payload]]payload 3+| `\https://admin-shell.io/aas/3/1/EventPayload/payload`
 a|Event-specific payload |xref:spec-metamodel/datatypes.adoc#BlobType[BlobType] |0..1
 |===
 
@@ -247,7 +261,11 @@ The assumption is that every subject has a unique identifier.
 == Blob Attributes
 
 .Metamodel of Blobs
-image::image32.png[]
+[plantuml, 32-blob, svg]
+....
+include::partial$diagrams/32-blob.puml[]
+....
+
 
 For information on content type, see Clause xref:spec-metamodel/submodel-elements.adoc#file-attributes[File Attributes].
 
@@ -262,7 +280,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Blob`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|value  3+| `\https://admin-shell.io/aas/3/1/Blob/value`
+.2+e|[[Blob-value]]value  3+| `\https://admin-shell.io/aas/3/1/Blob/value`
 a|
 The value of the blob instance of a blob data element
 
@@ -274,7 +292,7 @@ Note: in contrast to the file property, the file content is stored directly as v
 
 |xref:spec-metamodel/datatypes.adoc#BlobType[BlobType] |0..1
 
-.2+e|contentType  3+| `\https://admin-shell.io/aas/3/1/Blob/contentType`
+.2+e|[[Blob-contentType]]contentType  3+| `\https://admin-shell.io/aas/3/1/Blob/contentType`
 a|
 Content type of the content of the blob.
 
@@ -290,7 +308,11 @@ The allowed values are defined as in RFC2046.
 == Capability Attributes
 
 .Metamodel of Capabilities
-image::image33.png[]
+[plantuml, 33-capability, svg]
+....
+include::partial$diagrams/33-capability.puml[]
+....
+
 
 ====
 Note: the _semanticId_ of a capability is typically an ontology, which enables reasoning on capabilities.
@@ -317,14 +339,19 @@ h|Explanation h|Type h|Card.
 == Data Element and Overview of Data Element Types
 
 .Metamodel of Data Elements
-image::image34.png[]
+[[image-34-data-element]]
+[plantuml, 34-data-element, svg]
+....
+include::partial$diagrams/34-data-element.puml[]
+....
+
 
 A data element is a submodel element that is not further composed of other submodel elements.
 
 A data element is a submodel element that has a value or a predefined number of values like range data elements.
 
 The type of value differs for different subtypes of data elements.
-Data elements include properties, file handling, and reference elements, see Figure 33.
+Data elements include properties, file handling, and reference elements, see <<image-34-data-element>>.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -352,10 +379,15 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/DataElement`
 h|Explanation h|Type h|Card.
 |===
 
+[[entity-attributes]]
 == Entity Attributes
 
 .Metamodel of Entities
-image::image35.png[]
+[plantuml, 35-entity, svg]
+....
+include::partial$diagrams/35-entity.puml[]
+....
+
 
 The entity submodel element is designed to be used in submodels defining the relationship between the parts of the composite asset it is composed of (e.g. bill of material).
 These parts are called entities.
@@ -377,16 +409,16 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Entity`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|statement 3+| `\https://admin-shell.io/aas/3/1/Entity/statements`
+.2+e|[[Entity-statements]]statement 3+| `\https://admin-shell.io/aas/3/1/Entity/statements`
 a|Describes statements applicable to the entity by a set of submodel elements, typically with a qualified value |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |0..*
 
-.2+e|entityType 3+| `\https://admin-shell.io/aas/3/1/Entity/entityType`
+.2+e|[[Entity-entityType]]entityType 3+| `\https://admin-shell.io/aas/3/1/Entity/entityType`
 a|Describes whether the entity is a co-managed entity or a self-managed entity |xref:EntityType[EntityType]|0..1
 
-.2+e|globalAssetId 3+| `\https://admin-shell.io/aas/3/1/Entity/globalAssetId`
+.2+e|[[Entity-globalAssetId]]globalAssetId 3+| `\https://admin-shell.io/aas/3/1/Entity/globalAssetId`
 a|Global identifier of the asset the entity is representing |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |0..1
 
-.2+e|specificAssetId 3+| `\https://admin-shell.io/aas/3/1/Entity/specificAssetIds`
+.2+e|[[Entity-specificAssetIds]]specificAssetId 3+| `\https://admin-shell.io/aas/3/1/Entity/specificAssetIds`
 a|Reference to a specific asset ID representing a supplementary identifier of the asset represented by the Asset Administration Shell |xref:spec-metamodel/core.adoc#SpecificAssetId[SpecificAssetId] |0..*
 |===
 
@@ -403,16 +435,16 @@ h|ID: | `\https://admin-shell.io/aas/3/0/EntityType`
 .2+h|Literal h| ID
 h|Explanation
 
-.2+e|CoManagedEntity | `\https://admin-shell.io/aas/3/0/EntityType/CoManagedEntity`
+.2+e|[[EntityType-CoManagedEntity]]CoManagedEntity | `\https://admin-shell.io/aas/3/0/EntityType/CoManagedEntity`
 a|
 There is no separate Asset Administration Shell for co-managed entities.
 Co-managed entities need to be part of a self-managed entity.
 
-.2+e|SelfManagedEntity | `\https://admin-shell.io/aas/3/0/EntityType/SelfManagedEntity`
+.2+e|[[EntityType-SelfManagedEntity]]SelfManagedEntity | `\https://admin-shell.io/aas/3/0/EntityType/SelfManagedEntity`
 a|
 Self-managed entities have their own Asset Administration Shell but can be part of another composite self-managed entity.
 
-The asset of an I4.0 Component is a self-managed entity per definition.
+The asset represented by an Asset Administration Shell is a self-managed entity per definition.
 
 |===
 
@@ -420,7 +452,11 @@ The asset of an I4.0 Component is a self-managed entity per definition.
 == Event Element Attributes
 
 .Metamodel of Event Elements
-image::image36.png[]
+[plantuml, 36-event-element, svg]
+....
+include::partial$diagrams/36-event-element.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -438,7 +474,11 @@ h|Explanation h|Type h|Card.
 == File Attributes
 
 .Metamodel of File Submodel Element
-image::image37.png[]
+[plantuml, 37-file, svg]
+....
+include::partial$diagrams/37-file.puml[]
+....
+
 
 A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted via the Internet.
 The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications.
@@ -477,7 +517,11 @@ a|Content type of the content of the file |xref:spec-metamodel/datatypes.adoc#Co
 == Multi Language Property Attributes
 
 .Metamodel of Multi Language Properties
-image::image38.png[]
+[plantuml, 38-multi-language-property, svg]
+....
+include::partial$diagrams/38-multi-language-property.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -514,7 +558,11 @@ Note: it is recommended to use an external reference, compare to xref:spec-metam
 == Operation Attributes
 
 .Metamodel of Operations
-image::image39.png[]
+[plantuml, 39-operation, svg]
+....
+include::partial$diagrams/39-operation.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -577,7 +625,11 @@ The same applies to two input variables or an input variable and an inoutputVari
 == Property Attributes
 
 .Metamodel of Properties
-image::image40.png[]
+[plantuml, 40-property, svg]
+....
+include::partial$diagrams/40-property.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -613,10 +665,15 @@ Note: it is recommended to use an external reference, compare to xref:spec-metam
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 |===
 
+[[range-attributes]]
 == Range Attributes
 
 .Metamodel of Ranges
-image::image41.png[]
+[plantuml, 41-range, svg]
+....
+include::partial$diagrams/41-range.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -652,7 +709,11 @@ If the max value is missing, the value is assumed to be positive infinite.
 == Reference Element Attributes
 
 .Metamodel of Reference Elements
-image::image42.png[]
+[plantuml, 42-reference-element, svg]
+....
+include::partial$diagrams/42-reference-element.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -669,7 +730,7 @@ h|Explanation h|Type h|Card.
 a|External reference to an external object or entity or a logical reference to another element within the same or another Asset Administration Shell (i.e. a model reference to a _Referable_) |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 |===
 
-For more information on references, see Clause xref:spec-metamodel/referencing.adoc[Referencing in Asset Administration Shells].
+For more information on references, see Clause xref:spec-metamodel/referencing.adoc[].
 
 [#relationship-element-attributes]
 == Relationship Element Attributes
@@ -678,7 +739,11 @@ The semantics of the relationship is defined via the _semanticId_ of the _Relati
 If this semantic definition requires additional information not contained in the _first_ or _second_ object referenced via the relationship, the submodel element type xref:spec-metamodel/submodel-elements.adoc#annotated-relationship-element-attributes[AnnotatedRelationshipElement] shall be used instead.
 
 .Metamodel of Relationship Elements
-image::image43.png[]
+[plantuml, 43-relationship-element, svg]
+....
+include::partial$diagrams/43-relationship-element.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -702,7 +767,11 @@ a|Reference to the second element in the relationship taking the role of the obj
 == Submodel Element Collection Attributes
 
 .Metamodel of Submodel Element Collections
-image::image44.png[]
+[plantuml, 44-submodel-element-collection, svg]
+....
+include::partial$diagrams/44-submodel-element-collection.puml[]
+....
+
 
 Submodel Element Collections are used for complex elements with a typically fixed set of properties with unique names.
 This set of properties is typically predefined by the semantic definition (referenced via _semanticId_) of the submodel element collection.
@@ -745,7 +814,11 @@ h|Explanation h|Type h|Card.
 == Submodel Element List Attributes
 
 .Metamodel of Submodel Element Lists
-image::image45.png[]
+[plantuml, 45-submodel-element-list, svg]
+....
+include::partial$diagrams/45-submodel-element-list.puml[]
+....
+
 
 Submodel element lists are used for sets (i.e. unordered collections without duplicates), ordered lists (i.e. ordered collections that may contain duplicates), bags (i.e. unordered collections that may contain duplicates), and ordered sets (i.e. ordered collections without duplicates).
 
@@ -754,7 +827,7 @@ Note: there is no _idShort_ for submodel elements in lists (see Constraint AASd-
 ====
 
 Submodel element lists are also used to create multidimensional arrays.
-A two-dimensional array listxref:Bibliography.adoc#bib3[[3\]]xref:bibliography.adoc#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements.
+A two-dimensional array listxref:bibliography.adoc#bib3[[3\]]xref:bibliography.adoc#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements.
 Each of these three _SubmodelElementLists_ would contain 5 single _Property_ elements.
 The _semanticId_ of the contained properties would be the same for all lists in the first list, i.e. _semanticIdListElement_ would be identical for all three lists contained in the first list.
 The _semanticId_ of the three contained lists would differ depending on the dimension it represents.

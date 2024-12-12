@@ -7,14 +7,16 @@ https://creativecommons.org/licenses/by/4.0/).
 SPDX-License-Identifier: CC-BY-4.0
 
 ////
-
-include::../includes/constraints.adoc[]
-
 [#aas_attributes]
 == Asset Administration Shell Attributes
+include::../includes/constraints.adoc[]
 
 .Metamodel of an AssetAdministrationShell
-image::image24.png[]
+[plantuml, 24-asset-administration-shell, svg]
+....
+include::partial$diagrams/24-asset-administration-shell.puml[]
+....
+
 
 An Administration Shell is uniquely identifiable since it inherits from _Identifiable_.
 
@@ -55,7 +57,11 @@ Temporarily, no submodel might be assigned to the Asset Administration Shell.
 == Asset Information Attributes
 
 .Metamodel of Asset Information
-image::image25.png[]
+[plantuml, 25-asset-information, svg]
+....
+include::partial$diagrams/25-asset-information.puml[]
+....
+
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -180,7 +186,7 @@ a|Neither a type asset nor an instance asset nor a role asset
 
 |===
 
-For more information on types and instances, see Clause xref:general.html#types-and-instances[Types and Instances].
+For more information on types and instances, see Clause xref:general.adoc#types-and-instances[Types and Instances].
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -233,9 +239,13 @@ The assumption is that every subject has a unique identifier.
 == Submodel Attributes
 
 .Metamodel of Submodel
-image::image26.png[]
+[plantuml, 26-submodel, svg]
+....
+include::partial$diagrams/26-submodel.puml[]
+....
 
-Adding a _semanticId_ for a submodel is recommended (see Table 2).
+
+Adding a _semanticId_ for a submodel is recommended (see xref:general.adoc#table-elements-with-allowed-identifying-values[Table "Elements with Allowed Identifying Values"]).
 
 If the submodel is of _kind=Template_ (modelling kind as inherited by _HasKind_), the submodel elements within the submodel are presenting submodel element templates.
 If the submodel is of _kind=Instance_, its submodel elements represent submodel element instances.
@@ -253,7 +263,7 @@ h|Explanation: 3+a|
 A submodel defines a specific aspect of the asset represented by the Asset Administration Shell.
 
 A submodel is used to structure the digital representation and technical functionality of an Administration Shell into distinguishable parts.
-Each submodel refers to a well-defined domain or subject matter.
+Each submodel refers to a well-defined domain or subject.
 Submodels can become standardized and, in turn, submodel templates.
 
 
@@ -271,7 +281,11 @@ a|A submodel consists of zero or more submodel elements. |xref:SubmodelElement[S
 == Submodel Element Attributes
 
 .Metamodel of Submodel Element
-image::image27.png[]
+[plantuml, 27-submodel-element, svg]
+....
+include::partial$diagrams/27-submodel-element.puml[]
+....
+
 
 Submodel elements are qualifiable elements, i.e. one or more qualifiers may be defined for each of them.
 

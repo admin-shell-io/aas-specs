@@ -1,0 +1,8 @@
+@startuml
+abstract class Referable<HasExtensions> <<abstract>> {
+  +category: NameType[0..1] <<Deprecated>>
+  +idShort: NameType[0..1]
+  +displayName: MultiLanguageNameType[0..1]
+  +description: MultiLanguageTextType[0..1]
+}
+@enduml
