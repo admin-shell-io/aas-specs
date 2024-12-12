@@ -83,9 +83,6 @@ The character set of XML includes (given as numerical code points and/or ranges 
 * 0x20: ASCII space,
 * 0x20 - 0xD7FF: all the characters of the Basic Multilingual Plane, and
 * 0x00010000-0x0010FFFF: all the characters beyond the Basic Multilingual Plane (*e.g.*, emoticons).
-The string can include common characters like tabs, newlines, carriage returns, and spaces.
-It allows a broad range of Unicode characters, including those beyond the Basic Multilingual Plane (BMP) which are represented using surrogate pairs in UTF-16 encoding.
-It ensures that the entire string adheres to the rules of UTF-16 encoding, which is a standard way of representing a wide range of characters from different languages.
 
 This leads to the following regular expression:
 ^[\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u00010000-\u0010FFFF]$
