@@ -10,14 +10,14 @@ Illustrations:
 Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, designed by Publik. Agentur für Kommunikation GmbH
 ////
 
-=== Format "Path" (IdShortPath Serialization) in JSON
+=== Format "Path" (idShortPath Serialization) in JSON
 
-To get only the idShort paths of a submodel element hierarchy, the serialization format is specified in terms 
-of an idShortPath notation to be returned in an JSON array. 
-For SubmodelElementLists the elements can be identified via its index or via its idShort.
-For identification via idShort the submodel element's idShort 
-is separated by "." (dot) from top level down to child level. 
-For identification via index, square brackets with an index "[<Index>]" are appended after the idShort of the containing SubmodelElementList.
+To get only the idShortPaths of a submodel element hierarchy, the serialization format is specified in terms of an idShortPath notation to be returned in an JSON array.
+The notation differs depending on whether a xref:spec-metamodel/submodel-elements.adoc#SubmodelElementCollection[SubmodelElementCollection] or a xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList] is present.
+
+In the first case, the submodel element's xref:spec-metamodel/common.adoc#Referable[idShort] is separated by "." (dot) from top level down to child level.
+In the second case, square brackets with an index "[<Index>]" are appended after the idShort of the containing SubmodelElementList.
+
 In any case, the first item of any idShortPath is the idShort of the requested element.
 
 ====
@@ -38,9 +38,12 @@ Note: Although idShort may be defined for elements within a SubmodelElementList 
 <NonZeroDigit>  ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 ....
 
+
 In the following example, a request for idShort paths targeting a  
+
 _MySubmodelElementCollection_ with SerializationModifier level = deep, 
 the list of idShort paths is returned as follows:
+
 
 ====
 EXAMPLE Submodel
@@ -59,11 +62,11 @@ Submodel: MySubmodel
 *** Property: "MySubTestValue1"
 *** Property: "MySubTestValue2"
 ** SML: MySubSubmodelElementList2
-*** SML
+*** SML: MySubSubmodelElementList3
 **** Property: "MySubTestValue3"
 ====
 
-IdShortPaths for SMC MySubmodelElementCollection within the Submodel above:
+idShortPaths for SMC MySubmodelElementCollection within the Submodel above:
 
 [source,json,linenums]
 ----
@@ -83,4 +86,8 @@ IdShortPaths for SMC MySubmodelElementCollection within the Submodel above:
 ]
 ----
 
+
+====
+Note: There is no idShortPath for xref:spec-metamodel/common.adoc#Identifiable[Identifiable]s because idShort is optional for Identifiables.
+====
 
