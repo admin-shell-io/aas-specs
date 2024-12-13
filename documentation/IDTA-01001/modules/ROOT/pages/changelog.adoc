@@ -44,21 +44,27 @@ Major Changes:
 * Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name (https://github.com/admin-shell-io/aas-specs/issues/295[#295])
 * Entity/entityType and Constraint AASd-014: entityType now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
 * Change RelationshipElement: attributes "first" and "second" now optional (conformant to "min" and "max" of "Range")(https://github.com/admin-shell-io/aas-specs/issues/412[#412]), AnnotatedRelationshipElement inherits from RelationshipElement and is thus also affected.
-* Change File and Blob: attribute "contentType" now optional (https://github.com/admin-shell-io/aas-specs/issues/412[#412]),
-* Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications (https://github.com/admin-shell-io/aas-specs/issues/307[#307])
-* Terms and Definitions adopted to IEC 63278-1:2023 (before IEC 63278-1 Draft July 2022 was the basis), (https://github.com/admin-shell-io/aas-specs/issues/365[#365]) also abbreviations partly adopted; changes:
-** changed: asset
-** changed: digital representation (example only)
-** removed: ontology
-** changed: service
-** removed: smart manufacturing
-** changed: Submodel
-** changed: Submodel template
-** changed: Submodel template element
-** removed: technical functionality
-* Update clause on matching algorithm for references (https://github.com/admin-shell-io/aas-specs/issues/350[#350])
-** introduce equivalent matching and rename exact matching to value matching
-** added notes
+
+* Change File and Blob: attribute "contentType" now optional (https://github.com/admin-shell-io/aas-specs/issues/412[#412])
+* remove AASd-120: idShort also allowed for elements within a SubmodelElementList (https://github.com/admin-shell-io/aas-specs/issues/432[#432])
+* Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications
+(https://github.com/admin-shell-io/aas-specs/issues/307[#307])
+* Terms and Definitions adopted to IEC 63278-1:2023 (before IEC 63278-1 Draft July 2022 was the basis), 
+(https://github.com/admin-shell-io/aas-specs/issues/365[#365])
+also abbreviations partly adopted; changes:
+	** changed: asset
+	** changed: digital representation (example only)
+	** removed: ontology
+	** changed: service
+	** removed: smart manufacturing
+	** changed: Submodel
+	** changed: Submodel template
+	** changed: Submodel template element
+	** removed: technical functionality
+* Update clause on matching algorithm for references
+(https://github.com/admin-shell-io/aas-specs/issues/350[#350])
+	** introduce equivalent matching and rename exact matching to value matching
+	** added notes 
 * (Editorial) Adding metamodel element IDs to tables themselves for easier usage (besides grammar defining how to derive them) (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
 * Update all metamodel element IDs to V3.1 (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
 * Transfer of chapters on formats Metadata, Paths and Value-Only from Part 2 API to Part 1 Metamodel (https://github.com/admin-shell-io/aas-specs/issues/325[#325])
