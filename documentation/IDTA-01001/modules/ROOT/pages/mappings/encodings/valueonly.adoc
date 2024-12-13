@@ -28,7 +28,7 @@ Two separate requests make it possible to build up a user interface (UI) and sho
 Values are only available for
 
 * All subtypes of abstract type xref:spec-metamodel/submodel-elements.adoc#DataElement[DataElement],
-* xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList]  and xref:spec-metamodel/submodel-elements.adoc#SubmodelElementCollection[SubmodelElementCollection] SubmodelElementCollection resp. for their included xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]s,
+* xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList]  and xref:spec-metamodel/submodel-elements.adoc#SubmodelElementCollection[SubmodelElementCollection] resp. for their included xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]s,
 * xref:spec-metamodel/submodel-elements.adoc#ReferenceElement[ReferenceElement],
 * xref:spec-metamodel/submodel-elements.adoc#RelationshipElement[RelationshipElement] + xref:spec-metamodel/submodel-elements.adoc#AnnotatedRelationshipElement[AnnotatedRelationshipElement],
 * xref:spec-metamodel/submodel-elements.adoc#Entity[Entity],
@@ -47,7 +47,7 @@ A leaf submodel element follows the rules for the different submodel elements co
 If it is not a leaf element, the serialization rules must be transitively followed until the value is a leaf submodel element.
 * xref:spec-metamodel/referencing.adoc#Reference[Reference] is serialized in format "Normal".
 * xref:spec-metamodel/core.adoc#SpecificAssetId[SpecificAssetId] is serialized in format "Normal".
-* xref:spec-metamodel/submodel-elements.adoc#SubmodelElement[SubmodelElement]s without a value are not serialized.
+* xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]s without a value are not serialized.
 
 * For each submodel element within the submodel, the submodel collection or submodel list:
 
