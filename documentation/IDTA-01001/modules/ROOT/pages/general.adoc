@@ -50,7 +50,7 @@ The attribute "derivedFrom" in the metamodel is used to explicitly state a relat
 Other relationships are not explicitly supported by the metamodel of the Asset Administration Shell, but they can be modelled via the xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes["RelationshipElement"] submodel element type.
 ====
 
-Table <<table-life-cycle-phases-and-roles-of-type-and-instance-assets>> gives an overview of the different life cycle phases and the role of type assets and instance assets as well as their relationship in these phases.
+<<table-life-cycle-phases-and-roles-of-type-and-instance-assets>> gives an overview of the different life cycle phases and the role of type assets and instance assets as well as their relationship in these phases.
 
 This important relationship should be maintained throughout the life of the instance assets.
 It makes it possible to forward updates from the type assets to the instance assets, either automatically or on demand.
@@ -303,7 +303,7 @@ See also DIN SPEC 91406 xref:bibliography.adoc#bib31[[31\]] for further informat
 ===  Which Identifiers for Which Elements?
 
 Not every identifier is applicable for every element of the UML model representing the Asset Administration Shell.
-Table <<table-elements-with-allowed-identifying-values>> therefore gives an overview on the different constraints and recommendations on the various entities, which implement xref:spec-metamodel/common.adoc#identifiable-attributes[Identifiable] or xref:spec-metamodel/common.adoc#has-semantics-attributes[HasSemantics].
+<<table-elements-with-allowed-identifying-values>> therefore gives an overview on the different constraints and recommendations on the various entities, which implement xref:spec-metamodel/common.adoc#identifiable-attributes[Identifiable] or xref:spec-metamodel/common.adoc#has-semantics-attributes[HasSemantics].
 
 See Annex xref:annex/concepts-aas.adoc#how-are-new-identifiers-created[How Are New Identifiers Created?] for more information on how to create new identifiers and best practices for creating URI identifiers.
 
@@ -444,17 +444,29 @@ This semantic ID helps to easily find the semantic definition of the submodel (s
 
 When comparing two elements, different use cases should be considered in order to define how these two elements are semantically related.
 This clause gives first hints on the aspects to consider when dealing with matching semantic identifiers.
+The actual implementations in applications may differ from the strategies presented here. 
 For example, semantic references including context information as represented in IRDI-Path in ECLASS are not yet considered.
 Sometimes a concept description is derived from another concept description or is identical to or at least compatible with another concept description.
-The metamodel foresees an attribute "isCaseOf" for such semantic IDs.
-However, these are not considered in the matching strategies described in this clause.
+
 
 *Exact Matching (identical semanticIds) – DEFAULT*
 
-* With exact matching, two semantic IDs need to be string-identical.
-** Example: Property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#002 have exactly equal semantics.
+* With exact matching, two semantic IDs need to represent two exact matching references (see xref:general.adoc#matching-algorithm-for-references[Matching Algorithm for References]).
+** Example: Property with idShort "ManufacturerName" + semanticId  value 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId value 0173-1#02-AAO677#002 have exactly equal semantics if the key types in both semanticIds are identical plus the other attributes of a Reference like _type_ and _referredSemanticId_ as well. So if the first key type of property "ManufacturerName" is "ExternalReference" and the first key type of the semanticId of property  "Herstellername" is "ModelReference" then the two semanticIds are no exact match. Or if the first reference contains a referredSemanticId value and the second does not the two semantic IDs are not exact matches.
+
+====
+Note: Typically, a semanticId does not have a _referredSemanticId_
+====
+
+*Value Matching*
+
+* With value matching, the key values of the two semantic IDs being compared need to be string-identical, i.e. the two references need to value match (see xref:general.adoc#matching-algorithm-for-references[Matching Algorithm for References]).
+** Example: Property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#002 have value equal semantics.
+
 
 *Intelligent Matching (compatible semanticIds)*
+
+Diffent kinds of intelligent matching may be considered to be implemented. Some are explained in the following.
 
 * Ignore Versioning
 ** With intelligent matching, different versions of a concept definition may be matched.
@@ -466,6 +478,36 @@ Note: to compare two semantic IDs, knowledge about versioning needs to be availa
 In the example above, two IRDIs from ECLASS are compared.
 ECLASS rules ensure that the semantics is always backward compatible for new versions; a new IRDI would be created for breaking changes.
 ====
+
+
+* Consider different syntax of identifiers
+
+** With intelligent matching, different syntax of the same identifier may be matched.
+For example ECLASS allows to specify an identifier of a concept definition as IRDI or as URL.
+ECLASS and IEC CDD both use IRDIs, however, the limiters are different.
+** Example: \https://api.eclass-cdp.com/0173-1-02-AAC895-008
+matches 0173-1#02-AAC895#008
+** Example: 0173-1#02-AAC895#008 matches 0173/1///02#AAC895#008 
+
+* Consider supplemental semantic IDs (any)
+
+** With intelligent matching two sets of semantic IDs may be compared: Input is a set of semantic IDs, not distinguishing between semanticId and supplementalSemanticId. SupplementalSemanticIds are not ordered, so index information is not relevant. The input matches to an element for which either its semanticId is in the Input set of semantic IDs or one of its supplemental IDs matches to ones of the semantic IDs in the Input set.
+** In addition exact or value matching of semantic IDs can be distinguished (see before)
+** Example: Input Set = { 0173/1///02#AAC895#008} matches for a property with semanticId = \https://api.eclass-cdp.com/0173-1-02-AAC895-008 and supplementalSemanticId = 0173/1///02#AAC895#008.
+** Example: Input Set = { 0173-1#02-AAC895#00, \https://api.eclass-cdp.com/0173-1-02-AAC895-008, 0173/1///02#AAC895#008 } would match for a property with semanticId = \https://api.eclass-cdp.com/0173-1-02-AAC895-008 and no supplemental semantic IDs.
+
+* Consider supplemental semantic IDs (all)
+
+** With intelligent matching two sets of semantic IDs may be compared: Input is a set of semantic IDs, not distinguishing between semanticId and supplementalSemanticId. SupplementalSemanticIds are not ordered, so index information is not relevant. The input matches to an element for which all the semantic IDS of the input set are available, either as semantic ID or as supplementalSemanticId. 
+** In addition exact or value matching of semantic IDs can be distinguished (see before) 
+** Example: Input Set = { 0173/1///02#AAC895#008} matches for a property with semanticId = \https://api.eclass-cdp.com/0173-1-02-AAC895-008 and supplementalSemanticId = 0173/1///02#AAC895#008.
+** Example: Input Set = { 0173-1#02-AAC895#00, \https://api.eclass-cdp.com/0173-1-02-AAC895-008, 0173/1///02#AAC895#008 } does not match for a property with semanticId = \https://api.eclass-cdp.com/0173-1-02-AAC895-008 and no supplemental semantic IDs.
+
+* Consider supplemental semantic IDs and isCaseOf
+
+** The two intelligent matching strategies "Consider supplemental semantic IDs (any)" and "Consider supplemental semantic IDs (all)" may be extended to also include the isCaseOf information of a ConceptDescription referenced via one of the semantic IDs (semanticId or supplementalSemanticId) of an element.
+** Example: Input Set = { 0173/1///02#AAC895#008} matches for a property with semanticId = [ModelRef](ConceptDescription) \https://admin-shell.io.example if the isCaseOf value of the referenced concept description with id =  \https://admin-shell.io.example is equal to 0173/1///02#AAC895#008.
+
 
 * Consider Semantic Mappings
 ** Existing semantic mapping information can be considered for intelligent matching.
@@ -481,6 +523,9 @@ Note: this example does not represent an existing semantic mapping; it is only a
 * Consider Domain Knowledge
 ** With intelligent matching, domain knowledge available in machine-readable form may be taken into account, such as an "is-a"-relationship between two concept definitions.
 ** Example: a Hammer drill (0173-1#01-ADS698#010) and a percussion drill (0173-1#01-ADS700#010) are drills for mineral material (0173-1#01-ADN177#005) and are compatible with a request or constraints asking for drills for mineral material.
+
+
+
 
 [#matching-algorithm-for-references]
 === Matching Algorithm for References
@@ -499,7 +544,7 @@ In this case the data consumer only knows the external ID whereas the provider m
 Matching does not mean to define equivalence classes that allow to overwrite constraints as defined in the specification for valid instances of the metamodel.
 ====
 
-**Equivalence matching of two references**
+**Exact matching of two references**
 
 * Two References are identical if all attributes values are identical.
 
@@ -510,12 +555,14 @@ Matching does not mean to define equivalence classes that allow to overwrite con
 (GlobalReference)0173-1#01-ADS698#010, (GlobalReference)0173-1#01-ADS700#010
 ....
 
-matches
+is no exact match for
 
 [listing]
 ....
 (GlobalReference 0173-1#01-ADS698#010, (FragmentReference)0173-1#01-ADS700#010
 ....
+
+but a value match.
 
 **Value matching of two references**
 

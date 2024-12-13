@@ -40,34 +40,42 @@ Note: before V3.0, the security metamodel and the predefined data specifications
 Major Changes:
 
 * New value "Role" to enumeration AssetKind (https://github.com/admin-shell-io/aas-specs/issues/294[#294])
+* New abstract class "ContainerElement" as subtype of "SubmodelElement", subtypes: AnnotatedRelationshipElement, Entity, SubmodelElementCollection, SubmodelElementLis. Includes introducing new enumeration for container elements and extending existing enumerations for submodel elements "AasSubmodelElement" etc. (https://github.com/admin-shell-io/aas-specs/issues/333[#333])
 * Data type Identifier: change length from 2000 to 2048 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
 * Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name (https://github.com/admin-shell-io/aas-specs/issues/295[#295])
 * Entity/entityType and Constraint AASd-014: entityType now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
 * Change RelationshipElement: attributes "first" and "second" now optional (conformant to "min" and "max" of "Range")(https://github.com/admin-shell-io/aas-specs/issues/412[#412]), AnnotatedRelationshipElement inherits from RelationshipElement and is thus also affected.
-* Change File and Blob: attribute "contentType" now optional (https://github.com/admin-shell-io/aas-specs/issues/412[#412]),
-* Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications (https://github.com/admin-shell-io/aas-specs/issues/307[#307])
-* Terms and Definitions adopted to IEC 63278-1:2023 (before IEC 63278-1 Draft July 2022 was the basis), (https://github.com/admin-shell-io/aas-specs/issues/365[#365]) also abbreviations partly adopted; changes:
-** changed: asset
-** changed: digital representation (example only)
-** removed: ontology
-** changed: service
-** removed: smart manufacturing
-** changed: Submodel
-** changed: Submodel template
-** changed: Submodel template element
-** removed: technical functionality
-* Update clause on matching algorithm for references (https://github.com/admin-shell-io/aas-specs/issues/350[#350])
-** introduce equivalent matching and rename exact matching to value matching
-** added notes
+
+* Change File and Blob: attribute "contentType" now optional (https://github.com/admin-shell-io/aas-specs/issues/412[#412])
+* remove AASd-120: idShort also allowed for elements within a SubmodelElementList (https://github.com/admin-shell-io/aas-specs/issues/432[#432])
+* Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications
+(https://github.com/admin-shell-io/aas-specs/issues/307[#307])
+* Terms and Definitions adopted to IEC 63278-1:2023 (before IEC 63278-1 Draft July 2022 was the basis), 
+(https://github.com/admin-shell-io/aas-specs/issues/365[#365])
+also abbreviations partly adopted; changes:
+	** changed: asset
+	** changed: digital representation (example only)
+	** removed: ontology
+	** changed: service
+	** removed: smart manufacturing
+	** changed: Submodel
+	** changed: Submodel template
+	** changed: Submodel template element
+	** removed: technical functionality
+* Update clause on matching algorithm for references
+(https://github.com/admin-shell-io/aas-specs/issues/350[#350])
+	** introduce equivalent matching and rename exact matching to value matching
+	** added notes 
 * (Editorial) Adding metamodel element IDs to tables themselves for easier usage (besides grammar defining how to derive them) (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
 * Update all metamodel element IDs to V3.1 (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
-* Transfer of chapters on formats Metadata, Paths and Value-Only from Part 2 API to Part 1 Metamodel (https://github.com/admin-shell-io/aas-specs/issues/325[#325])
-* Enhanced documentation or Value-Only serialization (https://github.com/admin-shell-io/aas-specs/issues/371[#371], https://github.com/admin-shell-io/aas-specs/issues/370[#370])
-* (Editorial) Update Chapter on Value-Only Serialization
+* Transfer of clauses on formats Metadata, Paths and Value-Only from Part 2 API to Part 1 Metamodel (https://github.com/admin-shell-io/aas-specs/issues/325[#325])
+* (Editorial) Update clause on Value-Only Serialization, improve documentation (https://github.com/admin-shell-io/aas-specs/issues/370[#370], https://github.com/admin-shell-io/aas-specs/issues/371[#371])
 ** add table similar to metadata table: which attributes are displayed in Value-Only serialization
 ** update examples to provide Value-Only serialization for every submodel element (not in the context of a Submodel as before)
-** add chapter for Submodel Example (with properties from SMT Technical Data, not Families any longer)
+** add clause for Submodel Example (with properties from SMT Technical Data, not Families any longer)
+* remove recommendation to use external references for semanticId (https://github.com/admin-shell-io/aas-specs/issues/376[#376]) and related attributes like valueId and isCaseOf (https://github.com/admin-shell-io/aas-specs/issues/396[#396])
 ** update Schema for JSON-Value Serialization (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
+* remove clauses on OPC UA and AutomationML mappings (https://github.com/admin-shell-io/aas-specs/issues/373[#373], https://github.com/admin-shell-io/aas-specs/issues/397[#397])
 * update explanatory text and notes in the context of AdministrativeInformation (https://github.com/admin-shell-io/aas-specs/issues/331[#331])
 * Transfer from .docx to asciidoc (.adoc) and maintenance in GitHub
 * Transfer of all UML figures to PlantUML (.puml) and maintenance in GitHub, no XMI presenation part of release any longer (https://github.com/admin-shell-io/aas-specs/issues/439[#439]) 
@@ -75,7 +83,7 @@ Major Changes:
 Minor Changes:
 
 * explanation of ValueOnly-Normal round-trip issues (https://github.com/admin-shell-io/aas-specs/issues/364[#364])
-* improve explanation for recommendation to use external references for semanticId (https://github.com/admin-shell-io/aas-specs/issues/376[#376]) and related attributes like valueId and isCaseOf (https://github.com/admin-shell-io/aas-specs/issues/396[#396])
+* remove recommendation to use external reference for semanticId (https://github.com/admin-shell-io/aas-specs/issues/376[#376]) and related attributes like valueId and isCaseOf (https://github.com/admin-shell-io/aas-specs/issues/396[#396])
 * update information on OPC UA mapping (https://github.com/admin-shell-io/aas-specs/issues/373[#373])
 * update information on AutomationML mapping (https://github.com/admin-shell-io/aas-specs/issues/397[#397])
 * update bibliography (newer versions, link update, removal of entries not referenced)
@@ -91,16 +99,21 @@ Minor Changes:
 |===
 |*Nc* |*V3.1 Change w.r.t. V3.0.1* |*Comment*
 
-
+| {empty} | xref:spec-metamodel/referencing.adoc#KeyTypes[KeyTypes/ContainerElement] a| Add new value "ContainerElement" to enumeration KeyTypes, because AasSubmodelElements was extended
+| {empty} | xref:spec-metamodel/referencing.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables/ContainerElement] a| Add new value "ContainerElement" to enumeration AasReferableNonIdentifiables, because AasSubmodelElements was extended
+| {empty} | xref:spec-metamodel/referencing.adoc#AasReferables[AasReferables/ContainerElement] a| Add new value "ContainerElement" to enumeration AasReferables, because AasSubmodelElements was extended
+| {empty} | xref:spec-metamodel/referencing.adoc#AasSubmodelElements[AasSubmodelElements/ContainerElement] a| Add new value "ContainerElement" to enumeration AasSubmodelElements
 | {empty} | xref:spec-metamodel/core.adoc#AssetKind[AssetKind] a| Add new value "Role" to enumeration AssetKind
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#Blob[Blob/contentType] a| now optional
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#Entity[Entity/entityType] a| now optional
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#File[File/contentType] a| now optional
+| {empty} | xref:spec-metamodel/referencing.adoc#FragmentKeys[ragmentKeys/ContainerElement] a| Add new value "ContainerElement" to enumeration FragmentKeys, because AasSubmodelElements was extended
 | {empty} | xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] a| data type: change length from 2000 to 2024 characters
 | {empty} | xref:spec-metamodel/datatypes.adoc#NameType[NameType] a| implicit change due to change of Constraint AASd-002
-|{empty}  | xref:spec-metamodel/common.adoc#Referable[Referable/idShort] a| implicit change because constraint AASd-002 now also allows hyphen
+| {empty}  | xref:spec-metamodel/common.adoc#Referable[Referable/idShort] a| implicit change because constraint AASd-002 now also allows hyphen
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#RelationshipElement[RelationshipElement/first] a| now optional
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#RelationshipElement[RelationshipElement/second] a| now optional
+
 
 |===
 
@@ -108,7 +121,11 @@ Minor Changes:
 [cols="5%,41%,51%",options="header",]
 |===
 |{empty} |*New Elements V3.1 vs V3.0.1* |*Comment*
+
+|{empty} | xref:spec-metamodel/referencing.adoc#AasContainerElements[AasContainerSubmodelElements] | New enumeration for container submodel elements
 |{empty} | xref:spec-metamodel/core.adoc#AssetKind[AssetKind/Role] | New value in enumeration
+|{empty} | xref:spec-metamodel/submodel-elements.adoc#ContainerElement[ContainerElement] | New abstract class
+|{empty} | xref:spec-metamodel/referencing.adoc#AasNonContainerElements[AasNonContainerSubmodelElements] | New enumeration for non-container submodel elements
 |===
 
 .New, Changed or Removed Constraints

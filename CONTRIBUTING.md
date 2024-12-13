@@ -30,7 +30,7 @@ If you are contributing for the first time, please inform yourself about the [LI
 
 
 **Create Feature branches**.
-We develop using the feature branches, see [this section of the Git book].
+We develop using feature branches, see [this section of the Git book].
 
 [this section of the Git book]: https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows.
 
@@ -88,7 +88,6 @@ Minor changes (simple failures, typos, *etc.*) and additional content (more exam
 
 Major changes must first be presented and approved in the [IDTA] workstream "AAS in Detail". If the creator of a PR is not a member of the workstream, a dedicated assignee will present it.
 
-[Platform Industrie 4.0]: http://www.plattform-i40.de
 [IDTA]: https://industrialdigitaltwin.org/
 
 
@@ -107,3 +106,25 @@ You successfully contributed to the aas-spec-api repository.
 If you are a member of the workstream team, please delete the feature branch you directly created within the aas-specs repository.
 
 Otherwise, if you are not part of the team and you forked the repository, feel free to delete your fork.
+
+
+## License Headers & Licensing
+
+By default, all files contributed require headers - this will ensure the license and copyright clearing at the end. Only if inline comments are not possible, e.g., for JSON files, the copyright declaration can be omitted. 
+
+Also, all contributions must have the same license as the source.
+
+The header should follow the following template:
+
+```
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+////
+```
+

@@ -2,28 +2,26 @@
 !theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
 
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/key.puml
-!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/enum-aas-submodel-elements.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/enum-generic-fragment-keys.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/enum-generic-globally-identifiables.puml
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/enum-aas-identifiables.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/enum-aas-container-submodel-elements.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/enum-aas-non-container-submodel-elements.puml
 
 enum KeyTypes <<enumeration>>
 
 enum FragmentKeys <<enumeration>>
 
-enum GenericFragmentKeys <<enumeration>> {
-  FragmentReference
-}
-
 enum AasReferables <<enumeration>> {
   Referable
 }
+
+enum AasSubmodelElements <<enumeration>>
 
 enum AasReferableNonIdentifiables <<enumeration>>
 
 enum GloballyIdentifiables <<enumeration>>
 
-enum GenericGloballyIdentifiables <<enumeration>> {
-  GlobalReference
-}
 
 Key ..> KeyTypes
 KeyTypes --|> FragmentKeys
@@ -34,6 +32,8 @@ FragmentKeys --|> AasReferableNonIdentifiables
 AasReferables --|> AasReferableNonIdentifiables
 AasReferables --|> AasIdentifiables
 AasReferableNonIdentifiables --|> AasSubmodelElements
+AasSubmodelElements --|> AasContainerSubmodelElements
+AasSubmodelElements --|> AasNonContainerSubmodelElements
 GloballyIdentifiables --|> AasIdentifiables
 GloballyIdentifiables --|> GenericGloballyIdentifiables
 @enduml
