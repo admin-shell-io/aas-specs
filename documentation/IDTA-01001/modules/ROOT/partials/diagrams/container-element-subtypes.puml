@@ -1,0 +1,17 @@
+@startuml
+!theme idta from https://raw.githubusercontent.com/admin-shell-io/aas-specs-antora/main/plantuml/
+
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/container-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/annotated-relationship-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/entity.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/submodel-element-collection.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/submodel-element-list.puml
+
+
+ContainerElement <|--- AnnotatedRelationshipElement
+ContainerElement <|--- Entity
+ContainerElement <|--- SubmodelElementCollection
+ContainerElement <|-- SubmodelElementList
+
+
+@enduml
