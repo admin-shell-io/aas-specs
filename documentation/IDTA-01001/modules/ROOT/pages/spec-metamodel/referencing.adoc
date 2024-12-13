@@ -874,14 +874,51 @@ Note: which kind of fragments are supported depends on the content type and the 
 In the following examples for valid und invalid model references and external references are given.
 The notation follows the grammar as defined in Clause xref:mappings/mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"].
 
+
+
 [.underline]#Examples for valid references:#
 
 [example]
 ....
 (Submodel)https://example.com/aas/1/1/1234859590
 
+[ModelRef](Submodel)https://example.com/aas/1/1/1234859590
+
 (GlobalReference)https://example.com/specification.html
+
+[ExternalRef](GlobalReference)https://example.com/specification.html
 ....
+
+
+
+[.underline]#Examples for invalid references:#
+
+[example]
+....
+[Submodel](GlobalReference)https://example.com/aas/1/1/1234859590
+....
+
+Key type "Submodel" is not a globally identifiable (see Constraint AASd-121).
+
+[example]
+....
+[ExternalRef](Submodel)https://example.com/aas/1/1/1234859590
+....
+
+Key type "Submodel" is no generic globally identifiable (see Constraint AASd-122).
+
+
+[example]
+....
+[ModelRef](GlobalReference)https://example.com/aas/1/1/1234859590
+....
+
+Key type "GlobalReference" is no AAS identifiable (see Constraint AASd-123). 
+The last key type "GlobalReference" is neither a generic globally identifiable nor a generic fragment key (see Constraint AASd-124).
+
+
+
+
 
 [.underline]#Examples for valid external references:#
 
@@ -910,6 +947,8 @@ https://example.com/specification.html#Hints
 ....
 ====
 
+
+
 [.underline]#Examples for valid model references:#
 
 [example]
@@ -932,7 +971,7 @@ Note:
 
 [example]
 ....
-(SubmodelElementCollection)0, (MultiLanguageProperty)Title
+(SubmodelElementList)0, (MultiLanguageProperty)Title
 ....
 
 may be identical to
@@ -945,8 +984,7 @@ may be identical to
 semantically and content-wise.
 The difference is that more than one document is allowed in the first submodel and thus a submodel element list is defined:
 elements in a list are numbered.
-However, it is also possible to define a display name in this case.
-The display name of the SubmodelElementCollection should be the same in both bases, e.g. "Users Manual".
+
 ====
 
 [example]
@@ -976,6 +1014,9 @@ https://example.com/specification.html
 (Submodel)https://example.com/aas/1/1/1234859590, (Blob)Specification, (FragmentReference)Hints
 ....
 
+
+
+
 [.underline]#Examples for invalid model references:#
 
 [example]
@@ -985,24 +1026,38 @@ https://example.com/specification.html
 
 This is an external reference but no model reference.
 
+
 [example]
 ....
 (Property)0173-1#02-BAA120#008
 ....
 
-This reference does not start with the ID of an Identifiable.
-Additionally, the value is not valid xref:spec-metamodel/common.adoc#Referable[idShort] for a Property submodel element.
+This reference does not start with the ID of an Identifiable, i.e. key type "Property" is no AAS identifiable (see Constraint AASd-123).
+Additionally, the value is not a valid xref:spec-metamodel/common.adoc#Referable[idShort] for a Property submodel element since it contains special characters like "#" (see Constraint AASd-002).
+
+
+[example]
+....
+[ModelRef](FragmentReference)Hints (Property)Temperature
+....
+
+Key "Property" is no generic fragment key and therefore fragment key "FragmentReference" is not allowed before (see Constraint AASd-126).
+
+
 
 [example]
 ....
 (Submodel)https://example.com/aas/1/1/1234859590, (EventElement)Event, (FragmentReference)Comment
 ....
 
-This model reference is invalid because fragment references so far are only defined for _File_ and _Blob_ submodel elements (see Constraint AASd-127).
+This model reference is invalid because fragment references so far are only defined for "File" and "Blob" submodel elements (see Constraint AASd-127).
+
 
 [example]
 ....
 (AssetAdministrationShell)https://example.com/aas/1/0/12348, (Submodel)https://example.com/aas/1/1/1234859590, (Property)Temperature
 ....
 
-This is not a valid model reference because _AssetAdministrationShell_ and _Submodel_ are both global identifiables.
+This is not a valid model reference because key type "AssetAdministrationShell"  and "Submodel" are both global identifiables and there shall be only one (see Constraints AASd-125).
+
+
