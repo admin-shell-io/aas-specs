@@ -47,7 +47,7 @@ If this semantic definition requires additional information not contained in the
 |===
 h|Class: 3+e|[[AnnotatedRelationshipElement]]AnnotatedRelationshipElement
 h|Explanation: 3+a|An annotated relationship element is a relationship element that can be annotated with additional data elements.
-h|Inherits from: 3+|xref:RelationshipElement[RelationshipElement]
+h|Inherits from: 3+|xref:RelationshipElement[RelationshipElement], xref:ContainerElement[ContainerElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement`
 
 .2+h|Attribute 3+h| ID
@@ -335,6 +335,36 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Capability`
 h|Explanation h|Type h|Card.
 |===
 
+
+[#container-element-and-overview-of-data-element-types]
+== Container Element and Overview of Container Element Types
+
+.Metamodel of Container Elements
+[[image-container-element-subtypes]]
+[plantuml, container-element-subtypes, svg]
+....
+include::partial$diagrams/container-element-subtypes.puml[]
+....
+
+
+A container element is a submodel element that is composed of other submodel elements.
+
+Container elements include xref:spec-metamodel/submodel-elements.adoc#AnnotatedRelationshipElement[AnnotatedRelationshipElement],  xref:spec-metamodel/submodel-elements.adoc#Entity[Entity], xref:spec-metamodel/submodel-elements.adoc#SubmodelElementCollection[SubmodelElementCollection]  and xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList], see <<mage-container-element-subtypes>>.
+
+[.table-with-appendix-table]
+[cols="25%,40%,25%,10%"]
+|===
+h|Class: 3+e|[[ContainerElement]]ContainerElement \<<abstract>>
+h|Explanation: 3+a|
+A data element is a submodel element that is composed of other submodel elements.
+
+h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/ContainerElement`
+
+.2+h|Attribute 3+h| ID
+h|Explanation h|Type h|Card.
+|===
+
 [#data-element-and-overview-of-data-element-types]
 == Data Element and Overview of Data Element Types
 
@@ -403,7 +433,7 @@ An entity is a submodel element that is used to model entities.
 {aasd014}
 
 
-h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
+h|Inherits from: 3+|xref:ContainerElement[ContainerElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/Entity`
 
 .2+h|Attribute 3+h| ID
@@ -796,7 +826,7 @@ However, it is recommended to adhere to the order defined in the submodel templa
 |===
 h|Class: 3+e|[[SubmodelElementCollection]]SubmodelElementCollection
 h|Explanation: 3+a|A submodel element collection is a kind of struct, i.e. a logical encapsulation of multiple named values.
-h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
+h|Inherits from: 3+|xref:ContainerElement[ContainerElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementCollection`
 
 .2+h|Attribute 3+h| ID
@@ -860,7 +890,7 @@ The numbering starts with Zero (0).
 {aasd109}
 
 
-h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
+h|Inherits from: 3+|xref:ContainerElement[ContainerElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList`
 
 .2+h|Attribute 3+h| ID
