@@ -13,12 +13,12 @@
     <https://admin-shell.io/aas/3/0/Referable/idShort> "gdVdV"^^xs:string ;
     <https://admin-shell.io/aas/3/0/Referable/displayName> [
         rdf:type aas:LangStringNameType ;
-        <https://admin-shell.io/aas/3/0/AbstractLangString/language> "x-Sw4u3ZDO-nJLabnE"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/AbstractLangString/language> "zh-Hant"^^xs:string ;
         <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_c7c0c4c8"^^xs:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/Referable/description> [
         rdf:type aas:LangStringTextType ;
-        <https://admin-shell.io/aas/3/0/AbstractLangString/language> "Tvwqa-500-8EQd-y-8f5-k-vqdMn7-Ohw9-CcA628-DHKP-hPAjUZ-cnr1REUf-S8-p-9X0r-wtCI-KunG3uzI-7dGUsrTu-fY7-C3-hFN-Y-ML69DgnJ-0-Y0H-TLACBVB-Z0HRibbz-yzSf8dvR-zAn-B-6h8VjcKX-jnwR-0Z8l-ghRIZ7mo-wZG7-zXHdSIV-Oy-8dH00A6L-nJY2dA1-57o8dQ-RpxkBTbE-qBJR-M-DyGDA3U-aguRfIhj-x-XmO-1u"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/AbstractLangString/language> "az-Arab-x-AZE-derbend"^^xs:string ;
         <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_863a162e"^^xs:string ;
     ] ;
     <https://admin-shell.io/aas/3/0/Identifiable/administration> [
@@ -27,6 +27,20 @@
     <https://admin-shell.io/aas/3/0/Identifiable/id> "something_8ccad77f"^^xs:string ;
     <https://admin-shell.io/aas/3/0/HasDataSpecification/embeddedDataSpecifications> [
         rdf:type aas:EmbeddedDataSpecification ;
+        <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecificationContent> [
+            rdf:type aas:DataSpecificationIec61360 ;
+            <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
+                rdf:type aas:LangStringPreferredNameTypeIec61360 ;
+                <https://admin-shell.io/aas/3/0/AbstractLangString/language> "hy-Latn-IT-arevela"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_34113ec1"^^xs:string ;
+            ] ;
+            <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
+                rdf:type aas:LangStringPreferredNameTypeIec61360 ;
+                <https://admin-shell.io/aas/3/0/AbstractLangString/language> "en-GB"^^xs:string ;
+                <https://admin-shell.io/aas/3/0/AbstractLangString/text> "Something random in English 19945c14"^^xs:string ;
+            ] ;
+            <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/value> "something_a864dcb4"^^xs:string ;
+        ] ;
         <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecification> [
             rdf:type aas:Reference ;
             <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ModelReference> ;
@@ -35,20 +49,6 @@
                 <https://admin-shell.io/aas/3/0/Key/type> <https://admin-shell.io/aas/3/0/KeyTypes/Submodel> ;
                 <https://admin-shell.io/aas/3/0/Key/value> "urn:example14:c4971d26"^^xs:string ;
             ] ;
-        ] ;
-        <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecificationContent> [
-            rdf:type aas:DataSpecificationIec61360 ;
-            <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
-                rdf:type aas:LangStringPreferredNameTypeIec61360 ;
-                <https://admin-shell.io/aas/3/0/AbstractLangString/language> "de-CH"^^xs:string ;
-                <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_34113ec1"^^xs:string ;
-            ] ;
-            <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
-                rdf:type aas:LangStringPreferredNameTypeIec61360 ;
-                <https://admin-shell.io/aas/3/0/AbstractLangString/language> "en-UK"^^xs:string ;
-                <https://admin-shell.io/aas/3/0/AbstractLangString/text> "Something random in English 19945c14"^^xs:string ;
-            ] ;
-            <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/value> "something_a864dcb4"^^xs:string ;
         ] ;
     ] ;
     <https://admin-shell.io/aas/3/0/ConceptDescription/isCaseOf> [

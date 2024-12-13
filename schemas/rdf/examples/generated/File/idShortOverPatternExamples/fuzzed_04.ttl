@@ -16,12 +16,12 @@
         <https://admin-shell.io/aas/3/0/Referable/idShort> "Yf5"^^xs:string ;
         <https://admin-shell.io/aas/3/0/Referable/displayName> [
             rdf:type aas:LangStringNameType ;
-            <https://admin-shell.io/aas/3/0/AbstractLangString/language> "Tvwqa-500-8EQd-y-8f5-k-vqdMn7-Ohw9-CcA628-DHKP-hPAjUZ-cnr1REUf-S8-p-9X0r-wtCI-KunG3uzI-7dGUsrTu-fY7-C3-hFN-Y-ML69DgnJ-0-Y0H-TLACBVB-Z0HRibbz-yzSf8dvR-zAn-B-6h8VjcKX-jnwR-0Z8l-ghRIZ7mo-wZG7-zXHdSIV-Oy-8dH00A6L-nJY2dA1-57o8dQ-RpxkBTbE-qBJR-M-DyGDA3U-aguRfIhj-x-XmO-1u"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/AbstractLangString/language> "zh-CN-a-myext-x-private"^^xs:string ;
             <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_535aeb51"^^xs:string ;
         ] ;
         <https://admin-shell.io/aas/3/0/Referable/description> [
             rdf:type aas:LangStringTextType ;
-            <https://admin-shell.io/aas/3/0/AbstractLangString/language> "en"^^xs:string ;
+            <https://admin-shell.io/aas/3/0/AbstractLangString/language> "es-419"^^xs:string ;
             <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_be9deae0"^^xs:string ;
         ] ;
         <https://admin-shell.io/aas/3/0/HasSemantics/semanticId> [
@@ -49,6 +49,20 @@
         ] ;
         <https://admin-shell.io/aas/3/0/HasDataSpecification/embeddedDataSpecifications> [
             rdf:type aas:EmbeddedDataSpecification ;
+            <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecificationContent> [
+                rdf:type aas:DataSpecificationIec61360 ;
+                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
+                    rdf:type aas:LangStringPreferredNameTypeIec61360 ;
+                    <https://admin-shell.io/aas/3/0/AbstractLangString/language> "sl-rozaj-biske"^^xs:string ;
+                    <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_7e795ee2"^^xs:string ;
+                ] ;
+                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
+                    rdf:type aas:LangStringPreferredNameTypeIec61360 ;
+                    <https://admin-shell.io/aas/3/0/AbstractLangString/language> "en-GB"^^xs:string ;
+                    <https://admin-shell.io/aas/3/0/AbstractLangString/text> "Something random in English c8512bdf"^^xs:string ;
+                ] ;
+                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/value> "something_4e9c19b7"^^xs:string ;
+            ] ;
             <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecification> [
                 rdf:type aas:Reference ;
                 <https://admin-shell.io/aas/3/0/Reference/type> <https://admin-shell.io/aas/3/0/ReferenceTypes/ModelReference> ;
@@ -58,22 +72,8 @@
                     <https://admin-shell.io/aas/3/0/Key/value> "urn:another-company15:2bd0986b"^^xs:string ;
                 ] ;
             ] ;
-            <https://admin-shell.io/aas/3/0/EmbeddedDataSpecification/dataSpecificationContent> [
-                rdf:type aas:DataSpecificationIec61360 ;
-                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
-                    rdf:type aas:LangStringPreferredNameTypeIec61360 ;
-                    <https://admin-shell.io/aas/3/0/AbstractLangString/language> "X-33DQI-g"^^xs:string ;
-                    <https://admin-shell.io/aas/3/0/AbstractLangString/text> "something_7e795ee2"^^xs:string ;
-                ] ;
-                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/preferredName> [
-                    rdf:type aas:LangStringPreferredNameTypeIec61360 ;
-                    <https://admin-shell.io/aas/3/0/AbstractLangString/language> "en-UK"^^xs:string ;
-                    <https://admin-shell.io/aas/3/0/AbstractLangString/text> "Something random in English c8512bdf"^^xs:string ;
-                ] ;
-                <https://admin-shell.io/aas/3/0/DataSpecificationIec61360/value> "something_4e9c19b7"^^xs:string ;
-            ] ;
         ] ;
-        <https://admin-shell.io/aas/3/0/File/value> "file:/path/to/somewhere"^^xs:string ;
+        <https://admin-shell.io/aas/3/0/File/value> "something_158159bf"^^xs:string ;
         <https://admin-shell.io/aas/3/0/File/contentType> "'VbrwFrYTU/fO7NnLxq   	; 	MX.`10dB732`X5yRy=I56Ov9Us	 ;		 pRb~~hdw_C%2Zf=\"\"			    			 	 		 	  ; h=1t"^^xs:string ;
     ] ;
 .

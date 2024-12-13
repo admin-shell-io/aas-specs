@@ -35,8 +35,8 @@ See Clause xref:spec-metamodel/constraints.adoc#constraints-for-types[Constraint
 |xsd |https://www.w3.org/TR/xmlschema-2/#boolean[boolean] |true, false |true, false
 
 
-|xsd |https://www.w3.org/TR/xmlschema-2/#dateType[dateType] |Date and time with or without time zone |"2000-01-01T14:23:00", +
-"2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to xs:dateTimeStamp in XML Schema 1.1]
+|xsd |https://www.w3.org/TR/xmlschema-2/#dateTime[dateTime] |Date and time with or without time zone |"2000-01-01T14:23:00", +
+"2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to https://www.w3.org/TR/xmlschema-2/#dateTime[xs:dateTime] in XML Schema 1.0]
 
 |xsd |https://www.w3.org/TR/xmlschema-2/#duration[duration] |Duration of time |"-P1Y2M3DT1H", +
 "PT1H5M0S"
@@ -216,6 +216,14 @@ file:c:/local/Specification.pdf
 FTP://unicode.org
 
 
+.2+e|[[QualifierType]]QualifierType 2+| `\https://admin-shell.io/aas/3/0/QualifierType`
+a|_NameType_ a|
+"ExpressionSemantic" (as specified in DIN SPEC 92000:2019-09, see xref:bibliography.adoc#bib16[[16\]])
+
+"life cycle qual" (as specified in IEC 61360-7 - IEC/SC 3D - Common Data Dictionary (link:https://cdd.iec.ch/cdd/common/iec61360-7.nsf/SearchFrameset?OpenFrameSet[CDD - V2.0015.0004])
+
+
+
 .2+e|[[RevisionType]]RevisionType 2+| `\https://admin-shell.io/aas/3/0/RevisionType`
 a|
 _string_ with max 4 and min 1 characters
@@ -230,11 +238,18 @@ a|
 
 "567"
 
-.2+e|[[QualifierType]]QualifierType 2+| `\https://admin-shell.io/aas/3/0/QualifierType`
-a|_NameType_ a|
-"ExpressionSemantic" (as specified in DIN SPEC 92000:2019-09, see xref:bibliography.adoc#bib16[[16\]])
+.2+e|[[ValueDataType]]ValueDataType 2+| `\https://admin-shell.io/aas/3/0/ValueDataType`
+a|_any xsd atomic type as specified via DataTypeDefXsd_ a|
+"This is a string value"
 
-"life cycle qual" (as specified in IEC 61360-7 - IEC/SC 3D - Common Data Dictionary (link:https://cdd.iec.ch/cdd/common/iec61360-7.nsf/SearchFrameset?OpenFrameSet[CDD - V2.0015.0004])
+10
+
+1.5
+
+2020-04-01
+
+True
+
 
 .2+e|[[VersionType]]VersionType 2+| `\https://admin-shell.io/aas/3/0/VersionType`
 a|
@@ -248,18 +263,6 @@ a|
 "1"
 
 "9999"
-
-.2+e|[[ValueDataType]]ValueDataType 2+| `\https://admin-shell.io/aas/3/0/ValueDataType`
-a|_any xsd atomic type as specified via DataTypeDefXsd_ a|
-"This is a string value"
-
-10
-
-1.5
-
-2020-04-01
-
-True
 
 |===
 
@@ -569,5 +572,7 @@ Simple two-letter language tags for locales like "de" conformant to ISO 639-1 ar
 IETF language tags are referencing ISO 639, ISO 3166 and ISO 15924.
 
 .Built-In Types of XML Schema Definition 1.0 (XSD)footnote:[Source: https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes]
+
 [[image-55-xml-built-in-types]]
 image::55-xml-built-in-types.png[]
+

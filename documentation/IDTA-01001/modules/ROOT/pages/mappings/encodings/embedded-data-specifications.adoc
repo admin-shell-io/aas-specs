@@ -1,0 +1,19 @@
+[[embedded-data-specifications]]
+===  Embedded Data Specifications
+
+The document series "Specification Asset Administration Shell" predefines data specifications that can be used within an Asset Administration Shell to ensure interoperability (see Part 3 documents).
+
+Consequently, some serializations or mappings support exactly the data descriptions defined in this specification, although the metamodel as such is more flexible and would also support proprietary data specifications.
+
+In the case of restricted use of data specifications, we speak of "embedded data specifications".
+<<image-59-embedded-data-specifications>> explains the realization: instead of a set of external global references to externally defined data specifications, a set of pairs consisting of an external global reference to a data specification and the data specification content itself are directly "embedded".
+Here, the data specification content belongs to the schema, while the data specification including its content are not part of the schema in the general concept.
+
+
+.Realization of Embedded Data Specifications
+[[image-59-embedded-data-specifications]]
+[plantuml, 59-concept-description, svg]
+....
+include::partial$diagrams/59-concept-description.puml[]
+....
+

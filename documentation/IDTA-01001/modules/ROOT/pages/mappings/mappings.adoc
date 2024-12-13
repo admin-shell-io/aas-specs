@@ -1,0 +1,109 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/).
+
+SPDX-License-Identifier: CC-BY-4.0
+
+////
+
+////
+includes:
+
+GrammarSerializationReference.adoc
+EmbeddedDataSpecifications.adoc
+MetaDataObjects.adoc
+ValueOnly.adoc
+idShortPath.adoc
+////
+[[part1-mappings]]
+= Mappings (normative)
+include::links.adoc[]
+
+== Technical Data Formats
+
+This document specifies the Asset Administration Shell in a technology-neutral format, UML.
+Different data formats are used or recommended to be used in the different life cycle phases of a productfootnote:[The word "data formats" is used as shortcut and includes the use of conceptual advantages such as information models, schemes, transmission protocols, etc.].
+
+The Asset Administration Shell supports three widely used formats:
+
+* XML
+* JSON
+* RDF
+
+====
+Note: the mapping specifications and schemata for XML, JSON and RDF are part of {git-repo}.
+====
+
+== Content Format Types
+
+For different use case scenarios different formats are suitable to fulfill the needs.
+Besides technical formats like JSON and XML also different content formats are available.
+
+.Format Types
+[%autowidth,width="100%",cols="29%,71%",options="header",]
+|===
+|*Format* |*Explanation*
+|Normal
+|The standard serialization of the model element or child elements is applied.
+
+|Metadata
+|Only metadata of an element or child elements is returned; the value is not.
+
+|Value
+|Only the raw value of the model element or child elements is returned; it is commonly referred to as _ValueOnly_-serialization.
+
+|Reference
+|Only applicable to Referables.
+Only the reference to the found element is returned; potential child elements are ignored.
+
+|Path
+|Returns the idShort of the requested element and a list of idShortPath to child elements if the requested element is a Submodel, a SubmodelElementCollection, a SubmodelElementList, a AnnotatedRelationshipElement, or an Entity.
+|===
+
+== Encoding
+
+Blobs require the following encoding: base64 string.
+
+include::encodings/grammar-serialization-reference.adoc[]
+
+include::encodings/embedded-data-specifications.adoc[]
+
+include::encodings/metadata-objects.adoc[]
+
+include::encodings/valueonly.adoc[]
+
+include::encodings/valueonly-json-schema.adoc[]
+
+include::encodings/idshortpath.adoc[]
+
+== Format "Reference"
+
+In some use cases only the (model) reference to the object is needed in the first place.
+
+References are possible for Referables, only.
+Potential child elements are ignored.
+
+For references see Clause xref:spec-metamodel/referencing.adoc#referencing-in-aas[Referencing in Asset Administration Shells].
+
+.Format "Reference" - Example in JSON
+[source,json,linenums]
+----
+      {
+        "keys": [
+          {
+            "type": "AssetAdministrationShell",
+            "value": "urn:an-example08:f3f73640"
+          }
+        ],
+        "type": "ModelReference"
+      }
+
+----
+
+include::formats/xml.adoc[]
+
+include::formats/json.adoc[]
+
+include::formats/rdf.adoc[]
