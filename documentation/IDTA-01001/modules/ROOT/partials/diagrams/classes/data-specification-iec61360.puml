@@ -1,5 +1,5 @@
 @startuml
-object DataSpecificationIec61360 <<Template>> {
+object DataSpecificationIec61360<DataSpecificationContent><<Template>>{
   +preferredName: PreferredNameTypeIec61360
   +shortName: ShortNameTypeIec61360[0..1]
   +unit: string[0..1]
