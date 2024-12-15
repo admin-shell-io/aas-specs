@@ -351,6 +351,11 @@ A container element is a submodel element that is composed of other submodel ele
 
 Container elements include xref:spec-metamodel/submodel-elements.adoc#AnnotatedRelationshipElement[AnnotatedRelationshipElement],  xref:spec-metamodel/submodel-elements.adoc#Entity[Entity], xref:spec-metamodel/submodel-elements.adoc#SubmodelElementCollection[SubmodelElementCollection]  and xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList], see <<image-container-element-subtypes>>.
 
+====
+A maximum recursion depth of 32 for Container-Elements should be supported.
+This means for certification a maximum of 32 recursion test cases should be tested.
+====
+
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
 |===

@@ -58,7 +58,12 @@ The following kinds of _Types_ are distinguished:
 ** _<Primitive>:_  Type is no object type (class) but a data type; it is just a value, see Clause  xref:spec-metamodel/datatypes.adoc#primitive-data-types[Primitive Data Types]
 ** _<Enumeration>:_ Type is an enumeration, see <<template-for-enumerations>>
 
-_Card._ is the cardinality (or multiplicity) defining the lower and upper bound of the number of instances of the member element. "\*" denotes an arbitrary infinite number of elements of the corresponding Type. "0..1" means optional. "0..*" or "0..3" etc. means that the list may be either not available (optional) or the list is not empty.
+_Card._ is the cardinality (or multiplicity) defining the lower and upper bound of the number of instances of the member element. 
+"\*" denotes an arbitrary infinite number of elements of the corresponding Type. 
+"0..1" means optional. "0..*" or "0..3" etc. means that the list may be either not available (optional) or the list is not empty. 
+In the case of "0..3" there are at most 3 elements in the list.
+"1" means the attribute is mandatory. 
+"1..*" or "1..3" means there is at least 1 element in the list. The "*" denotes as maximum an infinite number of elements of the corresponding type whereas "3" means that there are at most 3 elements in the list - analogeous for other numbers.
 
 ====
 Note 1: attributes having a default value are always considered to be optional; there is always a value for the attribute because the default value is used for initialization in this case.
