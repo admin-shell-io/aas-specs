@@ -59,8 +59,8 @@ SubmodelElement <|--- EventElement
 SubmodelElement <|-- Operation
 SubmodelElement <|--- RelationshipElement
 SubmodelElement <|-- ContainerElement
-ontainerElement<|-- SubmodelElementCollection
-ontainerElement <|--- SubmodelElementList
+ContainerElement<|-- SubmodelElementCollection
+ContainerElement <|--- SubmodelElementList
 SubmodelElementCollection ..> SubmodelElement
 SubmodelElementList ..> SubmodelElement
 @enduml
