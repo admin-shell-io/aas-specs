@@ -48,6 +48,7 @@ Major Changes:
 
 * Change File and Blob: attribute "contentType" now optional (https://github.com/admin-shell-io/aas-specs/issues/412[#412])
 * remove AASd-120: idShort also allowed for elements within a SubmodelElementList (https://github.com/admin-shell-io/aas-specs/issues/432[#432])
+* remove AASd-090: category is deprecated (https://github.com/admin-shell-io/aas-specs/issues/514[#514])
 * Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications
 (https://github.com/admin-shell-io/aas-specs/issues/307[#307])
 * Terms and Definitions adopted to IEC 63278-1:2023 (before IEC 63278-1 Draft July 2022 was the basis), 
@@ -89,6 +90,7 @@ Editorial Bugfixes:
 * Replace xs:dateType with xs:dateTime (https://github.com/admin-shell-io/aas-specs/issues/467[#467])
 * Correct Example for Reference (https://github.com/admin-shell-io/aas-specs/issues/481[#481])
 * improve UML Template description with respect to cardinality (https://github.com/admin-shell-io/aas-specs/issues/388[#388])
+* improve formulation of constraints, use "shall" instead of "needs to" etc.
 
 
 Minor Changes:
@@ -151,17 +153,57 @@ now also allows hyphens to be included in name
 
 Constraint AASd-002: _idShort_ of __Referable__s shall only feature letters, digits, hyphen ("-") and  underscore ("_"); starting mandatory with a letter, and not ending with a hyphen, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$.].
 
+|{empty}  |AASd-006 |#Update a|
+use "shall" instead of "need"
+
+Constraint AASd-006: If both, the value and the valueId of a Qualifier are present, the value needs to be identical to the value of the referenced coded value in Qualifier/valueId.
+
+changed to
+
+Constraint AASd-006: If both, the value and the valueId of a Qualifier are present, the value shall be identical to the value of the referenced coded value in Qualifier/valueId.
+
+|{empty}  |AASd-007 |#Update a|
+use "shall" instead of "need"
+
+Constraint AASd-007: If both the Property/value and the Property/valueId are present, the value of Property/value needs to be identical to the value of the referenced coded value in Property/valueId.
+
+changed to
+
+Constraint AASd-007: If both the Property/value and the Property/valueId are present, the value of Property/value shall be identical to the value of the referenced coded value in Property/valueId.
+
+
 |{empty}  | AASd-014 | Update a|
 Change since Entity/entityType is now optional
 
 Constraint AASd-014: Either the attribute globalAssetId or specificAssetId of an Entity must be set if Entity/entityType is set to "SelfManagedEntity".
 
-|{empty}  | AASd-016 | Update a|
+|{empty}  | AASd-021| Update a|
+use "shall" instead of "can"
+
+Constraint AASd-021: Every qualifiable can only have one qualifier with the same Qualifier/valueType.
+
+changed to
+Constraint AASd-021: Every qualifiable shall only have one qualifier with the same Qualifier/valueType.
+
+|{empty}  | AASd-116 | Update a|
 Update version of globalAssetId
 
 Constraint AASd-116:
 "globalAssetId" (case-insensitive) is a reserved key for SpecificAssetId/name with the semantics as defined in `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`.
 
+|{empty}  |AASd-077 |#Update a|
+use "shall" instead of "need"
+
+Constraint AASd-077: The name of an extension (Extension/name) within HasExtensions needs to be unique.
+
+changed to
+
+Constraint AASd-077: The name of an extension (Extension/name) within HasExtensions shall be unique.
+
+|{empty}  |AASd-090 |#Removed a|
+
+Constraint AASd-090: 
+For data elements, category (inherited by Referable) shall be one of the following values: CONSTANT, PARAMETER or VARIABLE. Default: VARIABLE
 
 |{empty}  | AASd-120 | Removed a|
 Constraint AASd-120: idShort of submodel elements being a direct child of a SubmodelElementList shall not be specified.
