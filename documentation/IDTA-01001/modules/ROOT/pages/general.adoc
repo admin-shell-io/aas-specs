@@ -456,7 +456,7 @@ Sometimes a concept description is derived from another concept description or i
 ** Example: Property with idShort "ManufacturerName" + semanticId  value 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId value 0173-1#02-AAO677#002 have exactly equal semantics if the key types in both semanticIds are identical plus the other attributes of a Reference like _type_ and _referredSemanticId_ as well. So if the first key type of property "ManufacturerName" is "ExternalReference" and the first key type of the semanticId of property  "Herstellername" is "ModelReference" then the two semanticIds are no exact match. Or if the first reference contains a referredSemanticId value and the second does not the two semantic IDs are not exact matches.
 
 ====
-Note: Typically, a semanticId does not have a _referredSemanticId_
+Note 1: Typically, a semanticId does not have a _referredSemanticId_
 ====
 
 *Value Matching*
@@ -475,7 +475,7 @@ For example, if semantic versioning is used to version the concept description, 
 ** Example: property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#003 have equal semantics.
 
 ====
-Note: to compare two semantic IDs, knowledge about versioning needs to be available.
+Note 2: to compare two semantic IDs, knowledge about versioning needs to be available.
 In the example above, two IRDIs from ECLASS are compared.
 ECLASS rules ensure that the semantics is always backward compatible for new versions; a new IRDI would be created for breaking changes.
 ====
@@ -516,7 +516,7 @@ Semantic mappings may exist within one and the same dictionary, but also between
 ** Example: 0112/2///61360_4#AAE530 for nominal capacity of a battery in dictionary IEC CDD and 0173-1#02-AAI048#004 in ECLASS have equal semanticsfootnote:[Semantic mapping files are also used in ECLASS between ECLASS Classic and ECLASS Advanced: https://eclass.eu/support/technical-specification/data-model/basic-advanced-mapping] footnote:[This is the format used for semantic mapping in ECLASS: https://eclass.eu/fileadmin/Redaktion/pdf-Dateien/Wiki/ECLASSXML_3.0/ECLASS_XML/mapping.xsd].
 
 ====
-Note: this example does not represent an existing semantic mapping; it is only a candidate.
+Note 3: this example does not represent an existing semantic mapping; it is only a candidate.
 ====
 
 
@@ -537,7 +537,7 @@ This clause explains matching strategies based on the reference concept (see Cla
 For example, the string serialization of references as defined in Clause xref:mappings/mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"] is used for easier understanding.
 
 ====
-Note: Matching in this context means supporting a discovery query against an existing model.
+Note 4: Matching in this context means supporting a discovery query against an existing model.
 
 A typical query would be to find some element with a specific semantic ID.
 In this case the data consumer only knows the external ID whereas the provider may have created a duplicate of the concept definition as ConceptDescription and a model reference could be used
@@ -570,13 +570,13 @@ but a value match.
 * An external reference A matches an external reference B if all values of all keys are identical.
 
 ====
-Note: it is unlikely that a fragment value is identical to a global reference value; it will reference something different.
+Note 5: it is unlikely that a fragment value is identical to a global reference value; it will reference something different.
 ====
 
 * A model reference A matches a model reference B if all values of all keys are identical.
 
 ====
-Note: the key type can be ignored since the fragment keys are always unique (e.g. all idShorts of submodel elements in a submodel or all submodel elements in a submodel element list or collection).
+Note 6: the key type can be ignored since the fragment keys are always unique (e.g. all idShorts of submodel elements in a submodel or all submodel elements in a submodel element list or collection).
 ====
 
 * An external reference A matches a model reference B and vice versa if all values of all keys are identical.
@@ -584,19 +584,21 @@ Note: the key type can be ignored since the fragment keys are always unique (e.g
 * The Reference/type and Reference/referredSemanticId are ignored for matching.
 
 ====
-Note: since identifiables of the Asset Administration Shell are globally unique, model references are special cases of global references.
+Note 7: since identifiables of the Asset Administration Shell are globally unique, model references are special cases of global references.
 The only difference is the handling of key types that are predefined for Asset Administration Shell elements.
 Other key types could be predefined, e.g. for IRDI-Paths etc.
 However, so far only generic key types are supported.
 ====
 
 ====
-Note: if the values for attribute "referredSemanticId" of the two references compared are not identical then there is a mismatch between the two that should be resolved.
+Note 8: if the values for attribute "referredSemanticId" of the two references compared are not identical then there is a mismatch between the two that should be resolved.
 However, the two are considered to match in the context of discovery.
 ====
 
 ====
-Note for model reference to model reference matching or external to external reference matching: if the key types are not identical although all key values follow the correct order of the key chain, then at least one of the references is buggy and a warning may be issued.  Exception: one of the model references uses an abstract class as value for the key type, the other model reference uses a non-abstract class (e.g. SubmodelElement and Property).
+Note 9 for model reference to model reference matching or external to external reference matching: if the key types are not identical although all key values follow the correct order of the key chain, then at least one of the references is buggy and a warning may be issued.  
+Exception: one of the model references uses an abstract class as value for the key type, the other model reference uses a non-abstract class (e.g. SubmodelElement and Property).
+====
 
 The definition of link:https://www.w3.org/TR/xmlschema-2/#terminology[XML Schema] is used for matching
 
@@ -676,7 +678,7 @@ matches
 ....
 
 ====
-Note: this kind of Submodel matching might occur if a SubmodelElement of type ReferenceElement is matched against a query for this element.
+Note 10: this kind of Submodel matching might occur if a SubmodelElement of type ReferenceElement is matched against a query for this element.
 It is not allowed to substitute the Submodel references within AssetAdministrationShell/submodels with an external reference!
 ====
 
