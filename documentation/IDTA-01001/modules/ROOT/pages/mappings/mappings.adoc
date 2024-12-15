@@ -33,7 +33,7 @@ The Asset Administration Shell supports three widely used formats:
 * RDF
 
 ====
-Note: the mapping specifications and schemata for XML, JSON and RDF are part of {git-repo}.
+Note: the schemata for XML, JSON and RDF are part of {git-repo}.
 ====
 
 == Content Format Types
@@ -66,17 +66,17 @@ Only the reference to the found element is returned; potential child elements ar
 
 Blobs require the following encoding: base64 string.
 
-include::encodings/grammar-serialization-reference.adoc[]
+include::encodings/grammar-serialization-reference.adoc[leveloffset=+1]
 
-include::encodings/embedded-data-specifications.adoc[]
+include::encodings/embedded-data-specifications.adoc[leveloffset=+1]
 
-include::encodings/metadata-objects.adoc[]
+include::encodings/metadata-objects.adoc[leveloffset=+1]
 
-include::encodings/valueonly.adoc[]
+include::encodings/valueonly.adoc[leveloffset=+1]
 
 include::encodings/valueonly-json-schema.adoc[]
 
-include::encodings/idshortpath.adoc[]
+include::encodings/idshortpath.adoc[leveloffset=+1]
 
 == Format "Reference"
 
