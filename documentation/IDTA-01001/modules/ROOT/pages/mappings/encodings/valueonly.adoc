@@ -13,9 +13,9 @@ value-only_json-schema.adoc
 ////
 
 [#value-only-serialization-in-json]
-=== Format "Value" (Value-Only Serialization) in JSON
+== Format "Value" (Value-Only Serialization) in JSON
 
-==== Overview of Value-Only Serialization Attributes
+=== Overview of Value-Only Serialization Attributes
 
 In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics.
 Consequently, there is not always a need to receive the entire model information, which can be requested separately via _Content_ modifier set to _Metadata_, in each request since it is constant most of the time.
@@ -316,6 +316,7 @@ is serialized to
 
 [source,json,linenums]
 ----
+{
  "prop1": "value of prop1"
 }
 ----

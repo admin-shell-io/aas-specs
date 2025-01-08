@@ -22,6 +22,7 @@ abstract class SubmodelElement {
 
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/relationship-element.puml
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/annotated-relationship-element.puml
+!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/container-element.puml
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/data-element.puml
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/property.puml
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/multi-language-property.puml
@@ -50,14 +51,16 @@ EventElement <|-- BasicEventElement
 Operation ..> OperationVariable
 OperationVariable ..> SubmodelElement
 RelationshipElement <|-- AnnotatedRelationshipElement
+ContainerElement <|-- AnnotatedRelationshipElement
 SubmodelElement <|-- Capability
 SubmodelElement <|-- DataElement
-SubmodelElement <|--- Entity
+ContainerElement <|--- Entity
 SubmodelElement <|--- EventElement
 SubmodelElement <|-- Operation
 SubmodelElement <|--- RelationshipElement
-SubmodelElement <|-- SubmodelElementCollection
-SubmodelElement <|--- SubmodelElementList
+SubmodelElement <|-- ContainerElement
+ContainerElement<|-- SubmodelElementCollection
+ContainerElement <|--- SubmodelElementList
 SubmodelElementCollection ..> SubmodelElement
 SubmodelElementList ..> SubmodelElement
 @enduml

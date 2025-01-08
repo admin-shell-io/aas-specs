@@ -1,5 +1,5 @@
 @startuml
-class SubmodelElementList<SubmodelElement> {
+class SubmodelElementList<ContainerElement> {
   +orderRelevant: bool[0..1] = True
   +semanticIdListElement: Reference[0..1]
   +typeValueListElement: AasSubmodelElements
