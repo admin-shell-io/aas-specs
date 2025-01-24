@@ -8,31 +8,31 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ////
 
-= Metamodel Changes
+= Change Notes
 include::./includes/constraints.adoc[]
 
 == General
 
-This annex lists the changes from version to version of the metamodel, together with major changes in the overall document.
+The change notes list the notable changes made to the document.
+
 Non-backward compatible changes (nc) are marked as such.
 
-nc="x" means non-backward compatible; if no value is added in the table, then the change is backward compatible.
+* nc="x" means not backward compatible, if no value is added in the table, the change is backward compatible.
 
-nc="(x)" means that the change made was implicitly contained or stated in the document before and is now being formalized.
+* nc="(x)" means that the change made was implicitly contained or stated in the document before and is now being formalized.
 Therefore, the change is considered to be backward compatible.
 
-Before splitting the document, changes to the data specification templates and the security of the metamodel were listed in separate tables.
+The change notes for a version consist of three parts:
 
-Three tables are introduced to explain the changes:
-
-. changes w.r.t. previous version,
-. new elements in metamodel w.r.t previous version,
-. new, changed, or removed constraints w.r.t previous version.
+* changes w.r.t. previous version,
+* new elements in metamodel w.r.t previous version,
+* new, changed, or removed Constraints w.r.t previous version.
 
 If there are no changes the corresponding tables are omitted.
 
 ====
-Note: before V3.0, the security metamodel and the predefined data specifications were also part of this document.
+Note: before V3.0, the security metamodel (now IDTA-01004) and the predefined data specifications (now IDTA-01003 series) were also part of this document. 
+They had separate sections and tables documenting the changes.
 ====
 
 == Changes V3.1 vs. V3.0.1
