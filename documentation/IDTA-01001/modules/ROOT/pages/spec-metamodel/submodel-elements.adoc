@@ -144,15 +144,15 @@ Might not be specified, i.e. if there is no maximum interval.
 |Enumeration: e|[[Direction]]Direction \<<Experimental>>
 h|Explanation: a|Direction
 |Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/0/Direction`
+h|ID: | `\https://admin-shell.io/aas/3/1/Direction`
 
 .2+h|Literal h| ID
 h|Explanation
 
-.2+e|[[Direction-input]]input | `\https://admin-shell.io/aas/3/0/Direction/input`
+.2+e|[[Direction-input]]input | `\https://admin-shell.io/aas/3/1/Direction/input`
 a|Input direction
 
-.2+e|[[Direction-output]]output | `\https://admin-shell.io/aas/3/0/Direction/output`
+.2+e|[[Direction-output]]output | `\https://admin-shell.io/aas/3/1/Direction/output`
 a|Output direction
 |===
 
@@ -164,15 +164,15 @@ a|Output direction
 |Enumeration: e|[[StateOfEvent]]StateOfEvent \<<Experimental>>
 h|Explanation: a|State of an event
 |Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/0/StateOfEvent`
+h|ID: | `\https://admin-shell.io/aas/3/1/StateOfEvent`
 
 .2+h|Literal h| ID
 h|Explanation
 
-.2+e|[[StateOfEvent-on]]on | `\https://admin-shell.io/aas/3/0/StateOfEvent/on`
+.2+e|[[StateOfEvent-on]]on | `\https://admin-shell.io/aas/3/1/StateOfEvent/on`
 a|Event is on
 
-.2+e|[[StateOfEvent-off]]off | `\https://admin-shell.io/aas/3/0/StateOfEvent/off`
+.2+e|[[StateOfEvent-off]]off | `\https://admin-shell.io/aas/3/1/StateOfEvent/off`
 a|Event is off
 |===
 
@@ -465,17 +465,17 @@ a|Reference to a specific asset ID representing a supplementary identifier of th
 |Enumeration: e|[[EntityType]]EntityType
 h|Explanation: a|Enumeration for denoting whether an entity is a self-managed entity or a co-managed entity
 |Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/0/EntityType`
+h|ID: | `\https://admin-shell.io/aas/3/1/EntityType`
 
 .2+h|Literal h| ID
 h|Explanation
 
-.2+e|[[EntityType-CoManagedEntity]]CoManagedEntity | `\https://admin-shell.io/aas/3/0/EntityType/CoManagedEntity`
+.2+e|[[EntityType-CoManagedEntity]]CoManagedEntity | `\https://admin-shell.io/aas/3/1/EntityType/CoManagedEntity`
 a|
 There is no separate Asset Administration Shell for co-managed entities.
 Co-managed entities need to be part of a self-managed entity.
 
-.2+e|[[EntityType-SelfManagedEntity]]SelfManagedEntity | `\https://admin-shell.io/aas/3/0/EntityType/SelfManagedEntity`
+.2+e|[[EntityType-SelfManagedEntity]]SelfManagedEntity | `\https://admin-shell.io/aas/3/1/EntityType/SelfManagedEntity`
 a|
 Self-managed entities have their own Asset Administration Shell but can be part of another composite self-managed entity.
 
@@ -896,12 +896,12 @@ The numbering starts with Zero (0).
 
 
 h|Inherits from: 3+|xref:ContainerElement[ContainerElement]
-h|ID: 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList`
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementList`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|orderRelevant 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/orderRelevant`
+.2+e|orderRelevant 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementList/orderRelevant`
 a|
 Defines whether order in list is relevant.
 If _orderRelevant_ = false, the list represents a set or a bag.
@@ -910,10 +910,10 @@ Default: True
 
 |boolean |0..1
 
-.2+e|value 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/values`
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementList/values`
 a|Submodel element contained in the list |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |0..*
 
-.2+e|semanticIdListElement 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/semanticIdListElement`
+.2+e|semanticIdListElement 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementList/semanticIdListElement`
 a|
 Semantic ID which the submodel elements contained in the list match
 
@@ -923,9 +923,9 @@ Semantic ID which the submodel elements contained in the list match
 
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 
-.2+e|typeValueListElement  3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/typeValueListElement/typeValueListElement`
+.2+e|typeValueListElement  3+| `\https://admin-shell.io/aas/3/1/SubmodelElementList/typeValueListElement/typeValueListElement`
 a|The submodel element type of the submodel elements contained in the list |xref:spec-metamodel/referencing.adoc#AasSubmodelElements[AasSubmodelElements]|1
 
-.2+e|valueTypeListElement 3+| `\https://admin-shell.io/aas/3/0/SubmodelElementList/valueTypeListElement`
+.2+e|valueTypeListElement 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementList/valueTypeListElement`
 a|The value type of the submodel element contained in the list |xref:spec-metamodel/datatypes.adoc#DataTypeDefXsd[DataTypeDefXsd]|0..1
 |===
