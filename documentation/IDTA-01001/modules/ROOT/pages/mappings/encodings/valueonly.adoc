@@ -201,9 +201,11 @@ Note 2: the ValueOnly-serialization uses JSON native data types, AAS in general 
 In case of booleans, JSON accepts only literals true and false, whereas xs:boolean also accepts 1 and 0, respectively.
 In case of double, JSON number is used in ValueOnly, but JSON number does not support INF/-INF (positive Infinity/negative), which is supported by xs:double.
 Furthermore, NaN (Not a Number) is also not supported.
-====
 
 (See https://datatracker.ietf.org/doc/html/rfc8259#section-6)
+====
+
+
 
 ====
 Note 3: language-tagged strings (rdf:langString) containing single quotes (‘) or double quotes (") are not supported.
