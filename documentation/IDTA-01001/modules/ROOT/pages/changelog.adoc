@@ -92,6 +92,7 @@ Editorial Bugfixes:
 * Correct Example for Reference (https://github.com/admin-shell-io/aas-specs/issues/481[#481])
 * improve UML Template description with respect to cardinality (https://github.com/admin-shell-io/aas-specs/issues/388[#388])
 * improve formulation of constraints, use "shall" instead of "needs to" etc.
+* AASd-119 Class name is "HasKind", not "hasKind"
 
 
 Minor Changes:
@@ -191,6 +192,11 @@ Update version of globalAssetId
 
 Constraint AASd-116:
 "globalAssetId" (case-insensitive) is a reserved key for SpecificAssetId/name with the semantics as defined in `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`.
+
+|{empty}  | AASd-119 | Update a|
+correct class name from "hasKind" to "HasKind"
+
+Constraint AASd-119:# If any Qualifier/kind value of a Qualifiable/qualifier is equal to TemplateQualifier and the qualified element inherits from HasKind, the qualified element shall be of kind _Template_ (_HasKind/kind = "Template"_)
 
 |{empty}  |AASd-077 |Update a|
 use "shall" instead of "need"
