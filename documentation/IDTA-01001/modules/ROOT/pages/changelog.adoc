@@ -154,7 +154,7 @@ now also allows hyphens to be included in name
 
 Constraint AASd-002: _idShort_ of __Referable__s shall only feature letters, digits, hyphen ("-") and  underscore ("_"); starting mandatory with a letter, and not ending with a hyphen, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$.].
 
-|{empty}  |AASd-006 |#Update a|
+|{empty}  |AASd-006 |Update a|
 use "shall" instead of "need"
 
 Constraint AASd-006: If both, the value and the valueId of a Qualifier are present, the value needs to be identical to the value of the referenced coded value in Qualifier/valueId.
@@ -163,7 +163,7 @@ changed to
 
 Constraint AASd-006: If both, the value and the valueId of a Qualifier are present, the value shall be identical to the value of the referenced coded value in Qualifier/valueId.
 
-|{empty}  |AASd-007 |#Update a|
+|{empty}  |AASd-007 |Update a|
 use "shall" instead of "need"
 
 Constraint AASd-007: If both the Property/value and the Property/valueId are present, the value of Property/value needs to be identical to the value of the referenced coded value in Property/valueId.
@@ -192,7 +192,7 @@ Update version of globalAssetId
 Constraint AASd-116:
 "globalAssetId" (case-insensitive) is a reserved key for SpecificAssetId/name with the semantics as defined in `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`.
 
-|{empty}  |AASd-077 |#Update a|
+|{empty}  |AASd-077 |Update a|
 use "shall" instead of "need"
 
 Constraint AASd-077: The name of an extension (Extension/name) within HasExtensions needs to be unique.
@@ -201,7 +201,7 @@ changed to
 
 Constraint AASd-077: The name of an extension (Extension/name) within HasExtensions shall be unique.
 
-|{empty}  |AASd-090 |#Removed a|
+|{empty}  |AASd-090 |Removed a|
 
 Constraint AASd-090: 
 For data elements, category (inherited by Referable) shall be one of the following values: CONSTANT, PARAMETER or VARIABLE. Default: VARIABLE
