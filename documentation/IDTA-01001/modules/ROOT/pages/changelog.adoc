@@ -8,32 +8,33 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ////
 
-= Metamodel Changes
+= Change Notes
 include::./includes/constraints.adoc[]
 
 == General
 
-This annex lists the changes from version to version of the metamodel, together with major changes in the overall document.
+The change notes list the notable changes made to the document.
+
 Non-backward compatible changes (nc) are marked as such.
 
-nc="x" means non-backward compatible; if no value is added in the table, then the change is backward compatible.
+* nc="x" means not backward compatible, if no value is added in the table, the change is backward compatible.
 
-nc="(x)" means that the change made was implicitly contained or stated in the document before and is now being formalized.
+* nc="(x)" means that the change made was implicitly contained or stated in the document before and is now being formalized.
 Therefore, the change is considered to be backward compatible.
 
-Before splitting the document, changes to the data specification templates and the security of the metamodel were listed in separate tables.
+The change notes for a version consist of three parts:
 
-Three tables are introduced to explain the changes:
-
-. changes w.r.t. previous version,
-. new elements in metamodel w.r.t previous version,
-. new, changed, or removed constraints w.r.t previous version.
+* changes w.r.t. previous version,
+* new elements in metamodel w.r.t previous version,
+* new, changed, or removed Constraints w.r.t previous version.
 
 If there are no changes the corresponding tables are omitted.
 
 ====
-Note: before V3.0, the security metamodel and the predefined data specifications were also part of this document.
+Note: before V3.0, the security metamodel (now IDTA-01004) and the predefined data specifications (now IDTA-01003 series) were also part of this document. 
+They had separate sections and tables documenting the changes.
 ====
+
 
 == Changes V3.1 vs. V3.0.1
 
@@ -91,6 +92,7 @@ Editorial Bugfixes:
 * Correct Example for Reference (https://github.com/admin-shell-io/aas-specs/issues/481[#481])
 * improve UML Template description with respect to cardinality (https://github.com/admin-shell-io/aas-specs/issues/388[#388])
 * improve formulation of constraints, use "shall" instead of "needs to" etc.
+* AASd-119 Class name is "HasKind", not "hasKind"
 
 
 Minor Changes:
@@ -153,7 +155,7 @@ now also allows hyphens to be included in name
 
 Constraint AASd-002: _idShort_ of __Referable__s shall only feature letters, digits, hyphen ("-") and  underscore ("_"); starting mandatory with a letter, and not ending with a hyphen, i.e. ^[a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9_]+$.].
 
-|{empty}  |AASd-006 |#Update a|
+|{empty}  |AASd-006 |Update a|
 use "shall" instead of "need"
 
 Constraint AASd-006: If both, the value and the valueId of a Qualifier are present, the value needs to be identical to the value of the referenced coded value in Qualifier/valueId.
@@ -162,7 +164,7 @@ changed to
 
 Constraint AASd-006: If both, the value and the valueId of a Qualifier are present, the value shall be identical to the value of the referenced coded value in Qualifier/valueId.
 
-|{empty}  |AASd-007 |#Update a|
+|{empty}  |AASd-007 |Update a|
 use "shall" instead of "need"
 
 Constraint AASd-007: If both the Property/value and the Property/valueId are present, the value of Property/value needs to be identical to the value of the referenced coded value in Property/valueId.
@@ -191,7 +193,12 @@ Update version of globalAssetId
 Constraint AASd-116:
 "globalAssetId" (case-insensitive) is a reserved key for SpecificAssetId/name with the semantics as defined in `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`.
 
-|{empty}  |AASd-077 |#Update a|
+|{empty}  | AASd-119 | Update a|
+correct class name from "hasKind" to "HasKind"
+
+Constraint AASd-119:# If any Qualifier/kind value of a Qualifiable/qualifier is equal to TemplateQualifier and the qualified element inherits from HasKind, the qualified element shall be of kind _Template_ (_HasKind/kind = "Template"_)
+
+|{empty}  |AASd-077 |Update a|
 use "shall" instead of "need"
 
 Constraint AASd-077: The name of an extension (Extension/name) within HasExtensions needs to be unique.
@@ -200,7 +207,7 @@ changed to
 
 Constraint AASd-077: The name of an extension (Extension/name) within HasExtensions shall be unique.
 
-|{empty}  |AASd-090 |#Removed a|
+|{empty}  |AASd-090 |Removed a|
 
 Constraint AASd-090: 
 For data elements, category (inherited by Referable) shall be one of the following values: CONSTANT, PARAMETER or VARIABLE. Default: VARIABLE

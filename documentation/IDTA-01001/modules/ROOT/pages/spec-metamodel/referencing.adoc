@@ -101,7 +101,7 @@ h|Explanation
 .2+e|ExternalReference | `\https://admin-shell.io/aas/3/1/ReferenceTypes/ExternalReference`
 a|External reference
 
-.2+e|ModelReference | `\https://admin-shell.io/aas/3/1/ReferenceTypes/ExternalReference/ExternalReference`
+.2+e|ModelReference | `\https://admin-shell.io/aas/3/1/ReferenceTypes/ModelReference`
 a|Model reference
 |===
 
@@ -704,15 +704,6 @@ a|Reference
 a|Relationship
 
 
-.2+e|SubmodelElement | `\https://admin-shell.io/aas/3/1/AasNonContainerSubmodelElements/SubmodelElement`
-a|
-Submodel element
-
-
-====
-Note: submodel elements are abstract, i.e. if a key uses "SubmodelElement", the reference may be a property, a submodel element list, an operation, etc.
-====
-
 |===
 
 
@@ -1026,6 +1017,7 @@ a|Submodel
 
 [#constraints]
 == Constraints for References
+=== Constraints
 
 {aasd121}
 
@@ -1051,8 +1043,12 @@ Note: which kind of fragments are supported depends on the content type and the 
 
 {aasd128}
 
-In the following examples for valid und invalid model references and external references are given.
-The notation follows the grammar as defined in Clause xref:mappings/mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"].
+[#examples-for-references]
+=== Examples
+
+In the following examples for valid und invalid model references and external references.
+The notation follows the grammar as defined in Clause xref:mappings/mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"]. 
+In addition to the examples in xref:mappings/mappings.adoc#examples-reference-serialization[Examples for Text Serialization of Values of Type "Reference"] in this clause also the constraints as defined for references are taken into account.
 
 
 

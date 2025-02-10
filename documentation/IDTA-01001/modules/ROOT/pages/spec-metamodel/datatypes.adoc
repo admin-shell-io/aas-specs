@@ -85,7 +85,7 @@ a|
 
 pass:[MZ_________ÿÿ__¸_______@___________________________________€_____º__´	Í!¸_LÍ!This program cannot be run in DOS mode.$_______PE__L___Rö\^________à_]
 
-.2+e|[[ContentType]]ContentType 2+| `admin-shell.io/aas/3/0/ContentType`
+.2+e|[[ContentType]]ContentType 2+| `admin-shell.io/aas/3/1/ContentType`
 a|
 _string_ with max 100 and min 1 characters
 
@@ -110,11 +110,11 @@ image/jpeg
 
 0173-1#02-BAA120#008
 
-.2+e|[[LabelType]]LabelType 2+| `\https://admin-shell.io/aas/3/0/LabelType`
+.2+e|[[LabelType]]LabelType 2+| `\https://admin-shell.io/aas/3/1/LabelType`
 a|_string_ with max 64 and min 1 characters a|"ABC1234"
 
 
-.2+e|[[LangStringSet]]LangStringSet 2+| `\https://admin-shell.io/aas/3/0/LangStringSet`
+.2+e|[[LangStringSet]]LangStringSet 2+| `\https://admin-shell.io/aas/3/1/LangStringSet`
 a|
 _Array of elements of type langString_
 
@@ -167,7 +167,7 @@ In JSON:
 
 ]
 
-.2+e|[[MessageTopicType]]MessageTopicType 2+| `\https://admin-shell.io/aas/3/0/MessageTopicType`
+.2+e|[[MessageTopicType]]MessageTopicType 2+| `\https://admin-shell.io/aas/3/1/MessageTopicType`
 a|_string_ with max 128 and min 1 characters |
 
 .2+e|[[MultiLanguageNameType]]MultiLanguageNameType 2+| `\https://admin-shell.io/aas/3/1/MultiLanguageNameType`
@@ -177,14 +177,14 @@ Each langString within the array of strings has a max 128 of and a min of 1 char
 
 | See xref:LangStringSet[LangStringSet]
 
-.2+e|[[MultiLanguageTextType]]MultiLanguageTextType 2+| `\https://admin-shell.io/3/0/MultiLanguageTextType`
+.2+e|[[MultiLanguageTextType]]MultiLanguageTextType 2+| `\https://admin-shell.io/3/1/MultiLanguageTextType`
 a| xref:LangStringSet[LangStringSet]
 
 Each string within langString has a max of 1,023 and min of 1 characters.
 
 |See xref:LangStringSet[LangStringSet]
 
-.2+e|[[NameType]]NameType 2+| `\https://admin-shell.io/aas/3/0/NameType`
+.2+e|[[NameType]]NameType 2+| `\https://admin-shell.io/aas/3/1/NameType`
 a|_string_ with max 128 and min 1 characters |"ManufacturerPartId"
 
 
@@ -216,7 +216,7 @@ file:c:/local/Specification.pdf
 FTP://unicode.org
 
 
-.2+e|[[QualifierType]]QualifierType 2+| `\https://admin-shell.io/aas/3/0/QualifierType`
+.2+e|[[QualifierType]]QualifierType 2+| `\https://admin-shell.io/aas/3/1/QualifierType`
 a|_NameType_ a|
 "ExpressionSemantic" (as specified in DIN SPEC 92000:2019-09, see xref:bibliography.adoc#bib16[[16\]])
 
@@ -224,7 +224,7 @@ a|_NameType_ a|
 
 
 
-.2+e|[[RevisionType]]RevisionType 2+| `\https://admin-shell.io/aas/3/0/RevisionType`
+.2+e|[[RevisionType]]RevisionType 2+| `\https://admin-shell.io/aas/3/1/RevisionType`
 a|
 _string_ with max 4 and min 1 characters
 following the following regular expression:
@@ -238,7 +238,7 @@ a|
 
 "567"
 
-.2+e|[[ValueDataType]]ValueDataType 2+| `\https://admin-shell.io/aas/3/0/ValueDataType`
+.2+e|[[ValueDataType]]ValueDataType 2+| `\https://admin-shell.io/aas/3/1/ValueDataType`
 a|_any xsd atomic type as specified via DataTypeDefXsd_ a|
 "This is a string value"
 
@@ -251,7 +251,7 @@ a|_any xsd atomic type as specified via DataTypeDefXsd_ a|
 True
 
 
-.2+e|[[VersionType]]VersionType 2+| `\https://admin-shell.io/aas/3/0/VersionType`
+.2+e|[[VersionType]]VersionType 2+| `\https://admin-shell.io/aas/3/1/VersionType`
 a|
 _string_ with max 4 and min 1 characters
 
@@ -278,11 +278,12 @@ Additionally, the type "langString" with the semantics as defined in the Resourc
 ====
 Note 1: RDFfootnote:[See https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes] uses XML Schema Built-in data types from Version 1.1 but recommends to use only a subset of xsd data types.
 That is why they are excluded from the allowed data types in xref:DataTypeDefXsd[DataTypeDefXsd].
-====
+
 
 * XSD BuildIn List types are not supported (ENTITIES, IDREFS and NMTOKENS).
 * XSD string BuildIn types are not supported (normalizedString, token, language, NCName, ENTITY, ID, IDREF).
 * The following XSD primitive types are not supported: NOTATION, QName.
+====
 
 ====
 Note 2: additionally, the following RDF types are not supported in xref:DataTypeDefXsd[DataTypeDefXsd]: HTML and XMLLiteral.
@@ -552,7 +553,6 @@ e|xs:unsignedByte |see: https://www.w3.org/TR/xmlschema-2/#unsignedShort
 e|xs:unsignedInt |see: https://www.w3.org/TR/xmlschema-2/#unsignedInt
 e|xs:unsignedLong |see: https://www.w3.org/TR/xmlschema-2/#unsignedLong
 e|xs:unsignedShort |see: https://www.w3.org/TR/xmlschema-2/#unsignedShort
-e|xs:yearMonthDuration |see: https://www.w3.org/TR/xmlschema-2/#yearMonthDuration
 |===
 
 [.table-with-appendix-table]

@@ -256,14 +256,14 @@ Default for an element is that it is representing an instance.
 
 
 h|Inherits from: 3+|--
-h|ID: 3+| `\https://admin-shell.io/aas/3/0/HasKind`
+h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasKind`
 
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
 
-.2+e|[[Aas_kind]]kind 3+| `\https://admin-shell.io/aas/3/0/HasKind/kind`
+.2+e|[[Aas_kind]]kind 3+| `\https://admin-shell.io/aas/3/1/HasKind/kind`
 a| Kind of the element: either template or instance
 
 Default Value = _Instance_
@@ -281,15 +281,15 @@ It is used to distinguish between submodels and submodel templates.
 h|Enumeration: e|[[ModellingKind]]ModellingKind
 h|Explanation: |Enumeration for denoting whether an element is a template or an instance
 |Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/0/ModellingKind`
+h|ID: | `\https://admin-shell.io/aas/3/1/ModellingKind`
 
 .2+h|Literal h| ID
 h|Explanation
 
-.2+e|[[SubmodelTemplate]]Template | `\https://admin-shell.io/aas/3/0/ModellingKind/Template`
+.2+e|[[SubmodelTemplate]]Template | `\https://admin-shell.io/aas/3/1/ModellingKind/Template`
 a|specification of the common features of a structured element in sufficient detail that such an instance can be instantiated using it
 
-.2+e|[[SubmodelInstance]]Instance | `\https://admin-shell.io/aas/3/0/ModellingKind/Instance`
+.2+e|[[SubmodelInstance]]Instance | `\https://admin-shell.io/aas/3/1/ModellingKind/Instance`
 a|concrete, clearly identifiable element instance.
 Its creation and validation may be guided by a corresponding element template
 |===
@@ -514,21 +514,21 @@ It is recommended to add a _semanticId_ for the concept of the _Qualifier_. _Qua
 |Enumeration: e|[[QualifierKind]]QualifierKind
 h|Explanation: a|Enumeration for kinds of qualifiers
 |Set of: |--
-h|ID: | `\https://admin-shell.io/aas/3/0/QualifierKind`
+h|ID: | `\https://admin-shell.io/aas/3/1/QualifierKind`
 
 .2+h|Literal h| ID
 h|Explanation
 
-.2+e|ValueQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/ValueQualifier`
+.2+e|ValueQualifier | `\https://admin-shell.io/aas/3/1/QualifierKind/ValueQualifier`
 a|
 Qualifies the value of the element; the corresponding qualifier value can change over time.
 
 Value qualifiers are only applicable to elements with __kind__="_Instance"._
 
-.2+e|ConceptQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/ConceptQualifier`
+.2+e|ConceptQualifier | `\https://admin-shell.io/aas/3/1/QualifierKind/ConceptQualifier`
 a|Qualifies the semantic definition (_HasSemantics/semanticId_) the element is referring to; the corresponding qualifier value is static.
 
-.2+e|TemplateQualifier | `\https://admin-shell.io/aas/3/0/QualifierKind/TemplateQualifier`
+.2+e|TemplateQualifier | `\https://admin-shell.io/aas/3/1/QualifierKind/TemplateQualifier`
 a|
 Qualifies the elements within a specific submodel on concept level; the corresponding qualifier value is static.
 
