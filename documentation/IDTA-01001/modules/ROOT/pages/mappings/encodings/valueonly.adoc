@@ -138,43 +138,47 @@ The data types are defined according to the W3C XML Schema (https://www.w3.org/T
 The right column comprises related examples of the serialization of submodel element values.
 
 [[table-data-types-value-only]]
-.Mapping of Data Types in ValueOnly-Serializationfootnote:[cf. https://eclipse-esmf.github.io/samm-specification/2.0.0/datatypes.html]
+.Mapping of Data Types in ValueOnly-Serializationfootnote:[cf. https://eclipse-esmf.github.io/samm-specification/2.0.0/datatypes.html with minor changes]
 [%autowidth,width="100%",cols="15%,15%,9%,30%,31%",options="header",]
 |===
 | |*Data Type* |*JSON Type* |*Value Range* |*Sample Values*
-|Core Types |xs:string |string |Character string |"Hello world", "Καλημέρα κόσμε", "コンニチハ"
-| |xs:boolean |boolean |true, false |true, false
-| |xs:decimal |number |Arbitrary-precision decimal numbers |-1.23, 126789672374892739424.543233, 100000.00, 210
-| |xs:integer |number |Arbitrary-size integer numbers |-1, 0, 126789675432332938792837429837429837429, 100000
-|IEEE-floating-point numbers |xs:double |number |64-bit floating point numbers |-1.0, -0.0, 0.0, 234.567e8, 234.567e+8, 234.567e-8
-| |xs:float |number |32-bit floating point numbers |-1.0, -0.0, 0.0, 234.567e8, 234.567e+8, 234.567e-8
-|Time and data |xs:date |string |Dates (yyyy-mm-dd) with or without time zone |"2000-01-01","2000-01-01Z", "2000-01-01+12:05"
-| |xs:time |string |Times (hh:mm:ss.sss…​) with or without time zone |"14:23:00", "14:23:00.527634Z", "14:23:00+03:00"
-| |xs:dateTime |string |Date and time with or without time zone |"2000-01-01T14:23:00", "2000-01-01T14:23:00.66372+14:00"
-| |xs:dateTimeStamp |string |Date and time with required time zone |"2000-01-01T14:23:00.66372+14:00"
-|Recurring and partial dates |xs:gYear |string |Gregorian calendar year |"2000", "2000+03:00"
-| |xs:gMonth |string |Gregorian calendar month |"--04", "--04+03:00"
-| |xs:gDay |string |Gregorian calendar day of the month |"---04", "---04+03:00"
-| |xs:gYearMonth |string |Gregorian calendar year and month |"2000-01", "2000-01+03:00"
-| |xs:gMonthDay |string |Gregorian calendar month and day |"--01-01", "--01-01+03:00"
-| |xs:duration |string |Duration of time |"P30D", "-P1Y2M3DT1H", "PT1H5M0S"
-| |xs:yearMonthDuration |string |Duration of time (months and years only) |"P10M", 'P5Y2M"
-| |xs:dayTimeDuration |string |Duration of time (days, hours, minutes, seconds only) |"P30D", 'P1DT5H", 'PT1H5M0S"
-|Limited-range integer numbers |xs:byte |number |-128…+127 (8 bit) |-1, 0, 127
-| |xs:short |number |-32768…+32767 (16 bit) |-1, 0, 32767
-| |xs:int |number |2147483648…+2147483647 (32 bit) |-1, 0, 2147483647
-| |xs:long |number |-9223372036854775808…+9223372036854775807 (64 bit) |-1, 0, 9223372036854775807
-| |xs:unsignedByte |number |0…255 (8 bit) |0, 1, 255
-| |xs:unsignedShort |number |0…65535 (16 bit) |0, 1, 65535
-| |xs:unsignedInt |number |0…4294967295 (32 bit) |0, 1, 4294967295
-| |xs:unsignedLong |number |0…18446744073709551615 (64 bit) |0, 1, 18446744073709551615
-| |xs:positiveInteger |number |Integer numbers >0 |1, 7345683746578364857368475638745
-| |xs:nonNegativeInteger |number |Integer numbers ≥0 |0, 1, 7345683746578364857368475638745
-| |xs:negativeInteger |number |Integer numbers <0 |-1, -23487263847628376482736487263847
-| |xs:nonPositiveInteger |number |Integer numbers ≤0 |-1, 0, -93845837498573987498798987394
-|Encoded binary data |xs:hexBinary |string |Hex-encoded binary data |"6b756d6f77617368657265"
-| |xs:base64Binary |string |base64-encoded binary data |"a3Vtb3dhc2hlcmU="
-|Miscellaneous types |xs:anyURI |string |Absolute or relative URIs and IRIs |"http://customer.com/demo/aas/1/1/1234859590", "urn:example:company:1.0.0"
+|Core Types |xs:string |string |Character string a|"Hello world", "Καλημέρα κόσμε", "コンニチハ"
+| |xs:boolean |boolean |true, false a|true, false
+| |xs:decimal |number |Arbitrary-precision decimal numbers a|-1.23, 126789672374892739424.543233, 100000.00, 210
+| |xs:integer |number |Arbitrary-size integer numbers a|-1, 0, 126789675432332938792837429837429837429, 100000
+|IEEE-floating-point numbers |xs:double |number a|64-bit floating point numbers |-1.0, -0.0, 0.0, 234.567e8, 234.567e+8, 234.567e-8
+| |xs:float |number |32-bit floating point numbers a|-1.0, -0.0, 0.0, 234.567e8, 234.567e+8, 234.567e-8
+|Time and data |xs:date |string |Dates (yyyy-mm-dd) with or without time zone a|"2000-01-01","2000-01-01Z", "2000-01-01+12:05"
+| |xs:time |string |Times (hh:mm:ss.sss…) with or without time zone a|"14:23:00", "14:23:00.527634Z", "14:23:00+03:00"
+| |xs:dateTime |string |Date and time with or without time zone a|"2000-01-01T14:23:00", "2000-01-01T14:23:00.66372+14:00"
+| |xs:dateTimeStamp |string |Date and time with required time zone a|"2000-01-01T14:23:00.66372+14:00"
+|Recurring and partial dates |xs:gYear |string a|Gregorian calendar year |"2000", "2000+03:00"
+| |xs:gMonth |string |Gregorian calendar month a|"--04", "--04+03:00"
+| |xs:gDay |string |Gregorian calendar day of the month a|"---04", "---04+03:00"
+| |xs:gYearMonth |string |Gregorian calendar year and month a|"2000-01", "2000-01+03:00"
+| |xs:gMonthDay |string |Gregorian calendar month and day a|"--01-01", "--01-01+03:00"
+| |xs:duration |string |Duration of time a|"P30D", "-P1Y2M3DT1H", "PT1H5M0S"
+| |xs:yearMonthDuration |string a|Duration of time (months and years only) |"P10M", 'P5Y2M"
+| |xs:dayTimeDuration |string a|Duration of time (days, hours, minutes, seconds only) |"P30D", 'P1DT5H", 'PT1H5M0S"
+|Limited-range integer numbers |xs:byte |number a|-128…+127 (8 bit) |-1, 0, 127
+| |xs:short |number a|-32768…+32767 (16 bit) |-1, 0, 32767
+| |xs:int |number a|2147483648…+2147483647 (32 bit) |-1, 0, 2147483647
+| |xs:long |number a|-9223372036854775808…+9223372036854775807 (64 bit) |-1, 0, 9223372036854775807
+| |xs:unsignedByte |number a|0…255 (8 bit) |0, 1, 255
+| |xs:unsignedShort |number a|0…65535 (16 bit) |0, 1, 65535
+| |xs:unsignedInt |number a|0…4294967295 (32 bit) |0, 1, 4294967295
+| |xs:unsignedLong |number a|0…18446744073709551615 (64 bit) |0, 1, 18446744073709551615
+| |xs:positiveInteger |number a|Integer numbers >0 |1, 7345683746578364857368475638745
+| |xs:nonNegativeInteger |number a|Integer numbers ≥0 |0, 1, 7345683746578364857368475638745
+| |xs:negativeInteger |number a|Integer numbers <0 |-1, -23487263847628376482736487263847
+| |xs:nonPositiveInteger |number a|Integer numbers ≤0 |-1, 0, -93845837498573987498798987394
+|Encoded binary data |xs:hexBinary |string a|Hex-encoded binary data |"6b756d6f77617368657265"
+| |xs:base64Binary |string |base64-encoded binary data a|
+[listing]
+....
+SGVsbG8sIFdvcmxkIQ==   
+....
+|Miscellaneous types |xs:anyURI |string |Absolute or relative URIs and IRIs a|"http://customer.com/demo/aas/1/1/1234859590", "urn:example:company:1.0.0"
 | |rdf:langString |string |Strings with language tags a|
 "'Hello'@en", "'Hallo'@de"
 
