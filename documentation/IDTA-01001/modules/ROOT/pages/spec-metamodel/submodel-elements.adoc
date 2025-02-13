@@ -102,7 +102,7 @@ a|Information for the outer message infrastructure to schedule the event for the
 
 .2+e|[[BasicEventElement-messageBroker]]messageBroker 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/messageBroker`
 a|
-Information about which outer message infrastructure shall handle messages for the _EventElement_; refers to a _Submodel,_ _SubmodelElementList_, _SubmodelElementCollection_ or _Entity_, which contains __DataElement__s describing the proprietary specification for the message broker
+Information about which outer message infrastructure shall handle messages for the _EventElement_; refers to a xref:spec-metamodel/core.adoc#Submodel[Submodel], xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList], xref:spec-metamodel/submodel-elements.adoc#SubmodelElementCollection[SubmodelElementCollection]  or xref:spec-metamodel/submodel-elements.adoc#entity-attributes[Entity], which contains xref:spec-metamodel/submodel-elements.adoc#DataElement[DataElements] describing the proprietary specification for the message broker
 
 
 ====
@@ -805,12 +805,12 @@ include::partial$diagrams/44-submodel-element-collection.puml[]
 
 
 Submodel Element Collections are used for complex elements with a typically fixed set of properties with unique names.
-This set of properties is typically predefined by the semantic definition (referenced via _semanticId_) of the submodel element collection.
+This set of properties is typically predefined by the semantic definition (referenced via xref:spec-metamodel/common.adoc#HasSemantics[semanticId]) of the submodel element collection.
 Each property within the collection itself should have clearly defined semantics.
 
 ====
-Note: the different elements of a submodel element collection do not have to have different __semanticId__s.
-However, in these cases the usage of a _SubmodelElementList_ should be considered.
+Note: the different elements of a submodel element collection do not have to have different xref:spec-metamodel/common.adoc#HasSemantics[semanticIds].
+However, in these cases the usage of a xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList] should be considered.
 ====
 
 Example: a single document has a predefined set of properties like title, version, author, etc.
@@ -855,14 +855,14 @@ Submodel element lists are used for sets (i.e. unordered collections without dup
 
 
 Submodel element lists are also used to create multidimensional arrays.
-A two-dimensional array listxref:bibliography.adoc#bib3[[3\]]xref:bibliography.adoc#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements.
-Each of these three _SubmodelElementLists_ would contain 5 single _Property_ elements.
-The _semanticId_ of the contained properties would be the same for all lists in the first list, i.e. _semanticIdListElement_ would be identical for all three lists contained in the first list.
+A two-dimensional array listxref:bibliography.adoc#bib3[[3\]]xref:bibliography.adoc#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes[SubmodelElementList] elements.
+Each of these three xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes[SubmodelElementList] would contain 5 single xref:spec-metamodel/submodel-elements.adoc#property-attributes[Property] elements.
+The xref:spec-metamodel/common.adoc#HasSemantics[semanticId] of the contained properties would be the same for all lists in the first list, i.e. xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes[semanticIdListElement] would be identical for all three lists contained in the first list.
 The _semanticId_ of the three contained lists would differ depending on the dimension it represents.
-In case of complex values in the array, a _SubmodelElementCollection_ would be used as values in the leaf lists.
+In case of complex values in the array, a xref:spec-metamodel/submodel-elements.adoc#submodel-element-collection-attributes[SubmodelElementCollection]  would be used as values in the leaf lists.
 
 Similarly, a table with three columns can be represented.
-In this case a _SubmodelElementCollection_ with three _SubmodelElementLists_ would be contained and the _semanticId_ as well as the _semanticIdListElement_ for the three columns would differ.
+In this case a _SubmodelElementCollection_ with three xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementLists]  would be contained and the xref:spec-metamodel/common.adoc#HasSemantics[semanticId] as well as the xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[semanticIdListElement] for the three columns would differ.
 
 Matching strategies for semantic IDs are explained in Clause xref:general.adoc#matching-strategies-for-semantic-identifiers[Matching Strategies for Semantic Identifiers].
 
