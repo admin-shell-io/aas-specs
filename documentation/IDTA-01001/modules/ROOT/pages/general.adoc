@@ -43,7 +43,7 @@ Business-related information is handled on the 'business' layer of the RAMI4.0 m
 The business layer also covers order details and workflows, again for both type and instance assets.
 
 ====
-Note: to distinguish asset 'type' and asset 'instance', the term 'asset kind' is used in this document.
+Note 1: to distinguish asset 'type' and asset 'instance', the term 'asset kind' is used in this document.
 The three different relationship classes between assets, especially type assets and instance assets, explained below show why the distinction is so important.
 The attribute "derivedFrom" in the metamodel is used to explicitly state a relationship between assets that are being derived from one another.
 Other relationships are not explicitly supported by the metamodel of the Asset Administration Shell, but they can be modelled via the xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes["RelationshipElement"] submodel element type.
@@ -91,7 +91,7 @@ The third class of relationships are feedforward/information exchange with asset
 For example, sourcing information from business assets can influence design aspects of products; or the design of the products affects the design of the manufacturing line.
 
 ====
-Note: the NIST model xref:bibliography.adoc#bib49[[49\]] provides an illustration of the second/third class of relationships.
+Note 2: the NIST model xref:bibliography.adoc#bib49[[49\]] provides an illustration of the second/third class of relationships.
 ====
 
 A fourth class of relationships consists between assets of different hierarchy levels.
@@ -104,7 +104,8 @@ A composite I4.0 Component is the combination of a complex asset and its Asset A
 The hierarchy, typically a Bill of Material (BOM) but also any other relationship between different assets, can be represented in one of its submodels.
 
 ====
-Note: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes[RelationshipElement], see above), it also explicitly supports the representation of another asset (via the submodel element "Entity").
+Note 3: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes[RelationshipElement], see above), 
+it also explicitly supports the representation of another asset (via the submodel element xref:spec-metamodel/submodel-elements.adoc#entity-attributes[Entity]).
 The term "Entity" is chosen as superordinate concept in this context and refers to either an asset or another item that is not an asset but may be part of a more complex item or asset.
 ====
 
