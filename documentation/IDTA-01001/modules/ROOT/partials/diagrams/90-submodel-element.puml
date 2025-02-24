@@ -51,16 +51,15 @@ EventElement <|-- BasicEventElement
 Operation ..> OperationVariable
 OperationVariable ..> SubmodelElement
 RelationshipElement <|-- AnnotatedRelationshipElement
-ContainerElement <|-- AnnotatedRelationshipElement
+SubmodelElement <|-- AnnotatedRelationshipElement
 SubmodelElement <|-- Capability
 SubmodelElement <|-- DataElement
-ContainerElement <|--- Entity
+SubmodelElement <|--- Entity
 SubmodelElement <|--- EventElement
 SubmodelElement <|-- Operation
 SubmodelElement <|--- RelationshipElement
-SubmodelElement <|-- ContainerElement
-ContainerElement<|-- SubmodelElementCollection
-ContainerElement <|--- SubmodelElementList
+SubmodelElement<|-- SubmodelElementCollection
+SubmodelElement <|--- SubmodelElementList
 SubmodelElementCollection ..> SubmodelElement
 SubmodelElementList ..> SubmodelElement
 @enduml

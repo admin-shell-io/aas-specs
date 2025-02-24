@@ -1,5 +1,5 @@
 @startuml
-class Entity<ContainerElement> {
+class Entity {
   +statement: SubmodelElement[0..*]
   +entityType: EntityType[0..1]
   +globalAssetId: Identifier[0..1]
