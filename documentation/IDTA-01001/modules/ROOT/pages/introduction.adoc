@@ -21,15 +21,17 @@ image::2-iec63278-1-overview.png[]
 
 These are the main specifics and stakeholders defined for the Asset Administration Shell:
 
-* an Asset Administration Shell has an association to an asset,
-* an Asset Administration Shell provides an interface or several interfaces,
-* an Asset Administration Shell lists one or several submodels,
-* an Asset Administration Shell responsible creates and governs the Asset Administration Shell,
-* an Asset Administration Shell user application accesses the information of the Asset Administration Shell via IT interface(s).
-* a Submodel template guides the creation of a submodel following the template,
-* a Submodel template may reference concept dictionaries and ontologies,
-* concept dictionaries and ontologies define the common vocabulary as basis for interoperability,
-* submodels may reference the asset services provided by an asset via an asset integration; further services related to the asset can be referenced.
+* an Asset Administration Shell is associated to an asset;
+* an Asset Administration Shell provides AAS interface(s);
+* there are one or more Submodels listed in an Asset Administration Shell;
+* an AAS responsible has an interest in an asset, and based on this interest creates and governs an Asset Administration Shell;
+* an AAS user application accesses an Asset Administration Shell via its AAS interface(s) for use by humans or for automated processing;
+* a Submodel template may serve as guidance for a Submodel.
+* Submodels reference concept repositories;
+* a Submodel template may be used to serve as guidance for a Submodel and references concept repositories;
+* asset can provide asset services;
+* Submodels may reference asset services via an asset integration and may also reference
+asset related services.
 
 This document specifies a technology-neutral specification of the information metamodel of the Asset Administration Shell in UML.
 It serves as the basis for deriving several different formats for exchanging Asset Administration Shells, e.g. for XML, JSON, and RDF.
