@@ -37,7 +37,7 @@ include::partial$diagrams/11-asset-administration-shell.puml[]
 An asset may typically be represented by several different identification properties like the serial number, the manufacturer part ID or the different customer part IDs, its RFID code, etc.
 Such external identifiers are defined as specific asset IDs (xref:spec-metamodel/core.adoc#asset-information-attributes[AssetInformation/specificAssetId]), each characterized by a user-defined name, a value, and the user domain (tenant, subject in Attribute Based Access Control).
 See Clause xref:spec-metamodel/core.adoc#asset-information-attributes[Asset Information Attributes] for details.
-Additionally, a global asset identifier should be assigned to the asset (xref:spec-metamodel/core.adoc#asset-information-attributes[AssetInformation/globalAssetId]) in the production and operation phase.
+Additionally, a global asset identifier should be assigned to the asset (xref:spec-metamodel/core.adoc#asset-information-attributes[AssetInformation/globalAssetId]) as early as possible to allow for consistent data exchange across the borders of a company or user domain.
 
 Asset Administration Shells, submodels and concept descriptions need to be globally uniquely identifiable (xref:spec-metamodel/common.adoc#identifiable-attributes[Identifiable]).
 Other elements like properties only need to be referable within the model and thus only require a local identifier (_idShort_ from xref:spec-metamodel/common.adoc#referable-attributes[Referable]).
