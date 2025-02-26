@@ -68,7 +68,7 @@ include::partial$diagrams/25-asset-information.puml[]
 |===
 h|Class: 3+e|[[AssetInformation]]AssetInformation
 h|Explanation: 3+a|
-In _AssetInformation,_ identifying metadata of the asset that is represented by an Asset Administration Shell is defined.
+In _AssetInformation,_ identifying metadata of the asset that is represented by an xref:AssetAdministrationShell[Asset Administration Shell] is defined.
 
 The asset may either represent a type asset or an instance asset.
 
@@ -90,10 +90,10 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/AssetInformation`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|assetKind 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetKind`
+.2+e|[assetKind]]assetKind  3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetKind`
 a|Denotes whether the _Asset_ is of kind "Type", Instance", "Role" or none of these types is applicable |xref:AssetKind[AssetKind]|1
 
-.2+e|globalAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`
+.2+e|[[globalAssetId]]globalAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`
 a|
 Identifier of the asset, the Asset Administration Shell is representing
 
@@ -103,23 +103,23 @@ The internal identifier would be modelled via "specificAssetId".
 
 |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |0..1
 
-.2+e|specificAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/specificAssetIds`
+.2+e|[[specificAssetId]]specificAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/specificAssetIds`
 a|Additional domain-specific, typically proprietary identifier for the asset like serial number, manufacturer part ID, customer part IDs, etc |xref:SpecificAssetId[SpecificAssetId] |0..*
 
-.2+e|assetType 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetType`
+.2+e|[[assetType ]]assetType 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetType`
 a|
-In case _AssetInformation/assetKind_ is applicable the _AssetInformation/assetType_ is the asset ID of the type asset of the asset under consideration as identified by _AssetInformation/globalAssetId_.
+In case _AssetInformation/assetKind_ is not xref:AssetKind[NotApplicable] the _AssetInformation/assetType_ is the asset ID of the type asset of the asset under consideration as identified by _AssetInformation/globalAssetId_.
 
 
 ====
-Note: in case _AssetInformation/assetKind_ is "Instance" then the AssetInformation/assetType denotes which "Type" the asset is of.
-But it is also possible to have an _AssetInformation/assetType_ of an asset of kind "Type".
+Note: in case _AssetInformation/assetKind_ is xref:AssetKind[Instance]  then the AssetInformation/assetType denotes which xref:AssetKind[Type] the asset is of.
+But it is also possible to have an _AssetInformation/assetType_ of an asset of xref:AssetInformation#assetKind[kind] kind xref:AssetKind[Type].
 ====
 
 
 |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |0..1
 
-.2+e|defaultThumbnail 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/defaultThumbnail`
+.2+e|[[defaultThumbnail]]defaultThumbnail 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/defaultThumbnail`
 a|Thumbnail of the asset represented by the Asset Administration Shell; used as default. |xref:Resource[Resource] |0..1
 |===
 
@@ -175,7 +175,8 @@ h|Explanation
 .2+e|Type | `\https://admin-shell.io/aas/3/1/AssetKind/Type`
 a|Type asset
 
-.2+e|Instance | `\https://admin-shell.io/aas/3/1/AssetKind/Instance`
+.2+e|Instance | `\https://admin-shell.io/aasgit gq
+git/3/1/AssetKind/Instance`
 a|Instance asset
 
 .2+e|Role | `\https://admin-shell.io/aas/3/1/AssetKind/Role`
