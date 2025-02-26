@@ -18,7 +18,7 @@ value-only_json-schema.adoc
 === Overview of Value-Only Serialization Attributes
 
 In many cases, applications using data from Asset Administration Shells already know the Submodel regarding its structure, attributes, and semantics.
-Consequently, there is not always a need to receive the entire model information, which can be requested separately via _Content_ modifier set to _Metadata_, in each request since it is constant most of the time.
+Consequently, there is not always a need to receive the entire model information, which can be requested separately via _Content_ modifier set to _Metadata_ (see IDTA-01002), in each request since it is constant most of the time.
 Instead, applications are most likely only interested in the values of the modelled data.
 Furthermore, having limited processing power or limited bandwidth, one use case of this format is to transfer data as efficiently as possible.
 Semantics and data might be split into two separate architecture building blocks.
@@ -38,7 +38,7 @@ Values are only available for
 Capabilities are excluded from the serialization scope since only data containing elements are in the focus.
 They are consequently omitted in the serialization.
 
-The following rules shall be adhered to when serializing a submodel, a submodel collection or a submodel element list with the format "Value"footnote:[see SerializationModifier in Part 2 of the Specification of the Asset Administration Shell]:
+The following rules shall be adhered to when serializing a submodel, a submodel collection or a submodel element list with the format "Value"footnote:[see SerializationModifier in Part 2 - IDTA-01002 - of the Specification of the Asset Administration Shell]:
 
 * A submodel or a submodel element collection is serialized as an unnamed JSON object.
 * A submodel element list is serialized as an JSON array.
@@ -418,7 +418,7 @@ For a _File_ named "Document", the Value-Only payload is minimized to the follow
 
 For a _Blob_ named "Library", there are two possibilities for the Value-Only payload.
 In case the Blob value - that can be very large - shall not be part of the payload, the payload is minimized to the followingfootnote:[
-for the API a special JSON query parameter, the SerializationModifier _Extent_, is set to *_WithoutBLOBValue_* for this case]:
+for the API a special JSON query parameter, the SerializationModifier _Extent_, is set to *_WithoutBLOBValue_* for this case (see IDTA-01002)]:
 
 [source,json,linenums]
 ----
@@ -427,7 +427,7 @@ for the API a special JSON query parameter, the SerializationModifier _Extent_, 
 }
 ----
 
-In the second case the Blob value is part of the payload.footnote:[in this case the JSON query parameter SerializationModifier Extent is set to *_WithBlobValue_*], there is an additional attribute containing the base64-encoded value:
+In the second case the Blob value is part of the payload.footnote:[in this case the JSON query parameter SerializationModifier Extent is set to *_WithBlobValue_* (see IDTA-01002)], there is an additional attribute containing the base64-encoded value:
 
 [source,json,linenums]
 ----
