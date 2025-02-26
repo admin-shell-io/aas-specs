@@ -200,26 +200,24 @@ It is also not clear, which of the attributes are mandatory and which are specif
 This is the purpose of this document: the definition of a metamodel that defines which attributes are mandatory and which are optional for all Asset Administration Shells.
 The metamodel for Asset Administration Shells is defined in Clause xref:spec-metamodel/index.adoc#part1-specification[Specification].
 
-====
-Note 1: the metamodel of the Asset Administration Shell is suitable for type assets or instance assets.
+
+The metamodel of the Asset Administration Shell is suitable for type assets or instance assets.
 An alternative approach could have been to define two metamodels, one for type assets and one for instance assets.
 However, the large set of similarities led to the decision of only one metamodel.
-====
 
-====
-Note 2: the metamodel itself does not require the existence of mandatory submodels.
+
+
+The metamodel itself does not require the existence of mandatory submodels.
 This is another step of standardization similar to the standardization of submodels of the Asset Administration Shell type level.
-====
 
-====
-Note 3: an Asset Administration Shell type shall be realized based on the metamodel of an Asset Administration Shell as defined in this document.
+
+An Asset Administration Shell type shall be realized based on the metamodel of an Asset Administration Shell as defined in this document.
 This metamodel is referred to as "Asset Administration Shell Metamodel".
-====
 
-====
-Note 4: it is not mandatory to define an Asset Administration Shell type before defining an Asset Administration Shell (instance).
+
+It is not mandatory to define an Asset Administration Shell type before defining an Asset Administration Shell (instance).
 An Asset Administration Shell instance that does not realize an Asset Administration Shell type shall be realized based on the metamodel of an Asset Administration Shell as defined in this document.
-====
+
 
 .Example: Asset Administration Shell, Asset Administration Shell Types and Instances
 [[image-5-aas-types-and-instances]]
@@ -255,7 +253,7 @@ The Administration Shell also has a unique ID (see <<image-unique-identifier-for
 
 .Unique Identifier for Administration Shell and Asset (Modified Figure from xref:bibliography.adoc#bib4[[4\]])
 [[image-unique-identifier-for-aas-and-asset]]
-image::6-unique-identifier-for-aas-and-asset.jpeg[pdfwidth=50%,scaledwidth=50%]
+image::6-unique-identifier-for-aas-and-asset.jpeg[pdfwidth=20%,scaledwidth=20%]
 
 An Administration Shell represents exactly one asset, with a unique asset ID.
 In a batch-based production, the batches will become the assets and will be described by a respective Administration Shell.
