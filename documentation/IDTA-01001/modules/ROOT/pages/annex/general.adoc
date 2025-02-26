@@ -151,7 +151,7 @@ In the example, the first sensor has the unique ID "0215551AAA_T1" and the secon
 The Asset Administration Shell for the first sensor has the unique URI "http://T1.com" and the Asset Administration Shell for the second sensor has the unique URI "http://T2.com".
 The asset kind of both is "Instance".
 The example shows that the measured temperature at operation time of the two sensors is different: for T1 it is 60 °C, for T2 it is 100 °C.
-For the time-being we ignore the relationship "derivedFrom" of the two Asset Administration Shells "http://T1.com " and "http://T2.com" with Asset Administration Shell "http://T0215551AA.com".
+The relationship "derivedFrom" of the two Asset Administration Shells "http://T1.com " and "http://T2.com" with Asset Administration Shell "http://T0215551AA.com" will be explained later.
 
 ====
 Note 1: even though the HTTP scheme is used for the identifier, please be aware that these identifiers are logical ones.
@@ -186,12 +186,7 @@ Asset Administration Shell types are out of the scope of this document.
 ====
 
 ====
-Note 4: in public standardization, the Asset Administration Shell types might be standardized.
-However, it is much more important to standardize the property types (called property definitions or concept descriptions) or other submodel element types as well as complete submodel types because these can be reused in different Asset Administration Shells.
-====
-
-====
-Note 5: in the domain of the Internet of Things (IoT), instance assets are typically denoted as "Things" whereas type assets are denoted as "Product".
+Note 4: in the domain of the Internet of Things (IoT), instance assets are typically denoted as "Things" whereas type assets are denoted as "Product".
 ====
 
 ===  Asset Administration Shell Types and Instances
@@ -677,8 +672,8 @@ matches
 ....
 
 ====
-Note 10: this kind of Submodel matching might occur if a SubmodelElement of type ReferenceElement is matched against a query for this element.
-It is not allowed to substitute the Submodel references within AssetAdministrationShell/submodels with an external reference!
+Note 10: this kind of Submodel matching might occur if a xref:ROOT:spec-metamodel/submodel-elements.adoc#SubmodelElement[SubmodelElement]  of type xref:ROOT:spec-metamodel/submodel-elements.adoc#ReferenceElement[ReferenceElement]  is matched against a query for this element.
+It is not allowed to substitute the Submodel references within xref:ROOT:spec-metamodel/core.adoc#AssetAdministrationShell[AssetAdministrationShell/submodels]  with an external reference!
 ====
 
 [listing]
