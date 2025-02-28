@@ -12,7 +12,6 @@
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/file.puml
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/reference-element.puml
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/capability.puml
-!include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/container-element.puml
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/submodel-element-list.puml
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/submodel-element-collection.puml
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/entity.puml
@@ -21,7 +20,7 @@
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/operation.puml
 !include https://raw.githubusercontent.com/admin-shell-io/aas-specs/IDTA-01001-3-1_working/documentation/IDTA-01001/modules/ROOT/partials/diagrams/classes/operation-variable.puml
 
-AnnotatedRelationshipElement .> DataElement
+AnnotatedRelationshipElement ..> DataElement
 DataElement <|--- Blob
 DataElement <|-- File
 DataElement <|--- MultiLanguageProperty
@@ -33,16 +32,15 @@ EventElement <|-- BasicEventElement
 Operation ..> OperationVariable
 OperationVariable ..> SubmodelElement
 RelationshipElement <|-- AnnotatedRelationshipElement
-ContainerElement <|-- AnnotatedRelationshipElement
-SubmodelElement <|-- ContainerElement
+SubmodelElement <|-- AnnotatedRelationshipElement
 SubmodelElement <|-- Capability
 SubmodelElement <|-- DataElement
-ContainerElement <|--- Entity
+SubmodelElement <|--- Entity
 SubmodelElement <|--- EventElement
 SubmodelElement <|-- Operation
 SubmodelElement <|--- RelationshipElement
-ContainerElement <|-- SubmodelElementCollection
-ContainerElement <|--- SubmodelElementList
+SubmodelElement <|-- SubmodelElementCollection
+SubmodelElement <|--- SubmodelElementList
 SubmodelElementCollection ..> SubmodelElement
 SubmodelElementList ..> SubmodelElement
 @enduml

@@ -44,9 +44,12 @@ include::partial$diagrams/57-data-specification-content.puml[]
 ====
 Note: the data specification templates do not belong to the metamodel of the Asset Administration Shell.
 In serializations that choose specific templates, the corresponding data specification content may be directly incorporated.
+
+Predefined data specification templates including their ID can be found in the Part 3 series (IDTA-01003) of the specification of the Asset Administration Shell.
 ====
 
-It is required that a data specification template has a global unique ID so that it can be referenced via _HasDataSpecification/dataSpecification_.
+It is required that a data specification template has a global unique ID so that it can be referenced via xref:spec-metamodel/common.adoc#HasDataSpecification[HasDataSpecification/dataSpecification].
+
 
 A template consists of the _DataSpecificationContent_ containing the additional attributes to be added to the element instance that references the data specification template, as well as meta information about the template itself.
 These are two separate classes in UML.

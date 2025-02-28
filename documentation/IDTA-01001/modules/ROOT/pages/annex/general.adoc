@@ -43,7 +43,7 @@ Business-related information is handled on the 'business' layer of the RAMI4.0 m
 The business layer also covers order details and workflows, again for both type and instance assets.
 
 ====
-Note: to distinguish asset 'type' and asset 'instance', the term 'asset kind' is used in this document.
+Note 1: to distinguish asset 'type' and asset 'instance', the term 'asset kind' is used in this document.
 The three different relationship classes between assets, especially type assets and instance assets, explained below show why the distinction is so important.
 The attribute "derivedFrom" in the metamodel is used to explicitly state a relationship between assets that are being derived from one another.
 Other relationships are not explicitly supported by the metamodel of the Asset Administration Shell, but they can be modelled via the xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes["RelationshipElement"] submodel element type.
@@ -91,7 +91,7 @@ The third class of relationships are feedforward/information exchange with asset
 For example, sourcing information from business assets can influence design aspects of products; or the design of the products affects the design of the manufacturing line.
 
 ====
-Note: the NIST model xref:bibliography.adoc#bib49[[49\]] provides an illustration of the second/third class of relationships.
+Note 2: the NIST model xref:bibliography.adoc#bib49[[49\]] provides an illustration of the second/third class of relationships.
 ====
 
 A fourth class of relationships consists between assets of different hierarchy levels.
@@ -104,7 +104,8 @@ A composite I4.0 Component is the combination of a complex asset and its Asset A
 The hierarchy, typically a Bill of Material (BOM) but also any other relationship between different assets, can be represented in one of its submodels.
 
 ====
-Note: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes[RelationshipElement], see above), it also explicitly supports the representation of another asset (via the submodel element "Entity").
+Note 3: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes[RelationshipElement], see above), 
+it also explicitly supports the representation of another asset (via the submodel element xref:spec-metamodel/submodel-elements.adoc#entity-attributes[Entity]).
 The term "Entity" is chosen as superordinate concept in this context and refers to either an asset or another item that is not an asset but may be part of a more complex item or asset.
 ====
 
@@ -150,7 +151,7 @@ In the example, the first sensor has the unique ID "0215551AAA_T1" and the secon
 The Asset Administration Shell for the first sensor has the unique URI "http://T1.com" and the Asset Administration Shell for the second sensor has the unique URI "http://T2.com".
 The asset kind of both is "Instance".
 The example shows that the measured temperature at operation time of the two sensors is different: for T1 it is 60 °C, for T2 it is 100 °C.
-For the time-being we ignore the relationship "derivedFrom" of the two Asset Administration Shells "http://T1.com " and "http://T2.com" with Asset Administration Shell "http://T0215551AA.com".
+The relationship "derivedFrom" of the two Asset Administration Shells "http://T1.com " and "http://T2.com" with Asset Administration Shell "http://T0215551AA.com" will be explained later.
 
 ====
 Note 1: even though the HTTP scheme is used for the identifier, please be aware that these identifiers are logical ones.
@@ -185,12 +186,7 @@ Asset Administration Shell types are out of the scope of this document.
 ====
 
 ====
-Note 4: in public standardization, the Asset Administration Shell types might be standardized.
-However, it is much more important to standardize the property types (called property definitions or concept descriptions) or other submodel element types as well as complete submodel types because these can be reused in different Asset Administration Shells.
-====
-
-====
-Note 5: in the domain of the Internet of Things (IoT), instance assets are typically denoted as "Things" whereas type assets are denoted as "Product".
+Note 4: in the domain of the Internet of Things (IoT), instance assets are typically denoted as "Things" whereas type assets are denoted as "Product".
 ====
 
 ===  Asset Administration Shell Types and Instances
@@ -204,26 +200,24 @@ It is also not clear, which of the attributes are mandatory and which are specif
 This is the purpose of this document: the definition of a metamodel that defines which attributes are mandatory and which are optional for all Asset Administration Shells.
 The metamodel for Asset Administration Shells is defined in Clause xref:spec-metamodel/index.adoc#part1-specification[Specification].
 
-====
-Note 1: the metamodel of the Asset Administration Shell is suitable for type assets or instance assets.
+
+The metamodel of the Asset Administration Shell is suitable for type assets or instance assets.
 An alternative approach could have been to define two metamodels, one for type assets and one for instance assets.
 However, the large set of similarities led to the decision of only one metamodel.
-====
 
-====
-Note 2: the metamodel itself does not require the existence of mandatory submodels.
+
+
+The metamodel itself does not require the existence of mandatory submodels.
 This is another step of standardization similar to the standardization of submodels of the Asset Administration Shell type level.
-====
 
-====
-Note 3: an Asset Administration Shell type shall be realized based on the metamodel of an Asset Administration Shell as defined in this document.
+
+An Asset Administration Shell type shall be realized based on the metamodel of an Asset Administration Shell as defined in this document.
 This metamodel is referred to as "Asset Administration Shell Metamodel".
-====
 
-====
-Note 4: it is not mandatory to define an Asset Administration Shell type before defining an Asset Administration Shell (instance).
+
+It is not mandatory to define an Asset Administration Shell type before defining an Asset Administration Shell (instance).
 An Asset Administration Shell instance that does not realize an Asset Administration Shell type shall be realized based on the metamodel of an Asset Administration Shell as defined in this document.
-====
+
 
 .Example: Asset Administration Shell, Asset Administration Shell Types and Instances
 [[image-5-aas-types-and-instances]]
@@ -259,7 +253,7 @@ The Administration Shell also has a unique ID (see <<image-unique-identifier-for
 
 .Unique Identifier for Administration Shell and Asset (Modified Figure from xref:bibliography.adoc#bib4[[4\]])
 [[image-unique-identifier-for-aas-and-asset]]
-image::6-unique-identifier-for-aas-and-asset.jpeg[pdfwidth=50%,scaledwidth=50%]
+image::6-unique-identifier-for-aas-and-asset.jpeg[pdfwidth=20%,scaledwidth=20%]
 
 An Administration Shell represents exactly one asset, with a unique asset ID.
 In a batch-based production, the batches will become the assets and will be described by a respective Administration Shell.
@@ -349,12 +343,12 @@ recommended
 
 Typically used as displayName for the submodel of kind Instance as well
 
-| |semanticId |IRDI, IRI (URI) a|
+| |xref:ROOT:spec-metamodel/common.adoc#HasSemantics[semanticId]  |IRDI, IRI (URI) a|
 recommended
 
 The semantic ID might refer to an external semantic model defining the semantics of the submodel.
 
-| |supplementalSemanticId |IRDI, IRI (URI) |optional
+| |xref:ROOT:spec-metamodel/common.adoc#HasSemantics[supplementalSemanticId]  |IRDI, IRI (URI) |optional
 |xref:spec-metamodel/core.adoc#Submodel[Submodel] with kind = Instance |id |IRI (URI), Custom |mandatory
 | |idShort |string a|
 recommended
@@ -362,12 +356,12 @@ recommended
 Typically, the idShort or English short name of the submodel template that is referenced via semanticId.
 
 | |displayName |multi language string |optional
-| |semanticId |IRDI, IRI (URI) a|
+| |xref:ROOT:spec-metamodel/common.adoc#HasSemantics[semanticId]  |IRDI, IRI (URI) a|
 recommended
 
 Typically, the semanticId is an external reference to an external standard defining the semantics of the submodel.
 
-| |supplementalSemanticId |IRDI, IRI (URI) |optional
+| |xref:ROOT:spec-metamodel/common.adoc#HasSemantics[supplementalSemanticId] |IRDI, IRI (URI) |optional
 |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |idShort |string a|
 mandatory
 
@@ -384,12 +378,12 @@ If no display name is defined in the language requested by the application, the 
 * the short name of the concept description,
 * the idShort of the element.
 
-| |semanticId |IRDI, IRI (URI), Custom a|
+| |xref:ROOT:spec-metamodel/common.adoc#HasSemantics[semanticId]  |IRDI, IRI (URI), Custom a|
 recommended
 
 link to a _ConceptDescription_ or the concept definition in an external repository via a global ID
 
-| |supplementalSemanticId |IRDI, IRI (URI) |optional
+| |xref:ROOT:spec-metamodel/common.adoc#HasSemantics[supplementalSemanticId] |IRDI, IRI (URI) |optional
 |xref:spec-metamodel/concept-description.adoc#ConceptDescription[ConceptDescription] |id |IRDI, IRI, Custom a|
 mandatory
 
@@ -407,7 +401,7 @@ optional
 
 links to the concept definition in an external repository, which the concept description is a copy from, or that it corresponds to
 
-|xref:spec-metamodel/common.adoc#Qualifier[Qualifier] |semanticId |IRDI, IRI (URI), Custom a|
+|xref:spec-metamodel/common.adoc#Qualifier[Qualifier] |xref:ROOT:spec-metamodel/common.adoc#HasSemantics[semanticId]  |IRDI, IRI (URI), Custom a|
 recommended
 
 Links to the qualifier type definition in an external repository
@@ -432,7 +426,7 @@ To allow such efficient addressing by the chaining of elements by an API of an A
 It inherits from the abstract class xref:spec-metamodel/common.adoc#referable-attributes[Referable], in order to refer to such dependent elements.
 
 Before accessing concrete data provided via a submodel, an application typically checks if the submodel provides the required data, i.e. the semantics of the submodel is checked for suitability.
-A so-called _semanticId_ should be defined for this submodel as well as the submodel element.
+A so-called xref:ROOT:spec-metamodel/common.adoc#HasSemantics[semanticId] should be defined for this submodel as well as the submodel element.
 This semantic ID helps to easily find the semantic definition of the submodel (see Clause xref:spec-metamodel/common.adoc#has-semantics-attributes[Has Semantics Attributes]).
 
 [#matching-strategies]
@@ -451,10 +445,10 @@ Sometimes a concept description is derived from another concept description or i
 *Exact Matching (identical semanticIds) – DEFAULT*
 
 * With exact matching, two semantic IDs need to represent two exact matching references (see xref:general.adoc#matching-algorithm-for-references[Matching Algorithm for References]).
-** Example: Property with idShort "ManufacturerName" + semanticId  value 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId value 0173-1#02-AAO677#002 have exactly equal semantics if the key types in both semanticIds are identical plus the other attributes of a Reference like _type_ and _referredSemanticId_ as well. So if the first key type of property "ManufacturerName" is "ExternalReference" and the first key type of the semanticId of property  "Herstellername" is "ModelReference" then the two semanticIds are no exact match. Or if the first reference contains a referredSemanticId value and the second does not the two semantic IDs are not exact matches.
+** Example: xref:ROOT:spec-metamodel/submodel-elements.adoc#Property[Property]  ith xref:ROOT:spec-metamodel/common.adoc#Referable[idShort]  "ManufacturerName" + xref:ROOT:spec-metamodel/common.adoc#HasSemantics[semanticId]  value 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId value 0173-1#02-AAO677#002 have exactly equal semantics if the xref:ROOT:spec-metamodel/referencing.adoc#Key[Key/type]s in both semanticIds are identical plus the other attributes of a xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference] like xref:ROOT:spec-metamodel/referencing.adoc#Reference[type] and xref:ROOT:spec-metamodel/referencing.adoc#Reference[referredSemanticId] as well. So if the first key type of property "ManufacturerName" is xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ExternalReference] and the first key type of the semanticId of property  "Herstellername" is xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ModelReference] then the two semanticIds are no exact match. Or if the first reference contains a referredSemanticId value and the second does not the two semantic IDs are not exact matches.
 
 ====
-Note 1: Typically, a semanticId does not have a _referredSemanticId_
+Note 1: Typically, a xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference]  for a xref:ROOT:spec-metamodel/common.adoc#HasSemantics[semanticId] does not have a xref:ROOT:spec-metamodel/referencing.adoc#Reference[referredSemanticId]
 ====
 
 *Value Matching*
@@ -490,7 +484,7 @@ matches 0173-1#02-AAC895#008
 
 * Consider supplemental semantic IDs (any)
 
-** With intelligent matching two sets of semantic IDs may be compared: Input is a set of semantic IDs, not distinguishing between semanticId and supplementalSemanticId. SupplementalSemanticIds are not ordered, so index information is not relevant. The input matches to an element for which either its semanticId is in the Input set of semantic IDs or one of its supplemental IDs matches to ones of the semantic IDs in the Input set.
+** With intelligent matching two sets of semantic IDs may be compared: Input is a set of semantic IDs, not distinguishing between semanticId and ref:ROOT:spec-metamodel/core.adoc#HasSemantics[HasSemantics/supplementalSemanticId]. SupplementalSemanticIds are not ordered, so index information is not relevant. The input matches to an element for which either its semanticId is in the Input set of semantic IDs or one of its supplemental IDs matches to ones of the semantic IDs in the Input set.
 ** In addition exact or value matching of semantic IDs can be distinguished (see before)
 ** Example: Input Set = { 0173/1///02#AAC895#008} matches for a property with semanticId = \https://api.eclass-cdp.com/0173-1-02-AAC895-008 and supplementalSemanticId = 0173/1///02#AAC895#008.
 ** Example: Input Set = { 0173-1#02-AAC895#00, \https://api.eclass-cdp.com/0173-1-02-AAC895-008, 0173/1///02#AAC895#008 } would match for a property with semanticId = \https://api.eclass-cdp.com/0173-1-02-AAC895-008 and no supplemental semantic IDs.
@@ -504,7 +498,7 @@ matches 0173-1#02-AAC895#008
 
 * Consider supplemental semantic IDs and isCaseOf
 
-** The two intelligent matching strategies "Consider supplemental semantic IDs (any)" and "Consider supplemental semantic IDs (all)" may be extended to also include the isCaseOf information of a ConceptDescription referenced via one of the semantic IDs (semanticId or supplementalSemanticId) of an element.
+** The two intelligent matching strategies "Consider supplemental semantic IDs (any)" and "Consider supplemental semantic IDs (all)" may be extended to also include the ref:ROOT:spec-metamodel/concept-description.adoc#ConceptDescription[isCaseOf]  information of a ref:ROOT:spec-metamodel/concept-description.adoc#ConceptDescription[ConceptDescription ] referenced via one of the semantic IDs (semanticId or supplementalSemanticId) of an element.
 ** Example: Input Set = { 0173/1///02#AAC895#008} matches for a property with semanticId = [ModelRef](ConceptDescription) \https://admin-shell.io.example if the isCaseOf value of the referenced concept description with id =  \https://admin-shell.io.example is equal to 0173/1///02#AAC895#008.
 
 
@@ -545,7 +539,7 @@ Matching does not mean to define equivalence classes that allow to overwrite con
 
 **Exact matching of two references**
 
-* Two References are identical if all attributes values are identical.
+* Two xref:ROOT:spec-metamodel/referencing.adoc#Reference[References] are identical if all attributes values are identical.
 
 [.underline]#Examples for non-matching external referencesfootnote:[The example only contains arbitrary IRDIs and does not represent a real-world example.]:#
 
@@ -565,7 +559,7 @@ but a value match.
 
 **Value matching of two references**
 
-* An external reference A matches an external reference B if all values of all keys are identical.
+* An external reference A matches an external reference B if all values of all xref:ROOT:spec-metamodel/referencing.adoc#Reference[keys]  are identical.
 
 ====
 Note 5: it is unlikely that a fragment value is identical to a global reference value; it will reference something different.
@@ -579,7 +573,7 @@ Note 6: the key type can be ignored since the fragment keys are always unique (e
 
 * An external reference A matches a model reference B and vice versa if all values of all keys are identical.
 
-* The Reference/type and Reference/referredSemanticId are ignored for matching.
+* The xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference/type] and xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference/referredSemanticId]  are ignored for matching.
 
 ====
 Note 7: since identifiables of the Asset Administration Shell are globally unique, model references are special cases of global references.
@@ -589,12 +583,12 @@ However, so far only generic key types are supported.
 ====
 
 ====
-Note 8: if the values for attribute "referredSemanticId" of the two references compared are not identical then there is a mismatch between the two that should be resolved.
+Note 8: if the values for attribute xref:ROOT:spec-metamodel/referencing.adoc#Reference[referredSemanticId] of the two references compared are not identical then there is a mismatch between the two that should be resolved.
 However, the two are considered to match in the context of discovery.
 ====
 
 ====
-Note 9 for model reference to model reference matching or external to external reference matching: if the key types are not identical although all key values follow the correct order of the key chain, then at least one of the references is buggy and a warning may be issued.  
+Note 9 for model reference to model reference matching or external to external reference matching: if the xref:ROOT:spec-metamodel/referencing.adoc#Key[key types] are not identical although all xref:ROOT:spec-metamodel/referencing.adoc#Key[key values]  follow the correct order of the key chain, then at least one of the references is buggy and a warning may be issued.  
 Exception: one of the model references uses an abstract class as value for the key type, the other model reference uses a non-abstract class (e.g. SubmodelElement and Property).
 ====
 
@@ -676,8 +670,8 @@ matches
 ....
 
 ====
-Note 10: this kind of Submodel matching might occur if a SubmodelElement of type ReferenceElement is matched against a query for this element.
-It is not allowed to substitute the Submodel references within AssetAdministrationShell/submodels with an external reference!
+Note 10: this kind of Submodel matching might occur if a xref:ROOT:spec-metamodel/submodel-elements.adoc#SubmodelElement[SubmodelElement]  of type xref:ROOT:spec-metamodel/submodel-elements.adoc#ReferenceElement[ReferenceElement]  is matched against a query for this element.
+It is not allowed to substitute the Submodel references within xref:ROOT:spec-metamodel/core.adoc#AssetAdministrationShell[AssetAdministrationShell/submodels]  with an external reference!
 ====
 
 [listing]

@@ -41,12 +41,11 @@ They had separate sections and tables documenting the changes.
 Major Changes:
 
 * New value "Role" to enumeration AssetKind (https://github.com/admin-shell-io/aas-specs/issues/294[#294])
-* New abstract class "ContainerElement" as subtype of "SubmodelElement", subtypes: AnnotatedRelationshipElement, Entity, SubmodelElementCollection, SubmodelElementList. Includes introducing new enumeration for container elements and extending existing enumerations for submodel elements "AasSubmodelElement" etc. (https://github.com/admin-shell-io/aas-specs/issues/333[#333])
+* New logical enumerations "AasContainerSubmodelElements" and "AasNonContainerSubmodelElements"  (https://github.com/admin-shell-io/aas-specs/issues/420[#420])
 * Data type Identifier: change length from 2000 to 2048 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
 * Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name (https://github.com/admin-shell-io/aas-specs/issues/295[#295])
 * Entity/entityType and Constraint AASd-014: entityType now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
 * Change RelationshipElement: attributes "first" and "second" now optional (conformant to "min" and "max" of "Range")(https://github.com/admin-shell-io/aas-specs/issues/412[#412]), AnnotatedRelationshipElement inherits from RelationshipElement and is thus also affected.
-
 * Change File and Blob: attribute "contentType" now optional (https://github.com/admin-shell-io/aas-specs/issues/412[#412])
 * remove AASd-120: idShort also allowed for elements within a SubmodelElementList (https://github.com/admin-shell-io/aas-specs/issues/432[#432])
 * remove AASd-090: category is deprecated (https://github.com/admin-shell-io/aas-specs/issues/514[#514])
@@ -64,6 +63,8 @@ also abbreviations partly adopted; changes:
 	** changed: Submodel template
 	** changed: Submodel template element
 	** removed: technical functionality
+* Terms and Definitions, updates:
+	** changed: Note 7 removed from term "property"
 * Update clause on matching algorithm for references, include handling of supplementalSemanticIds, isCaseOf etc.
 (https://github.com/admin-shell-io/aas-specs/issues/350[#350], 
 https://github.com/admin-shell-io/aas-specs/issues/471[#471],
@@ -83,6 +84,8 @@ https://github.com/admin-shell-io/aas-specs/issues/471[#471],
 This means for certification a maximum of 32 recursion test cases should be tested. (https://github.com/admin-shell-io/aas-specs/issues/333[#333]) 
 * remove clauses on OPC UA and AutomationML mappings (https://github.com/admin-shell-io/aas-specs/issues/373[#373], https://github.com/admin-shell-io/aas-specs/issues/397[#397])
 * update explanatory text and notes in the context of AdministrativeInformation (https://github.com/admin-shell-io/aas-specs/issues/331[#331])
+* move chapter "General" to Annex
+* remove Annex "Requirements"
 * Transfer from .docx to asciidoc (.adoc) and maintenance in GitHub (including (https://github.com/admin-shell-io/aas-specs/issues/318[#318], https://github.com/admin-shell-io/aas-specs/issues/316[#316] )
 * Transfer of all UML figures to PlantUML (.puml), changed notation for model references; maintenance in GitHub, no XMI presenation part of release any longer (https://github.com/admin-shell-io/aas-specs/issues/439[#439]) 
 
@@ -97,15 +100,20 @@ Editorial Bugfixes:
 
 Minor Changes:
 
+
 * add new data type "DateTimeUtc" and use it for attribute _lastUpdate_ of _BasicEventElement_ and attribute _timeStamp_ of _EventPayload_ (https://github.com/admin-shell-io/aas-specs/issues/498[#498])
+* change recommendation for recursion: from "[..] maximum recursion depth of 32 [..]" to "A recursion depth of 32 should not be exceeded. The recommendation is to have not more than 8 recursions in a submodel. Test engines should test at least 16 recursions."
 * add Annex with overview of constraints (https://github.com/admin-shell-io/aas-specs/issues/509[#509])
 * update Constraint AASd-116 (https://github.com/admin-shell-io/aas-specs/issues/298[#298])
 * remove information on OPC UA mapping (https://github.com/admin-shell-io/aas-specs/issues/373[#373])
 * remove information on AutomationML mapping (https://github.com/admin-shell-io/aas-specs/issues/397[#397])
+* remove notes or change notes to paragraphs in Annex "General"
 * update bibliography (newer versions, link update, removal of entries not referenced)
 * consistent usage of idShortPath and IRDI-Path (https://github.com/admin-shell-io/aas-specs/issues/385[#385])
 * add example for deprecated attribute in class in Annex UML
-* enhanced explantion for AASd-130
+* enhanced explanation for AASd-130
+* change explanation of Entity/statement to singular for consistency
+* remove [23] from bibliography and remove corresponding notes referring to it
 * editorial changes (including https://github.com/admin-shell-io/aas-specs/issues/345[#345], 
 https://github.com/admin-shell-io/aas-specs/issues/361[#361], 
 https://github.com/admin-shell-io/aas-specs/issues/385[#385])
@@ -118,17 +126,12 @@ https://github.com/admin-shell-io/aas-specs/issues/385[#385])
 |===
 |*Nc* |*V3.1 Change w.r.t. V3.0.1* |*Comment*
 
-| {empty} | xref:spec-metamodel/referencing.adoc#KeyTypes[KeyTypes/ContainerElement] a| Add new value "ContainerElement" to enumeration KeyTypes, because AasSubmodelElements was extended
-| {empty} | xref:spec-metamodel/referencing.adoc#AasReferableNonIdentifiables[AasReferableNonIdentifiables/ContainerElement] a| Add new value "ContainerElement" to enumeration AasReferableNonIdentifiables, because AasSubmodelElements was extended
-| {empty} | xref:spec-metamodel/referencing.adoc#AasReferables[AasReferables/ContainerElement] a| Add new value "ContainerElement" to enumeration AasReferables, because AasSubmodelElements was extended
-| {empty} | xref:spec-metamodel/referencing.adoc#AasSubmodelElements[AasSubmodelElements/ContainerElement] a| Add new value "ContainerElement" to enumeration AasSubmodelElements
 | {empty} | xref:spec-metamodel/core.adoc#AssetKind[AssetKind] a| Add new value "Role" to enumeration AssetKind
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#BasicEventElement[BasicEventElement/lastUpdate] a| change data type from _dateTime_ to _DateTimeUtc_
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#Blob[Blob/contentType] a| now optional
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#Entity[Entity/entityType] a| now optional
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#EventPayload[EventPayload/timeStamp] a| change data type from _dateTime_ to _DateTimeUtc_
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#File[File/contentType] a| now optional
-| {empty} | xref:spec-metamodel/referencing.adoc#FragmentKeys[FragmentKeys/ContainerElement] a| Add new value "ContainerElement" to enumeration FragmentKeys, because AasSubmodelElements was extended
 | {empty} | xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] a| data type: change length from 2000 to 2024 characters
 | {empty} | xref:spec-metamodel/datatypes.adoc#NameType[NameType] a| implicit change due to change of Constraint AASd-002
 | {empty}  | xref:spec-metamodel/common.adoc#Referable[Referable/idShort] a| implicit change because constraint AASd-002 now also allows hyphen
@@ -145,7 +148,6 @@ https://github.com/admin-shell-io/aas-specs/issues/385[#385])
 
 |{empty} | xref:spec-metamodel/referencing.adoc#AasContainerSubmodelElements[AasContainerSubmodelElements] | New enumeration for container submodel elements
 |{empty} | xref:spec-metamodel/core.adoc#AssetKind[AssetKind/Role] | New value in enumeration
-|{empty} | xref:spec-metamodel/submodel-elements.adoc#ContainerElement[ContainerElement] | New abstract class
 |{empty} | xref:spec-metamodel/referencing.adoc#AasNonContainerSubmodelElements[AasNonContainerSubmodelElements] | New enumeration for non-container submodel elements
 |{empty} | xref:spec-metamodel/datatypes.adoc#DateTimeUtc[DateTimeUtc] | New data type
 |===

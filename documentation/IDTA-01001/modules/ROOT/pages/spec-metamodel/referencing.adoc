@@ -33,7 +33,7 @@ include::partial$diagrams/48-reference.puml[]
 ....
 
 
-See Clause xref:general.adoc#matching-algorithm-for-references[Matching Algorithm for References] for reference matching.
+See Clause xref:annex/general.adoc#matching-algorithm-for-references[Matching Algorithm for References] for reference matching.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -137,7 +137,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Key`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|type 3+| `\https://admin-shell.io/aas/3/1/Key`
+.2+e|type 3+| `\https://admin-shell.io/aas/3/1/Key/type`
 a|
 Denotes which kind of entity is referenced
 
@@ -150,7 +150,7 @@ The name of the model element is explicitly listed.
 
 |xref:KeyTypes[KeyTypes]|1
 
-.2+e|value 3+| `\https://admin-shell.io/aas/3/1/Key`
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/Key/value`
 a|The key value, for example an IRDI or a URI or the xref:spec-metamodel/common.adoc#Referable[idShort] or any other fragment value |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |1
 |===
 
@@ -193,15 +193,6 @@ a|Capability
 .2+e|ConceptDescription | `\https://admin-shell.io/aas/3/1/KeyTypes/ConceptDescription`
 a|Concept Description
 
-
-.2+e|ContainerElement | `\https://admin-shell.io/aas/3/1/KeyTypes/ContainerElement`
-a|
-Container Element
-
-
-====
-Note: container elements are abstract, i.e. if a key uses "ContainerElement", the reference may be a submodel element collection, an entity etc.
-====
 
 .2+e|DataElement | `\https://admin-shell.io/aas/3/1/KeyTypes/DataElement`
 a|
@@ -326,14 +317,6 @@ a|Blob
 a|Capability
 
 
-.2+e|ContainerElement | `\https://admin-shell.io/aas/3/1/FragmentKeys/ContainerElement`
-a|
-Container Element
-
-
-====
-Note: container elements are abstract, i.e. if a key uses "ContainerElement", the reference may be a submodel element collection, an entity etc.
-====
 
 .2+e|DataElement | `\https://admin-shell.io/aas/3/1/FragmentKeys/DataElement`
 a|
@@ -451,14 +434,6 @@ a|Blob
 .2+e|Capability | `\https://admin-shell.io/aas/3/1/AasReferableNonIdentifiables/Capability`
 a|Capability
 
-.2+e|ContainerElement | `\https://admin-shell.io/aas/3/1/AasReferableNonIdentifiables/ContainerElement`
-a|
-Container Element
-
-
-====
-Note: container elements are abstract, i.e. if a key uses "ContainerElement", the reference may be a submodel element collection, an entity etc.
-====
 
 .2+e|DataElement | `\https://admin-shell.io/aas/3/1/AasReferableNonIdentifiables/DataElement`
 a|
@@ -550,15 +525,6 @@ a|Blob
 
 .2+e|Capability | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/Capability`
 a|Capability
-
-.2+e|ContainerElement | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/ContainerElement`
-a|
-Container Element
-
-
-====
-Note: container elements are abstract, i.e. if a key uses "ContainerElement", the reference may be a submodel element collection, an entity etc.
-====
 
 .2+e|DataElement | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/DataElement`
 a|
@@ -731,15 +697,6 @@ h|Explanation
 .2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/1/AasContainerSubmodelElements/AnnotatedRelationshipElement`
 a|Annotated relationship element
 
-.2+e|ContainerElement | `\https://admin-shell.io/aas/3/1/AasContainerSubmodelElements/ContainerElement`
-a|
-Container Element
-
-
-====
-Note: container elements are abstract, i.e. if a key uses "ContainerElement", the reference may be a submodel element collection, an entity etc.
-====
-
 
 .2+e|Entity | `\https://admin-shell.io/aas/3/1/AasContainerSubmodelElements/Entity`
 a|Entity
@@ -793,15 +750,6 @@ a|Capability
 .2+e|ConceptDescription | `\https://admin-shell.io/aas/3/1/AasReferables/ConceptDescription`
 a|
 Concept description
-
-.2+e|ContainerElement | `\https://admin-shell.io/aas/3/1/AasReferables/ContainerElement`
-a|
-Container Element
-
-
-====
-Note: container elements are abstract, i.e. if a key uses "ContainerElement", the reference may be a submodel element collection, an entity etc.
-====
 
 
 .2+e|DataElement | `\https://admin-shell.io/aas/3/1/AasReferables/DataElement`
