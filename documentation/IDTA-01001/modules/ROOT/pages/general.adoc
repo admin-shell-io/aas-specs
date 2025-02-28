@@ -51,14 +51,14 @@ The attribute "derivedFrom" in the metamodel is used to explicitly state a relat
 Other relationships are not explicitly supported by the metamodel of the Asset Administration Shell, but they can be modelled via the xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes["RelationshipElement"] submodel element type.
 ====
 
-<<table-life-cycle-phases-and-roles-of-type-and-instance-assets>> gives an overview of the different life cycle phases and the role of type assets and instance assets as well as their relationship in these phases.
+<<table-life-cycle-phases-and-roles-of-type-and-instance-asses>> gives an overview of the different life cycle pases and the role of type assets and instance assets as well as their relationship in these phases.
 
 This important relationship should be maintained throughout the life of the instance assets.
 It makes it possible to forward updates from the type assets to the instance assets, either automatically or on demand.
 
 .Life Cycle Phases and Roles of Type and Instance Assets
-[[table-life-cycle-phases-and-roles-of-type-and-instance-assets]]
-[cols="20%,22%,58%",options=header]
+[[table-life-cycle-phasesand-roles-of-type-and-instance-assets]]
+[cols="20%,22%,58%",optio=header]
 |===
 |*Asset Kind* |*Life Cycle Phase* |*Description*
 |Type asset |Development a|
@@ -93,7 +93,7 @@ The third class of relationships are feedforward/information exchange with asset
 For example, sourcing information from business assets can influence design aspects of products; or the design of the products affects the design of the manufacturing line.
 
 ====
-Note: the NIST model xref:bibliography.adoc#bib49[[49\]] provides an illustration of the second/third class of relationships.
+Note: the NIST model xref:biliography.adoc#bib49[[49\]] provides an illustration of the second/third class of relationships.
 ====
 
 A fourth class of relationships consists between assets of different hierarchy levels.
