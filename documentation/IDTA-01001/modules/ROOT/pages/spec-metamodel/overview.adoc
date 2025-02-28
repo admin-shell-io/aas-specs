@@ -37,11 +37,11 @@ include::partial$diagrams/11-asset-administration-shell.puml[]
 An asset may typically be represented by several different identification properties like the serial number, the manufacturer part ID or the different customer part IDs, its RFID code, etc.
 Such external identifiers are defined as specific asset IDs (xref:spec-metamodel/core.adoc#asset-information-attributes[AssetInformation/specificAssetId]), each characterized by a user-defined name, a value, and the user domain (tenant, subject in Attribute Based Access Control).
 See Clause xref:spec-metamodel/core.adoc#asset-information-attributes[Asset Information Attributes] for details.
-Additionally, a global asset identifier should be assigned to the asset (xref:spec-metamodel/core.adoc#asset-information-attributes[AssetInformation/globalAssetId]) in the production and operation phase.
+Additionally, a global asset identifier should be assigned to the asset (xref:spec-metamodel/core.adoc#asset-information-attributes[AssetInformation/globalAssetId]) as early as possible to allow for consistent data exchange across the borders of a company or user domain.
 
 Asset Administration Shells, submodels and concept descriptions need to be globally uniquely identifiable (xref:spec-metamodel/common.adoc#identifiable-attributes[Identifiable]).
 Other elements like properties only need to be referable within the model and thus only require a local identifier (_idShort_ from xref:spec-metamodel/common.adoc#referable-attributes[Referable]).
-For details on identification, see Clause xref:general.adoc#identification-of-elements[Identification of Elements].
+For details on identification, see Clause xref:annex/general.adoc#identification-of-elements[Identification of Elements].
 
 xref:spec-metamodel/core.adoc#submodel-attributes[Submodel]s consist of a set of submodel elements.
 Submodel elements may be qualified by a so-called xref:spec-metamodel/common.adoc#qualifier-attributes[Qualifier].
@@ -55,7 +55,7 @@ For details on properties, see Clause xref:spec-metamodel/submodel-elements.adoc
 
 Every submodel element needs a semantic definition (_semanticId_ in xref:spec-metamodel/common.adoc#has-semantics-attributes[HasSemantics]) to have a well-defined meaning.
 The submodel element might either refer directly to a corresponding semantic definition provided by an external reference (e.g. to an ECLASS or IEC CDD property definition), or it may indirectly reference a concept description (xref:spec-metamodel/concept-description.adoc[]).
-See Clause xref:general.adoc#matching-strategies[Matching Strategies] for matching strategies.
+See Clause xref:annex/general.adoc#matching-strategies[Matching Strategies] for matching strategies.
 
 A concept description may be derived from another property definition of an external standard or another concept description (xref:spec-metamodel/concept-description.adoc[ConceptDescription/isCaseOf]). 
 
@@ -89,6 +89,7 @@ Elements from package "Environment" are specified in Clause xref:spec-metamodel/
 Elements from package "ConceptDescriptions" are specified in Clause xref:spec-metamodel/concept-description.adoc[].
 The only package that is not listed is "Data Specifications (Templates)" because data specifications are handled differently.
 Data specification templates are explained in Clause xref:data-specifications.adoc[].
+Packages with Suffix "Entities" contain elements that are data types of attributes in other classes.
 
 .Metamodel Package Overview
 [[image-metamodel-package-overview]]

@@ -47,7 +47,7 @@ If this semantic definition requires additional information not contained in the
 |===
 h|Class: 3+e|[[AnnotatedRelationshipElement]]AnnotatedRelationshipElement
 h|Explanation: 3+a|An annotated relationship element is a relationship element that can be annotated with additional data elements.
-h|Inherits from: 3+|xref:RelationshipElement[RelationshipElement], xref:ContainerElement[ContainerElement]
+h|Inherits from: 3+|xref:RelationshipElement[RelationshipElement]
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement`
 
 .2+h|Attribute 3+h| ID
@@ -102,7 +102,7 @@ a|Information for the outer message infrastructure to schedule the event for the
 
 .2+e|[[BasicEventElement-messageBroker]]messageBroker 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/messageBroker`
 a|
-Information about which outer message infrastructure shall handle messages for the _EventElement_; refers to a _Submodel,_ _SubmodelElementList_, _SubmodelElementCollection_ or _Entity_, which contains __DataElement__s describing the proprietary specification for the message broker
+Information about which outer message infrastructure shall handle messages for the _EventElement_; refers to a xref:spec-metamodel/core.adoc#Submodel[Submodel], xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList], xref:spec-metamodel/submodel-elements.adoc#SubmodelElementCollection[SubmodelElementCollection]  or xref:spec-metamodel/submodel-elements.adoc#entity-attributes[Entity], which contains xref:spec-metamodel/submodel-elements.adoc#DataElement[DataElements] describing the proprietary specification for the message broker
 
 
 ====
@@ -336,39 +336,7 @@ h|Explanation h|Type h|Card.
 |===
 
 
-[#container-element-and-overview-of-data-element-types]
-== Container Element and Overview of Container Element Types
 
-.Metamodel of Container Elements
-[[image-container-element-subtypes]]
-[plantuml, container-element-subtypes, svg]
-....
-include::partial$diagrams/container-element-subtypes.puml[]
-....
-
-
-A container element is a submodel element that is composed of other submodel elements.
-
-Container elements include xref:spec-metamodel/submodel-elements.adoc#AnnotatedRelationshipElement[AnnotatedRelationshipElement],  xref:spec-metamodel/submodel-elements.adoc#Entity[Entity], xref:spec-metamodel/submodel-elements.adoc#SubmodelElementCollection[SubmodelElementCollection]  and xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList], see <<image-container-element-subtypes>>.
-
-====
-A maximum recursion depth of 32 for Container-Elements should be supported.
-This means for certification a maximum of 32 recursion test cases should be tested.
-====
-
-[.table-with-appendix-table]
-[cols="25%,40%,25%,10%"]
-|===
-h|Class: 3+e|[[ContainerElement]]ContainerElement \<<abstract>>
-h|Explanation: 3+a|
-A container element is a submodel element that is composed of other submodel elements.
-
-h|Inherits from: 3+|xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement]
-h|ID: 3+| `\https://admin-shell.io/aas/3/1/ContainerElement`
-
-.2+h|Attribute 3+h| ID
-h|Explanation h|Type h|Card.
-|===
 
 [#data-element-and-overview-of-data-element-types]
 == Data Element and Overview of Data Element Types
@@ -438,14 +406,14 @@ An entity is a submodel element that is used to model entities.
 {aasd014}
 
 
-h|Inherits from: 3+|xref:ContainerElement[ContainerElement]
+h|Inherits from: 3+|
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/Entity`
 
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
 .2+e|[[Entity-statements]]statement 3+| `\https://admin-shell.io/aas/3/1/Entity/statements`
-a|Describes statements applicable to the entity by a set of submodel elements, typically with a qualified value |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |0..*
+a| Statement applicable to the entity, each statement described by submodel element - typically with a qualified value |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |0..*
 
 .2+e|[[Entity-entityType]]entityType 3+| `\https://admin-shell.io/aas/3/1/Entity/entityType`
 a|Describes whether the entity is a co-managed entity or a self-managed entity |xref:EntityType[EntityType]|0..1
@@ -639,8 +607,7 @@ a|Describes an argument or result of an operation via a submodel element |xref:s
 |===
 
 ====
-Note 1: operations typically specify the behavior of a component in terms of procedures.
-Hence, operations enable the specification of services with procedure-based interactions xref:bibliography.adoc#bib23[[23\]].
+Note 1: an operation can  be invoked via an API call. For further explanation see Part 2 (IDTA-01002).
 ====
 
 ====
@@ -805,12 +772,12 @@ include::partial$diagrams/44-submodel-element-collection.puml[]
 
 
 Submodel Element Collections are used for complex elements with a typically fixed set of properties with unique names.
-This set of properties is typically predefined by the semantic definition (referenced via _semanticId_) of the submodel element collection.
+This set of properties is typically predefined by the semantic definition (referenced via xref:spec-metamodel/common.adoc#HasSemantics[semanticId]) of the submodel element collection.
 Each property within the collection itself should have clearly defined semantics.
 
 ====
-Note: the different elements of a submodel element collection do not have to have different __semanticId__s.
-However, in these cases the usage of a _SubmodelElementList_ should be considered.
+Note: the different elements of a submodel element collection do not have to have different xref:spec-metamodel/common.adoc#HasSemantics[semanticIds].
+However, in these cases the usage of a xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementList] should be considered.
 ====
 
 Example: a single document has a predefined set of properties like title, version, author, etc.
@@ -831,7 +798,7 @@ However, it is recommended to adhere to the order defined in the submodel templa
 |===
 h|Class: 3+e|[[SubmodelElementCollection]]SubmodelElementCollection
 h|Explanation: 3+a|A submodel element collection is a kind of struct, i.e. a logical encapsulation of multiple named values.
-h|Inherits from: 3+|xref:ContainerElement[ContainerElement]
+h|Inherits from: 3+|
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementCollection`
 
 .2+h|Attribute 3+h| ID
@@ -855,16 +822,16 @@ Submodel element lists are used for sets (i.e. unordered collections without dup
 
 
 Submodel element lists are also used to create multidimensional arrays.
-A two-dimensional array listxref:bibliography.adoc#bib3[[3\]]xref:bibliography.adoc#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three _SubmodelElementList_ elements.
-Each of these three _SubmodelElementLists_ would contain 5 single _Property_ elements.
-The _semanticId_ of the contained properties would be the same for all lists in the first list, i.e. _semanticIdListElement_ would be identical for all three lists contained in the first list.
+A two-dimensional array listxref:bibliography.adoc#bib3[[3\]]xref:bibliography.adoc#bib5[[5\]] with _Property_ values would be realized like follows: the first submodel element list would contain three xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes[SubmodelElementList] elements.
+Each of these three xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes[SubmodelElementList] would contain 5 single xref:spec-metamodel/submodel-elements.adoc#property-attributes[Property] elements.
+The xref:spec-metamodel/common.adoc#HasSemantics[semanticId] of the contained properties would be the same for all lists in the first list, i.e. xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes[semanticIdListElement] would be identical for all three lists contained in the first list.
 The _semanticId_ of the three contained lists would differ depending on the dimension it represents.
-In case of complex values in the array, a _SubmodelElementCollection_ would be used as values in the leaf lists.
+In case of complex values in the array, a xref:spec-metamodel/submodel-elements.adoc#submodel-element-collection-attributes[SubmodelElementCollection]  would be used as values in the leaf lists.
 
 Similarly, a table with three columns can be represented.
-In this case a _SubmodelElementCollection_ with three _SubmodelElementLists_ would be contained and the _semanticId_ as well as the _semanticIdListElement_ for the three columns would differ.
+In this case a _SubmodelElementCollection_ with three xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[SubmodelElementLists]  would be contained and the xref:spec-metamodel/common.adoc#HasSemantics[semanticId] as well as the xref:spec-metamodel/submodel-elements.adoc#SubmodelElementList[semanticIdListElement] for the three columns would differ.
 
-Matching strategies for semantic IDs are explained in Clause xref:general.adoc#matching-strategies-for-semantic-identifiers[Matching Strategies for Semantic Identifiers].
+Matching strategies for semantic IDs are explained in Clause xref:annex/general.adoc#matching-strategies-for-semantic-identifiers[Matching Strategies for Semantic Identifiers].
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -892,7 +859,7 @@ The numbering starts with Zero (0).
 {aasd109}
 
 
-h|Inherits from: 3+|xref:ContainerElement[ContainerElement]
+h|Inherits from: 3+|
 h|ID: 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementList`
 
 .2+h|Attribute 3+h| ID

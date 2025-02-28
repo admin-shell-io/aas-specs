@@ -27,18 +27,22 @@ See Clause xref:spec-metamodel/constraints.adoc#constraints-for-types[Constraint
 |===
 |Source |Basic Data Type |Value Range |Sample Values
 
-|xsd |https://www.w3.org/TR/xmlschema-2/#string[string] |Character string (but not all Unicode character strings) |"Hello world", "Καλημέρα κόσμε", +
+|xsd |https://www.w3.org/TR/xmlschema-2/#string[string] a|Character string (but not all Unicode character strings) |"Hello world", "Καλημέρα κόσμε", +
 "ハローワールド""
 
-|xsd |https://www.w3.org/TR/xmlschema-2/#base64Binary[base64Binary] |base64-encoded binary data |"a3Vtb3dhc2hlcmU="
+|xsd |https://www.w3.org/TR/xmlschema-2/#base64Binary[base64Binary] |base64-encoded binary data a|
+[listing]
+....
+SGVsbG8sIFdvcmxkIQ==   
+....
 
-|xsd |https://www.w3.org/TR/xmlschema-2/#boolean[boolean] |true, false |true, false
+|xsd |https://www.w3.org/TR/xmlschema-2/#boolean[boolean] a|true, false |true, false
 
 
-|xsd |https://www.w3.org/TR/xmlschema-2/#dateTime[dateTime] |Date and time with or without time zone |"2000-01-01T14:23:00", +
+|xsd |https://www.w3.org/TR/xmlschema-2/#dateTime[dateTime] |Date and time with or without time zone a|"2000-01-01T14:23:00", +
 "2000-01-01T14:23:00.66372+14:00"footnote:[Corresponds to https://www.w3.org/TR/xmlschema-2/#dateTime[xs:dateTime] in XML Schema 1.0]
 
-|xsd |https://www.w3.org/TR/xmlschema-2/#duration[duration] |Duration of time |"-P1Y2M3DT1H", +
+|xsd |https://www.w3.org/TR/xmlschema-2/#duration[duration] |Duration of time a|"-P1Y2M3DT1H", +
 "PT1H5M0S"
 
 |rdf |langString |Strings with language tags a|
@@ -79,11 +83,12 @@ _base64binary_
 to represent file content (binaries and non-binaries)
 
 a|
-<?xml version="1.0" encoding="UTF-8"?>
+[listing]
+....
+SGVsbG8sIFdvcmxkIQ==   
+....
 
-<schema elementFormDefault="qualified" targetNamespace="http://www.admin-shell.io/aas/2/0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:aas="http://www.admin-shell.io/aas/2/0" />
-
-pass:[MZ_________ÿÿ__¸_______@___________________________________€_____º__´	Í!¸_LÍ!This program cannot be run in DOS mode.$_______PE__L___Rö\^________à_]
+for "Hello, World!"
 
 .2+e|[[ContentType]]ContentType 2+| `admin-shell.io/aas/3/1/ContentType`
 a|
@@ -91,13 +96,14 @@ _string_ with max 100 and min 1 characters
 
 
 ====
-Note: any content type as in RFC2046.
+Note: string conformant to RFC2046.
 ====
 
-
+===
 A media type (also MIME type and content type) […] is a two-part identifier for file formats and format contents transmitted on the Internet.
-The Internet Assigned Numbers Authority (IANA) is the official authority for the standardization and publication of these classifications.
+The link:https://www.iana.org/assignments/media-types/media-types.xhtml[Internet Assigned Numbers Authority (IANA)] is the official authority for the standardization and publication of these classifications.
 Media types were originally defined in Request for Comments 2045 in November 1996 as a part of MIME specification, for denoting type of email message content and attachments.footnote:[Wikipedia.org, date: 2018-04-09]
+===
 
 a|
 application/pdf
@@ -488,9 +494,13 @@ NaN
 
 -938458374985739874987989873
 
-|Encoded binary data e|xs:hexBinary |Hex-encoded binary data |"6b756d6f77617368657265"
+|Encoded binary data e|xs:hexBinary |Hex-encoded binary data a|"6b756d6f77617368657265"
 
-| e|xs:base64Binary |Base64-encoded binary data |"a3Vtb3dhc2hlcmU="
+| e|xs:base64Binary |Base64-encoded binary data a|
+[listing]
+....
+SGVsbG8sIFdvcmxkIQ==   
+....
 
 |Miscellaneous types e|xs:anyURI |Absolute or relative URIs and IRIs a|
 \https://customer.com/demo/aas/1/1/1234859590

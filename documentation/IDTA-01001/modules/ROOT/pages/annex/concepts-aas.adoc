@@ -142,7 +142,7 @@ This facilitates different perspectives or use cases to access the Administratio
 [#how-are-new-identifiers-created]
 == How Are New Identifiers Created?
 
-Following the different identification types from Clause xref:general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?], it can be stated that:
+Following the different identification types from Clause xref:annex/general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?], it can be stated that:
 
 [loweralpha]
 . IRDIs are assumed to already exist due to an external specification and standardization process in the creation of a certain Administration Shell.
@@ -209,9 +209,10 @@ Examples of such identifiers are given in <<table-urn-and-url-based-ids-of-aas>>
 |===
 |*Identifier* |*Examples*
 |Administration Shell ID a|
-urn:zvei:SG2:aas:1:1:demo11232322
 
-\https://www.zvei.de/SG2/aas/1/1/demo11232322
+urn:com.example:demo.aas.1.1#73BA55B11FKDAVO
+
+\http://example.com/demo/aas/1/1/73BA55B11FKDAVO
 
 |Submodel ID (Template) a|
 urn:GMA:7.20:contractnegotiation:1:1
@@ -233,7 +234,9 @@ urn:PROFIBUS:PROFIBUS-PA:V3-02:Parameter:1:1:MaxTemp
 *(not used by metamodel)* a|
 urn:PROFIBUS:PROFIBUS-PA:V3-02:Parameter:1:1:MaxTemp#0002
 
-\https://www.zvei.de/SG2/aas/1/1/demo11232322/maxtemp#0002
+\http://purl.org/dc/terms/created
+
+\https://admin-shell.io/idta/CarbonFootprint/ProductCarbonFootprint/1/2
 
 |===
 
