@@ -188,17 +188,6 @@ Constraint AASd-021: Every qualifiable can only have one qualifier with the same
 changed to
 Constraint AASd-021: Every qualifiable shall only have one qualifier with the same Qualifier/valueType.
 
-|{empty}  | AASd-116 | Update a|
-Update version of globalAssetId
-
-Constraint AASd-116:
-"globalAssetId" (case-insensitive) is a reserved key for SpecificAssetId/name with the semantics as defined in `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`.
-
-|{empty}  | AASd-119 | Update a|
-correct class name from "hasKind" to "HasKind"
-
-Constraint AASd-119:# If any Qualifier/kind value of a Qualifiable/qualifier is equal to TemplateQualifier and the qualified element inherits from HasKind, the qualified element shall be of kind _Template_ (_HasKind/kind = "Template"_)
-
 |{empty}  |AASd-077 |Update a|
 use "shall" instead of "need"
 
@@ -212,6 +201,19 @@ Constraint AASd-077: The name of an extension (Extension/name) within HasExtensi
 
 Constraint AASd-090: 
 For data elements, category (inherited by Referable) shall be one of the following values: CONSTANT, PARAMETER or VARIABLE. Default: VARIABLE
+
+|{empty}  | AASd-116 | Update a|
+Update version of globalAssetId
+
+Constraint AASd-116:
+"globalAssetId" (case-insensitive) is a reserved key for SpecificAssetId/name with the semantics as defined in `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`.
+
+|{empty}  | AASd-119 | Update a|
+correct class name from "hasKind" to "HasKind"
+
+Constraint AASd-119:# If any Qualifier/kind value of a Qualifiable/qualifier is equal to TemplateQualifier and the qualified element inherits from HasKind, the qualified element shall be of kind _Template_ (_HasKind/kind = "Template"_)
+
+
 
 |{empty}  | AASd-120 | Removed a|
 Constraint AASd-120: idShort of submodel elements being a direct child of a SubmodelElementList shall not be specified.
