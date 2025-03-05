@@ -87,18 +87,13 @@ This means for certification a maximum of 32 recursion test cases should be test
 * CHANGED: update explanatory text and notes in the context of AdministrativeInformation (https://github.com/admin-shell-io/aas-specs/issues/331[#331])
 * CHANGED: move chapter "General" to Annex
 * REMOVED: remove Annex "Requirements"
-* CHANGE: move Clause "Semantic Identifiers for Metamodel and Data Specifications" from main part to Annex
+* CHANGED: move Clause "Semantic Identifiers for Metamodel and Data Specifications" from main part to Annex
 ** CHANGED: no plural 's' any longer, i.e. only semantic identifiers for attributes and classes
 * CHANGED: Transfer from .docx to asciidoc (.adoc) and maintenance in GitHub (including (https://github.com/admin-shell-io/aas-specs/issues/318[#318], https://github.com/admin-shell-io/aas-specs/issues/316[#316] )
 * CHANGED: Transfer of all UML figures to PlantUML (.puml), changed notation for model references; maintenance in GitHub, no XMI presenation part of release any longer (https://github.com/admin-shell-io/aas-specs/issues/439[#439]) 
 
 Editorial Bugfixes:
-
-* CHANGED: Replace xs:dateType with xs:dateTime (https://github.com/admin-shell-io/aas-specs/issues/467[#467])
-* CHANGED: CHANGED: Correct Example for Reference (https://github.com/admin-shell-io/aas-specs/issues/481[#481])
-* CHANGED:  UML Template description with respect to cardinality (https://github.com/admin-shell-io/aas-specs/issues/388[#388])
 * CHANGED: improve formulation of constraints, use "shall" instead of "needs to" etc.
-* CHANGED: AASd-119 Class name is "HasKind", not "hasKind"
 
 
 Minor Changes:
@@ -106,15 +101,16 @@ Minor Changes:
 * CHANGED: change recommendation for recursion: from "[..] maximum recursion depth of 32 [..]" to "A recursion depth of 32 should not be exceeded. The recommendation is to have not more than 8 recursions in a submodel. Test engines should test at least 16 recursions."
 * add Annex with overview of constraints (https://github.com/admin-shell-io/aas-specs/issues/509[#509])
 * CHANGED: update Constraint AASd-116 (https://github.com/admin-shell-io/aas-specs/issues/298[#298])
-* REMOVED:remove information on OPC UA mapping (https://github.com/admin-shell-io/aas-specs/issues/373[#373])
-* REMOVED:remove information on AutomationML mapping (https://github.com/admin-shell-io/aas-specs/issues/397[#397])
-* REMOVED:remove notes or change notes to paragraphs in Annex "General"
+* REMOVED: remove information on OPC UA mapping (https://github.com/admin-shell-io/aas-specs/issues/373[#373])
+* REMOVED: remove information on AutomationML mapping (https://github.com/admin-shell-io/aas-specs/issues/397[#397])
+* REMOVED: remove notes or change notes to paragraphs in Annex "General"
 * CHANGED: update bibliography (newer versions, link update, removal of entries not referenced)
 * CHANGED: consistent usage of idShortPath and IRDI-Path (https://github.com/admin-shell-io/aas-specs/issues/385[#385])
-* ADDED:add example for deprecated attribute in class in Annex UML
+* ADDED: add example for deprecated attribute in class in Annex UML
 * ADDED: enhanced explanation for AASd-130
 * CHANGED: change explanation of Entity/statement to singular for consistency
-* REMOVED:remove [23] from bibliography and remove corresponding notes referring to it
+* REMOVED: AdministrativeInformation - remove note 2: since submodels with different versions shall have different identifiers, it is possible that an Asset Administration Shell has two submodels with the same semanticId but different versions.
+* REMOVED: remove [23] from bibliography and remove corresponding notes referring to it
 * CHANGED: editorial changes (including https://github.com/admin-shell-io/aas-specs/issues/345[#345], 
 https://github.com/admin-shell-io/aas-specs/issues/361[#361], 
 https://github.com/admin-shell-io/aas-specs/issues/385[#385])
@@ -212,10 +208,7 @@ Update version of globalAssetId
 Constraint AASd-116:
 "globalAssetId" (case-insensitive) is a reserved key for SpecificAssetId/name with the semantics as defined in `\https://admin-shell.io/aas/3/1/AssetInformation/globalAssetId`.
 
-|{empty}  | AASd-119 | Update a|
-correct class name from "hasKind" to "HasKind"
 
-Constraint AASd-119:# If any Qualifier/kind value of a Qualifiable/qualifier is equal to TemplateQualifier and the qualified element inherits from HasKind, the qualified element shall be of kind _Template_ (_HasKind/kind = "Template"_)
 
 
 
@@ -227,7 +220,11 @@ Constraint AASd-120: idShort of submodel elements being a direct child of a Subm
 == Changes V3.0.2 vs. V3.0.1
 
 Major Bugfixes:
-- CHANGE: Environment does not inherit from  "Reference"
+* CHANGED: Environment does not inherit from  "Reference"
+* CHANGED: Replace xs:dateType with xs:dateTime (https://github.com/admin-shell-io/aas-specs/issues/467[#467])
+* CHANGED: CHANGED: Correct Example for Reference (https://github.com/admin-shell-io/aas-specs/issues/481[#481])
+* CHANGED:  UML Template description with respect to cardinality (https://github.com/admin-shell-io/aas-specs/issues/388[#388])
+* CHANGED: AASd-119 Class name is "HasKind", not "hasKind"
 
 === Metamodel Changes V3.0.2 vs. V3.0.1
 
@@ -240,27 +237,38 @@ Major Bugfixes:
 
 |===
 
+
+.New, Changed or Removed Constraints
+[cols="5%,10%,15%,69%",options="header",]
+|===
+|*Nc* |*V3.0.2 vs. V3.0.1* |*New, Update, Removed, Reformulated* |*Comment*
+|{empty}  | AASd-119 | Update a|
+correct class name from "hasKind" to "HasKind"
+
+Constraint AASd-119:# If any Qualifier/kind value of a Qualifiable/qualifier is equal to TemplateQualifier and the qualified element inherits from HasKind, the qualified element shall be of kind _Template_ (_HasKind/kind = "Template"_)
+|===
+
 == Changes V3.0.1 vs. V3.0
 
 Major Bugfixes:
 
-* CHANGE: DataTypeDefXsd all links now reference correctly to XML Schema 1.0 (xmlschema-2) not to XML Schema V1.1 (xmlschema11-2) (https://github.com/admin-shell-io/aas-specs/issues/312[#312], https://github.com/admin-shell-io/aas-specs/issues/363[#363]), i.e. remove xs:yearMonthDuration + editorial changes (remove redundant entries, sort entries.
+* CHANGED: DataTypeDefXsd all links now reference correctly to XML Schema 1.0 (xmlschema-2) not to XML Schema V1.1 (xmlschema11-2) (https://github.com/admin-shell-io/aas-specs/issues/312[#312], https://github.com/admin-shell-io/aas-specs/issues/363[#363]), i.e. remove xs:yearMonthDuration + editorial changes (remove redundant entries, sort entries.
 Additionally, added notes that RDF is using XML Schema 1.1 but a subset.
 
-* CHANGE: support relative path for SubmodelElement File, PathType: support complete URI scheme for files RFC2396 conformant to anyURI of XML Schema 1.0, Part 2 (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
+* CHANGED: support relative path for SubmodelElement File, PathType: support complete URI scheme for files RFC2396 conformant to anyURI of XML Schema 1.0, Part 2 (https://github.com/admin-shell-io/aas-specs/issues/299[#299])
 
-* CHANGE: Constraint AASd-116 globalAssetId + added note that globalAssetId should only be used in discovery functionality but not as value for SpecificAssetId/name (https://github.com/admin-shell-io/aas-specs/issues/390[#390])
+* CHANGED: Constraint AASd-116 globalAssetId + added note that globalAssetId should only be used in discovery functionality but not as value for SpecificAssetId/name (https://github.com/admin-shell-io/aas-specs/issues/390[#390])
 
-* CHANGE: make EmbeddedDataSpecification/dataSpecification mandatory (as implemented in schemas) (https://github.com/admin-shell-io/aas-specs/issues/296[#296])
+* CHANGED: make EmbeddedDataSpecification/dataSpecification mandatory (as implemented in schemas) (https://github.com/admin-shell-io/aas-specs/issues/296[#296])
 
-* CHANGE: Update on handling AASd-130 for schemas different to xml and reformulation of Constraint AASd-130 (https://github.com/admin-shell-io/aas-specs/issues/362[#362])
+* CHANGED: Update on handling AASd-130 for schemas different to xml and reformulation of Constraint AASd-130 (https://github.com/admin-shell-io/aas-specs/issues/362[#362])
 
-* CHANGE (Editorial): updated Change Logs of V3.0 w.r.t. Range: Range was set to experimental in V3.0
+* CHANGED: (Editorial): updated Change Logs of V3.0 w.r.t. Range: Range was set to experimental in V3.0
 
 
-* CHANGE (Editorial, the schemas implemented it like this) Annex UML Tables: "0..*" or "0..3" etc. means that the list may be either not available (optional) or the list is not empty. (https://github.com/admin-shell-io/aas-specs/issues/418[#418])
+* CHANGED: (Editorial, the schemas implemented it like this) Annex UML Tables: "0..*" or "0..3" etc. means that the list may be either not available (optional) or the list is not empty. (https://github.com/admin-shell-io/aas-specs/issues/418[#418])
 
-* CHANGE (Editorial, the schemas implemented it like this, table was correct) Update Figure containing Resource: Resource/path has cardinality 1 and Resource/contentType has cardinality 0..1 (https://github.com/admin-shell-io/aas-specs/issues/438[#438])
+* CHANGED: (Editorial, the schemas implemented it like this, table was correct) Update Figure containing Resource: Resource/path has cardinality 1 and Resource/contentType has cardinality 0..1 (https://github.com/admin-shell-io/aas-specs/issues/438[#438])
 
 Other Bugfixes:
 
@@ -741,10 +749,10 @@ In this case, it is now required (instead of just recommended) to use the define
 * CHANGED: Type of BlobType changed from "group of bytes" to "base64Binary"
 * NEW: Two new terms introduced: coded value and explicit value
 * REMOVED: Referable/checksum
-* CHANGE: EventElements including all classes introduced for Events set to \<<Experimental>>
-* CHANGE: Referable/category set to \<<Deprecated>>
-* CHANGE: Range set to \<<Experimental>>
-* CHANGE: AdministrativeInformation Class, not data type
+* CHANGED: EventElements including all classes introduced for Events set to \<<Experimental>>
+* CHANGED: Referable/category set to \<<Deprecated>>
+* CHANGED: Range set to \<<Experimental>>
+* CHANGED: AdministrativeInformation Class, not data type
 * NEW: New stereotype \<<Experimental>> introduced besides \<<Deprecated>>
 * CHANGED: Qualifier/kind set to \<<Experimental>>
 * CHANGED: enumeration DataTypeDefXsd for data types for valueType attribute (e..g. in Property) as well as enumeration DataTypeDefRdf (for consistency) + restriction to XML Schema 1.0 (not 1.1.)
