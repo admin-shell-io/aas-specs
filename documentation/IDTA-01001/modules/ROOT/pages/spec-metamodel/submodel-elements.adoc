@@ -113,7 +113,7 @@ Note: this proprietary specification could be standardized by using respective s
 |ModelReference<xref:spec-metamodel/common.adoc#Referable[Referable]> |0..1
 
 .2+e|[[BasicEventElement-lastUpdate]]lastUpdate 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/lastUpdate`
-a|Timestamp in UTC, when the last event was received (input direction) or sent (output direction) |dateTime |0..1
+a|Timestamp in UTC, when the last event was received (input direction) or sent (output direction) |xref:spec-metamodel/datatypes.adoc#DateTimeUtc[DateTimeUtc] |0..1
 
 .2+e|[[BasicEventElement-minInterval]]minInterval 3+| `\https://admin-shell.io/aas/3/1/BasicEventElement/minInterval`
 a|
@@ -249,7 +249,7 @@ Note: this is an external reference.
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 
 .2+e|[[EventPayload-timestamp]]timestamp 3+| `\https://admin-shell.io/aas/3/1/EventPayload/timestamp`
-a|Timestamp in UTC, when this event was triggered |dateTime |1
+a|Timestamp in UTC, when this event was triggered |xref:spec-metamodel/datatypes.adoc#DateTimeUtc[DateTimeUtc] |1
 
 .2+e|[[EventPayload-payload]]payload 3+| `\https://admin-shell.io/aas/3/1/EventPayload/payload`
 a|Event-specific payload |xref:spec-metamodel/datatypes.adoc#BlobType[BlobType] |0..1
