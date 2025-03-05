@@ -40,81 +40,81 @@ They had separate sections and tables documenting the changes.
 
 Major Changes:
 
-* New value "Role" to enumeration AssetKind (https://github.com/admin-shell-io/aas-specs/issues/294[#294])
-* New logical enumerations "AasContainerSubmodelElements" and "AasNonContainerSubmodelElements"  (https://github.com/admin-shell-io/aas-specs/issues/420[#420])
-* Data type Identifier: change length from 2000 to 2048 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
-* Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name (https://github.com/admin-shell-io/aas-specs/issues/295[#295])
-* Entity/entityType and Constraint AASd-014: entityType now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
-* Change RelationshipElement: attributes "first" and "second" now optional (conformant to "min" and "max" of "Range")(https://github.com/admin-shell-io/aas-specs/issues/412[#412]), AnnotatedRelationshipElement inherits from RelationshipElement and is thus also affected.
-* Change File and Blob: attribute "contentType" now optional (https://github.com/admin-shell-io/aas-specs/issues/412[#412])
-* remove AASd-120: idShort also allowed for elements within a SubmodelElementList (https://github.com/admin-shell-io/aas-specs/issues/432[#432])
-* remove AASd-090: category is deprecated (https://github.com/admin-shell-io/aas-specs/issues/514[#514])
-* Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications
+* ADDED: New value "Role" to enumeration AssetKind (https://github.com/admin-shell-io/aas-specs/issues/294[#294])
+* ADDED: New logical enumerations "AasContainerSubmodelElements" and "AasNonContainerSubmodelElements"  (https://github.com/admin-shell-io/aas-specs/issues/420[#420])
+* CHANGED: Data type Identifier: change length from 2000 to 2048 characters (https://github.com/admin-shell-io/aas-specs/issues/306[#306])
+* CHANGED: Referable/idShort and Constraint AASd-002: now also allows hyphens to be included in name (https://github.com/admin-shell-io/aas-specs/issues/295[#295])
+* CHANGED: Entity/entityType and Constraint AASd-014: entityType now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
+* CHANGED: Change RelationshipElement: attributes "first" and "second" now optional (conformant to "min" and "max" of "Range")(https://github.com/admin-shell-io/aas-specs/issues/412[#412]), AnnotatedRelationshipElement inherits from RelationshipElement and is thus also affected.
+* CHANGED: Change File and Blob: attribute "contentType" now optional (https://github.com/admin-shell-io/aas-specs/issues/412[#412])
+* REMOVED: remove AASd-120: idShort also allowed for elements within a SubmodelElementList (https://github.com/admin-shell-io/aas-specs/issues/432[#432])
+* REMOVED: remove AASd-090: category is deprecated (https://github.com/admin-shell-io/aas-specs/issues/514[#514])
+* CHANGED: Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications
 (https://github.com/admin-shell-io/aas-specs/issues/307[#307])
-* Terms and Definitions adopted to IEC 63278-1:2023 (before IEC 63278-1 Draft July 2022 was the basis), 
+* CHANGED: Terms and Definitions adopted to IEC 63278-1:2023 (before IEC 63278-1 Draft July 2022 was the basis), 
 (https://github.com/admin-shell-io/aas-specs/issues/365[#365])
 also abbreviations partly adopted; changes:
-	** changed: asset
-	** changed: digital representation (example only)
-	** removed: ontology
-	** changed: service
-	** removed: smart manufacturing
-	** changed: Submodel
-	** changed: Submodel template
-	** changed: Submodel template element
-	** removed: technical functionality
-* Terms and Definitions, updates:
-	** changed: Note 7 removed from term "property"
-* Update clause on matching algorithm for references, include handling of supplementalSemanticIds, isCaseOf etc.
+	** CHANGED:  asset
+	** CHANGED:  digital representation (example only)
+	** REMOVED:  ontology
+	** CHANGED:  service
+	** REMOVED:  smart manufacturing
+	** CHANGED:  Submodel
+	** CHANGED: Submodel template
+	** CHANGED:  Submodel template element
+	** REMOVED:  technical functionality
+* CHANGED: Terms and Definitions, updates:
+	** CHANGED: Note 7 removed from term "property"
+* CHANGED: Update clause on matching algorithm for references, include handling of supplementalSemanticIds, isCaseOf etc.
 (https://github.com/admin-shell-io/aas-specs/issues/350[#350], 
 https://github.com/admin-shell-io/aas-specs/issues/471[#471],
  https://github.com/admin-shell-io/aas-specs/issues/473[#473],
  https://github.com/admin-shell-io/aas-specs/issues/479[#479],
  https://github.com/admin-shell-io/aas-specs/issues/347[#347])
-* (Editorial) Adding metamodel element IDs to tables themselves for easier usage (besides grammar defining how to derive them) (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
-* Update all metamodel element IDs to V3.1 (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
-* Transfer of clauses on formats Metadata, Paths and Value-Only from Part 2 API to Part 1 Metamodel (https://github.com/admin-shell-io/aas-specs/issues/325[#325])
-* (Editorial) Update clause on Value-Only Serialization, improve documentation (https://github.com/admin-shell-io/aas-specs/issues/370[#370], https://github.com/admin-shell-io/aas-specs/issues/371[#371], https://github.com/admin-shell-io/aas-specs/issues/411[#411])
-** add table similar to metadata table: which attributes are displayed in Value-Only serialization
-** update examples to provide Value-Only serialization for every submodel element (not in the context of a Submodel as before)
-** add clause for Submodel Example (with properties from SMT Technical Data, not Families any longer)
-* update Schema for JSON-Value Serialization (https://github.com/admin-shell-io/aas-specs/issues/389[#389])
-* remove recommendation to use external references for semanticId (https://github.com/admin-shell-io/aas-specs/issues/376[#376]) and related attributes like valueId, semanticIdListElement and isCaseOf (https://github.com/admin-shell-io/aas-specs/issues/396[#396], https://github.com/admin-shell-io/aas-specs/issues/396[#396])
-* add note: A maximum recursion depth of 32 for Container-Elements should be supported.
+* ADDED:(Editorial) Adding metamodel element IDs to tables themselves for easier usage (besides grammar defining how to derive them) (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
+* CHANGED: Update all metamodel element IDs to V3.1 (https://github.com/admin-shell-io/aas-specs/issues/366[#366])
+* CHANGED: Transfer of clauses on formats Metadata, Paths and Value-Only from Part 2 API to Part 1 Metamodel (https://github.com/admin-shell-io/aas-specs/issues/325[#325])
+* CHANGED: (Editorial) Update clause on Value-Only Serialization, improve documentation (https://github.com/admin-shell-io/aas-specs/issues/370[#370], https://github.com/admin-shell-io/aas-specs/issues/371[#371], https://github.com/admin-shell-io/aas-specs/issues/411[#411])
+** ADDED: add table similar to metadata table: which attributes are displayed in Value-Only serialization
+** CHANGED: update examples to provide Value-Only serialization for every submodel element (not in the context of a Submodel as before)
+** ADDED: add clause for Submodel Example (with properties from SMT Technical Data, not Families any longer)
+* CHANGED: update Schema for JSON-Value Serialization (https://github.com/admin-shell-io/aas-specs/issues/389[#389])
+* REMOVED: remove recommendation to use external references for semanticId (https://github.com/admin-shell-io/aas-specs/issues/376[#376]) and related attributes like valueId, semanticIdListElement and isCaseOf (https://github.com/admin-shell-io/aas-specs/issues/396[#396], https://github.com/admin-shell-io/aas-specs/issues/396[#396])
+* ADDED: add note: A maximum recursion depth of 32 for Container-Elements should be supported.
 This means for certification a maximum of 32 recursion test cases should be tested. (https://github.com/admin-shell-io/aas-specs/issues/333[#333]) 
-* remove clauses on OPC UA and AutomationML mappings (https://github.com/admin-shell-io/aas-specs/issues/373[#373], https://github.com/admin-shell-io/aas-specs/issues/397[#397])
-* update explanatory text and notes in the context of AdministrativeInformation (https://github.com/admin-shell-io/aas-specs/issues/331[#331])
-* move chapter "General" to Annex
-* remove Annex "Requirements"
-* move Clause "Semantic Identifiers for Metamodel and Data Specifications" from main part to Annex
-** no plural s any longer, i.e. only semantic identifiers for attributes and classes
-* Transfer from .docx to asciidoc (.adoc) and maintenance in GitHub (including (https://github.com/admin-shell-io/aas-specs/issues/318[#318], https://github.com/admin-shell-io/aas-specs/issues/316[#316] )
-* Transfer of all UML figures to PlantUML (.puml), changed notation for model references; maintenance in GitHub, no XMI presenation part of release any longer (https://github.com/admin-shell-io/aas-specs/issues/439[#439]) 
+* REMOVED: remove clauses on OPC UA and AutomationML mappings (https://github.com/admin-shell-io/aas-specs/issues/373[#373], https://github.com/admin-shell-io/aas-specs/issues/397[#397])
+* CHANGED: update explanatory text and notes in the context of AdministrativeInformation (https://github.com/admin-shell-io/aas-specs/issues/331[#331])
+* CHANGED: move chapter "General" to Annex
+* REMOVED: remove Annex "Requirements"
+* CHANGE: move Clause "Semantic Identifiers for Metamodel and Data Specifications" from main part to Annex
+** CHANGED: no plural 's' any longer, i.e. only semantic identifiers for attributes and classes
+* CHANGED: Transfer from .docx to asciidoc (.adoc) and maintenance in GitHub (including (https://github.com/admin-shell-io/aas-specs/issues/318[#318], https://github.com/admin-shell-io/aas-specs/issues/316[#316] )
+* CHANGED: Transfer of all UML figures to PlantUML (.puml), changed notation for model references; maintenance in GitHub, no XMI presenation part of release any longer (https://github.com/admin-shell-io/aas-specs/issues/439[#439]) 
 
 Editorial Bugfixes:
 
-* Replace xs:dateType with xs:dateTime (https://github.com/admin-shell-io/aas-specs/issues/467[#467])
-* Correct Example for Reference (https://github.com/admin-shell-io/aas-specs/issues/481[#481])
-* improve UML Template description with respect to cardinality (https://github.com/admin-shell-io/aas-specs/issues/388[#388])
-* improve formulation of constraints, use "shall" instead of "needs to" etc.
-* AASd-119 Class name is "HasKind", not "hasKind"
+* CHANGED: Replace xs:dateType with xs:dateTime (https://github.com/admin-shell-io/aas-specs/issues/467[#467])
+* CHANGED: CHANGED: Correct Example for Reference (https://github.com/admin-shell-io/aas-specs/issues/481[#481])
+* CHANGED:  UML Template description with respect to cardinality (https://github.com/admin-shell-io/aas-specs/issues/388[#388])
+* CHANGED: improve formulation of constraints, use "shall" instead of "needs to" etc.
+* CHANGED: AASd-119 Class name is "HasKind", not "hasKind"
 
 
 Minor Changes:
 
-* change recommendation for recursion: from "[..] maximum recursion depth of 32 [..]" to "A recursion depth of 32 should not be exceeded. The recommendation is to have not more than 8 recursions in a submodel. Test engines should test at least 16 recursions."
+* CHANGED: change recommendation for recursion: from "[..] maximum recursion depth of 32 [..]" to "A recursion depth of 32 should not be exceeded. The recommendation is to have not more than 8 recursions in a submodel. Test engines should test at least 16 recursions."
 * add Annex with overview of constraints (https://github.com/admin-shell-io/aas-specs/issues/509[#509])
-* update Constraint AASd-116 (https://github.com/admin-shell-io/aas-specs/issues/298[#298])
-* remove information on OPC UA mapping (https://github.com/admin-shell-io/aas-specs/issues/373[#373])
-* remove information on AutomationML mapping (https://github.com/admin-shell-io/aas-specs/issues/397[#397])
-* remove notes or change notes to paragraphs in Annex "General"
-* update bibliography (newer versions, link update, removal of entries not referenced)
-* consistent usage of idShortPath and IRDI-Path (https://github.com/admin-shell-io/aas-specs/issues/385[#385])
-* add example for deprecated attribute in class in Annex UML
-* enhanced explanation for AASd-130
-* change explanation of Entity/statement to singular for consistency
-* remove [23] from bibliography and remove corresponding notes referring to it
-* editorial changes (including https://github.com/admin-shell-io/aas-specs/issues/345[#345], 
+* CHANGED: update Constraint AASd-116 (https://github.com/admin-shell-io/aas-specs/issues/298[#298])
+* REMOVED:remove information on OPC UA mapping (https://github.com/admin-shell-io/aas-specs/issues/373[#373])
+* REMOVED:remove information on AutomationML mapping (https://github.com/admin-shell-io/aas-specs/issues/397[#397])
+* REMOVED:remove notes or change notes to paragraphs in Annex "General"
+* CHANGED: update bibliography (newer versions, link update, removal of entries not referenced)
+* CHANGED: consistent usage of idShortPath and IRDI-Path (https://github.com/admin-shell-io/aas-specs/issues/385[#385])
+* ADDED:add example for deprecated attribute in class in Annex UML
+* ADDED: enhanced explanation for AASd-130
+* CHANGED: change explanation of Entity/statement to singular for consistency
+* REMOVED:remove [23] from bibliography and remove corresponding notes referring to it
+* CHANGED: editorial changes (including https://github.com/admin-shell-io/aas-specs/issues/345[#345], 
 https://github.com/admin-shell-io/aas-specs/issues/361[#361], 
 https://github.com/admin-shell-io/aas-specs/issues/385[#385])
 
