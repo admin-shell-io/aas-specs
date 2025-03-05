@@ -150,7 +150,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasDataSpecification`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|dataSpecification 3+| `\https://admin-shell.io/aas/3/1/HasDataSpecification/dataSpecifications`
+.2+e|dataSpecification 3+| `\https://admin-shell.io/aas/3/1/HasDataSpecification/dataSpecification`
 a|
 External reference to the data specification template used by the element
 
@@ -200,7 +200,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/HasExtensions`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|[[extension]]extension 3+| `\https://admin-shell.io/aas/3/1/HasExtensions/extensions`
+.2+e|[[extension]]extension 3+| `\https://admin-shell.io/aas/3/1/HasExtensions/extension`
 
 a|An extension of the element. |xref:spec-metamodel/common.adoc#Extension[Extension] |0..*
 
@@ -232,7 +232,7 @@ Default: xs:string
 .2+e|value 3+| `\https://admin-shell.io/aas/3/1/Extension/value`
 a|Value of the extension |xref:spec-metamodel/datatypes.adoc#ValueDataType[ValueDataType] |0..1
 
-.2+e|refersTo 3+| `\https://admin-shell.io/aas/3/1/Extension/refersTos`
+.2+e|refersTo 3+| `\https://admin-shell.io/aas/3/1/Extension/refersTo`
 a|Reference to an element the extension refers to |ModelReference<xref:spec-metamodel/common.adoc#Referable[Referable]> |0..*
 |===
 
@@ -331,7 +331,7 @@ Identifier of the semantic definition of the element called semantic ID or also 
 
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..1
 
-.2+e|supplementalSemanticId 3+| `\https://admin-shell.io/aas/3/1/HasSemantics/supplementalIds`
+.2+e|supplementalSemanticId 3+| `\https://admin-shell.io/aas/3/1/HasSemantics/supplementalId`
 a|
 Identifier of a supplemental semantic definition of the element called supplemental semantic ID of the element
 
@@ -433,7 +433,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Qualifiable`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|[[qualifier]]qualifier 3+| `\https://admin-shell.io/aas/3/1/Qualifiable/qualifiers`
+.2+e|[[qualifier]]qualifier 3+| `\https://admin-shell.io/aas/3/1/Qualifiable/qualifier`
 a|Additional qualification of a qualifiable element |xref:spec-metamodel/common.adoc#Qualifier[Qualifier] |0..*
 |===
 
