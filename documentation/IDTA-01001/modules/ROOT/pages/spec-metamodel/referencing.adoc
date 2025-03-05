@@ -1093,21 +1093,31 @@ https://example.com/specification.html#Hints
 ====
 Note:
 
+The extract 
 [example]
 ....
-(SubmodelElementList)0, (MultiLanguageProperty)Title
+(SubmodelElementCollection)0, (MultiLanguageProperty)Title
+....
+from
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementList)Documents, (SubmodelElementCollection)0, (MultiLanguageProperty)Title
 ....
 
-may be identical to
+may be identical to the extract
 
 [example]
 ....
 (SubmodelElementCollection)Manual, (MultiLanguageProperty)Title
 ....
-
+from
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementCollection)Manual, (MultiLanguageProperty)Title
+....
 semantically and content-wise.
 The difference is that more than one document is allowed in the first submodel and thus a submodel element list is defined:
-elements in a list are numbered.
+elements in a list are numbered. In the second case several documents may be added as collections but the number is typically fixed.
 
 ====
 
