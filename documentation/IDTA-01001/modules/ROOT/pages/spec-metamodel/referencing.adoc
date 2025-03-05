@@ -87,6 +87,8 @@ a|Unique reference in its name space |xref:Key[Key] |1..*
 
 {empty} +
 
+===  Reference Types Enumeration
+
 [.table-with-appendix-table]
 [cols="30%h,70%"]
 |===
@@ -119,11 +121,7 @@ Keys are used to define references (xref:spec-metamodel/referencing.adoc#Referen
 
 
 
-.Metamodel of KeyTypes Enumeration
-[plantuml, 51-key-types, svg]
-....
-include::partial$diagrams/51-key-types.puml[]
-....
+
 
 
 [.table-with-appendix-table]
@@ -156,10 +154,14 @@ a|The key value, for example an IRDI or a URI or the xref:spec-metamodel/common.
 
 An example for using a _FragmentId_ as type of a key is a reference to an element within a file that is part of an Asset Administration Shell aasx package.
 
-.Metamodel of AasSubmodelElements Enumeration
-[plantuml, 52-aas-submodel-elements, svg]
+
+
+=== Key Types Enumeration 
+
+.Metamodel of KeyTypes Enumeration
+[plantuml, 51-key-types, svg]
 ....
-include::partial$diagrams/52-aas-submodel-elements.puml[]
+include::partial$diagrams/51-key-types.puml[]
 ....
 
 [[table-key-types]]
@@ -280,7 +282,8 @@ a|Struct of submodel elements
 a|List of submodel elements
 |===
 
-{empty} +
+
+=== Fragment Keys Enumeration 
 
 [.table-with-appendix-table]
 [cols="30%h,70%"]
@@ -499,7 +502,13 @@ a|Struct of submodel elements
 a|List of submodel elements
 |===
 
-===  Logical Enumeration AasSubmodelElements
+===  AasSubmodelElements Enumeration
+
+.Logical Enumeration AasSubmodelElements
+[plantuml, 52-aas-submodel-elements, svg]
+....
+include::partial$diagrams/52-aas-submodel-elements.puml[]
+....
 
 [.table-with-appendix-table]
 [cols="30%h,70%"]
@@ -1117,7 +1126,7 @@ from
 ....
 semantically and content-wise.
 The difference is that more than one document is allowed in the first submodel and thus a submodel element list is defined:
-elements in a list are numbered. In the second case several documents may be added as collections but the number is typically fixed.
+elements in a list are numbered. In the second submodel several documents may be added as collections but the number is typically fixed.
 
 ====
 
