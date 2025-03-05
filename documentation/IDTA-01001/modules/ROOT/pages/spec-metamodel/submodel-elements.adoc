@@ -53,7 +53,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|[[AnnotatedRelationshipElement-annotations]] annotation 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement/annotations`
+.2+e|[[AnnotatedRelationshipElement-annotations]] annotation 3+| `\https://admin-shell.io/aas/3/1/AnnotatedRelationshipElement/annotation`
 a|A data element that represents an annotation that holds for the relationship between the two elements |xref:DataElement[DataElement] |0..*
 |===
 
@@ -412,7 +412,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Entity`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|[[Entity-statements]]statement 3+| `\https://admin-shell.io/aas/3/1/Entity/statements`
+.2+e|[[Entity-statements]]statement 3+| `\https://admin-shell.io/aas/3/1/Entity/statement`
 a| Statement applicable to the entity, each statement described by submodel element - typically with a qualified value |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |0..*
 
 .2+e|[[Entity-entityType]]entityType 3+| `\https://admin-shell.io/aas/3/1/Entity/entityType`
@@ -421,7 +421,7 @@ a|Describes whether the entity is a co-managed entity or a self-managed entity |
 .2+e|[[Entity-globalAssetId]]globalAssetId 3+| `\https://admin-shell.io/aas/3/1/Entity/globalAssetId`
 a|Global identifier of the asset the entity is representing |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |0..1
 
-.2+e|[[Entity-specificAssetIds]]specificAssetId 3+| `\https://admin-shell.io/aas/3/1/Entity/specificAssetIds`
+.2+e|[[Entity-specificAssetIds]]specificAssetId 3+| `\https://admin-shell.io/aas/3/1/Entity/specificAssetId`
 a|Reference to a specific asset ID representing a supplementary identifier of the asset represented by the Asset Administration Shell |xref:spec-metamodel/core.adoc#SpecificAssetId[SpecificAssetId] |0..*
 |===
 
@@ -579,15 +579,22 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Operation`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|inputVariable 3+| `\https://admin-shell.io/aas/3/1/Operation/inputVariables`
+.2+e|inputVariable 3+| `\https://admin-shell.io/aas/3/1/Operation/inputVariable`
 a|Input parameter of the operation |xref:OperationVariable[OperationVariable] |0..*
 
-.2+e|outputVariable 3+| `\https://admin-shell.io/aas/3/1/Operation/outputVariables`
+.2+e|outputVariable 3+| `\https://admin-shell.io/aas/3/1/Operation/outputVariable`
 a|Output parameter of the operation |xref:OperationVariable[OperationVariable] |0..*
 
-.2+e|inoutputVariable 3+| `\https://admin-shell.io/aas/3/1/Operation/inoutputVariables`
+.2+e|inoutputVariable 3+| `\https://admin-shell.io/aas/3/1/Operation/inoutputVariable`
 a|Parameter that is input and output of the operation |xref:OperationVariable[OperationVariable] |0..*
 |===
+
+
+===
+Note: 
+In embedded systems _inoutputVariables_ are variables that can be read but that are also written by the system. 
+Typically, this is implemented via a pointer (i.e. 'by reference' instead of 'by value')"
+===
 
 {empty} +
 
@@ -804,7 +811,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementCollection`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|value 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementCollection/values`
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementCollection/value`
 |Submodel element contained in the collection |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |0..*
 |===
 
@@ -874,7 +881,7 @@ Default: True
 
 |boolean |0..1
 
-.2+e|value 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementList/values`
+.2+e|value 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementList/value`
 a|Submodel element contained in the list |xref:spec-metamodel/core.adoc#SubmodelElement[SubmodelElement] |0..*
 
 .2+e|semanticIdListElement 3+| `\https://admin-shell.io/aas/3/1/SubmodelElementList/semanticIdListElement`

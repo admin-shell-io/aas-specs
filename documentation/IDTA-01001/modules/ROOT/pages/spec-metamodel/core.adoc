@@ -40,7 +40,7 @@ a|The reference to the Asset Administration Shell, which the Asset Administratio
 .2+e|assetInformation 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/assetInformation`
 a|Meta information about the asset, the Asset Administration Shell is representing |xref:spec-metamodel/core.adoc#AssetInformation[AssetInformation] |1
 
-.2+e|submodel 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/submodels`
+.2+e|submodel 3+| `\https://admin-shell.io/aas/3/1/AssetAdministrationShell/submodel`
 a|
 Reference to a submodel of the Asset Administration Shell
 
@@ -68,7 +68,7 @@ include::partial$diagrams/25-asset-information.puml[]
 |===
 h|Class: 3+e|[[AssetInformation]]AssetInformation
 h|Explanation: 3+a|
-In _AssetInformation,_ identifying metadata of the asset that is represented by an xref:AssetAdministrationShell[Asset Administration Shell] is defined.
+In _AssetInformation_, identifying metadata of the asset that is represented by an xref:AssetAdministrationShell[Asset Administration Shell] is defined.
 
 The asset may either represent a type asset or an instance asset.
 
@@ -103,7 +103,7 @@ The internal identifier would be modelled via "specificAssetId".
 
 |xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] |0..1
 
-.2+e|[[specificAssetId]]specificAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/specificAssetIds`
+.2+e|[[specificAssetId]]specificAssetId 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/specificAssetId`
 a|Additional domain-specific, typically proprietary identifier for the asset like serial number, manufacturer part ID, customer part IDs, etc |xref:SpecificAssetId[SpecificAssetId] |0..*
 
 .2+e|[[assetType ]]assetType 3+| `\https://admin-shell.io/aas/3/1/AssetInformation/assetType`
@@ -274,7 +274,7 @@ h|ID: 3+| `\https://admin-shell.io/aas/3/1/Submodel`
 .2+h|Attribute 3+h| ID
 h|Explanation h|Type h|Card.
 
-.2+e|submodelElement 3+| `\https://admin-shell.io/aas/3/1/Submodel/submodelElements`
+.2+e|submodelElement 3+| `\https://admin-shell.io/aas/3/1/Submodel/submodelElement`
 a|A submodel consists of zero or more submodel elements. |xref:SubmodelElement[SubmodelElement] |0..*
 |===
 
@@ -290,11 +290,11 @@ include::partial$diagrams/27-submodel-element.puml[]
 
 Submodel elements are qualifiable elements, i.e. one or more qualifiers may be defined for each of them.
 
-It is recommended to add a _semanticId_ to a _SubmodelElement._
+It is recommended to add a xref:spec-metamodel/common.adoc#HasSemantics[HasSemantics/semanticId] to a _SubmodelElement_.
 
 Submodel elements may also have defined data specification templates.
 A template might be defined to mirror some of the attributes like _preferredName_ and _unit_ of a property concept definition if there is no corresponding concept description available.
-Otherwise, there is only the property definition referenced by _semanticId_ available for the property; the attributes must be looked up online in a different way and are not available offline.
+Otherwise, there is only the property definition referenced by xref:spec-metamodel/common.adoc#HasSemantics[HasSemantics/semanticId] available for the property; the attributes must be looked up online in a different way and are not available offline.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]

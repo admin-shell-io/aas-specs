@@ -161,38 +161,32 @@ AAS:AasSubmodelElements/Submodel
 
 In case of an attribute with a cardinality greater than 1, no further attributes or enumeration values can be added.
 
-====
-Note: although the attribute name in UML is always singular, the attribute name is annotated by the plural "s" if the cardinality is > 1.
-This also holds if the resulting English is not good or valid English (see example for "isCaseOfs").
-====
 
 [.underline]#Valid examples#:
 
 [example]
 ....
 
-AAS:Operation/inputVariables
+AAS:Operation/inputVariable
 
-AAS:AssetAdministrationShell/submodels
+AAS:AssetAdministrationShell/submodel
 
-AAS:Submodel/submodelElements
+AAS:Submodel/submodelElement
 
-AAS:ConceptDescription/isCaseOfs
+AAS:ConceptDescription/isCaseOf
 ....
 
 _[.underline]#Invalid examples:#_
 
 [example]
 ....
-AAS:AssetAdministrationShell/submodels/administration/version
+AAS:AssetAdministrationShell/submodel/administration/version
+
+AAS:Submodel/submodelElement/idShort
 
 AAS:Submodel/Property/idShort
 ....
 
-////
-These semantic identifiers are used as values for the _RefSemantic_ attribute in AutomationML Mapping of the Asset Administration Shell.
-They are also used in OPC UA to describe the semantics of the metamodel via the OPC UA _HasDictionaryEntry_ reference type.
-////
 
 Additional identifiers might be needed for specific serializations and mappings, e.g. for a set of Asset Administration Shells or a set of available concept descriptions.
 Here, the Asset Administration Shell metamodel and specification does not give any recommendations.
