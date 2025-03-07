@@ -226,11 +226,19 @@ Constraint AASd-120: idShort of submodel elements being a direct child of a Subm
 == Changes V3.0.2 vs. V3.0.1
 
 Major Bugfixes:
-* CHANGED: Environment does not inherit from  "Reference"
+
+* CHANGED: Environment does not inherit from  "Reference" (figure and schemas were correct)
+
+Other Bugfixes:
+
 * CHANGED: Replace xs:dateType with xs:dateTime (https://github.com/admin-shell-io/aas-specs/issues/467[#467])
+
 * CHANGED: CHANGED: Correct Example for Reference (https://github.com/admin-shell-io/aas-specs/issues/481[#481])
-* CHANGED:  UML Template description with respect to cardinality (https://github.com/admin-shell-io/aas-specs/issues/388[#388])
-* CHANGED: AASd-119 Class name is "HasKind", not "hasKind"
+
+* CHANGED: UML Template description with respect to cardinality (https://github.com/admin-shell-io/aas-specs/issues/388[#388])
+
+* CHANGED: Constraint AASd-119 Class name is "HasKind", not "hasKind"
+
 
 === Metamodel Changes V3.0.2 vs. V3.0.1
 
@@ -240,7 +248,7 @@ Major Bugfixes:
 |*Nc* |*V3.0.2 Change w.r.t. V3.0.1* |*Comment*
 
 
-| {empty} | xref:spec-metamodel/environment.adoc#Environment[Environment] a| does not inherit from "Reference"
+| (x) | xref:spec-metamodel/environment.adoc#Environment[Environment] a| does not inherit from "Reference"
 
 |===
 
@@ -399,7 +407,7 @@ Bugfixes:
 * HasDataSpecification/embeddedDataSpecs 0..* not 0..1
 * Qualifier is and never was abstract (Constraint was), table was correct, UML corrected
 * Correct AASd-051: VIEW no longer supported
-* Type of SubmodelElementList/typeValueListElement corrected to AasSubmodelElements (before SubmodelElementElements
+* Type of SubmodelElementList/typeValueListElement corrected to AasSubmodelElements (before SubmodelElementElements)
 
 * Missing table for enumeration ReferenceTypes added
 * Bugfix table specifications w.r.t. kind of attribute (from aggr to attr – column kind was removed, see above)
