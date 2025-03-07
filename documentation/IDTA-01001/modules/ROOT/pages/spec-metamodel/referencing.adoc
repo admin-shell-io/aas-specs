@@ -87,6 +87,8 @@ a|Unique reference in its name space |xref:Key[Key] |1..*
 
 {empty} +
 
+===  Reference Types Enumeration
+
 [.table-with-appendix-table]
 [cols="30%h,70%"]
 |===
@@ -119,11 +121,7 @@ Keys are used to define references (xref:spec-metamodel/referencing.adoc#Referen
 
 
 
-.Metamodel of KeyTypes Enumeration
-[plantuml, 51-key-types, svg]
-....
-include::partial$diagrams/51-key-types.puml[]
-....
+
 
 
 [.table-with-appendix-table]
@@ -156,10 +154,14 @@ a|The key value, for example an IRDI or a URI or the xref:spec-metamodel/common.
 
 An example for using a _FragmentId_ as type of a key is a reference to an element within a file that is part of an Asset Administration Shell aasx package.
 
-.Metamodel of AasSubmodelElements Enumeration
-[plantuml, 52-aas-submodel-elements, svg]
+
+
+=== Key Types Enumeration 
+
+.Metamodel of KeyTypes Enumeration
+[plantuml, 51-key-types, svg]
 ....
-include::partial$diagrams/52-aas-submodel-elements.puml[]
+include::partial$diagrams/51-key-types.puml[]
 ....
 
 [[table-key-types]]
@@ -280,7 +282,8 @@ a|Struct of submodel elements
 a|List of submodel elements
 |===
 
-{empty} +
+
+=== Fragment Keys Enumeration 
 
 [.table-with-appendix-table]
 [cols="30%h,70%"]
@@ -499,97 +502,6 @@ a|Struct of submodel elements
 a|List of submodel elements
 |===
 
-===  Logical Enumeration AasSubmodelElements
-
-[.table-with-appendix-table]
-[cols="30%h,70%"]
-|===
-h|Enumeration: e|[[AasSubmodelElements]]AasSubmodelElements
-h|Explanation: a|Enumeration of submodel element types including abstract submodel element types
-h|Set of: | xref:AasContainerSubmodelElements[AasContainerSubmodelElements],  xref:AasNonContainerSubmodelElements[AasNonContainerSubmodelElements]
-h|ID: | `\https://admin-shell.io/aas/3/1/AasSubmodelElements`
-
-.2+h|Literal h| ID
-h|Explanation
-
-
-.2+e|AnnotatedRelationshipElement | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/AnnotatedRelationshipElement`
-a|Annotated relationship element
-
-
-.2+e|BasicEventElement | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/BasicEventElement`
-a|Basic event element
-
-.2+e|Blob | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/Blob`
-a|Blob
-
-.2+e|Capability | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/Capability`
-a|Capability
-
-.2+e|DataElement | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/DataElement`
-a|
-Data Element
-
-
-====
-Note: data elements are abstract, i.e. if a key uses "DataElement", the reference may be a property, file, etc.
-====
-
-
-.2+e|Entity | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/Entity`
-a|Entity
-
-.2+e|EventElement | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/EventElement`
-a|
-Event
-
-
-====
-Note: event element is abstract.
-====
-
-
-.2+e|File | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/File`
-a|File
-
-
-.2+e|MultiLanguageProperty | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/MultiLanguageProperty`
-a|Property with a value that can be provided in multiple languages
-
-.2+e|Operation| `\https://admin-shell.io/aas/3/1/AasSubmodelElements/Operation`
-a|Operation
-
-.2+e|Property | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/Property`
-a|Property
-
-.2+e|Range | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/Range`
-a|Range with min and max
-
-
-
-.2+e|ReferenceElement | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/ReferenceElement`
-a|Reference
-
-.2+e|RelationshipElement | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/RelationshipElement`
-a|Relationship
-
-
-.2+e|SubmodelElement | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/SubmodelElement`
-a|
-Submodel element
-
-
-====
-Note: submodel elements are abstract, i.e. if a key uses "SubmodelElement", the reference may be a property, a submodel element list, an operation, etc.
-====
-
-
-.2+e|SubmodelElementCollection | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/SubmodelElementCollection`
-a|Struct of submodel elements
-
-.2+e|SubmodelElementList | `\https://admin-shell.io/aas/3/1/AasSubmodelElements/SubmodelElementList`
-a|List of submodel elements
-|===
 
 
 ===  Logical Enumeration AasNonContainerSubmodelElements
@@ -967,18 +879,23 @@ a|Submodel
 == Constraints for References
 === Constraints
 
+[[constraint-AASd-121]]
 {aasd121}
 
+[[constraint-AASd-122]]
 {aasd122}
 
+[[constraint-AASd-123]]
 {aasd123}
 
+[[constraint-AASd-124]]
 {aasd124}
 
+[[constraint-AASd-125]]
 {aasd125}
 
 ====
-Note: constraint AASd-125 ensures that the shortest path is used.
+Note: constraint <<constraint-AASd-125>> ensures that the shortest path is used.
 ====
 
 {aasd126}
@@ -1022,14 +939,14 @@ In addition to the examples in xref:mappings/mappings.adoc#examples-reference-se
 [Submodel](GlobalReference)https://example.com/aas/1/1/1234859590
 ....
 
-Key type "Submodel" is not a globally identifiable (see Constraint AASd-121).
+Key type "Submodel" is not a globally identifiable (see <<constraint-AASd-121>>).
 
 [example]
 ....
 [ExternalRef](Submodel)https://example.com/aas/1/1/1234859590
 ....
 
-Key type "Submodel" is no generic globally identifiable (see Constraint AASd-122).
+Key type "Submodel" is no generic globally identifiable (see <<constraint-AASd-122>>).
 
 
 [example]
@@ -1037,8 +954,8 @@ Key type "Submodel" is no generic globally identifiable (see Constraint AASd-122
 [ModelRef](GlobalReference)https://example.com/aas/1/1/1234859590
 ....
 
-Key type "GlobalReference" is no AAS identifiable (see Constraint AASd-123). 
-The last key type "GlobalReference" is neither a generic globally identifiable nor a generic fragment key (see Constraint AASd-124).
+Key type "GlobalReference" is no AAS identifiable (see <<constraint-AASd-123>>). 
+The last key type "GlobalReference" is neither a generic globally identifiable nor a generic fragment key (see <<constraint-AASd-124>>).
 
 
 
@@ -1093,21 +1010,31 @@ https://example.com/specification.html#Hints
 ====
 Note:
 
+The extract 
 [example]
 ....
-(SubmodelElementList)0, (MultiLanguageProperty)Title
+(SubmodelElementCollection)0, (MultiLanguageProperty)Title
+....
+from
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementList)Documents, (SubmodelElementCollection)0, (MultiLanguageProperty)Title
 ....
 
-may be identical to
+may be identical to the extract
 
 [example]
 ....
 (SubmodelElementCollection)Manual, (MultiLanguageProperty)Title
 ....
-
+from
+[example]
+....
+(Submodel)https://example.com/aas/1/1/1234859590, (SubmodelElementCollection)Manual, (MultiLanguageProperty)Title
+....
 semantically and content-wise.
 The difference is that more than one document is allowed in the first submodel and thus a submodel element list is defined:
-elements in a list are numbered.
+elements in a list are numbered. In the second submodel several documents may be added as collections but the number is typically fixed.
 
 ====
 
@@ -1156,8 +1083,8 @@ This is an external reference but no model reference.
 (Property)0173-1#02-BAA120#008
 ....
 
-This reference does not start with the ID of an Identifiable, i.e. key type "Property" is no AAS identifiable (see Constraint AASd-123).
-Additionally, the value is not a valid xref:spec-metamodel/common.adoc#Referable[idShort] for a Property submodel element since it contains special characters like "#" (see Constraint AASd-002).
+This reference does not start with the ID of an Identifiable, i.e. key type "Property" is no AAS identifiable (see <<constraint-AASd-123>>).
+Additionally, the value is not a valid xref:spec-metamodel/common.adoc#Referable[idShort] for a Property submodel element since it contains special characters like "#" (see xref:annex/overview-constraints.adoc#constraint-AASd-002[Constraint AASd-002]).
 
 
 [example]
@@ -1165,7 +1092,7 @@ Additionally, the value is not a valid xref:spec-metamodel/common.adoc#Referable
 [ModelRef](FragmentReference)Hints (Property)Temperature
 ....
 
-Key "Property" is no generic fragment key and therefore fragment key "FragmentReference" is not allowed before (see Constraint AASd-126).
+Key "Property" is no generic fragment key and therefore fragment key "FragmentReference" is not allowed before (see <<constraint-AASd-126>>).
 
 
 
@@ -1174,7 +1101,7 @@ Key "Property" is no generic fragment key and therefore fragment key "FragmentRe
 (Submodel)https://example.com/aas/1/1/1234859590, (EventElement)Event, (FragmentReference)Comment
 ....
 
-This model reference is invalid because fragment references so far are only defined for "File" and "Blob" submodel elements (see Constraint AASd-127).
+This model reference is invalid because fragment references so far are only defined for "File" and "Blob" submodel elements (see <<constraint-AASd-127>>).
 
 
 [example]
@@ -1182,6 +1109,6 @@ This model reference is invalid because fragment references so far are only defi
 (AssetAdministrationShell)https://example.com/aas/1/0/12348, (Submodel)https://example.com/aas/1/1/1234859590, (Property)Temperature
 ....
 
-This is not a valid model reference because key type "AssetAdministrationShell"  and "Submodel" are both global identifiables and there shall be only one (see Constraints AASd-125).
+This is not a valid model reference because key type "AssetAdministrationShell"  and "Submodel" are both global identifiables and there shall be only one (see Constraints <<constraint-AASd-125>>).
 
 
