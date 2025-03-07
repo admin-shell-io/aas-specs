@@ -163,7 +163,7 @@ Note: this is an external reference.
 |xref:spec-metamodel/referencing.adoc#Reference[Reference] |0..* |
 |===
 
-For more details on data specifications, please see Clause xref:data-specifications.adoc[].
+For more details on data specifications, please see  xref:data-specifications.adoc[].
 
 == Has Extensions Attributes
 
@@ -183,7 +183,7 @@ Element that can be extended by proprietary extensions
 
 
 ====
-Note 1: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-extensions[Constraints for Extensions] for constraints related to extensions.
+Note 1: see  xref:spec-metamodel/constraints.adoc#constraints-for-extensions[Constraints for Extensions] for constraints related to extensions.
 ====
 
 
@@ -304,7 +304,7 @@ include::partial$diagrams/18-has-semantics.puml[]
 ....
 
 
-For matching algorithm, see Clause xref:annex/general.adoc#matching-strategies-for-semantic-identifiers[Matching Strategies for Semantic Identifiers].
+For matching algorithm, see  xref:annex/general.adoc#matching-strategies-for-semantic-identifiers[Matching Strategies for Semantic Identifiers].
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -360,10 +360,10 @@ Non-identifiable referable elements can be referenced.
 However, this requires the context of the element.
 A referable that is not identifiable and not child within a SubmodelElementList has a short identifier (_idShort_) that is unique just in its context, its name space.
 
-Information about identification can be found in Clause xref:annex/general.adoc#identification-of-elements[Identification of Elements].
-See Clause xref:annex/general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?] for constraints and recommendations on when to use which type of identifier.
+Information about identification can be found in  xref:annex/general.adoc#identification-of-elements[Identification of Elements].
+See  xref:annex/general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?] for constraints and recommendations on when to use which type of identifier.
 
-See Clause xref:annex/general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?] for information about which identifier types are supported.
+See  xref:annex/general.adoc#which-identifiers-for-which-elements[Which Identifiers for Which Elements?] for information about which identifier types are supported.
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -422,7 +422,7 @@ A qualifiable element may be further qualified by one or more qualifiers.
 
 
 ====
-Note: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-qualifiers[Constraints for Qualifiers] for constraints related to qualifiables.
+Note: see  xref:spec-metamodel/constraints.adoc#constraints-for-qualifiers[Constraints for Qualifiers] for constraints related to qualifiables.
 ====
 
 
@@ -570,7 +570,7 @@ The metamodel differentiates between elements that are identifiable, referable, 
 The latter means they are neither inheriting from _Referable_ nor from _Identifiable_, which applies e.g. to __Qualifier__s.
 
 Referable elements can be referenced via the _idShort_ (except for elements within a xref:spec-metamodel/submodel-elements.adoc#submodel-element-list-attributes[SubmodelElementList]).
-For details on referencing, see Clause xref:spec-metamodel/referencing.adoc[].
+For details on referencing, see  xref:spec-metamodel/referencing.adoc[].
 
 Not every element of the metamodel is referable.
 There are elements that are just attributes of a referable.
@@ -593,7 +593,7 @@ This ID is unique within the name space of the element.
 
 
 ====
-Note 2: see Clause xref:spec-metamodel/constraints.adoc#constraints-for-referables-and-identifiables[Constraints for Referables and Identifiables] for constraints related to referables.
+Note 2: see  xref:spec-metamodel/constraints.adoc#constraints-for-referables-and-identifiables[Constraints for Referables and Identifiables] for constraints related to referables.
 ====
 
 

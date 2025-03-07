@@ -40,7 +40,7 @@ h|Explanation h|Type h|Card.
 a|<Explanatory text> |<Type> |<Card>
 |===
 
-_ID_ is the metamodel ID of the class or attribute, conformant to the grammar defined in Clause xref:mappings/mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"].
+_ID_ is the metamodel ID of the class or attribute, conformant to the grammar defined in  xref:mappings/mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"].
 A metamodel ID for a class attribute is concatenated by _<ID of metamodel element ID of class>/<relative metamodel element ID>_.
 
 The following stereotypes can be used:
@@ -53,7 +53,7 @@ The following stereotypes can be used:
 The following kinds of _Types_ are distinguished:
 
 ** _<Class>:_ Type is an object type (class); it is realized as composite aggregation (composition), and does not exist independent of its parent
-** _ModelReference<\{Referable}>:_ Type is a Reference with _Reference/type=ModelReference_ and is called model reference; the \{Referable} is to be substituted by any referable element (including _Referable_ itself for the most generic case) – the element that is referred to is denoted in the __Key/type__=<\{Referable}> for the last _Key_ in the model reference; for the graphical representation see Annex xref:annex/uml.adoc[] , Figure xref:annex/uml.adoc#image-82-shared-aggregation[Graphical Representation of Shared Aggregation]; for more information on referencing see Clause xref:spec-metamodel/referencing.adoc[].
+** _ModelReference<\{Referable}>:_ Type is a Reference with _Reference/type=ModelReference_ and is called model reference; the \{Referable} is to be substituted by any referable element (including _Referable_ itself for the most generic case) – the element that is referred to is denoted in the __Key/type__=<\{Referable}> for the last _Key_ in the model reference; for the graphical representation see Annex xref:annex/uml.adoc[] , Figure xref:annex/uml.adoc#image-82-shared-aggregation[Graphical Representation of Shared Aggregation]; for more information on referencing see  xref:spec-metamodel/referencing.adoc[].
 ** _<Primitive>:_  Type is no object type (class) but a data type; it is just a value, see Clause  xref:spec-metamodel/datatypes.adoc#primitive-data-types[Primitive Data Types]
 ** _<Enumeration>:_ Type is an enumeration, see <<template-for-enumerations>>
 
@@ -78,7 +78,7 @@ Note 3: optional lists, i.e. attributes with cardinality > 1 and minimum 0, are 
 
 [.underline]#Examples for valid and invalid model references#
 
-If class type equal to "ModelReference<Submodel>", the following reference would be a valid reference (using the text serialization as defined in Clause xref:mappings/mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"
+If class type equal to "ModelReference<Submodel>", the following reference would be a valid reference (using the text serialization as defined in  xref:mappings/mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"
 ]):
 
 [listing]
@@ -93,7 +93,7 @@ This would be an invalid reference for "ModelReference<Submodel>" because it ref
 (Submodel)https://example.com/aas/1/1/1234859590, (Property)temperature
 ....
 
-If class type equal to "ModelReference<Referable>", the following references would be valid references (using the text serialization as defined in Clause xref:mappings/mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"]) because "Property" and "File" are Referables and "Submodel" itself is also Referable since all Identifiables are referable:
+If class type equal to "ModelReference<Referable>", the following references would be valid references (using the text serialization as defined in  xref:mappings/mappings.adoc#reference-serialization[Text Serialization of Values of Type "Reference"]) because "Property" and "File" are Referables and "Submodel" itself is also Referable since all Identifiables are referable:
 
 [listing]
 ....
