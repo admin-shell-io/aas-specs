@@ -895,7 +895,7 @@ a|Submodel
 {aasd125}
 
 ====
-Note: constraint <<constraint-AASd-125>> ensures that the shortest path is used.
+Note: xref:referencing.adoc#constraint-AASd-125[Constraint AASd-125] ensures that the shortest path is used.
 ====
 
 {aasd126}
@@ -939,14 +939,14 @@ In addition to the examples in xref:mappings/mappings.adoc#examples-reference-se
 [Submodel](GlobalReference)https://example.com/aas/1/1/1234859590
 ....
 
-Key type "Submodel" is not a globally identifiable (see <<constraint-AASd-121>>).
+Key type "Submodel" is not a globally identifiable (see xref:referencing.adoc#constraint-AASd-121[Constraint AASd-121]).
 
 [example]
 ....
 [ExternalRef](Submodel)https://example.com/aas/1/1/1234859590
 ....
 
-Key type "Submodel" is no generic globally identifiable (see <<constraint-AASd-122>>).
+Key type "Submodel" is no generic globally identifiable (see xref:referencing.adoc#constraint-AASd-122[Constraint AASd-122]).
 
 
 [example]
@@ -954,8 +954,8 @@ Key type "Submodel" is no generic globally identifiable (see <<constraint-AASd-1
 [ModelRef](GlobalReference)https://example.com/aas/1/1/1234859590
 ....
 
-Key type "GlobalReference" is no AAS identifiable (see <<constraint-AASd-123>>). 
-The last key type "GlobalReference" is neither a generic globally identifiable nor a generic fragment key (see <<constraint-AASd-124>>).
+Key type "GlobalReference" is no AAS identifiable (see xref:referencing.adoc#constraint-AASd-123[Constraint AASd-123]). 
+The last key type "GlobalReference" is neither a generic globally identifiable nor a generic fragment key (see xref:referencing.adoc#constraint-AASd-124[Constraint AASd-124]).
 
 
 
@@ -1083,7 +1083,7 @@ This is an external reference but no model reference.
 (Property)0173-1#02-BAA120#008
 ....
 
-This reference does not start with the ID of an Identifiable, i.e. key type "Property" is no AAS identifiable (see <<constraint-AASd-123>>).
+This reference does not start with the ID of an Identifiable, i.e. key type "Property" is no AAS identifiable (see xref:referencing.adoc#constraint-AASd-123[Constraint AASd-123]).
 Additionally, the value is not a valid xref:spec-metamodel/common.adoc#Referable[idShort] for a Property submodel element since it contains special characters like "#" (see xref:annex/overview-constraints.adoc#constraint-AASd-002[Constraint AASd-002]).
 
 
@@ -1092,7 +1092,7 @@ Additionally, the value is not a valid xref:spec-metamodel/common.adoc#Referable
 [ModelRef](FragmentReference)Hints (Property)Temperature
 ....
 
-Key "Property" is no generic fragment key and therefore fragment key "FragmentReference" is not allowed before (see <<constraint-AASd-126>>).
+Key "Property" is no generic fragment key and therefore fragment key "FragmentReference" is not allowed before (see xref:referencing.adoc#constraint-AASd-126[Constraint- AASd-126]).
 
 
 
@@ -1101,7 +1101,7 @@ Key "Property" is no generic fragment key and therefore fragment key "FragmentRe
 (Submodel)https://example.com/aas/1/1/1234859590, (EventElement)Event, (FragmentReference)Comment
 ....
 
-This model reference is invalid because fragment references so far are only defined for "File" and "Blob" submodel elements (see <<constraint-AASd-127>>).
+This model reference is invalid because fragment references so far are only defined for "File" and "Blob" submodel elements (see xref:referencing.adoc#constraint-AASd-127[Constraint AASd-127]).
 
 
 [example]
@@ -1109,6 +1109,6 @@ This model reference is invalid because fragment references so far are only defi
 (AssetAdministrationShell)https://example.com/aas/1/0/12348, (Submodel)https://example.com/aas/1/1/1234859590, (Property)Temperature
 ....
 
-This is not a valid model reference because key type "AssetAdministrationShell"  and "Submodel" are both global identifiables and there shall be only one (see Constraints <<constraint-AASd-125>>).
+This is not a valid model reference because key type "AssetAdministrationShell"  and "Submodel" are both global identifiables and there shall be only one (see Constraints xref:referencing.adoc#constraint-AASd-125[Constraint AASd-125]).
 
 
