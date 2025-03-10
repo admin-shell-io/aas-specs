@@ -26,9 +26,8 @@ The specification number is: **IDTA-01001**
 
 ## Schemas
 
-The schemas of the Asset Administration Shell for JSON, RDF and XML as well 
-as a XMI and YAML representation of the metmodel are provided in the 
-respective directories. 
+The schemas of the Asset Administration Shell for JSON, RDF and XML representation of the metamodel are provided in the 
+respective directories. XMI is not provided any longer since with V3.1 PlantUML is used for UML.
 These schemas are derived from the document series, part 1,
 ["Specification Asset Administration Shell"](
 https://industrialdigitaltwin.org/en/content-hub/aasspecifications
@@ -49,7 +48,7 @@ at [schemas/rdf/](schemas/rdf/).
 The XML schema, mapping rules and examples are available 
 at [schemas/xml/](schemas/xml/).
 
-### XMI
+### XMI <<deprecated>>
 
 The XMI file for the UML metamodel is available 
 at [schemas/xmi/](schemas/xmi/).
