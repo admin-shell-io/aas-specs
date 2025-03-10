@@ -22,12 +22,14 @@ This glossary applies only within the context of this document.
 
 If available, definitions were taken from IEC 63278-1 Edition 1.0 2023-12.
 
+[[term-access-control]]
 *access control*::
 
 protection of system resources against unauthorized access; a process by which use of system resources is regulated according to a security policy and is permitted by only authorized entities (users, programs, processes, or other systems) according to that policy
 
 _[SOURCE: IEC TS 62443-1-1]_
 
+[[term-application]]
 *application*::
 
 software functional element specific to the solution of a problem in industrial-process measurement and control
@@ -38,6 +40,8 @@ Note 1 to entry: an application can be distributed among resources and may commu
 
 _[SOURCE: IEC TR 62390:2005-01, 3.1.2]_
 
+
+[[term-asset]]
 *asset*::
 
 entity owned by or under the custodial duties of an organization, which has either a perceived or actual value to the organization
@@ -60,12 +64,14 @@ EXAMPLE 3: a software license is an example of an intangible asset.
 
 _[SOURCE: IEC 63278-1:2023, editorial changes]_
 
+[[term-attribute]]
 *attribute*::
 
-data element of a _property_, a relation, or a class in information technology
+data element of a xref:terms-definitions-and-abbreviations.adoc#term-property[property], a relation, or a class in information technology
 
 _[SOURCE: IEC 63278-1:2023; ISO/IEC Guide 77-2; ISO/IEC 27460; IEC 61360]_
 
+[[term-asset-administration-shell]]
 *Asset Administration Shell (AAS)*::
 
 standardized digital representation of an asset
@@ -76,12 +82,14 @@ Note 1 to entry: Asset Administration Shell and Administration Shell are used sy
 
 _[SOURCE: IEC 63278-1:2023, note added]_
 
+[[term-class]]
 *class*::
 
-description of a set of objects that share the same _attributes_, _operations_, methods, relationships, and semantics
+description of a set of objects that share the same xref:terms-definitions-and-abbreviations.adoc#term-attribute[attributes], xref:terms-definitions-and-abbreviations.adoc#term-operation[opererations], methods, relationships, and semantics
 
 _[SOURCE: IEC TR 62390:2005-01, 3.1.4]_
 
+[[term-capability]]
 *capability*::
 
 implementation-independent potential of an Industrie 4.0 component to achieve an effect within a domain
@@ -100,24 +108,28 @@ Note 3 to entry: the impact manifests itself in a measurable effect within the p
 
 _[SOURCE: Glossary Industrie 4.0, minor changes]_
 
+[[term-coded-value]]
 *coded value*::
 
 value that can be looked up in a dictionary and can be translated
 
 _[SOURCE: link:https://eclass.eu/support/technical-specification/data-model/conceptual-data-model[ECLASS] footnote:[In IEC61360:2017, this refers to a "term" of a value list]]_
 
+[[term-component]]
 *component*::
 
-product used as a constituent in an assembled product, _system_, or plant
+product used as a constituent in an assembled product, xref:terms-definitions-and-abbreviations.adoc#term-system[system], or plant
 
 _[SOURCE: IEC 63278-1:2023; IEC 61666:2010+AMD1:2021 CSV, 3.6]_
 
+[[term-concept]]
 *concept*::
 
 unit of knowledge created by a unique combination of characteristics
 
 _[SOURCE: IEC 63278-1:2023; IEC 61360-1:2016, 3.1.8; ISO 22274:2013, 3.7]_
 
+[[term-digital-representation]]
 *digital representation*::
 
 information and services representing an entity from a given viewpoint
@@ -136,9 +148,10 @@ EXAMPLE 3: examples of viewpoints are mechanical, electrical, or commercial char
 
 _[SOURCE: IEC 63278-1:2023, editorial changes]_
 
+[[term-digital-twin]]
 *digital twin*::
 
-_digital representation_, sufficient to meet the requirements of a set of use cases
+xref:terms-definitions-and-abbreviations.adoc#term-digital-representation[digital representation], sufficient to meet the requirements of a set of use cases
 
 ====
 Note 1 to entry: in this context, the entity in the definition of digital representation is typically an asset.
@@ -146,12 +159,14 @@ Note 1 to entry: in this context, the entity in the definition of digital repres
 
 _[SOURCE: IIC Vocabulary IIC:IIVOC:V2.3:20201025, adapted (an asset, process, or system was changed to an asset)]_
 
+[[term-explicit-value]]
 *explicit value*::
 
-commonly used _concept_, like numbers (e.g. 109, 25) which do not need lookup in dictionaries
+commonly used concept, like numbers (e.g. 109, 25) which do not need lookup in dictionaries
 
 _[SOURCE: link:https://eclass.eu/support/technical-specification/data-model/conceptual-data-model[ECLASS]]_
 
+[[term-identifier]]
 *identifier (ID)*::
 
 identity information that unambiguously distinguishes one entity from another one in a given domain
@@ -162,9 +177,10 @@ Note 1 to entry: there are specific identifiers, e.g. UUID Universal unique iden
 
 _[SOURCE: Glossary Industrie 4.0]_
 
+[[term-instance]]
 *instance*::
 
-concrete, clearly identifiable component of a certain _type_
+concrete, clearly identifiable component of a certain xref:terms-definitions-and-abbreviations.adoc#term-type[type]
 
 ====
 Note 1 to entry: an individual entity of a type, for example a device, is obtained by defining specific property values.
@@ -176,9 +192,10 @@ Note 2 to entry: in an object-oriented view, an instance denotes an object of a 
 
 _[SOURCE: IEC 62890:2016, 3.1.16 65/617/CDV, editorial changes]_
 
+[[term-instance-asset]]
 *instance asset*::
 
-specific _asset_ that is uniquely identifiable
+specific xref:terms-definitions-and-abbreviations.adoc#term-asset[asset] that is uniquely identifiable
 
 ====
 EXAMPLE 1: examples of instance assets are material, a product, a part, a device, a machine, software, a control system, or a production system.
@@ -186,6 +203,7 @@ EXAMPLE 1: examples of instance assets are material, a product, a part, a device
 
 _[SOURCE: IEC 63278-1:2023, editorial changes]_
 
+[[term-operation]]
 *operation*::
 
 executable realization of a function
@@ -201,6 +219,7 @@ Note 2 to entry: an operation has a name and a list of parameters [ISO 19119:200
 _[SOURCE: Glossary Industrie 4.0, editorial changes]_
 
 ////
+[[term-ontology]]
 *ontology*::
 
 collection of concepts, where each concept is constituted by an identifier, name, description, and additional entities and where relationships between concepts can be described without restriction
@@ -208,6 +227,7 @@ collection of concepts, where each concept is constituted by an identifier, name
 _[SOURCE: ??]_
 ////
 
+[[term-property]]
 *property*::
 
 defined characteristic suitable for the description and differentiation of products or components
@@ -245,9 +265,10 @@ Note 7 to entry: the specification of a property can include predefined choices 
 
 _[SOURCE: according to ISO/IEC Guide 77-2] as well as [SOURCE: according to Glossary Industrie 4.0], Note 7 removed_
 
+[[term-qualifier]]
 *qualifier*::
 
-well-defined element associated with a _property_ instance or _submodel element_, restricting the value statement to a certain period of time or use case
+well-defined element associated with a xref:terms-definitions-and-abbreviations.adoc#term-property[property] instance or xref:terms-definitions-and-abbreviations.adoc#term-submodel-element[submodel element], restricting the value statement to a certain period of time or use case
 
 ====
 Note 1 to entry: qualifiers can have associated values.
@@ -255,6 +276,7 @@ Note 1 to entry: qualifiers can have associated values.
 
 _[SOURCE: according to IEC 62569-1]_
 
+[[term-service]]
 *service*::
 
 distinct part of the functionality that is provided by an entity through interfaces
@@ -262,6 +284,7 @@ distinct part of the functionality that is provided by an entity through interfa
 _[SOURCE: IEC 63278-1:2023; IEC 60050-741:2020, 741-01-28]_
 
 ////
+[[term-smart-manufacturing]]
 *smart manufacturing*::
 
 manufacturing that improves its performance aspects with integrated and intelligent use of processes and resources in cyber, physical and human spheres to create and deliver products and services, which also collaborates with other domains within enterprises' value chains
@@ -281,30 +304,35 @@ Note 2 to entry: in addition to manufacturing, other enterprise domains can incl
 _[SOURCE: IEC TR 63283-1:2022 ED1]_
 ////
 
+[[term-submodel]]
 *Submodel*::
 
-representation of an aspect of an _asset_
+representation of an aspect of an xref:terms-definitions-and-abbreviations.adoc#term-asset[asset]
 
 _[SOURCE: IEC 63278-1:2023]_
 
+[[term:submodel-element]]
 *SubmodelElement*::
 
-element of a _Submodel_
+element of a xref:terms-definitions-and-abbreviations.adoc#term-submodel[Submodel]
 
 _[SOURCE: IEC 63278-1:2023]_
 
+[[term:submodel-template]]
 *Submodel template*::
 
-_template_ for the representation of an aspect of an _asset_
+xref:terms-definitions-and-abbreviations.adoc#term-template[template]  for the representation of an aspect of an xref:terms-definitions-and-abbreviations.adoc#term-asset[asset]
 
 _[SOURCE: IEC 63278-1:2023]_
 
+[[term-submodel-template-element]]
 *Submodel template element*::
 
-element of a _Submodel template_
+element of a xref:terms-definitions-and-abbreviations.adoc#term-submodel-template[Submodel template]
 
 _[SOURCE: IEC 63278-1:2023]_
 
+[[term-system]]
 *system*::
 
 interacting, interrelated, or interdependent elements forming a complex whole
@@ -325,6 +353,7 @@ Note 1 to entry: can consist of single elements, which are also known as functio
 _[SOURCE: according to xref:bibliography.adoc#bib18[[18\]]]_
 ////
 
+[[term-template]]
 *template*::
 
 specification of the common features of an object in sufficient detail that such object can be instantiated using it
@@ -335,15 +364,17 @@ Note 1 to entry: object can be anything that has a type.
 
 _[SOURCE: according to ISO/IEC 10746-2]_
 
+[[term-type]]
 *type*::
 
-hardware or software element which specifies the common _attributes_ shared by all instances of the type
+hardware or software element which specifies the common xref:terms-definitions-and-abbreviations.adoc#term-attribute[attributes] shared by all instances of the type
 
 _[SOURCE: IEC TR 62390:2005-01, 3.1.25]_
 
+[[term-type-asset]]
 *type asset*::
 
-(abstract) representation of a set of _instance assets_ with common characteristics and features
+(abstract) representation of a set of xref:terms-definitions-and-abbreviations.adoc#term-instance-asset[instance assets]  with common characteristics and features
 
 ====
 Note 1 to entry: the set of instance assets may exist or may not exist.
@@ -355,6 +386,7 @@ EXAMPLE: Examples of type assets are type of material, a product type, a type of
 
 _[SOURCE: IEC 63278-1:2023]_
 
+[[term-variable]]
 *variable*::
 
 software entity that may take different values, one at a time
