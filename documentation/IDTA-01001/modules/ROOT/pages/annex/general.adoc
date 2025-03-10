@@ -18,15 +18,15 @@ includes events.adoc
 
 Before specifying the information metamodel of the Asset Administration Shell, some general topics relevant for the Asset Administration Shell are explained.
 
-Subclause xref:general.adoc#types-and-instances[Types and Instances] describes some general aspects of handling type and instance assets.
+xref:general.adoc#types-and-instances[Types and Instances] describes some general aspects of handling type and instance assets.
 
-Subclause xref:general.adoc#identification-of-elements[Identification of Elements] explains the very important aspects of identification in the context of the Asset Administration Shell.
+xref:general.adoc#identification-of-elements[Identification of Elements] explains the very important aspects of identification in the context of the Asset Administration Shell.
 
-Subclause xref:general.adoc#matching-strategies[Matching Strategies] provides matching strategies for semantic identifiers and references.
+ xref:general.adoc#matching-strategies[Matching Strategies] provides matching strategies for semantic identifiers and references.
 
-Subclause xref:general.adoc#submodel-instances-and-templates[Submodel Instances and Templates] explains the difference between submodel instances and templates.
+xref:general.adoc#submodel-instances-and-templates[Submodel Instances and Templates] explains the difference between submodel instances and templates.
 
-Subclause xref:general.adoc#events[Events] discusses aspects of event handling.
+xref:general.adoc#events[Events] discusses aspects of event handling.
 
 [#types-and-instances]
 == Types and Instances
@@ -111,12 +111,12 @@ The term "Entity" is chosen as superordinate concept in this context and refers 
 
 ===  Asset Administration Shells Representing Type Assets and Instance Assets
 
-An Asset Administration Shell either represents a type asset or an instance asset.
+An Asset Administration Shell typically either represents a xref:terms-definitions-and-abbreviations.adoc#term-type-asset[type asset] or an xref:terms-definitions-and-abbreviations.adoc#term-instance-asset[instance asset].
 Typically, there is a relationship between instance assets and a type asset.
 However, not every instance asset is required to have a corresponding type asset.
 
 <<image-4-aas-type-instance>> gives an example of how to handle type assets and their derived instance assets.
-The attribute "assetKind" indicates whether the Asset Administration Shell (denoted by the ": AAS" UML notation for a class instance) represents a type asset or an instance asset.
+The attribute "assetKind" indicates whether the Asset Administration Shell (denoted by the ":AAS" UML notation for a class instance of the class "AAS") represents a type asset or an instance asset.
 Additionally, attributes are added to show that the attributes of type asset and instance assets typically differ from each other.
 
 .Example: Asset Administration Shells for Type and Instance Assets
