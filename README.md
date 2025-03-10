@@ -25,7 +25,7 @@ of the [IDTA](https://industrialdigitaltwin.org/en/).
 ## Documentation
 
 The documentation is found in folder "documentation/IDTA-01001".
-[asciidoc](https://docs.asciidoctor.org/) and [antora](https://github.com/admin-shell-io/aas-specs-antora-ui) are used to generate the documentation.
+[asciidoc](https://docs.asciidoctor.org/), [PlantUML](https://plantuml.com/en/) and [antora](https://github.com/admin-shell-io/aas-specs-antora-ui) are used to generate the documentation.
 
 The specification number is: **IDTA-01001**
 
