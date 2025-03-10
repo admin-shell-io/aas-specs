@@ -48,7 +48,7 @@ at [schemas/rdf/](schemas/rdf/).
 The XML schema, mapping rules and examples are available 
 at [schemas/xml/](schemas/xml/).
 
-### XMI <<deprecated>>
+### XMI \<\<deprecated>>
 
 The XMI file for the UML metamodel is available 
 at [schemas/xmi/](schemas/xmi/).
