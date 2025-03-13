@@ -48,6 +48,7 @@ Major Changes:
 * CHANGED: Entity/entityType and Constraint AASd-014: entityType now optional (https://github.com/admin-shell-io/aas-specs/issues/287[#287])
 * CHANGED: Change RelationshipElement: attributes "first" and "second" now optional (conformant to "min" and "max" of "Range")(https://github.com/admin-shell-io/aas-specs/issues/412[#412]), AnnotatedRelationshipElement inherits from RelationshipElement and is thus also affected.
 * CHANGED: Change File and Blob: attribute "contentType" now optional (https://github.com/admin-shell-io/aas-specs/issues/412[#412])
+* CHANGED: Value-Only SChema adaptd to changes in classes Entity, RelationshipElement etc.
 * REMOVED: remove AASd-120: idShort also allowed for elements within a SubmodelElementList (https://github.com/admin-shell-io/aas-specs/issues/432[#432])
 * REMOVED: remove AASd-090: category is deprecated (https://github.com/admin-shell-io/aas-specs/issues/514[#514])
 * CHANGED: Relaxation of grammar for semantic IDs for metamodel elements in the context of data specifications
@@ -114,6 +115,7 @@ Minor Changes:
 * CHANGED: change explanation of Entity/statement to singular for consistency
 * REMOVED: AdministrativeInformation - remove note 2: since submodels with different versions shall have different identifiers, it is possible that an Asset Administration Shell has two submodels with the same semanticId but different versions.
 * REMOVED: remove [23] from bibliography and remove corresponding notes referring to it
+* REMOVED: statement w.r.t. CLSID
 * CHANGED: editorial changes (including https://github.com/admin-shell-io/aas-specs/issues/345[#345], 
 https://github.com/admin-shell-io/aas-specs/issues/361[#361], 
 https://github.com/admin-shell-io/aas-specs/issues/385[#385])
@@ -134,7 +136,7 @@ https://github.com/admin-shell-io/aas-specs/issues/385[#385])
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#EventPayload[EventPayload/timeStamp] a| change data type from _dateTime_ to _DateTimeUtc_
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#File[File/contentType] a| now optional
 | {empty} | xref:spec-metamodel/datatypes.adoc#Identifier[Identifier] a| data type: change length from 2000 to 2024 characters
-| {empty} | xref:spec-metamodel/datatypes.adoc#NameType[NameType] a| implicit change due to change of Constraint AASd-002
+| {empty} | xref:spec-metamodel/datatypes.adoc#NameType[NameType] a| implicit change because constraint AASd-002 now also allows hyphen
 | {empty}  | xref:spec-metamodel/common.adoc#Referable[Referable/idShort] a| implicit change because constraint AASd-002 now also allows hyphen
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#RelationshipElement[RelationshipElement/first] a| now optional
 | {empty} | xref:spec-metamodel/submodel-elements.adoc#RelationshipElement[RelationshipElement/second] a| now optional
