@@ -128,6 +128,10 @@ Note: besides this asset information, there still might be an identification sub
 Specific asset IDs mainly serve the purpose of supporting discovery of Asset Administration Shells for an asset.
 ====
 
+
+[#resource-attributes]
+=== Resource Attributes
+
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%""]
 |===
@@ -158,7 +162,9 @@ The content type states which file extensions the file can have.
 |xref:spec-metamodel/datatypes.adoc#ContentType[ContentType] |0..1
 |===
 
-{empty} +
+
+[#asset-kind-attributes]
+=== Asset Kind Attributes
 
 [.table-with-appendix-table]
 [cols="30%h,70%"]
@@ -188,6 +194,9 @@ a|Neither a type asset nor an instance asset nor a role asset
 |===
 
 For more information on types and instances, see  xref:annex/general.adoc#types-and-instances[Types and Instances].
+
+[#specific-asset-id-attributes]
+=== Specific Asset ID Attributes
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]
@@ -235,6 +244,7 @@ Note 2: semanticIds for the single specificAssetIds do not need to be unique.
 
 For more information on the concept of subject, see Attribute Based Access Control (ABAC) xref:bibliography.adoc#bib49[[49\]].
 The assumption is that every subject has a unique identifier.
+
 
 [#submodel-attributes]
 == Submodel Attributes
