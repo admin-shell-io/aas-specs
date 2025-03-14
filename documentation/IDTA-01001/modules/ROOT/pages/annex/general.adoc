@@ -44,7 +44,7 @@ Business-related information is handled on the 'business' layer of the RAMI4.0 m
 The business layer also covers order details and workflows, again for both type and instance assets.
 
 ====
-Note 1: to distinguish asset xref:terms-definitions-and-abbreviations.adoc#term-asset-type[type] and asset xref:terms-definitions-and-abbreviations.adoc#term-asset-instance[instance], the term xref:spec-metamodel/core.adoc#AssetKind[asset kind] is used in this document.
+Note 1: to distinguish asset xref:terms-definitions-and-abbreviations.adoc#term-type-asset[type] and asset xref:terms-definitions-and-abbreviations.adoc#term-instance[instance], the term xref:spec-metamodel/core.adoc#AssetKind[asset kind] is used in this document.
 The three different relationship classes between assets, especially type assets and instance assets, explained below show why the distinction is so important.
 The attribute "derivedFrom" in the metamodel is used to explicitly state a relationship between assets that are being derived from one another.
 Other relationships are not explicitly supported by the metamodel of the Asset Administration Shell, but they can be modelled via the xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes["RelationshipElement"] submodel element type.
