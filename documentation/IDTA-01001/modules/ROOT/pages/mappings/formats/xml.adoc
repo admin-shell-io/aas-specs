@@ -78,7 +78,7 @@ Second, many classes contain a mix of primitive properties and structured proper
 If we allowed XML attributes, the former would be represented as XML attributes, while the latter would be represented as XML elements.
 This leads to confusion where the writer is forced to go back and forth in the specification, and always double-check whether a property should be represented as an XML attribute or an XML element.
 
-Third, we automatically generate the schema from a machine-readable metamodel representation (see Section <<Background>> below).
+Third, we automatically generate the schema from a machine-readable metamodel representation (see  <<Background>> below).
 The mix of XML attributes and elements would have complicated the code and prolonged the development.
 
 We finally decided that the drawbacks outlined above outweighed the advantage in form of succinct representation.
@@ -89,14 +89,14 @@ If a property has cardinality `0..1` or `0..*` and is not specified in the insta
 
 ==== Properties of Simple Data Types
 
-The property values given in the metamodel as simple data types (see Section
+The property values given in the metamodel as simple data types (see 
 xref:spec-metamodel/datatypes.adoc#primitive-data-types[Primitive Data Types]) are serialized as text enclosed in the XML element corresponding to the property.
-Please see Section <<why-no-xml-attributes>> on why we do not serialize them as XML attributes.
+Please see  <<why-no-xml-attributes>> on why we do not serialize them as XML attributes.
 
 The byte arrays (`BlobType` in metamodel) are serialized as Base64-encoded text.
 
 Simple type `rdf:langString` is serialized as if it were a proper metamodel class with properties `language` and `text`.
-See the following Section <<Instances-of-Classes-as-Attribute-Values>> about how to serialize instances of classes in general as that section directly applies to `rdf:langString`.
+See the following <<Instances-of-Classes-as-Attribute-Values>> about how to serialize instances of classes in general as that section directly applies to `rdf:langString`.
 
 [[Instances-of-Classes-as-Attribute-Values]]
 ==== Instances of Classes as Property Values
@@ -176,7 +176,7 @@ Namely, if we introduce descendants to `AnotherConcreteClass`, the property `som
 If the concrete type of the property at deserialization is unambiguous by the metamodel, we omit the discriminator to reduce the clutter.
 The instance is simply serialized as a sequence of XML elements corresponding to its properties.
 
-Let us fantasize yet another example, similar to the one in Section <<Instances-of-Classes-as-Attribute-Values>>.
+Let us fantasize yet another example, similar to the one in  <<Instances-of-Classes-as-Attribute-Values>>.
 We will again draw an example such that it is agnostic of metamodel version for better evolution of this document.
 Assume a class `SomeClass` with a property `SomeClass/someProperty`.
 Now imagine the type of `someProperty` to be the class `AnotherClass`.
@@ -211,7 +211,7 @@ xref:spec-metamodel/core.adoc#submodel-element-attributes[SubmodelElement]’s.
 If we just concatenated all the properties of the instances, we would not know which property belongs to which instance (or such distinction would be complicated).
 We need a delimiter!
 
-Following the approach described in Section <<Instances-Serialized-with-Discriminator>>, we delimit the instances simply by nesting them beneath the discriminator elements.
+Following the approach described in  <<Instances-Serialized-with-Discriminator>>, we delimit the instances simply by nesting them beneath the discriminator elements.
 If the type of the list items is a concrete class, we nest beneath the discriminator element regardless.
 
 For example, here is an XML snippet of an example submodel elements, where the first element is a
@@ -286,11 +286,11 @@ as `input`.
 
 ==== Embedded Data Specifications
 
-There is an abstract definition of data specifications as templates in the metamodel (see Section
+There is an abstract definition of data specifications as templates in the metamodel (see 
 xref:data-specifications.adoc#data-specification-templates[Data Specification Templates]).
 This definition does not specify, though, how to access them from within an
 xref:spec-metamodel/environment.adoc[Environment], which is a requirement for many systems.
-To address this practical issue, the metamodel indicates that they should be embedded in serializations (see Section
+To address this practical issue, the metamodel indicates that they should be embedded in serializations (see 
 xref:mappings/mappings.adoc#embedded-data-specifications[Embedded Data Specifications]).
 
 We therefore add additional XML element, named
@@ -392,7 +392,7 @@ Here it is used in the definition of the aggregation:
 
 If a class has one or more descendants, we define an `xs:group` with the `_choice` suffix.
 This is necessary so that we can enforce a closed set of concrete classes at the de/serialization.
-In particular, we want to ensure that the discriminator is given correctly (see Section <<Instances-Serialized-with-Discriminator>>).
+In particular, we want to ensure that the discriminator is given correctly (see  <<Instances-Serialized-with-Discriminator>>).
 
 Here is an example of a choice:
 

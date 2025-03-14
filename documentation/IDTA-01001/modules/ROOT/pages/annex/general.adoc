@@ -18,15 +18,16 @@ includes events.adoc
 
 Before specifying the information metamodel of the Asset Administration Shell, some general topics relevant for the Asset Administration Shell are explained.
 
-Subclause xref:general.adoc#types-and-instances[Types and Instances] describes some general aspects of handling type and instance assets.
+xref:annex/general.adoc#types-and-instances[Types and Instances] describes some general aspects of handling type and instance assets.
 
-Subclause xref:general.adoc#identification-of-elements[Identification of Elements] explains the very important aspects of identification in the context of the Asset Administration Shell.
+xref:annex/general.adoc#identification-of-elements[Identification of Elements] explains the very important aspects of identification in the context of the Asset Administration Shell.
 
-Subclause xref:general.adoc#matching-strategies[Matching Strategies] provides matching strategies for semantic identifiers and references.
+xref:annex/general.adoc#matching-strategies[Matching Strategies] provides matching strategies for semantic identifiers and references.
 
-Subclause xref:general.adoc#submodel-instances-and-templates[Submodel Instances and Templates] explains the difference between submodel instances and templates.
+xref:annex/general.adoc#submodel-instances-and-templates[Submodel Instances and Templates] explains the difference between submodel instances and templates.
 
-Subclause xref:general.adoc#events[Events] discusses aspects of event handling.
+xref:includes/events.adoc#events[Events] discusses aspects of event handling.
+
 
 [#types-and-instances]
 == Types and Instances
@@ -43,11 +44,16 @@ Business-related information is handled on the 'business' layer of the RAMI4.0 m
 The business layer also covers order details and workflows, again for both type and instance assets.
 
 ====
-Note 1: to distinguish asset 'type' and asset 'instance', the term 'asset kind' is used in this document.
+Note 1: to distinguish asset xref:terms-definitions-and-abbreviations.adoc#term-type-asset[type] and asset xref:terms-definitions-and-abbreviations.adoc#term-instance[instance], the term xref:spec-metamodel/core.adoc#AssetKind[asset kind] is used in this document.
 The three different relationship classes between assets, especially type assets and instance assets, explained below show why the distinction is so important.
 The attribute "derivedFrom" in the metamodel is used to explicitly state a relationship between assets that are being derived from one another.
 Other relationships are not explicitly supported by the metamodel of the Asset Administration Shell, but they can be modelled via the xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes["RelationshipElement"] submodel element type.
 ====
+
+===
+Note 2: Besides asset types and asset instances there als other kinds of assets (see xref:spec-metamodel/core.adoc#AssetKind[enumeration AssetKind]). 
+However, in the following examples we do not consider them. 
+===
 
 <<table-life-cycle-phases-and-roles-of-type-and-instance-assets>> gives an overview of the different life cycle phases and the role of type assets and instance assets as well as their relationship in these phases.
 
@@ -91,7 +97,7 @@ The third class of relationships are feedforward/information exchange with asset
 For example, sourcing information from business assets can influence design aspects of products; or the design of the products affects the design of the manufacturing line.
 
 ====
-Note 2: the NIST model xref:bibliography.adoc#bib49[[49\]] provides an illustration of the second/third class of relationships.
+Note 3: the NIST model xref:bibliography.adoc#bib49[[49\]] provides an illustration of the second/third class of relationships.
 ====
 
 A fourth class of relationships consists between assets of different hierarchy levels.
@@ -104,19 +110,19 @@ A composite I4.0 Component is the combination of a complex asset and its Asset A
 The hierarchy, typically a Bill of Material (BOM) but also any other relationship between different assets, can be represented in one of its submodels.
 
 ====
-Note 3: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes[RelationshipElement], see above), 
+Note 4: for submodels representing the Bill of Material of a complex asset, the metamodel not only provides the possibility to define relationships (via the submodel element xref:spec-metamodel/submodel-elements.adoc#relationship-element-attributes[RelationshipElement], see above), 
 it also explicitly supports the representation of another asset (via the submodel element xref:spec-metamodel/submodel-elements.adoc#entity-attributes[Entity]).
 The term "Entity" is chosen as superordinate concept in this context and refers to either an asset or another item that is not an asset but may be part of a more complex item or asset.
 ====
 
 ===  Asset Administration Shells Representing Type Assets and Instance Assets
 
-An Asset Administration Shell either represents a type asset or an instance asset.
+An Asset Administration Shell typically either represents a xref:terms-definitions-and-abbreviations.adoc#term-type-asset[type asset] or an xref:terms-definitions-and-abbreviations.adoc#term-instance-asset[instance asset].
 Typically, there is a relationship between instance assets and a type asset.
 However, not every instance asset is required to have a corresponding type asset.
 
 <<image-4-aas-type-instance>> gives an example of how to handle type assets and their derived instance assets.
-The attribute "assetKind" indicates whether the Asset Administration Shell (denoted by the ": AAS" UML notation for a class instance) represents a type asset or an instance asset.
+The attribute "assetKind" indicates whether the Asset Administration Shell (denoted by the ":AAS" UML notation for a class instance of the class "AAS") represents a type asset or an instance asset.
 Additionally, attributes are added to show that the attributes of type asset and instance assets typically differ from each other.
 
 .Example: Asset Administration Shells for Type and Instance Assets
@@ -280,9 +286,6 @@ The following is also permitted:
 This means that the IRIs/URIs/URLs and internal custom identifiers can represent and communicate manufacturer-specific information and functions in the Administration Shell and the 4.0 infrastructure just as well as standardized information and functions.
 One infrastructure can serve both purposes.
 
-CLSID are URIs for GUIDs.
-They start with a customer specific schema.
-Hence, Custom should really only be used if the customer-specific identifier is no IRDI nor IRI.
 
 Besides the global identifiers, there are also identifiers that are unique only within a defined namespace, typically its parent element.
 These identifiers are also called local identifiers.
@@ -444,7 +447,7 @@ Sometimes a concept description is derived from another concept description or i
 
 *Exact Matching (identical semanticIds) – DEFAULT*
 
-* With exact matching, two semantic IDs need to represent two exact matching references (see xref:general.adoc#matching-algorithm-for-references[Matching Algorithm for References]).
+* With exact matching, two semantic IDs need to represent two exact matching references (see xref:annex/general.adoc#matching-algorithm-for-references[Matching Algorithm for References]).
 ** Example: xref:ROOT:spec-metamodel/submodel-elements.adoc#Property[Property]  ith xref:ROOT:spec-metamodel/common.adoc#Referable[idShort]  "ManufacturerName" + xref:ROOT:spec-metamodel/common.adoc#HasSemantics[semanticId]  value 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId value 0173-1#02-AAO677#002 have exactly equal semantics if the xref:ROOT:spec-metamodel/referencing.adoc#Key[Key/type]s in both semanticIds are identical plus the other attributes of a xref:ROOT:spec-metamodel/referencing.adoc#Reference[Reference] like xref:ROOT:spec-metamodel/referencing.adoc#Reference[type] and xref:ROOT:spec-metamodel/referencing.adoc#Reference[referredSemanticId] as well. So if the first key type of property "ManufacturerName" is xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ExternalReference] and the first key type of the semanticId of property  "Herstellername" is xref:ROOT:spec-metamodel/referencing.adoc#ReferenceTypes[ModelReference] then the two semanticIds are no exact match. Or if the first reference contains a referredSemanticId value and the second does not the two semantic IDs are not exact matches.
 
 ====
@@ -453,7 +456,7 @@ Note 1: Typically, a xref:ROOT:spec-metamodel/referencing.adoc#Reference[Referen
 
 *Value Matching*
 
-* With value matching, the key values of the two semantic IDs being compared need to be string-identical, i.e. the two references need to value match (see xref:general.adoc#matching-algorithm-for-references[Matching Algorithm for References]).
+* With value matching, the key values of the two semantic IDs being compared need to be string-identical, i.e. the two references need to value match (see xref:annex/general.adoc#matching-algorithm-for-references[Matching Algorithm for References]).
 ** Example: Property with idShort "ManufacturerName" + semanticId 0173-1#02-AAO677#002 and Property with idShort "Herstellername" + semanticId 0173-1#02-AAO677#002 have value equal semantics.
 
 
@@ -693,7 +696,7 @@ matches
 
 It is in the interest of Industry 4.0 for as many submodels as possible, including free and proprietary submodels, to be formed (see xref:bibliography.adoc#bib4[[4\]], "Free property sets").
 A submodel can be formed at any time for a specific Administration Shell of an asset.
-The provider of the Administration Shell can form in-house identifiers for the type and instance of the submodel in line with  xref:general.adoc#identification-of-elements[Identification of Elements].
+The provider of the Administration Shell can form in-house identifiers for the type and instance of the submodel in line with  xref:annex/general.adoc#identification-of-elements[Identification of Elements].
 All I4.0 systems are called on to ignore submodels and properties that are not individually known.
 Hence, it is always possible to deposit proprietary – e.g. manufacturer-specific or user-specific – information, submodels, or properties in an Administration Shell.
 
@@ -720,4 +723,4 @@ The only thing that cannot be defined in the template itself is the unique ID of
 Templates also define cardinalities, for example whether an element is optional or not.
 Submodel element lists typically contain more than one element: the template contains an exemplary element template; the other elements can be created by copy/paste from this template.
 
-include::./includes/events.adoc[]
+include::includes/events.adoc[]

@@ -73,7 +73,7 @@ The full list of exceptions is available {aas-core-meta-plural-exceptions}[as co
 ==== Primitive attribute values
 
 The UML specification uses XSD types.
-For the mapping of XSD to JSON types please refer to Section
+For the mapping of XSD to JSON types please refer to 
 xref:mappings/mappings.adoc#value-only-serialization-in-json[Format "Value" (Value-Only Serialization) in JSON].
 
 There are the following exceptions:
@@ -144,13 +144,13 @@ is used to define value of an attribute.
 
 ==== Embedded Data Specifications
 
-The metamodel defines data specifications in abstract (see Section
+The metamodel defines data specifications in abstract (see 
 xref:data-specifications.adoc#data-specification-templates[Data Specification Templates]).
 However, the metamodel omits data specifications in an
 xref:spec-metamodel/environment.adoc[Environment], and data specifications are intentionally non-identifiable.
 
 For practical applications, we need to access them _somehow_.
-Therefore, the metamodel mandates to embed them in serializations (see Section
+Therefore, the metamodel mandates to embed them in serializations (see 
 xref:mappings/mappings.adoc#embedded-data-specifications[Embedded Data Specifications]).
 
 We consequently embed the data specifications by adding

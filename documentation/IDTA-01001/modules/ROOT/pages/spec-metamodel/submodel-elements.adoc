@@ -136,7 +136,8 @@ Might not be specified, i.e. if there is no maximum interval.
 |duration |0..1
 |===
 
-{empty} +
+[[direction-enumeration]]
+=== Direction Enumeration
 
 [.table-with-appendix-table]
 [cols="30%h,70%"]
@@ -156,7 +157,9 @@ a|Input direction
 a|Output direction
 |===
 
-{empty} +
+[[state-of-event-enumeration]]
+=== State of Event Enumeration
+
 
 [.table-with-appendix-table]
 [cols="30%h,70%"]
@@ -178,6 +181,9 @@ a|Event is off
 
 Events sent or received by an Asset Administration Shell always comply with a general format.
 Exception: events exchanged in the course of an Industry 4.0 interaction pattern.
+
+[[event-payload-attributes]]
+=== Event Payload Attributes
 
 The payload of such an event is specified below.
 
@@ -425,7 +431,8 @@ a|Global identifier of the asset the entity is representing |xref:spec-metamodel
 a|Reference to a specific asset ID representing a supplementary identifier of the asset represented by the Asset Administration Shell |xref:spec-metamodel/core.adoc#SpecificAssetId[SpecificAssetId] |0..*
 |===
 
-{empty} +
+[[entity-type-enumeration]]
+=== Entity Type Enumeration
 
 [.table-with-appendix-table]
 [cols="30%h,70%"]
@@ -596,7 +603,8 @@ In embedded systems _inoutputVariables_ are variables that can be read but that 
 Typically, this is implemented via a pointer (i.e. 'by reference' instead of 'by value')"
 ===
 
-{empty} +
+[[operation-variable-attributes]]
+=== Operation Variable Attributes
 
 [.table-with-appendix-table]
 [cols="25%,40%,25%,10%"]

@@ -54,7 +54,7 @@ The following kinds of _Types_ are distinguished:
 
 ** _<Class>:_ Type is an object type (class); it is realized as composite aggregation (composition), and does not exist independent of its parent
 ** _ModelReference<\{Referable}>:_ Type is a Reference with _Reference/type=ModelReference_ and is called model reference; the \{Referable} is to be substituted by any referable element (including _Referable_ itself for the most generic case) – the element that is referred to is denoted in the __Key/type__=<\{Referable}> for the last _Key_ in the model reference; for the graphical representation see Annex xref:annex/uml.adoc[] , Figure xref:annex/uml.adoc#image-82-shared-aggregation[Graphical Representation of Shared Aggregation]; for more information on referencing see  xref:spec-metamodel/referencing.adoc[].
-** _<Primitive>:_  Type is no object type (class) but a data type; it is just a value, see Clause  xref:spec-metamodel/datatypes.adoc#primitive-data-types[Primitive Data Types]
+** _<Primitive>:_  Type is no object type (class) but a data type; it is just a value, see xref:spec-metamodel/datatypes.adoc#primitive-data-types[Primitive Data Types]
 ** _<Enumeration>:_ Type is an enumeration, see <<template-for-enumerations>>
 
 _Card._ is the cardinality (or multiplicity) defining the lower and upper bound of the number of instances of the member element. 

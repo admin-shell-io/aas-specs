@@ -46,10 +46,6 @@ for an example that validates against this schema
           "$ref": "#/definitions/ValueOnly"
         }
       },
-      "required": [
-        "first",
-        "second"
-      ],
       "additionalProperties": false
     },
     "BasicEventElementValue": {
@@ -77,9 +73,6 @@ for an example that validates against this schema
           "minLength": 1
         }
       },
-      "required": [
-        "contentType"
-      ],
       "additionalProperties": false
     },
     "BooleanValue": {
@@ -108,9 +101,6 @@ for an example that validates against this schema
           }
         }
       },
-      "required": [
-        "entityType"
-      ],
       "additionalProperties": false
     },
     "FileValue": {
@@ -127,9 +117,6 @@ for an example that validates against this schema
           "maxLength": "2000"
         }
       },
-      "required": [
-        "contentType"
-      ],
       "additionalProperties": false
     },
     "Identifier": {
@@ -265,10 +252,6 @@ for an example that validates against this schema
           "$ref": "#/definitions/ReferenceValue"
         }
       },
-      "required": [
-        "first",
-        "second"
-      ],
       "additionalProperties": false
     },
     "SpecificAssetIdValue": {
@@ -321,9 +304,9 @@ for an example that validates against this schema
         {
           "$ref": "#/definitions/PropertyValue"
         },
-		{
+	{
           "$ref": "#/definitions/SubmodelElementCollectionValue"
-        }
+        },
         {
           "$ref": "#/definitions/SubmodelElementListValue"
         }
